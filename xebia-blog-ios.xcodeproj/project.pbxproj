@@ -1,0 +1,444 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		54806F97158FE03E00C366DA /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54806F96158FE03E00C366DA /* UIKit.framework */; };
+		54806F99158FE03E00C366DA /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54806F98158FE03E00C366DA /* Foundation.framework */; };
+		54806F9B158FE03E00C366DA /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54806F9A158FE03E00C366DA /* CoreGraphics.framework */; };
+		54806FA1158FE03E00C366DA /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 54806F9F158FE03E00C366DA /* InfoPlist.strings */; };
+		54806FA3158FE03E00C366DA /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 54806FA2158FE03E00C366DA /* main.m */; };
+		54806FA7158FE03E00C366DA /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 54806FA6158FE03E00C366DA /* AppDelegate.m */; };
+		54806FAA158FE03E00C366DA /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 54806FA8158FE03E00C366DA /* MainStoryboard.storyboard */; };
+		54806FAD158FE03E00C366DA /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 54806FAC158FE03E00C366DA /* ViewController.m */; };
+		54806FB5158FE03E00C366DA /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54806FB4158FE03E00C366DA /* SenTestingKit.framework */; };
+		54806FB6158FE03E00C366DA /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54806F96158FE03E00C366DA /* UIKit.framework */; };
+		54806FB7158FE03E00C366DA /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54806F98158FE03E00C366DA /* Foundation.framework */; };
+		54806FBF158FE03E00C366DA /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 54806FBD158FE03E00C366DA /* InfoPlist.strings */; };
+		54806FC2158FE03E00C366DA /* xebia_blog_iosTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 54806FC1158FE03E00C366DA /* xebia_blog_iosTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		54806FB8158FE03E00C366DA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 54806F89158FE03E00C366DA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 54806F91158FE03E00C366DA;
+			remoteInfo = "xebia-blog-ios";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		54806F92158FE03E00C366DA /* xebia-blog-ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "xebia-blog-ios.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		54806F96158FE03E00C366DA /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		54806F98158FE03E00C366DA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		54806F9A158FE03E00C366DA /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		54806F9E158FE03E00C366DA /* xebia-blog-ios-Info.plist */ = {isa = PBXFileReference; path = "xebia-blog-ios-Info.plist"; sourceTree = "<group>"; };
+		54806FA0158FE03E00C366DA /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		54806FA2158FE03E00C366DA /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		54806FA4158FE03E00C366DA /* xebia-blog-ios-Prefix.pch */ = {isa = PBXFileReference; path = "xebia-blog-ios-Prefix.pch"; sourceTree = "<group>"; };
+		54806FA5158FE03E00C366DA /* AppDelegate.h */ = {isa = PBXFileReference; path = AppDelegate.h; sourceTree = "<group>"; };
+		54806FA6158FE03E00C366DA /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		54806FA9158FE03E00C366DA /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
+		54806FAB158FE03E00C366DA /* ViewController.h */ = {isa = PBXFileReference; path = ViewController.h; sourceTree = "<group>"; };
+		54806FAC158FE03E00C366DA /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		54806FB3158FE03E00C366DA /* xebia-blog-iosTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "xebia-blog-iosTests.octest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		54806FB4158FE03E00C366DA /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
+		54806FBC158FE03E00C366DA /* xebia-blog-iosTests-Info.plist */ = {isa = PBXFileReference; path = "xebia-blog-iosTests-Info.plist"; sourceTree = "<group>"; };
+		54806FBE158FE03E00C366DA /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		54806FC0158FE03E00C366DA /* xebia_blog_iosTests.h */ = {isa = PBXFileReference; path = xebia_blog_iosTests.h; sourceTree = "<group>"; };
+		54806FC1158FE03E00C366DA /* xebia_blog_iosTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = xebia_blog_iosTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		54806F8F158FE03E00C366DA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				54806F97158FE03E00C366DA /* UIKit.framework in Frameworks */,
+				54806F99158FE03E00C366DA /* Foundation.framework in Frameworks */,
+				54806F9B158FE03E00C366DA /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		54806FAF158FE03E00C366DA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				54806FB5158FE03E00C366DA /* SenTestingKit.framework in Frameworks */,
+				54806FB6158FE03E00C366DA /* UIKit.framework in Frameworks */,
+				54806FB7158FE03E00C366DA /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		54806F87158FE03E00C366DA = {
+			isa = PBXGroup;
+			children = (
+				54806F9C158FE03E00C366DA /* xebia-blog-ios */,
+				54806FBA158FE03E00C366DA /* xebia-blog-iosTests */,
+				54806F95158FE03E00C366DA /* Frameworks */,
+				54806F93158FE03E00C366DA /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		54806F93158FE03E00C366DA /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				54806F92158FE03E00C366DA /* xebia-blog-ios.app */,
+				54806FB3158FE03E00C366DA /* xebia-blog-iosTests.octest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		54806F95158FE03E00C366DA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				54806F96158FE03E00C366DA /* UIKit.framework */,
+				54806F98158FE03E00C366DA /* Foundation.framework */,
+				54806F9A158FE03E00C366DA /* CoreGraphics.framework */,
+				54806FB4158FE03E00C366DA /* SenTestingKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		54806F9C158FE03E00C366DA /* xebia-blog-ios */ = {
+			isa = PBXGroup;
+			children = (
+				54806FA5158FE03E00C366DA /* AppDelegate.h */,
+				54806FA6158FE03E00C366DA /* AppDelegate.m */,
+				54806FA8158FE03E00C366DA /* MainStoryboard.storyboard */,
+				54806FAB158FE03E00C366DA /* ViewController.h */,
+				54806FAC158FE03E00C366DA /* ViewController.m */,
+				54806F9D158FE03E00C366DA /* Supporting Files */,
+			);
+			path = "xebia-blog-ios";
+			sourceTree = "<group>";
+		};
+		54806F9D158FE03E00C366DA /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				54806F9E158FE03E00C366DA /* xebia-blog-ios-Info.plist */,
+				54806F9F158FE03E00C366DA /* InfoPlist.strings */,
+				54806FA2158FE03E00C366DA /* main.m */,
+				54806FA4158FE03E00C366DA /* xebia-blog-ios-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		54806FBA158FE03E00C366DA /* xebia-blog-iosTests */ = {
+			isa = PBXGroup;
+			children = (
+				54806FC0158FE03E00C366DA /* xebia_blog_iosTests.h */,
+				54806FC1158FE03E00C366DA /* xebia_blog_iosTests.m */,
+				54806FBB158FE03E00C366DA /* Supporting Files */,
+			);
+			path = "xebia-blog-iosTests";
+			sourceTree = "<group>";
+		};
+		54806FBB158FE03E00C366DA /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				54806FBC158FE03E00C366DA /* xebia-blog-iosTests-Info.plist */,
+				54806FBD158FE03E00C366DA /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		54806F91158FE03E00C366DA /* xebia-blog-ios */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 54806FC5158FE03E00C366DA /* Build configuration list for PBXNativeTarget "xebia-blog-ios" */;
+			buildPhases = (
+				54806F8E158FE03E00C366DA /* Sources */,
+				54806F8F158FE03E00C366DA /* Frameworks */,
+				54806F90158FE03E00C366DA /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "xebia-blog-ios";
+			productName = "xebia-blog-ios";
+			productReference = 54806F92158FE03E00C366DA /* xebia-blog-ios.app */;
+			productType = "com.apple.product-type.application";
+		};
+		54806FB2158FE03E00C366DA /* xebia-blog-iosTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 54806FC8158FE03E00C366DA /* Build configuration list for PBXNativeTarget "xebia-blog-iosTests" */;
+			buildPhases = (
+				54806FAE158FE03E00C366DA /* Sources */,
+				54806FAF158FE03E00C366DA /* Frameworks */,
+				54806FB0158FE03E00C366DA /* Resources */,
+				54806FB1158FE03E00C366DA /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				54806FB9158FE03E00C366DA /* PBXTargetDependency */,
+			);
+			name = "xebia-blog-iosTests";
+			productName = "xebia-blog-iosTests";
+			productReference = 54806FB3158FE03E00C366DA /* xebia-blog-iosTests.octest */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		54806F89158FE03E00C366DA /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0430;
+			};
+			buildConfigurationList = 54806F8C158FE03E00C366DA /* Build configuration list for PBXProject "xebia-blog-ios" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 54806F87158FE03E00C366DA;
+			productRefGroup = 54806F93158FE03E00C366DA /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				54806F91158FE03E00C366DA /* xebia-blog-ios */,
+				54806FB2158FE03E00C366DA /* xebia-blog-iosTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		54806F90158FE03E00C366DA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				54806FA1158FE03E00C366DA /* InfoPlist.strings in Resources */,
+				54806FAA158FE03E00C366DA /* MainStoryboard.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		54806FB0158FE03E00C366DA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				54806FBF158FE03E00C366DA /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		54806FB1158FE03E00C366DA /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		54806F8E158FE03E00C366DA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				54806FA3158FE03E00C366DA /* main.m in Sources */,
+				54806FA7158FE03E00C366DA /* AppDelegate.m in Sources */,
+				54806FAD158FE03E00C366DA /* ViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		54806FAE158FE03E00C366DA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				54806FC2158FE03E00C366DA /* xebia_blog_iosTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		54806FB9158FE03E00C366DA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 54806F91158FE03E00C366DA /* xebia-blog-ios */;
+			targetProxy = 54806FB8158FE03E00C366DA /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		54806F9F158FE03E00C366DA /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				54806FA0158FE03E00C366DA /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		54806FA8158FE03E00C366DA /* MainStoryboard.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				54806FA9158FE03E00C366DA /* en */,
+			);
+			name = MainStoryboard.storyboard;
+			sourceTree = "<group>";
+		};
+		54806FBD158FE03E00C366DA /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				54806FBE158FE03E00C366DA /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		54806FC3158FE03E00C366DA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = 2;
+			};
+			name = Debug;
+		};
+		54806FC4158FE03E00C366DA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = 2;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		54806FC6158FE03E00C366DA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "xebia-blog-ios/xebia-blog-ios-Prefix.pch";
+				INFOPLIST_FILE = "xebia-blog-ios/xebia-blog-ios-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		54806FC7158FE03E00C366DA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "xebia-blog-ios/xebia-blog-ios-Prefix.pch";
+				INFOPLIST_FILE = "xebia-blog-ios/xebia-blog-ios-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		54806FC9158FE03E00C366DA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/xebia-blog-ios.app/xebia-blog-ios";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "xebia-blog-ios/xebia-blog-ios-Prefix.pch";
+				INFOPLIST_FILE = "xebia-blog-iosTests/xebia-blog-iosTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Debug;
+		};
+		54806FCA158FE03E00C366DA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/xebia-blog-ios.app/xebia-blog-ios";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "xebia-blog-ios/xebia-blog-ios-Prefix.pch";
+				INFOPLIST_FILE = "xebia-blog-iosTests/xebia-blog-iosTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		54806F8C158FE03E00C366DA /* Build configuration list for PBXProject "xebia-blog-ios" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				54806FC3158FE03E00C366DA /* Debug */,
+				54806FC4158FE03E00C366DA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		54806FC5158FE03E00C366DA /* Build configuration list for PBXNativeTarget "xebia-blog-ios" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				54806FC6158FE03E00C366DA /* Debug */,
+				54806FC7158FE03E00C366DA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		54806FC8158FE03E00C366DA /* Build configuration list for PBXNativeTarget "xebia-blog-iosTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				54806FC9158FE03E00C366DA /* Debug */,
+				54806FCA158FE03E00C366DA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 54806F89158FE03E00C366DA /* Project object */;
+}
