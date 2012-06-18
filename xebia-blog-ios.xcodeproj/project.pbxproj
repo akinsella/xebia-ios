@@ -12,14 +12,27 @@
 		54806F9B158FE03E00C366DA /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54806F9A158FE03E00C366DA /* CoreGraphics.framework */; };
 		54806FA1158FE03E00C366DA /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 54806F9F158FE03E00C366DA /* InfoPlist.strings */; };
 		54806FA3158FE03E00C366DA /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 54806FA2158FE03E00C366DA /* main.m */; };
-		54806FA7158FE03E00C366DA /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 54806FA6158FE03E00C366DA /* AppDelegate.m */; };
-		54806FAA158FE03E00C366DA /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 54806FA8158FE03E00C366DA /* MainStoryboard.storyboard */; };
-		54806FAD158FE03E00C366DA /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 54806FAC158FE03E00C366DA /* ViewController.m */; };
 		54806FB5158FE03E00C366DA /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54806FB4158FE03E00C366DA /* SenTestingKit.framework */; };
 		54806FB6158FE03E00C366DA /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54806F96158FE03E00C366DA /* UIKit.framework */; };
 		54806FB7158FE03E00C366DA /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54806F98158FE03E00C366DA /* Foundation.framework */; };
 		54806FBF158FE03E00C366DA /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 54806FBD158FE03E00C366DA /* InfoPlist.strings */; };
 		54806FC2158FE03E00C366DA /* xebia_blog_iosTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 54806FC1158FE03E00C366DA /* xebia_blog_iosTests.m */; };
+		54806FFB158FE35E00C366DA /* WPDataAccessor.m in Sources */ = {isa = PBXBuildFile; fileRef = 54806FFA158FE35E00C366DA /* WPDataAccessor.m */; };
+		54807003158FE38D00C366DA /* first.png in Resources */ = {isa = PBXBuildFile; fileRef = 54806FFF158FE38D00C366DA /* first.png */; };
+		54807004158FE38D00C366DA /* first@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 54807000158FE38D00C366DA /* first@2x.png */; };
+		54807005158FE38D00C366DA /* second.png in Resources */ = {isa = PBXBuildFile; fileRef = 54807001158FE38D00C366DA /* second.png */; };
+		54807006158FE38D00C366DA /* second@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 54807002158FE38D00C366DA /* second@2x.png */; };
+		54807008158FE3CC00C366DA /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 54807007158FE3CC00C366DA /* MainStoryboard.storyboard */; };
+		54807011158FE50200C366DA /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 54807010158FE50200C366DA /* AppDelegate.m */; };
+		5480701A158FE55E00C366DA /* Author.m in Sources */ = {isa = PBXBuildFile; fileRef = 54807013158FE55E00C366DA /* Author.m */; };
+		5480701B158FE55E00C366DA /* Category.m in Sources */ = {isa = PBXBuildFile; fileRef = 54807015158FE55E00C366DA /* Category.m */; };
+		5480701C158FE55E00C366DA /* Post.m in Sources */ = {isa = PBXBuildFile; fileRef = 54807017158FE55E00C366DA /* Post.m */; };
+		5480701D158FE55E00C366DA /* Tag.m in Sources */ = {isa = PBXBuildFile; fileRef = 54807019158FE55E00C366DA /* Tag.m */; };
+		54807020158FE56C00C366DA /* JSONKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 5480701F158FE56C00C366DA /* JSONKit.m */; };
+		54807029158FE57C00C366DA /* DetailPostViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 54807022158FE57C00C366DA /* DetailPostViewController.m */; };
+		5480702A158FE57C00C366DA /* PostTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 54807024158FE57C00C366DA /* PostTableViewController.m */; };
+		5480702B158FE57C00C366DA /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 54807026158FE57C00C366DA /* SecondViewController.m */; };
+		5480702C158FE57C00C366DA /* TagTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 54807028158FE57C00C366DA /* TagTableViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,21 +50,43 @@
 		54806F96158FE03E00C366DA /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		54806F98158FE03E00C366DA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		54806F9A158FE03E00C366DA /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		54806F9E158FE03E00C366DA /* xebia-blog-ios-Info.plist */ = {isa = PBXFileReference; path = "xebia-blog-ios-Info.plist"; sourceTree = "<group>"; };
+		54806F9E158FE03E00C366DA /* xebia-blog-ios-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "xebia-blog-ios-Info.plist"; sourceTree = "<group>"; };
 		54806FA0158FE03E00C366DA /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		54806FA2158FE03E00C366DA /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		54806FA4158FE03E00C366DA /* xebia-blog-ios-Prefix.pch */ = {isa = PBXFileReference; path = "xebia-blog-ios-Prefix.pch"; sourceTree = "<group>"; };
-		54806FA5158FE03E00C366DA /* AppDelegate.h */ = {isa = PBXFileReference; path = AppDelegate.h; sourceTree = "<group>"; };
-		54806FA6158FE03E00C366DA /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		54806FA9158FE03E00C366DA /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
-		54806FAB158FE03E00C366DA /* ViewController.h */ = {isa = PBXFileReference; path = ViewController.h; sourceTree = "<group>"; };
-		54806FAC158FE03E00C366DA /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		54806FA4158FE03E00C366DA /* xebia-blog-ios-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "xebia-blog-ios-Prefix.pch"; sourceTree = "<group>"; };
 		54806FB3158FE03E00C366DA /* xebia-blog-iosTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "xebia-blog-iosTests.octest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		54806FB4158FE03E00C366DA /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
-		54806FBC158FE03E00C366DA /* xebia-blog-iosTests-Info.plist */ = {isa = PBXFileReference; path = "xebia-blog-iosTests-Info.plist"; sourceTree = "<group>"; };
+		54806FBC158FE03E00C366DA /* xebia-blog-iosTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "xebia-blog-iosTests-Info.plist"; sourceTree = "<group>"; };
 		54806FBE158FE03E00C366DA /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		54806FC0158FE03E00C366DA /* xebia_blog_iosTests.h */ = {isa = PBXFileReference; path = xebia_blog_iosTests.h; sourceTree = "<group>"; };
+		54806FC0158FE03E00C366DA /* xebia_blog_iosTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = xebia_blog_iosTests.h; sourceTree = "<group>"; };
 		54806FC1158FE03E00C366DA /* xebia_blog_iosTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = xebia_blog_iosTests.m; sourceTree = "<group>"; };
+		54806FF9158FE35E00C366DA /* WPDataAccessor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WPDataAccessor.h; sourceTree = "<group>"; };
+		54806FFA158FE35E00C366DA /* WPDataAccessor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WPDataAccessor.m; sourceTree = "<group>"; };
+		54806FFF158FE38D00C366DA /* first.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = first.png; sourceTree = "<group>"; };
+		54807000158FE38D00C366DA /* first@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "first@2x.png"; sourceTree = "<group>"; };
+		54807001158FE38D00C366DA /* second.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = second.png; sourceTree = "<group>"; };
+		54807002158FE38D00C366DA /* second@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "second@2x.png"; sourceTree = "<group>"; };
+		54807007158FE3CC00C366DA /* MainStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MainStoryboard.storyboard; sourceTree = "<group>"; };
+		5480700F158FE50200C366DA /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = Delegate/AppDelegate.h; sourceTree = "<group>"; };
+		54807010158FE50200C366DA /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = Delegate/AppDelegate.m; sourceTree = "<group>"; };
+		54807012158FE55E00C366DA /* Author.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Author.h; path = Model/Author.h; sourceTree = "<group>"; };
+		54807013158FE55E00C366DA /* Author.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Author.m; path = Model/Author.m; sourceTree = "<group>"; };
+		54807014158FE55E00C366DA /* Category.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Category.h; path = Model/Category.h; sourceTree = "<group>"; };
+		54807015158FE55E00C366DA /* Category.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Category.m; path = Model/Category.m; sourceTree = "<group>"; };
+		54807016158FE55E00C366DA /* Post.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Post.h; path = Model/Post.h; sourceTree = "<group>"; };
+		54807017158FE55E00C366DA /* Post.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Post.m; path = Model/Post.m; sourceTree = "<group>"; };
+		54807018158FE55E00C366DA /* Tag.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Tag.h; path = Model/Tag.h; sourceTree = "<group>"; };
+		54807019158FE55E00C366DA /* Tag.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Tag.m; path = Model/Tag.m; sourceTree = "<group>"; };
+		5480701E158FE56C00C366DA /* JSONKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JSONKit.h; path = Library/JSONKit.h; sourceTree = "<group>"; };
+		5480701F158FE56C00C366DA /* JSONKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JSONKit.m; path = Library/JSONKit.m; sourceTree = "<group>"; };
+		54807021158FE57C00C366DA /* DetailPostViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DetailPostViewController.h; path = Controller/DetailPostViewController.h; sourceTree = "<group>"; };
+		54807022158FE57C00C366DA /* DetailPostViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DetailPostViewController.m; path = Controller/DetailPostViewController.m; sourceTree = "<group>"; };
+		54807023158FE57C00C366DA /* PostTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PostTableViewController.h; path = Controller/PostTableViewController.h; sourceTree = "<group>"; };
+		54807024158FE57C00C366DA /* PostTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PostTableViewController.m; path = Controller/PostTableViewController.m; sourceTree = "<group>"; };
+		54807025158FE57C00C366DA /* SecondViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SecondViewController.h; path = Controller/SecondViewController.h; sourceTree = "<group>"; };
+		54807026158FE57C00C366DA /* SecondViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SecondViewController.m; path = Controller/SecondViewController.m; sourceTree = "<group>"; };
+		54807027158FE57C00C366DA /* TagTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TagTableViewController.h; path = Controller/TagTableViewController.h; sourceTree = "<group>"; };
+		54807028158FE57C00C366DA /* TagTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TagTableViewController.m; path = Controller/TagTableViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,11 +146,13 @@
 		54806F9C158FE03E00C366DA /* xebia-blog-ios */ = {
 			isa = PBXGroup;
 			children = (
-				54806FA5158FE03E00C366DA /* AppDelegate.h */,
-				54806FA6158FE03E00C366DA /* AppDelegate.m */,
-				54806FA8158FE03E00C366DA /* MainStoryboard.storyboard */,
-				54806FAB158FE03E00C366DA /* ViewController.h */,
-				54806FAC158FE03E00C366DA /* ViewController.m */,
+				5480700E158FE45000C366DA /* Delegate */,
+				54807007158FE3CC00C366DA /* MainStoryboard.storyboard */,
+				54806FD1158FE18900C366DA /* Controller */,
+				54806FCF158FE17D00C366DA /* Model */,
+				54806FCB158FE16100C366DA /* Library */,
+				54806FFD158FE38D00C366DA /* Resource */,
+				54806FF8158FE35E00C366DA /* Service */,
 				54806F9D158FE03E00C366DA /* Supporting Files */,
 			);
 			path = "xebia-blog-ios";
@@ -149,6 +186,82 @@
 				54806FBD158FE03E00C366DA /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		54806FCB158FE16100C366DA /* Library */ = {
+			isa = PBXGroup;
+			children = (
+				5480701E158FE56C00C366DA /* JSONKit.h */,
+				5480701F158FE56C00C366DA /* JSONKit.m */,
+			);
+			name = Library;
+			sourceTree = "<group>";
+		};
+		54806FCF158FE17D00C366DA /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				54807012158FE55E00C366DA /* Author.h */,
+				54807013158FE55E00C366DA /* Author.m */,
+				54807014158FE55E00C366DA /* Category.h */,
+				54807015158FE55E00C366DA /* Category.m */,
+				54807016158FE55E00C366DA /* Post.h */,
+				54807017158FE55E00C366DA /* Post.m */,
+				54807018158FE55E00C366DA /* Tag.h */,
+				54807019158FE55E00C366DA /* Tag.m */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		54806FD1158FE18900C366DA /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				54807021158FE57C00C366DA /* DetailPostViewController.h */,
+				54807022158FE57C00C366DA /* DetailPostViewController.m */,
+				54807023158FE57C00C366DA /* PostTableViewController.h */,
+				54807024158FE57C00C366DA /* PostTableViewController.m */,
+				54807025158FE57C00C366DA /* SecondViewController.h */,
+				54807026158FE57C00C366DA /* SecondViewController.m */,
+				54807027158FE57C00C366DA /* TagTableViewController.h */,
+				54807028158FE57C00C366DA /* TagTableViewController.m */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		54806FF8158FE35E00C366DA /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				54806FF9158FE35E00C366DA /* WPDataAccessor.h */,
+				54806FFA158FE35E00C366DA /* WPDataAccessor.m */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		54806FFD158FE38D00C366DA /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				54806FFE158FE38D00C366DA /* Image */,
+			);
+			path = Resource;
+			sourceTree = "<group>";
+		};
+		54806FFE158FE38D00C366DA /* Image */ = {
+			isa = PBXGroup;
+			children = (
+				54806FFF158FE38D00C366DA /* first.png */,
+				54807000158FE38D00C366DA /* first@2x.png */,
+				54807001158FE38D00C366DA /* second.png */,
+				54807002158FE38D00C366DA /* second@2x.png */,
+			);
+			path = Image;
+			sourceTree = "<group>";
+		};
+		5480700E158FE45000C366DA /* Delegate */ = {
+			isa = PBXGroup;
+			children = (
+				5480700F158FE50200C366DA /* AppDelegate.h */,
+				54807010158FE50200C366DA /* AppDelegate.m */,
+			);
+			name = Delegate;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -222,7 +335,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				54806FA1158FE03E00C366DA /* InfoPlist.strings in Resources */,
-				54806FAA158FE03E00C366DA /* MainStoryboard.storyboard in Resources */,
+				54807003158FE38D00C366DA /* first.png in Resources */,
+				54807004158FE38D00C366DA /* first@2x.png in Resources */,
+				54807005158FE38D00C366DA /* second.png in Resources */,
+				54807006158FE38D00C366DA /* second@2x.png in Resources */,
+				54807008158FE3CC00C366DA /* MainStoryboard.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -258,8 +375,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				54806FA3158FE03E00C366DA /* main.m in Sources */,
-				54806FA7158FE03E00C366DA /* AppDelegate.m in Sources */,
-				54806FAD158FE03E00C366DA /* ViewController.m in Sources */,
+				54806FFB158FE35E00C366DA /* WPDataAccessor.m in Sources */,
+				54807011158FE50200C366DA /* AppDelegate.m in Sources */,
+				5480701A158FE55E00C366DA /* Author.m in Sources */,
+				5480701B158FE55E00C366DA /* Category.m in Sources */,
+				5480701C158FE55E00C366DA /* Post.m in Sources */,
+				5480701D158FE55E00C366DA /* Tag.m in Sources */,
+				54807020158FE56C00C366DA /* JSONKit.m in Sources */,
+				54807029158FE57C00C366DA /* DetailPostViewController.m in Sources */,
+				5480702A158FE57C00C366DA /* PostTableViewController.m in Sources */,
+				5480702B158FE57C00C366DA /* SecondViewController.m in Sources */,
+				5480702C158FE57C00C366DA /* TagTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -288,14 +414,6 @@
 				54806FA0158FE03E00C366DA /* en */,
 			);
 			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		54806FA8158FE03E00C366DA /* MainStoryboard.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				54806FA9158FE03E00C366DA /* en */,
-			);
-			name = MainStoryboard.storyboard;
 			sourceTree = "<group>";
 		};
 		54806FBD158FE03E00C366DA /* InfoPlist.strings */ = {
@@ -429,6 +547,7 @@
 				54806FC7158FE03E00C366DA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		54806FC8158FE03E00C366DA /* Build configuration list for PBXNativeTarget "xebia-blog-iosTests" */ = {
 			isa = XCConfigurationList;
@@ -437,6 +556,7 @@
 				54806FCA158FE03E00C366DA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

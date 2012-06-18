@@ -1,18 +1,18 @@
 //
-//  ViewController.m
-//  xebia-blog-ios
+//  SecondViewController.m
+//  StoryboardUITableViewTutorial
 //
-//  Created by Alexis Kinsella on 19/06/12.
+//  Created by Alexis Kinsella on 10/06/12.
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
-#import "ViewController.h"
+#import "SecondViewController.h"
 
-@interface ViewController ()
+@interface SecondViewController ()
 
 @end
 
-@implementation ViewController
+@implementation SecondViewController
 
 - (void)viewDidLoad
 {

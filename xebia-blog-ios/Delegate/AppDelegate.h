@@ -1,8 +1,8 @@
 //
 //  AppDelegate.h
-//  xebia-blog-ios
+//  StoryboardUITableViewTutorial
 //
-//  Created by Alexis Kinsella on 19/06/12.
+//  Created by Alexis Kinsella on 10/06/12.
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 

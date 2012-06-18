@@ -1,25 +1,39 @@
 //
 //  AppDelegate.m
-//  xebia-blog-ios
+//  StoryboardUITableViewTutorial
 //
-//  Created by Alexis Kinsella on 19/06/12.
+//  Created by Alexis Kinsella on 10/06/12.
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
 #import "AppDelegate.h"
+#import "Tag.h"
+#import "TagTableViewController.h"
+#import "JSONKit.h"
+#import "WPDataAccessor.h"
 
-@implementation AppDelegate
+@implementation AppDelegate {
+    WPDataAccessor *wpDataAccessor;
+}
 
 @synthesize window = _window;
 
-- (void)dealloc
-{
-    [_window release];
-    [super dealloc];
-}
+
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    wpDataAccessor = [WPDataAccessor initWithBaseApiUrl:@"http://blog.xebia.fr/wp-json-api"];
+    
+    NSMutableArray *tags = wpDataAccessor.fetchTags;
+
+    UITabBarController *tabBarController = (UITabBarController *)self.window.rootViewController;
+	
+    UINavigationController *navigationController = [[tabBarController viewControllers] objectAtIndex:0];
+	
+    TagTableViewController *tabTableViewController = [[navigationController viewControllers] objectAtIndex:0];
+	tabTableViewController.tags = tags;
+
+    
     // Override point for customization after application launch.
     return YES;
 }
