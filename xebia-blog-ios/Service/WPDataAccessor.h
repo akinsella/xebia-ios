@@ -21,5 +21,7 @@
 //- (NSString *)getApiCallPath:(NSString *)relativeApiCallPath;
 
 -(NSMutableArray *) fetchTags;
+-(NSMutableArray *) fetchCategories;
+-(NSMutableArray *) fetchAuthors;
 
 @end

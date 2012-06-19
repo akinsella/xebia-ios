@@ -18,6 +18,10 @@
 
 @property (nonatomic,assign) int postCount;
 
-+ (id)tagWithId:(int)id slug:(NSString *)slug title:(NSString *)title description:(NSString *)description postCount:(int)postCount;
++ (id)tagWithId:(int)id
+           slug:(NSString *)slug
+          title:(NSString *)title
+    description:(NSString *)description
+      postCount:(int)postCount;
 
 @end

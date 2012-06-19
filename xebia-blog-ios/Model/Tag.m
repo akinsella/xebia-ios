@@ -12,7 +12,11 @@
 
 @synthesize id, slug, title, description, postCount;
 
-+(id)tagWithId:(int)id slug:(NSString *)slug title:(NSString *)title description:(NSString *)description postCount:(int)postCount
++(id)tagWithId:(int)id
+          slug:(NSString *)slug
+         title:(NSString *)title
+   description:(NSString *)description
+     postCount:(int)postCount
 {
     Tag *tag = [[self alloc] init];
     tag.id = id;

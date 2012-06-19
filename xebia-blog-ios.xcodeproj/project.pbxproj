@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		54693208159130F7005B369D /* third@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 54693206159130F7005B369D /* third@2x.png */; };
+		54693209159130F7005B369D /* thrid.png in Resources */ = {isa = PBXBuildFile; fileRef = 54693207159130F7005B369D /* thrid.png */; };
+		546932111591317F005B369D /* AuthorTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 546932101591317F005B369D /* AuthorTableViewController.m */; };
 		54806F97158FE03E00C366DA /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54806F96158FE03E00C366DA /* UIKit.framework */; };
 		54806F99158FE03E00C366DA /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54806F98158FE03E00C366DA /* Foundation.framework */; };
 		54806F9B158FE03E00C366DA /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54806F9A158FE03E00C366DA /* CoreGraphics.framework */; };
@@ -31,8 +34,8 @@
 		54807020158FE56C00C366DA /* JSONKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 5480701F158FE56C00C366DA /* JSONKit.m */; };
 		54807029158FE57C00C366DA /* DetailPostViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 54807022158FE57C00C366DA /* DetailPostViewController.m */; };
 		5480702A158FE57C00C366DA /* PostTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 54807024158FE57C00C366DA /* PostTableViewController.m */; };
-		5480702B158FE57C00C366DA /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 54807026158FE57C00C366DA /* SecondViewController.m */; };
 		5480702C158FE57C00C366DA /* TagTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 54807028158FE57C00C366DA /* TagTableViewController.m */; };
+		548070331590F9F300C366DA /* CategoryTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 548070311590F9F300C366DA /* CategoryTableViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +49,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		54693206159130F7005B369D /* third@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "third@2x.png"; sourceTree = "<group>"; };
+		54693207159130F7005B369D /* thrid.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = thrid.png; sourceTree = "<group>"; };
+		5469320F1591317F005B369D /* AuthorTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AuthorTableViewController.h; path = Controller/AuthorTableViewController.h; sourceTree = "<group>"; };
+		546932101591317F005B369D /* AuthorTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AuthorTableViewController.m; path = Controller/AuthorTableViewController.m; sourceTree = "<group>"; };
 		54806F92158FE03E00C366DA /* xebia-blog-ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "xebia-blog-ios.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		54806F96158FE03E00C366DA /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		54806F98158FE03E00C366DA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -83,10 +90,10 @@
 		54807022158FE57C00C366DA /* DetailPostViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DetailPostViewController.m; path = Controller/DetailPostViewController.m; sourceTree = "<group>"; };
 		54807023158FE57C00C366DA /* PostTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PostTableViewController.h; path = Controller/PostTableViewController.h; sourceTree = "<group>"; };
 		54807024158FE57C00C366DA /* PostTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PostTableViewController.m; path = Controller/PostTableViewController.m; sourceTree = "<group>"; };
-		54807025158FE57C00C366DA /* SecondViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SecondViewController.h; path = Controller/SecondViewController.h; sourceTree = "<group>"; };
-		54807026158FE57C00C366DA /* SecondViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SecondViewController.m; path = Controller/SecondViewController.m; sourceTree = "<group>"; };
 		54807027158FE57C00C366DA /* TagTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TagTableViewController.h; path = Controller/TagTableViewController.h; sourceTree = "<group>"; };
 		54807028158FE57C00C366DA /* TagTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TagTableViewController.m; path = Controller/TagTableViewController.m; sourceTree = "<group>"; };
+		548070311590F9F300C366DA /* CategoryTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CategoryTableViewController.m; path = Controller/CategoryTableViewController.m; sourceTree = "<group>"; };
+		548070321590F9F300C366DA /* CategoryTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CategoryTableViewController.h; path = Controller/CategoryTableViewController.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -215,12 +222,14 @@
 		54806FD1158FE18900C366DA /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				5469320F1591317F005B369D /* AuthorTableViewController.h */,
+				546932101591317F005B369D /* AuthorTableViewController.m */,
+				548070311590F9F300C366DA /* CategoryTableViewController.m */,
+				548070321590F9F300C366DA /* CategoryTableViewController.h */,
 				54807021158FE57C00C366DA /* DetailPostViewController.h */,
 				54807022158FE57C00C366DA /* DetailPostViewController.m */,
 				54807023158FE57C00C366DA /* PostTableViewController.h */,
 				54807024158FE57C00C366DA /* PostTableViewController.m */,
-				54807025158FE57C00C366DA /* SecondViewController.h */,
-				54807026158FE57C00C366DA /* SecondViewController.m */,
 				54807027158FE57C00C366DA /* TagTableViewController.h */,
 				54807028158FE57C00C366DA /* TagTableViewController.m */,
 			);
@@ -247,6 +256,8 @@
 		54806FFE158FE38D00C366DA /* Image */ = {
 			isa = PBXGroup;
 			children = (
+				54693206159130F7005B369D /* third@2x.png */,
+				54693207159130F7005B369D /* thrid.png */,
 				54806FFF158FE38D00C366DA /* first.png */,
 				54807000158FE38D00C366DA /* first@2x.png */,
 				54807001158FE38D00C366DA /* second.png */,
@@ -340,6 +351,8 @@
 				54807005158FE38D00C366DA /* second.png in Resources */,
 				54807006158FE38D00C366DA /* second@2x.png in Resources */,
 				54807008158FE3CC00C366DA /* MainStoryboard.storyboard in Resources */,
+				54693208159130F7005B369D /* third@2x.png in Resources */,
+				54693209159130F7005B369D /* thrid.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -384,8 +397,9 @@
 				54807020158FE56C00C366DA /* JSONKit.m in Sources */,
 				54807029158FE57C00C366DA /* DetailPostViewController.m in Sources */,
 				5480702A158FE57C00C366DA /* PostTableViewController.m in Sources */,
-				5480702B158FE57C00C366DA /* SecondViewController.m in Sources */,
 				5480702C158FE57C00C366DA /* TagTableViewController.m in Sources */,
+				548070331590F9F300C366DA /* CategoryTableViewController.m in Sources */,
+				546932111591317F005B369D /* AuthorTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

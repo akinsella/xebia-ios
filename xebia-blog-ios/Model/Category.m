@@ -9,5 +9,22 @@
 #import "Category.h"
 
 @implementation Category
+@synthesize id, slug, title, description, postCount;
+
++(id)categoryWithId:(int)id
+               slug:(NSString *)slug
+              title:(NSString *)title
+        description:(NSString *)description
+          postCount:(int)postCount
+{
+Category *category = [[self alloc] init];
+category.id = id;
+category.slug = slug;
+category.title = title;
+category.description = description;
+category.postCount = postCount;
+
+return category;
+}
 
 @end

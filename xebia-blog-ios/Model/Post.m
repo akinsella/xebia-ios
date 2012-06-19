@@ -12,7 +12,9 @@
 
 @synthesize id, title, description;
 
-+(id)postWithId:(int)id title:(NSString *)title description:(NSString *)description
++(id)postWithId:(int)id
+          title:(NSString *)title
+    description:(NSString *)description
 {
     Post *post = [[self alloc] init];
 

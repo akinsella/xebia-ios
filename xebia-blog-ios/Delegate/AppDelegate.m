@@ -7,10 +7,13 @@
 //
 
 #import "AppDelegate.h"
-#import "Tag.h"
 #import "TagTableViewController.h"
-#import "JSONKit.h"
+#import "CategoryTableViewController.h"
+#import "AuthorTableViewController.h"
 #import "WPDataAccessor.h"
+#import "Tag.h"
+#import "Category.h"
+#import "Author.h"
 
 @implementation AppDelegate {
     WPDataAccessor *wpDataAccessor;
@@ -24,16 +27,39 @@
 {
     wpDataAccessor = [WPDataAccessor initWithBaseApiUrl:@"http://blog.xebia.fr/wp-json-api"];
     
+    NSMutableArray *categories = wpDataAccessor.fetchCategories;
     NSMutableArray *tags = wpDataAccessor.fetchTags;
+    NSMutableArray *authors = wpDataAccessor.fetchAuthors;
 
     UITabBarController *tabBarController = (UITabBarController *)self.window.rootViewController;
-	
-    UINavigationController *navigationController = [[tabBarController viewControllers] objectAtIndex:0];
-	
-    TagTableViewController *tabTableViewController = [[navigationController viewControllers] objectAtIndex:0];
-	tabTableViewController.tags = tags;
 
-    
+    NSLog(@"tabBarController size: %i", [tabBarController viewControllers].count);
+
+    UINavigationController *tagNavigationController = [[tabBarController viewControllers] objectAtIndex:0];
+    NSLog(@"tagNavigationController size: %i", [[tagNavigationController viewControllers] count]);
+    TagTableViewController *tagTableViewController = [[tagNavigationController viewControllers] objectAtIndex:0];
+    tagTableViewController.tags = tags;
+    [tags sortUsingComparator:^(id first, id second) {
+        return [((Tag *)first).title compare:((Tag *)second).title options:NSNumericSearch];
+    }];
+
+    UINavigationController *categoryNavigationController = [[tabBarController viewControllers] objectAtIndex:1];
+    NSLog(@"categoryNavigationController size: %i", [[categoryNavigationController viewControllers] count]);
+    CategoryTableViewController *categoryTableViewController = [[categoryNavigationController viewControllers] objectAtIndex:0];
+    categoryTableViewController.categories = categories;
+    [categories sortUsingComparator:^(id first, id second) {
+        return [((Category *)first).title compare:((Category *)second).title options:NSNumericSearch];
+    }];
+
+    UINavigationController *authorNavigationController = [[tabBarController viewControllers] objectAtIndex:2];
+    NSLog(@"authorNavigationController size: %i", [[authorNavigationController viewControllers] count]);
+    AuthorTableViewController *authorTableViewController = [[authorNavigationController viewControllers] objectAtIndex:0];
+    authorTableViewController.authors = authors;
+    [authors sortUsingComparator:^(id first, id second) {
+        return [((Author *)first).name compare:((Author *)second).name options:NSNumericSearch];
+    }];
+
+
     // Override point for customization after application launch.
     return YES;
 }

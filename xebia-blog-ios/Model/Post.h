@@ -12,10 +12,11 @@
 
 @property (nonatomic,assign) int id;
 
-@property (nonatomic,copy) NSString *title;
-@property (nonatomic,copy) NSString *description;
+@property (nonatomic,copy) IBOutlet NSString *title;
+@property (nonatomic,copy) IBOutlet NSString *description;
 
-
-+ (id)postWithId:(int)id title:(NSString *)title description:(NSString *)description;
++ (id)postWithId:(int)id
+           title:(NSString *)title
+     description:(NSString *)description;
 
 @end
