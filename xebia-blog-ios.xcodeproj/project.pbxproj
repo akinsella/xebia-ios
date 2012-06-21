@@ -155,11 +155,11 @@
 			children = (
 				5480700E158FE45000C366DA /* Delegate */,
 				54807007158FE3CC00C366DA /* MainStoryboard.storyboard */,
+				54806FF8158FE35E00C366DA /* Service */,
 				54806FD1158FE18900C366DA /* Controller */,
 				54806FCF158FE17D00C366DA /* Model */,
 				54806FCB158FE16100C366DA /* Library */,
 				54806FFD158FE38D00C366DA /* Resource */,
-				54806FF8158FE35E00C366DA /* Service */,
 				54806F9D158FE03E00C366DA /* Supporting Files */,
 			);
 			path = "xebia-blog-ios";
@@ -224,8 +224,8 @@
 			children = (
 				5469320F1591317F005B369D /* AuthorTableViewController.h */,
 				546932101591317F005B369D /* AuthorTableViewController.m */,
-				548070311590F9F300C366DA /* CategoryTableViewController.m */,
 				548070321590F9F300C366DA /* CategoryTableViewController.h */,
+				548070311590F9F300C366DA /* CategoryTableViewController.m */,
 				54807021158FE57C00C366DA /* DetailPostViewController.h */,
 				54807022158FE57C00C366DA /* DetailPostViewController.m */,
 				54807023158FE57C00C366DA /* PostTableViewController.h */,
@@ -493,6 +493,7 @@
 				GCC_PREFIX_HEADER = "xebia-blog-ios/xebia-blog-ios-Prefix.pch";
 				INFOPLIST_FILE = "xebia-blog-ios/xebia-blog-ios-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -504,6 +505,7 @@
 				GCC_PREFIX_HEADER = "xebia-blog-ios/xebia-blog-ios-Prefix.pch";
 				INFOPLIST_FILE = "xebia-blog-ios/xebia-blog-ios-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

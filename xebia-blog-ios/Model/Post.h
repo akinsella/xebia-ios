@@ -19,4 +19,10 @@
            title:(NSString *)title
      description:(NSString *)description;
 
+typedef enum {
+    TAG = 1,
+    CATEGORY = 2,
+    AUTHOR = 3
+} POST_TYPE;
+
 @end

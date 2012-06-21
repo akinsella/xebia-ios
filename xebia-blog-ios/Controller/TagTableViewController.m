@@ -9,6 +9,7 @@
 #import "TagTableViewController.h"
 #import "PostTableViewController.h"
 #import "Tag.h"
+#import "AppDelegate.h"
 
 @implementation TagTableViewController
 
@@ -26,6 +27,11 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+
+    
+    AppDelegate *delegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    
+    tags = delegate.tags;
 
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -51,7 +57,7 @@
         PostTableViewController *postTableViewController = [segue destinationViewController];
         Tag *tag = [self.tags objectAtIndex:[self.tableView indexPathForSelectedRow].row];
 
-        postTableViewController.posts = [[NSMutableArray alloc] init];
+//        postTableViewController.posts = [[NSMutableArray alloc] init];
     }
 }
 
@@ -120,6 +126,17 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    
+    Tag *tag = [tags objectAtIndex:indexPath.row];
+    
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:tag.title 
+                                                    message:[NSString stringWithFormat:@"You selected '%@': %@", tag.title, tag.description] 
+                                                   delegate:nil 
+                                          cancelButtonTitle:nil 
+                                          otherButtonTitles:@"Ok", nil];
+    [alert show];
+    
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
     // Navigation logic may go here. Create and push another view controller.
     /*
      

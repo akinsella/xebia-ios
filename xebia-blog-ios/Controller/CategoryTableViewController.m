@@ -9,6 +9,7 @@
 #import "CategoryTableViewController.h"
 #import "PostTableViewController.h"
 #import "Category.h"
+#import "AppDelegate.h"
 
 @implementation CategoryTableViewController
 
@@ -26,7 +27,11 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
+    
+    AppDelegate *delegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    
+    categories = delegate.categories;
+    
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
  
@@ -51,7 +56,8 @@
         PostTableViewController *postTableViewController = [segue destinationViewController];
         Category *category = [self.categories objectAtIndex:[self.tableView indexPathForSelectedRow].row];
 
-        postTableViewController.posts = [[NSMutableArray alloc] init];
+        postTableViewController.slug = category.slug;
+        postTableViewController.postType = CATEGORY;
     }
 }
 
@@ -120,6 +126,17 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    
+    Category *category = [categories objectAtIndex:indexPath.row];
+    
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:category.title 
+                                                    message:[NSString stringWithFormat:@"You selected '%@': %@", category.title, category.description] 
+                                                   delegate:nil 
+                                          cancelButtonTitle:nil 
+                                          otherButtonTitles:@"Ok", nil];
+    [alert show];
+    
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
     // Navigation logic may go here. Create and push another view controller.
     /*
      

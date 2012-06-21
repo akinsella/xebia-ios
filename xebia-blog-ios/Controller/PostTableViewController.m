@@ -9,10 +9,11 @@
 #import "PostTableViewController.h"
 #import "DetailPostViewController.h"
 #import "Post.h"
+#import "AppDelegate.h"
 
 @implementation PostTableViewController
 
-@synthesize posts;
+@synthesize slug, postType, posts;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -26,6 +27,10 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    AppDelegate * appDelegate = [[UIApplication sharedApplication] delegate];
+    
+    [appDelegate updatePostsWithPostType:postType andSlug:slug];
 
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -118,6 +123,17 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    
+    Post *post = [posts objectAtIndex:indexPath.row];
+    
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:post.title 
+                                                    message:[NSString stringWithFormat:@"You selected '%@': %@", post.title, post.description] 
+                                                   delegate:nil 
+                                          cancelButtonTitle:nil 
+                                          otherButtonTitles:@"Ok", nil];
+    [alert show];
+    
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
     // Navigation logic may go here. Create and push another view controller.
     /*
      <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];

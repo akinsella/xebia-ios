@@ -7,9 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Post.h"
 
 @interface PostTableViewController : UITableViewController
 
 @property (nonatomic, strong) NSMutableArray *posts;
+
+@property (nonatomic, assign) POST_TYPE postType;
+
+@property (nonatomic, strong) NSString *slug;
 
 @end

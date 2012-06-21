@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "Post.h"
 
 @interface WPDataAccessor : NSObject
 
@@ -23,5 +24,6 @@
 -(NSMutableArray *) fetchTags;
 -(NSMutableArray *) fetchCategories;
 -(NSMutableArray *) fetchAuthors;
+-(NSMutableArray *) fetchPostsWithPostType:(POST_TYPE)postType andSlug:(NSString *)slug;
 
 @end

@@ -11,6 +11,7 @@
 #import "Tag.h"
 #import "Category.h"
 #import "Author.h"
+#import "Post.h"
 
 @implementation WPDataAccessor
 @synthesize baseApiUrl;
@@ -61,6 +62,46 @@ errorExit:
     return items;
 }
 
+- (NSMutableArray *)fetchPostsWithPostType:(POST_TYPE)postType andSlug:(NSString *)slug
+{
+    NSString* postUrlPath = [NSString stringWithFormat:@"/get_%@_index/?id=%@", [self getPostTypeAsString:postType], slug];
+    
+    NSArray *jsonPosts = [self fetchIndexData:postUrlPath data:@"posts"];
+    
+    NSMutableArray *posts = [[[NSMutableArray alloc] initWithCapacity:[jsonPosts count]] autorelease];
+    
+    for (NSDictionary *jsonPost in jsonPosts) {
+        
+        Post *post = [Post postWithId:((NSNumber *)[jsonPost objectForKey:@"id"]).intValue
+                            title:[jsonPost objectForKey:@"title"] 
+                      description:[jsonPost objectForKey:@"description"]
+                    ];
+        
+        [posts addObject: post];
+        
+        [post release];
+    }
+    
+    return posts;    
+}
+
+- (NSString *)getPostTypeAsString:(POST_TYPE)postType {
+    switch (postType) {
+        case TAG:
+            return @"tag";
+            break;
+        case AUTHOR:
+            return @"author";
+            break;
+        case CATEGORY:
+            return @"category";
+            break;
+            
+        default:
+            break;
+    }
+    
+}
 
 - (NSMutableArray *)fetchTags {
     NSArray *jsonTags = [self fetchIndexData:@"/get_tag_index/" data:@"tags"];

@@ -14,54 +14,78 @@
 #import "Tag.h"
 #import "Category.h"
 #import "Author.h"
+#import "Post.h"
 
-@implementation AppDelegate {
-    WPDataAccessor *wpDataAccessor;
-}
+@implementation AppDelegate
 
 @synthesize window = _window;
 
+@synthesize tabBarController = _tabBarController;
 
+@synthesize authorTableViewController = _authorTableViewController;
+@synthesize tagTableViewController = _tagTableViewController;
+@synthesize categoryTableViewController = _categoryTableViewController;
+
+@synthesize authorNavigationController = _authorNavigationController;
+@synthesize tagNavigationController = _tagNavigationController;
+@synthesize categoryNavigationController = _categoryNavigationController;
+
+@synthesize wpDataAccessor = _wpDataAccessor;
+
+@synthesize tags = _tags;
+@synthesize authors = _authors;
+@synthesize categories = _categories;
+@synthesize posts = _posts;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    wpDataAccessor = [WPDataAccessor initWithBaseApiUrl:@"http://blog.xebia.fr/wp-json-api"];
+    self.wpDataAccessor = [WPDataAccessor initWithBaseApiUrl:@"http://blog.xebia.fr/wp-json-api"];
+
+    [self initData];
+    [self initControllers];
     
-    NSMutableArray *categories = wpDataAccessor.fetchCategories;
-    NSMutableArray *tags = wpDataAccessor.fetchTags;
-    NSMutableArray *authors = wpDataAccessor.fetchAuthors;
-
-    UITabBarController *tabBarController = (UITabBarController *)self.window.rootViewController;
-
-    NSLog(@"tabBarController size: %i", [tabBarController viewControllers].count);
-
-    UINavigationController *tagNavigationController = [[tabBarController viewControllers] objectAtIndex:0];
-    NSLog(@"tagNavigationController size: %i", [[tagNavigationController viewControllers] count]);
-    TagTableViewController *tagTableViewController = [[tagNavigationController viewControllers] objectAtIndex:0];
-    tagTableViewController.tags = tags;
-    [tags sortUsingComparator:^(id first, id second) {
-        return [((Tag *)first).title compare:((Tag *)second).title options:NSNumericSearch];
-    }];
-
-    UINavigationController *categoryNavigationController = [[tabBarController viewControllers] objectAtIndex:1];
-    NSLog(@"categoryNavigationController size: %i", [[categoryNavigationController viewControllers] count]);
-    CategoryTableViewController *categoryTableViewController = [[categoryNavigationController viewControllers] objectAtIndex:0];
-    categoryTableViewController.categories = categories;
-    [categories sortUsingComparator:^(id first, id second) {
-        return [((Category *)first).title compare:((Category *)second).title options:NSNumericSearch];
-    }];
-
-    UINavigationController *authorNavigationController = [[tabBarController viewControllers] objectAtIndex:2];
-    NSLog(@"authorNavigationController size: %i", [[authorNavigationController viewControllers] count]);
-    AuthorTableViewController *authorTableViewController = [[authorNavigationController viewControllers] objectAtIndex:0];
-    authorTableViewController.authors = authors;
-    [authors sortUsingComparator:^(id first, id second) {
-        return [((Author *)first).name compare:((Author *)second).name options:NSNumericSearch];
-    }];
-
-
     // Override point for customization after application launch.
     return YES;
+}
+
+- (void)updatePostsWithPostType:(POST_TYPE)postType andSlug:(NSString *)slug
+{
+    self.posts = [self.wpDataAccessor fetchPostsWithPostType:postType andSlug:slug];
+    [self.posts sortUsingComparator:^(id first, id second) {
+        return [((Post *)first).title compare:((Post *)second).title options:NSNumericSearch];
+    }];    
+}
+
+- (void)initData
+{
+    self.categories = [self.wpDataAccessor fetchCategories];
+    [self.categories sortUsingComparator:^(id first, id second) {
+        return [((Category *)first).title compare:((Category *)second).title options:NSNumericSearch];
+    }];
+    
+    self.tags = [self.wpDataAccessor fetchTags];
+    [self.tags sortUsingComparator:^(id first, id second) {
+        return [((Tag *)first).title compare:((Tag *)second).title options:NSNumericSearch];
+    }];
+    
+    self.authors = [self.wpDataAccessor fetchAuthors];
+    [self.authors sortUsingComparator:^(id first, id second) {
+        return [((Author *)first).name compare:((Author *)second).name options:NSNumericSearch];
+    }];
+}
+
+- (void)initControllers
+{
+    self.tabBarController = (UITabBarController *)[self.window rootViewController];
+    
+    self.tagNavigationController = [[self.tabBarController viewControllers] objectAtIndex:0];
+    self.tagTableViewController = [[self.tagNavigationController viewControllers] objectAtIndex:0];
+    
+    self.categoryNavigationController = [[self.tabBarController viewControllers] objectAtIndex:1];
+    self.categoryTableViewController = [[self.categoryNavigationController viewControllers] objectAtIndex:0];
+    
+    self.authorNavigationController = [[self.tabBarController viewControllers] objectAtIndex:2];
+    self.authorTableViewController = [[self.authorNavigationController viewControllers] objectAtIndex:0];
 }
 							
 - (void)applicationWillResignActive:(UIApplication *)application
