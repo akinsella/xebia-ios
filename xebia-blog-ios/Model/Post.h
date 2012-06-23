@@ -10,14 +10,22 @@
 
 @interface Post : NSObject
 
-@property (nonatomic,assign) int id;
+@property (nonatomic,assign) int identifier;
 
 @property (nonatomic,copy) IBOutlet NSString *title;
-@property (nonatomic,copy) IBOutlet NSString *description;
+@property (nonatomic,copy) IBOutlet NSString *excerpt;
+@property (nonatomic,copy) IBOutlet NSString *date;
+@property (nonatomic,copy) IBOutlet NSString *modified;
+@property (nonatomic,copy) IBOutlet NSString *slug;
+@property (nonatomic,copy) IBOutlet NSString *type;
 
-+ (id)postWithId:(int)id
++ (id)postWithId:(int)identifier
            title:(NSString *)title
-     description:(NSString *)description;
+         excerpt:(NSString *)excerpt
+            date:(NSString *)date
+        modified:(NSString *)modified
+            slug:(NSString *)slug
+            type:(NSString *)type;
 
 typedef enum {
     TAG = 1,

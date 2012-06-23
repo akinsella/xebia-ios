@@ -41,8 +41,7 @@
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
                                 <connections>
-                                    <outlet property="backgroundView" destination="4CG-gz-erm" id="z2f-EC-yO9"/>
-                                    <segue destination="iLd-vX-UPL" kind="push" id="xie-EI-zck"/>
+                                    <segue destination="iLd-vX-UPL" kind="push" identifier="showDetail" id="xie-EI-zck"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -56,11 +55,11 @@
             </objects>
             <point key="canvasLocation" x="3063" y="764"/>
         </scene>
-        <!--Table View Controller - Posts-->
+        <!--Post Table View Controller - Posts-->
         <scene sceneID="vxA-EQ-xQk">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Hj-EB-cYa" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <tableViewController id="iLd-vX-UPL" sceneMemberID="viewController">
+                <tableViewController id="iLd-vX-UPL" customClass="PostTableViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="P74-ov-t7C" userLabel="PostTableView">
                         <rect key="frame" x="0.0" y="64" width="320" height="367"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -91,7 +90,7 @@
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
                                 <connections>
-                                    <segue destination="nSK-wZ-QT8" kind="push" id="9t2-uE-Af9"/>
+                                    <segue destination="nSK-wZ-QT8" kind="push" identifier="showDetail" id="9t2-uE-Af9"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -109,7 +108,7 @@
         <scene sceneID="DQn-As-ncM">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hpj-iw-hPV" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <viewController id="nSK-wZ-QT8" userLabel="DetailView" customClass="DetailViewController" sceneMemberID="viewController">
+                <viewController id="nSK-wZ-QT8" userLabel="DetailView" customClass="DetailPostViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Zpv-SL-W2Y">
                         <rect key="frame" x="0.0" y="64" width="320" height="367"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -227,7 +226,7 @@
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
                                 <connections>
-                                    <segue destination="iLd-vX-UPL" kind="push" id="vel-80-Cn5"/>
+                                    <segue destination="iLd-vX-UPL" kind="push" identifier="showDetail" id="vel-80-Cn5"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -292,7 +291,7 @@
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
                                 <connections>
-                                    <segue destination="iLd-vX-UPL" kind="push" id="JwE-zl-XYx"/>
+                                    <segue destination="iLd-vX-UPL" kind="push" identifier="showDetail" id="JwE-zl-XYx"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -341,6 +340,6 @@
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="xie-EI-zck"/>
+        <segue reference="JwE-zl-XYx"/>
     </inferredMetricsTieBreakers>
 </document>

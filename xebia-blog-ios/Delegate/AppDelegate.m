@@ -48,9 +48,9 @@
     return YES;
 }
 
-- (void)updatePostsWithPostType:(POST_TYPE)postType andSlug:(NSString *)slug
+- (void)updatePostsWithPostType:(POST_TYPE)postType andId:(int)identifier
 {
-    self.posts = [self.wpDataAccessor fetchPostsWithPostType:postType andSlug:slug];
+    self.posts = [self.wpDataAccessor fetchPostsWithPostType:postType andId:identifier];
     [self.posts sortUsingComparator:^(id first, id second) {
         return [((Post *)first).title compare:((Post *)second).title options:NSNumericSearch];
     }];    

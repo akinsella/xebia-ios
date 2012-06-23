@@ -15,6 +15,6 @@
 
 @property (nonatomic, assign) POST_TYPE postType;
 
-@property (nonatomic, strong) NSString *slug;
+@property (nonatomic, assign) int identifier;
 
 @end

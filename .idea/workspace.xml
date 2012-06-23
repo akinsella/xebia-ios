@@ -3,19 +3,12 @@
   <component name="ChangeListManager">
     <list default="true" id="802c1044-6c95-450b-8c92-d8a7ebe25214" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/xebia-blog-ios.xcodeproj/project.xcworkspace/xcuserdata/akinsella.xcuserdatad/UserInterfaceState.xcuserstate" afterPath="$PROJECT_DIR$/xebia-blog-ios.xcodeproj/project.xcworkspace/xcuserdata/akinsella.xcuserdatad/UserInterfaceState.xcuserstate" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/xebia-blog-ios.xcodeproj/project.pbxproj" afterPath="$PROJECT_DIR$/xebia-blog-ios.xcodeproj/project.pbxproj" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/xebia-blog-ios/Controller/AuthorTableViewController.m" afterPath="$PROJECT_DIR$/xebia-blog-ios/Controller/AuthorTableViewController.m" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/xebia-blog-ios/Controller/CategoryTableViewController.m" afterPath="$PROJECT_DIR$/xebia-blog-ios/Controller/CategoryTableViewController.m" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/xebia-blog-ios/Controller/PostTableViewController.h" afterPath="$PROJECT_DIR$/xebia-blog-ios/Controller/PostTableViewController.h" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/xebia-blog-ios/Controller/PostTableViewController.m" afterPath="$PROJECT_DIR$/xebia-blog-ios/Controller/PostTableViewController.m" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/xebia-blog-ios/Controller/TagTableViewController.m" afterPath="$PROJECT_DIR$/xebia-blog-ios/Controller/TagTableViewController.m" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/xebia-blog-ios/Delegate/AppDelegate.h" afterPath="$PROJECT_DIR$/xebia-blog-ios/Delegate/AppDelegate.h" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/xebia-blog-ios/Delegate/AppDelegate.m" afterPath="$PROJECT_DIR$/xebia-blog-ios/Delegate/AppDelegate.m" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/xebia-blog-ios/MainStoryboard.storyboard" afterPath="$PROJECT_DIR$/xebia-blog-ios/MainStoryboard.storyboard" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/xebia-blog-ios/Model/Post.h" afterPath="$PROJECT_DIR$/xebia-blog-ios/Model/Post.h" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/xebia-blog-ios/Service/WPDataAccessor.h" afterPath="$PROJECT_DIR$/xebia-blog-ios/Service/WPDataAccessor.h" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/xebia-blog-ios/Service/WPDataAccessor.m" afterPath="$PROJECT_DIR$/xebia-blog-ios/Service/WPDataAccessor.m" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/xebia-blog-ios/main.m" afterPath="$PROJECT_DIR$/xebia-blog-ios/main.m" />
     </list>
     <ignored path="xebia-blog-ios.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -85,7 +78,7 @@
       <file leaf-file-name="AuthorTableViewController.m" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/xebia-blog-ios/Controller/AuthorTableViewController.m">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="78" column="22" selection-start="2224" selection-end="2224" vertical-scroll-proportion="0.0">
+            <state line="80" column="22" selection-start="2356" selection-end="2356" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -379,7 +372,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="22" width="1400" height="878" extended-state="0" />
+    <frame x="0" y="22" width="1400" height="878" extended-state="1" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -503,7 +496,9 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/xebia-blog-ios/Controller/AuthorTableViewController.m">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="78" column="22" selection-start="2224" selection-end="2224" vertical-scroll-proportion="0.0" />
+        <state line="80" column="22" selection-start="2356" selection-end="2356" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/xebia-blog-ios/Controller/CategoryTableViewController.m">

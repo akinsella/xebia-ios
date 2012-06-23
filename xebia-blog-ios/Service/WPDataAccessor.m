@@ -62,19 +62,23 @@ errorExit:
     return items;
 }
 
-- (NSMutableArray *)fetchPostsWithPostType:(POST_TYPE)postType andSlug:(NSString *)slug
+- (NSMutableArray *)fetchPostsWithPostType:(POST_TYPE)postType andId:(int)identifier
 {
-    NSString* postUrlPath = [NSString stringWithFormat:@"/get_%@_index/?id=%@", [self getPostTypeAsString:postType], slug];
+    NSString *postTypeStr = [self getPostTypeAsString:postType];
+    NSString *postUrlPath = [NSString stringWithFormat:@"/get_%@_posts/?id=%i", postTypeStr, identifier];
     
     NSArray *jsonPosts = [self fetchIndexData:postUrlPath data:@"posts"];
     
     NSMutableArray *posts = [[[NSMutableArray alloc] initWithCapacity:[jsonPosts count]] autorelease];
     
     for (NSDictionary *jsonPost in jsonPosts) {
-        
         Post *post = [Post postWithId:((NSNumber *)[jsonPost objectForKey:@"id"]).intValue
                             title:[jsonPost objectForKey:@"title"] 
-                      description:[jsonPost objectForKey:@"description"]
+                          excerpt:[jsonPost objectForKey:@"excerpt"]
+                                 date:[jsonPost objectForKey:@"date"]
+                             modified:[jsonPost objectForKey:@"modified"]
+                                 slug:[jsonPost objectForKey:@"slug"]
+                                 type:[jsonPost objectForKey:@"type"]
                     ];
         
         [posts addObject: post];

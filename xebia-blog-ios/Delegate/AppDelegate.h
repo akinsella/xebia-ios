@@ -40,6 +40,6 @@
 @property (strong, nonatomic) NSMutableArray *authors;
 @property (strong, nonatomic) NSMutableArray *posts;
 
-- (void) updatePostsWithPostType:(POST_TYPE)postType andSlug:(NSString *)slug;
+- (void) updatePostsWithPostType:(POST_TYPE)postType andId:(int)identifier;
 
 @end

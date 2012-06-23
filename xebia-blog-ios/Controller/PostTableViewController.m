@@ -13,7 +13,7 @@
 
 @implementation PostTableViewController
 
-@synthesize slug, postType, posts;
+@synthesize identifier, postType, posts;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -27,10 +27,13 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
+        
     AppDelegate * appDelegate = [[UIApplication sharedApplication] delegate];
+    [appDelegate updatePostsWithPostType:postType andId:identifier];
     
-    [appDelegate updatePostsWithPostType:postType andSlug:slug];
+    posts = appDelegate.posts;
+    
+    [[self tableView] reloadData];
 
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -54,7 +57,8 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([[segue identifier] isEqualToString:@"showDetail"]) {
         DetailPostViewController *detailPostViewController = [segue destinationViewController];
-        detailPostViewController.post = [self.posts objectAtIndex:[self.tableView indexPathForSelectedRow].row];
+        Post *post = [self.posts objectAtIndex:[self.tableView indexPathForSelectedRow].row];
+        detailPostViewController.post = post;
     }
 }
 
@@ -81,7 +85,8 @@
     Post *post = [self.posts objectAtIndex:indexPath.row];
     
     cell.textLabel.text = post.title;
-	cell.detailTextLabel.text = post.description;
+	cell.detailTextLabel.text = post.date;
+    
     return cell;
 }
 
@@ -126,13 +131,13 @@
     
     Post *post = [posts objectAtIndex:indexPath.row];
     
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:post.title 
-                                                    message:[NSString stringWithFormat:@"You selected '%@': %@", post.title, post.description] 
-                                                   delegate:nil 
-                                          cancelButtonTitle:nil 
-                                          otherButtonTitles:@"Ok", nil];
-    [alert show];
-    
+//    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:post.title 
+//                                                    message:[NSString stringWithFormat:@"You selected '%@': %@", post.title, post.description] 
+//                                                   delegate:nil 
+//                                          cancelButtonTitle:nil 
+//                                          otherButtonTitles:@"Ok", nil];
+//    [alert show];
+ 
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     // Navigation logic may go here. Create and push another view controller.
     /*

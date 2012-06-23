@@ -10,7 +10,7 @@
 
 @interface Author : NSObject
 
-@property (nonatomic,assign) int id;
+@property (nonatomic,assign) int identifier;
 
 @property (nonatomic,copy) NSString *slug;
 @property (nonatomic,copy) NSString *name;
@@ -21,7 +21,7 @@
 
 @property (nonatomic,copy) NSString *description;
 
-+ (id)authorWithId:(int)id
++ (id)authorWithId:(int)identifier
                 slug:(NSString *)slug
                 name:(NSString *)name
 

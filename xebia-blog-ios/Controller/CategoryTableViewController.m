@@ -28,9 +28,9 @@
 {
     [super viewDidLoad];
     
-    AppDelegate *delegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
     
-    categories = delegate.categories;
+    categories = appDelegate.categories;
     
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -56,8 +56,9 @@
         PostTableViewController *postTableViewController = [segue destinationViewController];
         Category *category = [self.categories objectAtIndex:[self.tableView indexPathForSelectedRow].row];
 
-        postTableViewController.slug = category.slug;
+        postTableViewController.identifier = category.identifier;
         postTableViewController.postType = CATEGORY;
+        postTableViewController.title = category.title;
     }
 }
 
@@ -85,6 +86,7 @@
     
     cell.textLabel.text = category.title;
 	cell.detailTextLabel.text = category.description;
+    
     return cell;
 }
 
@@ -129,13 +131,13 @@
     
     Category *category = [categories objectAtIndex:indexPath.row];
     
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:category.title 
-                                                    message:[NSString stringWithFormat:@"You selected '%@': %@", category.title, category.description] 
-                                                   delegate:nil 
-                                          cancelButtonTitle:nil 
-                                          otherButtonTitles:@"Ok", nil];
-    [alert show];
-    
+//    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:category.title 
+//                                                    message:[NSString stringWithFormat:@"You selected '%@': %@", category.title, category.description] 
+//                                                   delegate:nil 
+//                                          cancelButtonTitle:nil 
+//                                          otherButtonTitles:@"Ok", nil];
+//    [alert show];
+//    
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     // Navigation logic may go here. Create and push another view controller.
     /*

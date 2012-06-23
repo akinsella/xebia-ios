@@ -29,9 +29,9 @@
     [super viewDidLoad];
 
     
-    AppDelegate *delegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
     
-    tags = delegate.tags;
+    tags = appDelegate.tags;
 
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -52,12 +52,15 @@
 	return YES;
 }
 
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
     if ([[segue identifier] isEqualToString:@"showDetail"]) {
         PostTableViewController *postTableViewController = [segue destinationViewController];
         Tag *tag = [self.tags objectAtIndex:[self.tableView indexPathForSelectedRow].row];
-
-//        postTableViewController.posts = [[NSMutableArray alloc] init];
+        
+        postTableViewController.identifier = tag.identifier;
+        postTableViewController.postType = TAG;
+        postTableViewController.title = tag.title;
     }
 }
 
@@ -83,8 +86,11 @@
     
     Tag *tag = [self.tags objectAtIndex:indexPath.row];
     
+    NSLog(@"Row: %i: %@", indexPath.row, tag.title);
+    
     cell.textLabel.text = tag.title;
 	cell.detailTextLabel.text = tag.description;
+    
     return cell;
 }
 
@@ -129,12 +135,12 @@
     
     Tag *tag = [tags objectAtIndex:indexPath.row];
     
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:tag.title 
-                                                    message:[NSString stringWithFormat:@"You selected '%@': %@", tag.title, tag.description] 
-                                                   delegate:nil 
-                                          cancelButtonTitle:nil 
-                                          otherButtonTitles:@"Ok", nil];
-    [alert show];
+//    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:tag.title 
+//                                                    message:[NSString stringWithFormat:@"You selected '%@': %@", tag.title, tag.description] 
+//                                                   delegate:nil 
+//                                          cancelButtonTitle:nil 
+//                                          otherButtonTitles:@"Ok", nil];
+//    [alert show];
     
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     // Navigation logic may go here. Create and push another view controller.

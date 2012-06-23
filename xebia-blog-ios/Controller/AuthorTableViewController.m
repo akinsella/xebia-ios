@@ -28,9 +28,9 @@
 {
     [super viewDidLoad];
 
-    AppDelegate *delegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
     
-    authors = delegate.authors;
+    authors = appDelegate.authors;
     
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -56,7 +56,9 @@
         PostTableViewController *postTableViewController = [segue destinationViewController];
         Author *author = [self.authors objectAtIndex:[self.tableView indexPathForSelectedRow].row];
 
-//        postTableViewController.posts = [[NSMutableArray alloc] init];
+        postTableViewController.identifier = author.identifier;
+        postTableViewController.postType = AUTHOR;
+        postTableViewController.title = [NSString stringWithFormat:@"%@'s posts", author.name];
     }
 }
 
@@ -127,12 +129,12 @@
     
     Author *author = [authors objectAtIndex:indexPath.row];
     
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:author.name 
-                                                    message:[NSString stringWithFormat:@"You selected '%@'", author.name] 
-                                                   delegate:nil 
-                                          cancelButtonTitle:nil 
-                                          otherButtonTitles:@"Ok", nil];
-    [alert show];
+//    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:author.name 
+//                                                    message:[NSString stringWithFormat:@"You selected '%@'", author.name] 
+//                                                   delegate:nil 
+//                                          cancelButtonTitle:nil 
+//                                          otherButtonTitles:@"Ok", nil];
+//    [alert show];
 
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 

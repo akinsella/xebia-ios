@@ -10,17 +10,25 @@
 
 @implementation Post
 
-@synthesize id, title, description;
+@synthesize identifier, title, excerpt, date, modified, slug, type;
 
-+(id)postWithId:(int)id
++(id)postWithId:(int)identifier
           title:(NSString *)title
-    description:(NSString *)description
+        excerpt:(NSString *)excerpt
+           date:(NSString *)date
+       modified:(NSString *)modified
+           slug:(NSString *)slug
+           type:(NSString *)type
 {
     Post *post = [[self alloc] init];
 
-    post.id = id;
+    post.identifier = identifier;
     post.title = title;
-    post.description = description;
+    post.excerpt = excerpt;
+    post.date = date;
+    post.modified = modified;
+    post.slug = slug;
+    post.type = type;
 
     return post;
 }

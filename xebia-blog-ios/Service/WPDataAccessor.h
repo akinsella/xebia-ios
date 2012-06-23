@@ -24,6 +24,6 @@
 -(NSMutableArray *) fetchTags;
 -(NSMutableArray *) fetchCategories;
 -(NSMutableArray *) fetchAuthors;
--(NSMutableArray *) fetchPostsWithPostType:(POST_TYPE)postType andSlug:(NSString *)slug;
+-(NSMutableArray *) fetchPostsWithPostType:(POST_TYPE)postType andId:(int)identifier;
 
 @end
