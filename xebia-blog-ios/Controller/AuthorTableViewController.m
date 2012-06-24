@@ -14,6 +14,7 @@
 
 @implementation AuthorTableViewController {
     MBProgressHUD *HUD;
+    NSMutableDictionary *sections;
 }
 
 @synthesize authors;
@@ -30,7 +31,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
+    
+    sections = [[NSMutableDictionary alloc] init];
+    
 	HUD = [[MBProgressHUD alloc] initWithView:self.navigationController.view];
 	[self.navigationController.view addSubview:HUD];
 	
@@ -54,6 +57,45 @@
     [appDelegate updateAuthors];
     
     authors = appDelegate.authors;
+    
+    BOOL found;
+
+    [sections removeAllObjects];
+    
+    // Loop through the books and create our keys
+    for (Author *author in authors)
+    {
+        NSString *character = [[author name] substringToIndex:1];
+        
+        found = NO;
+        
+        for (NSString *section in [sections allKeys])
+        {
+            if ([section isEqualToString:character])
+            {
+                found = YES;
+            }
+        }
+        
+        if (!found)
+        {
+            [sections setValue:[[NSMutableArray alloc] init] forKey:character];
+        }
+    }
+    
+    // Loop again and sort the books into their respective keys
+    for (Author *author in authors)
+    {
+        [[sections objectForKey:[[author name] substringToIndex:1]] addObject:author];
+    }
+    
+    NSSortDescriptor *authorSort=[NSSortDescriptor sortDescriptorWithKey: @"name" ascending: YES selector: @selector(caseInsensitiveCompare:)];    
+
+    // Sort each section array
+    for (NSString *key in [sections allKeys])
+    {
+        [[sections objectForKey:key] sortUsingDescriptors:[NSArray arrayWithObject:authorSort]];
+    }
     
     [[self tableView] reloadData];    
 }
@@ -84,12 +126,21 @@
 #pragma mark - Table view data source
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 1;
+     return [[sections allKeys] count];
+}
+
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+{
+    return [[[sections allKeys] sortedArrayUsingSelector:@selector(localizedCaseInsensitiveCompare:)] objectAtIndex:section];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-	return authors.count;
+    return [[sections valueForKey:[[[sections allKeys] sortedArrayUsingSelector:@selector(localizedCaseInsensitiveCompare:)] objectAtIndex:section]] count];
+}
+
+- (NSArray *)sectionIndexTitlesForTableView:(UITableView *)tableView {
+    return [[sections allKeys] sortedArrayUsingSelector:@selector(localizedCaseInsensitiveCompare:)];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -101,8 +152,8 @@
         cell =  [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier: cellIdentifier];
     }
     
-    Author *author = [self.authors objectAtIndex:indexPath.row];
-    
+    Author *author = [[sections valueForKey:[[[sections allKeys] sortedArrayUsingSelector:@selector(localizedCaseInsensitiveCompare:)] objectAtIndex:indexPath.section]] objectAtIndex:indexPath.row];
+
     cell.textLabel.text = author.name;
     return cell;
 }
