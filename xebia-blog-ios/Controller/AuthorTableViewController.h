@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MBProgressHUD.h"
 
-@interface AuthorTableViewController : UITableViewController
+@interface AuthorTableViewController : UITableViewController<MBProgressHUDDelegate>
 
 @property (nonatomic, strong) NSMutableArray *authors;
 

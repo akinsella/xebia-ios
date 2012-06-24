@@ -10,8 +10,11 @@
 #import "PostTableViewController.h"
 #import "Author.h"
 #import "AppDelegate.h"
+#import "MBProgressHUD.h"
 
-@implementation AuthorTableViewController
+@implementation AuthorTableViewController {
+    MBProgressHUD *HUD;
+}
 
 @synthesize authors;
 
@@ -28,15 +31,31 @@
 {
     [super viewDidLoad];
 
-    AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+	HUD = [[MBProgressHUD alloc] initWithView:self.navigationController.view];
+	[self.navigationController.view addSubview:HUD];
+	
+	HUD.delegate = self;
+	HUD.labelText = @"Loading";
+	
+	[HUD showWhileExecuting:@selector(updateAuthors) onTarget:self withObject:nil animated:YES];
     
-    authors = appDelegate.authors;
     
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
- 
+    
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+}
+
+- (void)updateAuthors
+{
+    AppDelegate * appDelegate = [[UIApplication sharedApplication] delegate];
+    
+    [appDelegate updateAuthors];
+    
+    authors = appDelegate.authors;
+    
+    [[self tableView] reloadData];    
 }
 
 - (void)viewDidUnload

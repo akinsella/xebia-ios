@@ -18,6 +18,7 @@
 #import "Category.h"
 #import "Author.h"
 #import "Post.h"
+#import "MBProgressHUD.h"
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
@@ -25,21 +26,24 @@
 
 @property (strong, nonatomic) WPDataAccessor *wpDataAccessor;
 
-@property (strong, nonatomic) UITabBarController *tabBarController;
-
-@property (strong, nonatomic) UINavigationController *tagNavigationController;
-@property (strong, nonatomic) UINavigationController *authorNavigationController;
-@property (strong, nonatomic) UINavigationController *categoryNavigationController;
-
-@property (strong, nonatomic) AuthorTableViewController *authorTableViewController;
-@property (strong, nonatomic) TagTableViewController *tagTableViewController;
-@property (strong, nonatomic) CategoryTableViewController *categoryTableViewController;
+//@property (strong, nonatomic) UITabBarController *tabBarController;
+//
+//@property (strong, nonatomic) UINavigationController *tagNavigationController;
+//@property (strong, nonatomic) UINavigationController *authorNavigationController;
+//@property (strong, nonatomic) UINavigationController *categoryNavigationController;
+//
+//@property (strong, nonatomic) AuthorTableViewController *authorTableViewController;
+//@property (strong, nonatomic) TagTableViewController *tagTableViewController;
+//@property (strong, nonatomic) CategoryTableViewController *categoryTableViewController;
 
 @property (strong, nonatomic) NSMutableArray *tags;
 @property (strong, nonatomic) NSMutableArray *categories;
 @property (strong, nonatomic) NSMutableArray *authors;
 @property (strong, nonatomic) NSMutableArray *posts;
 
+- (void)updateAuthors;
+- (void)updateCategories;
+- (void)updateTags;
 - (void) updatePostsWithPostType:(POST_TYPE)postType andId:(int)identifier;
 
 @end

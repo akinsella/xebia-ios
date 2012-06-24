@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		54693208159130F7005B369D /* third@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 54693206159130F7005B369D /* third@2x.png */; };
-		54693209159130F7005B369D /* thrid.png in Resources */ = {isa = PBXBuildFile; fileRef = 54693207159130F7005B369D /* thrid.png */; };
 		546932111591317F005B369D /* AuthorTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 546932101591317F005B369D /* AuthorTableViewController.m */; };
 		54806F97158FE03E00C366DA /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54806F96158FE03E00C366DA /* UIKit.framework */; };
 		54806F99158FE03E00C366DA /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54806F98158FE03E00C366DA /* Foundation.framework */; };
@@ -21,10 +19,6 @@
 		54806FBF158FE03E00C366DA /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 54806FBD158FE03E00C366DA /* InfoPlist.strings */; };
 		54806FC2158FE03E00C366DA /* xebia_blog_iosTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 54806FC1158FE03E00C366DA /* xebia_blog_iosTests.m */; };
 		54806FFB158FE35E00C366DA /* WPDataAccessor.m in Sources */ = {isa = PBXBuildFile; fileRef = 54806FFA158FE35E00C366DA /* WPDataAccessor.m */; };
-		54807003158FE38D00C366DA /* first.png in Resources */ = {isa = PBXBuildFile; fileRef = 54806FFF158FE38D00C366DA /* first.png */; };
-		54807004158FE38D00C366DA /* first@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 54807000158FE38D00C366DA /* first@2x.png */; };
-		54807005158FE38D00C366DA /* second.png in Resources */ = {isa = PBXBuildFile; fileRef = 54807001158FE38D00C366DA /* second.png */; };
-		54807006158FE38D00C366DA /* second@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 54807002158FE38D00C366DA /* second@2x.png */; };
 		54807008158FE3CC00C366DA /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 54807007158FE3CC00C366DA /* MainStoryboard.storyboard */; };
 		54807011158FE50200C366DA /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 54807010158FE50200C366DA /* AppDelegate.m */; };
 		5480701A158FE55E00C366DA /* Author.m in Sources */ = {isa = PBXBuildFile; fileRef = 54807013158FE55E00C366DA /* Author.m */; };
@@ -36,6 +30,17 @@
 		5480702A158FE57C00C366DA /* PostTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 54807024158FE57C00C366DA /* PostTableViewController.m */; };
 		5480702C158FE57C00C366DA /* TagTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 54807028158FE57C00C366DA /* TagTableViewController.m */; };
 		548070331590F9F300C366DA /* CategoryTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 548070311590F9F300C366DA /* CategoryTableViewController.m */; };
+		548D2F03159666AE009B3322 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 548D2F02159666AE009B3322 /* MBProgressHUD.m */; };
+		548D2F0F159674A9009B3322 /* 15-tags.png in Resources */ = {isa = PBXBuildFile; fileRef = 548D2F09159674A9009B3322 /* 15-tags.png */; };
+		548D2F10159674A9009B3322 /* 15-tags@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 548D2F0A159674A9009B3322 /* 15-tags@2x.png */; };
+		548D2F11159674A9009B3322 /* 44-shoebox.png in Resources */ = {isa = PBXBuildFile; fileRef = 548D2F0B159674A9009B3322 /* 44-shoebox.png */; };
+		548D2F12159674A9009B3322 /* 44-shoebox@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 548D2F0C159674A9009B3322 /* 44-shoebox@2x.png */; };
+		548D2F13159674A9009B3322 /* 112-group.png in Resources */ = {isa = PBXBuildFile; fileRef = 548D2F0D159674A9009B3322 /* 112-group.png */; };
+		548D2F14159674A9009B3322 /* 112-group@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 548D2F0E159674A9009B3322 /* 112-group@2x.png */; };
+		548D2F2815968A9E009B3322 /* splash-iphone-portrait@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 548D2F2515968A9E009B3322 /* splash-iphone-portrait@2x.png */; };
+		548D2F2915968A9E009B3322 /* splash-iphone-portrait.png in Resources */ = {isa = PBXBuildFile; fileRef = 548D2F2615968A9E009B3322 /* splash-iphone-portrait.png */; };
+		548D2F32159691F5009B3322 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 548D2F31159691F5009B3322 /* Default@2x.png */; };
+		548D2F34159691F9009B3322 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 548D2F33159691F8009B3322 /* Default.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,8 +54,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		54693206159130F7005B369D /* third@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "third@2x.png"; sourceTree = "<group>"; };
-		54693207159130F7005B369D /* thrid.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = thrid.png; sourceTree = "<group>"; };
 		5469320F1591317F005B369D /* AuthorTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AuthorTableViewController.h; path = Controller/AuthorTableViewController.h; sourceTree = "<group>"; };
 		546932101591317F005B369D /* AuthorTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AuthorTableViewController.m; path = Controller/AuthorTableViewController.m; sourceTree = "<group>"; };
 		54806F92158FE03E00C366DA /* xebia-blog-ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "xebia-blog-ios.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -69,10 +72,6 @@
 		54806FC1158FE03E00C366DA /* xebia_blog_iosTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = xebia_blog_iosTests.m; sourceTree = "<group>"; };
 		54806FF9158FE35E00C366DA /* WPDataAccessor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WPDataAccessor.h; sourceTree = "<group>"; };
 		54806FFA158FE35E00C366DA /* WPDataAccessor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WPDataAccessor.m; sourceTree = "<group>"; };
-		54806FFF158FE38D00C366DA /* first.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = first.png; sourceTree = "<group>"; };
-		54807000158FE38D00C366DA /* first@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "first@2x.png"; sourceTree = "<group>"; };
-		54807001158FE38D00C366DA /* second.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = second.png; sourceTree = "<group>"; };
-		54807002158FE38D00C366DA /* second@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "second@2x.png"; sourceTree = "<group>"; };
 		54807007158FE3CC00C366DA /* MainStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MainStoryboard.storyboard; sourceTree = "<group>"; };
 		5480700F158FE50200C366DA /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = Delegate/AppDelegate.h; sourceTree = "<group>"; };
 		54807010158FE50200C366DA /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = Delegate/AppDelegate.m; sourceTree = "<group>"; };
@@ -94,6 +93,18 @@
 		54807028158FE57C00C366DA /* TagTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TagTableViewController.m; path = Controller/TagTableViewController.m; sourceTree = "<group>"; };
 		548070311590F9F300C366DA /* CategoryTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CategoryTableViewController.m; path = Controller/CategoryTableViewController.m; sourceTree = "<group>"; };
 		548070321590F9F300C366DA /* CategoryTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CategoryTableViewController.h; path = Controller/CategoryTableViewController.h; sourceTree = "<group>"; };
+		548D2F01159666AE009B3322 /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
+		548D2F02159666AE009B3322 /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
+		548D2F09159674A9009B3322 /* 15-tags.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "15-tags.png"; sourceTree = "<group>"; };
+		548D2F0A159674A9009B3322 /* 15-tags@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "15-tags@2x.png"; sourceTree = "<group>"; };
+		548D2F0B159674A9009B3322 /* 44-shoebox.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "44-shoebox.png"; sourceTree = "<group>"; };
+		548D2F0C159674A9009B3322 /* 44-shoebox@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "44-shoebox@2x.png"; sourceTree = "<group>"; };
+		548D2F0D159674A9009B3322 /* 112-group.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "112-group.png"; sourceTree = "<group>"; };
+		548D2F0E159674A9009B3322 /* 112-group@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "112-group@2x.png"; sourceTree = "<group>"; };
+		548D2F2515968A9E009B3322 /* splash-iphone-portrait@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "splash-iphone-portrait@2x.png"; path = "../Splash/splash-iphone-portrait@2x.png"; sourceTree = "<group>"; };
+		548D2F2615968A9E009B3322 /* splash-iphone-portrait.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "splash-iphone-portrait.png"; path = "../Splash/splash-iphone-portrait.png"; sourceTree = "<group>"; };
+		548D2F31159691F5009B3322 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		548D2F33159691F8009B3322 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,6 +134,8 @@
 		54806F87158FE03E00C366DA = {
 			isa = PBXGroup;
 			children = (
+				548D2F33159691F8009B3322 /* Default.png */,
+				548D2F31159691F5009B3322 /* Default@2x.png */,
 				54806F9C158FE03E00C366DA /* xebia-blog-ios */,
 				54806FBA158FE03E00C366DA /* xebia-blog-iosTests */,
 				54806F95158FE03E00C366DA /* Frameworks */,
@@ -198,6 +211,8 @@
 		54806FCB158FE16100C366DA /* Library */ = {
 			isa = PBXGroup;
 			children = (
+				548D2F01159666AE009B3322 /* MBProgressHUD.h */,
+				548D2F02159666AE009B3322 /* MBProgressHUD.m */,
 				5480701E158FE56C00C366DA /* JSONKit.h */,
 				5480701F158FE56C00C366DA /* JSONKit.m */,
 			);
@@ -256,12 +271,14 @@
 		54806FFE158FE38D00C366DA /* Image */ = {
 			isa = PBXGroup;
 			children = (
-				54693206159130F7005B369D /* third@2x.png */,
-				54693207159130F7005B369D /* thrid.png */,
-				54806FFF158FE38D00C366DA /* first.png */,
-				54807000158FE38D00C366DA /* first@2x.png */,
-				54807001158FE38D00C366DA /* second.png */,
-				54807002158FE38D00C366DA /* second@2x.png */,
+				548D2F2515968A9E009B3322 /* splash-iphone-portrait@2x.png */,
+				548D2F2615968A9E009B3322 /* splash-iphone-portrait.png */,
+				548D2F09159674A9009B3322 /* 15-tags.png */,
+				548D2F0A159674A9009B3322 /* 15-tags@2x.png */,
+				548D2F0B159674A9009B3322 /* 44-shoebox.png */,
+				548D2F0C159674A9009B3322 /* 44-shoebox@2x.png */,
+				548D2F0D159674A9009B3322 /* 112-group.png */,
+				548D2F0E159674A9009B3322 /* 112-group@2x.png */,
 			);
 			path = Image;
 			sourceTree = "<group>";
@@ -346,13 +363,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				54806FA1158FE03E00C366DA /* InfoPlist.strings in Resources */,
-				54807003158FE38D00C366DA /* first.png in Resources */,
-				54807004158FE38D00C366DA /* first@2x.png in Resources */,
-				54807005158FE38D00C366DA /* second.png in Resources */,
-				54807006158FE38D00C366DA /* second@2x.png in Resources */,
 				54807008158FE3CC00C366DA /* MainStoryboard.storyboard in Resources */,
-				54693208159130F7005B369D /* third@2x.png in Resources */,
-				54693209159130F7005B369D /* thrid.png in Resources */,
+				548D2F0F159674A9009B3322 /* 15-tags.png in Resources */,
+				548D2F10159674A9009B3322 /* 15-tags@2x.png in Resources */,
+				548D2F11159674A9009B3322 /* 44-shoebox.png in Resources */,
+				548D2F12159674A9009B3322 /* 44-shoebox@2x.png in Resources */,
+				548D2F13159674A9009B3322 /* 112-group.png in Resources */,
+				548D2F14159674A9009B3322 /* 112-group@2x.png in Resources */,
+				548D2F2815968A9E009B3322 /* splash-iphone-portrait@2x.png in Resources */,
+				548D2F2915968A9E009B3322 /* splash-iphone-portrait.png in Resources */,
+				548D2F32159691F5009B3322 /* Default@2x.png in Resources */,
+				548D2F34159691F9009B3322 /* Default.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -400,6 +421,7 @@
 				5480702C158FE57C00C366DA /* TagTableViewController.m in Sources */,
 				548070331590F9F300C366DA /* CategoryTableViewController.m in Sources */,
 				546932111591317F005B369D /* AuthorTableViewController.m in Sources */,
+				548D2F03159666AE009B3322 /* MBProgressHUD.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

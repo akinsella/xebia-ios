@@ -10,8 +10,11 @@
 #import "PostTableViewController.h"
 #import "Tag.h"
 #import "AppDelegate.h"
+#import "MBProgressHUD.h"
 
-@implementation TagTableViewController
+@implementation TagTableViewController {
+    MBProgressHUD *HUD;
+}
 
 @synthesize tags;
 
@@ -27,17 +30,32 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
+  
+	HUD = [[MBProgressHUD alloc] initWithView:self.navigationController.view];
+	[self.navigationController.view addSubview:HUD];
+	
+	HUD.delegate = self;
+	HUD.labelText = @"Loading";
+	
+	[HUD showWhileExecuting:@selector(updateTags) onTarget:self withObject:nil animated:YES];
     
-    AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
     
-    tags = appDelegate.tags;
-
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
- 
+    
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+}
+
+- (void)updateTags
+{
+    AppDelegate * appDelegate = [[UIApplication sharedApplication] delegate];
+    
+    [appDelegate updateTags];
+    
+    tags = appDelegate.tags;
+    
+    [[self tableView] reloadData];    
 }
 
 - (void)viewDidUnload

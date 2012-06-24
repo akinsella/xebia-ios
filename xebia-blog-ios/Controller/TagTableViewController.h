@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MBProgressHUD.h"
 
-@interface TagTableViewController : UITableViewController
+@interface TagTableViewController : UITableViewController<MBProgressHUDDelegate>
 
 @property (nonatomic, strong) NSMutableArray *tags;
 

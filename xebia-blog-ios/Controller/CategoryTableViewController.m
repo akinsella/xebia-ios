@@ -10,8 +10,11 @@
 #import "PostTableViewController.h"
 #import "Category.h"
 #import "AppDelegate.h"
+#import "MBProgressHUD.h"
 
-@implementation CategoryTableViewController
+@implementation CategoryTableViewController {
+    MBProgressHUD *HUD;
+}
 
 @synthesize categories;
 
@@ -28,15 +31,31 @@
 {
     [super viewDidLoad];
     
-    AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+	HUD = [[MBProgressHUD alloc] initWithView:self.navigationController.view];
+	[self.navigationController.view addSubview:HUD];
+	
+	HUD.delegate = self;
+	HUD.labelText = @"Loading";
+	
+	[HUD showWhileExecuting:@selector(updateCategories) onTarget:self withObject:nil animated:YES];
     
-    categories = appDelegate.categories;
     
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
- 
+    
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+}
+
+- (void)updateCategories
+{
+    AppDelegate * appDelegate = [[UIApplication sharedApplication] delegate];
+    
+    [appDelegate updateCategories];
+    
+    categories = appDelegate.categories;
+    
+    [[self tableView] reloadData];    
 }
 
 - (void)viewDidUnload

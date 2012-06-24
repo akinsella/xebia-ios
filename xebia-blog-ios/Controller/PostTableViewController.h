@@ -8,13 +8,14 @@
 
 #import <UIKit/UIKit.h>
 #import "Post.h"
+#import "MBProgressHUD.h"
 
-@interface PostTableViewController : UITableViewController
+@interface PostTableViewController : UITableViewController<MBProgressHUDDelegate> {
+    MBProgressHUD *HUD;
+}
 
 @property (nonatomic, strong) NSMutableArray *posts;
-
 @property (nonatomic, assign) POST_TYPE postType;
-
 @property (nonatomic, assign) int identifier;
 
 @end

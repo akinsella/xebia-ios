@@ -53,7 +53,7 @@
                     <navigationItem key="navigationItem" title="Tags" id="DxH-MZ-HDT"/>
                 </viewController>
             </objects>
-            <point key="canvasLocation" x="3063" y="764"/>
+            <point key="canvasLocation" x="-881" y="-1738"/>
         </scene>
         <!--Post Table View Controller - Posts-->
         <scene sceneID="vxA-EQ-xQk">
@@ -102,7 +102,7 @@
                     <navigationItem key="navigationItem" title="Posts" id="Uj7-po-VMe"/>
                 </tableViewController>
             </objects>
-            <point key="canvasLocation" x="3602" y="1446"/>
+            <point key="canvasLocation" x="-342" y="-1056"/>
         </scene>
         <!--DetailView-->
         <scene sceneID="DQn-As-ncM">
@@ -145,7 +145,7 @@
                     <navigationItem key="navigationItem" title="Blog Entry" id="Imr-tI-TJS"/>
                 </viewController>
             </objects>
-            <point key="canvasLocation" x="4084" y="1446"/>
+            <point key="canvasLocation" x="140" y="-1056"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="15">
@@ -166,14 +166,14 @@
                     </connections>
                 </tabBarController>
             </objects>
-            <point key="canvasLocation" x="1993" y="1446"/>
+            <point key="canvasLocation" x="-1951" y="-1056"/>
         </scene>
         <!--Navigation Controller - Tags-->
         <scene sceneID="arv-lu-QKv">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HoJ-iX-mcd" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController id="SeP-GR-Ool" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Tags" image="first" id="7"/>
+                    <tabBarItem key="tabBarItem" title="Tags" image="15-tags.png" id="7"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="x40-7k-gLA">
                         <rect key="frame" x="0.0" y="0.0" width="768" height="44"/>
@@ -189,7 +189,7 @@
                     </connections>
                 </navigationController>
             </objects>
-            <point key="canvasLocation" x="2538" y="764"/>
+            <point key="canvasLocation" x="-1406" y="-1738"/>
         </scene>
         <!--Category Table View Controller - Categories-->
         <scene sceneID="IWO-Ag-9mP">
@@ -238,14 +238,14 @@
                     <navigationItem key="navigationItem" title="Categories" id="m4N-Fb-2EW"/>
                 </viewController>
             </objects>
-            <point key="canvasLocation" x="3063" y="1446"/>
+            <point key="canvasLocation" x="-881" y="-1056"/>
         </scene>
         <!--Navigation Controller - Categories-->
         <scene sceneID="tbF-5J-Bjs">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uqH-iI-6Mn" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController id="DCI-og-SdV" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Categories" image="second" id="V18-5V-QDU"/>
+                    <tabBarItem key="tabBarItem" title="Categories" image="44-shoebox.png" id="V18-5V-QDU"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="yYy-xw-HZG">
                         <rect key="frame" x="0.0" y="0.0" width="768" height="44"/>
@@ -261,7 +261,7 @@
                     </connections>
                 </navigationController>
             </objects>
-            <point key="canvasLocation" x="2546" y="1446"/>
+            <point key="canvasLocation" x="-1398" y="-1056"/>
         </scene>
         <!--Author Table View Controller - Authors-->
         <scene sceneID="iO1-hm-EY5">
@@ -303,14 +303,14 @@
                     <navigationItem key="navigationItem" title="Authors" id="02C-YL-AVM"/>
                 </viewController>
             </objects>
-            <point key="canvasLocation" x="3063" y="2162"/>
+            <point key="canvasLocation" x="-881" y="-340"/>
         </scene>
         <!--Navigation Controller - Authors-->
         <scene sceneID="NQC-O6-cMg">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bMi-1G-AGy" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController id="0G8-Ue-pVg" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Authors" image="thrid.png" id="wIs-vF-cWO"/>
+                    <tabBarItem key="tabBarItem" title="Authors" image="112-group.png" id="wIs-vF-cWO"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="nLB-bE-f7I">
                         <rect key="frame" x="0.0" y="0.0" width="768" height="44"/>
@@ -326,13 +326,13 @@
                     </connections>
                 </navigationController>
             </objects>
-            <point key="canvasLocation" x="2546" y="2162"/>
+            <point key="canvasLocation" x="-1398" y="-340"/>
         </scene>
     </scenes>
     <resources>
-        <image name="first" width="16" height="16"/>
-        <image name="second" width="16" height="16"/>
-        <image name="thrid.png" width="30" height="30"/>
+        <image name="112-group.png" width="32" height="21"/>
+        <image name="15-tags.png" width="24" height="25"/>
+        <image name="44-shoebox.png" width="24" height="22"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>

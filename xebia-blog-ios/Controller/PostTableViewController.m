@@ -28,18 +28,31 @@
 {
     [super viewDidLoad];
         
-    AppDelegate * appDelegate = [[UIApplication sharedApplication] delegate];
-    [appDelegate updatePostsWithPostType:postType andId:identifier];
-    
-    posts = appDelegate.posts;
-    
-    [[self tableView] reloadData];
+	HUD = [[MBProgressHUD alloc] initWithView:self.navigationController.view];
+	[self.navigationController.view addSubview:HUD];
+	
+	HUD.delegate = self;
+	HUD.labelText = @"Loading";
+	
+	[HUD showWhileExecuting:@selector(updatePosts) onTarget:self withObject:nil animated:YES];
 
+    
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
  
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+}
+
+- (void)updatePosts
+{
+    AppDelegate * appDelegate = [[UIApplication sharedApplication] delegate];
+
+    [appDelegate updatePostsWithPostType:postType andId:identifier];
+    
+    posts = appDelegate.posts;
+    
+    [[self tableView] reloadData];    
 }
 
 - (void)viewDidUnload
