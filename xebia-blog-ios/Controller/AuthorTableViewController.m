@@ -15,9 +15,10 @@
 @implementation AuthorTableViewController {
     MBProgressHUD *HUD;
     NSMutableDictionary *sections;
+    NSString *filterValue;
 }
 
-@synthesize authors;
+@synthesize authors, filteredAuthors, searchBar;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -31,6 +32,12 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    filteredAuthors = [[NSMutableArray alloc] init];
+    
+    // ...Do initialization stuff here...
+    
+    searchBar.delegate = (id)self;
     
     sections = [[NSMutableDictionary alloc] init];
     
@@ -50,20 +57,59 @@
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
+
+-(void)searchBar:(UISearchBar*)searchBar textDidChange:(NSString*)text
+{
+    filterValue = text;
+    [self prepareData];
+}
+
 - (void)updateAuthors
 {
     AppDelegate * appDelegate = [[UIApplication sharedApplication] delegate];
     
-    [appDelegate updateAuthors];
     
+    [appDelegate updateAuthors];
     authors = appDelegate.authors;
     
-    BOOL found;
+    [self prepareData];
+}
 
+-(void)filterAuthors
+{
+    [filteredAuthors removeAllObjects];
+    
+    for (Author* author in authors)
+    {
+        if(filterValue.length == 0){
+            [filteredAuthors addObject:author]; 
+        }
+        else {
+            NSRange nameRange = [author.name rangeOfString:filterValue options:NSCaseInsensitiveSearch];
+            if(nameRange.location != NSNotFound)
+            {
+                [filteredAuthors addObject:author];
+            }
+        }
+    }
+    
+    NSLog(@"Authors found with filter: %@", filterValue);
+    for (Author* author in filteredAuthors)
+    {
+        NSLog(@" * %@", author.name);
+    }
+}
+
+-(void) prepareData {
+    
+    [self filterAuthors];
+    
+    BOOL found;
+    
     [sections removeAllObjects];
     
-    // Loop through the books and create our keys
-    for (Author *author in authors)
+    // Loop through the authors and create our keys
+    for (Author *author in filteredAuthors)
     {
         NSString *character = [[author name] substringToIndex:1];
         
@@ -82,15 +128,15 @@
             [sections setValue:[[NSMutableArray alloc] init] forKey:character];
         }
     }
-    
+        
     // Loop again and sort the books into their respective keys
-    for (Author *author in authors)
+    for (Author *author in filteredAuthors)
     {
         [[sections objectForKey:[[author name] substringToIndex:1]] addObject:author];
     }
     
     NSSortDescriptor *authorSort=[NSSortDescriptor sortDescriptorWithKey: @"name" ascending: YES selector: @selector(caseInsensitiveCompare:)];    
-
+    
     // Sort each section array
     for (NSString *key in [sections allKeys])
     {
@@ -98,6 +144,7 @@
     }
     
     [[self tableView] reloadData];    
+    
 }
 
 - (void)viewDidUnload
@@ -115,7 +162,7 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([[segue identifier] isEqualToString:@"showDetail"]) {
         PostTableViewController *postTableViewController = [segue destinationViewController];
-        Author *author = [self.authors objectAtIndex:[self.tableView indexPathForSelectedRow].row];
+        Author *author = [filteredAuthors objectAtIndex:[self.tableView indexPathForSelectedRow].row];
 
         postTableViewController.identifier = author.identifier;
         postTableViewController.postType = AUTHOR;
@@ -171,7 +218,8 @@
 {
 	if (editingStyle == UITableViewCellEditingStyleDelete)
 	{
-		[self.authors removeObjectAtIndex:indexPath.row];
+		[filteredAuthors removeObjectAtIndex:indexPath.row];   
+        
 		[tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
 	}   
 }
@@ -197,7 +245,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     
-    Author *author = [authors objectAtIndex:indexPath.row];
+    Author *author = [filteredAuthors objectAtIndex:indexPath.row];
     
 //    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:author.name 
 //                                                    message:[NSString stringWithFormat:@"You selected '%@'", author.name] 

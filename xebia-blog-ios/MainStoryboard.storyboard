@@ -272,9 +272,14 @@
                         <rect key="frame" x="0.0" y="64" width="320" height="367"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <searchBar key="tableHeaderView" contentMode="redraw" id="ybj-ve-xH3">
+                            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            <textInputTraits key="textInputTraits"/>
+                        </searchBar>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="AuthorCell" textLabel="j5a-4H-EFz" style="IBUITableViewCellStyleDefault" id="Lhj-RH-tTf" userLabel="AuthorTableCell">
-                                <rect key="frame" x="0.0" y="22" width="320" height="44"/>
+                                <rect key="frame" x="0.0" y="66" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                     <rect key="frame" x="0.0" y="0.0" width="300" height="43"/>
@@ -301,6 +306,9 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Authors" id="02C-YL-AVM"/>
+                    <connections>
+                        <outlet property="searchBar" destination="ybj-ve-xH3" id="egS-8d-ddN"/>
+                    </connections>
                 </viewController>
             </objects>
             <point key="canvasLocation" x="-881" y="-340"/>
@@ -334,6 +342,30 @@
         <image name="15-tags.png" width="24" height="25"/>
         <image name="44-shoebox.png" width="24" height="22"/>
     </resources>
+    <classes>
+        <class className="AuthorTableViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/AuthorTableViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="searchBar" candidateClass="UISearchBar"/>
+            </relationships>
+        </class>
+        <class className="CategoryTableViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/CategoryTableViewController.h"/>
+        </class>
+        <class className="DetailPostViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/DetailPostViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="descriptionTextField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="titleTextField" candidateClass="UITextField"/>
+            </relationships>
+        </class>
+        <class className="PostTableViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/PostTableViewController.h"/>
+        </class>
+        <class className="TagTableViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/TagTableViewController.h"/>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
