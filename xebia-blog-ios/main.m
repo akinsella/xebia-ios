@@ -3,7 +3,7 @@
 //  xebia-blog-ios
 //
 //  Created by Alexis Kinsella on 19/06/12.
-//  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
+//  Copyright (c) 2012 Xebia France. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>

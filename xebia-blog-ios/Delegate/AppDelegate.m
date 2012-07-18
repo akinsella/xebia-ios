@@ -1,15 +1,12 @@
 //
 //  AppDelegate.m
-//  StoryboardUITableViewTutorial
+//  Xebia Application
 //
 //  Created by Alexis Kinsella on 10/06/12.
-//  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
+//  Copyright (c) 2012 Xebia France. All rights reserved.
 //
 
 #import "AppDelegate.h"
-//#import "TagTableViewController.h"
-//#import "CategoryTableViewController.h"
-//#import "AuthorTableViewController.h"
 #import "WPDataAccessor.h"
 #import "Tag.h"
 #import "Category.h"
@@ -20,17 +17,6 @@
 @implementation AppDelegate
 
 @synthesize window = _window;
-
-// @synthesize tabBarController = _tabBarController;
-
-//@synthesize authorTableViewController = _authorTableViewController;
-//@synthesize tagTableViewController = _tagTableViewController;
-//@synthesize categoryTableViewController = _categoryTableViewController;
-//
-//@synthesize authorNavigationController = _authorNavigationController;
-//@synthesize tagNavigationController = _tagNavigationController;
-//@synthesize categoryNavigationController = _categoryNavigationController;
-
 @synthesize wpDataAccessor = _wpDataAccessor;
 
 @synthesize tags = _tags;
@@ -46,9 +32,9 @@
     return YES;
 }
 
-- (void)updatePostsWithPostType:(POST_TYPE)postType andId:(int)identifier
+- (void)updatePostsWithPostType:(POST_TYPE)postType Id:(int)identifier Count:(int)count
 {
-    self.posts = [self.wpDataAccessor fetchPostsWithPostType:postType andId:identifier];
+    self.posts = [self.wpDataAccessor fetchPostsWithPostType:postType Id:identifier Count:count];
 }
 
 - (void)updateAuthors

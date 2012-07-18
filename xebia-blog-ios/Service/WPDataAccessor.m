@@ -1,9 +1,9 @@
 //
 //  WPDataAccessor.m
-//  StoryboardUITableViewTutorial
+//  Xebia Application
 //
 //  Created by Alexis Kinsella on 18/06/12.
-//  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
+//  Copyright (c) 2012 Xebia France. All rights reserved.
 //
 
 #import "WPDataAccessor.h"
@@ -62,10 +62,10 @@ errorExit:
     return items;
 }
 
-- (NSMutableArray *)fetchPostsWithPostType:(POST_TYPE)postType andId:(int)identifier
+- (NSMutableArray *)fetchPostsWithPostType:(POST_TYPE)postType Id:(int)identifier Count:(int)count
 {
     NSString *postTypeStr = [self getPostTypeAsString:postType];
-    NSString *postUrlPath = [NSString stringWithFormat:@"/get_%@_posts/?id=%i", postTypeStr, identifier];
+    NSString *postUrlPath = [NSString stringWithFormat:@"/get_%@_posts/?id=%i&count=%i", postTypeStr, identifier, count];
     
     NSArray *jsonPosts = [self fetchIndexData:postUrlPath data:@"posts"];
     

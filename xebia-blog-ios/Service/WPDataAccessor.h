@@ -1,9 +1,9 @@
 //
 //  WPDataAccessor.h
-//  StoryboardUITableViewTutorial
+//  Xebia Application
 //
 //  Created by Alexis Kinsella on 18/06/12.
-//  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
+//  Copyright (c) 2012 Xebia France. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
@@ -24,6 +24,6 @@
 -(NSMutableArray *) fetchTags;
 -(NSMutableArray *) fetchCategories;
 -(NSMutableArray *) fetchAuthors;
--(NSMutableArray *) fetchPostsWithPostType:(POST_TYPE)postType andId:(int)identifier;
+-(NSMutableArray *) fetchPostsWithPostType:(POST_TYPE)postType Id:(int)identifier Count:(int)count;
 
 @end

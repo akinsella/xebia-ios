@@ -3,7 +3,7 @@
 //  StoryboardTutorial
 //
 //  Created by Kurry Tran on 10/20/11.
-//  Copyright (c) 2011 __MyCompanyName__. All rights reserved.
+//  Copyright (c) 2011 Xebia France. All rights reserved.
 //
 
 #import "DetailPostViewController.h"

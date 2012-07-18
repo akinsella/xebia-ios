@@ -4,6 +4,7 @@
     <list default="true" id="802c1044-6c95-450b-8c92-d8a7ebe25214" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/xebia-blog-ios.xcodeproj/project.xcworkspace/xcuserdata/akinsella.xcuserdatad/UserInterfaceState.xcuserstate" afterPath="$PROJECT_DIR$/xebia-blog-ios.xcodeproj/project.xcworkspace/xcuserdata/akinsella.xcuserdatad/UserInterfaceState.xcuserstate" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/xebia-blog-ios/Delegate/AppDelegate.m" afterPath="$PROJECT_DIR$/xebia-blog-ios/Delegate/AppDelegate.m" />
     </list>
     <ignored path="xebia-blog-ios.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -73,7 +74,7 @@
       <file leaf-file-name="AuthorTableViewController.m" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/xebia-blog-ios/Controller/AuthorTableViewController.m">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="149" column="4" selection-start="4550" selection-end="4550" vertical-scroll-proportion="0.0">
+            <state line="149" column="4" selection-start="3760" selection-end="3760" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -109,9 +110,11 @@
       <file leaf-file-name="AppDelegate.m" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/xebia-blog-ios/Delegate/AppDelegate.m">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="61" column="0" selection-start="1944" selection-end="1944" vertical-scroll-proportion="0.017473118">
+            <state line="48" column="0" selection-start="1329" selection-end="1329" vertical-scroll-proportion="0.83870965">
               <folding>
-                <marker date="1340498754000" expanded="true" signature="3290:4909" placeholder="..." />
+                <element signature="e#152#175#0" expanded="true" />
+                <element signature="e#332#361#0" expanded="true" />
+                <marker date="1342475516000" expanded="true" signature="2673:4292" placeholder="..." />
               </folding>
             </state>
           </provider>
@@ -493,7 +496,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/xebia-blog-ios/Controller/AuthorTableViewController.m">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="149" column="4" selection-start="4550" selection-end="4550" vertical-scroll-proportion="0.0" />
+        <state line="149" column="4" selection-start="3760" selection-end="3760" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/xebia-blog-ios/Controller/CategoryTableViewController.m">
@@ -523,9 +526,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/xebia-blog-ios/Delegate/AppDelegate.m">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="61" column="0" selection-start="1944" selection-end="1944" vertical-scroll-proportion="0.017473118">
+        <state line="48" column="0" selection-start="1329" selection-end="1329" vertical-scroll-proportion="0.83870965">
           <folding>
-            <marker date="1340498754000" expanded="true" signature="3290:4909" placeholder="..." />
+            <element signature="e#152#175#0" expanded="true" />
+            <element signature="e#332#361#0" expanded="true" />
+            <marker date="1342475516000" expanded="true" signature="2673:4292" placeholder="..." />
           </folding>
         </state>
       </provider>
