@@ -9,11 +9,11 @@
 #import <UIKit/UIKit.h>
 #import "MBProgressHUD.h"
 
-@interface AuthorTableViewController : UITableViewController<MBProgressHUDDelegate>;
+@interface AuthorTableViewController : UITableViewController <MBProgressHUDDelegate>;
 
-@property (nonatomic, strong) NSMutableArray *authors;
-@property (strong, nonatomic) NSMutableArray *filteredAuthors;
-@property (nonatomic, strong) IBOutlet UISearchBar *searchBar;
+@property(nonatomic, strong) NSMutableArray *authors;
+@property(strong, nonatomic) NSMutableArray *filteredAuthors;
+@property(nonatomic, strong) IBOutlet UISearchBar *searchBar;
 
 
 @end

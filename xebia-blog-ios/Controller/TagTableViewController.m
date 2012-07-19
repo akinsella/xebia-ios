@@ -18,8 +18,7 @@
 
 @synthesize tags;
 
-- (id)initWithStyle:(UITableViewStyle)style
-{
+- (id)initWithStyle:(UITableViewStyle)style {
     self = [super initWithStyle:style];
     if (self) {
         // Custom initialization
@@ -27,55 +26,50 @@
     return self;
 }
 
-- (void)viewDidLoad
-{
+- (void)viewDidLoad {
     [super viewDidLoad];
-  
-	HUD = [[MBProgressHUD alloc] initWithView:self.navigationController.view];
-	[self.navigationController.view addSubview:HUD];
-	
-	HUD.delegate = self;
-	HUD.labelText = @"Loading";
-	
-	[HUD showWhileExecuting:@selector(updateTags) onTarget:self withObject:nil animated:YES];
-    
-    
+
+    HUD = [[MBProgressHUD alloc] initWithView:self.navigationController.view];
+    [self.navigationController.view addSubview:HUD];
+
+    HUD.delegate = self;
+    HUD.labelText = @"Loading";
+
+    [HUD showWhileExecuting:@selector(updateTags) onTarget:self withObject:nil animated:YES];
+
+
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
-    
+
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
-- (void)updateTags
-{
-    AppDelegate * appDelegate = [[UIApplication sharedApplication] delegate];
-    
+- (void)updateTags {
+    AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+
     [appDelegate updateTags];
-    
+
     tags = appDelegate.tags;
-    
-    [[self tableView] reloadData];    
+
+    [[self tableView] reloadData];
 }
 
-- (void)viewDidUnload
-{
+- (void)viewDidUnload {
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
 }
 
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
-{
-	return YES;
+- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
+    return YES;
 }
 
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([[segue identifier] isEqualToString:@"showDetail"]) {
         PostTableViewController *postTableViewController = [segue destinationViewController];
         Tag *tag = [self.tags objectAtIndex:[self.tableView indexPathForSelectedRow].row];
-        
+
         postTableViewController.identifier = tag.identifier;
         postTableViewController.postType = TAG;
         postTableViewController.title = tag.title;
@@ -83,32 +77,29 @@
 }
 
 #pragma mark - Table view data source
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-{
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 1;
 }
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
-	return tags.count;
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return tags.count;
 }
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     static NSString *cellIdentifier = @"TagCell";
-    UITableViewCell *cell = (UITableViewCell *)[tableView dequeueReusableCellWithIdentifier:cellIdentifier];
-    
+    UITableViewCell *cell = (UITableViewCell *) [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+
     if (cell == nil) {
-        cell =  [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier: cellIdentifier];
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cellIdentifier];
     }
-    
+
     Tag *tag = [self.tags objectAtIndex:indexPath.row];
-    
+
     NSLog(@"Row: %i: %@", indexPath.row, tag.title);
-    
+
     cell.textLabel.text = tag.title;
-	cell.detailTextLabel.text = tag.description;
-    
+    cell.detailTextLabel.text = tag.description;
+
     return cell;
 }
 
@@ -121,13 +112,11 @@
  }
  */
 
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
-{
-	if (editingStyle == UITableViewCellEditingStyleDelete)
-	{
-		[self.tags removeObjectAtIndex:indexPath.row];
-		[tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
-	}   
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        [self.tags removeObjectAtIndex:indexPath.row];
+        [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
+    }
 }
 
 /*
@@ -148,18 +137,17 @@
 
 #pragma mark - Table view delegate
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    
-    Tag *tag = [tags objectAtIndex:indexPath.row];
-    
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+
+//    Tag *tag = [tags objectAtIndex:indexPath.row];
+
 //    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:tag.title 
 //                                                    message:[NSString stringWithFormat:@"You selected '%@': %@", tag.title, tag.description] 
 //                                                   delegate:nil 
 //                                          cancelButtonTitle:nil 
 //                                          otherButtonTitles:@"Ok", nil];
 //    [alert show];
-    
+
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     // Navigation logic may go here. Create and push another view controller.
     /*

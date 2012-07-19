@@ -22,18 +22,19 @@
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
-@property (strong, nonatomic) UIWindow *window;
+@property(strong, nonatomic) WPDataAccessor *wpDataAccessor;
 
-@property (strong, nonatomic) WPDataAccessor *wpDataAccessor;
-
-@property (strong, nonatomic) NSMutableArray *tags;
-@property (strong, nonatomic) NSMutableArray *categories;
-@property (strong, nonatomic) NSMutableArray *authors;
-@property (strong, nonatomic) NSMutableArray *posts;
+@property(strong, nonatomic) NSMutableArray *tags;
+@property(strong, nonatomic) NSMutableArray *categories;
+@property(strong, nonatomic) NSMutableArray *authors;
+@property(strong, nonatomic) NSMutableArray *posts;
 
 - (void)updateAuthors;
+
 - (void)updateCategories;
+
 - (void)updateTags;
+
 - (void)updatePostsWithPostType:(POST_TYPE)postType Id:(int)identifier Count:(int)count;
 
 @end

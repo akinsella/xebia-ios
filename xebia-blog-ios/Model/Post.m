@@ -12,14 +12,13 @@
 
 @synthesize identifier, title, excerpt, date, modified, slug, type;
 
-+(id)postWithId:(int)identifier
-          title:(NSString *)title
-        excerpt:(NSString *)excerpt
-           date:(NSString *)date
-       modified:(NSString *)modified
-           slug:(NSString *)slug
-           type:(NSString *)type
-{
++ (id)postWithId:(int)identifier
+           title:(NSString *)title
+         excerpt:(NSString *)excerpt
+            date:(NSString *)date
+        modified:(NSString *)modified
+            slug:(NSString *)slug
+            type:(NSString *)type {
     Post *post = [[self alloc] init];
 
     post.identifier = identifier;
@@ -32,5 +31,17 @@
 
     return post;
 }
+
+- (NSDictionary*) getAsDictionary {
+    NSDictionary* dict = [NSDictionary dictionaryWithObjectsAndKeys:title,@"title",
+                                                                    excerpt,@"excerpt",
+                                                                    date,@"date",
+                                                                    modified,@"modified",
+                                                                    slug,@"slug",
+                                                                    type,@"type",
+                                                                    nil];
+    return dict;
+}
+
 
 @end

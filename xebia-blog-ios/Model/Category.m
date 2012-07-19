@@ -11,20 +11,19 @@
 @implementation Category
 @synthesize identifier, slug, title, description, postCount;
 
-+(id)categoryWithId:(int)identifier
-               slug:(NSString *)slug
-              title:(NSString *)title
-        description:(NSString *)description
-          postCount:(int)postCount
-{
-Category *category = [[self alloc] init];
-category.identifier = identifier;
-category.slug = slug;
-category.title = title;
-category.description = description;
-category.postCount = postCount;
++ (id)categoryWithId:(int)identifier
+                slug:(NSString *)slug
+               title:(NSString *)title
+         description:(NSString *)description
+           postCount:(int)postCount {
+    Category *category = [[self alloc] init];
+    category.identifier = identifier;
+    category.slug = slug;
+    category.title = title;
+    category.description = description;
+    category.postCount = postCount;
 
-return category;
+    return category;
 }
 
 @end

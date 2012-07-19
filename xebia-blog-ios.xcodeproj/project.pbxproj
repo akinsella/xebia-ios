@@ -41,6 +41,9 @@
 		548D2F2915968A9E009B3322 /* splash-iphone-portrait.png in Resources */ = {isa = PBXBuildFile; fileRef = 548D2F2615968A9E009B3322 /* splash-iphone-portrait.png */; };
 		548D2F32159691F5009B3322 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 548D2F31159691F5009B3322 /* Default@2x.png */; };
 		548D2F34159691F9009B3322 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 548D2F33159691F8009B3322 /* Default.png */; };
+		548D2F34159691F9009B3325 /* Date.m in Sources */ = {isa = PBXBuildFile; fileRef = 548D2F34159691F9009B3324 /* Date.m */; };
+		54C7ADDE15B8BF0700294AD9 /* www in Resources */ = {isa = PBXBuildFile; fileRef = 54C7ADDD15B8BF0700294AD9 /* www */; };
+		54C7ADDE15B8BF0700294ADD /* styles.css in Resources */ = {isa = PBXBuildFile; fileRef = 54C7ADDE15B8BF0700294ADC /* styles.css */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -105,6 +108,10 @@
 		548D2F2615968A9E009B3322 /* splash-iphone-portrait.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "splash-iphone-portrait.png"; path = "../Splash/splash-iphone-portrait.png"; sourceTree = "<group>"; };
 		548D2F31159691F5009B3322 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		548D2F33159691F8009B3322 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		548D2F34159691F9009B3324 /* Date.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Date.m; sourceTree = "<group>"; };
+		548D2F34159691F9009B3326 /* Date.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Date.h; sourceTree = "<group>"; };
+		54C7ADDD15B8BF0700294AD9 /* www */ = {isa = PBXFileReference; lastKnownFileType = folder; path = www; sourceTree = "<group>"; };
+		54C7ADDE15B8BF0700294ADC /* styles.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; name = styles.css; path = www/css/styles.css; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -166,6 +173,8 @@
 		54806F9C158FE03E00C366DA /* xebia-blog-ios */ = {
 			isa = PBXGroup;
 			children = (
+				54C7ADDE15B8BF0700294ADC /* styles.css */,
+				54C7ADDD15B8BF0700294AD9 /* www */,
 				5480700E158FE45000C366DA /* Delegate */,
 				54807007158FE3CC00C366DA /* MainStoryboard.storyboard */,
 				54806FF8158FE35E00C366DA /* Service */,
@@ -174,6 +183,7 @@
 				54806FCB158FE16100C366DA /* Library */,
 				54806FFD158FE38D00C366DA /* Resource */,
 				54806F9D158FE03E00C366DA /* Supporting Files */,
+				548D2F34159691F9009B3323 /* Utils */,
 			);
 			path = "xebia-blog-ios";
 			sourceTree = "<group>";
@@ -292,6 +302,15 @@
 			name = Delegate;
 			sourceTree = "<group>";
 		};
+		548D2F34159691F9009B3323 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				548D2F34159691F9009B3326 /* Date.h */,
+				548D2F34159691F9009B3324 /* Date.m */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -374,6 +393,8 @@
 				548D2F2915968A9E009B3322 /* splash-iphone-portrait.png in Resources */,
 				548D2F32159691F5009B3322 /* Default@2x.png in Resources */,
 				548D2F34159691F9009B3322 /* Default.png in Resources */,
+				54C7ADDE15B8BF0700294AD9 /* www in Resources */,
+				54C7ADDE15B8BF0700294ADD /* styles.css in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -422,6 +443,7 @@
 				548070331590F9F300C366DA /* CategoryTableViewController.m in Sources */,
 				546932111591317F005B369D /* AuthorTableViewController.m in Sources */,
 				548D2F03159666AE009B3322 /* MBProgressHUD.m in Sources */,
+				548D2F34159691F9009B3325 /* Date.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -1,0 +1,137 @@
+#post-list {
+    position: absolute;
+    top:0;
+    bottom: 30px;
+    left: 0;
+    right:0;
+}
+
+@media screen and (max-width: 960px) {
+    #post-list ul li.item {
+        display: block;
+        height: auto;
+    }
+}
+
+@media screen and (min-width: 961px) {
+    #post-list ul li.post-item {
+        width: 50%;
+        display: block;
+        height: auto;
+        float: left;
+    }
+}
+
+.post {
+    /*padding: 10px;*/
+    margin: 10px;
+
+    -webkit-border-radius: 0.4em;
+       -moz-border-radius: 0.4em;
+         -o-border-radius: 0.4em;
+        -ms-border-radius: 0.4em;
+            border-radius: 0.4em;
+
+}
+
+.post-header {
+    position: relative;
+    background: #ddd;
+    height: 64px;
+}
+
+.post-header:after {
+    content: "";
+    display: block;
+    clear: both;
+}
+
+.post-image {
+    float:left;
+    margin-right: 5px;
+    width: 64px;
+    height: 64px;
+}
+
+.post-author {
+    padding: 5px;
+    margin: 0;
+    font-weight: bold;
+    color: #444;
+    font-size: 0.8em;
+    line-height: 1.0em;
+    font-family: Helvetica, Arial, sans-serif;
+}
+
+.post-date {
+    float: right;
+    padding: 5px;
+    font-weight: bold;
+    color: #444;
+    font-size: 0.8em;
+    line-height: 1.0em;
+    font-family: Helvetica, Arial, sans-serif;
+}
+
+
+ul.post-tags {
+    position: absolute;
+    left: 64px;
+    bottom: 0;
+    margin: 5px;
+    right: 5px;
+    color: #888;
+    font-size: 0.8em;
+    line-height: 1.1em;
+    font-family: Helvetica, Arial, sans-serif;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+li.post-tag {
+    display: inline;
+}
+
+li.post-tag:after {
+    content: ",";
+}
+
+li.post-tag:last-child:after {
+    content: "";
+}
+
+.post-body {
+    padding: 0;
+    margin: 0;
+    background: #f0f0f0;
+    height: 110px;
+}
+
+.post-title {
+    position: absolute;
+    left: 64px;
+    right: 0;
+    bottom: 0;
+    padding: 5px;
+    margin: 0;
+    color: #666;
+    font-weight: normal;
+    font-size: 1.0em;
+    line-height: 1.0em;
+    font-family: Helvetica, Arial, sans-serif;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.post-content {
+    height: 100px;
+    padding: 5px;
+    font-weight: normal;
+    color: #222;
+    font-size: 0.8em;
+    line-height: 1.0em;
+    font-family: Helvetica, Arial, sans-serif;
+    overflow-y: auto;
+}

@@ -9,8 +9,8 @@
 #import <UIKit/UIKit.h>
 #import "MBProgressHUD.h"
 
-@interface CategoryTableViewController : UITableViewController<MBProgressHUDDelegate>
+@interface CategoryTableViewController : UITableViewController <MBProgressHUDDelegate>
 
-@property (nonatomic, strong) NSMutableArray *categories;
+@property(nonatomic, strong) NSMutableArray *categories;
 
 @end

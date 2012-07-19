@@ -109,40 +109,15 @@
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hpj-iw-hPV" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="nSK-wZ-QT8" userLabel="DetailView" customClass="DetailPostViewController" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="Zpv-SL-W2Y">
+                    <webView key="view" contentMode="scaleToFill" id="4Cf-yf-NO0" userLabel="DetailPostWebView">
                         <rect key="frame" x="0.0" y="64" width="320" height="367"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <subviews>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Title:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="WAn-jB-Egg" userLabel="Title Label">
-                                <rect key="frame" x="70" y="111" width="54" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Title" minimumFontSize="17" id="JaU-SW-91y" userLabel="Title Text">
-                                <rect key="frame" x="113" y="107" width="187" height="31"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Description:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="lA4-1D-uKu" userLabel="Description Label">
-                                <rect key="frame" x="13" y="150" width="92" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Description" minimumFontSize="17" id="dyx-6x-Qod" userLabel="Description TExt">
-                                <rect key="frame" x="113" y="150" width="187" height="31"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                    </view>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    </webView>
                     <navigationItem key="navigationItem" title="Blog Entry" id="Imr-tI-TJS"/>
+                    <connections>
+                        <outlet property="webView" destination="4Cf-yf-NO0" id="6MN-Yv-q8H"/>
+                    </connections>
                 </viewController>
             </objects>
             <point key="canvasLocation" x="140" y="-1056"/>
@@ -355,8 +330,7 @@
         <class className="DetailPostViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/DetailPostViewController.h"/>
             <relationships>
-                <relationship kind="outlet" name="descriptionTextField" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="titleTextField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="webView" candidateClass="UIWebView"/>
             </relationships>
         </class>
         <class className="PostTableViewController" superclassName="UITableViewController">

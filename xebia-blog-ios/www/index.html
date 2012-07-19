@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+   <head>
+       <title>Post Details</title>
+       <meta charset="UTF-8">
+       <script src="javascript/lib/zepto/zepto-1.0-rc1.min.js"></script>
+       <script src="javascript/lib/handlebars/handlebars-1.0.beta6.js"></script>
+       <script src="javascript/lib/underscore/underscore-1.3.1.min.js"></script>
+       <link rel="stylesheet" href="css/styles.css">
+   </head>
+   <body style="background: white;">
+       <div id="post-content">
+       </div>
+   </body>
+   <script>
+
+       // Debug
+       console = new Object();
+       console.log = function(log) {
+            location.href = "ios-log://" + log;
+       };
+
+       console.debug = console.log;
+       console.info = console.log;
+       console.warn = console.log;
+       console.error = console.log;
+
+       function onLoad(data) {
+           console.log("Data received: ", data);
+           var source = $('#post-template').html();
+           console.log("source", source);
+           var template = Handlebars.compile(source);
+           var html = template({ post: data });
+           $('#post-content').html(html);
+       }
+
+       $(document).ready(function() {
+           onLoad({
+               "title":"Offre promotionnelle - Formation MongoDB Administration animée par 10GEN",
+               "excerpt":"",
+               "modified":"2012-05-16 10:42:46",
+               "type":"post",
+               "slug":"offre-promotionnelle-formation-mongodb-administration-animee-par-10gen",
+               "date":"2012-05-16 10:41:05"
+           });
+       });
+
+   </script>
+
+   <script id="post-template" type="text/x-handlebars-template">
+       {{#with post}}
+           <div class="post">
+               <div class="post-header">
+                   <img src="" class="post-image" />
+                   <div class="post-date">{{modified}}</div>
+                   <!--<h1 class="post-author">{{this.author.first_name}} {{this.author.last_name}}</h1>-->
+                   <h1 class="post-title">{{title}}</h1>
+               </div>
+
+               <div class="post-body">
+                   <!--
+                   <ul class="post-tags">
+                       {{#each this.tags}}
+                       <li class="post-tag">{{this.title}}</li>
+                       {{/each}}
+                   </ul>
+                   -->
+                   <div class="post-content">{{excerpt}}</div>
+               </div>
+
+           </div>
+       {{/with}}
+   </script>
+
+</html>
