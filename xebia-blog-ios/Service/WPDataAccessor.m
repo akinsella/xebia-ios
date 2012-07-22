@@ -7,11 +7,11 @@
 //
 
 #import "WPDataAccessor.h"
-#import "JSONKit.h"
+#import <RestKit/RestKit.h>
+#import <RestKit/JSONKit.h>
 #import "Tag.h"
 #import "Category.h"
 #import "Author.h"
-#import "Post.h"
 
 @implementation WPDataAccessor
 @synthesize baseApiUrl;
@@ -32,10 +32,6 @@
     [self setBaseApiUrl:url];
     
     return(self);
-    
-errorExit:
-    if(self) { [self autorelease]; self = NULL; }
-    return(NULL);
 }
 
 - (NSString *)getApiCallPath:(NSString *)relativeApiCallPath {
@@ -72,17 +68,8 @@ errorExit:
     NSMutableArray *posts = [[[NSMutableArray alloc] initWithCapacity:[jsonPosts count]] autorelease];
     
     for (NSDictionary *jsonPost in jsonPosts) {
-        Post *post = [Post postWithId:((NSNumber *)[jsonPost objectForKey:@"id"]).intValue
-                            title:[jsonPost objectForKey:@"title"] 
-                          excerpt:[jsonPost objectForKey:@"excerpt"]
-                                 date:[jsonPost objectForKey:@"date"]
-                             modified:[jsonPost objectForKey:@"modified"]
-                                 slug:[jsonPost objectForKey:@"slug"]
-                                 type:[jsonPost objectForKey:@"type"]
-                    ];
-        
-        [posts addObject: post];
-        
+        Post *post = [Post deserializeFromJson:jsonPost];
+        [posts addObject:post];
         [post release];
     }
     

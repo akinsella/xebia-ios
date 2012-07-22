@@ -32,7 +32,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "54806FB2158FE03E00C366DA"
-               BuildableName = "xebia-blog-iosTests.octest"
+               BuildableName = "xebia-blog-iosTests"
                BlueprintName = "xebia-blog-iosTests"
                ReferencedContainer = "container:xebia-blog-ios.xcodeproj">
             </BuildableReference>

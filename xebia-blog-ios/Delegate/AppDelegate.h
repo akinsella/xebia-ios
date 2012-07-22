@@ -19,10 +19,15 @@
 #import "Author.h"
 #import "Post.h"
 #import "MBProgressHUD.h"
+#import <RestKit/RestKit.h>
+
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
 @property(strong, nonatomic) WPDataAccessor *wpDataAccessor;
+
+@property (readonly, strong, nonatomic) RKObjectManager *objectManager;
+@property (readonly, strong, nonatomic) RKManagedObjectStore *objectStore;
 
 @property(strong, nonatomic) NSMutableArray *tags;
 @property(strong, nonatomic) NSMutableArray *categories;

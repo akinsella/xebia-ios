@@ -25,7 +25,6 @@
 		5480701B158FE55E00C366DA /* Category.m in Sources */ = {isa = PBXBuildFile; fileRef = 54807015158FE55E00C366DA /* Category.m */; };
 		5480701C158FE55E00C366DA /* Post.m in Sources */ = {isa = PBXBuildFile; fileRef = 54807017158FE55E00C366DA /* Post.m */; };
 		5480701D158FE55E00C366DA /* Tag.m in Sources */ = {isa = PBXBuildFile; fileRef = 54807019158FE55E00C366DA /* Tag.m */; };
-		54807020158FE56C00C366DA /* JSONKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 5480701F158FE56C00C366DA /* JSONKit.m */; };
 		54807029158FE57C00C366DA /* DetailPostViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 54807022158FE57C00C366DA /* DetailPostViewController.m */; };
 		5480702A158FE57C00C366DA /* PostTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 54807024158FE57C00C366DA /* PostTableViewController.m */; };
 		5480702C158FE57C00C366DA /* TagTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 54807028158FE57C00C366DA /* TagTableViewController.m */; };
@@ -43,7 +42,16 @@
 		548D2F34159691F9009B3322 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 548D2F33159691F8009B3322 /* Default.png */; };
 		548D2F34159691F9009B3325 /* Date.m in Sources */ = {isa = PBXBuildFile; fileRef = 548D2F34159691F9009B3324 /* Date.m */; };
 		54C7ADDE15B8BF0700294AD9 /* www in Resources */ = {isa = PBXBuildFile; fileRef = 54C7ADDD15B8BF0700294AD9 /* www */; };
-		54C7ADDE15B8BF0700294ADD /* styles.css in Resources */ = {isa = PBXBuildFile; fileRef = 54C7ADDE15B8BF0700294ADC /* styles.css */; };
+		54DF256A15BB4391006C13BB /* libRestKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 54DF255515BB4046006C13BB /* libRestKit.a */; };
+		54DF256D15BB43B8006C13BB /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54DF256C15BB43B8006C13BB /* CFNetwork.framework */; };
+		54DF256F15BB43C1006C13BB /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54DF256E15BB43C1006C13BB /* CoreData.framework */; };
+		54DF257115BB43C8006C13BB /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54DF257015BB43C8006C13BB /* MobileCoreServices.framework */; };
+		54DF257315BB43D0006C13BB /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54DF257215BB43D0006C13BB /* Security.framework */; };
+		54DF257515BB43D8006C13BB /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54DF257415BB43D8006C13BB /* SystemConfiguration.framework */; };
+		54DF257715BB43DF006C13BB /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54DF257615BB43DF006C13BB /* QuartzCore.framework */; };
+		54DF257915BB43E7006C13BB /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 54DF257815BB43E7006C13BB /* libxml2.dylib */; };
+		54DF259615BB4F16006C13BB /* RKWPMappingProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 54DF259515BB4F16006C13BB /* RKWPMappingProvider.m */; };
+		54DF259915BB5744006C13BB /* RKWPPost.m in Sources */ = {isa = PBXBuildFile; fileRef = 54DF259815BB5744006C13BB /* RKWPPost.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +61,48 @@
 			proxyType = 1;
 			remoteGlobalIDString = 54806F91158FE03E00C366DA;
 			remoteInfo = "xebia-blog-ios";
+		};
+		54DF255415BB4046006C13BB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 54DF254915BB4045006C13BB /* RestKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 25160D1614564E810060A5C5;
+			remoteInfo = RestKit;
+		};
+		54DF255615BB4046006C13BB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 54DF254915BB4045006C13BB /* RestKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 25160D2614564E820060A5C5;
+			remoteInfo = RestKitTests;
+		};
+		54DF255815BB4046006C13BB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 54DF254915BB4045006C13BB /* RestKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 25160E62145651060060A5C5;
+			remoteInfo = RestKitFramework;
+		};
+		54DF255A15BB4046006C13BB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 54DF254915BB4045006C13BB /* RestKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 25160E78145651060060A5C5;
+			remoteInfo = RestKitFrameworkTests;
+		};
+		54DF255C15BB4046006C13BB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 54DF254915BB4045006C13BB /* RestKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 259C301615128079003066A2;
+			remoteInfo = RestKitResources;
+		};
+		54DF256815BB4388006C13BB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 54DF254915BB4045006C13BB /* RestKit.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 25160D1514564E810060A5C5;
+			remoteInfo = RestKit;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -67,7 +117,6 @@
 		54806FA0158FE03E00C366DA /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		54806FA2158FE03E00C366DA /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		54806FA4158FE03E00C366DA /* xebia-blog-ios-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "xebia-blog-ios-Prefix.pch"; sourceTree = "<group>"; };
-		54806FB3158FE03E00C366DA /* xebia-blog-iosTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "xebia-blog-iosTests.octest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		54806FB4158FE03E00C366DA /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		54806FBC158FE03E00C366DA /* xebia-blog-iosTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "xebia-blog-iosTests-Info.plist"; sourceTree = "<group>"; };
 		54806FBE158FE03E00C366DA /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -86,8 +135,6 @@
 		54807017158FE55E00C366DA /* Post.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Post.m; path = Model/Post.m; sourceTree = "<group>"; };
 		54807018158FE55E00C366DA /* Tag.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Tag.h; path = Model/Tag.h; sourceTree = "<group>"; };
 		54807019158FE55E00C366DA /* Tag.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Tag.m; path = Model/Tag.m; sourceTree = "<group>"; };
-		5480701E158FE56C00C366DA /* JSONKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JSONKit.h; path = Library/JSONKit.h; sourceTree = "<group>"; };
-		5480701F158FE56C00C366DA /* JSONKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JSONKit.m; path = Library/JSONKit.m; sourceTree = "<group>"; };
 		54807021158FE57C00C366DA /* DetailPostViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DetailPostViewController.h; path = Controller/DetailPostViewController.h; sourceTree = "<group>"; };
 		54807022158FE57C00C366DA /* DetailPostViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DetailPostViewController.m; path = Controller/DetailPostViewController.m; sourceTree = "<group>"; };
 		54807023158FE57C00C366DA /* PostTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PostTableViewController.h; path = Controller/PostTableViewController.h; sourceTree = "<group>"; };
@@ -111,7 +158,18 @@
 		548D2F34159691F9009B3324 /* Date.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Date.m; sourceTree = "<group>"; };
 		548D2F34159691F9009B3326 /* Date.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Date.h; sourceTree = "<group>"; };
 		54C7ADDD15B8BF0700294AD9 /* www */ = {isa = PBXFileReference; lastKnownFileType = folder; path = www; sourceTree = "<group>"; };
-		54C7ADDE15B8BF0700294ADC /* styles.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; name = styles.css; path = www/css/styles.css; sourceTree = "<group>"; };
+		54DF254915BB4045006C13BB /* RestKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RestKit.xcodeproj; path = RestKit/RestKit.xcodeproj; sourceTree = "<group>"; };
+		54DF256C15BB43B8006C13BB /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		54DF256E15BB43C1006C13BB /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		54DF257015BB43C8006C13BB /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		54DF257215BB43D0006C13BB /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		54DF257415BB43D8006C13BB /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		54DF257615BB43DF006C13BB /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		54DF257815BB43E7006C13BB /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
+		54DF259415BB4F16006C13BB /* RKWPMappingProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RKWPMappingProvider.h; path = Delegate/RKWPMappingProvider.h; sourceTree = "<group>"; };
+		54DF259515BB4F16006C13BB /* RKWPMappingProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RKWPMappingProvider.m; path = Delegate/RKWPMappingProvider.m; sourceTree = "<group>"; };
+		54DF259715BB5744006C13BB /* RKWPPost.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RKWPPost.h; path = Model/RKWPPost.h; sourceTree = "<group>"; };
+		54DF259815BB5744006C13BB /* RKWPPost.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RKWPPost.m; path = Model/RKWPPost.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,6 +177,14 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				54DF256F15BB43C1006C13BB /* CoreData.framework in Frameworks */,
+				54DF257915BB43E7006C13BB /* libxml2.dylib in Frameworks */,
+				54DF257715BB43DF006C13BB /* QuartzCore.framework in Frameworks */,
+				54DF257515BB43D8006C13BB /* SystemConfiguration.framework in Frameworks */,
+				54DF257315BB43D0006C13BB /* Security.framework in Frameworks */,
+				54DF257115BB43C8006C13BB /* MobileCoreServices.framework in Frameworks */,
+				54DF256D15BB43B8006C13BB /* CFNetwork.framework in Frameworks */,
+				54DF256A15BB4391006C13BB /* libRestKit.a in Frameworks */,
 				54806F97158FE03E00C366DA /* UIKit.framework in Frameworks */,
 				54806F99158FE03E00C366DA /* Foundation.framework in Frameworks */,
 				54806F9B158FE03E00C366DA /* CoreGraphics.framework in Frameworks */,
@@ -141,6 +207,14 @@
 		54806F87158FE03E00C366DA = {
 			isa = PBXGroup;
 			children = (
+				54DF257815BB43E7006C13BB /* libxml2.dylib */,
+				54DF257615BB43DF006C13BB /* QuartzCore.framework */,
+				54DF257415BB43D8006C13BB /* SystemConfiguration.framework */,
+				54DF257215BB43D0006C13BB /* Security.framework */,
+				54DF257015BB43C8006C13BB /* MobileCoreServices.framework */,
+				54DF256E15BB43C1006C13BB /* CoreData.framework */,
+				54DF256C15BB43B8006C13BB /* CFNetwork.framework */,
+				54DF254915BB4045006C13BB /* RestKit.xcodeproj */,
 				548D2F33159691F8009B3322 /* Default.png */,
 				548D2F31159691F5009B3322 /* Default@2x.png */,
 				54806F9C158FE03E00C366DA /* xebia-blog-ios */,
@@ -154,7 +228,6 @@
 			isa = PBXGroup;
 			children = (
 				54806F92158FE03E00C366DA /* xebia-blog-ios.app */,
-				54806FB3158FE03E00C366DA /* xebia-blog-iosTests.octest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -173,7 +246,6 @@
 		54806F9C158FE03E00C366DA /* xebia-blog-ios */ = {
 			isa = PBXGroup;
 			children = (
-				54C7ADDE15B8BF0700294ADC /* styles.css */,
 				54C7ADDD15B8BF0700294AD9 /* www */,
 				5480700E158FE45000C366DA /* Delegate */,
 				54807007158FE3CC00C366DA /* MainStoryboard.storyboard */,
@@ -223,8 +295,6 @@
 			children = (
 				548D2F01159666AE009B3322 /* MBProgressHUD.h */,
 				548D2F02159666AE009B3322 /* MBProgressHUD.m */,
-				5480701E158FE56C00C366DA /* JSONKit.h */,
-				5480701F158FE56C00C366DA /* JSONKit.m */,
 			);
 			name = Library;
 			sourceTree = "<group>";
@@ -232,6 +302,8 @@
 		54806FCF158FE17D00C366DA /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				54DF259715BB5744006C13BB /* RKWPPost.h */,
+				54DF259815BB5744006C13BB /* RKWPPost.m */,
 				54807012158FE55E00C366DA /* Author.h */,
 				54807013158FE55E00C366DA /* Author.m */,
 				54807014158FE55E00C366DA /* Category.h */,
@@ -298,6 +370,8 @@
 			children = (
 				5480700F158FE50200C366DA /* AppDelegate.h */,
 				54807010158FE50200C366DA /* AppDelegate.m */,
+				54DF259415BB4F16006C13BB /* RKWPMappingProvider.h */,
+				54DF259515BB4F16006C13BB /* RKWPMappingProvider.m */,
 			);
 			name = Delegate;
 			sourceTree = "<group>";
@@ -309,6 +383,18 @@
 				548D2F34159691F9009B3324 /* Date.m */,
 			);
 			path = Utils;
+			sourceTree = "<group>";
+		};
+		54DF254A15BB4045006C13BB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				54DF255515BB4046006C13BB /* libRestKit.a */,
+				54DF255715BB4046006C13BB /* RestKitTests.octest */,
+				54DF255915BB4046006C13BB /* RestKit.framework */,
+				54DF255B15BB4046006C13BB /* RestKitFrameworkTests.octest */,
+				54DF255D15BB4046006C13BB /* RestKitResources.bundle */,
+			);
+			name = Products;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -325,6 +411,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				54DF256915BB4388006C13BB /* PBXTargetDependency */,
 			);
 			name = "xebia-blog-ios";
 			productName = "xebia-blog-ios";
@@ -347,7 +434,6 @@
 			);
 			name = "xebia-blog-iosTests";
 			productName = "xebia-blog-iosTests";
-			productReference = 54806FB3158FE03E00C366DA /* xebia-blog-iosTests.octest */;
 			productType = "com.apple.product-type.bundle";
 		};
 /* End PBXNativeTarget section */
@@ -368,6 +454,12 @@
 			mainGroup = 54806F87158FE03E00C366DA;
 			productRefGroup = 54806F93158FE03E00C366DA /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 54DF254A15BB4045006C13BB /* Products */;
+					ProjectRef = 54DF254915BB4045006C13BB /* RestKit.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				54806F91158FE03E00C366DA /* xebia-blog-ios */,
@@ -375,6 +467,44 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		54DF255515BB4046006C13BB /* libRestKit.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libRestKit.a;
+			remoteRef = 54DF255415BB4046006C13BB /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		54DF255715BB4046006C13BB /* RestKitTests.octest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = RestKitTests.octest;
+			remoteRef = 54DF255615BB4046006C13BB /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		54DF255915BB4046006C13BB /* RestKit.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = RestKit.framework;
+			remoteRef = 54DF255815BB4046006C13BB /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		54DF255B15BB4046006C13BB /* RestKitFrameworkTests.octest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = RestKitFrameworkTests.octest;
+			remoteRef = 54DF255A15BB4046006C13BB /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		54DF255D15BB4046006C13BB /* RestKitResources.bundle */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = RestKitResources.bundle;
+			remoteRef = 54DF255C15BB4046006C13BB /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		54806F90158FE03E00C366DA /* Resources */ = {
@@ -394,7 +524,6 @@
 				548D2F32159691F5009B3322 /* Default@2x.png in Resources */,
 				548D2F34159691F9009B3322 /* Default.png in Resources */,
 				54C7ADDE15B8BF0700294AD9 /* www in Resources */,
-				54C7ADDE15B8BF0700294ADD /* styles.css in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -436,7 +565,6 @@
 				5480701B158FE55E00C366DA /* Category.m in Sources */,
 				5480701C158FE55E00C366DA /* Post.m in Sources */,
 				5480701D158FE55E00C366DA /* Tag.m in Sources */,
-				54807020158FE56C00C366DA /* JSONKit.m in Sources */,
 				54807029158FE57C00C366DA /* DetailPostViewController.m in Sources */,
 				5480702A158FE57C00C366DA /* PostTableViewController.m in Sources */,
 				5480702C158FE57C00C366DA /* TagTableViewController.m in Sources */,
@@ -444,6 +572,8 @@
 				546932111591317F005B369D /* AuthorTableViewController.m in Sources */,
 				548D2F03159666AE009B3322 /* MBProgressHUD.m in Sources */,
 				548D2F34159691F9009B3325 /* Date.m in Sources */,
+				54DF259615BB4F16006C13BB /* RKWPMappingProvider.m in Sources */,
+				54DF259915BB5744006C13BB /* RKWPPost.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -462,6 +592,11 @@
 			isa = PBXTargetDependency;
 			target = 54806F91158FE03E00C366DA /* xebia-blog-ios */;
 			targetProxy = 54806FB8158FE03E00C366DA /* PBXContainerItemProxy */;
+		};
+		54DF256915BB4388006C13BB /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = RestKit;
+			targetProxy = 54DF256815BB4388006C13BB /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -535,10 +670,16 @@
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "xebia-blog-ios/xebia-blog-ios-Prefix.pch";
+				HEADER_SEARCH_PATHS = "\"$(BUILT_PRODUCTS_DIR)/../../Headers\"";
 				INFOPLIST_FILE = "xebia-blog-ios/xebia-blog-ios-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-all_load",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
+				USER_HEADER_SEARCH_PATHS = "\"$(BUILT_PRODUCTS_DIR)/../../Headers\"";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -548,10 +689,16 @@
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "xebia-blog-ios/xebia-blog-ios-Prefix.pch";
+				HEADER_SEARCH_PATHS = "\"$(BUILT_PRODUCTS_DIR)/../../Headers\"";
 				INFOPLIST_FILE = "xebia-blog-ios/xebia-blog-ios-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-all_load",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
+				USER_HEADER_SEARCH_PATHS = "\"$(BUILT_PRODUCTS_DIR)/../../Headers\"";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

@@ -8,7 +8,7 @@
 
 #import "DetailPostViewController.h"
 #import "Post.h"
-#import "JSONKit.h"
+#import <RestKit/JSONKit.h> 
 
 @implementation DetailPostViewController
 @synthesize post, webView;

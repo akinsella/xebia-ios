@@ -7,20 +7,44 @@
 //
 
 #import "AppDelegate.h"
+#import "RKWPMappingProvider.h"
+#import <RestKit/RestKit.h>
+#import <RestKit/CoreData.h>
+
+@interface AppDelegate ()
+@property (nonatomic, strong, readwrite) RKObjectManager *objectManager;
+@property (nonatomic, strong, readwrite) RKManagedObjectStore *objectStore;
+@end
 
 @implementation AppDelegate
 
 @synthesize window = _window;
 @synthesize wpDataAccessor = _wpDataAccessor;
 
+@synthesize objectManager;
+@synthesize objectStore;
+
 @synthesize tags = _tags;
 @synthesize authors = _authors;
 @synthesize categories = _categories;
 @synthesize posts = _posts;
 
+- (void)initializeRestKit
+{
+    self.objectManager = [RKObjectManager managerWithBaseURLString:@"http://blog.xebia.fr/wp-json-api"];
+    self.objectStore = [RKManagedObjectStore objectStoreWithStoreFilename:@"RKWordpress.sqlite"];
+    self.objectManager.objectStore = self.objectStore;
+    self.objectManager.mappingProvider = [RKWPMappingProvider mappingProviderWithObjectStore:self.objectStore];
+}
+
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    [self initializeRestKit];
     self.wpDataAccessor = [WPDataAccessor initWithBaseApiUrl:@"http://blog.xebia.fr/wp-json-api"];
 
+    RKClient *client = [RKClient clientWithBaseURLString:@"http://restkit.org"];
+    RKLogConfigureByName("RestKit/Network", RKLogLevelDebug);
+    RKLogInfo(@"Configured RestKit client: %@", client);
+    
     // Override point for customization after application launch.
     return YES;
 }
@@ -67,8 +91,13 @@
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
 }
 
-- (void)applicationWillTerminate:(UIApplication *)application {
-    // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+- (void)applicationWillTerminate:(UIApplication *)application
+{
+    // Saves changes in the application's managed object context before the application terminates.
+    NSError *error = nil;
+    if (! [self.objectStore save:&error]) {
+        RKLogError(@"Failed to save RestKit managed object store: %@", error);
+    }
 }
 
 @end
