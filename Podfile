@@ -1,0 +1,11 @@
+platform :ios
+dependency 'JSONKit',       '~> 1.4'
+dependency 'Reachability',  '~> 3.0.0'
+dependency 'MBProgressHUD',	'~> 0.5'
+dependency 'RestKit'
+dependency 'RestKit/UI'
+dependency 'RestKit/Network'
+dependency 'RestKit/ObjectMapping'
+dependency 'RestKit/ObjectMapping/CoreData'
+dependency 'RestKit/ObjectMapping/XML'
+dependency 'RestKit/ObjectMapping/JSON'
