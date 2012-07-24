@@ -18,6 +18,11 @@
 		5404E95D15BDFE1F00CCDE1F /* splash-iphone-portrait@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5404E95415BDFE1F00CCDE1F /* splash-iphone-portrait@2x.png */; };
 		5404E96015BDFE3900CCDE1F /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 5404E95F15BDFE3900CCDE1F /* Default.png */; };
 		5404E96215BDFE3C00CCDE1F /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5404E96115BDFE3C00CCDE1F /* Default@2x.png */; };
+		5483B3F015BF4C3400E60EE0 /* RKWPTag.m in Sources */ = {isa = PBXBuildFile; fileRef = 5483B3EF15BF4C3400E60EE0 /* RKWPTag.m */; };
+		5483B3F415BF4C4300E60EE0 /* RKWPCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 5483B3F315BF4C4300E60EE0 /* RKWPCategory.m */; };
+		5483B3F715BF4DC900E60EE0 /* RKWPAuthor.m in Sources */ = {isa = PBXBuildFile; fileRef = 5483B3F615BF4DC900E60EE0 /* RKWPAuthor.m */; };
+		5483B3FA15BF4E9E00E60EE0 /* RKWPComment.m in Sources */ = {isa = PBXBuildFile; fileRef = 5483B3F915BF4E9E00E60EE0 /* RKWPComment.m */; };
+		5483B3FD15BF4F4400E60EE0 /* RKWPAttachment.m in Sources */ = {isa = PBXBuildFile; fileRef = 5483B3FC15BF4F4300E60EE0 /* RKWPAttachment.m */; };
 		54C2DEEB15BDFAFB00CABB12 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54C2DEEA15BDFAFB00CABB12 /* UIKit.framework */; };
 		54C2DEED15BDFAFB00CABB12 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54C2DEEC15BDFAFB00CABB12 /* Foundation.framework */; };
 		54C2DEEF15BDFAFB00CABB12 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54C2DEEE15BDFAFB00CABB12 /* CoreGraphics.framework */; };
@@ -72,6 +77,16 @@
 		5404E95415BDFE1F00CCDE1F /* splash-iphone-portrait@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "splash-iphone-portrait@2x.png"; sourceTree = "<group>"; };
 		5404E95F15BDFE3900CCDE1F /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		5404E96115BDFE3C00CCDE1F /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		5483B3EE15BF4C3400E60EE0 /* RKWPTag.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RKWPTag.h; sourceTree = "<group>"; };
+		5483B3EF15BF4C3400E60EE0 /* RKWPTag.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RKWPTag.m; sourceTree = "<group>"; };
+		5483B3F215BF4C4300E60EE0 /* RKWPCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RKWPCategory.h; sourceTree = "<group>"; };
+		5483B3F315BF4C4300E60EE0 /* RKWPCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RKWPCategory.m; sourceTree = "<group>"; };
+		5483B3F515BF4DC900E60EE0 /* RKWPAuthor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RKWPAuthor.h; sourceTree = "<group>"; };
+		5483B3F615BF4DC900E60EE0 /* RKWPAuthor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RKWPAuthor.m; sourceTree = "<group>"; };
+		5483B3F815BF4E9E00E60EE0 /* RKWPComment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RKWPComment.h; sourceTree = "<group>"; };
+		5483B3F915BF4E9E00E60EE0 /* RKWPComment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RKWPComment.m; sourceTree = "<group>"; };
+		5483B3FB15BF4F4300E60EE0 /* RKWPAttachment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RKWPAttachment.h; sourceTree = "<group>"; };
+		5483B3FC15BF4F4300E60EE0 /* RKWPAttachment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RKWPAttachment.m; sourceTree = "<group>"; };
 		54C2DEE615BDFAFB00CABB12 /* xebia-ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "xebia-ios.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		54C2DEEA15BDFAFB00CABB12 /* UIKit.framework */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		54C2DEEC15BDFAFB00CABB12 /* Foundation.framework */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -305,6 +320,16 @@
 				54C2DF3A15BDFB6600CABB12 /* RKWPPost.m */,
 				54C2DF3B15BDFB6600CABB12 /* Tag.h */,
 				54C2DF3C15BDFB6600CABB12 /* Tag.m */,
+				5483B3EE15BF4C3400E60EE0 /* RKWPTag.h */,
+				5483B3EF15BF4C3400E60EE0 /* RKWPTag.m */,
+				5483B3F215BF4C4300E60EE0 /* RKWPCategory.h */,
+				5483B3F315BF4C4300E60EE0 /* RKWPCategory.m */,
+				5483B3F515BF4DC900E60EE0 /* RKWPAuthor.h */,
+				5483B3F615BF4DC900E60EE0 /* RKWPAuthor.m */,
+				5483B3F815BF4E9E00E60EE0 /* RKWPComment.h */,
+				5483B3F915BF4E9E00E60EE0 /* RKWPComment.m */,
+				5483B3FB15BF4F4300E60EE0 /* RKWPAttachment.h */,
+				5483B3FC15BF4F4300E60EE0 /* RKWPAttachment.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -476,6 +501,11 @@
 				54C2DF5015BDFB6600CABB12 /* Tag.m in Sources */,
 				54C2DF5115BDFB6600CABB12 /* WPDataAccessor.m in Sources */,
 				54C2DF5215BDFB6600CABB12 /* Date.m in Sources */,
+				5483B3F015BF4C3400E60EE0 /* RKWPTag.m in Sources */,
+				5483B3F415BF4C4300E60EE0 /* RKWPCategory.m in Sources */,
+				5483B3F715BF4DC900E60EE0 /* RKWPAuthor.m in Sources */,
+				5483B3FA15BF4E9E00E60EE0 /* RKWPComment.m in Sources */,
+				5483B3FD15BF4F4400E60EE0 /* RKWPAttachment.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
