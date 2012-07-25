@@ -17,4 +17,6 @@
 @property (nonatomic, strong) NSNumber *parent;
 @property (nonatomic, strong) NSNumber *post_count;
 
+@property (nonatomic, readonly) NSInteger postCount;
+
 @end

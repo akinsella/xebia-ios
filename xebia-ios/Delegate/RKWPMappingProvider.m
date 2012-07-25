@@ -8,6 +8,9 @@
 
 #import "RKWPMappingProvider.h"
 #import "RKWPPost.h"
+#import "RKWPAuthor.h"
+#import "RKWPCategory.h"
+#import "RKWPTag.h"
 
 @implementation RKWPMappingProvider
 
@@ -22,8 +25,18 @@
     if (self) {
         self.objectStore = theObjectStore;
         
+        [self setObjectMapping:[self categoryObjectMapping] 
+        forResourcePathPattern:@"/get_category_index/" 
+         withFetchRequestBlock:^NSFetchRequest *(NSString *resourcePath) {
+             // NOTE: We could use RKPathMatcher here to easily tokenize the requested resourcePath
+             NSFetchRequest *fetchRequest = [RKWPCategory fetchRequest];
+             fetchRequest.sortDescriptors = [NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:@"title" ascending:YES]];
+             return fetchRequest;
+         }];
+        
+        
         [self setObjectMapping:[self postObjectMapping] 
-        forResourcePathPattern:@"/repos/:user/:repo/issues" 
+        forResourcePathPattern:@"/get_recent_posts/" 
          withFetchRequestBlock:^NSFetchRequest *(NSString *resourcePath) {
             // NOTE: We could use RKPathMatcher here to easily tokenize the requested resourcePath
             NSFetchRequest *fetchRequest = [RKWPPost fetchRequest];
@@ -35,11 +48,29 @@
     return self;
 }
 
+- (RKManagedObjectMapping *)categoryObjectMapping {
+    RKManagedObjectMapping *mapping =  [RKManagedObjectMapping mappingForEntityWithName:@"RKWPCategory" 
+                                                                   inManagedObjectStore:self.objectStore];
+    mapping.rootKeyPath = @"categories";
+    mapping.primaryKeyAttribute = @"identifier";
+    [mapping mapAttributes:@"slug", @"title", @"parent", @"post_count", nil];
+    [mapping mapKeyPathsToAttributes:
+     @"id", @"identifier",
+     @"description", @"description_",
+     nil];
+
+    return mapping;
+}
+
 - (RKManagedObjectMapping *)postObjectMapping {
     RKManagedObjectMapping *mapping =  [RKManagedObjectMapping mappingForEntityWithName:@"RKWPPost" 
                                                                    inManagedObjectStore:self.objectStore];
-    mapping.primaryKeyAttribute = @"id";
-    [mapping mapAttributes:@"id", @"type", @"slug", @"url", @"status", @"title", @"title_plain", @"content", @"excerpt", @"date", @"modified", @"comment_count", @"comment_status", nil];
+    mapping.rootKeyPath = @"posts";
+    mapping.primaryKeyAttribute = @"identifier";
+    [mapping mapAttributes:@"type", @"slug", @"url", @"status", @"title", @"title_plain", @"content", @"excerpt", @"date", @"modified", @"comment_count", @"comment_status", nil];
+    [mapping mapKeyPathsToAttributes:
+     @"id", @"identifier",
+     nil];
     
     return mapping;
 }
