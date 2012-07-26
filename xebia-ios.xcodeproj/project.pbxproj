@@ -12,6 +12,16 @@
 		5404E95D15BDFE1F00CCDE1F /* splash-iphone-portrait@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5404E95415BDFE1F00CCDE1F /* splash-iphone-portrait@2x.png */; };
 		5404E96015BDFE3900CCDE1F /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 5404E95F15BDFE3900CCDE1F /* Default.png */; };
 		5404E96215BDFE3C00CCDE1F /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5404E96115BDFE3C00CCDE1F /* Default@2x.png */; };
+		5458482415C1E0A300DD03F4 /* RKWPCategoryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5458481E15C1E0A300DD03F4 /* RKWPCategoryCell.m */; };
+		5458482515C1E0A300DD03F4 /* RKWPCategoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5458481F15C1E0A300DD03F4 /* RKWPCategoryCell.xib */; };
+		5458482615C1E0A300DD03F4 /* RKWPLoadingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5458482115C1E0A300DD03F4 /* RKWPLoadingView.m */; };
+		5458482A15C1E0D800DD03F4 /* RKWPTagCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5458482915C1E0D800DD03F4 /* RKWPTagCell.m */; };
+		5458482C15C1E1AC00DD03F4 /* RestKitResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 5458482B15C1E1AC00DD03F4 /* RestKitResources.bundle */; };
+		5458482E15C1E1C700DD03F4 /* RKWPTagCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5458482D15C1E1C700DD03F4 /* RKWPTagCell.xib */; };
+		5458483115C1E2CD00DD03F4 /* RKWPTagTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5458483015C1E2CD00DD03F4 /* RKWPTagTableViewController.m */; };
+		5458483515C1EAD500DD03F4 /* RKWPAuthorCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5458483315C1EAD500DD03F4 /* RKWPAuthorCell.m */; };
+		5458483615C1EAD500DD03F4 /* RKWPAuthorCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5458483415C1EAD500DD03F4 /* RKWPAuthorCell.xib */; };
+		5458483915C1EC3300DD03F4 /* RKWPAuthorTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5458483815C1EC3300DD03F4 /* RKWPAuthorTableViewController.m */; };
 		5483B3F015BF4C3400E60EE0 /* RKWPTag.m in Sources */ = {isa = PBXBuildFile; fileRef = 5483B3EF15BF4C3400E60EE0 /* RKWPTag.m */; };
 		5483B3F415BF4C4300E60EE0 /* RKWPCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 5483B3F315BF4C4300E60EE0 /* RKWPCategory.m */; };
 		5483B3F715BF4DC900E60EE0 /* RKWPAuthor.m in Sources */ = {isa = PBXBuildFile; fileRef = 5483B3F615BF4DC900E60EE0 /* RKWPAuthor.m */; };
@@ -27,9 +37,6 @@
 		54A2784615C0A2E20074505A /* empty.png in Resources */ = {isa = PBXBuildFile; fileRef = 54A2784315C0A2E20074505A /* empty.png */; };
 		54A2784715C0A2E20074505A /* error.png in Resources */ = {isa = PBXBuildFile; fileRef = 54A2784415C0A2E20074505A /* error.png */; };
 		54A2784815C0A2E20074505A /* offline.png in Resources */ = {isa = PBXBuildFile; fileRef = 54A2784515C0A2E20074505A /* offline.png */; };
-		54A2784E15C0A3AE0074505A /* RKWPCategoryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 54A2784A15C0A3AE0074505A /* RKWPCategoryCell.m */; };
-		54A2784F15C0A3AE0074505A /* RKWPCategoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 54A2784B15C0A3AE0074505A /* RKWPCategoryCell.xib */; };
-		54A2785015C0A3AE0074505A /* RKWPLoadingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 54A2784D15C0A3AE0074505A /* RKWPLoadingView.m */; };
 		54C2DEEB15BDFAFB00CABB12 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54C2DEEA15BDFAFB00CABB12 /* UIKit.framework */; };
 		54C2DEED15BDFAFB00CABB12 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54C2DEEC15BDFAFB00CABB12 /* Foundation.framework */; };
 		54C2DEEF15BDFAFB00CABB12 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54C2DEEE15BDFAFB00CABB12 /* CoreGraphics.framework */; };
@@ -78,6 +85,22 @@
 		5404E95415BDFE1F00CCDE1F /* splash-iphone-portrait@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "splash-iphone-portrait@2x.png"; sourceTree = "<group>"; };
 		5404E95F15BDFE3900CCDE1F /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		5404E96115BDFE3C00CCDE1F /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		5458481D15C1E0A300DD03F4 /* RKWPCategoryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RKWPCategoryCell.h; sourceTree = "<group>"; };
+		5458481E15C1E0A300DD03F4 /* RKWPCategoryCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RKWPCategoryCell.m; sourceTree = "<group>"; };
+		5458481F15C1E0A300DD03F4 /* RKWPCategoryCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RKWPCategoryCell.xib; sourceTree = "<group>"; };
+		5458482015C1E0A300DD03F4 /* RKWPLoadingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RKWPLoadingView.h; sourceTree = "<group>"; };
+		5458482115C1E0A300DD03F4 /* RKWPLoadingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RKWPLoadingView.m; sourceTree = "<group>"; };
+		5458482815C1E0D800DD03F4 /* RKWPTagCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RKWPTagCell.h; sourceTree = "<group>"; };
+		5458482915C1E0D800DD03F4 /* RKWPTagCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RKWPTagCell.m; sourceTree = "<group>"; };
+		5458482B15C1E1AC00DD03F4 /* RestKitResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = RestKitResources.bundle; sourceTree = "<group>"; };
+		5458482D15C1E1C700DD03F4 /* RKWPTagCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RKWPTagCell.xib; sourceTree = "<group>"; };
+		5458482F15C1E2CD00DD03F4 /* RKWPTagTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RKWPTagTableViewController.h; sourceTree = "<group>"; };
+		5458483015C1E2CD00DD03F4 /* RKWPTagTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RKWPTagTableViewController.m; sourceTree = "<group>"; };
+		5458483215C1EAD400DD03F4 /* RKWPAuthorCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RKWPAuthorCell.h; sourceTree = "<group>"; };
+		5458483315C1EAD500DD03F4 /* RKWPAuthorCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RKWPAuthorCell.m; sourceTree = "<group>"; };
+		5458483415C1EAD500DD03F4 /* RKWPAuthorCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RKWPAuthorCell.xib; sourceTree = "<group>"; };
+		5458483715C1EC3200DD03F4 /* RKWPAuthorTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RKWPAuthorTableViewController.h; sourceTree = "<group>"; };
+		5458483815C1EC3300DD03F4 /* RKWPAuthorTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RKWPAuthorTableViewController.m; sourceTree = "<group>"; };
 		5483B3EE15BF4C3400E60EE0 /* RKWPTag.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RKWPTag.h; sourceTree = "<group>"; };
 		5483B3EF15BF4C3400E60EE0 /* RKWPTag.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RKWPTag.m; sourceTree = "<group>"; };
 		5483B3F215BF4C4300E60EE0 /* RKWPCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RKWPCategory.h; sourceTree = "<group>"; };
@@ -99,11 +122,6 @@
 		54A2784315C0A2E20074505A /* empty.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = empty.png; sourceTree = "<group>"; };
 		54A2784415C0A2E20074505A /* error.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = error.png; sourceTree = "<group>"; };
 		54A2784515C0A2E20074505A /* offline.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = offline.png; sourceTree = "<group>"; };
-		54A2784915C0A3AE0074505A /* RKWPCategoryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RKWPCategoryCell.h; path = View/RKWPCategoryCell.h; sourceTree = SOURCE_ROOT; };
-		54A2784A15C0A3AE0074505A /* RKWPCategoryCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RKWPCategoryCell.m; path = View/RKWPCategoryCell.m; sourceTree = SOURCE_ROOT; };
-		54A2784B15C0A3AE0074505A /* RKWPCategoryCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = RKWPCategoryCell.xib; path = View/RKWPCategoryCell.xib; sourceTree = SOURCE_ROOT; };
-		54A2784C15C0A3AE0074505A /* RKWPLoadingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RKWPLoadingView.h; path = View/RKWPLoadingView.h; sourceTree = SOURCE_ROOT; };
-		54A2784D15C0A3AE0074505A /* RKWPLoadingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RKWPLoadingView.m; path = View/RKWPLoadingView.m; sourceTree = SOURCE_ROOT; };
 		54C2DEE615BDFAFB00CABB12 /* xebia-ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "xebia-ios.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		54C2DEEA15BDFAFB00CABB12 /* UIKit.framework */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		54C2DEEC15BDFAFB00CABB12 /* Foundation.framework */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -184,6 +202,7 @@
 		5404E94915BDFE1F00CCDE1F /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				5458482B15C1E1AC00DD03F4 /* RestKitResources.bundle */,
 				54A2783615C0A2AA0074505A /* Images */,
 				5404E95115BDFE1F00CCDE1F /* Splash */,
 			);
@@ -201,14 +220,20 @@
 			path = Splash;
 			sourceTree = "<group>";
 		};
-		54A2783215C0A1250074505A /* View */ = {
+		5458481C15C1E0A300DD03F4 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				54A2784915C0A3AE0074505A /* RKWPCategoryCell.h */,
-				54A2784A15C0A3AE0074505A /* RKWPCategoryCell.m */,
-				54A2784B15C0A3AE0074505A /* RKWPCategoryCell.xib */,
-				54A2784C15C0A3AE0074505A /* RKWPLoadingView.h */,
-				54A2784D15C0A3AE0074505A /* RKWPLoadingView.m */,
+				5458483215C1EAD400DD03F4 /* RKWPAuthorCell.h */,
+				5458483315C1EAD500DD03F4 /* RKWPAuthorCell.m */,
+				5458483415C1EAD500DD03F4 /* RKWPAuthorCell.xib */,
+				5458481D15C1E0A300DD03F4 /* RKWPCategoryCell.h */,
+				5458481E15C1E0A300DD03F4 /* RKWPCategoryCell.m */,
+				5458481F15C1E0A300DD03F4 /* RKWPCategoryCell.xib */,
+				5458482015C1E0A300DD03F4 /* RKWPLoadingView.h */,
+				5458482115C1E0A300DD03F4 /* RKWPLoadingView.m */,
+				5458482815C1E0D800DD03F4 /* RKWPTagCell.h */,
+				5458482915C1E0D800DD03F4 /* RKWPTagCell.m */,
+				5458482D15C1E1C700DD03F4 /* RKWPTagCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -275,8 +300,8 @@
 				54C2DF3215BDFB6500CABB12 /* Model */,
 				54C2DF3D15BDFB6600CABB12 /* Service */,
 				54C2DF4015BDFB6600CABB12 /* Utils */,
+				5458481C15C1E0A300DD03F4 /* View */,
 				54C2DEFE15BDFAFB00CABB12 /* xebia_ios.xcdatamodeld */,
-				54A2783215C0A1250074505A /* View */,
 				54C2DEF315BDFAFB00CABB12 /* Supporting Files */,
 			);
 			path = "xebia-ios";
@@ -325,8 +350,12 @@
 				54C2DF2715BDFB6500CABB12 /* PostTableViewController.m */,
 				54C2DF2A15BDFB6500CABB12 /* TagTableViewController.h */,
 				54C2DF2B15BDFB6500CABB12 /* TagTableViewController.m */,
+				5458483715C1EC3200DD03F4 /* RKWPAuthorTableViewController.h */,
+				5458483815C1EC3300DD03F4 /* RKWPAuthorTableViewController.m */,
 				54A2782E15C0A0240074505A /* RKWPCategoryTableViewController.h */,
 				54A2782F15C0A0240074505A /* RKWPCategoryTableViewController.m */,
+				5458482F15C1E2CD00DD03F4 /* RKWPTagTableViewController.h */,
+				5458483015C1E2CD00DD03F4 /* RKWPTagTableViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -475,7 +504,10 @@
 				54A2784615C0A2E20074505A /* empty.png in Resources */,
 				54A2784715C0A2E20074505A /* error.png in Resources */,
 				54A2784815C0A2E20074505A /* offline.png in Resources */,
-				54A2784F15C0A3AE0074505A /* RKWPCategoryCell.xib in Resources */,
+				5458482515C1E0A300DD03F4 /* RKWPCategoryCell.xib in Resources */,
+				5458482C15C1E1AC00DD03F4 /* RestKitResources.bundle in Resources */,
+				5458482E15C1E1C700DD03F4 /* RKWPTagCell.xib in Resources */,
+				5458483615C1EAD500DD03F4 /* RKWPAuthorCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -546,8 +578,12 @@
 				5483B3FA15BF4E9E00E60EE0 /* RKWPComment.m in Sources */,
 				5483B3FD15BF4F4400E60EE0 /* RKWPAttachment.m in Sources */,
 				54A2783015C0A0240074505A /* RKWPCategoryTableViewController.m in Sources */,
-				54A2784E15C0A3AE0074505A /* RKWPCategoryCell.m in Sources */,
-				54A2785015C0A3AE0074505A /* RKWPLoadingView.m in Sources */,
+				5458482415C1E0A300DD03F4 /* RKWPCategoryCell.m in Sources */,
+				5458482615C1E0A300DD03F4 /* RKWPLoadingView.m in Sources */,
+				5458482A15C1E0D800DD03F4 /* RKWPTagCell.m in Sources */,
+				5458483115C1E2CD00DD03F4 /* RKWPTagTableViewController.m in Sources */,
+				5458483515C1EAD500DD03F4 /* RKWPAuthorCell.m in Sources */,
+				5458483915C1EC3300DD03F4 /* RKWPAuthorTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

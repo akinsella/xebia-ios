@@ -14,8 +14,8 @@
 @property (nonatomic, strong) NSString *slug;
 @property (nonatomic, strong) NSString *name;
 @property (nonatomic, strong) NSString *first_name;
-@property (nonatomic, strong) NSNumber *last_name;
-@property (nonatomic, strong) NSNumber *nickname;
+@property (nonatomic, strong) NSString *last_name;
+@property (nonatomic, strong) NSString *nickname;
 @property (nonatomic, strong) NSString *url;
 @property (nonatomic, strong) NSString *description_;
 

@@ -35,6 +35,26 @@
          }];
         
         
+        [self setObjectMapping:[self tagObjectMapping] 
+        forResourcePathPattern:@"/get_tag_index/" 
+         withFetchRequestBlock:^NSFetchRequest *(NSString *resourcePath) {
+             // NOTE: We could use RKPathMatcher here to easily tokenize the requested resourcePath
+             NSFetchRequest *fetchRequest = [RKWPTag fetchRequest];
+             fetchRequest.sortDescriptors = [NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:@"title" ascending:YES]];
+             return fetchRequest;
+         }];
+        
+        
+        [self setObjectMapping:[self authorObjectMapping] 
+        forResourcePathPattern:@"/get_author_index/" 
+         withFetchRequestBlock:^NSFetchRequest *(NSString *resourcePath) {
+             // NOTE: We could use RKPathMatcher here to easily tokenize the requested resourcePath
+             NSFetchRequest *fetchRequest = [RKWPAuthor fetchRequest];
+             fetchRequest.sortDescriptors = [NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES]];
+             return fetchRequest;
+         }];
+        
+        
         [self setObjectMapping:[self postObjectMapping] 
         forResourcePathPattern:@"/get_recent_posts/" 
          withFetchRequestBlock:^NSFetchRequest *(NSString *resourcePath) {
@@ -58,7 +78,35 @@
      @"id", @"identifier",
      @"description", @"description_",
      nil];
+    
+    return mapping;
+}
 
+- (RKManagedObjectMapping *)tagObjectMapping {
+    RKManagedObjectMapping *mapping =  [RKManagedObjectMapping mappingForEntityWithName:@"RKWPTag" 
+                                                                   inManagedObjectStore:self.objectStore];
+    mapping.rootKeyPath = @"tags";
+    mapping.primaryKeyAttribute = @"identifier";
+    [mapping mapAttributes:@"slug", @"title", @"post_count", nil];
+    [mapping mapKeyPathsToAttributes:
+     @"id", @"identifier",
+     @"description", @"description_",
+     nil];
+    
+    return mapping;
+}
+
+- (RKManagedObjectMapping *)authorObjectMapping {
+    RKManagedObjectMapping *mapping =  [RKManagedObjectMapping mappingForEntityWithName:@"RKWPAuthor" 
+                                                                   inManagedObjectStore:self.objectStore];
+    mapping.rootKeyPath = @"authors";
+    mapping.primaryKeyAttribute = @"identifier";
+    [mapping mapAttributes:@"slug", @"name", @"first_name", @"last_name", @"nickname", @"url", nil];
+    [mapping mapKeyPathsToAttributes:
+     @"id", @"identifier",
+     @"description", @"description_",
+     nil];
+    
     return mapping;
 }
 

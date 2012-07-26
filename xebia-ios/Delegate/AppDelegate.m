@@ -29,14 +29,6 @@
 @synthesize categories = _categories;
 @synthesize posts = _posts;
 
-- (void)initializeRestKit
-{
-    self.objectManager = [RKObjectManager managerWithBaseURLString:@"http://blog.xebia.fr/wp-json-api"];
-    self.objectStore = [RKManagedObjectStore objectStoreWithStoreFilename:@"RKWordpress.sqlite"];
-    self.objectManager.objectStore = self.objectStore;
-    self.objectManager.mappingProvider = [RKWPMappingProvider mappingProviderWithObjectStore:self.objectStore];
-}
-
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     [self initializeRestKit];
     self.wpDataAccessor = [WPDataAccessor initWithBaseApiUrl:@"http://blog.xebia.fr/wp-json-api"];
@@ -47,6 +39,14 @@
     
     // Override point for customization after application launch.
     return YES;
+}
+
+- (void)initializeRestKit
+{
+    self.objectManager = [RKObjectManager managerWithBaseURLString:@"http://blog.xebia.fr/wp-json-api"];
+    self.objectStore = [RKManagedObjectStore objectStoreWithStoreFilename:@"RKWordpress.sqlite"];
+    self.objectManager.objectStore = self.objectStore;
+    self.objectManager.mappingProvider = [RKWPMappingProvider mappingProviderWithObjectStore:self.objectStore];
 }
 
 - (void)updatePostsWithPostType:(POST_TYPE)postType Id:(int)identifier Count:(int)count {

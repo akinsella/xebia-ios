@@ -16,4 +16,8 @@
 @dynamic title;
 @dynamic post_count;
 
+- (NSInteger)postCount {
+    return [self.post_count integerValue];
+}
+
 @end

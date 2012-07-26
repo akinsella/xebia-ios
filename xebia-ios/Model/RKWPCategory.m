@@ -17,7 +17,6 @@
 @dynamic parent;
 @dynamic post_count;
 
-
 - (NSInteger)postCount {
     return [self.post_count integerValue];
 }
