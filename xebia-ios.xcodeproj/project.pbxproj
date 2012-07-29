@@ -22,6 +22,10 @@
 		5458483515C1EAD500DD03F4 /* RKWPAuthorCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5458483315C1EAD500DD03F4 /* RKWPAuthorCell.m */; };
 		5458483615C1EAD500DD03F4 /* RKWPAuthorCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5458483415C1EAD500DD03F4 /* RKWPAuthorCell.xib */; };
 		5458483915C1EC3300DD03F4 /* RKWPAuthorTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5458483815C1EC3300DD03F4 /* RKWPAuthorTableViewController.m */; };
+		5458483B15C4C5B900DD03F4 /* ios-icon-144.png in Resources */ = {isa = PBXBuildFile; fileRef = 5458483A15C4C5B900DD03F4 /* ios-icon-144.png */; };
+		5458483D15C4C5BE00DD03F4 /* ios-icon-72.png in Resources */ = {isa = PBXBuildFile; fileRef = 5458483C15C4C5BD00DD03F4 /* ios-icon-72.png */; };
+		5458483F15C4C5C600DD03F4 /* ios-icon-57.png in Resources */ = {isa = PBXBuildFile; fileRef = 5458483E15C4C5C600DD03F4 /* ios-icon-57.png */; };
+		5458484115C4C5CA00DD03F4 /* ios-icon-114.png in Resources */ = {isa = PBXBuildFile; fileRef = 5458484015C4C5C900DD03F4 /* ios-icon-114.png */; };
 		5483B3F015BF4C3400E60EE0 /* RKWPTag.m in Sources */ = {isa = PBXBuildFile; fileRef = 5483B3EF15BF4C3400E60EE0 /* RKWPTag.m */; };
 		5483B3F415BF4C4300E60EE0 /* RKWPCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 5483B3F315BF4C4300E60EE0 /* RKWPCategory.m */; };
 		5483B3F715BF4DC900E60EE0 /* RKWPAuthor.m in Sources */ = {isa = PBXBuildFile; fileRef = 5483B3F615BF4DC900E60EE0 /* RKWPAuthor.m */; };
@@ -101,6 +105,10 @@
 		5458483415C1EAD500DD03F4 /* RKWPAuthorCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RKWPAuthorCell.xib; sourceTree = "<group>"; };
 		5458483715C1EC3200DD03F4 /* RKWPAuthorTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RKWPAuthorTableViewController.h; sourceTree = "<group>"; };
 		5458483815C1EC3300DD03F4 /* RKWPAuthorTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RKWPAuthorTableViewController.m; sourceTree = "<group>"; };
+		5458483A15C4C5B900DD03F4 /* ios-icon-144.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ios-icon-144.png"; sourceTree = "<group>"; };
+		5458483C15C4C5BD00DD03F4 /* ios-icon-72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ios-icon-72.png"; sourceTree = "<group>"; };
+		5458483E15C4C5C600DD03F4 /* ios-icon-57.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ios-icon-57.png"; sourceTree = "<group>"; };
+		5458484015C4C5C900DD03F4 /* ios-icon-114.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ios-icon-114.png"; sourceTree = "<group>"; };
 		5483B3EE15BF4C3400E60EE0 /* RKWPTag.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RKWPTag.h; sourceTree = "<group>"; };
 		5483B3EF15BF4C3400E60EE0 /* RKWPTag.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RKWPTag.m; sourceTree = "<group>"; };
 		5483B3F215BF4C4300E60EE0 /* RKWPCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RKWPCategory.h; sourceTree = "<group>"; };
@@ -257,6 +265,10 @@
 		54C2DEDB15BDFAFB00CABB12 = {
 			isa = PBXGroup;
 			children = (
+				5458484015C4C5C900DD03F4 /* ios-icon-114.png */,
+				5458483E15C4C5C600DD03F4 /* ios-icon-57.png */,
+				5458483C15C4C5BD00DD03F4 /* ios-icon-72.png */,
+				5458483A15C4C5B900DD03F4 /* ios-icon-144.png */,
 				5404E96115BDFE3C00CCDE1F /* Default@2x.png */,
 				5404E95F15BDFE3900CCDE1F /* Default.png */,
 				5404E94915BDFE1F00CCDE1F /* Resource */,
@@ -508,6 +520,10 @@
 				5458482C15C1E1AC00DD03F4 /* RestKitResources.bundle in Resources */,
 				5458482E15C1E1C700DD03F4 /* RKWPTagCell.xib in Resources */,
 				5458483615C1EAD500DD03F4 /* RKWPAuthorCell.xib in Resources */,
+				5458483B15C4C5B900DD03F4 /* ios-icon-144.png in Resources */,
+				5458483D15C4C5BE00DD03F4 /* ios-icon-72.png in Resources */,
+				5458483F15C4C5C600DD03F4 /* ios-icon-57.png in Resources */,
+				5458484115C4C5CA00DD03F4 /* ios-icon-114.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
