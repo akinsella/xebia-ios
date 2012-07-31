@@ -35,7 +35,7 @@
     self.tableController.pullToRefreshEnabled = YES;
     self.tableController.resourcePath = @"/get_tag_index/";
     self.tableController.variableHeightRows = YES;
-    NSSortDescriptor *descriptor = [NSSortDescriptor sortDescriptorWithKey:@"title" ascending:NO];
+    NSSortDescriptor *descriptor = [NSSortDescriptor sortDescriptorWithKey:@"title" ascending:YES];
     self.tableController.sortDescriptors = [NSArray arrayWithObject:descriptor];
     
     /**
@@ -71,8 +71,8 @@
     RKTableViewCellMapping *cellMapping = [RKTableViewCellMapping cellMapping];
     cellMapping.cellClassName = @"RKWPTagCell";
     cellMapping.reuseIdentifier = @"RKWPTag";
-    cellMapping.rowHeight = 100.0;
-    [cellMapping mapKeyPath:@"title" toAttribute:@"titleLabel.text"];
+//    cellMapping.rowHeight = 50.0;
+    [cellMapping mapKeyPath:@"capitalizedTitle" toAttribute:@"titleLabel.text"];
     [cellMapping mapKeyPath:@"description_" toAttribute:@"descriptionLabel.text"];
     [cellMapping mapKeyPath:@"postCount" toAttribute:@"itemCount"];
     

@@ -16,6 +16,11 @@
 @dynamic title;
 @dynamic post_count;
 
+- (NSString *)capitalizedTitle {
+    return [self.title stringByReplacingCharactersInRange:NSMakeRange(0,1)  
+                                              withString:[[self.title substringToIndex:1] capitalizedString]];
+}
+
 - (NSInteger)postCount {
     return [self.post_count integerValue];
 }

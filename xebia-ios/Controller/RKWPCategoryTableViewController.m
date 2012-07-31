@@ -33,7 +33,7 @@
     self.tableController.pullToRefreshEnabled = YES;
     self.tableController.resourcePath = @"/get_category_index/";
     self.tableController.variableHeightRows = YES;
-    NSSortDescriptor *descriptor = [NSSortDescriptor sortDescriptorWithKey:@"title" ascending:NO];
+    NSSortDescriptor *descriptor = [NSSortDescriptor sortDescriptorWithKey:@"title" ascending:YES];
     self.tableController.sortDescriptors = [NSArray arrayWithObject:descriptor];
     
     /**
@@ -69,7 +69,7 @@
     RKTableViewCellMapping *cellMapping = [RKTableViewCellMapping cellMapping];
     cellMapping.cellClassName = @"RKWPCategoryCell";
     cellMapping.reuseIdentifier = @"RKWPCategory";
-    cellMapping.rowHeight = 100.0;
+//    cellMapping.rowHeight = 100.0;
     [cellMapping mapKeyPath:@"title" toAttribute:@"titleLabel.text"];
 //    [cellMapping mapKeyPath:@"body" toAttribute:@"descriptionLabel.text"];
     [cellMapping mapKeyPath:@"postCount" toAttribute:@"itemCount"];

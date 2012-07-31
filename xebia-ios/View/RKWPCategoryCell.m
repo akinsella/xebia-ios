@@ -29,7 +29,9 @@
 
 
 - (void)updateBottomDetailLabel {
-    self.bottomDetailLabel.text = [NSString stringWithFormat:@"%ld posts", self.itemCount];
+    self.bottomDetailLabel.text = [NSString stringWithFormat: 
+                                   self.itemCount > 1 ? @"%ld posts" : @"%ld post", 
+                                   self.itemCount];
 }
 
 @end

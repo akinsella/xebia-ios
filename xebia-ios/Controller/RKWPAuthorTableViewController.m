@@ -33,7 +33,7 @@
     self.tableController.pullToRefreshEnabled = YES;
     self.tableController.resourcePath = @"/get_author_index/";
     self.tableController.variableHeightRows = YES;
-    NSSortDescriptor *descriptor = [NSSortDescriptor sortDescriptorWithKey:@"name" ascending:NO];
+    NSSortDescriptor *descriptor = [NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES];
     self.tableController.sortDescriptors = [NSArray arrayWithObject:descriptor];
     
     /**
@@ -69,7 +69,7 @@
     RKTableViewCellMapping *cellMapping = [RKTableViewCellMapping cellMapping];
     cellMapping.cellClassName = @"RKWPAuthorCell";
     cellMapping.reuseIdentifier = @"RKWPAuthor";
-    cellMapping.rowHeight = 100.0;
+//    cellMapping.rowHeight = 100.0;
     [cellMapping mapKeyPath:@"name" toAttribute:@"titleLabel.text"];
     [cellMapping mapKeyPath:@"description_" toAttribute:@"descriptionLabel.text"];
     
