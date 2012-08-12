@@ -2,6 +2,7 @@ platform :ios
 dependency 'JSONKit',       '~> 1.4'
 dependency 'Reachability',  '~> 3.0.0'
 dependency 'MBProgressHUD',	'~> 0.5'
+dependency 'SDWebImage',	'~> 2.6'
 dependency 'RestKit'
 dependency 'RestKit/UI'
 dependency 'RestKit/Network'

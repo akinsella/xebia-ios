@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/SDWebImageManager.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/SDWebImageManager</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>SDWebImageManager.h</DeclaredIn>
+			
+			<NodeRef refid="4"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/SDWebImageManager/sharedManager</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>SDWebImageManager.h</DeclaredIn>			
+			
+			<Declaration>+ (id)sharedManager</Declaration>
+			
+			
+			<Anchor>//api/name/sharedManager</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/SDWebImageManager/imageWithURL:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>SDWebImageManager.h</DeclaredIn>			
+			
+			<Declaration>- (UIImage *)imageWithURL:(NSURL *)url</Declaration>
+			
+			
+			<Anchor>//api/name/imageWithURL:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/SDWebImageManager/downloadWithURL:delegate:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>SDWebImageManager.h</DeclaredIn>			
+			
+			<Declaration>- (void)downloadWithURL:(NSURL *)url delegate:(id&lt;SDWebImageManagerDelegate&gt;)delegate</Declaration>
+			
+			
+			<Anchor>//api/name/downloadWithURL:delegate:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/SDWebImageManager/downloadWithURL:delegate:options:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>SDWebImageManager.h</DeclaredIn>			
+			
+			<Declaration>- (void)downloadWithURL:(NSURL *)url delegate:(id&lt;SDWebImageManagerDelegate&gt;)delegate options:(SDWebImageOptions)options</Declaration>
+			
+			
+			<Anchor>//api/name/downloadWithURL:delegate:options:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/SDWebImageManager/downloadWithURL:delegate:retryFailed:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>SDWebImageManager.h</DeclaredIn>			
+			
+			<Declaration>- (void)downloadWithURL:(NSURL *)url delegate:(id&lt;SDWebImageManagerDelegate&gt;)delegate retryFailed:(BOOL)retryFailed</Declaration>
+			
+			
+			<Anchor>//api/name/downloadWithURL:delegate:retryFailed:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/SDWebImageManager/downloadWithURL:delegate:retryFailed:lowPriority:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>SDWebImageManager.h</DeclaredIn>			
+			
+			<Declaration>- (void)downloadWithURL:(NSURL *)url delegate:(id&lt;SDWebImageManagerDelegate&gt;)delegate retryFailed:(BOOL)retryFailed lowPriority:(BOOL)lowPriority</Declaration>
+			
+			
+			<Anchor>//api/name/downloadWithURL:delegate:retryFailed:lowPriority:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/SDWebImageManager/downloadWithURL:delegate:options:success:failure:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>SDWebImageManager.h</DeclaredIn>			
+			
+			<Declaration>- (void)downloadWithURL:(NSURL *)url delegate:(id)delegate options:(SDWebImageOptions)options success:(void ( ^ ) ( UIImage *image ))success failure:(void ( ^ ) ( NSError *error ))failure</Declaration>
+			
+			
+			<Anchor>//api/name/downloadWithURL:delegate:options:success:failure:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/SDWebImageManager/cancelForDelegate:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>SDWebImageManager.h</DeclaredIn>			
+			
+			<Declaration>- (void)cancelForDelegate:(id&lt;SDWebImageManagerDelegate&gt;)delegate</Declaration>
+			
+			
+			<Anchor>//api/name/cancelForDelegate:</Anchor>
+		</Token>
+		
+	</File>
+</Tokens>

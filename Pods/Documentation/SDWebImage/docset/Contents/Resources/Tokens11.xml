@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Protocols/SDWebImageDownloaderDelegate.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intf/SDWebImageDownloaderDelegate</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>SDWebImageDownloaderDelegate.h</DeclaredIn>
+			
+			<NodeRef refid="11"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intfm/SDWebImageDownloaderDelegate/imageDownloaderDidFinish:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>SDWebImageDownloaderDelegate.h</DeclaredIn>			
+			
+			<Declaration>- (void)imageDownloaderDidFinish:(SDWebImageDownloader *)downloader</Declaration>
+			
+			
+			<Anchor>//api/name/imageDownloaderDidFinish:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intfm/SDWebImageDownloaderDelegate/imageDownloader:didFinishWithImage:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>SDWebImageDownloaderDelegate.h</DeclaredIn>			
+			
+			<Declaration>- (void)imageDownloader:(SDWebImageDownloader *)downloader didFinishWithImage:(UIImage *)image</Declaration>
+			
+			
+			<Anchor>//api/name/imageDownloader:didFinishWithImage:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intfm/SDWebImageDownloaderDelegate/imageDownloader:didFailWithError:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>SDWebImageDownloaderDelegate.h</DeclaredIn>			
+			
+			<Declaration>- (void)imageDownloader:(SDWebImageDownloader *)downloader didFailWithError:(NSError *)error</Declaration>
+			
+			
+			<Anchor>//api/name/imageDownloader:didFailWithError:</Anchor>
+		</Token>
+		
+	</File>
+</Tokens>

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Protocols/SDWebImageManagerDelegate.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intf/SDWebImageManagerDelegate</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>SDWebImageManagerDelegate.h</DeclaredIn>
+			
+			<NodeRef refid="12"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intfm/SDWebImageManagerDelegate/webImageManager:didFinishWithImage:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>SDWebImageManagerDelegate.h</DeclaredIn>			
+			
+			<Declaration>- (void)webImageManager:(SDWebImageManager *)imageManager didFinishWithImage:(UIImage *)image</Declaration>
+			
+			
+			<Anchor>//api/name/webImageManager:didFinishWithImage:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intfm/SDWebImageManagerDelegate/webImageManager:didFinishWithImage:forURL:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>SDWebImageManagerDelegate.h</DeclaredIn>			
+			
+			<Declaration>- (void)webImageManager:(SDWebImageManager *)imageManager didFinishWithImage:(UIImage *)image forURL:(NSURL *)url</Declaration>
+			
+			
+			<Anchor>//api/name/webImageManager:didFinishWithImage:forURL:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intfm/SDWebImageManagerDelegate/webImageManager:didFailWithError:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>SDWebImageManagerDelegate.h</DeclaredIn>			
+			
+			<Declaration>- (void)webImageManager:(SDWebImageManager *)imageManager didFailWithError:(NSError *)error</Declaration>
+			
+			
+			<Anchor>//api/name/webImageManager:didFailWithError:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intfm/SDWebImageManagerDelegate/webImageManager:didFailWithError:forURL:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>SDWebImageManagerDelegate.h</DeclaredIn>			
+			
+			<Declaration>- (void)webImageManager:(SDWebImageManager *)imageManager didFailWithError:(NSError *)error forURL:(NSURL *)url</Declaration>
+			
+			
+			<Anchor>//api/name/webImageManager:didFailWithError:forURL:</Anchor>
+		</Token>
+		
+	</File>
+</Tokens>

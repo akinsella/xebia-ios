@@ -38,6 +38,7 @@ PODS:
     - RestKit/Network
     - XMLReader
   - RestKit/UI (0.10.1)
+  - SDWebImage (2.6)
   - SOCKit (1.0)
   - XMLReader (0.0.1)
   - cocoa-oauth (0.0.1):
@@ -54,3 +55,4 @@ DEPENDENCIES:
   - RestKit/ObjectMapping/JSON
   - RestKit/ObjectMapping/XML
   - RestKit/UI
+  - SDWebImage (~> 2.6)

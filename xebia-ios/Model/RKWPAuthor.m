@@ -1,4 +1,4 @@
-//
+    //
 //  RKWPAuthor.m
 //  xebia-ios
 //
@@ -7,6 +7,8 @@
 //
 
 #import "RKWPAuthor.h"
+#import "SDWebImageManager.h"
+#import "GravatarHelper.h"
 
 @implementation RKWPAuthor
 
@@ -19,4 +21,25 @@
 @dynamic url;
 @dynamic description_;
 
+- (NSURL *)avatarImageUrl {
+    return [GravatarHelper getGravatarURL: [NSString stringWithFormat:@"%@@xebia.fr", [self nickname]]];
+}
+
+- (void)awakeFromInsert
+{
+    [super awakeFromInsert];
+    [self initAvatarUrl];
+}
+
+- (void)awakeFromFetch
+{
+    [super awakeFromInsert];
+    [self initAvatarUrl];
+}
+
+-(void)initAvatarUrl {
+}
+
+
 @end
+

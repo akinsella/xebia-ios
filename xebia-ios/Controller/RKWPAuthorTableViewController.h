@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface RKWPAuthorTableViewController : UITableViewController
+@interface RKWPAuthorTableViewController : UITableViewController<RKFetchedResultsTableControllerDelegate>
 
 @end

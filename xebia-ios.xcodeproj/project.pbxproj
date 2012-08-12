@@ -74,6 +74,8 @@
 		54C2DF5215BDFB6600CABB12 /* Date.m in Sources */ = {isa = PBXBuildFile; fileRef = 54C2DF4215BDFB6600CABB12 /* Date.m */; };
 		54C2DF5415BDFBA000CABB12 /* www in Resources */ = {isa = PBXBuildFile; fileRef = 54C2DF5315BDFBA000CABB12 /* www */; };
 		54C2DF5615BDFBD900CABB12 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 54C2DF5515BDFBD900CABB12 /* MainStoryboard.storyboard */; };
+		54F9D40E15D80C5A00A8E511 /* avatar_placeholder.png in Resources */ = {isa = PBXBuildFile; fileRef = 54F9D40D15D80C5A00A8E511 /* avatar_placeholder.png */; };
+		54F9D42015D81A4100A8E511 /* GravatarHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 54F9D41F15D81A4100A8E511 /* GravatarHelper.m */; };
 		B56E64C3C14D4A618E4C1641 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EDB581D723EF4E5C808B5615 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -184,6 +186,9 @@
 		54C2DF4215BDFB6600CABB12 /* Date.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Date.m; sourceTree = "<group>"; };
 		54C2DF5315BDFBA000CABB12 /* www */ = {isa = PBXFileReference; lastKnownFileType = folder; path = www; sourceTree = "<group>"; };
 		54C2DF5515BDFBD900CABB12 /* MainStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MainStoryboard.storyboard; sourceTree = "<group>"; };
+		54F9D40D15D80C5A00A8E511 /* avatar_placeholder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = avatar_placeholder.png; sourceTree = "<group>"; };
+		54F9D41E15D81A4100A8E511 /* GravatarHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GravatarHelper.h; sourceTree = "<group>"; };
+		54F9D41F15D81A4100A8E511 /* GravatarHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GravatarHelper.m; sourceTree = "<group>"; };
 		EDB581D723EF4E5C808B5615 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		FFE479B60E604A7197B75249 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
@@ -257,6 +262,7 @@
 		54A2783615C0A2AA0074505A /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				54F9D40D15D80C5A00A8E511 /* avatar_placeholder.png */,
 				54A2784315C0A2E20074505A /* empty.png */,
 				54A2784415C0A2E20074505A /* error.png */,
 				54A2784515C0A2E20074505A /* offline.png */,
@@ -321,6 +327,7 @@
 				54C2DF5315BDFBA000CABB12 /* www */,
 				54C2DF1F15BDFB6500CABB12 /* Controller */,
 				54C2DF2C15BDFB6500CABB12 /* Delegate */,
+				54F9D41D15D81A4100A8E511 /* Library */,
 				54C2DF3215BDFB6500CABB12 /* Model */,
 				54C2DF3D15BDFB6600CABB12 /* Service */,
 				54C2DF4015BDFB6600CABB12 /* Utils */,
@@ -440,6 +447,15 @@
 			path = Utils;
 			sourceTree = "<group>";
 		};
+		54F9D41D15D81A4100A8E511 /* Library */ = {
+			isa = PBXGroup;
+			children = (
+				54F9D41E15D81A4100A8E511 /* GravatarHelper.h */,
+				54F9D41F15D81A4100A8E511 /* GravatarHelper.m */,
+			);
+			path = Library;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -540,6 +556,7 @@
 				540C092115C58A4B00615B00 /* Default-Landscape~ipad.png in Resources */,
 				540C092315C58C5700615B00 /* Default-Portrait~ipad.png in Resources */,
 				540C092515C58C5A00615B00 /* Default-Portrait@2x~ipad.png in Resources */,
+				54F9D40E15D80C5A00A8E511 /* avatar_placeholder.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -616,6 +633,7 @@
 				5458483115C1E2CD00DD03F4 /* RKWPTagTableViewController.m in Sources */,
 				5458483515C1EAD500DD03F4 /* RKWPAuthorCell.m in Sources */,
 				5458483915C1EC3300DD03F4 /* RKWPAuthorTableViewController.m in Sources */,
+				54F9D42015D81A4100A8E511 /* GravatarHelper.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

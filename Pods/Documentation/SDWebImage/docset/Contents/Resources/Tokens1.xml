@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/SDImageCache.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/SDImageCache</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>SDImageCache.h</DeclaredIn>
+			
+			<NodeRef refid="1"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/SDImageCache/sharedImageCache</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>SDImageCache.h</DeclaredIn>			
+			
+			<Declaration>+ (SDImageCache *)sharedImageCache</Declaration>
+			
+			
+			<Anchor>//api/name/sharedImageCache</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/SDImageCache/storeImage:forKey:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>SDImageCache.h</DeclaredIn>			
+			
+			<Declaration>- (void)storeImage:(UIImage *)image forKey:(NSString *)key</Declaration>
+			
+			
+			<Anchor>//api/name/storeImage:forKey:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/SDImageCache/storeImage:forKey:toDisk:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>SDImageCache.h</DeclaredIn>			
+			
+			<Declaration>- (void)storeImage:(UIImage *)image forKey:(NSString *)key toDisk:(BOOL)toDisk</Declaration>
+			
+			
+			<Anchor>//api/name/storeImage:forKey:toDisk:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/SDImageCache/storeImage:imageData:forKey:toDisk:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>SDImageCache.h</DeclaredIn>			
+			
+			<Declaration>- (void)storeImage:(UIImage *)image imageData:(NSData *)data forKey:(NSString *)key toDisk:(BOOL)toDisk</Declaration>
+			
+			
+			<Anchor>//api/name/storeImage:imageData:forKey:toDisk:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/SDImageCache/imageFromKey:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>SDImageCache.h</DeclaredIn>			
+			
+			<Declaration>- (UIImage *)imageFromKey:(NSString *)key</Declaration>
+			
+			
+			<Anchor>//api/name/imageFromKey:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/SDImageCache/imageFromKey:fromDisk:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>SDImageCache.h</DeclaredIn>			
+			
+			<Declaration>- (UIImage *)imageFromKey:(NSString *)key fromDisk:(BOOL)fromDisk</Declaration>
+			
+			
+			<Anchor>//api/name/imageFromKey:fromDisk:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/SDImageCache/queryDiskCacheForKey:delegate:userInfo:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>SDImageCache.h</DeclaredIn>			
+			
+			<Declaration>- (void)queryDiskCacheForKey:(NSString *)key delegate:(id&lt;SDImageCacheDelegate&gt;)delegate userInfo:(NSDictionary *)info</Declaration>
+			
+			
+			<Anchor>//api/name/queryDiskCacheForKey:delegate:userInfo:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/SDImageCache/removeImageForKey:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>SDImageCache.h</DeclaredIn>			
+			
+			<Declaration>- (void)removeImageForKey:(NSString *)key</Declaration>
+			
+			
+			<Anchor>//api/name/removeImageForKey:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/SDImageCache/removeImageForKey:fromDisk:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>SDImageCache.h</DeclaredIn>			
+			
+			<Declaration>- (void)removeImageForKey:(NSString *)key fromDisk:(BOOL)fromDisk</Declaration>
+			
+			
+			<Anchor>//api/name/removeImageForKey:fromDisk:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/SDImageCache/clearMemory</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>SDImageCache.h</DeclaredIn>			
+			
+			<Declaration>- (void)clearMemory</Declaration>
+			
+			
+			<Anchor>//api/name/clearMemory</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/SDImageCache/clearDisk</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>SDImageCache.h</DeclaredIn>			
+			
+			<Declaration>- (void)clearDisk</Declaration>
+			
+			
+			<Anchor>//api/name/clearDisk</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/SDImageCache/cleanDisk</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>SDImageCache.h</DeclaredIn>			
+			
+			<Declaration>- (void)cleanDisk</Declaration>
+			
+			
+			<Anchor>//api/name/cleanDisk</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/SDImageCache/getSize</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>SDImageCache.h</DeclaredIn>			
+			
+			<Declaration>- (int)getSize</Declaration>
+			
+			
+			<Anchor>//api/name/getSize</Anchor>
+		</Token>
+		
+	</File>
+</Tokens>

@@ -11,7 +11,9 @@
 #import "RKWPAuthor.h"
 #import "RKWPAuthorTableViewController.h"
 #import "RKWPLoadingView.h"
-
+#import "SDWebImageManager.h"
+#import "GravatarHelper.h"
+#import "SDImageCache.h"
 
 @interface RKWPAuthorTableViewController ()
 @property (nonatomic, strong) RKFetchedResultsTableController *tableController;
@@ -19,16 +21,22 @@
 
 @implementation RKWPAuthorTableViewController
 
+UIImage* defaultAvatarImage;
+SDWebImageManager *manager;
+
 @synthesize tableController;
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
+    manager = [SDWebImageManager sharedManager];
+
+    defaultAvatarImage = [UIImage imageNamed:@"avatar_placeholder.png"];
     /**
      Configure the RestKit table controller to drive our view
      */
     self.tableController = [[RKObjectManager sharedManager] fetchedResultsTableControllerForTableViewController:self];
+    self.tableController.delegate = self;
     self.tableController.autoRefreshFromNetwork = YES;
     self.tableController.pullToRefreshEnabled = YES;
     self.tableController.resourcePath = @"/get_author_index/";
@@ -58,21 +66,15 @@
     self.tableController.imageForOffline = [UIImage imageNamed:@"offline.png"];
     self.tableController.imageForError = [UIImage imageNamed:@"error.png"];
     self.tableController.imageForEmpty = [UIImage imageNamed:@"empty.png"];
-    
-    /**
-     Configure our RKGHIssue -> UITableViewCell mappings. When RestKit loads the
-     remote resource collection, the JSON payload will be object mapped into local
-     RKGHIssue instances on a background thread. Once the payload has been processed,
-     the table controller will object map the RKGHIssue instances into table cells and 
-     render the tableView.
-     */
+
     RKTableViewCellMapping *cellMapping = [RKTableViewCellMapping cellMapping];
     cellMapping.cellClassName = @"RKWPAuthorCell";
     cellMapping.reuseIdentifier = @"RKWPAuthor";
 //    cellMapping.rowHeight = 100.0;
     [cellMapping mapKeyPath:@"name" toAttribute:@"titleLabel.text"];
-    [cellMapping mapKeyPath:@"description_" toAttribute:@"descriptionLabel.text"];
-    
+//    [cellMapping mapKeyPath:@"description_" toAttribute:@"descriptionLabel.text"];
+//    [cellMapping mapKeyPath:@"image" toAttribute:@"imageView.image"];
+     
     [tableController mapObjectsWithClass:[RKWPAuthor class] toTableCellsWithMapping:cellMapping];
     
     /**
@@ -91,13 +93,38 @@
     [tableController loadTable];
 }
 
+- (void)tableController:(RKAbstractTableController *)tableController willDisplayCell:(UITableViewCell *)cell forObject:(id)object atIndexPath:(NSIndexPath *)indexPath;
+{
+    RKWPAuthor *author = object;
+    NSString *avatarImageUrl = [[author avatarImageUrl] absoluteString];
+    UIImage *cachedImage = [[SDImageCache sharedImageCache] imageFromKey:avatarImageUrl];
+    if (!cachedImage) {
+        cell.imageView.image = defaultAvatarImage;
+        NSLog(@"Download image: %@", [author avatarImageUrl]);
+        [manager downloadWithURL:author.avatarImageUrl
+                        delegate:self
+                         options:0
+                         success:^(UIImage *image) {
+                             [[SDImageCache sharedImageCache] storeImage:image forKey:avatarImageUrl];
+                             cell.imageView.image = image;
+                         }
+                         failure:^(NSError *error) {
+                             [[SDImageCache sharedImageCache] storeImage:defaultAvatarImage forKey:avatarImageUrl];
+                             cell.imageView.image = defaultAvatarImage;
+                         }];
+    }
+    else {
+        cell.imageView.image = cachedImage;
+    }
+}
+
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    if ([segue.identifier isEqualToString:@"showDetail"]) {        
-        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
-        RKWPAuthor *author = [self.tableController objectForRowAtIndexPath:indexPath];
-        [[segue destinationViewController] setAuthor:author];
-    }
+//    if ([segue.identifier isEqualToString:@"showDetail"]) {        
+//        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+//        RKWPAuthor *author = [self.tableController objectForRowAtIndexPath:indexPath];
+//        [[segue destinationViewController] setAuthor:author];
+//    }
 }
 
 @end

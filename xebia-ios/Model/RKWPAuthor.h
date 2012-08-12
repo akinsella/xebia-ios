@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "SDWebImageManager.h"
 
-@interface RKWPAuthor : NSManagedObject
+@interface RKWPAuthor : NSManagedObject<SDWebImageManagerDelegate>
 
 @property (nonatomic, strong) NSNumber *identifier;
 @property (nonatomic, strong) NSString *slug;
@@ -19,4 +20,7 @@
 @property (nonatomic, strong) NSString *url;
 @property (nonatomic, strong) NSString *description_;
 
+@property (nonatomic, strong, readonly) NSURL *avatarImageUrl;
+
 @end
+
