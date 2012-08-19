@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "RKWPAuthor.h"
 
 @interface RKWPAuthorCell : UITableViewCell
 
@@ -15,5 +16,9 @@
 @property (nonatomic, strong) IBOutlet UILabel *bottomDetailLabel;
 
 @property (nonatomic, assign) NSInteger itemCount;
+@property (nonatomic, strong) NSNumber *identifier;
+@property (nonatomic, readonly, strong) UIImage *avatarImage;
+
+-(void)loadAvatarFromAuthor:(RKWPAuthor *)author defaultAvatar:(UIImage *)defaultAvatarImage;
 
 @end

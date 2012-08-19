@@ -18,6 +18,7 @@
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="nickname" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="slug" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="uppercaseFirstLetterOfName" optional="YES" transient="YES" attributeType="String" syncable="YES"/>
         <attribute name="url" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <entity name="RKWPCategory" representedClassName="RKWPCategory" syncable="YES">
@@ -65,7 +66,7 @@
     </entity>
     <elements>
         <element name="RKWPAttachment" positionX="-5652" positionY="-612" width="128" height="165"/>
-        <element name="RKWPAuthor" positionX="160" positionY="192" width="128" height="165"/>
+        <element name="RKWPAuthor" positionX="160" positionY="192" width="128" height="180"/>
         <element name="RKWPCategory" positionX="160" positionY="192" width="128" height="135"/>
         <element name="RKWPComment" positionX="160" positionY="192" width="128" height="150"/>
         <element name="RKWPPost" positionX="-5895" positionY="-765" width="128" height="300"/>

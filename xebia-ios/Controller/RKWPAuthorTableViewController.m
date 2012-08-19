@@ -11,9 +11,7 @@
 #import "RKWPAuthor.h"
 #import "RKWPAuthorTableViewController.h"
 #import "RKWPLoadingView.h"
-#import "SDWebImageManager.h"
-#import "GravatarHelper.h"
-#import "SDImageCache.h"
+#import "RKWPAuthorCell.h"
 
 @interface RKWPAuthorTableViewController ()
 @property (nonatomic, strong) RKFetchedResultsTableController *tableController;
@@ -22,27 +20,29 @@
 @implementation RKWPAuthorTableViewController
 
 UIImage* defaultAvatarImage;
-SDWebImageManager *manager;
 
 @synthesize tableController;
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    manager = [SDWebImageManager sharedManager];
-
+    
     defaultAvatarImage = [UIImage imageNamed:@"avatar_placeholder.png"];
     /**
      Configure the RestKit table controller to drive our view
      */
     self.tableController = [[RKObjectManager sharedManager] fetchedResultsTableControllerForTableViewController:self];
     self.tableController.delegate = self;
+    self.tableController.sectionNameKeyPath = @"uppercaseFirstLetterOfName";
+
+    NSSortDescriptor *descriptor = [NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES];
+    self.tableController.fetchRequest.sortDescriptors = [NSArray arrayWithObject:descriptor];
+  
+    self.tableController.showsSectionIndexTitles = YES;
     self.tableController.autoRefreshFromNetwork = YES;
     self.tableController.pullToRefreshEnabled = YES;
     self.tableController.resourcePath = @"/get_author_index/";
     self.tableController.variableHeightRows = YES;
-    NSSortDescriptor *descriptor = [NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES];
-    self.tableController.sortDescriptors = [NSArray arrayWithObject:descriptor];
     
     /**
      Configure the Pull to Refresh View
@@ -72,8 +72,7 @@ SDWebImageManager *manager;
     cellMapping.reuseIdentifier = @"RKWPAuthor";
 //    cellMapping.rowHeight = 100.0;
     [cellMapping mapKeyPath:@"name" toAttribute:@"titleLabel.text"];
-//    [cellMapping mapKeyPath:@"description_" toAttribute:@"descriptionLabel.text"];
-//    [cellMapping mapKeyPath:@"image" toAttribute:@"imageView.image"];
+    [cellMapping mapKeyPath:@"identifier" toAttribute:@"identifier"];
      
     [tableController mapObjectsWithClass:[RKWPAuthor class] toTableCellsWithMapping:cellMapping];
     
@@ -96,26 +95,8 @@ SDWebImageManager *manager;
 - (void)tableController:(RKAbstractTableController *)tableController willDisplayCell:(UITableViewCell *)cell forObject:(id)object atIndexPath:(NSIndexPath *)indexPath;
 {
     RKWPAuthor *author = object;
-    NSString *avatarImageUrl = [[author avatarImageUrl] absoluteString];
-    UIImage *cachedImage = [[SDImageCache sharedImageCache] imageFromKey:avatarImageUrl];
-    if (!cachedImage) {
-        cell.imageView.image = defaultAvatarImage;
-        NSLog(@"Download image: %@", [author avatarImageUrl]);
-        [manager downloadWithURL:author.avatarImageUrl
-                        delegate:self
-                         options:0
-                         success:^(UIImage *image) {
-                             [[SDImageCache sharedImageCache] storeImage:image forKey:avatarImageUrl];
-                             cell.imageView.image = image;
-                         }
-                         failure:^(NSError *error) {
-                             [[SDImageCache sharedImageCache] storeImage:defaultAvatarImage forKey:avatarImageUrl];
-                             cell.imageView.image = defaultAvatarImage;
-                         }];
-    }
-    else {
-        cell.imageView.image = cachedImage;
-    }
+    RKWPAuthorCell *authorCell = cell;
+    [authorCell loadAvatarFromAuthor:author defaultAvatar:defaultAvatarImage];
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender

@@ -9,6 +9,7 @@
 #import "RKWPAuthor.h"
 #import "SDWebImageManager.h"
 #import "GravatarHelper.h"
+#import "SDImageCache.h"
 
 @implementation RKWPAuthor
 
@@ -21,25 +22,24 @@
 @dynamic url;
 @dynamic description_;
 
+
 - (NSURL *)avatarImageUrl {
     return [GravatarHelper getGravatarURL: [NSString stringWithFormat:@"%@@xebia.fr", [self nickname]]];
 }
 
-- (void)awakeFromInsert
-{
-    [super awakeFromInsert];
-    [self initAvatarUrl];
+- (NSString *)uppercaseFirstLetterOfName {
+    [self willAccessValueForKey:@"uppercaseFirstLetterOfName"];
+    NSString *aString = [[self valueForKey:@"name"] uppercaseString];
+    
+    // support UTF-16:
+    NSString *stringToReturn = [aString substringWithRange:[aString rangeOfComposedCharacterSequenceAtIndex:0]];
+    
+    // OR no UTF-16 support:
+    //NSString *stringToReturn = [aString substringToIndex:1];
+    
+    [self didAccessValueForKey:@"uppercaseFirstLetterOfName"];
+    return stringToReturn;
 }
-
-- (void)awakeFromFetch
-{
-    [super awakeFromInsert];
-    [self initAvatarUrl];
-}
-
--(void)initAvatarUrl {
-}
-
 
 @end
 
