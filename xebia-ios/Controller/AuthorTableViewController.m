@@ -12,11 +12,10 @@
 #import "AppDelegate.h"
 #import "MBProgressHUD.h"
 
-@implementation AuthorTableViewController {
-    MBProgressHUD *HUD;
-    NSMutableDictionary *sections;
-    NSString *filterValue;
-}
+@implementation AuthorTableViewController
+
+NSMutableDictionary *sections;
+NSString *filterValue;
 
 @synthesize authors, filteredAuthors, searchBar;
 
@@ -39,7 +38,7 @@
 
     sections = [[NSMutableDictionary alloc] init];
 
-    HUD = [[MBProgressHUD alloc] initWithView:self.navigationController.view];
+    MBProgressHUD *HUD = [[MBProgressHUD alloc] initWithView:self.navigationController.view];
     [self.navigationController.view addSubview:HUD];
 
     HUD.delegate = self;

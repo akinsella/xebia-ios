@@ -12,6 +12,7 @@
 #import "RKWPAuthorTableViewController.h"
 #import "RKWPLoadingView.h"
 #import "RKWPAuthorCell.h"
+#import "SDImageCache.h"
 
 @interface RKWPAuthorTableViewController ()
 @property (nonatomic, strong) RKFetchedResultsTableController *tableController;
@@ -38,7 +39,7 @@ UIImage* defaultAvatarImage;
     NSSortDescriptor *descriptor = [NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES];
     self.tableController.fetchRequest.sortDescriptors = [NSArray arrayWithObject:descriptor];
   
-    self.tableController.showsSectionIndexTitles = YES;
+    self.tableController.showsSectionIndexTitles = FALSE;
     self.tableController.autoRefreshFromNetwork = YES;
     self.tableController.pullToRefreshEnabled = YES;
     self.tableController.resourcePath = @"/get_author_index/";
@@ -96,7 +97,34 @@ UIImage* defaultAvatarImage;
 {
     RKWPAuthor *author = object;
     RKWPAuthorCell *authorCell = cell;
-    [authorCell loadAvatarFromAuthor:author defaultAvatar:defaultAvatarImage];
+ 
+    NSString *avatarImageUrl = [[author avatarImageUrl] absoluteString];
+    UIImage *cachedImage = [[SDImageCache sharedImageCache] imageFromKey:avatarImageUrl];
+    if (cachedImage) {
+        [[authorCell imageView] setImage: cachedImage];
+    }
+    else {
+        [[authorCell imageView] setImage: defaultAvatarImage];
+        NSLog(@"Download image: %@ for author: %@", [author avatarImageUrl], [author nickname]);
+        SDWebImageManager *manager = [SDWebImageManager sharedManager];
+        [manager downloadWithURL:author.avatarImageUrl
+                        delegate:self
+                         options:0
+                         success:^(UIImage *image) {
+                             [[SDImageCache sharedImageCache] storeImage:image forKey:avatarImageUrl];
+                             if ([[authorCell identifier] intValue] == [[author identifier] intValue]) {
+                                 [[authorCell imageView] setImage: image];   
+                             }
+                         }
+                         failure:^(NSError *error) {
+                             [[SDImageCache sharedImageCache] storeImage:defaultAvatarImage forKey:avatarImageUrl];
+                             if ([[authorCell identifier] intValue] == [[author identifier] intValue]) {
+                                 [[authorCell imageView] setImage: defaultAvatarImage];
+                             }
+                         }];
+    }
+
+    
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender

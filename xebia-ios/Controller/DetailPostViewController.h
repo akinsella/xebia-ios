@@ -9,13 +9,9 @@
 #import "Post.h"
 #import <UIKit/UIKit.h>
 
-@interface DetailPostViewController : UIViewController<UIWebViewDelegate> {
-
-    Post *post;
-    IBOutlet UIWebView *webView;
-}
+@interface DetailPostViewController : UIViewController<UIWebViewDelegate>
 
 @property(nonatomic, retain) Post *post;
-@property (nonatomic, retain) UIWebView *webView;
+@property (nonatomic, retain) IBOutlet UIWebView *webView;
 
 @end

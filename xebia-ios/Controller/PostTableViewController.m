@@ -13,6 +13,7 @@
 
 @implementation PostTableViewController
 
+
 @synthesize identifier, postType, posts;
 
 - (id)initWithStyle:(UITableViewStyle)style {
@@ -26,7 +27,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    HUD = [[MBProgressHUD alloc] initWithView:self.navigationController.view];
+    MBProgressHUD *HUD = [[MBProgressHUD alloc] initWithView:self.navigationController.view];
     [self.navigationController.view addSubview:HUD];
 
     HUD.delegate = self;

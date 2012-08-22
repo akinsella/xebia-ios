@@ -12,10 +12,7 @@
 #import "AppDelegate.h"
 #import "MBProgressHUD.h"
 
-@implementation TagTableViewController {
-    MBProgressHUD *HUD;
-}
-
+@implementation TagTableViewController
 @synthesize tags;
 
 - (id)initWithStyle:(UITableViewStyle)style {
@@ -29,7 +26,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    HUD = [[MBProgressHUD alloc] initWithView:self.navigationController.view];
+    MBProgressHUD *HUD = [[MBProgressHUD alloc] initWithView:self.navigationController.view];
     [self.navigationController.view addSubview:HUD];
 
     HUD.delegate = self;

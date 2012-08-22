@@ -19,6 +19,4 @@
 @property (nonatomic, strong) NSNumber *identifier;
 @property (nonatomic, readonly, strong) UIImage *avatarImage;
 
--(void)loadAvatarFromAuthor:(RKWPAuthor *)author defaultAvatar:(UIImage *)defaultAvatarImage;
-
 @end

@@ -11,6 +11,7 @@
 #import "JSONKit.h" 
 
 @implementation DetailPostViewController
+
 @synthesize post, webView;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {

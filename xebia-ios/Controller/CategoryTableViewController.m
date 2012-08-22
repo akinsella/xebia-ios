@@ -12,9 +12,7 @@
 #import "AppDelegate.h"
 #import "MBProgressHUD.h"
 
-@implementation CategoryTableViewController {
-    MBProgressHUD *HUD;
-}
+@implementation CategoryTableViewController
 
 @synthesize categories;
 
@@ -29,7 +27,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    HUD = [[MBProgressHUD alloc] initWithView:self.navigationController.view];
+    MBProgressHUD *HUD = [[MBProgressHUD alloc] initWithView:self.navigationController.view];
     [self.navigationController.view addSubview:HUD];
 
     HUD.delegate = self;
