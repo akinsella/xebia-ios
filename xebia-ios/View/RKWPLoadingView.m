@@ -36,6 +36,7 @@
 
 - (void)dealloc {
     [self.activityIndicator removeFromSuperview];
+    [super dealloc];
 }
 
 @end

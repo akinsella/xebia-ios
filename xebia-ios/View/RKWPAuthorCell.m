@@ -33,7 +33,7 @@
 
 
 - (void)updateBottomDetailLabel {
-    self.bottomDetailLabel.text = [NSString stringWithFormat:@"%ld posts", self.itemCount];
+    self.bottomDetailLabel.text = [NSString stringWithFormat:@"%d posts", self.itemCount];
 }
 
 -(void) prepareForReuse {

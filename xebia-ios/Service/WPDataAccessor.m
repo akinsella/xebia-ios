@@ -9,11 +9,9 @@
 #import "WPDataAccessor.h"
 #import <RestKit/RestKit.h>
 #import "JSONKit.h"
-#import "Tag.h"
-#import "Category.h"
-#import "Author.h"
 
 @implementation WPDataAccessor
+
 @synthesize baseApiUrl;
 
 + (id) initWithBaseApiUrl:(NSString *)url {
@@ -96,83 +94,14 @@
     
 }
 
-- (NSMutableArray *)fetchTags {
-    NSArray *jsonTags = [self fetchIndexData:@"/get_tag_index/" data:@"tags"];
-
-    NSMutableArray *tags = [[[NSMutableArray alloc] initWithCapacity:[jsonTags count]] autorelease];
-
-    for (NSDictionary *jsonTag in jsonTags) {
-
-        Tag *tag = [Tag tagWithId:((NSNumber *)[jsonTag objectForKey:@"id"]).intValue
-                             slug:[jsonTag objectForKey:@"slug"] 
-                            title:[jsonTag objectForKey:@"title"] 
-                      description:[jsonTag objectForKey:@"description"] 
-                        postCount:((NSNumber *)[jsonTag objectForKey:@"post_count"]).intValue
-        ];
-        
-        [tags addObject: tag];
-        
-        [tag release];
-    }
-
-    return tags;
-}
-
-- (NSMutableArray *)fetchCategories {
-    NSArray *jsonCategories = [self fetchIndexData:@"/get_category_index/" data:@"categories"];
-
-    NSMutableArray *categories = [[[NSMutableArray alloc] initWithCapacity:[jsonCategories count]] autorelease];
-
-    for (NSDictionary *jsonCateogy in jsonCategories) {
-
-        Category *category = [Category categoryWithId:((NSNumber *) [jsonCateogy objectForKey:@"id"]).intValue
-                                                 slug:[jsonCateogy objectForKey:@"slug"]
-                                                title:[jsonCateogy objectForKey:@"title"]
-                                          description:[jsonCateogy objectForKey:@"description"]
-                                            postCount:((NSNumber *) [jsonCateogy objectForKey:@"post_count"]).intValue
-        ];
-
-        [categories addObject: category];
-
-        [category release];
-    }
-
-    return categories;
-}
-
-
-- (NSMutableArray *)fetchAuthors {
-    NSArray *jsonAuthors = [self fetchIndexData:@"/get_author_index/" data:@"authors"];
-    NSMutableArray *authors = [[[NSMutableArray alloc] initWithCapacity:[jsonAuthors count]] autorelease];
-
-    for (NSDictionary *jsonAuthor in jsonAuthors) {
-
-        Author *author = [Author authorWithId:((NSNumber *) [jsonAuthor objectForKey:@"id"]).intValue
-                slug:[jsonAuthor objectForKey:@"slug"]
-                name:[jsonAuthor objectForKey:@"name"]
-                firstname:[jsonAuthor objectForKey:@"first_name"]
-                lastname:[jsonAuthor objectForKey:@"last_name"]
-                nickname:[jsonAuthor objectForKey:@"nickname"]
-                url:[jsonAuthor objectForKey:@"url"]
-                description:[jsonAuthor objectForKey:@"descrition"]
-        ];
-
-        [authors addObject: author];
-
-        [author release];
-    }
-
-    return authors;
-}
-
 - (NSArray *)fetchIndexData:(NSString *)urlPath data:(NSString *)data {
     NSDictionary *items = [self fetchJsonData:urlPath];
 
     NSLog(@"Json Dictionary Fetched %@", items);
     NSLog(@"Dictionary Count %i", [items count]);
     NSArray *jsonAuthors = [items objectForKey:data];
-    NSLog([NSString stringWithFormat:@"%@(s) Found %@", data, jsonAuthors]);
-    NSLog([NSString stringWithFormat:@"%@(s) Count %i", data, [jsonAuthors count]]);
+    NSLog(@"%@(s) Found %@", data, jsonAuthors);
+    NSLog(@"%@(s) Count %i", data, [jsonAuthors count]);
 
     return jsonAuthors;
 }

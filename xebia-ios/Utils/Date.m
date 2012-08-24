@@ -60,6 +60,11 @@
     else if(dayDiff < -365) {
         return @"A long time ago";
     }
+    else {
+        NSDateFormatter *dateFormatter = [[[NSDateFormatter alloc] init] autorelease];
+        [dateFormatter setDateFormat:@"'yyyy'/'MM'/'dd', 'hh':'mm'"];
+        return [dateFormatter stringFromDate:date];        
+    }
 
 }
 

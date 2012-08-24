@@ -82,16 +82,13 @@
                     navigationType:(UIWebViewNavigationType)navigationType {
 
     NSString *requestString = [[[request URL] absoluteString] stringByReplacingPercentEscapesUsingEncoding: NSUTF8StringEncoding];
-    NSLog(requestString);
+    NSLog(@"%@", requestString);
 
     if ([requestString hasPrefix:@"ios-log:"]) {
 
         #ifdef DEBUG
-
             NSString* logText = [[requestString substringFromIndex:@"ios-log://".length] stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-
-            NSLog( @"UIWebController<%08x>: %@", self, logText );
-
+            NSLog( @"UIWebController<%08x>: %@", (unsigned int)self, logText );
         #endif
 
         return NO;

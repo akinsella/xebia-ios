@@ -18,13 +18,6 @@
 
 - (id)initWithBaseApiUrl:(NSString *)baseApiUrl;
 
-//-(NSData *)fetchJsonData:(NSString *)jsonUrl;
-
-//- (NSString *)getApiCallPath:(NSString *)relativeApiCallPath;
-
--(NSMutableArray *) fetchTags;
--(NSMutableArray *) fetchCategories;
--(NSMutableArray *) fetchAuthors;
 -(NSMutableArray *) fetchPostsWithPostType:(POST_TYPE)postType Id:(int)identifier Count:(int)count;
 
 @end

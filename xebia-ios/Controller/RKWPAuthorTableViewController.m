@@ -96,7 +96,7 @@ UIImage* defaultAvatarImage;
 - (void)tableController:(RKAbstractTableController *)tableController willDisplayCell:(UITableViewCell *)cell forObject:(id)object atIndexPath:(NSIndexPath *)indexPath;
 {
     RKWPAuthor *author = object;
-    RKWPAuthorCell *authorCell = cell;
+    RKWPAuthorCell *authorCell = (RKWPAuthorCell *)cell;
  
     NSString *avatarImageUrl = [[author avatarImageUrl] absoluteString];
     UIImage *cachedImage = [[SDImageCache sharedImageCache] imageFromKey:avatarImageUrl];

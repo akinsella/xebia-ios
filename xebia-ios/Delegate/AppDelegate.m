@@ -10,6 +10,7 @@
 #import "RKWPMappingProvider.h"
 #import <RestKit/RestKit.h>
 #import <RestKit/CoreData.h>
+#import "WPDataAccessor.h"
 
 @interface AppDelegate ()
 @property (nonatomic, strong, readwrite) RKObjectManager *objectManager;
@@ -24,16 +25,12 @@
 @synthesize objectManager;
 @synthesize objectStore;
 
-@synthesize tags = _tags;
-@synthesize authors = _authors;
-@synthesize categories = _categories;
 @synthesize posts = _posts;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     [self initializeRestKit];
     self.wpDataAccessor = [WPDataAccessor initWithBaseApiUrl:@"http://blog.xebia.fr/wp-json-api"];
 
-//    RKClient *client = [RKClient clientWithBaseURLString:@"http://restkit.org"];
 //    RKLogConfigureByName("RestKit/Network", RKLogLevelDebug);
 //    RKLogInfo(@"Configured RestKit client: %@", client);
     
@@ -41,8 +38,7 @@
     return YES;
 }
 
-- (void)initializeRestKit
-{
+- (void)initializeRestKit {
     self.objectManager = [RKObjectManager managerWithBaseURLString:@"http://blog.xebia.fr/wp-json-api"];
     self.objectStore = [RKManagedObjectStore objectStoreWithStoreFilename:@"RKWordpress.sqlite"];
     self.objectManager.objectStore = self.objectStore;
@@ -52,26 +48,6 @@
 - (void)updatePostsWithPostType:(POST_TYPE)postType Id:(int)identifier Count:(int)count {
     self.posts = [self.wpDataAccessor fetchPostsWithPostType:postType Id:identifier Count:count];
 }
-
-- (void)updateAuthors {
-    self.authors = [self.wpDataAccessor fetchAuthors];
-    NSSortDescriptor *authorSort = [NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES selector:@selector(caseInsensitiveCompare:)];
-    [self.authors sortUsingDescriptors:[NSArray arrayWithObject:authorSort]];
-}
-
-- (void)updateCategories {
-    NSSortDescriptor *categorySort = [NSSortDescriptor sortDescriptorWithKey:@"title" ascending:YES selector:@selector(caseInsensitiveCompare:)];
-    self.categories = [self.wpDataAccessor fetchCategories];
-    [self.categories sortUsingDescriptors:[NSArray arrayWithObject:categorySort]];
-}
-
-- (void)updateTags {
-    self.tags = [self.wpDataAccessor fetchTags];
-    NSSortDescriptor *tagSort = [NSSortDescriptor sortDescriptorWithKey:@"title" ascending:YES selector:@selector(caseInsensitiveCompare:)];
-    [self.tags sortUsingDescriptors:[NSArray arrayWithObject:tagSort]];
-
-}
-
 
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
@@ -91,8 +67,7 @@
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
 }
 
-- (void)applicationWillTerminate:(UIApplication *)application
-{
+- (void)applicationWillTerminate:(UIApplication *)application {
     // Saves changes in the application's managed object context before the application terminates.
     NSError *error = nil;
     if (! [self.objectStore save:&error]) {
