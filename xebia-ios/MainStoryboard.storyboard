@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="2549" systemVersion="11E53" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="yRD-6a-iM5">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="2549" systemVersion="11E53" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none">
     <dependencies>
         <deployment defaultVersion="1296" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1498"/>
@@ -127,7 +127,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="z3n-7O-F7P" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tableViewController storyboardIdentifier="menu" title="Menu" id="uwc-8N-vA9" customClass="RKWPMenuTableViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="yBM-IN-ReU">
-                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
+                        <rect key="frame" x="0.0" y="20" width="320" height="460"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.32156862745098042" green="0.0" blue="0.26666666666666666" alpha="1" colorSpace="calibratedRGB"/>
                         <searchBar key="tableHeaderView" contentMode="redraw" placeholder="Search ..." id="yTC-qU-kBP">
@@ -253,11 +253,11 @@
             </objects>
             <point key="canvasLocation" x="-881" y="-340"/>
         </scene>
-        <!--Navigation Controller - Tags-->
+        <!--Navigation Controller - Navigation-->
         <scene sceneID="trO-QM-i3g">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gnC-Lc-Msk" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <navigationController id="yRD-6a-iM5" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="navigation" title="Navigation" id="yRD-6a-iM5" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Tags" image="15-tags.png" id="tnm-7h-TWC"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="Qyu-RE-2K4">
@@ -269,9 +269,6 @@
                         <rect key="frame" x="0.0" y="980" width="768" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </toolbar>
-                    <connections>
-                        <segue destination="uwc-8N-vA9" kind="relationship" relationship="rootViewController" id="cug-ua-s7c"/>
-                    </connections>
                 </navigationController>
             </objects>
             <point key="canvasLocation" x="-1890" y="-1056"/>

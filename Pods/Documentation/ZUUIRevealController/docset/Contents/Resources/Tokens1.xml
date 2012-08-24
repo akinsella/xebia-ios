@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/ZUUIRevealController.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/ZUUIRevealController</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>ZUUIRevealController.h</DeclaredIn>
+			
+			<NodeRef refid="1"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/ZUUIRevealController/setFrontViewController:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>ZUUIRevealController.h</DeclaredIn>			
+			
+			<Declaration>@property (retain, nonatomic) IBOutlet UIViewController *frontViewController</Declaration>
+			
+			
+			<Anchor>//api/name/frontViewController</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/ZUUIRevealController/frontViewController</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>ZUUIRevealController.h</DeclaredIn>			
+			
+			<Declaration>@property (retain, nonatomic) IBOutlet UIViewController *frontViewController</Declaration>
+			
+			
+			<Anchor>//api/name/frontViewController</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/ZUUIRevealController/setRearViewController:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>ZUUIRevealController.h</DeclaredIn>			
+			
+			<Declaration>@property (retain, nonatomic) IBOutlet UIViewController *rearViewController</Declaration>
+			
+			
+			<Anchor>//api/name/rearViewController</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/ZUUIRevealController/rearViewController</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>ZUUIRevealController.h</DeclaredIn>			
+			
+			<Declaration>@property (retain, nonatomic) IBOutlet UIViewController *rearViewController</Declaration>
+			
+			
+			<Anchor>//api/name/rearViewController</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/ZUUIRevealController/setCurrentFrontViewPosition:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>ZUUIRevealController.h</DeclaredIn>			
+			
+			<Declaration>@property (assign, nonatomic) FrontViewPosition currentFrontViewPosition</Declaration>
+			
+			
+			<Anchor>//api/name/currentFrontViewPosition</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/ZUUIRevealController/currentFrontViewPosition</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>ZUUIRevealController.h</DeclaredIn>			
+			
+			<Declaration>@property (assign, nonatomic) FrontViewPosition currentFrontViewPosition</Declaration>
+			
+			
+			<Anchor>//api/name/currentFrontViewPosition</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/ZUUIRevealController/setDelegate:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>ZUUIRevealController.h</DeclaredIn>			
+			
+			<Declaration>@property (assign, nonatomic) id&lt;ZUUIRevealControllerDelegate&gt; delegate</Declaration>
+			
+			
+			<Anchor>//api/name/delegate</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/ZUUIRevealController/delegate</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>ZUUIRevealController.h</DeclaredIn>			
+			
+			<Declaration>@property (assign, nonatomic) id&lt;ZUUIRevealControllerDelegate&gt; delegate</Declaration>
+			
+			
+			<Anchor>//api/name/delegate</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/ZUUIRevealController/initWithFrontViewController:rearViewController:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>ZUUIRevealController.h</DeclaredIn>			
+			
+			<Declaration>- (id)initWithFrontViewController:(UIViewController *)aFrontViewController rearViewController:(UIViewController *)aBackViewController</Declaration>
+			
+			
+			<Anchor>//api/name/initWithFrontViewController:rearViewController:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/ZUUIRevealController/revealGesture:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>ZUUIRevealController.h</DeclaredIn>			
+			
+			<Declaration>- (void)revealGesture:(UIPanGestureRecognizer *)recognizer</Declaration>
+			
+			
+			<Anchor>//api/name/revealGesture:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/ZUUIRevealController/revealToggle:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>ZUUIRevealController.h</DeclaredIn>			
+			
+			<Declaration>- (void)revealToggle:(id)sender</Declaration>
+			
+			
+			<Anchor>//api/name/revealToggle:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/ZUUIRevealController/setFrontViewController:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>ZUUIRevealController.h</DeclaredIn>			
+			
+			<Declaration>- (void)setFrontViewController:(UIViewController *)frontViewController</Declaration>
+			
+			
+			<Anchor>//api/name/setFrontViewController:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/ZUUIRevealController/setFrontViewController:animated:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>ZUUIRevealController.h</DeclaredIn>			
+			
+			<Declaration>- (void)setFrontViewController:(UIViewController *)frontViewController animated:(BOOL)animated</Declaration>
+			
+			
+			<Anchor>//api/name/setFrontViewController:animated:</Anchor>
+		</Token>
+		
+	</File>
+</Tokens>

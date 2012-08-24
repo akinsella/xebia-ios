@@ -14,6 +14,7 @@
 #import "RKWPTagTableViewController.h"
 #import "UIImage+RKWPAdditions.h"
 #import "UISearchBar+RKWPAdditions.h"
+#import "RevealController.h"
 
 
 // Enum for row indices
@@ -80,22 +81,69 @@ enum {
     
     tableCellMapping.accessoryType = UITableViewCellAccessoryNone;
     tableCellMapping.onSelectCellForObjectAtIndexPath = ^(UITableViewCell *cell, id object, NSIndexPath* indexPath) {
+        
+        // Grab a handle to the reveal controller, as if you'd do with a navigtion controller via self.navigationController.
+        RevealController *revealController = [self.parentViewController isKindOfClass:[RevealController class]] ?
+            (RevealController *)self.parentViewController : nil;
+        
         switch (indexPath.row) {
             case RKWPMenuTableViewRowAuthors: {
-                RKWPAuthorTableViewController *authorTableViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"authors"];
-                [self.navigationController pushViewController:authorTableViewController animated:YES];
+                
+                if ([revealController.frontViewController isKindOfClass:[UINavigationController class]] && ![((UINavigationController *)revealController.frontViewController).topViewController isKindOfClass:[RKWPAuthorTableViewController class]])
+                {
+                    RKWPAuthorTableViewController *authorTableViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"authors"];
+                    UINavigationController *navigationController = ((UINavigationController *)revealController.frontViewController);
+                    
+                    [navigationController pushViewController:authorTableViewController animated:YES];
+                    [revealController setFrontViewController:navigationController animated:NO];
+                    
+                }
+                // Seems the user attempts to 'switch' to exactly the same controller he came from!
+                else
+                {
+                    [revealController revealToggle:self];
+                }
+                
                 break;
             }
                 
             case RKWPMenuTableViewRowCategories: {
-                RKWPCategoryTableViewController *categoryTableViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"categories"];
-                [self.navigationController pushViewController:categoryTableViewController animated:YES];
+                
+                if ([revealController.frontViewController isKindOfClass:[UINavigationController class]] && ![((UINavigationController *)revealController.frontViewController).topViewController isKindOfClass:[RKWPCategoryTableViewController class]])
+                {
+                    RKWPCategoryTableViewController *categoryTableViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"categories"];
+                    UINavigationController *navigationController = ((UINavigationController *)revealController.frontViewController);
+                    
+                    [navigationController pushViewController:categoryTableViewController animated:YES];
+                    [revealController setFrontViewController:navigationController animated:NO];
+                    
+                }
+                // Seems the user attempts to 'switch' to exactly the same controller he came from!
+                else
+                {
+                    [revealController revealToggle:self];
+                }
+                
                 break;
             }
                 
             case RKWPMenuTableViewRowTags: {
-                RKWPTagTableViewController *tagsTableViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"tags"];
-                [self.navigationController pushViewController:tagsTableViewController animated:YES];
+
+                if ([revealController.frontViewController isKindOfClass:[UINavigationController class]] && ![((UINavigationController *)revealController.frontViewController).topViewController isKindOfClass:[RKWPTagTableViewController class]])
+                {
+                    RKWPTagTableViewController *tagsTableViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"tags"];
+                    UINavigationController *navigationController = ((UINavigationController *)revealController.frontViewController);
+                    
+                    [navigationController pushViewController:tagsTableViewController animated:YES];
+                    [revealController setFrontViewController:navigationController animated:NO];
+                    
+                }
+                // Seems the user attempts to 'switch' to exactly the same controller he came from!
+                else
+                {
+                    [revealController revealToggle:self];
+                }
+
                 break;
             }
                 

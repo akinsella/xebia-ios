@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Protocols/ZUUIRevealControllerDelegate.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intf/ZUUIRevealControllerDelegate</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>ZUUIRevealController.h</DeclaredIn>
+			
+			<NodeRef refid="2"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intfm/ZUUIRevealControllerDelegate/revealController:shouldRevealRearViewController:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>ZUUIRevealController.h</DeclaredIn>			
+			
+			<Declaration>- (BOOL)revealController:(ZUUIRevealController *)revealController shouldRevealRearViewController:(UIViewController *)rearViewController</Declaration>
+			
+			
+			<Anchor>//api/name/revealController:shouldRevealRearViewController:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intfm/ZUUIRevealControllerDelegate/revealController:shouldHideRearViewController:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>ZUUIRevealController.h</DeclaredIn>			
+			
+			<Declaration>- (BOOL)revealController:(ZUUIRevealController *)revealController shouldHideRearViewController:(UIViewController *)rearViewController</Declaration>
+			
+			
+			<Anchor>//api/name/revealController:shouldHideRearViewController:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intfm/ZUUIRevealControllerDelegate/revealController:willRevealRearViewController:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>ZUUIRevealController.h</DeclaredIn>			
+			
+			<Declaration>- (void)revealController:(ZUUIRevealController *)revealController willRevealRearViewController:(UIViewController *)rearViewController</Declaration>
+			
+			
+			<Anchor>//api/name/revealController:willRevealRearViewController:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intfm/ZUUIRevealControllerDelegate/revealController:didRevealRearViewController:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>ZUUIRevealController.h</DeclaredIn>			
+			
+			<Declaration>- (void)revealController:(ZUUIRevealController *)revealController didRevealRearViewController:(UIViewController *)rearViewController</Declaration>
+			
+			
+			<Anchor>//api/name/revealController:didRevealRearViewController:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intfm/ZUUIRevealControllerDelegate/revealController:willHideRearViewController:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>ZUUIRevealController.h</DeclaredIn>			
+			
+			<Declaration>- (void)revealController:(ZUUIRevealController *)revealController willHideRearViewController:(UIViewController *)rearViewController</Declaration>
+			
+			
+			<Anchor>//api/name/revealController:willHideRearViewController:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intfm/ZUUIRevealControllerDelegate/revealController:didHideRearViewController:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>ZUUIRevealController.h</DeclaredIn>			
+			
+			<Declaration>- (void)revealController:(ZUUIRevealController *)revealController didHideRearViewController:(UIViewController *)rearViewController</Declaration>
+			
+			
+			<Anchor>//api/name/revealController:didHideRearViewController:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intfm/ZUUIRevealControllerDelegate/revealController:willSwapToFrontViewController:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>ZUUIRevealController.h</DeclaredIn>			
+			
+			<Declaration>- (void)revealController:(ZUUIRevealController *)revealController willSwapToFrontViewController:(UIViewController *)frontViewController</Declaration>
+			
+			
+			<Anchor>//api/name/revealController:willSwapToFrontViewController:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intfm/ZUUIRevealControllerDelegate/revealController:didSwapToFrontViewController:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>ZUUIRevealController.h</DeclaredIn>			
+			
+			<Declaration>- (void)revealController:(ZUUIRevealController *)revealController didSwapToFrontViewController:(UIViewController *)frontViewController</Declaration>
+			
+			
+			<Anchor>//api/name/revealController:didSwapToFrontViewController:</Anchor>
+		</Token>
+		
+	</File>
+</Tokens>

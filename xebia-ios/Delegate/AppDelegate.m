@@ -11,6 +11,10 @@
 #import <RestKit/RestKit.h>
 #import <RestKit/CoreData.h>
 #import "WPDataAccessor.h"
+#import "ZUUIRevealController.h"
+#import "RKWPMenuTableViewController.h"
+#import "RKWPAuthorTableViewController.h"
+#import "RevealController.h"
 
 @interface AppDelegate ()
 @property (nonatomic, strong, readwrite) RKObjectManager *objectManager;
@@ -29,10 +33,26 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     [self initializeRestKit];
+    
+    RKLogConfigureByName("RestKit/Network", RKLogLevelDebug);
+    //    RKLogInfo(@"Configured RestKit client: %@", client);
+
     self.wpDataAccessor = [WPDataAccessor initWithBaseApiUrl:@"http://blog.xebia.fr/wp-json-api"];
 
-//    RKLogConfigureByName("RestKit/Network", RKLogLevelDebug);
-//    RKLogInfo(@"Configured RestKit client: %@", client);
+    UIWindow *window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+	self.window = window;
+        
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
+
+    RKWPMenuTableViewController *menuTableViewController = [storyboard instantiateViewControllerWithIdentifier:@"menu"];
+    RKWPAuthorTableViewController *authorController = [storyboard instantiateViewControllerWithIdentifier:@"authors"];
+    UINavigationController *navigationController = [storyboard instantiateViewControllerWithIdentifier:@"navigation"];
+    [navigationController pushViewController:authorController animated:true];
+     
+	RevealController *revealController = [[RevealController alloc] initWithFrontViewController:navigationController rearViewController:menuTableViewController];
+	
+	self.window.rootViewController = revealController;
+	[self.window makeKeyAndVisible];
     
     // Override point for customization after application launch.
     return YES;

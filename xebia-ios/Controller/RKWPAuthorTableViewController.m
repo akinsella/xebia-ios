@@ -28,6 +28,14 @@ UIImage* defaultAvatarImage;
 {
     [super viewDidLoad];
     
+    if ([self.navigationController.parentViewController respondsToSelector:@selector(revealGesture:)] && [self.navigationController.parentViewController respondsToSelector:@selector(revealToggle:)])
+	{
+		UIPanGestureRecognizer *navigationBarPanGestureRecognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self.navigationController.parentViewController action:@selector(revealGesture:)];
+		[self.navigationController.navigationBar addGestureRecognizer:navigationBarPanGestureRecognizer];
+        
+		self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"Reveal", @"Reveal") style:UIBarButtonItemStylePlain target:self.navigationController.parentViewController action:@selector(revealToggle:)];
+	}
+    
     defaultAvatarImage = [UIImage imageNamed:@"avatar_placeholder.png"];
     /**
      Configure the RestKit table controller to drive our view
