@@ -45,12 +45,12 @@
 //            [textField setBackground: [UIImage imageNamed:@"menu-cell-bg.png"] ];
             
             searchField.autoresizingMask = UIViewAutoresizingFlexibleWidth;
-            searchField.textColor = [UIColor colorWithRed:0.239 green:0.047 blue:0.192 alpha:1] /*#3d0c31*/;
+//            searchField.textColor = [UIColor colorWithRed:0.239 green:0.047 blue:0.192 alpha:1] /*#3d0c31*/;
 //            searchField.layer.cornerRadius = 14;
             searchField.borderStyle = UITextBorderStyleRoundedRect;//To change borders to rounded
-            searchField.backgroundColor = [UIColor colorWithRed:0.6 green:0.435 blue:0.58 alpha:1] /*#996f94*/;//To change borders to rounded
-            [searchField setValue:[UIColor colorWithRed:0.443 green:0.306 blue:0.42 alpha:1] /*#714e6b*/
-                            forKeyPath:@"_placeholderLabel.textColor"];
+//            searchField.backgroundColor = [UIColor colorWithRed:0.6 green:0.435 blue:0.58 alpha:1] /*#996f94*/;//To change borders to rounded
+//            [searchField setValue:[UIColor colorWithRed:0.443 green:0.306 blue:0.42 alpha:1] /*#714e6b*/
+//                            forKeyPath:@"_placeholderLabel.textColor"];
             
 //            searchField.layer.borderWidth = 1.0f; //To hide the square corners
 //            searchField.layer.borderColor = [[UIColor grayColor] CGColor]; //assigning the default border color

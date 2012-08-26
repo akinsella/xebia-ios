@@ -15,6 +15,7 @@
 #import "UIImage+RKWPAdditions.h"
 #import "UISearchBar+RKWPAdditions.h"
 #import "RevealController.h"
+#import "UIColor+RKWPAdditions.h"
 
 
 // Enum for row indices
@@ -36,39 +37,44 @@ enum {
 
 @implementation RKWPMenuTableViewController
 
-@synthesize tableController, searchBar;
+@synthesize tableController;
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
 
-//    [searchBar setSearchFieldBackgroundImage:[UIImage ] forState:<#(UIControlState)#>]
+    UIImage* titleImage = [UIImage imageNamed:@"Xebia-Logo"];
+    UIImageView* titleImageView = [[UIImageView alloc] initWithImage:titleImage];
     
-//    [scopeBar setSegmentedControlStyle:UISegmentedControlStyleBar];
-//    [scopeBar setTintColor: UIColorFromRGB(0x990066)];
+    self.navigationItem.titleView = titleImageView;
+
+    NSLog(@"%f, %f, %f, %f", self.navigationItem.titleView.bounds.origin.x, self.navigationItem.titleView.bounds.origin.y, self.navigationItem.titleView.bounds.size.width, self.navigationItem.titleView.bounds.size.height);
     
-//    UITextField *searchField = [searchbar valueForKey:@"_searchField"];
-//    field.textColor = [UIColor redColor]; //You can put any color here.
     
-    [searchBar removeBackground];
-//    [searchBar setBackgroundColor: [UIColor redColor]];
+    //disable tableview separator
+    [self.tableView setSeparatorStyle: UITableViewCellSeparatorStyleNone];
+    
+    // set background of tableview
+    UIView* backgrounView = [[UIView alloc] initWithFrame: self.tableView.bounds];
+    [backgrounView setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"NSTexturedFullScreenBackgroundColor"]]];
+    [self.tableView setBackgroundView:backgrounView];
 
     self.tableController = [RKTableController tableControllerForTableViewController:self];
     
-    CGSize scaledSize = CGSizeMake(24.0,24.0);
+    CGSize scaledSize = CGSizeMake(24.0,20.0);
     
     NSArray *tableItems = [[NSArray alloc] initWithObjects:
                            [RKTableItem tableItemWithText:@"Authors"
                                                detailText:@""
-                                                    image:[UIImage scale:[UIImage imageNamed:@"112-group.png"]
+                                                    image:[UIImage scale:[UIImage imageNamed:@"112-group"]
                                                                   toSize:scaledSize]],
                            [RKTableItem tableItemWithText:@"Tags"
                                                detailText:@""
-                                                    image:[UIImage scale:[UIImage imageNamed:@"15-tags.png"]
+                                                    image:[UIImage scale:[UIImage imageNamed:@"15-tags"]
                                                                   toSize:scaledSize]],
                            [RKTableItem tableItemWithText:@"Categories"
                                                detailText:@""
-                                                    image:[UIImage scale:[UIImage imageNamed:@"44-shoebox.png"]
+                                                    image:[UIImage scale:[UIImage imageNamed:@"44-shoebox"]
                                                                   toSize:scaledSize]],
                            nil];
     
@@ -80,27 +86,39 @@ enum {
     [tableCellMapping mapKeyPath:@"text" toAttribute:@"titleLabel.text"];
     
     tableCellMapping.accessoryType = UITableViewCellAccessoryNone;
+    
     tableCellMapping.onSelectCellForObjectAtIndexPath = ^(UITableViewCell *cell, id object, NSIndexPath* indexPath) {
         
         // Grab a handle to the reveal controller, as if you'd do with a navigtion controller via self.navigationController.
-        RevealController *revealController = [self.parentViewController isKindOfClass:[RevealController class]] ?
-            (RevealController *)self.parentViewController : nil;
+        
+        
+        RevealController *revealController = nil;
+        
+        if ([self.parentViewController isKindOfClass:[RevealController class]]) {
+            revealController = (RevealController *)self.parentViewController;
+        }
+        else if ([self.parentViewController isKindOfClass:[UINavigationController class]]) {
+            UINavigationController *navigationController = (UINavigationController *)self.parentViewController;
+            revealController = (RevealController *)navigationController.parentViewController;
+        }
         
         switch (indexPath.row) {
             case RKWPMenuTableViewRowAuthors: {
-                
+//                NSLog(@"%@", ((UINavigationController *)revealController.frontViewController).topViewController);
                 if ([revealController.frontViewController isKindOfClass:[UINavigationController class]] && ![((UINavigationController *)revealController.frontViewController).topViewController isKindOfClass:[RKWPAuthorTableViewController class]])
                 {
-                    RKWPAuthorTableViewController *authorTableViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"authors"];
-                    UINavigationController *navigationController = ((UINavigationController *)revealController.frontViewController);
+                    RKWPAuthorTableViewController *authorTableViewController = [[RKWPAuthorTableViewController alloc] init];
+//                    RKWPAuthorTableViewController *authorTableViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"authors"];
+
+                    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:authorTableViewController];
                     
-                    [navigationController pushViewController:authorTableViewController animated:YES];
+                    navigationController.navigationBar.barStyle = UIBarStyleBlackTranslucent;
+                    navigationController.navigationBar.tintColor = (UIColor *)[UIColor colorWithHex: @"#1D0214" alpha:1.0];
+    
+                    
                     [revealController setFrontViewController:navigationController animated:NO];
-                    
                 }
-                // Seems the user attempts to 'switch' to exactly the same controller he came from!
-                else
-                {
+                else {
                     [revealController revealToggle:self];
                 }
                 
@@ -111,16 +129,17 @@ enum {
                 
                 if ([revealController.frontViewController isKindOfClass:[UINavigationController class]] && ![((UINavigationController *)revealController.frontViewController).topViewController isKindOfClass:[RKWPCategoryTableViewController class]])
                 {
-                    RKWPCategoryTableViewController *categoryTableViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"categories"];
-                    UINavigationController *navigationController = ((UINavigationController *)revealController.frontViewController);
+                    RKWPCategoryTableViewController *categoryTableViewController = [[RKWPCategoryTableViewController alloc] init];
+//                    RKWPCategoryTableViewController *categoryTableViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"categories"];
                     
-                    [navigationController pushViewController:categoryTableViewController animated:YES];
+                    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:categoryTableViewController];
+
+                    navigationController.navigationBar.barStyle = UIBarStyleBlackTranslucent;
+                    navigationController.navigationBar.tintColor = (UIColor *)[UIColor colorWithHex: @"#1D0214" alpha:1.0];
+
                     [revealController setFrontViewController:navigationController animated:NO];
-                    
                 }
-                // Seems the user attempts to 'switch' to exactly the same controller he came from!
-                else
-                {
+                else {
                     [revealController revealToggle:self];
                 }
                 
@@ -131,16 +150,18 @@ enum {
 
                 if ([revealController.frontViewController isKindOfClass:[UINavigationController class]] && ![((UINavigationController *)revealController.frontViewController).topViewController isKindOfClass:[RKWPTagTableViewController class]])
                 {
-                    RKWPTagTableViewController *tagsTableViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"tags"];
-                    UINavigationController *navigationController = ((UINavigationController *)revealController.frontViewController);
+                    RKWPTagTableViewController *tagsTableViewController = [[RKWPTagTableViewController alloc] init];
+//                    RKWPTagTableViewController *tagsTableViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"tags"];
                     
-                    [navigationController pushViewController:tagsTableViewController animated:YES];
+                    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:tagsTableViewController];
+
+                    navigationController.navigationBar.barStyle = UIBarStyleBlackTranslucent;
+                    navigationController.navigationBar.tintColor = (UIColor *)[UIColor colorWithHex: @"#1D0214" alpha:1.0];
+
+                    
                     [revealController setFrontViewController:navigationController animated:NO];
-                    
                 }
-                // Seems the user attempts to 'switch' to exactly the same controller he came from!
-                else
-                {
+                else {
                     [revealController revealToggle:self];
                 }
 

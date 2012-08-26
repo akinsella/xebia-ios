@@ -9,8 +9,6 @@
 #import <UIKit/UIKit.h>
 #import <RestKit/UI.h>
 
-@interface RKWPMenuTableViewController : UITableViewController <UISearchBarDelegate>
-
-@property (nonatomic, retain) IBOutlet UISearchBar *searchBar;
+@interface RKWPMenuTableViewController : UITableViewController
 
 @end

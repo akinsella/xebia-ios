@@ -15,6 +15,8 @@
 #import "RKWPMenuTableViewController.h"
 #import "RKWPAuthorTableViewController.h"
 #import "RevealController.h"
+#import "UIColor+RKWPAdditions.h"
+#import "UINavigationBar+RKWPAdditions.h"
 
 @interface AppDelegate ()
 @property (nonatomic, strong, readwrite) RKObjectManager *objectManager;
@@ -41,21 +43,43 @@
 
     UIWindow *window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
 	self.window = window;
-        
-    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
 
-    RKWPMenuTableViewController *menuTableViewController = [storyboard instantiateViewControllerWithIdentifier:@"menu"];
-    RKWPAuthorTableViewController *authorController = [storyboard instantiateViewControllerWithIdentifier:@"authors"];
-    UINavigationController *navigationController = [storyboard instantiateViewControllerWithIdentifier:@"navigation"];
-    [navigationController pushViewController:authorController animated:true];
-     
-	RevealController *revealController = [[RevealController alloc] initWithFrontViewController:navigationController rearViewController:menuTableViewController];
+    RKWPMenuTableViewController *menuTableViewController = [[RKWPMenuTableViewController alloc] init];
+    RKWPAuthorTableViewController *authorTableViewController = [[RKWPAuthorTableViewController alloc] init];
+
+    UINavigationController *frontNavigationController = [[UINavigationController alloc] initWithRootViewController:authorTableViewController];
+    frontNavigationController.navigationBar.barStyle = UIBarStyleBlackTranslucent;
+    frontNavigationController.navigationBar.tintColor = (UIColor *)[UIColor colorWithHex: @"#1D0214" alpha:1.0];
+
+    UINavigationController *rearNavigationController = [[UINavigationController alloc] initWithRootViewController:menuTableViewController];
+    rearNavigationController.navigationBar.barStyle = UIBarStyleBlackTranslucent;
+    rearNavigationController.navigationBar.tintColor = (UIColor *)[UIColor colorWithHex: @"#1D0214" alpha:1.0];
+    rearNavigationController.delegate = self;
+    [rearNavigationController.navigationBar setBackgroundImage: [UIImage imageNamed:@"navigationBarBackgroundRetro"]];
+
+//    UIImage *backgroundImage = [UIImage imageNamed:@"NSTexturedFullSCreenBackgroundColor.png"];
+//    [rearNavigationController.navigationBar setBackgroundImage:backgroundImage forBarMetrics:UIBarMetricsDefault];
+    
+	RevealController *revealController = [[RevealController alloc] initWithFrontViewController:frontNavigationController rearViewController:rearNavigationController];
+    [revealController setFrontViewController:frontNavigationController animated:NO];
 	
 	self.window.rootViewController = revealController;
-	[self.window makeKeyAndVisible];
+    [self.window makeKeyAndVisible];
+    
+    
+//    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
+//        [revealController hideFrontView];    
+//    }
     
     // Override point for customization after application launch.
     return YES;
+}
+
+- (void)navigationController:(UINavigationController *)navController willShowViewController:(UIViewController *)viewController animated:(BOOL)animated
+{
+    if ([viewController respondsToSelector:@selector(willAppearIn:)]) {
+        [viewController performSelector:@selector(willAppearIn:) withObject:navController];
+    }
 }
 
 - (void)initializeRestKit {

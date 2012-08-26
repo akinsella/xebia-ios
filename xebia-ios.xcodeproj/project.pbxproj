@@ -19,6 +19,16 @@
 		540C092115C58A4B00615B00 /* Default-Landscape~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 540C092015C58A4B00615B00 /* Default-Landscape~ipad.png */; };
 		540C092315C58C5700615B00 /* Default-Portrait~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 540C092215C58C5700615B00 /* Default-Portrait~ipad.png */; };
 		540C092515C58C5A00615B00 /* Default-Portrait@2x~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 540C092415C58C5A00615B00 /* Default-Portrait@2x~ipad.png */; };
+		5433340B15EA5E2E007AC690 /* menu.png in Resources */ = {isa = PBXBuildFile; fileRef = 5433340915EA5E2E007AC690 /* menu.png */; };
+		5433340C15EA5E2E007AC690 /* menu@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5433340A15EA5E2E007AC690 /* menu@2x.png */; };
+		5433341015EA69B5007AC690 /* Xebia-Logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 5433340E15EA69B5007AC690 /* Xebia-Logo.png */; };
+		5433341115EA69B5007AC690 /* Xebia-Logo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5433340F15EA69B5007AC690 /* Xebia-Logo@2x.png */; };
+		5433342115EA8C8E007AC690 /* UIColor+RKWPAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 5433342015EA8C8E007AC690 /* UIColor+RKWPAdditions.m */; };
+		5433343615EAC1E2007AC690 /* navigationBarBackButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 5433343415EAC1E2007AC690 /* navigationBarBackButton.png */; };
+		5433343715EAC1E2007AC690 /* navigationBarBackButton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5433343515EAC1E2007AC690 /* navigationBarBackButton@2x.png */; };
+		5433344215EAC42D007AC690 /* navigationBarBackgroundRetro.png in Resources */ = {isa = PBXBuildFile; fileRef = 5433344015EAC42D007AC690 /* navigationBarBackgroundRetro.png */; };
+		5433344315EAC42D007AC690 /* navigationBarBackgroundRetro@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5433344115EAC42D007AC690 /* navigationBarBackgroundRetro@2x.png */; };
+		5433344A15EAC786007AC690 /* UINavigationBar+RKWPAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 5433344915EAC786007AC690 /* UINavigationBar+RKWPAdditions.m */; };
 		5458482415C1E0A300DD03F4 /* RKWPCategoryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5458481E15C1E0A300DD03F4 /* RKWPCategoryCell.m */; };
 		5458482515C1E0A300DD03F4 /* RKWPCategoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5458481F15C1E0A300DD03F4 /* RKWPCategoryCell.xib */; };
 		5458482615C1E0A300DD03F4 /* RKWPLoadingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5458482115C1E0A300DD03F4 /* RKWPLoadingView.m */; };
@@ -33,6 +43,8 @@
 		5458483D15C4C5BE00DD03F4 /* ios-icon-72.png in Resources */ = {isa = PBXBuildFile; fileRef = 5458483C15C4C5BD00DD03F4 /* ios-icon-72.png */; };
 		5458483F15C4C5C600DD03F4 /* ios-icon-57.png in Resources */ = {isa = PBXBuildFile; fileRef = 5458483E15C4C5C600DD03F4 /* ios-icon-57.png */; };
 		5458484115C4C5CA00DD03F4 /* ios-icon-114.png in Resources */ = {isa = PBXBuildFile; fileRef = 5458484015C4C5C900DD03F4 /* ios-icon-114.png */; };
+		5464F3F415E977EC00DE12B0 /* NSTexturedFullScreenBackgroundColor.png in Resources */ = {isa = PBXBuildFile; fileRef = 5464F3F315E977EC00DE12B0 /* NSTexturedFullScreenBackgroundColor.png */; };
+		5464F3FE15EA235700DE12B0 /* LightBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = 5464F3FD15EA235700DE12B0 /* LightBackground.png */; };
 		5483B3F015BF4C3400E60EE0 /* RKWPTag.m in Sources */ = {isa = PBXBuildFile; fileRef = 5483B3EF15BF4C3400E60EE0 /* RKWPTag.m */; };
 		5483B3F415BF4C4300E60EE0 /* RKWPCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 5483B3F315BF4C4300E60EE0 /* RKWPCategory.m */; };
 		5483B3F715BF4DC900E60EE0 /* RKWPAuthor.m in Sources */ = {isa = PBXBuildFile; fileRef = 5483B3F615BF4DC900E60EE0 /* RKWPAuthor.m */; };
@@ -106,6 +118,18 @@
 		540C092015C58A4B00615B00 /* Default-Landscape~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Landscape~ipad.png"; sourceTree = "<group>"; };
 		540C092215C58C5700615B00 /* Default-Portrait~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Portrait~ipad.png"; sourceTree = "<group>"; };
 		540C092415C58C5A00615B00 /* Default-Portrait@2x~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Portrait@2x~ipad.png"; sourceTree = "<group>"; };
+		5433340915EA5E2E007AC690 /* menu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = menu.png; sourceTree = "<group>"; };
+		5433340A15EA5E2E007AC690 /* menu@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "menu@2x.png"; sourceTree = "<group>"; };
+		5433340E15EA69B5007AC690 /* Xebia-Logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Xebia-Logo.png"; sourceTree = "<group>"; };
+		5433340F15EA69B5007AC690 /* Xebia-Logo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Xebia-Logo@2x.png"; sourceTree = "<group>"; };
+		5433341F15EA8C8E007AC690 /* UIColor+RKWPAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+RKWPAdditions.h"; sourceTree = "<group>"; };
+		5433342015EA8C8E007AC690 /* UIColor+RKWPAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+RKWPAdditions.m"; sourceTree = "<group>"; };
+		5433343415EAC1E2007AC690 /* navigationBarBackButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = navigationBarBackButton.png; sourceTree = "<group>"; };
+		5433343515EAC1E2007AC690 /* navigationBarBackButton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "navigationBarBackButton@2x.png"; sourceTree = "<group>"; };
+		5433344015EAC42D007AC690 /* navigationBarBackgroundRetro.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = navigationBarBackgroundRetro.png; sourceTree = "<group>"; };
+		5433344115EAC42D007AC690 /* navigationBarBackgroundRetro@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "navigationBarBackgroundRetro@2x.png"; sourceTree = "<group>"; };
+		5433344815EAC786007AC690 /* UINavigationBar+RKWPAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationBar+RKWPAdditions.h"; sourceTree = "<group>"; };
+		5433344915EAC786007AC690 /* UINavigationBar+RKWPAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationBar+RKWPAdditions.m"; sourceTree = "<group>"; };
 		5458481D15C1E0A300DD03F4 /* RKWPCategoryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RKWPCategoryCell.h; sourceTree = "<group>"; };
 		5458481E15C1E0A300DD03F4 /* RKWPCategoryCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RKWPCategoryCell.m; sourceTree = "<group>"; };
 		5458481F15C1E0A300DD03F4 /* RKWPCategoryCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RKWPCategoryCell.xib; sourceTree = "<group>"; };
@@ -126,6 +150,8 @@
 		5458483C15C4C5BD00DD03F4 /* ios-icon-72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ios-icon-72.png"; sourceTree = "<group>"; };
 		5458483E15C4C5C600DD03F4 /* ios-icon-57.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ios-icon-57.png"; sourceTree = "<group>"; };
 		5458484015C4C5C900DD03F4 /* ios-icon-114.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ios-icon-114.png"; sourceTree = "<group>"; };
+		5464F3F315E977EC00DE12B0 /* NSTexturedFullScreenBackgroundColor.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = NSTexturedFullScreenBackgroundColor.png; sourceTree = "<group>"; };
+		5464F3FD15EA235700DE12B0 /* LightBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = LightBackground.png; sourceTree = "<group>"; };
 		5483B3EE15BF4C3400E60EE0 /* RKWPTag.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RKWPTag.h; sourceTree = "<group>"; };
 		5483B3EF15BF4C3400E60EE0 /* RKWPTag.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RKWPTag.m; sourceTree = "<group>"; };
 		5483B3F215BF4C4300E60EE0 /* RKWPCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RKWPCategory.h; sourceTree = "<group>"; };
@@ -268,6 +294,14 @@
 		54A2783615C0A2AA0074505A /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				5433343415EAC1E2007AC690 /* navigationBarBackButton.png */,
+				5433344015EAC42D007AC690 /* navigationBarBackgroundRetro.png */,
+				5433344115EAC42D007AC690 /* navigationBarBackgroundRetro@2x.png */,
+				5433343515EAC1E2007AC690 /* navigationBarBackButton@2x.png */,
+				5433340E15EA69B5007AC690 /* Xebia-Logo.png */,
+				5433340F15EA69B5007AC690 /* Xebia-Logo@2x.png */,
+				5464F3FD15EA235700DE12B0 /* LightBackground.png */,
+				5464F3F315E977EC00DE12B0 /* NSTexturedFullScreenBackgroundColor.png */,
 				5405B75415E5898600B70B71 /* menu-cell-bg.png */,
 				54F9D40D15D80C5A00A8E511 /* avatar_placeholder.png */,
 				54A2784315C0A2E20074505A /* empty.png */,
@@ -276,6 +310,8 @@
 				54A2783715C0A2AA0074505A /* 112-group.png */,
 				54A2783815C0A2AA0074505A /* 112-group@2x.png */,
 				54A2783915C0A2AA0074505A /* 15-tags.png */,
+				5433340915EA5E2E007AC690 /* menu.png */,
+				5433340A15EA5E2E007AC690 /* menu@2x.png */,
 				54A2783A15C0A2AA0074505A /* 15-tags@2x.png */,
 				54A2783B15C0A2AA0074505A /* 44-shoebox.png */,
 				54A2783C15C0A2AA0074505A /* 44-shoebox@2x.png */,
@@ -455,6 +491,10 @@
 				54E325BB15E55C3B00F55F6A /* UISearchBar+RKWPAdditions.m */,
 				54E325B015E19D5900F55F6A /* UIImage+RKWPAdditions.h */,
 				54E325B115E19D5900F55F6A /* UIImage+RKWPAdditions.m */,
+				5433341F15EA8C8E007AC690 /* UIColor+RKWPAdditions.h */,
+				5433342015EA8C8E007AC690 /* UIColor+RKWPAdditions.m */,
+				5433344815EAC786007AC690 /* UINavigationBar+RKWPAdditions.h */,
+				5433344915EAC786007AC690 /* UINavigationBar+RKWPAdditions.m */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -572,6 +612,16 @@
 				54E325B715E1A10000F55F6A /* RKWPMenuCell.xib in Resources */,
 				54E325B915E1A2C800F55F6A /* menu-cell-bg.png in Resources */,
 				5405B75515E5898600B70B71 /* menu-cell-bg.png in Resources */,
+				5464F3F415E977EC00DE12B0 /* NSTexturedFullScreenBackgroundColor.png in Resources */,
+				5464F3FE15EA235700DE12B0 /* LightBackground.png in Resources */,
+				5433340B15EA5E2E007AC690 /* menu.png in Resources */,
+				5433340C15EA5E2E007AC690 /* menu@2x.png in Resources */,
+				5433341015EA69B5007AC690 /* Xebia-Logo.png in Resources */,
+				5433341115EA69B5007AC690 /* Xebia-Logo@2x.png in Resources */,
+				5433343615EAC1E2007AC690 /* navigationBarBackButton.png in Resources */,
+				5433343715EAC1E2007AC690 /* navigationBarBackButton@2x.png in Resources */,
+				5433344215EAC42D007AC690 /* navigationBarBackgroundRetro.png in Resources */,
+				5433344315EAC42D007AC690 /* navigationBarBackgroundRetro@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -648,6 +698,8 @@
 				54E325BC15E55C3B00F55F6A /* UISearchBar+RKWPAdditions.m in Sources */,
 				5405B75915E792FC00B70B71 /* WPDataAccessor.m in Sources */,
 				5405B77415E8328B00B70B71 /* RevealController.m in Sources */,
+				5433342115EA8C8E007AC690 /* UIColor+RKWPAdditions.m in Sources */,
+				5433344A15EAC786007AC690 /* UINavigationBar+RKWPAdditions.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
