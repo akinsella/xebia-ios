@@ -37,6 +37,8 @@
 		5433345615EC2870007AC690 /* xebia-logo-transparent@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5433345415EC2870007AC690 /* xebia-logo-transparent@2x.png */; };
 		5433345F15EC2F00007AC690 /* BlogController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5433345E15EC2EFC007AC690 /* BlogController.m */; };
 		5433346215EC3276007AC690 /* HomeController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5433346115EC3276007AC690 /* HomeController.m */; };
+		5433346515EC3738007AC690 /* home.png in Resources */ = {isa = PBXBuildFile; fileRef = 5433346315EC3738007AC690 /* home.png */; };
+		5433346615EC3738007AC690 /* home@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5433346415EC3738007AC690 /* home@2x.png */; };
 		5458482415C1E0A300DD03F4 /* RKWPCategoryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5458481E15C1E0A300DD03F4 /* RKWPCategoryCell.m */; };
 		5458482515C1E0A300DD03F4 /* RKWPCategoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5458481F15C1E0A300DD03F4 /* RKWPCategoryCell.xib */; };
 		5458482615C1E0A300DD03F4 /* RKWPLoadingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5458482115C1E0A300DD03F4 /* RKWPLoadingView.m */; };
@@ -148,6 +150,8 @@
 		5433345E15EC2EFC007AC690 /* BlogController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlogController.m; sourceTree = "<group>"; };
 		5433346015EC3275007AC690 /* HomeController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeController.h; sourceTree = "<group>"; };
 		5433346115EC3276007AC690 /* HomeController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeController.m; sourceTree = "<group>"; };
+		5433346315EC3738007AC690 /* home.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = home.png; sourceTree = "<group>"; };
+		5433346415EC3738007AC690 /* home@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "home@2x.png"; sourceTree = "<group>"; };
 		5458481D15C1E0A300DD03F4 /* RKWPCategoryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RKWPCategoryCell.h; sourceTree = "<group>"; };
 		5458481E15C1E0A300DD03F4 /* RKWPCategoryCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RKWPCategoryCell.m; sourceTree = "<group>"; };
 		5458481F15C1E0A300DD03F4 /* RKWPCategoryCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RKWPCategoryCell.xib; sourceTree = "<group>"; };
@@ -312,6 +316,8 @@
 		54A2783615C0A2AA0074505A /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				5433346315EC3738007AC690 /* home.png */,
+				5433346415EC3738007AC690 /* home@2x.png */,
 				5433345315EC2870007AC690 /* xebia-logo-transparent.png */,
 				5433345415EC2870007AC690 /* xebia-logo-transparent@2x.png */,
 				5433344B15EC1D43007AC690 /* twitter.png */,
@@ -656,6 +662,8 @@
 				5433345215EC1D44007AC690 /* wordpress@2x.png in Resources */,
 				5433345515EC2870007AC690 /* xebia-logo-transparent.png in Resources */,
 				5433345615EC2870007AC690 /* xebia-logo-transparent@2x.png in Resources */,
+				5433346515EC3738007AC690 /* home.png in Resources */,
+				5433346615EC3738007AC690 /* home@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
