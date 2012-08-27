@@ -17,6 +17,7 @@
 #import "RevealController.h"
 #import "UIColor+RKWPAdditions.h"
 #import "UINavigationBar+RKWPAdditions.h"
+#import "HomeController.h"
 
 @interface AppDelegate ()
 @property (nonatomic, strong, readwrite) RKObjectManager *objectManager;
@@ -36,30 +37,31 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     [self initializeRestKit];
     
-    RKLogConfigureByName("RestKit/Network", RKLogLevelDebug);
-    //    RKLogInfo(@"Configured RestKit client: %@", client);
+    RKLogConfigureByName("RestKit/UI", RKLogLevelInfo);
+    RKLogConfigureByName("RestKit/Network", RKLogLevelInfo);
 
     self.wpDataAccessor = [WPDataAccessor initWithBaseApiUrl:@"http://blog.xebia.fr/wp-json-api"];
 
     UIWindow *window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
 	self.window = window;
 
-    RKWPMenuTableViewController *menuTableViewController = [[RKWPMenuTableViewController alloc] init];
-    RKWPAuthorTableViewController *authorTableViewController = [[RKWPAuthorTableViewController alloc] init];
-
-    UINavigationController *frontNavigationController = [[UINavigationController alloc] initWithRootViewController:authorTableViewController];
+    RKWPMenuTableViewController *menuTableViewController = [[RKWPMenuTableViewController alloc] init];    
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
+    HomeController *homeController = [storyboard instantiateViewControllerWithIdentifier:@"home"];
+    
+    UINavigationController *frontNavigationController = [[UINavigationController alloc] initWithRootViewController:homeController];
     frontNavigationController.navigationBar.barStyle = UIBarStyleBlackTranslucent;
-    frontNavigationController.navigationBar.tintColor = (UIColor *)[UIColor colorWithHex: @"#1D0214" alpha:1.0];
+    frontNavigationController.navigationBar.tintColor = (UIColor *)[UIColor colorWithHex: @"#561D3F" alpha:1.0];
+    frontNavigationController.delegate = self;
+    [frontNavigationController.navigationBar setBackgroundImage: [UIImage imageNamed:@"navigationBarBackgroundRetro"]];
 
+    
     UINavigationController *rearNavigationController = [[UINavigationController alloc] initWithRootViewController:menuTableViewController];
     rearNavigationController.navigationBar.barStyle = UIBarStyleBlackTranslucent;
-    rearNavigationController.navigationBar.tintColor = (UIColor *)[UIColor colorWithHex: @"#1D0214" alpha:1.0];
+    rearNavigationController.navigationBar.tintColor = (UIColor *)[UIColor colorWithHex: @"#561D3F" alpha:1.0];
     rearNavigationController.delegate = self;
     [rearNavigationController.navigationBar setBackgroundImage: [UIImage imageNamed:@"navigationBarBackgroundRetro"]];
 
-//    UIImage *backgroundImage = [UIImage imageNamed:@"NSTexturedFullSCreenBackgroundColor.png"];
-//    [rearNavigationController.navigationBar setBackgroundImage:backgroundImage forBarMetrics:UIBarMetricsDefault];
-    
 	RevealController *revealController = [[RevealController alloc] initWithFrontViewController:frontNavigationController rearViewController:rearNavigationController];
     [revealController setFrontViewController:frontNavigationController animated:NO];
 	
@@ -71,7 +73,6 @@
 //        [revealController hideFrontView];    
 //    }
     
-    // Override point for customization after application launch.
     return YES;
 }
 

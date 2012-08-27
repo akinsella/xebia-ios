@@ -29,6 +29,14 @@
 		5433344215EAC42D007AC690 /* navigationBarBackgroundRetro.png in Resources */ = {isa = PBXBuildFile; fileRef = 5433344015EAC42D007AC690 /* navigationBarBackgroundRetro.png */; };
 		5433344315EAC42D007AC690 /* navigationBarBackgroundRetro@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5433344115EAC42D007AC690 /* navigationBarBackgroundRetro@2x.png */; };
 		5433344A15EAC786007AC690 /* UINavigationBar+RKWPAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 5433344915EAC786007AC690 /* UINavigationBar+RKWPAdditions.m */; };
+		5433344F15EC1D44007AC690 /* twitter.png in Resources */ = {isa = PBXBuildFile; fileRef = 5433344B15EC1D43007AC690 /* twitter.png */; };
+		5433345015EC1D44007AC690 /* twitter@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5433344C15EC1D44007AC690 /* twitter@2x.png */; };
+		5433345115EC1D44007AC690 /* wordpress.png in Resources */ = {isa = PBXBuildFile; fileRef = 5433344D15EC1D44007AC690 /* wordpress.png */; };
+		5433345215EC1D44007AC690 /* wordpress@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5433344E15EC1D44007AC690 /* wordpress@2x.png */; };
+		5433345515EC2870007AC690 /* xebia-logo-transparent.png in Resources */ = {isa = PBXBuildFile; fileRef = 5433345315EC2870007AC690 /* xebia-logo-transparent.png */; };
+		5433345615EC2870007AC690 /* xebia-logo-transparent@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5433345415EC2870007AC690 /* xebia-logo-transparent@2x.png */; };
+		5433345F15EC2F00007AC690 /* BlogController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5433345E15EC2EFC007AC690 /* BlogController.m */; };
+		5433346215EC3276007AC690 /* HomeController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5433346115EC3276007AC690 /* HomeController.m */; };
 		5458482415C1E0A300DD03F4 /* RKWPCategoryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5458481E15C1E0A300DD03F4 /* RKWPCategoryCell.m */; };
 		5458482515C1E0A300DD03F4 /* RKWPCategoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5458481F15C1E0A300DD03F4 /* RKWPCategoryCell.xib */; };
 		5458482615C1E0A300DD03F4 /* RKWPLoadingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5458482115C1E0A300DD03F4 /* RKWPLoadingView.m */; };
@@ -130,6 +138,16 @@
 		5433344115EAC42D007AC690 /* navigationBarBackgroundRetro@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "navigationBarBackgroundRetro@2x.png"; sourceTree = "<group>"; };
 		5433344815EAC786007AC690 /* UINavigationBar+RKWPAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationBar+RKWPAdditions.h"; sourceTree = "<group>"; };
 		5433344915EAC786007AC690 /* UINavigationBar+RKWPAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationBar+RKWPAdditions.m"; sourceTree = "<group>"; };
+		5433344B15EC1D43007AC690 /* twitter.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = twitter.png; sourceTree = "<group>"; };
+		5433344C15EC1D44007AC690 /* twitter@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "twitter@2x.png"; sourceTree = "<group>"; };
+		5433344D15EC1D44007AC690 /* wordpress.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = wordpress.png; sourceTree = "<group>"; };
+		5433344E15EC1D44007AC690 /* wordpress@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "wordpress@2x.png"; sourceTree = "<group>"; };
+		5433345315EC2870007AC690 /* xebia-logo-transparent.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "xebia-logo-transparent.png"; sourceTree = "<group>"; };
+		5433345415EC2870007AC690 /* xebia-logo-transparent@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "xebia-logo-transparent@2x.png"; sourceTree = "<group>"; };
+		5433345D15EC2EFA007AC690 /* BlogController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlogController.h; sourceTree = "<group>"; };
+		5433345E15EC2EFC007AC690 /* BlogController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlogController.m; sourceTree = "<group>"; };
+		5433346015EC3275007AC690 /* HomeController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeController.h; sourceTree = "<group>"; };
+		5433346115EC3276007AC690 /* HomeController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeController.m; sourceTree = "<group>"; };
 		5458481D15C1E0A300DD03F4 /* RKWPCategoryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RKWPCategoryCell.h; sourceTree = "<group>"; };
 		5458481E15C1E0A300DD03F4 /* RKWPCategoryCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RKWPCategoryCell.m; sourceTree = "<group>"; };
 		5458481F15C1E0A300DD03F4 /* RKWPCategoryCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RKWPCategoryCell.xib; sourceTree = "<group>"; };
@@ -294,6 +312,12 @@
 		54A2783615C0A2AA0074505A /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				5433345315EC2870007AC690 /* xebia-logo-transparent.png */,
+				5433345415EC2870007AC690 /* xebia-logo-transparent@2x.png */,
+				5433344B15EC1D43007AC690 /* twitter.png */,
+				5433344C15EC1D44007AC690 /* twitter@2x.png */,
+				5433344D15EC1D44007AC690 /* wordpress.png */,
+				5433344E15EC1D44007AC690 /* wordpress@2x.png */,
 				5433343415EAC1E2007AC690 /* navigationBarBackButton.png */,
 				5433344015EAC42D007AC690 /* navigationBarBackgroundRetro.png */,
 				5433344115EAC42D007AC690 /* navigationBarBackgroundRetro@2x.png */,
@@ -416,6 +440,10 @@
 		54C2DF1F15BDFB6500CABB12 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				5433345D15EC2EFA007AC690 /* BlogController.h */,
+				5433345E15EC2EFC007AC690 /* BlogController.m */,
+				5433346015EC3275007AC690 /* HomeController.h */,
+				5433346115EC3276007AC690 /* HomeController.m */,
 				5405B77615E833CD00B70B71 /* RevealController.h */,
 				5405B77215E8328B00B70B71 /* RevealController.m */,
 				54C2DF2415BDFB6500CABB12 /* DetailPostViewController.h */,
@@ -622,6 +650,12 @@
 				5433343715EAC1E2007AC690 /* navigationBarBackButton@2x.png in Resources */,
 				5433344215EAC42D007AC690 /* navigationBarBackgroundRetro.png in Resources */,
 				5433344315EAC42D007AC690 /* navigationBarBackgroundRetro@2x.png in Resources */,
+				5433344F15EC1D44007AC690 /* twitter.png in Resources */,
+				5433345015EC1D44007AC690 /* twitter@2x.png in Resources */,
+				5433345115EC1D44007AC690 /* wordpress.png in Resources */,
+				5433345215EC1D44007AC690 /* wordpress@2x.png in Resources */,
+				5433345515EC2870007AC690 /* xebia-logo-transparent.png in Resources */,
+				5433345615EC2870007AC690 /* xebia-logo-transparent@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -700,6 +734,8 @@
 				5405B77415E8328B00B70B71 /* RevealController.m in Sources */,
 				5433342115EA8C8E007AC690 /* UIColor+RKWPAdditions.m in Sources */,
 				5433344A15EAC786007AC690 /* UINavigationBar+RKWPAdditions.m in Sources */,
+				5433345F15EC2F00007AC690 /* BlogController.m in Sources */,
+				5433346215EC3276007AC690 /* HomeController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -457,7 +457,7 @@
 
 - (NSInteger)tableView:(UITableView*)theTableView numberOfRowsInSection:(NSInteger)section {
     NSAssert(theTableView == self.tableView, @"tableView:numberOfRowsInSection: invoked with inappropriate tableView: %@", theTableView);
-    RKLogTrace(@"%@ numberOfRowsInSection:%d = %d", self, section, self.sectionCount);
+    RKLogTrace(@"%@ numberOfRowsInSection:%d = %d", self, section, [[_sections objectAtIndex:section] rowCount]);
     return [[_sections objectAtIndex:section] rowCount];
 }
 

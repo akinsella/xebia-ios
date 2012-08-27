@@ -8,21 +8,19 @@
 
 #import "RKWPMenuTableViewController.h"
 
-#import "RKWPAuthorTableViewController.h"
-#import "RKWPCategoryTableViewController.h"
-#import "RKWPTagTableViewController.h"
-#import "RKWPTagTableViewController.h"
+#import "BlogController.h"
 #import "UIImage+RKWPAdditions.h"
 #import "UISearchBar+RKWPAdditions.h"
 #import "RevealController.h"
 #import "UIColor+RKWPAdditions.h"
+#import "RKTableSection.h"
 
 
 // Enum for row indices
 enum {
-    RKWPMenuTableViewRowAuthors = 0,
-    RKWPMenuTableViewRowTags,
-    RKWPMenuTableViewRowCategories,
+    RKWPMenuHome = 0,
+    RKWPMenuWordpress,
+    RKWPMenuTwitter
 };
 
 @interface RKWPMenuTableViewController ()
@@ -48,9 +46,6 @@ enum {
     
     self.navigationItem.titleView = titleImageView;
 
-    NSLog(@"%f, %f, %f, %f", self.navigationItem.titleView.bounds.origin.x, self.navigationItem.titleView.bounds.origin.y, self.navigationItem.titleView.bounds.size.width, self.navigationItem.titleView.bounds.size.height);
-    
-    
     //disable tableview separator
     [self.tableView setSeparatorStyle: UITableViewCellSeparatorStyleNone];
     
@@ -61,21 +56,18 @@ enum {
 
     self.tableController = [RKTableController tableControllerForTableViewController:self];
     
-    CGSize scaledSize = CGSizeMake(24.0,20.0);
+//    CGSize scaledSize = CGSizeMake(24.0,20.0);
     
     NSArray *tableItems = [[NSArray alloc] initWithObjects:
-                           [RKTableItem tableItemWithText:@"Authors"
+                           [RKTableItem tableItemWithText:@"Home"
                                                detailText:@""
-                                                    image:[UIImage scale:[UIImage imageNamed:@"112-group"]
-                                                                  toSize:scaledSize]],
-                           [RKTableItem tableItemWithText:@"Tags"
+                                                    image:[UIImage imageNamed:@"home"]],
+                           [RKTableItem tableItemWithText:@"Blog"
                                                detailText:@""
-                                                    image:[UIImage scale:[UIImage imageNamed:@"15-tags"]
-                                                                  toSize:scaledSize]],
-                           [RKTableItem tableItemWithText:@"Categories"
+                                                    image:[UIImage imageNamed:@"wordpress"]],
+                           [RKTableItem tableItemWithText:@"Tweets"
                                                detailText:@""
-                                                    image:[UIImage scale:[UIImage imageNamed:@"44-shoebox"]
-                                                                  toSize:scaledSize]],
+                                                    image:[UIImage imageNamed:@"twitter"]],
                            nil];
     
     RKTableViewCellMapping *tableCellMapping = [RKTableViewCellMapping defaultCellMapping];
@@ -88,10 +80,7 @@ enum {
     tableCellMapping.accessoryType = UITableViewCellAccessoryNone;
     
     tableCellMapping.onSelectCellForObjectAtIndexPath = ^(UITableViewCell *cell, id object, NSIndexPath* indexPath) {
-        
-        // Grab a handle to the reveal controller, as if you'd do with a navigtion controller via self.navigationController.
-        
-        
+
         RevealController *revealController = nil;
         
         if ([self.parentViewController isKindOfClass:[RevealController class]]) {
@@ -103,18 +92,18 @@ enum {
         }
         
         switch (indexPath.row) {
-            case RKWPMenuTableViewRowAuthors: {
-//                NSLog(@"%@", ((UINavigationController *)revealController.frontViewController).topViewController);
+            case RKWPMenuHome: {
                 if ([revealController.frontViewController isKindOfClass:[UINavigationController class]] && ![((UINavigationController *)revealController.frontViewController).topViewController isKindOfClass:[RKWPAuthorTableViewController class]])
                 {
-                    RKWPAuthorTableViewController *authorTableViewController = [[RKWPAuthorTableViewController alloc] init];
-//                    RKWPAuthorTableViewController *authorTableViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"authors"];
-
-                    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:authorTableViewController];
+                    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
+                    UIViewController *blogViewController = [storyboard instantiateViewControllerWithIdentifier:@"home"];
+                    
+                    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:blogViewController];
                     
                     navigationController.navigationBar.barStyle = UIBarStyleBlackTranslucent;
-                    navigationController.navigationBar.tintColor = (UIColor *)[UIColor colorWithHex: @"#1D0214" alpha:1.0];
-    
+                    navigationController.navigationBar.tintColor = (UIColor *)[UIColor colorWithHex: @"#561D3F" alpha:1.0];
+                    
+                    [navigationController.navigationBar setBackgroundImage: [UIImage imageNamed:@"navigationBarBackgroundRetro"]];
                     
                     [revealController setFrontViewController:navigationController animated:NO];
                 }
@@ -124,18 +113,18 @@ enum {
                 
                 break;
             }
-                
-            case RKWPMenuTableViewRowCategories: {
-                
-                if ([revealController.frontViewController isKindOfClass:[UINavigationController class]] && ![((UINavigationController *)revealController.frontViewController).topViewController isKindOfClass:[RKWPCategoryTableViewController class]])
+            case RKWPMenuWordpress: {
+                if ([revealController.frontViewController isKindOfClass:[UINavigationController class]] && ![((UINavigationController *)revealController.frontViewController).topViewController isKindOfClass:[BlogController class]])
                 {
-                    RKWPCategoryTableViewController *categoryTableViewController = [[RKWPCategoryTableViewController alloc] init];
-//                    RKWPCategoryTableViewController *categoryTableViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"categories"];
-                    
-                    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:categoryTableViewController];
+                    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
+                    UIViewController *blogViewController = [storyboard instantiateViewControllerWithIdentifier:@"tbBlog"];
 
+                    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:blogViewController];
+                    
                     navigationController.navigationBar.barStyle = UIBarStyleBlackTranslucent;
-                    navigationController.navigationBar.tintColor = (UIColor *)[UIColor colorWithHex: @"#1D0214" alpha:1.0];
+                    navigationController.navigationBar.tintColor = (UIColor *)[UIColor colorWithHex: @"#561D3F" alpha:1.0];
+
+                    [navigationController.navigationBar setBackgroundImage: [UIImage imageNamed:@"navigationBarBackgroundRetro"]];
 
                     [revealController setFrontViewController:navigationController animated:NO];
                 }
@@ -146,28 +135,11 @@ enum {
                 break;
             }
                 
-            case RKWPMenuTableViewRowTags: {
-
-                if ([revealController.frontViewController isKindOfClass:[UINavigationController class]] && ![((UINavigationController *)revealController.frontViewController).topViewController isKindOfClass:[RKWPTagTableViewController class]])
-                {
-                    RKWPTagTableViewController *tagsTableViewController = [[RKWPTagTableViewController alloc] init];
-//                    RKWPTagTableViewController *tagsTableViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"tags"];
-                    
-                    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:tagsTableViewController];
-
-                    navigationController.navigationBar.barStyle = UIBarStyleBlackTranslucent;
-                    navigationController.navigationBar.tintColor = (UIColor *)[UIColor colorWithHex: @"#1D0214" alpha:1.0];
-
-                    
-                    [revealController setFrontViewController:navigationController animated:NO];
-                }
-                else {
-                    [revealController revealToggle:self];
-                }
-
+            case RKWPMenuTwitter: {
+                 
                 break;
             }
-                
+                 
             default: {
                 [NSException raise:NSInternalInconsistencyException format:@"Unknown row index selected: %d", indexPath.row];
                 break;
@@ -175,7 +147,7 @@ enum {
         }
     };
 
-    [self.tableController loadTableItems:tableItems withMapping:tableCellMapping];
+    [self.tableController loadTableItems:tableItems withMapping: tableCellMapping];
 }
 
 @end
