@@ -15,3 +15,25 @@ profile
 *.moved-aside
 .idea
 .DS_Store
+
+# NodeJS
+.DS_Store
+.#*
+*.swp
+bin
+
+target
+release.properties
+
+*~
+.idea
+package-dev.json
+node_modules
+devoxx-proxy/node_modules
+.project
+.classpath
+.settings
+tags
+dump
+
+
