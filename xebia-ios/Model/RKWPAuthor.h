@@ -7,10 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "SDWebImageManager.h"
 
-@interface RKWPAuthor : NSManagedObject<SDWebImageManagerDelegate>
-
+@interface RKWPAuthor : NSManagedObject
 @property (nonatomic, strong) NSNumber *identifier;
 @property (nonatomic, strong) NSString *slug;
 @property (nonatomic, strong) NSString *name;

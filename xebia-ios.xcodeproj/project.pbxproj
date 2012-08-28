@@ -55,6 +55,12 @@
 		5458484115C4C5CA00DD03F4 /* ios-icon-114.png in Resources */ = {isa = PBXBuildFile; fileRef = 5458484015C4C5C900DD03F4 /* ios-icon-114.png */; };
 		5464F3F415E977EC00DE12B0 /* NSTexturedFullScreenBackgroundColor.png in Resources */ = {isa = PBXBuildFile; fileRef = 5464F3F315E977EC00DE12B0 /* NSTexturedFullScreenBackgroundColor.png */; };
 		5464F3FE15EA235700DE12B0 /* LightBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = 5464F3FD15EA235700DE12B0 /* LightBackground.png */; };
+		5475DBA915ED7169009DDCF3 /* github.png in Resources */ = {isa = PBXBuildFile; fileRef = 5475DBA715ED7169009DDCF3 /* github.png */; };
+		5475DBAA15ED7169009DDCF3 /* github@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5475DBA815ED7169009DDCF3 /* github@2x.png */; };
+		5475DBAE15ED72DD009DDCF3 /* RKWPTwitterTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5475DBAD15ED72DD009DDCF3 /* RKWPTwitterTableViewController.m */; };
+		5475DBB715ED73AD009DDCF3 /* RKWPTweetCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5475DBB515ED73AD009DDCF3 /* RKWPTweetCell.m */; };
+		5475DBB815ED73AD009DDCF3 /* RKWPTweetCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5475DBB615ED73AD009DDCF3 /* RKWPTweetCell.xib */; };
+		5475DBBB15ED7484009DDCF3 /* RKWPTweet.m in Sources */ = {isa = PBXBuildFile; fileRef = 5475DBBA15ED7484009DDCF3 /* RKWPTweet.m */; };
 		5483B3F015BF4C3400E60EE0 /* RKWPTag.m in Sources */ = {isa = PBXBuildFile; fileRef = 5483B3EF15BF4C3400E60EE0 /* RKWPTag.m */; };
 		5483B3F415BF4C4300E60EE0 /* RKWPCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 5483B3F315BF4C4300E60EE0 /* RKWPCategory.m */; };
 		5483B3F715BF4DC900E60EE0 /* RKWPAuthor.m in Sources */ = {isa = PBXBuildFile; fileRef = 5483B3F615BF4DC900E60EE0 /* RKWPAuthor.m */; };
@@ -174,6 +180,15 @@
 		5458484015C4C5C900DD03F4 /* ios-icon-114.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ios-icon-114.png"; sourceTree = "<group>"; };
 		5464F3F315E977EC00DE12B0 /* NSTexturedFullScreenBackgroundColor.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = NSTexturedFullScreenBackgroundColor.png; sourceTree = "<group>"; };
 		5464F3FD15EA235700DE12B0 /* LightBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = LightBackground.png; sourceTree = "<group>"; };
+		5475DBA715ED7169009DDCF3 /* github.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = github.png; sourceTree = "<group>"; };
+		5475DBA815ED7169009DDCF3 /* github@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "github@2x.png"; sourceTree = "<group>"; };
+		5475DBAC15ED72DD009DDCF3 /* RKWPTwitterTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RKWPTwitterTableViewController.h; sourceTree = "<group>"; };
+		5475DBAD15ED72DD009DDCF3 /* RKWPTwitterTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RKWPTwitterTableViewController.m; sourceTree = "<group>"; };
+		5475DBB415ED73AD009DDCF3 /* RKWPTweetCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RKWPTweetCell.h; sourceTree = "<group>"; };
+		5475DBB515ED73AD009DDCF3 /* RKWPTweetCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RKWPTweetCell.m; sourceTree = "<group>"; };
+		5475DBB615ED73AD009DDCF3 /* RKWPTweetCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RKWPTweetCell.xib; sourceTree = "<group>"; };
+		5475DBB915ED7484009DDCF3 /* RKWPTweet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RKWPTweet.h; sourceTree = "<group>"; };
+		5475DBBA15ED7484009DDCF3 /* RKWPTweet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RKWPTweet.m; sourceTree = "<group>"; };
 		5483B3EE15BF4C3400E60EE0 /* RKWPTag.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RKWPTag.h; sourceTree = "<group>"; };
 		5483B3EF15BF4C3400E60EE0 /* RKWPTag.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RKWPTag.m; sourceTree = "<group>"; };
 		5483B3F215BF4C4300E60EE0 /* RKWPCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RKWPCategory.h; sourceTree = "<group>"; };
@@ -309,6 +324,9 @@
 				5458482815C1E0D800DD03F4 /* RKWPTagCell.h */,
 				5458482915C1E0D800DD03F4 /* RKWPTagCell.m */,
 				5458482D15C1E1C700DD03F4 /* RKWPTagCell.xib */,
+				5475DBB415ED73AD009DDCF3 /* RKWPTweetCell.h */,
+				5475DBB515ED73AD009DDCF3 /* RKWPTweetCell.m */,
+				5475DBB615ED73AD009DDCF3 /* RKWPTweetCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -316,6 +334,8 @@
 		54A2783615C0A2AA0074505A /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				5475DBA715ED7169009DDCF3 /* github.png */,
+				5475DBA815ED7169009DDCF3 /* github@2x.png */,
 				5433346315EC3738007AC690 /* home.png */,
 				5433346415EC3738007AC690 /* home@2x.png */,
 				5433345315EC2870007AC690 /* xebia-logo-transparent.png */,
@@ -462,6 +482,8 @@
 				54A2782F15C0A0240074505A /* RKWPCategoryTableViewController.m */,
 				5458482F15C1E2CD00DD03F4 /* RKWPTagTableViewController.h */,
 				5458483015C1E2CD00DD03F4 /* RKWPTagTableViewController.m */,
+				5475DBAC15ED72DD009DDCF3 /* RKWPTwitterTableViewController.h */,
+				5475DBAD15ED72DD009DDCF3 /* RKWPTwitterTableViewController.m */,
 				54E325A115E18D8700F55F6A /* RKWPMenuTableViewController.h */,
 				54E325A215E18D8700F55F6A /* RKWPMenuTableViewController.m */,
 			);
@@ -496,6 +518,8 @@
 				5483B3F915BF4E9E00E60EE0 /* RKWPComment.m */,
 				5483B3FB15BF4F4300E60EE0 /* RKWPAttachment.h */,
 				5483B3FC15BF4F4300E60EE0 /* RKWPAttachment.m */,
+				5475DBB915ED7484009DDCF3 /* RKWPTweet.h */,
+				5475DBBA15ED7484009DDCF3 /* RKWPTweet.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -664,6 +688,9 @@
 				5433345615EC2870007AC690 /* xebia-logo-transparent@2x.png in Resources */,
 				5433346515EC3738007AC690 /* home.png in Resources */,
 				5433346615EC3738007AC690 /* home@2x.png in Resources */,
+				5475DBA915ED7169009DDCF3 /* github.png in Resources */,
+				5475DBAA15ED7169009DDCF3 /* github@2x.png in Resources */,
+				5475DBB815ED73AD009DDCF3 /* RKWPTweetCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -744,6 +771,9 @@
 				5433344A15EAC786007AC690 /* UINavigationBar+RKWPAdditions.m in Sources */,
 				5433345F15EC2F00007AC690 /* BlogController.m in Sources */,
 				5433346215EC3276007AC690 /* HomeController.m in Sources */,
+				5475DBAE15ED72DD009DDCF3 /* RKWPTwitterTableViewController.m in Sources */,
+				5475DBB715ED73AD009DDCF3 /* RKWPTweetCell.m in Sources */,
+				5475DBBB15ED7484009DDCF3 /* RKWPTweet.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

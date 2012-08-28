@@ -20,7 +20,8 @@
 enum {
     RKWPMenuHome = 0,
     RKWPMenuWordpress,
-    RKWPMenuTwitter
+    RKWPMenuTwitter,
+    RKWPMenuGithub
 };
 
 @interface RKWPMenuTableViewController ()
@@ -68,6 +69,9 @@ enum {
                            [RKTableItem tableItemWithText:@"Tweets"
                                                detailText:@""
                                                     image:[UIImage imageNamed:@"twitter"]],
+                           [RKTableItem tableItemWithText:@"Github"
+                                               detailText:@""
+                                                    image:[UIImage imageNamed:@"github"]],
                            nil];
     
     RKTableViewCellMapping *tableCellMapping = [RKTableViewCellMapping defaultCellMapping];
@@ -136,7 +140,12 @@ enum {
             }
                 
             case RKWPMenuTwitter: {
-                 
+                
+                break;
+            }
+                
+            case RKWPMenuGithub: {
+                
                 break;
             }
                  

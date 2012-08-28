@@ -8,18 +8,17 @@
 
 #import <RestKit/RestKit.h>
 #import <RestKit/UI.h>
-#import "RKWPAuthor.h"
-#import "RKWPAuthorTableViewController.h"
+#import "RKWPTweet.h"
+#import "RKWPTwitterTableViewController.h"
 #import "RKWPLoadingView.h"
 #import "RKWPAuthorCell.h"
 #import "SDImageCache.h"
-#import "SDWebImageManager.h"
 
-@interface RKWPAuthorTableViewController ()
+@interface RKWPTwitterTableViewController ()
 @property (nonatomic, strong) RKFetchedResultsTableController *tableController;
 @end
 
-@implementation RKWPAuthorTableViewController
+@implementation RKWPTwitterTableViewController
 
 UIImage* defaultAvatarImage;
 
@@ -29,25 +28,24 @@ UIImage* defaultAvatarImage;
 {
     [super viewDidLoad];
     
-    self.title = @"Authors";
+    self.title = @"Tweets";
    
     if ([self.navigationController.parentViewController respondsToSelector:@selector(revealGesture:)] && [self.navigationController.parentViewController respondsToSelector:@selector(revealToggle:)])
 	{
 		UIPanGestureRecognizer *navigationBarPanGestureRecognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self.navigationController.parentViewController action:@selector(revealGesture:)];
 		[self.navigationController.navigationBar addGestureRecognizer:navigationBarPanGestureRecognizer];
         
-		self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"menu.png"] style:UIBarButtonItemStylePlain target:self.navigationController.parentViewController action:@selector(revealToggle:)];
+		self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"menu"] style:UIBarButtonItemStylePlain target:self.navigationController.parentViewController action:@selector(revealToggle:)];
 	}
     
-    defaultAvatarImage = [UIImage imageNamed:@"avatar_placeholder.png"];
+    defaultAvatarImage = [UIImage imageNamed:@"avatar_placeholder"];
     /**
      Configure the RestKit table controller to drive our view
      */
     self.tableController = [[RKObjectManager sharedManager] fetchedResultsTableControllerForTableViewController:self];
     self.tableController.delegate = self;
-    self.tableController.sectionNameKeyPath = @"uppercaseFirstLetterOfName";
 
-    NSSortDescriptor *descriptor = [NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES];
+    NSSortDescriptor *descriptor = [NSSortDescriptor sortDescriptorWithKey:@"date" ascending:YES];
     self.tableController.fetchRequest.sortDescriptors = [NSArray arrayWithObject:descriptor];
   
     self.tableController.showsSectionIndexTitles = FALSE;
