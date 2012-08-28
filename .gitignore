@@ -16,6 +16,7 @@ profile
 .idea
 .DS_Store
 Pods
+Podfile.lock
 
 # NodeJS
 .DS_Store
@@ -36,5 +37,4 @@ devoxx-proxy/node_modules
 .settings
 tags
 dump
-
 
