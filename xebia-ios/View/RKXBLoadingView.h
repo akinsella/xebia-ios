@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface RKWPLoadingView : UIView
+@interface RKXBLoadingView : UIView
 
 @end

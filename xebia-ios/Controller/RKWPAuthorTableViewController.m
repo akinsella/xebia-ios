@@ -10,7 +10,7 @@
 #import <RestKit/UI.h>
 #import "RKWPAuthor.h"
 #import "RKWPAuthorTableViewController.h"
-#import "RKWPLoadingView.h"
+#import "RKXBLoadingView.h"
 #import "RKWPAuthorCell.h"
 #import "SDImageCache.h"
 #import "SDWebImageManager.h"
@@ -53,7 +53,7 @@ UIImage* defaultAvatarImage;
     self.tableController.showsSectionIndexTitles = FALSE;
     self.tableController.autoRefreshFromNetwork = YES;
     self.tableController.pullToRefreshEnabled = YES;
-    self.tableController.resourcePath = @"/get_author_index/";
+    self.tableController.resourcePath = @"/wordpress/get_author_index/";
     self.tableController.variableHeightRows = YES;
     
     /**
@@ -68,7 +68,7 @@ UIImage* defaultAvatarImage;
     /**
      Configure a basic loading view
      */
-    RKWPLoadingView *loadingView = [[RKWPLoadingView alloc] initWithFrame:CGRectMake(0, 0, 80, 80)];
+    RKXBLoadingView *loadingView = [[RKXBLoadingView alloc] initWithFrame:CGRectMake(0, 0, 80, 80)];
     loadingView.center = self.tableView.center;
     self.tableController.loadingView = loadingView;
     

@@ -7,12 +7,12 @@
 //
 
 #import "AppDelegate.h"
-#import "RKWPMappingProvider.h"
+#import "RKXBMappingProvider.h"
 #import <RestKit/RestKit.h>
 #import <RestKit/CoreData.h>
 #import "WPDataAccessor.h"
 #import "ZUUIRevealController.h"
-#import "RKWPMenuTableViewController.h"
+#import "RKXBMenuTableViewController.h"
 #import "RKWPAuthorTableViewController.h"
 #import "RevealController.h"
 #import "UIColor+RKWPAdditions.h"
@@ -40,12 +40,12 @@
     RKLogConfigureByName("RestKit/UI", RKLogLevelInfo);
     RKLogConfigureByName("RestKit/Network", RKLogLevelInfo);
 
-    self.wpDataAccessor = [WPDataAccessor initWithBaseApiUrl:@"http://blog.xebia.fr/wp-json-api"];
+    self.wpDataAccessor = [WPDataAccessor initWithBaseApiUrl:@"http://192.168.1.10:9000/"];
 
     UIWindow *window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
 	self.window = window;
 
-    RKWPMenuTableViewController *menuTableViewController = [[RKWPMenuTableViewController alloc] init];    
+    RKXBMenuTableViewController *menuTableViewController = [[RKXBMenuTableViewController alloc] init];
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
     HomeController *homeController = [storyboard instantiateViewControllerWithIdentifier:@"home"];
     
@@ -84,10 +84,10 @@
 }
 
 - (void)initializeRestKit {
-    self.objectManager = [RKObjectManager managerWithBaseURLString:@"http://blog.xebia.fr/wp-json-api"];
+    self.objectManager = [RKObjectManager managerWithBaseURLString:@"http://192.168.1.10:9000"];
     self.objectStore = [RKManagedObjectStore objectStoreWithStoreFilename:@"RKWordpress.sqlite"];
     self.objectManager.objectStore = self.objectStore;
-    self.objectManager.mappingProvider = [RKWPMappingProvider mappingProviderWithObjectStore:self.objectStore];
+    self.objectManager.mappingProvider = [RKXBMappingProvider mappingProviderWithObjectStore:self.objectStore];
 }
 
 - (void)updatePostsWithPostType:(POST_TYPE)postType Id:(int)identifier Count:(int)count {

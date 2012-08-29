@@ -61,7 +61,7 @@
 - (NSMutableArray *)fetchPostsWithPostType:(POST_TYPE)postType Id:(int)identifier Count:(int)count
 {
     NSString *postTypeStr = [self getPostTypeAsString:postType];
-    NSString *postUrlPath = [NSString stringWithFormat:@"/get_%@_posts/?id=%i&count=%i", postTypeStr, identifier, count];
+    NSString *postUrlPath = [NSString stringWithFormat:@"/wordpress/get_%@_posts/?id=%i&count=%i", postTypeStr, identifier, count];
     
     NSArray *jsonPosts = [self fetchIndexData:postUrlPath data:@"posts"];
     

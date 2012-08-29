@@ -12,7 +12,7 @@
 #import "RKWPTag.h"
 #import "RKWPTagTableViewController.h"
 #import "RKWPCategoryTableViewController.h"
-#import "RKWPLoadingView.h"
+#import "RKXBLoadingView.h"
 
 
 @interface RKWPTagTableViewController ()
@@ -41,7 +41,7 @@
     self.tableController = [[RKObjectManager sharedManager] fetchedResultsTableControllerForTableViewController:self];
     self.tableController.autoRefreshFromNetwork = YES;
     self.tableController.pullToRefreshEnabled = YES;
-    self.tableController.resourcePath = @"/get_tag_index/";
+    self.tableController.resourcePath = @"/wordpress/get_tag_index/";
     self.tableController.variableHeightRows = YES;
     NSSortDescriptor *descriptor = [NSSortDescriptor sortDescriptorWithKey:@"title" ascending:YES];
     self.tableController.sortDescriptors = [NSArray arrayWithObject:descriptor];
@@ -52,7 +52,7 @@
     [[RKRefreshTriggerView appearance] setLastUpdatedFont:[UIFont fontWithName:@"HelveticaNeue" size:11]];
     [[RKRefreshTriggerView appearance] setArrowImage:arrowImage];
     
-    RKWPLoadingView *loadingView = [[RKWPLoadingView alloc] initWithFrame:CGRectMake(0, 0, 80, 80)];
+    RKXBLoadingView *loadingView = [[RKXBLoadingView alloc] initWithFrame:CGRectMake(0, 0, 80, 80)];
     loadingView.center = self.tableView.center;
     self.tableController.loadingView = loadingView;
     

@@ -1,5 +1,17 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model name="" userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="1171" systemVersion="11E53" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
+<model name="" userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="1487" systemVersion="11E53" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="RKTTTweet" representedClassName="RKTTTweet" syncable="YES">
+        <attribute name="created_at" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="identifier" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="text" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="user" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="RKTTUser" syncable="YES"/>
+    </entity>
+    <entity name="RKTTUser" representedClassName="RKTTUser" syncable="YES">
+        <attribute name="identifier" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="profile_image_url" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="screen_name" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
     <entity name="RKWPAttachment" representedClassName="RKWPAttachment" syncable="YES">
         <attribute name="caption" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="description_" optional="YES" attributeType="String" syncable="YES"/>
@@ -71,5 +83,7 @@
         <element name="RKWPComment" positionX="160" positionY="192" width="128" height="150"/>
         <element name="RKWPPost" positionX="-5895" positionY="-765" width="128" height="300"/>
         <element name="RKWPTag" positionX="160" positionY="192" width="128" height="105"/>
+        <element name="RKTTTweet" positionX="160" positionY="192" width="128" height="105"/>
+        <element name="RKTTUser" positionX="160" positionY="192" width="128" height="105"/>
     </elements>
 </model>

@@ -9,6 +9,6 @@
 #import <UIKit/UIKit.h>
 #import <RestKit/UI.h>
 
-@interface RKWPMenuTableViewController : UITableViewController
+@interface RKXBMenuTableViewController : UITableViewController
 
 @end

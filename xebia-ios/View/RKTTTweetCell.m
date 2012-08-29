@@ -6,10 +6,10 @@
 //  Copyright (c) 2012 RestKit. All rights reserved.
 //
 
-#import "RKWPTweetCell.h"
-#import "RKWPTweet.h"
+#import "RKTTTweetCell.h"
+#import "RKTTTweet.h"
 
-@implementation RKWPTweetCell
+@implementation RKTTTweetCell
 
 @synthesize titleLabel;
 @synthesize descriptionLabel;

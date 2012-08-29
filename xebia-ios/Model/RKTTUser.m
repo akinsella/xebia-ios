@@ -6,20 +6,17 @@
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
-#import "RKWPTweet.h"
+#import "RKTTUser.h"
 #import "SDWebImageManager.h"
 #import "GravatarHelper.h"
 #import "SDImageCache.h"
 
-@implementation RKWPTweet
+@implementation RKTTUser
 
 @dynamic identifier;
-@dynamic firstname;
-@dynamic lastname;
-@dynamic nickname;
-@dynamic content;
-@dynamic date;
-@dynamic avatarImageUrl;
+@dynamic screen_name;
+@dynamic name;
+@dynamic profile_image_url;
 
 
 @end

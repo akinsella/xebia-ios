@@ -6,7 +6,7 @@
 //
 //
 
-#import "RKWPMenuTableViewController.h"
+#import "RKXBMenuTableViewController.h"
 
 #import "BlogController.h"
 #import "UIImage+RKWPAdditions.h"
@@ -24,7 +24,7 @@ enum {
     RKWPMenuGithub
 };
 
-@interface RKWPMenuTableViewController ()
+@interface RKXBMenuTableViewController ()
 
 /**
  A RestKit table controller that serves as the delegate and data source
@@ -34,7 +34,7 @@ enum {
 
 @end
 
-@implementation RKWPMenuTableViewController
+@implementation RKXBMenuTableViewController
 
 @synthesize tableController;
 

@@ -7,13 +7,13 @@
 //
 
 #import <QuartzCore/QuartzCore.h>
-#import "RKWPLoadingView.h"
+#import "RKXBLoadingView.h"
 
-@interface RKWPLoadingView ()
+@interface RKXBLoadingView ()
 @property (nonatomic, strong) UIActivityIndicatorView *activityIndicator;
 @end
 
-@implementation RKWPLoadingView
+@implementation RKXBLoadingView
 
 @synthesize activityIndicator;
 

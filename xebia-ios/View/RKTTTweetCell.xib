@@ -163,6 +163,7 @@
 							<reference ref="894365236"/>
 						</array>
 						<reference key="parent" ref="0"/>
+						<string key="objectName">Tweet Cell - RKTTTweet</string>
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">3</int>

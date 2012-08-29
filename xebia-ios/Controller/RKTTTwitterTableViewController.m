@@ -8,17 +8,17 @@
 
 #import <RestKit/RestKit.h>
 #import <RestKit/UI.h>
-#import "RKWPTweet.h"
-#import "RKWPTwitterTableViewController.h"
-#import "RKWPLoadingView.h"
+#import "RKTTTweet.h"
+#import "RKTTTwitterTableViewController.h"
+#import "RKXBLoadingView.h"
 #import "RKWPAuthorCell.h"
 #import "SDImageCache.h"
 
-@interface RKWPTwitterTableViewController ()
+@interface RKTTTwitterTableViewController ()
 @property (nonatomic, strong) RKFetchedResultsTableController *tableController;
 @end
 
-@implementation RKWPTwitterTableViewController
+@implementation RKTTTwitterTableViewController
 
 UIImage* defaultAvatarImage;
 
@@ -51,7 +51,7 @@ UIImage* defaultAvatarImage;
     self.tableController.showsSectionIndexTitles = FALSE;
     self.tableController.autoRefreshFromNetwork = YES;
     self.tableController.pullToRefreshEnabled = YES;
-    self.tableController.resourcePath = @"/get_author_index/";
+    self.tableController.resourcePath = @"/wordpress/get_author_index/";
     self.tableController.variableHeightRows = YES;
     
     /**
@@ -66,7 +66,7 @@ UIImage* defaultAvatarImage;
     /**
      Configure a basic loading view
      */
-    RKWPLoadingView *loadingView = [[RKWPLoadingView alloc] initWithFrame:CGRectMake(0, 0, 80, 80)];
+    RKXBLoadingView *loadingView = [[RKXBLoadingView alloc] initWithFrame:CGRectMake(0, 0, 80, 80)];
     loadingView.center = self.tableView.center;
     self.tableController.loadingView = loadingView;
     

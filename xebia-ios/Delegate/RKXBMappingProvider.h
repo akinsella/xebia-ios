@@ -13,7 +13,7 @@
  The RKGithub application specific mapping provider class. Organizes
  the configuration of object mappings outside of the application delegate
  */
-@interface RKWPMappingProvider : RKObjectMappingProvider
+@interface RKXBMappingProvider : RKObjectMappingProvider
 
 /**
  A reference to the RKManagedObjectStore for the application
@@ -47,7 +47,7 @@
  Create and return a RestKit object mapping suitable for mapping a Wordpress post
  resource.
  
- See http://blog.xebia.fr/wp-json-api/get_recent_posts/
+ See http://192.168.1.10:9000/wordpress/get_recent_posts/
  
  @return A RKObjectMapping suitable for mapping a Wordpress post.
  */

@@ -41,21 +41,22 @@ if(!cf.app) {
            host:'localhost'
        },
        services: {
-//           'redis-2.2': [{
-//                   name: 'xebia-mobile-proxy-redis',
-//                   label: 'redis-2.2',
-//                   plan: 'free',
-//                   credentials: {
-//                       node_id: 'redis_node_2',
-//                       host: 'localhost',
-//                       hostname: 'localhost',
-//                       port: 6379,
-//                       password: '',
-//                       name: 'xebia-mobile-proxy',
-//                       username: 'xebia-mobile-proxy'
-//                   },
-//                   version: '2.2'
-//               }],
+           'redis-2.2': [{
+                   name: 'xebia-mobile-proxy-redis',
+                   label: 'redis-2.2',
+                   plan: 'free',
+                   credentials: {
+                       node_id: 'redis_node_2',
+                       host: 'localhost',
+                       hostname: 'localhost',
+                       port: 6379,
+                       password: '',
+                       name: 'xebia-mobile-proxy',
+                       username: 'xebia-mobile-proxy'
+                   },
+                   version: '2.2'
+               }]
+//           ,
 //               'mysql-5.1': [{
 //                   name: 'devoxx-data-mysql',
 //                   label: 'mysql-5.1',
@@ -81,7 +82,7 @@ if(!cf.app) {
 
 var app = express.createServer();
 
-//var redisConfig = cf.services["redis-2.2"][0];
+var redisConfig = cf.services["redis-2.2"][0];
 //var mysqlConfig = cf.services["mysql-5.1"][0];
 
 console.log('Application Name: ' + cf.app.name);
@@ -130,15 +131,15 @@ app.configure('production', function () {
 //var mysqlClient = mysql.createClient(mysqlOptions);
 //console.log('Env: ' + JSON.stringify(mysqlOptions));
 
-//redis.debug_mode = false;
-//
-//var redisClient = redis.createClient( redisConfig.credentials.port, redisConfig.credentials.hostname );
-//
-//if (redisConfig.credentials.password) {
-//    redisClient.auth(redisConfig.credentials.password, function(err, res) {
-//        console.log("Authenticating to redis!");
-//    });
-//}
+redis.debug_mode = false;
+
+var redisClient = redis.createClient( redisConfig.credentials.port, redisConfig.credentials.hostname );
+
+if (redisConfig.credentials.password) {
+    redisClient.auth(redisConfig.credentials.password, function(err, res) {
+        console.log("Authenticating to redis!");
+    });
+}
 
 process.on('SIGTERM', function () {
     console.log('Got SIGTERM exiting...');
@@ -151,9 +152,9 @@ var appPort = cf.port || 9000;
 console.log("Express listening on port: " + appPort);
 app.listen(appPort);
 
-//redisClient.on("error", function (err) {
-//    console.log("Error " + err);
-//});
+redisClient.on("error", function (err) {
+    console.log("Error " + err);
+});
 
 console.log("Initializing xebia-mobile-proxy application");
 
@@ -249,7 +250,7 @@ function responseData(statusCode, statusMessage, data, options) {
 function getData(options) {
     try {
         if (!useCache(options)) {
-            if (options.standaloneUrl) { fetchDataFromUrl(options); } else { fetchDataFromDevoxxUrl(options); }
+            fetchDataFromUrl(options);
         }
         else {
             console.log("[" + options.cacheKey + "] Cache Key is: " + options.cacheKey);
@@ -261,7 +262,7 @@ function getData(options) {
                 }
                 else {
                     console.log("[" + options.url + "] No cached reply found for key: '" + options.cacheKey + "'");
-                    if (options.standaloneUrl) { fetchDataFromUrl(options); } else { fetchDataFromDevoxxUrl(options); }
+                    fetchDataFromUrl(options);
                 }
             });
         }
@@ -360,4 +361,24 @@ app.get('/twitter/XebiaFR', function(req, res) {
         }
     }
 
+});
+
+// To be refactored
+app.get('/wordpress/*', function(req, res) {
+
+    var options = {
+        req: req,
+        res: res,
+        url: "http://blog.xebia.fr/wp-json-api/" + getUrlToFetch(req).substring("/wordpress/".length),
+        cacheKey: getCacheKey(req),
+        forceNoCache: getIfUseCache(req),
+        callback: responseData
+    };
+
+    try {
+        getData(options);
+    } catch(err) {
+        var errorMessage = err.name + ": " + err.message;
+        responseData(500, errorMessage, undefined, options);
+    }
 });

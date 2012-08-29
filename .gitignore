@@ -38,3 +38,5 @@ devoxx-proxy/node_modules
 tags
 dump
 
+#Working dir
+target

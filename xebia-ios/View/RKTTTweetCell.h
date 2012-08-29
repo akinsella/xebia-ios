@@ -7,9 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "RKWPTweet.h"
+#import "RKTTTweet.h"
 
-@interface RKWPTweetCell : UITableViewCell
+@interface RKTTTweetCell : UITableViewCell
 
 @property (nonatomic, strong) IBOutlet UILabel *titleLabel;
 @property (nonatomic, strong) IBOutlet UILabel *descriptionLabel;

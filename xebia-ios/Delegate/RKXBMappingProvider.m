@@ -6,13 +6,13 @@
 //  Copyright (c) 2012 RestKit. All rights reserved.
 //
 
-#import "RKWPMappingProvider.h"
+#import "RKXBMappingProvider.h"
 #import "RKWPPost.h"
 #import "RKWPAuthor.h"
 #import "RKWPCategory.h"
 #import "RKWPTag.h"
 
-@implementation RKWPMappingProvider
+@implementation RKXBMappingProvider
 
 @synthesize objectStore;
 
@@ -26,7 +26,7 @@
         self.objectStore = theObjectStore;
         
         [self setObjectMapping:[self categoryObjectMapping] 
-        forResourcePathPattern:@"/get_category_index/" 
+        forResourcePathPattern:@"/wordpress/get_category_index/" 
          withFetchRequestBlock:^NSFetchRequest *(NSString *resourcePath) {
              // NOTE: We could use RKPathMatcher here to easily tokenize the requested resourcePath
              NSFetchRequest *fetchRequest = [RKWPCategory fetchRequest];
@@ -36,7 +36,7 @@
         
         
         [self setObjectMapping:[self tagObjectMapping] 
-        forResourcePathPattern:@"/get_tag_index/" 
+        forResourcePathPattern:@"/wordpress/get_tag_index/" 
          withFetchRequestBlock:^NSFetchRequest *(NSString *resourcePath) {
              // NOTE: We could use RKPathMatcher here to easily tokenize the requested resourcePath
              NSFetchRequest *fetchRequest = [RKWPTag fetchRequest];
@@ -46,7 +46,7 @@
         
         
         [self setObjectMapping:[self authorObjectMapping] 
-        forResourcePathPattern:@"/get_author_index/" 
+        forResourcePathPattern:@"/wordpress/get_author_index/" 
          withFetchRequestBlock:^NSFetchRequest *(NSString *resourcePath) {
              // NOTE: We could use RKPathMatcher here to easily tokenize the requested resourcePath
              NSFetchRequest *fetchRequest = [RKWPAuthor fetchRequest];
@@ -56,7 +56,7 @@
         
         
         [self setObjectMapping:[self postObjectMapping] 
-        forResourcePathPattern:@"/get_recent_posts/" 
+        forResourcePathPattern:@"/wordpress/get_recent_posts/" 
          withFetchRequestBlock:^NSFetchRequest *(NSString *resourcePath) {
             // NOTE: We could use RKPathMatcher here to easily tokenize the requested resourcePath
             NSFetchRequest *fetchRequest = [RKWPPost fetchRequest];
