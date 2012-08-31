@@ -13,9 +13,10 @@
 @interface RKTTTweet : NSManagedObject
 
 @property (nonatomic, strong) NSNumber *identifier;
-@property (nonatomic, strong) NSString *created_at;
+@property (nonatomic, strong) NSDate *created_at;
 @property (nonatomic, strong) RKTTUser *user;
 @property (nonatomic, strong) NSString *text;
+@property (nonatomic, strong, readonly) NSString *dateFormatted;
 
 @end
 

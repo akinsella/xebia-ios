@@ -9,6 +9,7 @@
 #import "RKWPTagCell.h"
 
 @implementation RKWPTagCell
+
 @synthesize titleLabel;
 @synthesize descriptionLabel;
 @synthesize bottomDetailLabel;
@@ -30,7 +31,7 @@
 
 - (void)updateBottomDetailLabel {
     self.bottomDetailLabel.text = [NSString stringWithFormat: 
-                                   self.itemCount > 1 ? @"%ld posts" : @"%ld post", 
+                                   self.itemCount > 1 ? @"%d posts" : @"%d post", 
                                    self.itemCount];
 }
 

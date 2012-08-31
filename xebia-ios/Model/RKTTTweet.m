@@ -11,6 +11,7 @@
 #import "SDWebImageManager.h"
 #import "GravatarHelper.h"
 #import "SDImageCache.h"
+#import "Date.h"
 
 @implementation RKTTTweet
 
@@ -18,6 +19,13 @@
 @dynamic created_at;
 @dynamic user;
 @dynamic text;
+
+- (NSString *)dateFormatted {
+    // "Mon Jun 27 19:32:19 +0000 2011"
+    // NSLog(@"Date: '%@' from: '%@'",date, [self created_at]);
+    
+    return [Date formattedDateRelativeToNow: self.created_at];
+}
 
 
 @end

@@ -9,6 +9,7 @@
 #import "RKWPMenuCell.h"
 
 @implementation RKWPMenuCell
+
 @synthesize titleLabel;
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {

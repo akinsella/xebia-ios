@@ -1,5 +1,5 @@
 //
-//  RKWPAuthorTableViewController.m
+//  RKTTTwitterTableViewController.m
 //  xebia-ios
 //
 //  Created by Alexis Kinsella on 25/07/12.
@@ -11,8 +11,12 @@
 #import "RKTTTweet.h"
 #import "RKTTTwitterTableViewController.h"
 #import "RKXBLoadingView.h"
-#import "RKWPAuthorCell.h"
+#import "RKTTTweetCell.h"
 #import "SDImageCache.h"
+
+#define FONT_SIZE 13.0f
+#define CELL_CONTENT_WIDTH 253.0f
+#define CELL_CONTENT_MARGIN 10.0f
 
 @interface RKTTTwitterTableViewController ()
 @property (nonatomic, strong) RKFetchedResultsTableController *tableController;
@@ -45,14 +49,16 @@ UIImage* defaultAvatarImage;
     self.tableController = [[RKObjectManager sharedManager] fetchedResultsTableControllerForTableViewController:self];
     self.tableController.delegate = self;
 
-    NSSortDescriptor *descriptor = [NSSortDescriptor sortDescriptorWithKey:@"date" ascending:YES];
-    self.tableController.fetchRequest.sortDescriptors = [NSArray arrayWithObject:descriptor];
+//    NSSortDescriptor *descriptor = [NSSortDescriptor sortDescriptorWithKey:@"dateFormatted" ascending:YES];
+//    self.tableController.fetchRequest.sortDescriptors = [NSArray arrayWithObject:descriptor];
   
     self.tableController.showsSectionIndexTitles = FALSE;
     self.tableController.autoRefreshFromNetwork = YES;
     self.tableController.pullToRefreshEnabled = YES;
-    self.tableController.resourcePath = @"/wordpress/get_author_index/";
+    self.tableController.resourcePath = @"/twitter/XebiaFR/";
     self.tableController.variableHeightRows = YES;
+    
+    
     
     /**
      Configure the Pull to Refresh View
@@ -78,18 +84,31 @@ UIImage* defaultAvatarImage;
     self.tableController.imageForEmpty = [UIImage imageNamed:@"empty.png"];
 
     RKTableViewCellMapping *cellMapping = [RKTableViewCellMapping cellMapping];
-    cellMapping.cellClassName = @"RKWPAuthorCell";
-    cellMapping.reuseIdentifier = @"RKWPAuthor";
+    cellMapping.cellClassName = @"RKTTTweetCell";
+    cellMapping.reuseIdentifier = @"RKTTTweet";
 //    cellMapping.rowHeight = 100.0;
-    [cellMapping mapKeyPath:@"name" toAttribute:@"titleLabel.text"];
+    [cellMapping mapKeyPath:@"user.name" toAttribute:@"authorNameLabel.text"];
+    [cellMapping mapKeyPath:@"user.screen_name" toAttribute:@"nicknameLabel.text"];
+    [cellMapping mapKeyPath:@"dateFormatted" toAttribute:@"dateLabel.text"];
+    [cellMapping mapKeyPath:@"text" toAttribute:@"contentLabel.text"];
     [cellMapping mapKeyPath:@"identifier" toAttribute:@"identifier"];
      
-    [tableController mapObjectsWithClass:[RKWPAuthor class] toTableCellsWithMapping:cellMapping];
+    cellMapping.heightOfCellForObjectAtIndexPath = ^ CGFloat(id object, NSIndexPath* indexPath) {
+    
+        RKTTTweet *tweet = object;
+        
+        CGSize constraint = CGSizeMake(CELL_CONTENT_WIDTH - (CELL_CONTENT_MARGIN * 2), 20000.0f);
+        CGSize size = [tweet.text sizeWithFont:[UIFont systemFontOfSize:FONT_SIZE] constrainedToSize:constraint lineBreakMode:UILineBreakModeWordWrap];
+        CGFloat height = MAX(size.height, 44.0f);
+        return height + (CELL_CONTENT_MARGIN * 2);
+    };
+    
+    [tableController mapObjectsWithClass:[RKTTTweet class] toTableCellsWithMapping:cellMapping];
     
     /**
      Use a custom Nib to draw our table cells for RKGHIssue objects
      */
-    [self.tableView registerNib:[UINib nibWithNibName:@"RKWPAuthorCell" bundle:nil] forCellReuseIdentifier:@"RKWPAuthor"];
+    [self.tableView registerNib:[UINib nibWithNibName:@"RKTTTweetCell" bundle:nil] forCellReuseIdentifier:@"RKTTTweet"];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -104,31 +123,31 @@ UIImage* defaultAvatarImage;
 
 - (void)tableController:(RKAbstractTableController *)tableController willDisplayCell:(UITableViewCell *)cell forObject:(id)object atIndexPath:(NSIndexPath *)indexPath;
 {
-    RKWPAuthor *author = object;
-    RKWPAuthorCell *authorCell = (RKWPAuthorCell *)cell;
+    RKTTTweet *tweet = object;
+    RKTTTweetCell *tweetCell = (RKTTTweetCell *)cell;
  
-    NSString *avatarImageUrl = [[author avatarImageUrl] absoluteString];
+    NSString *avatarImageUrl = [[tweet.user avatarImageUrl] absoluteString];
     UIImage *cachedImage = [[SDImageCache sharedImageCache] imageFromKey:avatarImageUrl];
     if (cachedImage) {
-        [[authorCell imageView] setImage: cachedImage];
+        [[tweetCell imageView] setImage: cachedImage];
     }
     else {
-        [[authorCell imageView] setImage: defaultAvatarImage];
-        NSLog(@"Download image: %@ for author: %@", [author avatarImageUrl], [author nickname]);
+        [[tweetCell imageView] setImage: defaultAvatarImage];
+        NSLog(@"Download image: %@ for tweet author: %@", [tweet.user avatarImageUrl], tweet.user.screen_name);
         SDWebImageManager *manager = [SDWebImageManager sharedManager];
-        [manager downloadWithURL:author.avatarImageUrl
+        [manager downloadWithURL:tweet.user.avatarImageUrl
                         delegate:self
                          options:0
                          success:^(UIImage *image) {
                              [[SDImageCache sharedImageCache] storeImage:image forKey:avatarImageUrl];
-                             if ([[authorCell identifier] intValue] == [[author identifier] intValue]) {
-                                 [[authorCell imageView] setImage: image];   
+                             if ([[tweetCell identifier] intValue] == [[tweet identifier] intValue]) {
+                                 [[tweetCell imageView] setImage: image];   
                              }
                          }
                          failure:^(NSError *error) {
                              [[SDImageCache sharedImageCache] storeImage:defaultAvatarImage forKey:avatarImageUrl];
-                             if ([[authorCell identifier] intValue] == [[author identifier] intValue]) {
-                                 [[authorCell imageView] setImage: defaultAvatarImage];
+                             if ([[tweetCell identifier] intValue] == [[tweet identifier] intValue]) {
+                                 [[tweetCell imageView] setImage: defaultAvatarImage];
                              }
                          }];
     }

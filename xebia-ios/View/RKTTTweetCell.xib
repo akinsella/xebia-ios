@@ -42,7 +42,7 @@
 							<object class="IBUILabel" id="894365236">
 								<reference key="NSNextResponder" ref="840849820"/>
 								<int key="NSvFlags">260</int>
-								<string key="NSFrame">{{49, -8}, {231, 38}}</string>
+								<string key="NSFrame">{{67, 3}, {136, 18}}</string>
 								<reference key="NSSuperview" ref="840849820"/>
 								<reference key="NSNextKeyView" ref="503069424"/>
 								<string key="NSReuseIdentifierKey">_NS:9</string>
@@ -61,7 +61,7 @@
 									<bytes key="NSWhite">MQA</bytes>
 								</object>
 								<int key="IBUIBaselineAdjustment">1</int>
-								<float key="IBUIMinimumFontSize">10</float>
+								<float key="IBUIMinimumFontSize">14</float>
 								<object class="IBUIFontDescription" key="IBUIFontDescription">
 									<int key="type">2</int>
 									<double key="pointSize">14</double>
@@ -74,20 +74,23 @@
 							</object>
 							<object class="IBUILabel" id="503069424">
 								<reference key="NSNextResponder" ref="840849820"/>
-								<int key="NSvFlags">260</int>
-								<string key="NSFrame">{{49, 11}, {231, 38}}</string>
+								<int key="NSvFlags">274</int>
+								<string key="NSFrame">{{67, 19}, {233, 65}}</string>
 								<reference key="NSSuperview" ref="840849820"/>
+								<reference key="NSNextKeyView"/>
 								<string key="NSReuseIdentifierKey">_NS:9</string>
 								<bool key="IBUIOpaque">NO</bool>
 								<bool key="IBUIClipsSubviews">YES</bool>
 								<int key="IBUIContentMode">7</int>
 								<bool key="IBUIUserInteractionEnabled">NO</bool>
 								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
-								<string key="IBUIText">Content of the tweet</string>
+								<string key="IBUIText">Content of the tweet blagkjfjlksjsd lfkjd sfljkds flkjs dflksj lkfsdj </string>
 								<reference key="IBUITextColor" ref="621841580"/>
 								<reference key="IBUIHighlightedColor" ref="262642770"/>
 								<int key="IBUIBaselineAdjustment">1</int>
-								<float key="IBUIMinimumFontSize">10</float>
+								<float key="IBUIMinimumFontSize">13</float>
+								<int key="IBUINumberOfLines">0</int>
+								<int key="IBUILineBreakMode">0</int>
 								<object class="IBUIFontDescription" key="IBUIFontDescription">
 									<int key="type">1</int>
 									<double key="pointSize">13</double>
@@ -98,8 +101,38 @@
 									<int key="NSfFlags">16</int>
 								</object>
 							</object>
+							<object class="IBUILabel" id="453891946">
+								<reference key="NSNextResponder" ref="840849820"/>
+								<int key="NSvFlags">292</int>
+								<string key="NSFrame">{{200, 1}, {100, 21}}</string>
+								<reference key="NSSuperview" ref="840849820"/>
+								<string key="NSReuseIdentifierKey">_NS:9</string>
+								<bool key="IBUIOpaque">NO</bool>
+								<bool key="IBUIClipsSubviews">YES</bool>
+								<int key="IBUIContentMode">7</int>
+								<bool key="IBUIUserInteractionEnabled">NO</bool>
+								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
+								<string key="IBUIText">Date</string>
+								<object class="NSColor" key="IBUITextColor">
+									<int key="NSColorSpace">3</int>
+									<bytes key="NSWhite">MC42NjY2NjY2NjY3AA</bytes>
+								</object>
+								<reference key="IBUIHighlightedColor" ref="262642770"/>
+								<int key="IBUIBaselineAdjustment">0</int>
+								<float key="IBUIMinimumFontSize">14</float>
+								<int key="IBUITextAlignment">2</int>
+								<object class="IBUIFontDescription" key="IBUIFontDescription">
+									<int key="type">1</int>
+									<double key="pointSize">14</double>
+								</object>
+								<object class="NSFont" key="IBUIFont">
+									<string key="NSName">Helvetica</string>
+									<double key="NSSize">14</double>
+									<int key="NSfFlags">16</int>
+								</object>
+							</object>
 						</array>
-						<string key="NSFrameSize">{300, 40}</string>
+						<string key="NSFrameSize">{300, 84}</string>
 						<reference key="NSSuperview" ref="506599320"/>
 						<reference key="NSNextKeyView" ref="894365236"/>
 						<string key="NSReuseIdentifierKey">_NS:11</string>
@@ -114,26 +147,42 @@
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 					</object>
 				</array>
-				<string key="NSFrameSize">{320, 41}</string>
+				<string key="NSFrameSize">{320, 85}</string>
 				<reference key="NSSuperview"/>
 				<reference key="NSNextKeyView" ref="840849820"/>
 				<string key="NSReuseIdentifierKey">_NS:9</string>
 				<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 				<int key="IBUIAccessoryType">1</int>
 				<reference key="IBUIContentView" ref="840849820"/>
-				<string key="IBUIReuseIdentifier">RKWPAuthor</string>
-				<real value="41" key="IBUIRowHeight"/>
+				<string key="IBUIReuseIdentifier">RKTTTweet</string>
+				<real value="85" key="IBUIRowHeight"/>
 			</object>
 		</array>
 		<object class="IBObjectContainer" key="IBDocument.Objects">
 			<array class="NSMutableArray" key="connectionRecords">
 				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchOutletConnection" key="connection">
-						<string key="label">titleLabel</string>
+						<string key="label">authorNameLabel</string>
 						<reference key="source" ref="506599320"/>
 						<reference key="destination" ref="894365236"/>
 					</object>
-					<int key="connectionID">6</int>
+					<int key="connectionID">15</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">contentLabel</string>
+						<reference key="source" ref="506599320"/>
+						<reference key="destination" ref="503069424"/>
+					</object>
+					<int key="connectionID">19</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">dateLabel</string>
+						<reference key="source" ref="506599320"/>
+						<reference key="destination" ref="453891946"/>
+					</object>
+					<int key="connectionID">20</int>
 				</object>
 			</array>
 			<object class="IBMutableOrderedSet" key="objectRecords">
@@ -159,8 +208,9 @@
 						<int key="objectID">2</int>
 						<reference key="object" ref="506599320"/>
 						<array class="NSMutableArray" key="children">
-							<reference ref="503069424"/>
+							<reference ref="453891946"/>
 							<reference ref="894365236"/>
+							<reference ref="503069424"/>
 						</array>
 						<reference key="parent" ref="0"/>
 						<string key="objectName">Tweet Cell - RKTTTweet</string>
@@ -175,6 +225,11 @@
 						<reference key="object" ref="503069424"/>
 						<reference key="parent" ref="506599320"/>
 					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">14</int>
+						<reference key="object" ref="453891946"/>
+						<reference key="parent" ref="506599320"/>
+					</object>
 				</array>
 			</object>
 			<dictionary class="NSMutableDictionary" key="flattenedProperties">
@@ -183,7 +238,8 @@
 				<string key="-2.CustomClassName">UIResponder</string>
 				<string key="-2.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="12.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
-				<string key="2.CustomClassName">RKWPTweetCell</string>
+				<string key="14.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
+				<string key="2.CustomClassName">RKTTTweetCell</string>
 				<string key="2.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="3.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 			</dictionary>
@@ -191,7 +247,7 @@
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">12</int>
+			<int key="maxID">20</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes"/>
 		<int key="IBDocument.localizationMode">0</int>

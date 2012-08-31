@@ -7,9 +7,7 @@
 //
 
 #import "RKWPAuthor.h"
-#import "SDWebImageManager.h"
 #import "GravatarHelper.h"
-#import "SDImageCache.h"
 
 @implementation RKWPAuthor
 

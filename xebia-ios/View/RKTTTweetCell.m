@@ -11,8 +11,7 @@
 
 @implementation RKTTTweetCell
 
-@synthesize titleLabel;
-@synthesize descriptionLabel;
+@synthesize authorNameLabel, nicknameLabel, dateLabel, contentLabel;
 
 @synthesize identifier;
 @synthesize avatarImage;

@@ -11,8 +11,10 @@
 
 @interface RKTTTweetCell : UITableViewCell
 
-@property (nonatomic, strong) IBOutlet UILabel *titleLabel;
-@property (nonatomic, strong) IBOutlet UILabel *descriptionLabel;
+@property (nonatomic, strong) IBOutlet UILabel *authorNameLabel;
+@property (nonatomic, strong) IBOutlet UILabel *nicknameLabel;
+@property (nonatomic, strong) IBOutlet UILabel *contentLabel;
+@property (nonatomic, strong) IBOutlet UILabel *dateLabel;
 
 @property (nonatomic, strong) NSNumber *identifier;
 @property (nonatomic, readonly, strong) UIImage *avatarImage;

@@ -45,6 +45,9 @@
     else if(dayDiff > -14 && dayDiff <= -7) {
         return @"Last week";
     }
+    else if(dayDiff >= -30 && dayDiff <= -14) {
+        return @"This month";
+    }
     else if(dayDiff >= -60 && dayDiff <= -30) {
         return @"Last month";
     }

@@ -1,5 +1,5 @@
     //
-//  RKWPAuthor.m
+//  RKTTUser.m
 //  xebia-ios
 //
 //  Created by Alexis Kinsella on 24/07/12.
@@ -7,9 +7,6 @@
 //
 
 #import "RKTTUser.h"
-#import "SDWebImageManager.h"
-#import "GravatarHelper.h"
-#import "SDImageCache.h"
 
 @implementation RKTTUser
 
@@ -18,6 +15,9 @@
 @dynamic name;
 @dynamic profile_image_url;
 
+- (NSURL *)avatarImageUrl {
+    return [NSURL URLWithString:[self profile_image_url]];
+}
 
 @end
 

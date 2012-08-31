@@ -37,8 +37,10 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     [self initializeRestKit];
     
-    RKLogConfigureByName("RestKit/UI", RKLogLevelInfo);
-    RKLogConfigureByName("RestKit/Network", RKLogLevelInfo);
+    RKLogConfigureByName("RestKit/UI", RKLogLevelError);
+    RKLogConfigureByName("RestKit/Network", RKLogLevelError);
+    RKLogConfigureByName("RestKit/ObjectMapping", RKLogLevelError);
+    RKLogConfigureByName("RestKit/ObjectMapping/JSON", RKLogLevelError);
 
     self.wpDataAccessor = [WPDataAccessor initWithBaseApiUrl:@"http://192.168.1.10:9000/"];
 
@@ -84,8 +86,14 @@
 }
 
 - (void)initializeRestKit {
+    
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat: @"eee MMM dd HH:mm:ss ZZZZ yyyy"];
+    
+    [RKObjectMapping addDefaultDateFormatter:(NSFormatter *)dateFormatter];
+
     self.objectManager = [RKObjectManager managerWithBaseURLString:@"http://192.168.1.10:9000"];
-    self.objectStore = [RKManagedObjectStore objectStoreWithStoreFilename:@"RKWordpress.sqlite"];
+    self.objectStore = [RKManagedObjectStore objectStoreWithStoreFilename:@"xebia.sqlite"];
     self.objectManager.objectStore = self.objectStore;
     self.objectManager.mappingProvider = [RKXBMappingProvider mappingProviderWithObjectStore:self.objectStore];
 }

@@ -339,14 +339,16 @@ app.get('/twitter/XebiaFR', function(req, res) {
         }
         else {
             var callback = getParameterByName(req.url, 'callback');
-            res.header('Content-Type', 'application/javascript');
+            res.header('Content-Type', 'application/json');
 
             var tweetsShortened = [];
 
             _(JSON.parse(tweets)).each(function(tweet) {
                 var tweetShortened = {
+                    id: tweet.id,
                     created_at: tweet.created_at,
                     user: {
+                        id: tweet.user.id,
                         screen_name: tweet.user.screen_name,
                         name: tweet.user.name,
                         profile_image_url: tweet.user.profile_image_url

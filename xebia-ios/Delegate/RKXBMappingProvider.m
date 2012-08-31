@@ -11,6 +11,7 @@
 #import "RKWPAuthor.h"
 #import "RKWPCategory.h"
 #import "RKWPTag.h"
+#import "RKTTTweet.h"
 
 @implementation RKXBMappingProvider
 
@@ -55,21 +56,31 @@
          }];
         
         
-        [self setObjectMapping:[self postObjectMapping] 
-        forResourcePathPattern:@"/wordpress/get_recent_posts/" 
+        [self setObjectMapping:[self postObjectMapping]
+        forResourcePathPattern:@"/wordpress/get_recent_posts/"
          withFetchRequestBlock:^NSFetchRequest *(NSString *resourcePath) {
-            // NOTE: We could use RKPathMatcher here to easily tokenize the requested resourcePath
-            NSFetchRequest *fetchRequest = [RKWPPost fetchRequest];
-            fetchRequest.sortDescriptors = [NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:@"date" ascending:YES]];
-            return fetchRequest;
-        }];
+             // NOTE: We could use RKPathMatcher here to easily tokenize the requested resourcePath
+             NSFetchRequest *fetchRequest = [RKWPPost fetchRequest];
+             fetchRequest.sortDescriptors = [NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:@"date" ascending:YES]];
+             return fetchRequest;
+         }];
+        
+        
+        [self setObjectMapping:[self tweetObjectMapping]
+        forResourcePathPattern:@"/twitter/XebiaFR/"
+         withFetchRequestBlock:^NSFetchRequest *(NSString *resourcePath) {
+             // NOTE: We could use RKPathMatcher here to easily tokenize the requested resourcePath
+             NSFetchRequest *fetchRequest = [RKTTTweet fetchRequest];
+             fetchRequest.sortDescriptors = [NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:@"created_at" ascending:NO]];
+             return fetchRequest;
+         }];
     }
     
     return self;
 }
 
 - (RKManagedObjectMapping *)categoryObjectMapping {
-    RKManagedObjectMapping *mapping =  [RKManagedObjectMapping mappingForEntityWithName:@"RKWPCategory" 
+    RKManagedObjectMapping *mapping = [RKManagedObjectMapping mappingForEntityWithName:@"RKWPCategory" 
                                                                    inManagedObjectStore:self.objectStore];
     mapping.rootKeyPath = @"categories";
     mapping.primaryKeyAttribute = @"identifier";
@@ -83,7 +94,7 @@
 }
 
 - (RKManagedObjectMapping *)tagObjectMapping {
-    RKManagedObjectMapping *mapping =  [RKManagedObjectMapping mappingForEntityWithName:@"RKWPTag" 
+    RKManagedObjectMapping *mapping = [RKManagedObjectMapping mappingForEntityWithName:@"RKWPTag" 
                                                                    inManagedObjectStore:self.objectStore];
     mapping.rootKeyPath = @"tags";
     mapping.primaryKeyAttribute = @"identifier";
@@ -97,7 +108,7 @@
 }
 
 - (RKManagedObjectMapping *)authorObjectMapping {
-    RKManagedObjectMapping *mapping =  [RKManagedObjectMapping mappingForEntityWithName:@"RKWPAuthor" 
+    RKManagedObjectMapping *mapping = [RKManagedObjectMapping mappingForEntityWithName:@"RKWPAuthor" 
                                                                    inManagedObjectStore:self.objectStore];
     mapping.rootKeyPath = @"authors";
     mapping.primaryKeyAttribute = @"identifier";
@@ -111,7 +122,7 @@
 }
 
 - (RKManagedObjectMapping *)postObjectMapping {
-    RKManagedObjectMapping *mapping =  [RKManagedObjectMapping mappingForEntityWithName:@"RKWPPost" 
+    RKManagedObjectMapping *mapping = [RKManagedObjectMapping mappingForEntityWithName:@"RKWPPost"
                                                                    inManagedObjectStore:self.objectStore];
     mapping.rootKeyPath = @"posts";
     mapping.primaryKeyAttribute = @"identifier";
@@ -120,6 +131,33 @@
      @"id", @"identifier",
      nil];
     
+    return mapping;
+}
+
+- (RKManagedObjectMapping *)tweetObjectMapping {
+    RKManagedObjectMapping *mapping = [RKManagedObjectMapping mappingForEntityWithName:@"RKTTTweet"
+                                                                  inManagedObjectStore:self.objectStore];
+    mapping.primaryKeyAttribute = @"identifier";
+    [mapping mapAttributes: @"text", @"created_at", nil];
+    [mapping mapKeyPathsToAttributes:
+     @"id", @"identifier",
+     nil];
+    
+    // Relationships
+    [mapping mapKeyPath:@"user" toRelationship:@"user" withMapping:[self tweetUserObjectMapping]];
+    
+    return mapping;
+}
+
+- (RKManagedObjectMapping *)tweetUserObjectMapping {
+    RKManagedObjectMapping *mapping = [RKManagedObjectMapping mappingForEntityWithName:@"RKTTUser"
+                                                                  inManagedObjectStore:self.objectStore];
+    mapping.primaryKeyAttribute = @"identifier";
+    [mapping mapAttributes: @"screen_name", @"name", @"profile_image_url", nil];
+    [mapping mapKeyPathsToAttributes:
+     @"id", @"identifier",
+     nil];
+
     return mapping;
 }
 
