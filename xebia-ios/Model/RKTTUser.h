@@ -7,7 +7,6 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "SDWebImageManager.h"
 
 @interface RKTTUser : NSManagedObject
 

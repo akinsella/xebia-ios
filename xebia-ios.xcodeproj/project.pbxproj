@@ -55,6 +55,16 @@
 		5458484115C4C5CA00DD03F4 /* ios-icon-114.png in Resources */ = {isa = PBXBuildFile; fileRef = 5458484015C4C5C900DD03F4 /* ios-icon-114.png */; };
 		5464F3F415E977EC00DE12B0 /* NSTexturedFullScreenBackgroundColor.png in Resources */ = {isa = PBXBuildFile; fileRef = 5464F3F315E977EC00DE12B0 /* NSTexturedFullScreenBackgroundColor.png */; };
 		5464F3FE15EA235700DE12B0 /* LightBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = 5464F3FD15EA235700DE12B0 /* LightBackground.png */; };
+		546F35D815F2748400945466 /* RKGHRepository.m in Sources */ = {isa = PBXBuildFile; fileRef = 546F35D515F2748000945466 /* RKGHRepository.m */; };
+		546F35D915F2748400945466 /* RKGHRepositoryOwner.m in Sources */ = {isa = PBXBuildFile; fileRef = 546F35D715F2748300945466 /* RKGHRepositoryOwner.m */; };
+		546F35E215F281D600945466 /* RKGHRepositoryTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 546F35E115F281D500945466 /* RKGHRepositoryTableViewController.m */; };
+		546F35E515F2AC9700945466 /* github-gravatar-placeholder.png in Resources */ = {isa = PBXBuildFile; fileRef = 546F35E315F2AC9700945466 /* github-gravatar-placeholder.png */; };
+		546F35E615F2AC9700945466 /* github-gravatar-placeholder@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 546F35E415F2AC9700945466 /* github-gravatar-placeholder@2x.png */; };
+		546F35E915F2B40700945466 /* 40-inbox.png in Resources */ = {isa = PBXBuildFile; fileRef = 546F35E715F2B40700945466 /* 40-inbox.png */; };
+		546F35EA15F2B40700945466 /* 40-inbox@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 546F35E815F2B40700945466 /* 40-inbox@2x.png */; };
+		546F35EE15F2BBEA00945466 /* RKGHRepositoryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 546F35EC15F2BBE700945466 /* RKGHRepositoryCell.m */; };
+		546F35EF15F2BBEA00945466 /* RKGHRepositoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 546F35ED15F2BBE900945466 /* RKGHRepositoryCell.xib */; };
+		546F35F215F2C21600945466 /* GithubController.m in Sources */ = {isa = PBXBuildFile; fileRef = 546F35F115F2C21500945466 /* GithubController.m */; };
 		5475DBA915ED7169009DDCF3 /* github.png in Resources */ = {isa = PBXBuildFile; fileRef = 5475DBA715ED7169009DDCF3 /* github.png */; };
 		5475DBAA15ED7169009DDCF3 /* github@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5475DBA815ED7169009DDCF3 /* github@2x.png */; };
 		5475DBAE15ED72DD009DDCF3 /* RKTTTwitterTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5475DBAD15ED72DD009DDCF3 /* RKTTTwitterTableViewController.m */; };
@@ -181,6 +191,21 @@
 		5458484015C4C5C900DD03F4 /* ios-icon-114.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ios-icon-114.png"; sourceTree = "<group>"; };
 		5464F3F315E977EC00DE12B0 /* NSTexturedFullScreenBackgroundColor.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = NSTexturedFullScreenBackgroundColor.png; sourceTree = "<group>"; };
 		5464F3FD15EA235700DE12B0 /* LightBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = LightBackground.png; sourceTree = "<group>"; };
+		546F35D515F2748000945466 /* RKGHRepository.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RKGHRepository.m; sourceTree = "<group>"; };
+		546F35D615F2748200945466 /* RKGHRepositoryOwner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RKGHRepositoryOwner.h; sourceTree = "<group>"; };
+		546F35D715F2748300945466 /* RKGHRepositoryOwner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RKGHRepositoryOwner.m; sourceTree = "<group>"; };
+		546F35DB15F2766700945466 /* RKGHRepository.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RKGHRepository.h; sourceTree = "<group>"; };
+		546F35E015F281D500945466 /* RKGHRepositoryTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RKGHRepositoryTableViewController.h; sourceTree = "<group>"; };
+		546F35E115F281D500945466 /* RKGHRepositoryTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RKGHRepositoryTableViewController.m; sourceTree = "<group>"; };
+		546F35E315F2AC9700945466 /* github-gravatar-placeholder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "github-gravatar-placeholder.png"; sourceTree = "<group>"; };
+		546F35E415F2AC9700945466 /* github-gravatar-placeholder@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "github-gravatar-placeholder@2x.png"; sourceTree = "<group>"; };
+		546F35E715F2B40700945466 /* 40-inbox.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "40-inbox.png"; sourceTree = "<group>"; };
+		546F35E815F2B40700945466 /* 40-inbox@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "40-inbox@2x.png"; sourceTree = "<group>"; };
+		546F35EB15F2BBE600945466 /* RKGHRepositoryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RKGHRepositoryCell.h; sourceTree = "<group>"; };
+		546F35EC15F2BBE700945466 /* RKGHRepositoryCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RKGHRepositoryCell.m; sourceTree = "<group>"; };
+		546F35ED15F2BBE900945466 /* RKGHRepositoryCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RKGHRepositoryCell.xib; sourceTree = "<group>"; };
+		546F35F015F2C21400945466 /* GithubController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GithubController.h; sourceTree = "<group>"; };
+		546F35F115F2C21500945466 /* GithubController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GithubController.m; sourceTree = "<group>"; };
 		5475DBA715ED7169009DDCF3 /* github.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = github.png; sourceTree = "<group>"; };
 		5475DBA815ED7169009DDCF3 /* github@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "github@2x.png"; sourceTree = "<group>"; };
 		5475DBAC15ED72DD009DDCF3 /* RKTTTwitterTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RKTTTwitterTableViewController.h; sourceTree = "<group>"; };
@@ -313,6 +338,9 @@
 		5458481C15C1E0A300DD03F4 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				546F35EB15F2BBE600945466 /* RKGHRepositoryCell.h */,
+				546F35EC15F2BBE700945466 /* RKGHRepositoryCell.m */,
+				546F35ED15F2BBE900945466 /* RKGHRepositoryCell.xib */,
 				547C879D15EEBD4400A31E63 /* RKTTTweetCell.h */,
 				547C879E15EEBD4400A31E63 /* RKTTTweetCell.m */,
 				547C879F15EEBD4400A31E63 /* RKTTTweetCell.xib */,
@@ -339,6 +367,8 @@
 			children = (
 				5475DBA715ED7169009DDCF3 /* github.png */,
 				5475DBA815ED7169009DDCF3 /* github@2x.png */,
+				546F35E315F2AC9700945466 /* github-gravatar-placeholder.png */,
+				546F35E415F2AC9700945466 /* github-gravatar-placeholder@2x.png */,
 				5433346315EC3738007AC690 /* home.png */,
 				5433346415EC3738007AC690 /* home@2x.png */,
 				5433345315EC2870007AC690 /* xebia-logo-transparent.png */,
@@ -353,6 +383,8 @@
 				5433343515EAC1E2007AC690 /* navigationBarBackButton@2x.png */,
 				5433340E15EA69B5007AC690 /* Xebia-Logo.png */,
 				5433340F15EA69B5007AC690 /* Xebia-Logo@2x.png */,
+				5433340915EA5E2E007AC690 /* menu.png */,
+				5433340A15EA5E2E007AC690 /* menu@2x.png */,
 				5464F3FD15EA235700DE12B0 /* LightBackground.png */,
 				5464F3F315E977EC00DE12B0 /* NSTexturedFullScreenBackgroundColor.png */,
 				5405B75415E5898600B70B71 /* menu-cell-bg.png */,
@@ -360,11 +392,11 @@
 				54A2784315C0A2E20074505A /* empty.png */,
 				54A2784415C0A2E20074505A /* error.png */,
 				54A2784515C0A2E20074505A /* offline.png */,
+				546F35E715F2B40700945466 /* 40-inbox.png */,
+				546F35E815F2B40700945466 /* 40-inbox@2x.png */,
 				54A2783715C0A2AA0074505A /* 112-group.png */,
 				54A2783815C0A2AA0074505A /* 112-group@2x.png */,
 				54A2783915C0A2AA0074505A /* 15-tags.png */,
-				5433340915EA5E2E007AC690 /* menu.png */,
-				5433340A15EA5E2E007AC690 /* menu@2x.png */,
 				54A2783A15C0A2AA0074505A /* 15-tags@2x.png */,
 				54A2783B15C0A2AA0074505A /* 44-shoebox.png */,
 				54A2783C15C0A2AA0074505A /* 44-shoebox@2x.png */,
@@ -469,6 +501,8 @@
 		54C2DF1F15BDFB6500CABB12 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				546F35F015F2C21400945466 /* GithubController.h */,
+				546F35F115F2C21500945466 /* GithubController.m */,
 				5433345D15EC2EFA007AC690 /* BlogController.h */,
 				5433345E15EC2EFC007AC690 /* BlogController.m */,
 				5433346015EC3275007AC690 /* HomeController.h */,
@@ -489,6 +523,8 @@
 				5475DBAD15ED72DD009DDCF3 /* RKTTTwitterTableViewController.m */,
 				54E325A115E18D8700F55F6A /* RKXBMenuTableViewController.h */,
 				54E325A215E18D8700F55F6A /* RKXBMenuTableViewController.m */,
+				546F35E015F281D500945466 /* RKGHRepositoryTableViewController.h */,
+				546F35E115F281D500945466 /* RKGHRepositoryTableViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -507,6 +543,10 @@
 		54C2DF3215BDFB6500CABB12 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				546F35DB15F2766700945466 /* RKGHRepository.h */,
+				546F35D515F2748000945466 /* RKGHRepository.m */,
+				546F35D615F2748200945466 /* RKGHRepositoryOwner.h */,
+				546F35D715F2748300945466 /* RKGHRepositoryOwner.m */,
 				547C879615EEBD1600A31E63 /* RKTTTweet.h */,
 				547C879715EEBD1600A31E63 /* RKTTTweet.m */,
 				547C879815EEBD1600A31E63 /* RKTTUser.h */,
@@ -696,6 +736,11 @@
 				5475DBA915ED7169009DDCF3 /* github.png in Resources */,
 				5475DBAA15ED7169009DDCF3 /* github@2x.png in Resources */,
 				547C87A115EEBD4400A31E63 /* RKTTTweetCell.xib in Resources */,
+				546F35E515F2AC9700945466 /* github-gravatar-placeholder.png in Resources */,
+				546F35E615F2AC9700945466 /* github-gravatar-placeholder@2x.png in Resources */,
+				546F35E915F2B40700945466 /* 40-inbox.png in Resources */,
+				546F35EA15F2B40700945466 /* 40-inbox@2x.png in Resources */,
+				546F35EF15F2BBEA00945466 /* RKGHRepositoryCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -780,6 +825,11 @@
 				547C879A15EEBD1600A31E63 /* RKTTTweet.m in Sources */,
 				547C879B15EEBD1600A31E63 /* RKTTUser.m in Sources */,
 				547C87A015EEBD4400A31E63 /* RKTTTweetCell.m in Sources */,
+				546F35D815F2748400945466 /* RKGHRepository.m in Sources */,
+				546F35D915F2748400945466 /* RKGHRepositoryOwner.m in Sources */,
+				546F35E215F281D600945466 /* RKGHRepositoryTableViewController.m in Sources */,
+				546F35EE15F2BBEA00945466 /* RKGHRepositoryCell.m in Sources */,
+				546F35F215F2C21600945466 /* GithubController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

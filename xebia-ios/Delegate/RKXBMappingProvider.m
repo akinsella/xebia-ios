@@ -12,6 +12,7 @@
 #import "RKWPCategory.h"
 #import "RKWPTag.h"
 #import "RKTTTweet.h"
+#import "RKGHRepository.h"
 
 @implementation RKXBMappingProvider
 
@@ -72,6 +73,16 @@
              // NOTE: We could use RKPathMatcher here to easily tokenize the requested resourcePath
              NSFetchRequest *fetchRequest = [RKTTTweet fetchRequest];
              fetchRequest.sortDescriptors = [NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:@"created_at" ascending:NO]];
+             return fetchRequest;
+         }];
+        
+        
+        [self setObjectMapping:[self githubRepositoryObjectMapping]
+        forResourcePathPattern:@"/github/orgs/xebia-france/repos"
+         withFetchRequestBlock:^NSFetchRequest *(NSString *resourcePath) {
+             // NOTE: We could use RKPathMatcher here to easily tokenize the requested resourcePath
+             NSFetchRequest *fetchRequest = [RKGHRepository fetchRequest];
+             fetchRequest.sortDescriptors = [NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:@"name" ascending:NO]];
              return fetchRequest;
          }];
     }
@@ -158,6 +169,35 @@
      @"id", @"identifier",
      nil];
 
+    return mapping;
+}
+
+- (RKManagedObjectMapping *)githubRepositoryObjectMapping {
+    RKManagedObjectMapping *mapping = [RKManagedObjectMapping mappingForEntityWithName:@"RKGHRepository"
+                                                                  inManagedObjectStore:self.objectStore];
+    mapping.primaryKeyAttribute = @"identifier";
+    [mapping mapAttributes: @"text", @"language", /* @"pushed_at", */ /*@"created_at",*/ @"forks", @"mirror_url", @"has_wiki", @"clone_url", @"watchers", @"ssh_url", /* @"updated_at" ,*/ @"open_issues", @"git_url", @"has_issues", @"html_url", /* @"watchers_count",*/ @"size", @"fork", @"full_name", @"forks_count", @"has_downloads", @"svn_url", @"name", @"url", @"open_issues_count", @"homepage", nil];
+    [mapping mapKeyPathsToAttributes:
+        @"id", @"identifier",
+        @"description", @"description_",
+        @"private", @"private_",
+     nil];
+    
+    // Relationships
+    [mapping mapKeyPath:@"owner" toRelationship:@"owner" withMapping:[self githubRepositoryOwnerObjectMapping]];
+    
+    return mapping;
+}
+
+- (RKManagedObjectMapping *)githubRepositoryOwnerObjectMapping {
+    RKManagedObjectMapping *mapping = [RKManagedObjectMapping mappingForEntityWithName:@"RKGHRepositoryOwner"
+                                                                  inManagedObjectStore:self.objectStore];
+    mapping.primaryKeyAttribute = @"identifier";
+    [mapping mapAttributes: @"login", @"gravatar_id", @"url", @"avatar_url", nil];
+    [mapping mapKeyPathsToAttributes:
+     @"id", @"identifier",
+     nil];
+    
     return mapping;
 }
 

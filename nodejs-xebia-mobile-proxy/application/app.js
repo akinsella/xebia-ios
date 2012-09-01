@@ -16,6 +16,8 @@ var USE_CACHE = true;
 
 var _ = underscore._;
 
+var API_VERSION = "v1.0";
+
 if(!cf.app) {
 
    var LOCAL_CF_CONFIG = {
@@ -306,10 +308,10 @@ app.get('/index.html', function(req, res) {
 });
 
 //app.get('/twitter/:user', function(req, res) {
-app.get('/twitter/XebiaFR', function(req, res) {
+app.get('/v1.0/twitter/:user', function(req, res) {
 
-//    var user = req.params.user;
-    var user = "XebiaFR";
+    var user = req.params.user;
+//    var user = "XebiaFR";
     console.log("User: " + user);
     var twitterUrl = "http://api.twitter.com/1/statuses/user_timeline.json?screen_name=" + user + "&contributor_details=false&include_entities=false&include_rts=true&exclude_replies=true&count=50&exclude_replies=false";
     console.log("Twitter Url: " + twitterUrl);
@@ -366,12 +368,33 @@ app.get('/twitter/XebiaFR', function(req, res) {
 });
 
 // To be refactored
-app.get('/wordpress/*', function(req, res) {
+app.get('/' + API_VERSION + '/github/*', function(req, res) {
 
     var options = {
         req: req,
         res: res,
-        url: "http://blog.xebia.fr/wp-json-api/" + getUrlToFetch(req).substring("/wordpress/".length),
+        url: "https://api.github.com/" + getUrlToFetch(req).substring(("/" + API_VERSION + "/github/").length),
+        cacheKey: getCacheKey(req),
+        forceNoCache: getIfUseCache(req),
+        callback: responseData
+    };
+
+    try {
+        getData(options);
+    } catch(err) {
+        var errorMessage = err.name + ": " + err.message;
+        responseData(500, errorMessage, undefined, options);
+    }
+});
+
+
+// To be refactored
+app.get('/' + API_VERSION + '/wordpress/*', function(req, res) {
+
+    var options = {
+        req: req,
+        res: res,
+        url: "http://blog.xebia.fr/wp-json-api/" + getUrlToFetch(req).substring(("/" + API_VERSION + "/wordpress/").length),
         cacheKey: getCacheKey(req),
         forceNoCache: getIfUseCache(req),
         callback: responseData

@@ -16,6 +16,7 @@
 #import "RKTableSection.h"
 #import "RKTTTwitterTableViewController.h"
 #import "HomeController.h"
+#import "RKGHRepositoryTableViewController.h"
 
 
 // Enum for row indices
@@ -164,6 +165,23 @@ enum {
             }
                 
             case RKWPMenuGithub: {
+                if ([revealController.frontViewController isKindOfClass:[UINavigationController class]] && ![((UINavigationController *)revealController.frontViewController).topViewController isKindOfClass:[RKGHRepositoryTableViewController class]])
+                {
+                    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
+                    RKGHRepositoryTableViewController *repositoryTableViewController = [storyboard instantiateViewControllerWithIdentifier:@"tbGithub"];
+                    
+                    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:repositoryTableViewController];
+                    
+                    navigationController.navigationBar.barStyle = UIBarStyleBlackTranslucent;
+                    navigationController.navigationBar.tintColor = (UIColor *)[UIColor colorWithHex: @"#561D3F" alpha:1.0];
+                    
+                    [navigationController.navigationBar setBackgroundImage: [UIImage imageNamed:@"navigationBarBackgroundRetro"]];
+                    
+                    [revealController setFrontViewController:navigationController animated:NO];
+                }
+                else {
+                    [revealController revealToggle:self];
+                }
                 
                 break;
             }

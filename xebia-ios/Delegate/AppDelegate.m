@@ -38,11 +38,11 @@
     [self initializeRestKit];
     
     RKLogConfigureByName("RestKit/UI", RKLogLevelError);
-    RKLogConfigureByName("RestKit/Network", RKLogLevelError);
+    RKLogConfigureByName("RestKit/Network", RKLogLevelTrace);
     RKLogConfigureByName("RestKit/ObjectMapping", RKLogLevelError);
     RKLogConfigureByName("RestKit/ObjectMapping/JSON", RKLogLevelError);
 
-    self.wpDataAccessor = [WPDataAccessor initWithBaseApiUrl:@"http://192.168.1.10:9000/"];
+    self.wpDataAccessor = [WPDataAccessor initWithBaseApiUrl:@"http://192.168.1.10:9000/v1.0/"];
 
     UIWindow *window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
 	self.window = window;
@@ -87,12 +87,20 @@
 
 - (void)initializeRestKit {
     
-    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-    [dateFormatter setDateFormat: @"eee MMM dd HH:mm:ss ZZZZ yyyy"];
-    
-    [RKObjectMapping addDefaultDateFormatter:(NSFormatter *)dateFormatter];
+    // Twitter date format
+    // Wed Aug 29 21:32:43 +0000 2012
+    NSDateFormatter *twitterDateFormatter = [[NSDateFormatter alloc] init];
+    [twitterDateFormatter setDateFormat: @"eee MMM dd HH:mm:ss ZZZZ yyyy"];
+    [RKObjectMapping addDefaultDateFormatter:(NSFormatter *)twitterDateFormatter];
 
-    self.objectManager = [RKObjectManager managerWithBaseURLString:@"http://192.168.1.10:9000"];
+    // Github date format
+    // 2012-07-05T09:43:24Z
+    // Available in Restkit default formatters
+    NSDateFormatter *githubDateFormatter = [[NSDateFormatter alloc] init];
+    [githubDateFormatter setDateFormat: @"yyyy-MM-dd'T'HH:mm:ss'Z'"];
+    [RKObjectMapping addDefaultDateFormatter:(NSFormatter *)githubDateFormatter];
+    
+    self.objectManager = [RKObjectManager managerWithBaseURLString:@"http://192.168.1.10:9000/v1.0/"];
     self.objectStore = [RKManagedObjectStore objectStoreWithStoreFilename:@"xebia.sqlite"];
     self.objectManager.objectStore = self.objectStore;
     self.objectManager.mappingProvider = [RKXBMappingProvider mappingProviderWithObjectStore:self.objectStore];

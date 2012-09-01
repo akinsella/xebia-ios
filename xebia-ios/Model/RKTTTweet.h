@@ -8,7 +8,6 @@
 
 #import <UIKit/UIKit.h>
 #import "RKTTUser.h"
-#import "SDWebImageManager.h"
 
 @interface RKTTTweet : NSManagedObject
 

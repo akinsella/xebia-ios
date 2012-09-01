@@ -1,5 +1,5 @@
 //
-//  RKTTTwitterTableViewController.m
+//  RKGHRepositoryTableViewController.m
 //  xebia-ios
 //
 //  Created by Alexis Kinsella on 25/07/12.
@@ -8,22 +8,22 @@
 
 #import <RestKit/RestKit.h>
 #import <RestKit/UI.h>
-#import "RKTTTweet.h"
-#import "RKTTTwitterTableViewController.h"
+#import "RKGHRepository.h"
+#import "RKGHRepositoryTableViewController.h"
 #import "RKXBLoadingView.h"
-#import "RKTTTweetCell.h"
 #import "SDImageCache.h"
 #import "SDWebImageManager.h"
+#import "RKGHRepositoryCell.h"
 
 #define FONT_SIZE 13.0f
 #define CELL_CONTENT_WIDTH 253.0f
 #define CELL_CONTENT_MARGIN 10.0f
 
-@interface RKTTTwitterTableViewController ()
+@interface RKGHRepositoryTableViewController ()
 @property (nonatomic, strong) RKFetchedResultsTableController *tableController;
 @end
 
-@implementation RKTTTwitterTableViewController
+@implementation RKGHRepositoryTableViewController
 
 UIImage* defaultAvatarImage;
 
@@ -33,7 +33,7 @@ UIImage* defaultAvatarImage;
 {
     [super viewDidLoad];
     
-    self.title = @"Tweets";
+    self.title = @"Repositories";
    
     if ([self.navigationController.parentViewController respondsToSelector:@selector(revealGesture:)] && [self.navigationController.parentViewController respondsToSelector:@selector(revealToggle:)])
 	{
@@ -43,22 +43,22 @@ UIImage* defaultAvatarImage;
 		self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"menu"] style:UIBarButtonItemStylePlain target:self.navigationController.parentViewController action:@selector(revealToggle:)];
 	}
     
-    defaultAvatarImage = [UIImage imageNamed:@"avatar_placeholder"];
+    defaultAvatarImage = [UIImage imageNamed:@"github_gravatar_placeholder"];
+    
     /**
      Configure the RestKit table controller to drive our view
      */
     self.tableController = [[RKObjectManager sharedManager] fetchedResultsTableControllerForTableViewController:self];
     self.tableController.delegate = self;
 
-    NSSortDescriptor *descriptor = [NSSortDescriptor sortDescriptorWithKey:@"create_at" ascending:NO];
+    NSSortDescriptor *descriptor = [NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES];
     self.tableController.fetchRequest.sortDescriptors = [NSArray arrayWithObject:descriptor];
   
     self.tableController.showsSectionIndexTitles = FALSE;
     self.tableController.autoRefreshFromNetwork = YES;
     self.tableController.pullToRefreshEnabled = YES;
-    self.tableController.resourcePath = @"/twitter/XebiaFR/";
+    self.tableController.resourcePath = @"/github/orgs/xebia-france/repos";
     self.tableController.variableHeightRows = YES;
-    
     
     
     /**
@@ -85,31 +85,29 @@ UIImage* defaultAvatarImage;
     self.tableController.imageForEmpty = [UIImage imageNamed:@"empty.png"];
 
     RKTableViewCellMapping *cellMapping = [RKTableViewCellMapping cellMapping];
-    cellMapping.cellClassName = @"RKTTTweetCell";
-    cellMapping.reuseIdentifier = @"RKTTTweet";
+    cellMapping.cellClassName = @"RKGHRepositoryCell";
+    cellMapping.reuseIdentifier = @"RKGHRepository";
 //    cellMapping.rowHeight = 100.0;
-    [cellMapping mapKeyPath:@"user.name" toAttribute:@"authorNameLabel.text"];
-    [cellMapping mapKeyPath:@"user.screen_name" toAttribute:@"nicknameLabel.text"];
-    [cellMapping mapKeyPath:@"dateFormatted" toAttribute:@"dateLabel.text"];
-    [cellMapping mapKeyPath:@"text" toAttribute:@"contentLabel.text"];
+    [cellMapping mapKeyPath:@"name" toAttribute:@"titleLabel.text"];
+    [cellMapping mapKeyPath:@"description_" toAttribute:@"descriptionLabel.text"];
     [cellMapping mapKeyPath:@"identifier" toAttribute:@"identifier"];
      
     cellMapping.heightOfCellForObjectAtIndexPath = ^ CGFloat(id object, NSIndexPath* indexPath) {
     
-        RKTTTweet *tweet = object;
+        RKGHRepository *repository = object;
         
         CGSize constraint = CGSizeMake(CELL_CONTENT_WIDTH - (CELL_CONTENT_MARGIN * 2), 20000.0f);
-        CGSize size = [tweet.text sizeWithFont:[UIFont systemFontOfSize:FONT_SIZE] constrainedToSize:constraint lineBreakMode:UILineBreakModeWordWrap];
-        CGFloat height = MAX(size.height, 44.0f);
+        CGSize size = [repository.description_ sizeWithFont:[UIFont systemFontOfSize:FONT_SIZE] constrainedToSize:constraint lineBreakMode:UILineBreakModeWordWrap];
+        CGFloat height = MAX(size.height, 22.0f);
         return height + (CELL_CONTENT_MARGIN * 2);
     };
     
-    [tableController mapObjectsWithClass:[RKTTTweet class] toTableCellsWithMapping:cellMapping];
+    [tableController mapObjectsWithClass:[RKGHRepository class] toTableCellsWithMapping:cellMapping];
     
     /**
      Use a custom Nib to draw our table cells for RKGHIssue objects
      */
-    [self.tableView registerNib:[UINib nibWithNibName:@"RKTTTweetCell" bundle:nil] forCellReuseIdentifier:@"RKTTTweet"];
+    [self.tableView registerNib:[UINib nibWithNibName:@"RKGHRepositoryCell" bundle:nil] forCellReuseIdentifier:@"RKGHRepository"];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -124,31 +122,31 @@ UIImage* defaultAvatarImage;
 
 - (void)tableController:(RKAbstractTableController *)tableController willDisplayCell:(UITableViewCell *)cell forObject:(id)object atIndexPath:(NSIndexPath *)indexPath;
 {
-    RKTTTweet *tweet = object;
-    RKTTTweetCell *tweetCell = (RKTTTweetCell *)cell;
+    RKGHRepository *repository = object;
+    RKGHRepositoryCell *repositoryCell = (RKGHRepositoryCell *)cell;
  
-    NSString *avatarImageUrl = [[tweet.user avatarImageUrl] absoluteString];
+    NSString *avatarImageUrl = repository.owner.avatar_url;
     UIImage *cachedImage = [[SDImageCache sharedImageCache] imageFromKey:avatarImageUrl];
     if (cachedImage) {
-        [[tweetCell imageView] setImage: cachedImage];
+        [[repositoryCell imageView] setImage: cachedImage];
     }
     else {
-        [[tweetCell imageView] setImage: defaultAvatarImage];
-        NSLog(@"Download image: %@ for tweet author: %@", [tweet.user avatarImageUrl], tweet.user.screen_name);
+        [[repositoryCell imageView] setImage: defaultAvatarImage];
+        NSLog(@"Download image: %@ for repository: %@", repository.owner.avatar_url, repository.name);
         SDWebImageManager *manager = [SDWebImageManager sharedManager];
-        [manager downloadWithURL:tweet.user.avatarImageUrl
+        [manager downloadWithURL: [NSURL URLWithString:repository.owner.avatar_url]
                         delegate:self
                          options:0
                          success:^(UIImage *image) {
                              [[SDImageCache sharedImageCache] storeImage:image forKey:avatarImageUrl];
-                             if ([[tweetCell identifier] intValue] == [[tweet identifier] intValue]) {
-                                 [[tweetCell imageView] setImage: image];   
+                             if ([[repositoryCell identifier] intValue] == [[repository identifier] intValue]) {
+                                 [[repositoryCell imageView] setImage: image];   
                              }
                          }
                          failure:^(NSError *error) {
                              [[SDImageCache sharedImageCache] storeImage:defaultAvatarImage forKey:avatarImageUrl];
-                             if ([[tweetCell identifier] intValue] == [[tweet identifier] intValue]) {
-                                 [[tweetCell imageView] setImage: defaultAvatarImage];
+                             if ([[repository identifier] intValue] == [[repository identifier] intValue]) {
+                                 [[repository imageView] setImage: defaultAvatarImage];
                              }
                          }];
     }
