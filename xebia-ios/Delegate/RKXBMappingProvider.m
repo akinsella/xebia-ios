@@ -76,13 +76,21 @@
              return fetchRequest;
          }];
         
-        
         [self setObjectMapping:[self githubRepositoryObjectMapping]
         forResourcePathPattern:@"/github/orgs/xebia-france/repos"
          withFetchRequestBlock:^NSFetchRequest *(NSString *resourcePath) {
              // NOTE: We could use RKPathMatcher here to easily tokenize the requested resourcePath
              NSFetchRequest *fetchRequest = [RKGHRepository fetchRequest];
              fetchRequest.sortDescriptors = [NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:@"name" ascending:NO]];
+             return fetchRequest;
+         }];
+        
+        [self setObjectMapping:[self githubUserObjectMapping]
+        forResourcePathPattern:@"/github/orgs/xebia-france/public_members"
+         withFetchRequestBlock:^NSFetchRequest *(NSString *resourcePath) {
+             // NOTE: We could use RKPathMatcher here to easily tokenize the requested resourcePath
+             NSFetchRequest *fetchRequest = [RKGHUser fetchRequest];
+             fetchRequest.sortDescriptors = [NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:@"login" ascending:NO]];
              return fetchRequest;
          }];
     }
@@ -184,16 +192,16 @@
      nil];
     
     // Relationships
-    [mapping mapKeyPath:@"owner" toRelationship:@"owner" withMapping:[self githubRepositoryOwnerObjectMapping]];
+    [mapping mapKeyPath:@"owner" toRelationship:@"owner" withMapping:[self githubUserObjectMapping]];
     
     return mapping;
 }
 
-- (RKManagedObjectMapping *)githubRepositoryOwnerObjectMapping {
-    RKManagedObjectMapping *mapping = [RKManagedObjectMapping mappingForEntityWithName:@"RKGHRepositoryOwner"
+- (RKManagedObjectMapping *)githubUserObjectMapping {
+    RKManagedObjectMapping *mapping = [RKManagedObjectMapping mappingForEntityWithName:@"RKGHUser"
                                                                   inManagedObjectStore:self.objectStore];
     mapping.primaryKeyAttribute = @"identifier";
-    [mapping mapAttributes: @"login", @"gravatar_id", @"url", @"avatar_url", nil];
+    [mapping mapAttributes: @"created_at", @"type", @"bio", @"login", @"public_gists", @"email", @"gravatar_id", @"public_repos", @"html_url", @"followers", @"avatar_url", @"name", @"url", @"name", @"url", @"company", @"hireable", @"following", @"blog", @"location", nil];
     [mapping mapKeyPathsToAttributes:
      @"id", @"identifier",
      nil];

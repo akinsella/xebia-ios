@@ -201,7 +201,7 @@
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FJg-aX-fbk" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tabBarController storyboardIdentifier="tbGithub" title="Github" definesPresentationContext="YES" id="rpq-iI-MUH" userLabel="Github Tab Bar Controller" customClass="GithubController" sceneMemberID="viewController">
-                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <nil key="simulatedBottomBarMetrics"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="fc4-WG-F7E">
                         <rect key="frame" x="129" y="330" width="163" height="49"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
@@ -209,16 +209,17 @@
                     </tabBar>
                     <connections>
                         <segue destination="crA-oo-3so" kind="relationship" relationship="viewControllers" id="7b7-TF-x9W"/>
+                        <segue destination="2H0-MA-oyT" kind="relationship" relationship="viewControllers" id="TRU-5W-WfQ"/>
                     </connections>
                 </tabBarController>
             </objects>
-            <point key="canvasLocation" x="-1926" y="1101"/>
+            <point key="canvasLocation" x="-1934" y="1469"/>
         </scene>
         <!--Github Repository Controller-->
         <scene sceneID="0nK-Ho-fRt">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QMV-nb-P0a" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <tableViewController storyboardIdentifier="repositories" title="Repositories" id="crA-oo-3so" userLabel="Github Repository Controller" customClass="RKGHRepositoryTableViewController" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="ghRepositories" title="Repositories" id="crA-oo-3so" userLabel="Github Repository Controller" customClass="RKGHRepositoryTableViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="cPW-PW-XZy">
                         <rect key="frame" x="0.0" y="64" width="320" height="367"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -241,16 +242,48 @@
                     </tableView>
                     <tabBarItem key="tabBarItem" title="Repositories" image="40-inbox.png" id="seG-TM-oau"/>
                     <navigationItem key="navigationItem" title="Repositories" id="BJM-Dw-b0R"/>
-                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="blackOpaque" prompted="NO"/>
                 </tableViewController>
             </objects>
             <point key="canvasLocation" x="-881" y="1101"/>
+        </scene>
+        <!--Github User Controller-->
+        <scene sceneID="bYc-JS-vyV">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="LMY-En-C8j" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tableViewController storyboardIdentifier="ghMembers" title="Members" id="2H0-MA-oyT" userLabel="Github User Controller" customClass="RKGHUserTableViewController" sceneMemberID="viewController">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="uUY-c3-VsJ">
+                        <rect key="frame" x="0.0" y="64" width="320" height="367"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="ccA-nW-19J">
+                                <rect key="frame" x="0.0" y="22" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </view>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="2H0-MA-oyT" id="jlD-JL-YLr"/>
+                            <outlet property="delegate" destination="2H0-MA-oyT" id="fgI-S5-iHg"/>
+                        </connections>
+                    </tableView>
+                    <tabBarItem key="tabBarItem" title="Members" image="112-group.png" id="Cuw-JW-FYh"/>
+                    <navigationItem key="navigationItem" title="Members" id="4nM-Xb-2ks"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="blackOpaque" prompted="NO"/>
+                </tableViewController>
+            </objects>
+            <point key="canvasLocation" x="-881" y="1802"/>
         </scene>
         <!--Twitter Table View Controller-->
         <scene sceneID="hs0-V0-Xbe">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AGS-wI-e8Q" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <tableViewController storyboardIdentifier="tweets" title="Tweets" id="iWT-sA-PW1" userLabel="Twitter Table View Controller" customClass="RKTTTwitterTableViewController" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="tweets" title="Tweets" id="iWT-sA-PW1" userLabel="Twitter Table View Controller" customClass="RKTTTweetTableViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="4s4-tM-uCd" userLabel="TwitterTableView">
                         <rect key="frame" x="0.0" y="64" width="320" height="416"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -272,7 +305,7 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Tweets" id="FCs-Vp-PGa"/>
-                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="blackOpaque" prompted="NO"/>
                 </tableViewController>
             </objects>
             <point key="canvasLocation" x="-881" y="377"/>
@@ -380,41 +413,6 @@
         <image name="44-shoebox.png" width="24" height="22"/>
         <image name="xebia-logo-transparent.png" width="240" height="80"/>
     </resources>
-    <classes>
-        <class className="BlogController" superclassName="UITabBarController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/BlogController.h"/>
-        </class>
-        <class className="DetailPostViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/DetailPostViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="webView" candidateClass="UIWebView"/>
-            </relationships>
-        </class>
-        <class className="GithubController" superclassName="UITabBarController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/GithubController.h"/>
-        </class>
-        <class className="HomeController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/HomeController.h"/>
-        </class>
-        <class className="PostTableViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/PostTableViewController.h"/>
-        </class>
-        <class className="RKGHRepositoryTableViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/RKGHRepositoryTableViewController.h"/>
-        </class>
-        <class className="RKTTTwitterTableViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/RKTTTwitterTableViewController.h"/>
-        </class>
-        <class className="RKWPAuthorTableViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/RKWPAuthorTableViewController.h"/>
-        </class>
-        <class className="RKWPCategoryTableViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/RKWPCategoryTableViewController.h"/>
-        </class>
-        <class className="RKWPTagTableViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/RKWPTagTableViewController.h"/>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

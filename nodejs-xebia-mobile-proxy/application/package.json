@@ -1,5 +1,5 @@
 {
-    "name": "xebia-mobile-proxy",
+    "name": "xebia-mobile",
     "description": "Node.js proxy for Xebia mobile applications",
     "version": "1.0.0-SNAPSHOT",
     "author":"Alexis Kinsella <alexis.kinsella@gmail.com>",
@@ -8,7 +8,7 @@
     },
     "keywords": ["node.js", "rest", "api", "proxy", "restler", "express"],
     "repository": "git@github.org:akinsella/xebia-ios.git",
-    "main": "app-cloudfoundry",
+    "main": "app",
     "contributors": [
         { "name":"Alexis Kinsella", "email":"alexis.kinsella@gmail.com" }
     ],

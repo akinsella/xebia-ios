@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "RKGHRepositoryOwner.h"
+#import "RKGHUser.h"
 
 @interface RKGHRepository : NSManagedObject
 
@@ -20,7 +20,7 @@
 @property (nonatomic, assign) bool has_wiki;
 @property (nonatomic, strong) NSString *description_;
 @property (nonatomic, strong) NSString *clone_url;
-@property (nonatomic, strong) RKGHRepositoryOwner *owner;
+@property (nonatomic, strong) RKGHUser *owner;
 @property (nonatomic, strong) NSNumber *watchers;
 @property (nonatomic, strong) NSString *ssh_url;
 @property (nonatomic, strong) NSDate *updated_at;

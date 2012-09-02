@@ -29,13 +29,27 @@
         <attribute name="url" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="watcher_count" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
         <attribute name="watchers" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
-        <relationship name="owner" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="RKGHRepositoryOwner" syncable="YES"/>
+        <relationship name="owner" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="RKGHUser" syncable="YES"/>
     </entity>
-    <entity name="RKGHRepositoryOwner" representedClassName="RKGHRepositoryOwner" syncable="YES">
+    <entity name="RKGHUser" representedClassName="RKGHUser" syncable="YES">
         <attribute name="avatar_url" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="bio" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="blog" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="company" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="created_at" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="email" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="followers" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="following" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
         <attribute name="gravatar_id" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="hireable" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="html_url" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="identifier" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="location" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="login" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="public_gists" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="public_repos" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="type" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="url" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <entity name="RKTTTweet" representedClassName="RKTTTweet" syncable="YES">
@@ -115,6 +129,8 @@
         <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <elements>
+        <element name="RKGHRepository" positionX="160" positionY="192" width="128" height="480"/>
+        <element name="RKGHUser" positionX="160" positionY="192" width="128" height="330"/>
         <element name="RKTTTweet" positionX="160" positionY="192" width="128" height="105"/>
         <element name="RKTTUser" positionX="160" positionY="192" width="128" height="105"/>
         <element name="RKWPAttachment" positionX="-5652" positionY="-612" width="128" height="165"/>
@@ -123,7 +139,5 @@
         <element name="RKWPComment" positionX="160" positionY="192" width="128" height="150"/>
         <element name="RKWPPost" positionX="-5895" positionY="-765" width="128" height="300"/>
         <element name="RKWPTag" positionX="160" positionY="192" width="128" height="105"/>
-        <element name="RKGHRepositoryOwner" positionX="160" positionY="192" width="128" height="120"/>
-        <element name="RKGHRepository" positionX="160" positionY="192" width="128" height="480"/>
     </elements>
 </model>

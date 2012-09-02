@@ -1,13 +1,16 @@
---- 
-applications: 
-  .: 
-    name: xebia-mobile-proxy
-    instances: 1
-    framework: 
+---
+applications:
+  .:
+    name: xebia-mobile
+    framework:
       name: node
-      info: 
-        exec: 
-        description: Node.js Xebia Mobile Proxy
+      info:
         mem: 64M
+        description: Node.js Application
+        exec: 
     url: ${name}.${target-base}
     mem: 64M
+    instances: 1
+    services:
+      xebia-mobile-redis:
+        type: redis

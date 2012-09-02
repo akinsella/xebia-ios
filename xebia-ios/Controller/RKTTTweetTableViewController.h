@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface RKTTTwitterTableViewController : UITableViewController<RKFetchedResultsTableControllerDelegate>
+@interface RKTTTweetTableViewController : UITableViewController<RKFetchedResultsTableControllerDelegate>
 
 @end

@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "RKGHRepository.h"
+#import "RKGHRepositoryCell.h"
 
 @interface RKGHRepositoryCell : UITableViewCell
 

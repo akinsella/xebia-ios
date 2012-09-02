@@ -9,7 +9,7 @@
 #import <RestKit/RestKit.h>
 #import <RestKit/UI.h>
 #import "RKTTTweet.h"
-#import "RKTTTwitterTableViewController.h"
+#import "RKTTTweetTableViewController.h"
 #import "RKXBLoadingView.h"
 #import "RKTTTweetCell.h"
 #import "SDImageCache.h"
@@ -19,11 +19,11 @@
 #define CELL_CONTENT_WIDTH 253.0f
 #define CELL_CONTENT_MARGIN 10.0f
 
-@interface RKTTTwitterTableViewController ()
+@interface RKTTTweetTableViewController ()
 @property (nonatomic, strong) RKFetchedResultsTableController *tableController;
 @end
 
-@implementation RKTTTwitterTableViewController
+@implementation RKTTTweetTableViewController
 
 UIImage* defaultAvatarImage;
 

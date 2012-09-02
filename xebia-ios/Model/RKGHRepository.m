@@ -7,7 +7,7 @@
 //
 
 #import "RKGHRepository.h"
-#import "RKGHRepositoryOwner.h"
+#import "RKGHUser.h"
 #import "Date.h"
 
 @implementation RKGHRepository

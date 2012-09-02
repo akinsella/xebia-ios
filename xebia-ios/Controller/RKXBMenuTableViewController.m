@@ -14,7 +14,7 @@
 #import "RevealController.h"
 #import "UIColor+RKWPAdditions.h"
 #import "RKTableSection.h"
-#import "RKTTTwitterTableViewController.h"
+#import "RKTTTweetTableViewController.h"
 #import "HomeController.h"
 #import "RKGHRepositoryTableViewController.h"
 
@@ -143,10 +143,10 @@ enum {
             }
                 
             case RKWPMenuTwitter: {
-                if ([revealController.frontViewController isKindOfClass:[UINavigationController class]] && ![((UINavigationController *)revealController.frontViewController).topViewController isKindOfClass:[RKTTTwitterTableViewController class]])
+                if ([revealController.frontViewController isKindOfClass:[UINavigationController class]] && ![((UINavigationController *)revealController.frontViewController).topViewController isKindOfClass:[RKTTTweetTableViewController class]])
                 {
                     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
-                    RKTTTwitterTableViewController *twitterTableViewController = [storyboard instantiateViewControllerWithIdentifier:@"tweets"];
+                    RKTTTweetTableViewController *twitterTableViewController = [storyboard instantiateViewControllerWithIdentifier:@"tweets"];
                     
                     UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:twitterTableViewController];
                     

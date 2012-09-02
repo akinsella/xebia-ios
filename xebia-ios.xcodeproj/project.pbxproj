@@ -19,6 +19,9 @@
 		540C092115C58A4B00615B00 /* Default-Landscape~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 540C092015C58A4B00615B00 /* Default-Landscape~ipad.png */; };
 		540C092315C58C5700615B00 /* Default-Portrait~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 540C092215C58C5700615B00 /* Default-Portrait~ipad.png */; };
 		540C092515C58C5A00615B00 /* Default-Portrait@2x~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 540C092415C58C5A00615B00 /* Default-Portrait@2x~ipad.png */; };
+		5432CAF415F3AE4A00412BDC /* RKGHUserTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5432CAF315F3AE4A00412BDC /* RKGHUserTableViewController.m */; };
+		5432CAF815F3B09B00412BDC /* RKGHUserCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5432CAF615F3B09B00412BDC /* RKGHUserCell.m */; };
+		5432CAF915F3B09B00412BDC /* RKGHUserCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5432CAF715F3B09B00412BDC /* RKGHUserCell.xib */; };
 		5433340B15EA5E2E007AC690 /* menu.png in Resources */ = {isa = PBXBuildFile; fileRef = 5433340915EA5E2E007AC690 /* menu.png */; };
 		5433340C15EA5E2E007AC690 /* menu@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5433340A15EA5E2E007AC690 /* menu@2x.png */; };
 		5433341015EA69B5007AC690 /* Xebia-Logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 5433340E15EA69B5007AC690 /* Xebia-Logo.png */; };
@@ -56,7 +59,7 @@
 		5464F3F415E977EC00DE12B0 /* NSTexturedFullScreenBackgroundColor.png in Resources */ = {isa = PBXBuildFile; fileRef = 5464F3F315E977EC00DE12B0 /* NSTexturedFullScreenBackgroundColor.png */; };
 		5464F3FE15EA235700DE12B0 /* LightBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = 5464F3FD15EA235700DE12B0 /* LightBackground.png */; };
 		546F35D815F2748400945466 /* RKGHRepository.m in Sources */ = {isa = PBXBuildFile; fileRef = 546F35D515F2748000945466 /* RKGHRepository.m */; };
-		546F35D915F2748400945466 /* RKGHRepositoryOwner.m in Sources */ = {isa = PBXBuildFile; fileRef = 546F35D715F2748300945466 /* RKGHRepositoryOwner.m */; };
+		546F35D915F2748400945466 /* RKGHUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 546F35D715F2748300945466 /* RKGHUser.m */; };
 		546F35E215F281D600945466 /* RKGHRepositoryTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 546F35E115F281D500945466 /* RKGHRepositoryTableViewController.m */; };
 		546F35E515F2AC9700945466 /* github-gravatar-placeholder.png in Resources */ = {isa = PBXBuildFile; fileRef = 546F35E315F2AC9700945466 /* github-gravatar-placeholder.png */; };
 		546F35E615F2AC9700945466 /* github-gravatar-placeholder@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 546F35E415F2AC9700945466 /* github-gravatar-placeholder@2x.png */; };
@@ -67,7 +70,7 @@
 		546F35F215F2C21600945466 /* GithubController.m in Sources */ = {isa = PBXBuildFile; fileRef = 546F35F115F2C21500945466 /* GithubController.m */; };
 		5475DBA915ED7169009DDCF3 /* github.png in Resources */ = {isa = PBXBuildFile; fileRef = 5475DBA715ED7169009DDCF3 /* github.png */; };
 		5475DBAA15ED7169009DDCF3 /* github@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5475DBA815ED7169009DDCF3 /* github@2x.png */; };
-		5475DBAE15ED72DD009DDCF3 /* RKTTTwitterTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5475DBAD15ED72DD009DDCF3 /* RKTTTwitterTableViewController.m */; };
+		5475DBAE15ED72DD009DDCF3 /* RKTTTweetTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5475DBAD15ED72DD009DDCF3 /* RKTTTweetTableViewController.m */; };
 		547C879A15EEBD1600A31E63 /* RKTTTweet.m in Sources */ = {isa = PBXBuildFile; fileRef = 547C879715EEBD1600A31E63 /* RKTTTweet.m */; };
 		547C879B15EEBD1600A31E63 /* RKTTUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 547C879915EEBD1600A31E63 /* RKTTUser.m */; };
 		547C87A015EEBD4400A31E63 /* RKTTTweetCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 547C879E15EEBD4400A31E63 /* RKTTTweetCell.m */; };
@@ -145,6 +148,11 @@
 		540C092015C58A4B00615B00 /* Default-Landscape~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Landscape~ipad.png"; sourceTree = "<group>"; };
 		540C092215C58C5700615B00 /* Default-Portrait~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Portrait~ipad.png"; sourceTree = "<group>"; };
 		540C092415C58C5A00615B00 /* Default-Portrait@2x~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Portrait@2x~ipad.png"; sourceTree = "<group>"; };
+		5432CAF215F3AE4A00412BDC /* RKGHUserTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RKGHUserTableViewController.h; sourceTree = "<group>"; };
+		5432CAF315F3AE4A00412BDC /* RKGHUserTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RKGHUserTableViewController.m; sourceTree = "<group>"; };
+		5432CAF515F3B09B00412BDC /* RKGHUserCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RKGHUserCell.h; sourceTree = "<group>"; };
+		5432CAF615F3B09B00412BDC /* RKGHUserCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RKGHUserCell.m; sourceTree = "<group>"; };
+		5432CAF715F3B09B00412BDC /* RKGHUserCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RKGHUserCell.xib; sourceTree = "<group>"; };
 		5433340915EA5E2E007AC690 /* menu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = menu.png; sourceTree = "<group>"; };
 		5433340A15EA5E2E007AC690 /* menu@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "menu@2x.png"; sourceTree = "<group>"; };
 		5433340E15EA69B5007AC690 /* Xebia-Logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Xebia-Logo.png"; sourceTree = "<group>"; };
@@ -192,8 +200,8 @@
 		5464F3F315E977EC00DE12B0 /* NSTexturedFullScreenBackgroundColor.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = NSTexturedFullScreenBackgroundColor.png; sourceTree = "<group>"; };
 		5464F3FD15EA235700DE12B0 /* LightBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = LightBackground.png; sourceTree = "<group>"; };
 		546F35D515F2748000945466 /* RKGHRepository.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RKGHRepository.m; sourceTree = "<group>"; };
-		546F35D615F2748200945466 /* RKGHRepositoryOwner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RKGHRepositoryOwner.h; sourceTree = "<group>"; };
-		546F35D715F2748300945466 /* RKGHRepositoryOwner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RKGHRepositoryOwner.m; sourceTree = "<group>"; };
+		546F35D615F2748200945466 /* RKGHUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RKGHUser.h; sourceTree = "<group>"; };
+		546F35D715F2748300945466 /* RKGHUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RKGHUser.m; sourceTree = "<group>"; };
 		546F35DB15F2766700945466 /* RKGHRepository.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RKGHRepository.h; sourceTree = "<group>"; };
 		546F35E015F281D500945466 /* RKGHRepositoryTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RKGHRepositoryTableViewController.h; sourceTree = "<group>"; };
 		546F35E115F281D500945466 /* RKGHRepositoryTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RKGHRepositoryTableViewController.m; sourceTree = "<group>"; };
@@ -208,8 +216,8 @@
 		546F35F115F2C21500945466 /* GithubController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GithubController.m; sourceTree = "<group>"; };
 		5475DBA715ED7169009DDCF3 /* github.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = github.png; sourceTree = "<group>"; };
 		5475DBA815ED7169009DDCF3 /* github@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "github@2x.png"; sourceTree = "<group>"; };
-		5475DBAC15ED72DD009DDCF3 /* RKTTTwitterTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RKTTTwitterTableViewController.h; sourceTree = "<group>"; };
-		5475DBAD15ED72DD009DDCF3 /* RKTTTwitterTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RKTTTwitterTableViewController.m; sourceTree = "<group>"; };
+		5475DBAC15ED72DD009DDCF3 /* RKTTTweetTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RKTTTweetTableViewController.h; sourceTree = "<group>"; };
+		5475DBAD15ED72DD009DDCF3 /* RKTTTweetTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RKTTTweetTableViewController.m; sourceTree = "<group>"; };
 		547C879615EEBD1600A31E63 /* RKTTTweet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RKTTTweet.h; sourceTree = "<group>"; };
 		547C879715EEBD1600A31E63 /* RKTTTweet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RKTTTweet.m; sourceTree = "<group>"; };
 		547C879815EEBD1600A31E63 /* RKTTUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RKTTUser.h; sourceTree = "<group>"; };
@@ -338,6 +346,9 @@
 		5458481C15C1E0A300DD03F4 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				5432CAF515F3B09B00412BDC /* RKGHUserCell.h */,
+				5432CAF615F3B09B00412BDC /* RKGHUserCell.m */,
+				5432CAF715F3B09B00412BDC /* RKGHUserCell.xib */,
 				546F35EB15F2BBE600945466 /* RKGHRepositoryCell.h */,
 				546F35EC15F2BBE700945466 /* RKGHRepositoryCell.m */,
 				546F35ED15F2BBE900945466 /* RKGHRepositoryCell.xib */,
@@ -519,12 +530,14 @@
 				54A2782F15C0A0240074505A /* RKWPCategoryTableViewController.m */,
 				5458482F15C1E2CD00DD03F4 /* RKWPTagTableViewController.h */,
 				5458483015C1E2CD00DD03F4 /* RKWPTagTableViewController.m */,
-				5475DBAC15ED72DD009DDCF3 /* RKTTTwitterTableViewController.h */,
-				5475DBAD15ED72DD009DDCF3 /* RKTTTwitterTableViewController.m */,
+				5475DBAC15ED72DD009DDCF3 /* RKTTTweetTableViewController.h */,
+				5475DBAD15ED72DD009DDCF3 /* RKTTTweetTableViewController.m */,
 				54E325A115E18D8700F55F6A /* RKXBMenuTableViewController.h */,
 				54E325A215E18D8700F55F6A /* RKXBMenuTableViewController.m */,
 				546F35E015F281D500945466 /* RKGHRepositoryTableViewController.h */,
 				546F35E115F281D500945466 /* RKGHRepositoryTableViewController.m */,
+				5432CAF215F3AE4A00412BDC /* RKGHUserTableViewController.h */,
+				5432CAF315F3AE4A00412BDC /* RKGHUserTableViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -545,8 +558,8 @@
 			children = (
 				546F35DB15F2766700945466 /* RKGHRepository.h */,
 				546F35D515F2748000945466 /* RKGHRepository.m */,
-				546F35D615F2748200945466 /* RKGHRepositoryOwner.h */,
-				546F35D715F2748300945466 /* RKGHRepositoryOwner.m */,
+				546F35D615F2748200945466 /* RKGHUser.h */,
+				546F35D715F2748300945466 /* RKGHUser.m */,
 				547C879615EEBD1600A31E63 /* RKTTTweet.h */,
 				547C879715EEBD1600A31E63 /* RKTTTweet.m */,
 				547C879815EEBD1600A31E63 /* RKTTUser.h */,
@@ -741,6 +754,7 @@
 				546F35E915F2B40700945466 /* 40-inbox.png in Resources */,
 				546F35EA15F2B40700945466 /* 40-inbox@2x.png in Resources */,
 				546F35EF15F2BBEA00945466 /* RKGHRepositoryCell.xib in Resources */,
+				5432CAF915F3B09B00412BDC /* RKGHUserCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -821,15 +835,17 @@
 				5433344A15EAC786007AC690 /* UINavigationBar+RKWPAdditions.m in Sources */,
 				5433345F15EC2F00007AC690 /* BlogController.m in Sources */,
 				5433346215EC3276007AC690 /* HomeController.m in Sources */,
-				5475DBAE15ED72DD009DDCF3 /* RKTTTwitterTableViewController.m in Sources */,
+				5475DBAE15ED72DD009DDCF3 /* RKTTTweetTableViewController.m in Sources */,
 				547C879A15EEBD1600A31E63 /* RKTTTweet.m in Sources */,
 				547C879B15EEBD1600A31E63 /* RKTTUser.m in Sources */,
 				547C87A015EEBD4400A31E63 /* RKTTTweetCell.m in Sources */,
 				546F35D815F2748400945466 /* RKGHRepository.m in Sources */,
-				546F35D915F2748400945466 /* RKGHRepositoryOwner.m in Sources */,
+				546F35D915F2748400945466 /* RKGHUser.m in Sources */,
 				546F35E215F281D600945466 /* RKGHRepositoryTableViewController.m in Sources */,
 				546F35EE15F2BBEA00945466 /* RKGHRepositoryCell.m in Sources */,
 				546F35F215F2C21600945466 /* GithubController.m in Sources */,
+				5432CAF415F3AE4A00412BDC /* RKGHUserTableViewController.m in Sources */,
+				5432CAF815F3B09B00412BDC /* RKGHUserCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -367,6 +367,125 @@ app.get('/v1.0/twitter/:user', function(req, res) {
 
 });
 
+
+// To be refactored
+app.get('/' + API_VERSION + '/github/orgs/xebia-france/repos', function(req, res) {
+
+    var callback = function(statusCode, statusMessage, data, options) {
+        if (statusCode === 200) {
+            var repos = options.repos || JSON.parse(data);
+            var targetRepos = options.targetRepos || [];
+
+            if (options.targetRepos) {
+                var repo = options.repo;
+                repo.owner = JSON.parse(data);
+                targetRepos.push(repo);
+            }
+
+            var firstRepo = _(repos).head();
+
+            if (firstRepo) {
+                var nextCallOptions = _.extend({}, options);
+
+                nextCallOptions.repo = firstRepo;
+                nextCallOptions.repos = _(repos).tail();
+                nextCallOptions.targetRepos = targetRepos;
+                nextCallOptions.url = "https://api.github.com/users/" + firstRepo.owner.login;
+                nextCallOptions.cacheKey = nextCallOptions.url;
+
+                try {
+                    getData(nextCallOptions);
+                } catch(err) {
+                    var errorMessage = err.name + ": " + err.message;
+                    responseData(500, errorMessage, undefined, nextCallOptions);
+                }
+            }
+            else {
+                responseData(statusCode, statusMessage, JSON.stringify(targetRepos), options);
+            }
+
+        }
+        else {
+            console.log("Status code: " + statusCode + ", message: " + statusMessage);
+            options.res.send(statusMessage, statusCode);
+        }
+    };
+
+    var options = {
+        req: req,
+        res: res,
+        url: "https://api.github.com/orgs/xebia-france/repos",
+        cacheKey: getCacheKey(req),
+        forceNoCache: getIfUseCache(req),
+        callback: callback
+    };
+
+    try {
+        getData(options);
+    } catch(err) {
+        var errorMessage = err.name + ": " + err.message;
+        responseData(500, errorMessage, undefined, options);
+    }
+});
+
+
+// To be refactored
+app.get('/' + API_VERSION + '/github/orgs/xebia-france/members', function(req, res) {
+
+    var callback = function(statusCode, statusMessage, data, options) {
+        if (statusCode === 200) {
+            var members = options.members || JSON.parse(data);
+            var targetMembers = options.targetMembers || [];
+
+            if (options.targetMembers) {
+                targetMembers.push(JSON.parse(data));
+            }
+
+            var firstMember = _(members).head();
+
+            if (firstMember) {
+                var nextCallOptions = _.extend({}, options);
+
+                nextCallOptions.members = _(members).tail();
+                nextCallOptions.targetMembers = targetMembers;
+                nextCallOptions.url = "https://api.github.com/users/" + firstMember.login;
+                nextCallOptions.cacheKey = nextCallOptions.url;
+
+                try {
+                    getData(nextCallOptions);
+                } catch(err) {
+                    var errorMessage = err.name + ": " + err.message;
+                    responseData(500, errorMessage, undefined, nextCallOptions);
+                }
+            }
+            else {
+                responseData(statusCode, statusMessage, JSON.stringify(targetMembers), options);
+            }
+
+        }
+        else {
+            console.log("Status code: " + statusCode + ", message: " + statusMessage);
+            options.res.send(statusMessage, statusCode);
+        }
+    };
+
+    var options = {
+        req: req,
+        res: res,
+        url: "https://api.github.com/orgs/xebia-france/members",
+        cacheKey: getCacheKey(req),
+        forceNoCache: getIfUseCache(req),
+        callback: callback
+    };
+
+    try {
+        getData(options);
+    } catch(err) {
+        var errorMessage = err.name + ": " + err.message;
+        responseData(500, errorMessage, undefined, options);
+    }
+});
+
 // To be refactored
 app.get('/' + API_VERSION + '/github/*', function(req, res) {
 
@@ -386,7 +505,6 @@ app.get('/' + API_VERSION + '/github/*', function(req, res) {
         responseData(500, errorMessage, undefined, options);
     }
 });
-
 
 // To be refactored
 app.get('/' + API_VERSION + '/wordpress/*', function(req, res) {

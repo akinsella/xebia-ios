@@ -37,10 +37,10 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     [self initializeRestKit];
     
-    RKLogConfigureByName("RestKit/UI", RKLogLevelError);
+    RKLogConfigureByName("RestKit/UI", RKLogLevelTrace);
     RKLogConfigureByName("RestKit/Network", RKLogLevelTrace);
-    RKLogConfigureByName("RestKit/ObjectMapping", RKLogLevelError);
-    RKLogConfigureByName("RestKit/ObjectMapping/JSON", RKLogLevelError);
+    RKLogConfigureByName("RestKit/ObjectMapping", RKLogLevelTrace);
+    RKLogConfigureByName("RestKit/ObjectMapping/JSON", RKLogLevelTrace);
 
     self.wpDataAccessor = [WPDataAccessor initWithBaseApiUrl:@"http://192.168.1.10:9000/v1.0/"];
 
