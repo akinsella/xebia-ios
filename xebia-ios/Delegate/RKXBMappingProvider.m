@@ -90,7 +90,7 @@
          withFetchRequestBlock:^NSFetchRequest *(NSString *resourcePath) {
              // NOTE: We could use RKPathMatcher here to easily tokenize the requested resourcePath
              NSFetchRequest *fetchRequest = [RKGHUser fetchRequest];
-             fetchRequest.sortDescriptors = [NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:@"login" ascending:NO]];
+             fetchRequest.sortDescriptors = [NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:@"name" ascending:NO]];
              return fetchRequest;
          }];
     }

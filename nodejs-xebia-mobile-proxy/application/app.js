@@ -430,7 +430,7 @@ app.get('/' + API_VERSION + '/github/orgs/xebia-france/repos', function(req, res
 
 
 // To be refactored
-app.get('/' + API_VERSION + '/github/orgs/xebia-france/members', function(req, res) {
+app.get('/' + API_VERSION + '/github/orgs/xebia-france/public_members', function(req, res) {
 
     var callback = function(statusCode, statusMessage, data, options) {
         if (statusCode === 200) {
@@ -472,7 +472,7 @@ app.get('/' + API_VERSION + '/github/orgs/xebia-france/members', function(req, r
     var options = {
         req: req,
         res: res,
-        url: "https://api.github.com/orgs/xebia-france/members",
+        url: "https://api.github.com/orgs/xebia-france/public_members",
         cacheKey: getCacheKey(req),
         forceNoCache: getIfUseCache(req),
         callback: callback

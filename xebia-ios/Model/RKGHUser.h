@@ -29,5 +29,7 @@
 @property (nonatomic, strong) NSString *blog;
 @property (nonatomic, strong) NSString *location;
 
+@property (nonatomic, strong, readonly) NSString *description_;
+
 @end
 

@@ -20,7 +20,6 @@
 @dynamic url;
 @dynamic description_;
 
-
 - (NSURL *)avatarImageUrl {
     return [GravatarHelper getGravatarURL: [NSString stringWithFormat:@"%@@xebia.fr", [self nickname]]];
 }

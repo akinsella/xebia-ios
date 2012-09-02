@@ -29,7 +29,7 @@
 			result[8], result[9], result[10], result[11],
 			result[12], result[13], result[14], result[15]
 			];  	
-	NSString *gravatarEndPoint = [NSString stringWithFormat:@"http://www.gravatar.com/avatar/%@?s=512&d=404", md5email];
+	NSString *gravatarEndPoint = [NSString stringWithFormat:@"http://www.gravatar.com/avatar/%@?s=88&d=404", md5email];
 	
 	return [NSURL URLWithString:gravatarEndPoint];
 }

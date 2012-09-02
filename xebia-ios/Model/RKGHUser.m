@@ -29,5 +29,9 @@
 @dynamic blog;
 @dynamic location;
 
+- (NSURL *)description_ {
+    return [NSString stringWithFormat:@"%@ - %@ follower%@", self.location, self.followers, self.followers.intValue > 1 ? @"s" : @""];
+}
+
 @end
 
