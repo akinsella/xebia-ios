@@ -9,10 +9,10 @@
 #import "RKXBMenuTableViewController.h"
 
 #import "BlogController.h"
-#import "UIImage+RKWPAdditions.h"
-#import "UISearchBar+RKWPAdditions.h"
+#import "UIImage+RKXBAdditions.h"
+#import "UISearchBar+RKXBAdditions.h"
 #import "RevealController.h"
-#import "UIColor+RKWPAdditions.h"
+#import "UIColor+RKXBAdditions.h"
 #import "RKTableSection.h"
 #import "RKTTTweetTableViewController.h"
 #import "HomeController.h"

@@ -1,17 +1,17 @@
 //
-//  UINavigationBar+RKWPAdditions.m
+//  UINavigationBar+RKXBAdditions.m
 //  xebia-ios
 //
 //  Created by Alexis Kinsella on 26/08/12.
 //
 //
 
-#import "UINavigationBar+RKWPAdditions.h"
+#import "UINavigationBar+RKXBAdditions.h"
 #import <objc/runtime.h>
 
 static char const * const BackgroundImageKey = "NavigationBarBackgroundImage";
 
-@implementation UINavigationBar (RKWPAdditions)
+@implementation UINavigationBar (RKXBAdditions)
 
 @dynamic backgroundImage;
 

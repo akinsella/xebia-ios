@@ -12,6 +12,8 @@
 
 -(UIImage*) centerImage:(UIImage *)inImage inRect:(CGRect) thumbRect;
 
+- (UIImage*)imageScaledToSize:(CGSize)size;
+
 +(UIImage *)scale:(UIImage *)image toSize:(CGSize)size;
 
 @end

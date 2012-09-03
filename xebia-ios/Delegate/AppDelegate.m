@@ -15,8 +15,8 @@
 #import "RKXBMenuTableViewController.h"
 #import "RKWPAuthorTableViewController.h"
 #import "RevealController.h"
-#import "UIColor+RKWPAdditions.h"
-#import "UINavigationBar+RKWPAdditions.h"
+#import "UIColor+RKXBAdditions.h"
+#import "UINavigationBar+RKXBAdditions.h"
 #import "HomeController.h"
 
 @interface AppDelegate ()

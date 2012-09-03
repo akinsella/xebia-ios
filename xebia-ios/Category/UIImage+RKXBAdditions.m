@@ -1,14 +1,14 @@
 //
-//  UIImage+RKWPAdditions.m
+//  UIImage+RKXBAdditions.m
 //  
 //
 //  Created by Alexis Kinsella on 20/08/12.
 //
 //
 
-#import "UIImage+RKWPAdditions.h"
+#import "UIImage+RKXBAdditions.h"
 
-@implementation UIImage (RKWPAdditions)
+@implementation UIImage (RKXBAdditions)
 
 -(UIImage*) centerImage:(UIImage *)inImage inRect:(CGRect) thumbRect {
     
@@ -20,6 +20,14 @@
     // pop the context
     UIGraphicsEndImageContext();
     return newThumbnail;
+}
+
+- (UIImage*)imageScaledToSize:(CGSize)size {
+    UIGraphicsBeginImageContext(size);
+    [self drawInRect:CGRectMake(0, 0, size.width, size.height)];
+    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    return image;
 }
 
 + (UIImage *)scale:(UIImage *)image toSize:(CGSize)size {

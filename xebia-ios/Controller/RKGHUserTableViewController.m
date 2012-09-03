@@ -1,5 +1,5 @@
 //
-//  RKGHRepositoryTableViewController.m
+//  RKGHUserTableViewController.m
 //  xebia-ios
 //
 //  Created by Alexis Kinsella on 25/07/12.
@@ -8,23 +8,23 @@
 
 #import <RestKit/RestKit.h>
 #import <RestKit/UI.h>
-#import "RKGHRepository.h"
-#import "RKGHRepositoryTableViewController.h"
+#import "RKGHUser.h"
+#import "RKGHUserTableViewController.h"
 #import "RKXBLoadingView.h"
 #import "SDImageCache.h"
 #import "SDWebImageManager.h"
-#import "RKGHRepositoryCell.h"
+#import "RKGHUserCell.h"
 #import "UIImage+RKXBAdditions.h"
 
 #define FONT_SIZE 13.0f
 #define CELL_CONTENT_WIDTH 253.0f
 #define CELL_CONTENT_MARGIN 10.0f
 
-@interface RKGHRepositoryTableViewController ()
+@interface RKGHUserTableViewController ()
 @property (nonatomic, strong) RKFetchedResultsTableController *tableController;
 @end
 
-@implementation RKGHRepositoryTableViewController
+@implementation RKGHUserTableViewController
 
 UIImage* defaultAvatarImage;
 
@@ -34,7 +34,7 @@ UIImage* defaultAvatarImage;
 {
     [super viewDidLoad];
     
-    self.title = @"Repositories";
+    self.title = @"Users";
    
     if ([self.navigationController.parentViewController respondsToSelector:@selector(revealGesture:)] && [self.navigationController.parentViewController respondsToSelector:@selector(revealToggle:)])
 	{
@@ -52,13 +52,13 @@ UIImage* defaultAvatarImage;
     self.tableController = [[RKObjectManager sharedManager] fetchedResultsTableControllerForTableViewController:self];
     self.tableController.delegate = self;
 
-    NSSortDescriptor *descriptor = [NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES];
+    NSSortDescriptor *descriptor = [NSSortDescriptor sortDescriptorWithKey:@"login" ascending:YES];
     self.tableController.fetchRequest.sortDescriptors = [NSArray arrayWithObject:descriptor];
   
     self.tableController.showsSectionIndexTitles = FALSE;
     self.tableController.autoRefreshFromNetwork = YES;
     self.tableController.pullToRefreshEnabled = YES;
-    self.tableController.resourcePath = @"/github/orgs/xebia-france/repos";
+    self.tableController.resourcePath = @"/github/orgs/xebia-france/public_members";
     self.tableController.variableHeightRows = YES;
     
     
@@ -86,8 +86,8 @@ UIImage* defaultAvatarImage;
     self.tableController.imageForEmpty = [UIImage imageNamed:@"empty.png"];
 
     RKTableViewCellMapping *cellMapping = [RKTableViewCellMapping cellMapping];
-    cellMapping.cellClassName = @"RKGHRepositoryCell";
-    cellMapping.reuseIdentifier = @"RKGHRepository";
+    cellMapping.cellClassName = @"RKGHUserCell";
+    cellMapping.reuseIdentifier = @"RKGHUser";
 //    cellMapping.rowHeight = 100.0;
     [cellMapping mapKeyPath:@"name" toAttribute:@"titleLabel.text"];
     [cellMapping mapKeyPath:@"description_" toAttribute:@"descriptionLabel.text"];
@@ -95,20 +95,20 @@ UIImage* defaultAvatarImage;
      
     cellMapping.heightOfCellForObjectAtIndexPath = ^ CGFloat(id object, NSIndexPath* indexPath) {
     
-        RKGHRepository *repository = object;
+        RKGHUser *user = object;
         
         CGSize constraint = CGSizeMake(CELL_CONTENT_WIDTH - (CELL_CONTENT_MARGIN * 2), 20000.0f);
-        CGSize size = [repository.description_ sizeWithFont:[UIFont systemFontOfSize:FONT_SIZE] constrainedToSize:constraint lineBreakMode:UILineBreakModeWordWrap];
+        CGSize size = [user.description_ sizeWithFont:[UIFont systemFontOfSize:FONT_SIZE] constrainedToSize:constraint lineBreakMode:UILineBreakModeWordWrap];
         CGFloat height = MAX(size.height, 22.0f);
         return height + (CELL_CONTENT_MARGIN * 2);
     };
     
-    [tableController mapObjectsWithClass:[RKGHRepository class] toTableCellsWithMapping:cellMapping];
+    [tableController mapObjectsWithClass:[RKGHUser class] toTableCellsWithMapping:cellMapping];
     
     /**
      Use a custom Nib to draw our table cells for RKGHIssue objects
      */
-    [self.tableView registerNib:[UINib nibWithNibName:@"RKGHRepositoryCell" bundle:nil] forCellReuseIdentifier:@"RKGHRepository"];
+    [self.tableView registerNib:[UINib nibWithNibName:@"RKGHUserCell" bundle:nil] forCellReuseIdentifier:@"RKGHUser"];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -123,31 +123,33 @@ UIImage* defaultAvatarImage;
 
 - (void)tableController:(RKAbstractTableController *)tableController willDisplayCell:(UITableViewCell *)cell forObject:(id)object atIndexPath:(NSIndexPath *)indexPath;
 {
-    RKGHRepository *repository = object;
-    RKGHRepositoryCell *repositoryCell = (RKGHRepositoryCell *)cell;
+    RKGHUser *user = object;
+    RKGHUserCell *userCell = (RKGHUserCell *)cell;
  
-    NSString *avatarImageUrl = repository.owner.avatar_url;
+    NSString *avatarImageUrl = user.avatar_url;
     UIImage *cachedImage = [[SDImageCache sharedImageCache] imageFromKey:avatarImageUrl];
     if (cachedImage) {
-        [[repositoryCell imageView] setImage: [cachedImage imageScaledToSize:CGSizeMake(44, 44)]];
+        [[userCell imageView] setImage: [cachedImage imageScaledToSize:CGSizeMake(44, 44)]];
     }
     else {
-        [[repositoryCell imageView] setImage: [defaultAvatarImage imageScaledToSize:CGSizeMake(44, 44)]];
-        NSLog(@"Download image: %@ for repository: %@", repository.owner.avatar_url, repository.name);
+        [[userCell imageView] setImage: [defaultAvatarImage imageScaledToSize:CGSizeMake(44, 44)]];
+        NSLog(@"Download image: %@ for user: %@", user.avatar_url, user.name);
         SDWebImageManager *manager = [SDWebImageManager sharedManager];
-        [manager downloadWithURL: [NSURL URLWithString:repository.owner.avatar_url]
+        [manager downloadWithURL: [NSURL URLWithString:user.avatar_url]
                         delegate:self
                          options:0
                          success:^(UIImage *image) {
+                             NSLog(@"--- Image downloaded for identifier: %@ and avatar_url: %@", userCell.identifier, avatarImageUrl);
                              [[SDImageCache sharedImageCache] storeImage:image forKey:avatarImageUrl];
-                             if ([[repositoryCell identifier] intValue] == [[repository identifier] intValue]) {
-                                 [[repositoryCell imageView] setImage: [image imageScaledToSize:CGSizeMake(44, 44)]];
+                             if ([[userCell identifier] intValue] == [[user identifier] intValue]) {
+                                 [[userCell imageView] setImage: [image imageScaledToSize:CGSizeMake(44, 44)]];
                              }
                          }
                          failure:^(NSError *error) {
+                             NSLog(@"*** Could not load image: %@ - %@", error.description, error.debugDescription);
                              [[SDImageCache sharedImageCache] storeImage:defaultAvatarImage forKey:avatarImageUrl];
-                             if ([[repositoryCell identifier] intValue] == [[repository identifier] intValue]) {
-                                 [[repositoryCell imageView] setImage: [defaultAvatarImage imageScaledToSize:CGSizeMake(44, 44)]];
+                             if ([[userCell identifier] intValue] == [[user identifier] intValue]) {
+                                 [[userCell imageView] setImage: [defaultAvatarImage imageScaledToSize:CGSizeMake(44, 44)]];
                              }
                          }];
     }

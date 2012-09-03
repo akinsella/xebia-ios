@@ -1,15 +1,15 @@
 //
-//  UISearchBar+RKWPAdditions.m
+//  UISearchBar+RKXBAdditions.m
 //  xebia-ios
 //
 //  Created by Alexis Kinsella on 22/08/12.
 //
 //
 
-#import "UISearchBar+RKWPAdditions.h"
+#import "UISearchBar+RKXBAdditions.h"
 #import <QuartzCore/QuartzCore.h>
 
-@implementation UISearchBar (RKWPAdditions)
+@implementation UISearchBar (RKXBAdditions)
 
 - (UITextField *)field {
     // HACK: This may not work in future iOS versions

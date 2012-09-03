@@ -1,5 +1,5 @@
 //
-//  UIColor+RKWPAdditions.h
+//  UIColor+RKXBAdditions.h
 //  xebia-ios
 //
 //  Created by Alexis Kinsella on 26/08/12.
@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface UIColor (RKWPAdditions)
+@interface UIColor (RKXBAdditions)
 
 // wrapper for [UIColor colorWithRed:green:blue:alpha:]
 // values must be in range 0 - 255

@@ -1,14 +1,14 @@
 //
-//  UIColor+RKWPAdditions.m
+//  UIColor+RKXBAdditions.m
 //  xebia-ios
 //
 //  Created by Alexis Kinsella on 26/08/12.
 //
 //
 
-#import "UIColor+RKWPAdditions.h"
+#import "UIColor+RKXBAdditions.h"
 
-@implementation UIColor (RKWPAdditions)
+@implementation UIColor (RKXBAdditions)
 
 + (UIColor*)colorWith8BitRed:(NSInteger)red green:(NSInteger)green blue:(NSInteger)blue alpha:(CGFloat)alpha {
     return [UIColor colorWithRed:(red/255.0) green:(green/255.0) blue:(blue/255.0) alpha:alpha];

@@ -30,7 +30,12 @@
 @dynamic location;
 
 - (NSURL *)description_ {
-    return [NSString stringWithFormat:@"%@ - %@ follower%@", self.location, self.followers, self.followers.intValue > 1 ? @"s" : @""];
+    if (self.location != nil) {
+        return [NSString stringWithFormat:@"%@ - %@ follower%@", self.location, self.followers, self.followers.intValue > 1 ? @"s" : @""];
+    }
+    else {
+        return [NSString stringWithFormat:@"%@ follower%@", self.followers, self.followers.intValue > 1 ? @"s" : @""];
+    }
 }
 
 @end
