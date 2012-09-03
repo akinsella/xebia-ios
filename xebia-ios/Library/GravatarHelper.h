@@ -9,8 +9,8 @@
 #import <Foundation/Foundation.h>
 
 
-@interface GravatarHelper : NSObject {
+@interface GravatarHelper : NSObject
++ (NSURL*) getGravatarURL:(NSString *) emailAddress;
++ (NSURL*) getGravatarURLWithGravatarId:(NSString *) gravatarId;
 
-}
-+ (NSURL*) getGravatarURL:(NSString*) emailAddress;
 @end

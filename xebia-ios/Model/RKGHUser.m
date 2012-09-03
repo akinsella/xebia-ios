@@ -7,6 +7,7 @@
 //
 
 #import "RKGHUser.h"
+#import "GravatarHelper.h"
 
 @implementation RKGHUser
 
@@ -28,6 +29,14 @@
 @dynamic following;
 @dynamic blog;
 @dynamic location;
+
+
+- (NSURL *)avatarImageUrl {
+    return self.gravatar_id != nil ?
+        [GravatarHelper getGravatarURLWithGravatarId: self.gravatar_id] :
+        [NSURL URLWithString: self.avatar_url];
+}
+
 
 - (NSURL *)description_ {
     if (self.location != nil) {

@@ -126,32 +126,33 @@ UIImage* defaultAvatarImage;
     RKGHRepository *repository = object;
     RKGHRepositoryCell *repositoryCell = (RKGHRepositoryCell *)cell;
  
-    NSString *avatarImageUrl = repository.owner.avatar_url;
+    NSString *avatarImageUrl = [repository.owner.avatarImageUrl absoluteString];
     UIImage *cachedImage = [[SDImageCache sharedImageCache] imageFromKey:avatarImageUrl];
     if (cachedImage) {
         [[repositoryCell imageView] setImage: [cachedImage imageScaledToSize:CGSizeMake(44, 44)]];
     }
     else {
         [[repositoryCell imageView] setImage: [defaultAvatarImage imageScaledToSize:CGSizeMake(44, 44)]];
-        NSLog(@"Download image: %@ for repository: %@", repository.owner.avatar_url, repository.name);
+        NSLog(@"Download image: %@ for repository: %@", avatarImageUrl, repository.name);
         SDWebImageManager *manager = [SDWebImageManager sharedManager];
-        [manager downloadWithURL: [NSURL URLWithString:repository.owner.avatar_url]
+        [manager downloadWithURL: [NSURL URLWithString: avatarImageUrl]
                         delegate:self
                          options:0
                          success:^(UIImage *image) {
+                             NSLog(@"--- Image downloaded for identifier: %@ and avatar_url: %@", repositoryCell.identifier, avatarImageUrl);
                              [[SDImageCache sharedImageCache] storeImage:image forKey:avatarImageUrl];
                              if ([[repositoryCell identifier] intValue] == [[repository identifier] intValue]) {
                                  [[repositoryCell imageView] setImage: [image imageScaledToSize:CGSizeMake(44, 44)]];
                              }
                          }
                          failure:^(NSError *error) {
-                             [[SDImageCache sharedImageCache] storeImage:defaultAvatarImage forKey:avatarImageUrl];
+                             NSLog(@"*** Could not load image: %@ - %@", error.description, error.debugDescription);
+                            [[SDImageCache sharedImageCache] storeImage:defaultAvatarImage forKey:avatarImageUrl];
                              if ([[repositoryCell identifier] intValue] == [[repository identifier] intValue]) {
                                  [[repositoryCell imageView] setImage: [defaultAvatarImage imageScaledToSize:CGSizeMake(44, 44)]];
                              }
                          }];
     }
-
     
 }
 

@@ -11,9 +11,7 @@
 
 @implementation GravatarHelper
 
-
-+ (NSURL*) getGravatarURL:(NSString*) emailAddress
-{
++ (NSURL*) getGravatarURL:(NSString*) emailAddress {
 	NSString *curatedEmail = [[emailAddress stringByTrimmingCharactersInSet:
 							   [NSCharacterSet whitespaceCharacterSet]] 
 							  lowercaseString];
@@ -33,4 +31,11 @@
 	
 	return [NSURL URLWithString:gravatarEndPoint];
 }
+
++ (NSURL*) getGravatarURLWithGravatarId:(NSString *) gravatarId {
+	NSString *gravatarEndPoint = [NSString stringWithFormat:@"http://www.gravatar.com/avatar/%@?s=88&d=404", gravatarId];
+	
+	return [NSURL URLWithString:gravatarEndPoint];
+}
+
 @end

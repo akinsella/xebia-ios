@@ -126,16 +126,16 @@ UIImage* defaultAvatarImage;
     RKGHUser *user = object;
     RKGHUserCell *userCell = (RKGHUserCell *)cell;
  
-    NSString *avatarImageUrl = user.avatar_url;
+    NSString *avatarImageUrl = [user.avatarImageUrl absoluteString];
     UIImage *cachedImage = [[SDImageCache sharedImageCache] imageFromKey:avatarImageUrl];
     if (cachedImage) {
         [[userCell imageView] setImage: [cachedImage imageScaledToSize:CGSizeMake(44, 44)]];
     }
     else {
         [[userCell imageView] setImage: [defaultAvatarImage imageScaledToSize:CGSizeMake(44, 44)]];
-        NSLog(@"Download image: %@ for user: %@", user.avatar_url, user.name);
+        NSLog(@"Download image: %@ for user: %@", avatarImageUrl, user.name);
         SDWebImageManager *manager = [SDWebImageManager sharedManager];
-        [manager downloadWithURL: [NSURL URLWithString:user.avatar_url]
+        [manager downloadWithURL: [NSURL URLWithString: avatarImageUrl]
                         delegate:self
                          options:0
                          success:^(UIImage *image) {
