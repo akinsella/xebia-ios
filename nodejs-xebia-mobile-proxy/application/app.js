@@ -308,7 +308,7 @@ app.get('/index.html', function(req, res) {
 });
 
 //app.get('/twitter/:user', function(req, res) {
-app.get('/v1.0/twitter/:user', function(req, res) {
+app.get('/' + API_VERSION + '/twitter/:user', function(req, res) {
 
     var user = req.params.user;
 //    var user = "XebiaFR";
@@ -347,10 +347,10 @@ app.get('/v1.0/twitter/:user', function(req, res) {
 
             _(JSON.parse(tweets)).each(function(tweet) {
                 var tweetShortened = {
-                    id: tweet.id,
+                    id: String(tweet.id),
                     created_at: tweet.created_at,
                     user: {
-                        id: tweet.user.id,
+                        id: String(tweet.user.id),
                         screen_name: tweet.user.screen_name,
                         name: tweet.user.name,
                         profile_image_url: tweet.user.profile_image_url

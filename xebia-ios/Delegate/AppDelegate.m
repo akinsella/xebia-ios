@@ -36,11 +36,16 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     [self initializeRestKit];
-    
+
     RKLogConfigureByName("RestKit/UI", RKLogLevelError);
     RKLogConfigureByName("RestKit/Network", RKLogLevelError);
     RKLogConfigureByName("RestKit/ObjectMapping", RKLogLevelError);
     RKLogConfigureByName("RestKit/ObjectMapping/JSON", RKLogLevelError);
+    
+//    RKLogConfigureByName("RestKit/UI", RKLogLevelTrace);
+//    RKLogConfigureByName("RestKit/Network", RKLogLevelTrace);
+//    RKLogConfigureByName("RestKit/ObjectMapping", RKLogLevelTrace);
+//    RKLogConfigureByName("RestKit/ObjectMapping/JSON", RKLogLevelTrace);
 
 //    self.wpDataAccessor = [WPDataAccessor initWithBaseApiUrl:@"http://192.168.1.10:9000/v1.0/"];
     self.wpDataAccessor = [WPDataAccessor initWithBaseApiUrl:@"http://xebia-mobile.cloudfoundry.com/v1.0/"];
@@ -101,8 +106,8 @@
     [githubDateFormatter setDateFormat: @"yyyy-MM-dd'T'HH:mm:ss'Z'"];
     [RKObjectMapping addDefaultDateFormatter:(NSFormatter *)githubDateFormatter];
     
-//    self.objectManager = [RKObjectManager managerWithBaseURLString:@"http://192.168.1.10:9000/v1.0/"];
-    self.objectManager = [RKObjectManager managerWithBaseURLString:@"http://xebia-mobile.cloudfoundry.com/v1.0/"];
+    self.objectManager = [RKObjectManager managerWithBaseURLString:@"http://192.168.1.10:9000/v1.0/"];
+//    self.objectManager = [RKObjectManager managerWithBaseURLString:@"http://xebia-mobile.cloudfoundry.com/v1.0/"];
     self.objectStore = [RKManagedObjectStore objectStoreWithStoreFilename:@"xebia.sqlite"];
     self.objectManager.objectStore = self.objectStore;
     self.objectManager.mappingProvider = [RKXBMappingProvider mappingProviderWithObjectStore:self.objectStore];

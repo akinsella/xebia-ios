@@ -17,8 +17,10 @@
 #import "UIImage+RKXBAdditions.h"
 
 #define FONT_SIZE 13.0f
-#define CELL_CONTENT_WIDTH 253.0f
-#define CELL_CONTENT_MARGIN 10.0f
+#define CELL_CONTENT_WIDTH 242.0f
+#define CELL_MIN_HEIGHT 44.0f
+#define CELL_BASE_HEIGHT 28.0f
+#define CELL_MAX_HEIGHT 1000.0f
 
 @interface RKGHUserTableViewController ()
 @property (nonatomic, strong) RKFetchedResultsTableController *tableController;
@@ -44,7 +46,7 @@ UIImage* defaultAvatarImage;
 		self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"menu"] style:UIBarButtonItemStylePlain target:self.navigationController.parentViewController action:@selector(revealToggle:)];
 	}
     
-    defaultAvatarImage = [UIImage imageNamed:@"github_gravatar_placeholder"];
+    defaultAvatarImage = [UIImage imageNamed:@"github-gravatar-placeholder"];
     
     /**
      Configure the RestKit table controller to drive our view
@@ -97,10 +99,22 @@ UIImage* defaultAvatarImage;
     
         RKGHUser *user = object;
         
-        CGSize constraint = CGSizeMake(CELL_CONTENT_WIDTH - (CELL_CONTENT_MARGIN * 2), 20000.0f);
-        CGSize size = [user.description_ sizeWithFont:[UIFont systemFontOfSize:FONT_SIZE] constrainedToSize:constraint lineBreakMode:UILineBreakModeWordWrap];
-        CGFloat height = MAX(size.height, 22.0f);
-        return height + (CELL_CONTENT_MARGIN * 2);
+        //        NSLog(@"----------------------------------------------------------------------");
+        //        NSLog(@"User name: %@", user.name);
+        
+        CGSize constraint = CGSizeMake(CELL_CONTENT_WIDTH, CELL_MAX_HEIGHT);
+        //        NSLog(@"Constraint[width: %f, height: %f]", constraint.width, constraint.height);
+        
+        CGSize size = [user.description_ sizeWithFont:[UIFont systemFontOfSize:FONT_SIZE]
+                                          constrainedToSize:constraint
+                                              lineBreakMode:UILineBreakModeWordWrap];
+        
+        //        NSLog(@"Size[width: %f, height: %f]", size.width, size.height);
+        
+        CGFloat height = MAX(CELL_BASE_HEIGHT + size.height, CELL_MIN_HEIGHT);
+        //        NSLog(@"Height: %f", height);
+        
+        return height;
     };
     
     [tableController mapObjectsWithClass:[RKGHUser class] toTableCellsWithMapping:cellMapping];
@@ -141,16 +155,12 @@ UIImage* defaultAvatarImage;
                          success:^(UIImage *image) {
                              NSLog(@"--- Image downloaded for identifier: %@ and avatar_url: %@", userCell.identifier, avatarImageUrl);
                              [[SDImageCache sharedImageCache] storeImage:image forKey:avatarImageUrl];
-                             if ([[userCell identifier] intValue] == [[user identifier] intValue]) {
+                             if ([userCell.identifier intValue] == [user.identifier intValue]) {
                                  [[userCell imageView] setImage: [image imageScaledToSize:CGSizeMake(44, 44)]];
                              }
                          }
                          failure:^(NSError *error) {
                              NSLog(@"*** Could not load image: %@ - %@", error.description, error.debugDescription);
-                             [[SDImageCache sharedImageCache] storeImage:defaultAvatarImage forKey:avatarImageUrl];
-                             if ([[userCell identifier] intValue] == [[user identifier] intValue]) {
-                                 [[userCell imageView] setImage: [defaultAvatarImage imageScaledToSize:CGSizeMake(44, 44)]];
-                             }
                          }];
     }
 

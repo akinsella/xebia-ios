@@ -39,7 +39,8 @@ UIImage* defaultAvatarImage;
 		self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"menu.png"] style:UIBarButtonItemStylePlain target:self.navigationController.parentViewController action:@selector(revealToggle:)];
 	}
     
-    defaultAvatarImage = [UIImage imageNamed:@"avatar_placeholder.png"];
+    defaultAvatarImage = [UIImage imageNamed:@"avatar_placeholder"];
+    
     /**
      Configure the RestKit table controller to drive our view
      */
@@ -122,16 +123,14 @@ UIImage* defaultAvatarImage;
                         delegate:self
                          options:0
                          success:^(UIImage *image) {
+                             NSLog(@"--- Image downloaded for identifier: %@ and avatar_url: %@", authorCell.identifier, avatarImageUrl);
                              [[SDImageCache sharedImageCache] storeImage:image forKey:avatarImageUrl];
-                             if ([[authorCell identifier] intValue] == [[author identifier] intValue]) {
+                             if ([authorCell.identifier intValue] == [author.identifier intValue]) {
                                  [[authorCell imageView] setImage: image];   
                              }
                          }
                          failure:^(NSError *error) {
-                             [[SDImageCache sharedImageCache] storeImage:defaultAvatarImage forKey:avatarImageUrl];
-                             if ([[authorCell identifier] intValue] == [[author identifier] intValue]) {
-                                 [[authorCell imageView] setImage: defaultAvatarImage];
-                             }
+                             NSLog(@"*** Could not load image: %@ - %@", error.description, error.debugDescription);
                          }];
     }
 

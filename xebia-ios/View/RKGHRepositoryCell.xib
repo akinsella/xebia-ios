@@ -42,7 +42,7 @@
 							<object class="IBUILabel" id="894365236">
 								<reference key="NSNextResponder" ref="840849820"/>
 								<int key="NSvFlags">260</int>
-								<string key="NSFrame">{{67, -8}, {231, 38}}</string>
+								<string key="NSFrame">{{66, 4}, {232, 16}}</string>
 								<reference key="NSSuperview" ref="840849820"/>
 								<reference key="NSNextKeyView" ref="891147559"/>
 								<string key="NSReuseIdentifierKey">_NS:9</string>
@@ -75,7 +75,7 @@
 							<object class="IBUILabel" id="891147559">
 								<reference key="NSNextResponder" ref="840849820"/>
 								<int key="NSvFlags">274</int>
-								<string key="NSFrame">{{67, 20}, {231, 31}}</string>
+								<string key="NSFrame">{{66, 20}, {232, 16}}</string>
 								<reference key="NSSuperview" ref="840849820"/>
 								<string key="NSReuseIdentifierKey">_NS:9</string>
 								<bool key="IBUIOpaque">NO</bool>
@@ -101,7 +101,7 @@
 								</object>
 							</object>
 						</array>
-						<string key="NSFrameSize">{300, 57}</string>
+						<string key="NSFrameSize">{300, 43}</string>
 						<reference key="NSSuperview" ref="506599320"/>
 						<reference key="NSNextKeyView" ref="894365236"/>
 						<string key="NSReuseIdentifierKey">_NS:11</string>
@@ -116,7 +116,7 @@
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 					</object>
 				</array>
-				<string key="NSFrameSize">{320, 58}</string>
+				<string key="NSFrameSize">{320, 44}</string>
 				<reference key="NSSuperview"/>
 				<reference key="NSNextKeyView" ref="840849820"/>
 				<string key="NSReuseIdentifierKey">_NS:9</string>
@@ -124,7 +124,7 @@
 				<int key="IBUIAccessoryType">1</int>
 				<reference key="IBUIContentView" ref="840849820"/>
 				<string key="IBUIReuseIdentifier">RKGHRepository</string>
-				<real value="63" key="IBUIRowHeight"/>
+				<real value="46" key="IBUIRowHeight"/>
 			</object>
 		</array>
 		<object class="IBObjectContainer" key="IBDocument.Objects">

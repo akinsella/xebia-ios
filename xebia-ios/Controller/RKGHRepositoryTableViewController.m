@@ -17,8 +17,10 @@
 #import "UIImage+RKXBAdditions.h"
 
 #define FONT_SIZE 13.0f
-#define CELL_CONTENT_WIDTH 253.0f
-#define CELL_CONTENT_MARGIN 10.0f
+#define CELL_CONTENT_WIDTH 232.0f
+#define CELL_MIN_HEIGHT 44.0f
+#define CELL_BASE_HEIGHT 28.0f
+#define CELL_MAX_HEIGHT 1000.0f
 
 @interface RKGHRepositoryTableViewController ()
 @property (nonatomic, strong) RKFetchedResultsTableController *tableController;
@@ -44,7 +46,7 @@ UIImage* defaultAvatarImage;
 		self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"menu"] style:UIBarButtonItemStylePlain target:self.navigationController.parentViewController action:@selector(revealToggle:)];
 	}
     
-    defaultAvatarImage = [UIImage imageNamed:@"github_gravatar_placeholder"];
+    defaultAvatarImage = [UIImage imageNamed:@"github-gravatar-placeholder"];
     
     /**
      Configure the RestKit table controller to drive our view
@@ -96,11 +98,24 @@ UIImage* defaultAvatarImage;
     cellMapping.heightOfCellForObjectAtIndexPath = ^ CGFloat(id object, NSIndexPath* indexPath) {
     
         RKGHRepository *repository = object;
+
+//        NSLog(@"----------------------------------------------------------------------");
+//        NSLog(@"Repository name: %@", repository.name);
+
         
-        CGSize constraint = CGSizeMake(CELL_CONTENT_WIDTH - (CELL_CONTENT_MARGIN * 2), 20000.0f);
-        CGSize size = [repository.description_ sizeWithFont:[UIFont systemFontOfSize:FONT_SIZE] constrainedToSize:constraint lineBreakMode:UILineBreakModeWordWrap];
-        CGFloat height = MAX(size.height, 22.0f);
-        return height + (CELL_CONTENT_MARGIN * 2);
+        CGSize constraint = CGSizeMake(CELL_CONTENT_WIDTH, CELL_MAX_HEIGHT);
+//        NSLog(@"Constraint[width: %f, height: %f]", constraint.width, constraint.height);
+        
+        CGSize size = [repository.description_ sizeWithFont:[UIFont systemFontOfSize:FONT_SIZE]
+                                          constrainedToSize:constraint
+                                              lineBreakMode:UILineBreakModeWordWrap];
+
+//        NSLog(@"Size[width: %f, height: %f]", size.width, size.height);
+
+        CGFloat height = MAX(CELL_BASE_HEIGHT + size.height, CELL_MIN_HEIGHT);
+//        NSLog(@"Height: %f", height);
+        
+        return height;
     };
     
     [tableController mapObjectsWithClass:[RKGHRepository class] toTableCellsWithMapping:cellMapping];
@@ -140,17 +155,16 @@ UIImage* defaultAvatarImage;
                          options:0
                          success:^(UIImage *image) {
                              NSLog(@"--- Image downloaded for identifier: %@ and avatar_url: %@", repositoryCell.identifier, avatarImageUrl);
-                             [[SDImageCache sharedImageCache] storeImage:image forKey:avatarImageUrl];
-                             if ([[repositoryCell identifier] intValue] == [[repository identifier] intValue]) {
+
+                             if ([repositoryCell.identifier intValue] == [repository.identifier intValue]) {
                                  [[repositoryCell imageView] setImage: [image imageScaledToSize:CGSizeMake(44, 44)]];
+                             }
+                             else {
+                                 NSLog(@"--- Cell identifier changed: repo cell identifier: %@ and repo identifier: %@", repositoryCell.identifier, repository.identifier);
                              }
                          }
                          failure:^(NSError *error) {
                              NSLog(@"*** Could not load image: %@ - %@", error.description, error.debugDescription);
-                            [[SDImageCache sharedImageCache] storeImage:defaultAvatarImage forKey:avatarImageUrl];
-                             if ([[repositoryCell identifier] intValue] == [[repository identifier] intValue]) {
-                                 [[repositoryCell imageView] setImage: [defaultAvatarImage imageScaledToSize:CGSizeMake(44, 44)]];
-                             }
                          }];
     }
     

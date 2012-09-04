@@ -16,8 +16,10 @@
 #import "SDWebImageManager.h"
 
 #define FONT_SIZE 13.0f
-#define CELL_CONTENT_WIDTH 253.0f
-#define CELL_CONTENT_MARGIN 10.0f
+#define CELL_CONTENT_WIDTH 232.0f
+#define CELL_MIN_HEIGHT 44.0f
+#define CELL_BASE_HEIGHT 28.0f
+#define CELL_MAX_HEIGHT 1000.0f
 
 @interface RKTTTweetTableViewController ()
 @property (nonatomic, strong) RKFetchedResultsTableController *tableController;
@@ -98,10 +100,23 @@ UIImage* defaultAvatarImage;
     
         RKTTTweet *tweet = object;
         
-        CGSize constraint = CGSizeMake(CELL_CONTENT_WIDTH - (CELL_CONTENT_MARGIN * 2), 20000.0f);
-        CGSize size = [tweet.text sizeWithFont:[UIFont systemFontOfSize:FONT_SIZE] constrainedToSize:constraint lineBreakMode:UILineBreakModeWordWrap];
-        CGFloat height = MAX(size.height, 44.0f);
-        return height + (CELL_CONTENT_MARGIN * 2);
+        //        NSLog(@"----------------------------------------------------------------------");
+        //        NSLog(@"Repository name: %@", repository.name);
+        
+        
+        CGSize constraint = CGSizeMake(CELL_CONTENT_WIDTH, CELL_MAX_HEIGHT);
+        //        NSLog(@"Constraint[width: %f, height: %f]", constraint.width, constraint.height);
+        
+        CGSize size = [tweet.text sizeWithFont:[UIFont systemFontOfSize:FONT_SIZE]
+                                          constrainedToSize:constraint
+                                              lineBreakMode:UILineBreakModeWordWrap];
+        
+        //        NSLog(@"Size[width: %f, height: %f]", size.width, size.height);
+        
+        CGFloat height = MAX(CELL_BASE_HEIGHT + size.height, CELL_MIN_HEIGHT);
+        //        NSLog(@"Height: %f", height);
+        
+        return height;
     };
     
     [tableController mapObjectsWithClass:[RKTTTweet class] toTableCellsWithMapping:cellMapping];
@@ -140,16 +155,17 @@ UIImage* defaultAvatarImage;
                         delegate:self
                          options:0
                          success:^(UIImage *image) {
+                             NSLog(@"--- Image downloaded for identifier: %@ and avatar_url: %@, tweet.identifier: %@", tweetCell.identifier, avatarImageUrl, tweet.identifier);
                              [[SDImageCache sharedImageCache] storeImage:image forKey:avatarImageUrl];
-                             if ([[tweetCell identifier] intValue] == [[tweet identifier] intValue]) {
-                                 [[tweetCell imageView] setImage: image];   
+                             if ([tweetCell.identifier isEqualToString:tweet.identifier]) {
+                                 [[tweetCell imageView] setImage: image];
+                             }
+                             else {
+                                 NSLog(@"--- Cell identifier changed: tweet cell identifier: %@ and tweet identifier: %@", tweetCell.identifier, tweet.identifier);
                              }
                          }
                          failure:^(NSError *error) {
-                             [[SDImageCache sharedImageCache] storeImage:defaultAvatarImage forKey:avatarImageUrl];
-                             if ([[tweetCell identifier] intValue] == [[tweet identifier] intValue]) {
-                                 [[tweetCell imageView] setImage: defaultAvatarImage];
-                             }
+                             NSLog(@"*** Could not load image: %@ - %@", error.description, error.debugDescription);
                          }];
     }
 
