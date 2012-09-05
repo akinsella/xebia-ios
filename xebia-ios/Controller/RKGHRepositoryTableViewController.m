@@ -15,11 +15,12 @@
 #import "SDWebImageManager.h"
 #import "RKGHRepositoryCell.h"
 #import "UIImage+RKXBAdditions.h"
+#import "UIImageView+WebCache.h"
 
 #define FONT_SIZE 13.0f
 #define CELL_CONTENT_WIDTH 232.0f
-#define CELL_MIN_HEIGHT 44.0f
-#define CELL_BASE_HEIGHT 28.0f
+#define CELL_MIN_HEIGHT 64.0f
+#define CELL_BASE_HEIGHT 48.0f
 #define CELL_MAX_HEIGHT 1000.0f
 
 @interface RKGHRepositoryTableViewController ()
@@ -90,7 +91,6 @@ UIImage* defaultAvatarImage;
     RKTableViewCellMapping *cellMapping = [RKTableViewCellMapping cellMapping];
     cellMapping.cellClassName = @"RKGHRepositoryCell";
     cellMapping.reuseIdentifier = @"RKGHRepository";
-//    cellMapping.rowHeight = 100.0;
     [cellMapping mapKeyPath:@"name" toAttribute:@"titleLabel.text"];
     [cellMapping mapKeyPath:@"description_" toAttribute:@"descriptionLabel.text"];
     [cellMapping mapKeyPath:@"identifier" toAttribute:@"identifier"];
@@ -140,34 +140,7 @@ UIImage* defaultAvatarImage;
 {
     RKGHRepository *repository = object;
     RKGHRepositoryCell *repositoryCell = (RKGHRepositoryCell *)cell;
- 
-    NSString *avatarImageUrl = [repository.owner.avatarImageUrl absoluteString];
-    UIImage *cachedImage = [[SDImageCache sharedImageCache] imageFromKey:avatarImageUrl];
-    if (cachedImage) {
-        [[repositoryCell imageView] setImage: [cachedImage imageScaledToSize:CGSizeMake(44, 44)]];
-    }
-    else {
-        [[repositoryCell imageView] setImage: [defaultAvatarImage imageScaledToSize:CGSizeMake(44, 44)]];
-        NSLog(@"Download image: %@ for repository: %@", avatarImageUrl, repository.name);
-        SDWebImageManager *manager = [SDWebImageManager sharedManager];
-        [manager downloadWithURL: [NSURL URLWithString: avatarImageUrl]
-                        delegate:self
-                         options:0
-                         success:^(UIImage *image) {
-                             NSLog(@"--- Image downloaded for identifier: %@ and avatar_url: %@", repositoryCell.identifier, avatarImageUrl);
-
-                             if ([repositoryCell.identifier intValue] == [repository.identifier intValue]) {
-                                 [[repositoryCell imageView] setImage: [image imageScaledToSize:CGSizeMake(44, 44)]];
-                             }
-                             else {
-                                 NSLog(@"--- Cell identifier changed: repo cell identifier: %@ and repo identifier: %@", repositoryCell.identifier, repository.identifier);
-                             }
-                         }
-                         failure:^(NSError *error) {
-                             NSLog(@"*** Could not load image: %@ - %@", error.description, error.debugDescription);
-                         }];
-    }
-    
+    [repositoryCell.imageView setImageWithURL:[repository.owner avatarImageUrl] placeholderImage:defaultAvatarImage];    
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender

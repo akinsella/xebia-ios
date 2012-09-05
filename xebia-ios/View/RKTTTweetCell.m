@@ -24,6 +24,11 @@
     return self;
 }
 
+- (void)layoutSubviews {
+    [super layoutSubviews];
+    self.imageView.frame = CGRectMake(10,10,44,44);
+}
+
 -(void) prepareForReuse {
     identifier = nil;
     avatarImage = nil;

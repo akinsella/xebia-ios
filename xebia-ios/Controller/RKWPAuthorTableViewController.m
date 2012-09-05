@@ -14,6 +14,7 @@
 #import "RKWPAuthorCell.h"
 #import "SDImageCache.h"
 #import "SDWebImageManager.h"
+#import "UIImageView+WebCache.h"
 
 @interface RKWPAuthorTableViewController ()
 @property (nonatomic, strong) RKFetchedResultsTableController *tableController;
@@ -36,7 +37,7 @@ UIImage* defaultAvatarImage;
 		UIPanGestureRecognizer *navigationBarPanGestureRecognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self.navigationController.parentViewController action:@selector(revealGesture:)];
 		[self.navigationController.navigationBar addGestureRecognizer:navigationBarPanGestureRecognizer];
         
-		self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"menu.png"] style:UIBarButtonItemStylePlain target:self.navigationController.parentViewController action:@selector(revealToggle:)];
+		self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"menu"] style:UIBarButtonItemStylePlain target:self.navigationController.parentViewController action:@selector(revealToggle:)];
 	}
     
     defaultAvatarImage = [UIImage imageNamed:@"avatar_placeholder"];
@@ -109,32 +110,7 @@ UIImage* defaultAvatarImage;
 {
     RKWPAuthor *author = object;
     RKWPAuthorCell *authorCell = (RKWPAuthorCell *)cell;
- 
-    NSString *avatarImageUrl = [[author avatarImageUrl] absoluteString];
-    UIImage *cachedImage = [[SDImageCache sharedImageCache] imageFromKey:avatarImageUrl];
-    if (cachedImage) {
-        [[authorCell imageView] setImage: cachedImage];
-    }
-    else {
-        [[authorCell imageView] setImage: defaultAvatarImage];
-        NSLog(@"Download image: %@ for author: %@", [author avatarImageUrl], [author nickname]);
-        SDWebImageManager *manager = [SDWebImageManager sharedManager];
-        [manager downloadWithURL:author.avatarImageUrl
-                        delegate:self
-                         options:0
-                         success:^(UIImage *image) {
-                             NSLog(@"--- Image downloaded for identifier: %@ and avatar_url: %@", authorCell.identifier, avatarImageUrl);
-                             [[SDImageCache sharedImageCache] storeImage:image forKey:avatarImageUrl];
-                             if ([authorCell.identifier intValue] == [author.identifier intValue]) {
-                                 [[authorCell imageView] setImage: image];   
-                             }
-                         }
-                         failure:^(NSError *error) {
-                             NSLog(@"*** Could not load image: %@ - %@", error.description, error.debugDescription);
-                         }];
-    }
-
-    
+    [authorCell.imageView setImageWithURL:[author avatarImageUrl] placeholderImage:defaultAvatarImage];
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender

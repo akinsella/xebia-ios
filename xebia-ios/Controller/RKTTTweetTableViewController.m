@@ -14,11 +14,12 @@
 #import "RKTTTweetCell.h"
 #import "SDImageCache.h"
 #import "SDWebImageManager.h"
+#import "UIImageView+WebCache.h"
 
 #define FONT_SIZE 13.0f
 #define CELL_CONTENT_WIDTH 232.0f
-#define CELL_MIN_HEIGHT 44.0f
-#define CELL_BASE_HEIGHT 28.0f
+#define CELL_MIN_HEIGHT 64.0f
+#define CELL_BASE_HEIGHT 48.0f
 #define CELL_MAX_HEIGHT 1000.0f
 
 @interface RKTTTweetTableViewController ()
@@ -141,35 +142,7 @@ UIImage* defaultAvatarImage;
 {
     RKTTTweet *tweet = object;
     RKTTTweetCell *tweetCell = (RKTTTweetCell *)cell;
- 
-    NSString *avatarImageUrl = [[tweet.user avatarImageUrl] absoluteString];
-    UIImage *cachedImage = [[SDImageCache sharedImageCache] imageFromKey:avatarImageUrl];
-    if (cachedImage) {
-        [[tweetCell imageView] setImage: cachedImage];
-    }
-    else {
-        [[tweetCell imageView] setImage: defaultAvatarImage];
-        NSLog(@"Download image: %@ for tweet author: %@", [tweet.user avatarImageUrl], tweet.user.screen_name);
-        SDWebImageManager *manager = [SDWebImageManager sharedManager];
-        [manager downloadWithURL:tweet.user.avatarImageUrl
-                        delegate:self
-                         options:0
-                         success:^(UIImage *image) {
-                             NSLog(@"--- Image downloaded for identifier: %@ and avatar_url: %@, tweet.identifier: %@", tweetCell.identifier, avatarImageUrl, tweet.identifier);
-                             [[SDImageCache sharedImageCache] storeImage:image forKey:avatarImageUrl];
-                             if ([tweetCell.identifier isEqualToString:tweet.identifier]) {
-                                 [[tweetCell imageView] setImage: image];
-                             }
-                             else {
-                                 NSLog(@"--- Cell identifier changed: tweet cell identifier: %@ and tweet identifier: %@", tweetCell.identifier, tweet.identifier);
-                             }
-                         }
-                         failure:^(NSError *error) {
-                             NSLog(@"*** Could not load image: %@ - %@", error.description, error.debugDescription);
-                         }];
-    }
-
-    
+    [tweetCell.imageView setImageWithURL:[tweet.user avatarImageUrl] placeholderImage:defaultAvatarImage];
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender

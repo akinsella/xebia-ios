@@ -15,9 +15,10 @@
 #import "SDWebImageManager.h"
 #import "RKGHUserCell.h"
 #import "UIImage+RKXBAdditions.h"
+#import "UIImageView+WebCache.h"
 
 #define FONT_SIZE 13.0f
-#define CELL_CONTENT_WIDTH 242.0f
+#define CELL_CONTENT_WIDTH 252.0f
 #define CELL_MIN_HEIGHT 44.0f
 #define CELL_BASE_HEIGHT 28.0f
 #define CELL_MAX_HEIGHT 1000.0f
@@ -139,32 +140,7 @@ UIImage* defaultAvatarImage;
 {
     RKGHUser *user = object;
     RKGHUserCell *userCell = (RKGHUserCell *)cell;
- 
-    NSString *avatarImageUrl = [user.avatarImageUrl absoluteString];
-    UIImage *cachedImage = [[SDImageCache sharedImageCache] imageFromKey:avatarImageUrl];
-    if (cachedImage) {
-        [[userCell imageView] setImage: [cachedImage imageScaledToSize:CGSizeMake(44, 44)]];
-    }
-    else {
-        [[userCell imageView] setImage: [defaultAvatarImage imageScaledToSize:CGSizeMake(44, 44)]];
-        NSLog(@"Download image: %@ for user: %@", avatarImageUrl, user.name);
-        SDWebImageManager *manager = [SDWebImageManager sharedManager];
-        [manager downloadWithURL: [NSURL URLWithString: avatarImageUrl]
-                        delegate:self
-                         options:0
-                         success:^(UIImage *image) {
-                             NSLog(@"--- Image downloaded for identifier: %@ and avatar_url: %@", userCell.identifier, avatarImageUrl);
-                             [[SDImageCache sharedImageCache] storeImage:image forKey:avatarImageUrl];
-                             if ([userCell.identifier intValue] == [user.identifier intValue]) {
-                                 [[userCell imageView] setImage: [image imageScaledToSize:CGSizeMake(44, 44)]];
-                             }
-                         }
-                         failure:^(NSError *error) {
-                             NSLog(@"*** Could not load image: %@ - %@", error.description, error.debugDescription);
-                         }];
-    }
-
-    
+    [userCell.imageView setImageWithURL:[user avatarImageUrl] placeholderImage:defaultAvatarImage];
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender

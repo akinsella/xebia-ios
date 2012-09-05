@@ -25,6 +25,10 @@
     return self;
 }
 
+- (void)layoutSubviews {
+    [super layoutSubviews];
+    self.imageView.frame = CGRectMake(0,0,44,44);
+}
 
 -(void) prepareForReuse {
     identifier = nil;

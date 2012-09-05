@@ -26,11 +26,15 @@
     return self;
 }
 
+- (void)layoutSubviews {
+    [super layoutSubviews];
+    self.imageView.frame = CGRectMake(0,0,44,44);
+}
+
 - (void)setItemCount:(NSInteger)itemCount {
     _itemCount = itemCount;
     [self updateBottomDetailLabel];
 }
-
 
 - (void)updateBottomDetailLabel {
     self.bottomDetailLabel.text = [NSString stringWithFormat:@"%d posts", self.itemCount];
