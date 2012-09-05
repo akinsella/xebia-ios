@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "XBTableViewController.h"
 
-@interface RKGHUserTableViewController : UITableViewController<RKFetchedResultsTableControllerDelegate>
+@interface RKGHUserTableViewController : XBTableViewController<RKFetchedResultsTableControllerDelegate>
 
 @end

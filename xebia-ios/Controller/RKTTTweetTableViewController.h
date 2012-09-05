@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "XBTableViewController.h"
 
-@interface RKTTTweetTableViewController : UITableViewController<RKFetchedResultsTableControllerDelegate>
+@interface RKTTTweetTableViewController : XBTableViewController<RKFetchedResultsTableControllerDelegate>
 
 @end

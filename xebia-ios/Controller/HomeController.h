@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "XBViewController.h"
 
-@interface HomeController : UIViewController
+@interface HomeController : XBViewController
 
 @end

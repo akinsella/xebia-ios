@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "XBTableViewController.h"
 
-@interface RKWPTagTableViewController : UITableViewController
+@interface RKWPTagTableViewController : XBTableViewController
 
 @end

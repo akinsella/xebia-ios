@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "XBTableViewController.h"
 
 @interface RKWPCategoryTableViewController : UITableViewController
 

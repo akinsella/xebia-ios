@@ -184,10 +184,9 @@
                         <rect key="frame" x="0.0" y="20" width="320" height="460"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="center" image="xebia-logo-transparent.png" id="Qn2-8q-Wkj">
+                            <imageView userInteractionEnabled="NO" contentMode="center" image="homeview.png" id="Qn2-8q-Wkj">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="460"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -411,7 +410,7 @@
         <image name="15-tags.png" width="24" height="25"/>
         <image name="40-inbox.png" width="24" height="24"/>
         <image name="44-shoebox.png" width="24" height="22"/>
-        <image name="xebia-logo-transparent.png" width="240" height="80"/>
+        <image name="homeview.png" width="245" height="114"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
