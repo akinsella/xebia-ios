@@ -58,19 +58,16 @@
     HomeController *homeController = [storyboard instantiateViewControllerWithIdentifier:@"home"];
     
     UINavigationController *frontNavigationController = [[UINavigationController alloc] initWithRootViewController:homeController];
-    frontNavigationController.navigationBar.barStyle = UIBarStyleBlack;
     frontNavigationController.navigationBar.tintColor = (UIColor *)[UIColor colorWithHex: @"#561D3F" alpha:1.0];
     frontNavigationController.delegate = self;
     [frontNavigationController.navigationBar setBackgroundImage: [UIImage imageNamed:@"navigationBarBackgroundRetro"]];
 
     
     UINavigationController *rearNavigationController = [[UINavigationController alloc] initWithRootViewController:menuTableViewController];
-    rearNavigationController.navigationBar.barStyle = UIBarStyleBlack;
     rearNavigationController.navigationBar.tintColor = (UIColor *)[UIColor colorWithHex: @"#561D3F" alpha:1.0];
     rearNavigationController.delegate = self;
     [rearNavigationController.navigationBar setBackgroundImage: [UIImage imageNamed:@"navigationBarBackgroundRetro"]];
 
-    
     
 	RevealController *revealController = [[RevealController alloc] initWithFrontViewController:frontNavigationController rearViewController:rearNavigationController];
     [revealController setFrontViewController:frontNavigationController animated:NO];

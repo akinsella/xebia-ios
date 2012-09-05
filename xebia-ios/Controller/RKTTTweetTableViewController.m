@@ -16,6 +16,7 @@
 #import "SDWebImageManager.h"
 #import "UIImageView+WebCache.h"
 #import "CustomNavigationBar.h"
+#import "UINavigationBar+RKXBAdditions.h"
 
 #define FONT_SIZE 13.0f
 #define CELL_CONTENT_WIDTH 232.0f
@@ -41,11 +42,20 @@ UIImage* defaultAvatarImage;
    
     if ([self.navigationController.parentViewController respondsToSelector:@selector(revealGesture:)] && [self.navigationController.parentViewController respondsToSelector:@selector(revealToggle:)])
 	{
+        
+		self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"menu"] style:UIBarButtonItemStylePlain target:self.navigationController.parentViewController action:@selector(revealToggle:)];
+                        
+        // Set the nav bar's background
+        [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"navigationBarBackgroundRetro"]];
+
+        // Create a custom back button
+        UIButton* backButton = [self.navigationController.navigationBar backButtonWith:[UIImage imageNamed:@"menu-btn"] highlight:nil target: self.navigationController.parentViewController action: @selector(revealToggle:)];
+        self.navigationItem.leftBarButtonItem = [[[UIBarButtonItem alloc] initWithCustomView:backButton] autorelease];
+
+        // Add Gesture recognizer
 		UIPanGestureRecognizer *navigationBarPanGestureRecognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self.navigationController.parentViewController action:@selector(revealGesture:)];
 		[self.navigationController.navigationBar addGestureRecognizer:navigationBarPanGestureRecognizer];
         
-		self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"menu"] style:UIBarButtonItemStylePlain target:self.navigationController.parentViewController action:@selector(revealToggle:)];
-                
 	}
     
     defaultAvatarImage = [UIImage imageNamed:@"avatar_placeholder"];

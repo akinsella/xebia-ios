@@ -107,7 +107,6 @@ enum {
                     
                     UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:blogViewController];
                     
-                    navigationController.navigationBar.barStyle = UIBarStyleBlackTranslucent;
                     navigationController.navigationBar.tintColor = (UIColor *)[UIColor colorWithHex: @"#561D3F" alpha:1.0];
                     
                     [navigationController.navigationBar setBackgroundImage: [UIImage imageNamed:@"navigationBarBackgroundRetro"]];
@@ -128,7 +127,6 @@ enum {
 
                     UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:blogViewController];
                     
-                    navigationController.navigationBar.barStyle = UIBarStyleBlackTranslucent;
                     navigationController.navigationBar.tintColor = (UIColor *)[UIColor colorWithHex: @"#561D3F" alpha:1.0];
 
                     
@@ -151,7 +149,6 @@ enum {
                     
                     UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:twitterTableViewController];
                     
-                    navigationController.navigationBar.barStyle = UIBarStyleBlackTranslucent;
                     navigationController.navigationBar.tintColor = (UIColor *)[UIColor colorWithHex: @"#561D3F" alpha:1.0];
                     
                     [navigationController.navigationBar setBackgroundImage: [UIImage imageNamed:@"navigationBarBackgroundRetro"]];
@@ -173,7 +170,6 @@ enum {
                     
                     UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:repositoryTableViewController];
                     
-                    navigationController.navigationBar.barStyle = UIBarStyleBlackTranslucent;
                     navigationController.navigationBar.tintColor = (UIColor *)[UIColor colorWithHex: @"#561D3F" alpha:1.0];
                     
                     [navigationController.navigationBar setBackgroundImage: [UIImage imageNamed:@"navigationBarBackgroundRetro"]];
