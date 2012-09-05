@@ -34,7 +34,7 @@
         return [dateFormatter stringFromDate:date];
     }
     else if(dayDiff == -1) {
-        return @"'Yesterday";
+        return @"Yesterday";
     }
     else if(dayDiff == -2) {
         return @"Two days ago";

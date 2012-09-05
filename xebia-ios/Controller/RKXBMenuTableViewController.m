@@ -131,6 +131,7 @@ enum {
                     navigationController.navigationBar.barStyle = UIBarStyleBlackTranslucent;
                     navigationController.navigationBar.tintColor = (UIColor *)[UIColor colorWithHex: @"#561D3F" alpha:1.0];
 
+                    
                     [navigationController.navigationBar setBackgroundImage: [UIImage imageNamed:@"navigationBarBackgroundRetro"]];
 
                     [revealController setFrontViewController:navigationController animated:NO];

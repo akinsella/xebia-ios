@@ -15,6 +15,7 @@
 #import "SDImageCache.h"
 #import "SDWebImageManager.h"
 #import "UIImageView+WebCache.h"
+#import "CustomNavigationBar.h"
 
 #define FONT_SIZE 13.0f
 #define CELL_CONTENT_WIDTH 232.0f
@@ -44,6 +45,7 @@ UIImage* defaultAvatarImage;
 		[self.navigationController.navigationBar addGestureRecognizer:navigationBarPanGestureRecognizer];
         
 		self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"menu"] style:UIBarButtonItemStylePlain target:self.navigationController.parentViewController action:@selector(revealToggle:)];
+                
 	}
     
     defaultAvatarImage = [UIImage imageNamed:@"avatar_placeholder"];
