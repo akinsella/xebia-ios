@@ -9,6 +9,6 @@
 #import <UIKit/UIKit.h>
 #import "XBTableViewController.h"
 
-@interface RKWPAuthorTableViewController : UITableViewController<RKFetchedResultsTableControllerDelegate>
+@interface RKWPAuthorTableViewController : XBTableViewController<RKFetchedResultsTableControllerDelegate>
 
 @end

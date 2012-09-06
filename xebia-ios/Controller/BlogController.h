@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "XBTabBarController.h"
 
-@interface BlogController : UITabBarController
+@interface BlogController : XBTabBarController
 
 @end

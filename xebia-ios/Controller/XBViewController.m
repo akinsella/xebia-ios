@@ -8,6 +8,7 @@
 
 #import "XBViewController.h"
 #import "UINavigationBar+RKXBAdditions.h"
+#import "UIColor+RKXBAdditions.h"
 
 @interface XBViewController ()
 
@@ -20,10 +21,7 @@
     [super viewDidLoad];
     
     if ([self.navigationController.parentViewController respondsToSelector:@selector(revealGesture:)] && [self.navigationController.parentViewController respondsToSelector:@selector(revealToggle:)])
-	{
-        
-		self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"menu"] style:UIBarButtonItemStylePlain target:self.navigationController.parentViewController action:@selector(revealToggle:)];
-        
+	{        
         // Set the nav bar's background
         [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"navigationBarBackgroundRetro"]];
         

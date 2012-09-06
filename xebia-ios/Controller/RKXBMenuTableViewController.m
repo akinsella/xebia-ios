@@ -17,6 +17,8 @@
 #import "RKTTTweetTableViewController.h"
 #import "HomeController.h"
 #import "RKGHRepositoryTableViewController.h"
+#import "XBNavigationController.h"
+#import "UInavigationBar+RKXBAdditions.h"
 
 
 // Enum for row indices
@@ -45,6 +47,18 @@ enum {
 {
     [super viewDidLoad];
 
+    
+    if ([self.navigationController.parentViewController respondsToSelector:@selector(revealGesture:)] && [self.navigationController.parentViewController respondsToSelector:@selector(revealToggle:)])
+	{
+        // Set the nav bar's background
+        [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"navigationBarBackgroundRetro"]];
+
+        // Add Gesture recognizer
+		UIPanGestureRecognizer *navigationBarPanGestureRecognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self.navigationController.parentViewController action:@selector(revealGesture:)];
+		[self.navigationController.navigationBar addGestureRecognizer:navigationBarPanGestureRecognizer];
+	}
+
+    
     UIImage* titleImage = [UIImage imageNamed:@"Xebia-Logo"];
     UIImageView* titleImageView = [[UIImageView alloc] initWithImage:titleImage];
     
@@ -102,39 +116,31 @@ enum {
             case RKWPMenuHome: {
                 if ([revealController.frontViewController isKindOfClass:[UINavigationController class]] && ![((UINavigationController *)revealController.frontViewController).topViewController isKindOfClass:[HomeController class]])
                 {
-                    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
-                    UIViewController *blogViewController = [storyboard instantiateViewControllerWithIdentifier:@"home"];
-                    
-                    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:blogViewController];
-                    
-                    navigationController.navigationBar.tintColor = (UIColor *)[UIColor colorWithHex: @"#561D3F" alpha:1.0];
-                    
-                    [navigationController.navigationBar setBackgroundImage: [UIImage imageNamed:@"navigationBarBackgroundRetro"]];
-                    
-                    [revealController setFrontViewController:navigationController animated:NO];
+                    UIStoryboard *sb = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
+                    UIViewController *vc = [sb instantiateViewControllerWithIdentifier:@"home"];
+                    XBNavigationController *nc = [[XBNavigationController alloc] initWithRootViewController:vc];
+                                        
+                    [revealController setFrontViewController:nc animated:NO];
                 }
-                else {
+                else
+                {
                     [revealController revealToggle:self];
                 }
                 
                 break;
             }
+                
             case RKWPMenuWordpress: {
                 if ([revealController.frontViewController isKindOfClass:[UINavigationController class]] && ![((UINavigationController *)revealController.frontViewController).topViewController isKindOfClass:[BlogController class]])
                 {
-                    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
-                    UIViewController *blogViewController = [storyboard instantiateViewControllerWithIdentifier:@"tbBlog"];
-
-                    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:blogViewController];
+                    UIStoryboard *sb = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
+                    UIViewController *vc = [sb instantiateViewControllerWithIdentifier:@"tbBlog"];
+                    XBNavigationController *nc = [[XBNavigationController alloc] initWithRootViewController:vc];
                     
-                    navigationController.navigationBar.tintColor = (UIColor *)[UIColor colorWithHex: @"#561D3F" alpha:1.0];
-
-                    
-                    [navigationController.navigationBar setBackgroundImage: [UIImage imageNamed:@"navigationBarBackgroundRetro"]];
-
-                    [revealController setFrontViewController:navigationController animated:NO];
+                    [revealController setFrontViewController:nc animated:NO];
                 }
-                else {
+                else
+                {
                     [revealController revealToggle:self];
                 }
                 
@@ -144,18 +150,14 @@ enum {
             case RKWPMenuTwitter: {
                 if ([revealController.frontViewController isKindOfClass:[UINavigationController class]] && ![((UINavigationController *)revealController.frontViewController).topViewController isKindOfClass:[RKTTTweetTableViewController class]])
                 {
-                    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
-                    RKTTTweetTableViewController *twitterTableViewController = [storyboard instantiateViewControllerWithIdentifier:@"tweets"];
+                    UIStoryboard *sb = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
+                    UIViewController *vc = [sb instantiateViewControllerWithIdentifier:@"tweets"];
+                    XBNavigationController *nc = [[XBNavigationController alloc] initWithRootViewController:vc];
                     
-                    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:twitterTableViewController];
-                    
-                    navigationController.navigationBar.tintColor = (UIColor *)[UIColor colorWithHex: @"#561D3F" alpha:1.0];
-                    
-                    [navigationController.navigationBar setBackgroundImage: [UIImage imageNamed:@"navigationBarBackgroundRetro"]];
-                    
-                    [revealController setFrontViewController:navigationController animated:NO];
+                    [revealController setFrontViewController:nc animated:NO];
                 }
-                else {
+                else
+                {
                     [revealController revealToggle:self];
                 }
                 
@@ -165,18 +167,14 @@ enum {
             case RKWPMenuGithub: {
                 if ([revealController.frontViewController isKindOfClass:[UINavigationController class]] && ![((UINavigationController *)revealController.frontViewController).topViewController isKindOfClass:[RKGHRepositoryTableViewController class]])
                 {
-                    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
-                    RKGHRepositoryTableViewController *repositoryTableViewController = [storyboard instantiateViewControllerWithIdentifier:@"tbGithub"];
-                    
-                    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:repositoryTableViewController];
-                    
-                    navigationController.navigationBar.tintColor = (UIColor *)[UIColor colorWithHex: @"#561D3F" alpha:1.0];
-                    
-                    [navigationController.navigationBar setBackgroundImage: [UIImage imageNamed:@"navigationBarBackgroundRetro"]];
-                    
-                    [revealController setFrontViewController:navigationController animated:NO];
+                    UIStoryboard *sb = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
+                    UIViewController *vc = [sb instantiateViewControllerWithIdentifier:@"tbGithub"];
+                    XBNavigationController *nc = [[XBNavigationController alloc] initWithRootViewController: vc];
+    
+                    [revealController setFrontViewController:nc animated:NO];
                 }
-                else {
+                else
+                {
                     [revealController revealToggle:self];
                 }
                 

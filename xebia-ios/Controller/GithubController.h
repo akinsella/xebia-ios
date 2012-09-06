@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "XBTabBarController.h"
 
-@interface GithubController : UITabBarController
+@interface GithubController : XBTabBarController
 
 @end

@@ -16,7 +16,7 @@
     [df setTimeZone:[NSTimeZone localTimeZone]];
     NSDate *date = [df dateFromString:dateStr];
     [df release];
-
+    
     return date;
 }
 

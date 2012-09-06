@@ -8,8 +8,9 @@
 
 #import "Post.h"
 #import <UIKit/UIKit.h>
+#import "XBViewController.h"
 
-@interface DetailPostViewController : UIViewController<UIWebViewDelegate>
+@interface DetailPostViewController : XBViewController<UIWebViewDelegate>
 
 @property(nonatomic, retain) Post *post;
 @property (nonatomic, retain) IBOutlet UIWebView *webView;

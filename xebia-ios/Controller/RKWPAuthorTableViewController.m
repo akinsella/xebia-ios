@@ -29,7 +29,7 @@ UIImage* defaultAvatarImage;
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
+
     self.title = @"Authors";
 
     defaultAvatarImage = [UIImage imageNamed:@"avatar_placeholder"];

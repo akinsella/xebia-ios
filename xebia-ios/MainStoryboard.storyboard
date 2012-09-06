@@ -412,6 +412,53 @@
         <image name="44-shoebox.png" width="24" height="22"/>
         <image name="homeview.png" width="245" height="114"/>
     </resources>
+    <classes>
+        <class className="BlogController" superclassName="XBTabBarController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/BlogController.h"/>
+        </class>
+        <class className="DetailPostViewController" superclassName="XBViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/DetailPostViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="webView" candidateClass="UIWebView"/>
+            </relationships>
+        </class>
+        <class className="GithubController" superclassName="XBTabBarController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/GithubController.h"/>
+        </class>
+        <class className="HomeController" superclassName="XBViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/HomeController.h"/>
+        </class>
+        <class className="PostTableViewController" superclassName="XBTableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/PostTableViewController.h"/>
+        </class>
+        <class className="RKGHRepositoryTableViewController" superclassName="XBTableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/RKGHRepositoryTableViewController.h"/>
+        </class>
+        <class className="RKGHUserTableViewController" superclassName="XBTableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/RKGHUserTableViewController.h"/>
+        </class>
+        <class className="RKTTTweetTableViewController" superclassName="XBTableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/RKTTTweetTableViewController.h"/>
+        </class>
+        <class className="RKWPAuthorTableViewController" superclassName="XBTableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/RKWPAuthorTableViewController.h"/>
+        </class>
+        <class className="RKWPCategoryTableViewController" superclassName="XBTableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/RKWPCategoryTableViewController.h"/>
+        </class>
+        <class className="RKWPTagTableViewController" superclassName="XBTableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/RKWPTagTableViewController.h"/>
+        </class>
+        <class className="XBTabBarController" superclassName="UITabBarController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/XBTabBarController.h"/>
+        </class>
+        <class className="XBTableViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/XBTableViewController.h"/>
+        </class>
+        <class className="XBViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/XBViewController.h"/>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

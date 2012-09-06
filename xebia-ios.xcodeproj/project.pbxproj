@@ -88,6 +88,7 @@
 		5496962615F7F13500BD1E70 /* XBViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5496962515F7F13400BD1E70 /* XBViewController.m */; };
 		5496962915F7F19A00BD1E70 /* bg_home_pattern.png in Resources */ = {isa = PBXBuildFile; fileRef = 5496962715F7F19800BD1E70 /* bg_home_pattern.png */; };
 		5496962A15F7F19A00BD1E70 /* bg_home_pattern@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5496962815F7F19900BD1E70 /* bg_home_pattern@2x.png */; };
+		54975A4B15F8FB0400C29F6C /* XBTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 54975A4A15F8FB0300C29F6C /* XBTabBarController.m */; };
 		54A2783015C0A0240074505A /* RKWPCategoryTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 54A2782F15C0A0240074505A /* RKWPCategoryTableViewController.m */; };
 		54A2783D15C0A2AA0074505A /* 112-group.png in Resources */ = {isa = PBXBuildFile; fileRef = 54A2783715C0A2AA0074505A /* 112-group.png */; };
 		54A2783E15C0A2AA0074505A /* 112-group@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 54A2783815C0A2AA0074505A /* 112-group@2x.png */; };
@@ -98,6 +99,8 @@
 		54A2784615C0A2E20074505A /* empty.png in Resources */ = {isa = PBXBuildFile; fileRef = 54A2784315C0A2E20074505A /* empty.png */; };
 		54A2784715C0A2E20074505A /* error.png in Resources */ = {isa = PBXBuildFile; fileRef = 54A2784415C0A2E20074505A /* error.png */; };
 		54A2784815C0A2E20074505A /* offline.png in Resources */ = {isa = PBXBuildFile; fileRef = 54A2784515C0A2E20074505A /* offline.png */; };
+		54BB39ED15F8DFDF009AB219 /* XBNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 54BB39EC15F8DFDE009AB219 /* XBNavigationController.m */; };
+		54BB39F015F8E8DB009AB219 /* UIStoryboard+RKXBAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 54BB39EF15F8E8DA009AB219 /* UIStoryboard+RKXBAdditions.m */; };
 		54C2DEEB15BDFAFB00CABB12 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54C2DEEA15BDFAFB00CABB12 /* UIKit.framework */; };
 		54C2DEED15BDFAFB00CABB12 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54C2DEEC15BDFAFB00CABB12 /* Foundation.framework */; };
 		54C2DEEF15BDFAFB00CABB12 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54C2DEEE15BDFAFB00CABB12 /* CoreGraphics.framework */; };
@@ -253,6 +256,8 @@
 		5496962515F7F13400BD1E70 /* XBViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XBViewController.m; sourceTree = "<group>"; };
 		5496962715F7F19800BD1E70 /* bg_home_pattern.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bg_home_pattern.png; sourceTree = "<group>"; };
 		5496962815F7F19900BD1E70 /* bg_home_pattern@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg_home_pattern@2x.png"; sourceTree = "<group>"; };
+		54975A4915F8FB0200C29F6C /* XBTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XBTabBarController.h; sourceTree = "<group>"; };
+		54975A4A15F8FB0300C29F6C /* XBTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XBTabBarController.m; sourceTree = "<group>"; };
 		54A2782E15C0A0240074505A /* RKWPCategoryTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RKWPCategoryTableViewController.h; sourceTree = "<group>"; };
 		54A2782F15C0A0240074505A /* RKWPCategoryTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RKWPCategoryTableViewController.m; sourceTree = "<group>"; };
 		54A2783715C0A2AA0074505A /* 112-group.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "112-group.png"; sourceTree = "<group>"; };
@@ -264,6 +269,10 @@
 		54A2784315C0A2E20074505A /* empty.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = empty.png; sourceTree = "<group>"; };
 		54A2784415C0A2E20074505A /* error.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = error.png; sourceTree = "<group>"; };
 		54A2784515C0A2E20074505A /* offline.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = offline.png; sourceTree = "<group>"; };
+		54BB39EB15F8DFDE009AB219 /* XBNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XBNavigationController.h; sourceTree = "<group>"; };
+		54BB39EC15F8DFDE009AB219 /* XBNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XBNavigationController.m; sourceTree = "<group>"; };
+		54BB39EE15F8E8DA009AB219 /* UIStoryboard+RKXBAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIStoryboard+RKXBAdditions.h"; sourceTree = "<group>"; };
+		54BB39EF15F8E8DA009AB219 /* UIStoryboard+RKXBAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIStoryboard+RKXBAdditions.m"; sourceTree = "<group>"; };
 		54C2DEE615BDFAFB00CABB12 /* xebia-ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "xebia-ios.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		54C2DEEA15BDFAFB00CABB12 /* UIKit.framework */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		54C2DEEC15BDFAFB00CABB12 /* Foundation.framework */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -536,6 +545,8 @@
 		54C2DF1F15BDFB6500CABB12 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				54975A4915F8FB0200C29F6C /* XBTabBarController.h */,
+				54975A4A15F8FB0300C29F6C /* XBTabBarController.m */,
 				546F35F015F2C21400945466 /* GithubController.h */,
 				546F35F115F2C21500945466 /* GithubController.m */,
 				5433345D15EC2EFA007AC690 /* BlogController.h */,
@@ -562,6 +573,8 @@
 				5496961E15F7D93A00BD1E70 /* XBTableViewController.m */,
 				54E325A115E18D8700F55F6A /* RKXBMenuTableViewController.h */,
 				54E325A215E18D8700F55F6A /* RKXBMenuTableViewController.m */,
+				54BB39EB15F8DFDE009AB219 /* XBNavigationController.h */,
+				54BB39EC15F8DFDE009AB219 /* XBNavigationController.m */,
 				546F35E015F281D500945466 /* RKGHRepositoryTableViewController.h */,
 				546F35E115F281D500945466 /* RKGHRepositoryTableViewController.m */,
 				5432CAF215F3AE4A00412BDC /* RKGHUserTableViewController.h */,
@@ -594,12 +607,12 @@
 				547C879915EEBD1600A31E63 /* RKTTUser.m */,
 				54C2DF3715BDFB6500CABB12 /* Post.h */,
 				54C2DF3815BDFB6500CABB12 /* Post.m */,
-				54C2DF3915BDFB6600CABB12 /* RKWPPost.h */,
-				54C2DF3A15BDFB6600CABB12 /* RKWPPost.m */,
 				5483B3EE15BF4C3400E60EE0 /* RKWPTag.h */,
 				5483B3EF15BF4C3400E60EE0 /* RKWPTag.m */,
 				5483B3F215BF4C4300E60EE0 /* RKWPCategory.h */,
 				5483B3F315BF4C4300E60EE0 /* RKWPCategory.m */,
+				54C2DF3915BDFB6600CABB12 /* RKWPPost.h */,
+				54C2DF3A15BDFB6600CABB12 /* RKWPPost.m */,
 				5483B3F515BF4DC900E60EE0 /* RKWPAuthor.h */,
 				5483B3F615BF4DC900E60EE0 /* RKWPAuthor.m */,
 				5483B3F815BF4E9E00E60EE0 /* RKWPComment.h */,
@@ -639,6 +652,8 @@
 				5433342015EA8C8E007AC690 /* UIColor+RKXBAdditions.m */,
 				5433344815EAC786007AC690 /* UINavigationBar+RKXBAdditions.h */,
 				5433344915EAC786007AC690 /* UINavigationBar+RKXBAdditions.m */,
+				54BB39EE15F8E8DA009AB219 /* UIStoryboard+RKXBAdditions.h */,
+				54BB39EF15F8E8DA009AB219 /* UIStoryboard+RKXBAdditions.m */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -882,6 +897,9 @@
 				5432CAF815F3B09B00412BDC /* RKGHUserCell.m in Sources */,
 				5496961F15F7D93A00BD1E70 /* XBTableViewController.m in Sources */,
 				5496962615F7F13500BD1E70 /* XBViewController.m in Sources */,
+				54BB39ED15F8DFDF009AB219 /* XBNavigationController.m in Sources */,
+				54BB39F015F8E8DB009AB219 /* UIStoryboard+RKXBAdditions.m in Sources */,
+				54975A4B15F8FB0400C29F6C /* XBTabBarController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

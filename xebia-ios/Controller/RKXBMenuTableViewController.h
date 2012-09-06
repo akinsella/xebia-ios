@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import <RestKit/UI.h>
+#import "XBTableViewController.h"
 
 @interface RKXBMenuTableViewController : UITableViewController
 

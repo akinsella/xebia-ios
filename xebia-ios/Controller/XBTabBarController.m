@@ -1,20 +1,20 @@
 //
-//  XBTableViewController.m
+//  XBTabBarController.m
 //  xebia-ios
 //
-//  Created by Alexis Kinsella on 05/09/12.
+//  Created by Alexis Kinsella on 06/09/12.
 //
 //
 
-#import "XBTableViewController.h"
+#import "XBTabBarController.h"
 #import "UINavigationBar+RKXBAdditions.h"
 #import "UIColor+RKXBAdditions.h"
 
-@interface XBTableViewController ()
+@interface XBTabBarController ()
 
 @end
 
-@implementation XBTableViewController
+@implementation XBTabBarController
 
 - (void)viewDidLoad
 {
@@ -27,10 +27,10 @@
     
     if ([self.navigationController.parentViewController respondsToSelector:@selector(revealGesture:)] && [self.navigationController.parentViewController respondsToSelector:@selector(revealToggle:)])
 	{
-
+        
         NSLog(@"self.navigationItem: %@", self.navigationItem);
         NSLog(@"self.navigationController.navigationItem: %@", self.navigationController.navigationItem);
-
+        
         // Set the nav bar's background
         [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"navigationBarBackgroundRetro"]];
         

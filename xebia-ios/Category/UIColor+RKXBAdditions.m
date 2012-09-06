@@ -10,8 +10,14 @@
 
 @implementation UIColor (RKXBAdditions)
 
-+ (UIColor*)colorWith8BitRed:(NSInteger)red green:(NSInteger)green blue:(NSInteger)blue alpha:(CGFloat)alpha {
-    return [UIColor colorWithRed:(red/255.0) green:(green/255.0) blue:(blue/255.0) alpha:alpha];
++ (UIColor*)colorWith8BitRed:(NSInteger)red
+                       green:(NSInteger)green
+                        blue:(NSInteger)blue
+                       alpha:(CGFloat)alpha {
+    
+    UIColor* color = [UIColor colorWithRed:(red/255.0) green:(green/255.0) blue:(blue/255.0) alpha:alpha];
+    
+    return color;
 }
 
 + (UIColor*)colorWithHex:(NSString*)hex alpha:(CGFloat)alpha {

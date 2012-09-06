@@ -18,6 +18,7 @@
 #import "UIColor+RKXBAdditions.h"
 #import "UINavigationBar+RKXBAdditions.h"
 #import "HomeController.h"
+#import "XBNavigationController.h"
 
 @interface AppDelegate ()
 @property (nonatomic, strong, readwrite) RKObjectManager *objectManager;
@@ -47,28 +48,22 @@
 //    RKLogConfigureByName("RestKit/ObjectMapping", RKLogLevelTrace);
 //    RKLogConfigureByName("RestKit/ObjectMapping/JSON", RKLogLevelTrace);
 
-//    self.wpDataAccessor = [WPDataAccessor initWithBaseApiUrl:@"http://192.168.1.10:9000/v1.0/"];
+//    self.wpDataAccessor = [WPDataAccessor initWithBaseApiUrl:@"http://127.0.0.1:9000/v1.0/"];
     self.wpDataAccessor = [WPDataAccessor initWithBaseApiUrl:@"http://xebia-mobile.cloudfoundry.com/v1.0/"];
 
     UIWindow *window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
 	self.window = window;
 
     RKXBMenuTableViewController *menuTableViewController = [[RKXBMenuTableViewController alloc] init];
+
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
     HomeController *homeController = [storyboard instantiateViewControllerWithIdentifier:@"home"];
-    
-    UINavigationController *frontNavigationController = [[UINavigationController alloc] initWithRootViewController:homeController];
-    frontNavigationController.navigationBar.tintColor = (UIColor *)[UIColor colorWithHex: @"#561D3F" alpha:1.0];
+    XBNavigationController *frontNavigationController = [[XBNavigationController alloc] initWithRootViewController:homeController];
     frontNavigationController.delegate = self;
-    [frontNavigationController.navigationBar setBackgroundImage: [UIImage imageNamed:@"navigationBarBackgroundRetro"]];
 
-    
-    UINavigationController *rearNavigationController = [[UINavigationController alloc] initWithRootViewController:menuTableViewController];
-    rearNavigationController.navigationBar.tintColor = (UIColor *)[UIColor colorWithHex: @"#561D3F" alpha:1.0];
+    XBNavigationController *rearNavigationController = [[XBNavigationController alloc] initWithRootViewController:menuTableViewController];
     rearNavigationController.delegate = self;
-    [rearNavigationController.navigationBar setBackgroundImage: [UIImage imageNamed:@"navigationBarBackgroundRetro"]];
 
-    
 	RevealController *revealController = [[RevealController alloc] initWithFrontViewController:frontNavigationController rearViewController:rearNavigationController];
     [revealController setFrontViewController:frontNavigationController animated:NO];
 	
@@ -104,7 +99,7 @@
     [githubDateFormatter setDateFormat: @"yyyy-MM-dd'T'HH:mm:ss'Z'"];
     [RKObjectMapping addDefaultDateFormatter:(NSFormatter *)githubDateFormatter];
     
-    self.objectManager = [RKObjectManager managerWithBaseURLString:@"http://192.168.1.10:9000/v1.0/"];
+    self.objectManager = [RKObjectManager managerWithBaseURLString:@"http://127.0.0.1:9000/v1.0/"];
 //    self.objectManager = [RKObjectManager managerWithBaseURLString:@"http://xebia-mobile.cloudfoundry.com/v1.0/"];
     self.objectStore = [RKManagedObjectStore objectStoreWithStoreFilename:@"xebia.sqlite"];
     self.objectManager.objectStore = self.objectStore;
