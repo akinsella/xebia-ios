@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model name="" userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="1487" systemVersion="11E53" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
-    <entity name="RKGHRepository" representedClassName="RKGHRepository" syncable="YES">
+    <entity name="GHRepository" representedClassName="GHRepository" syncable="YES">
         <attribute name="clone_url" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="create_at" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="description_" optional="YES" attributeType="String" syncable="YES"/>
@@ -29,9 +29,9 @@
         <attribute name="url" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="watcher_count" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
         <attribute name="watchers" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
-        <relationship name="owner" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="RKGHUser" syncable="YES"/>
+        <relationship name="owner" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="GHUser" syncable="YES"/>
     </entity>
-    <entity name="RKGHUser" representedClassName="RKGHUser" syncable="YES">
+    <entity name="GHUser" representedClassName="GHUser" syncable="YES">
         <attribute name="avatar_url" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="bio" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="blog" optional="YES" attributeType="String" syncable="YES"/>
@@ -52,19 +52,19 @@
         <attribute name="type" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="url" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
-    <entity name="RKTTTweet" representedClassName="RKTTTweet" syncable="YES">
+    <entity name="TTTweet" representedClassName="TTTweet" syncable="YES">
         <attribute name="created_at" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="identifier" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="text" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="user" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="RKTTUser" syncable="YES"/>
+        <relationship name="user" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="TTUser" syncable="YES"/>
     </entity>
-    <entity name="RKTTUser" representedClassName="RKTTUser" syncable="YES">
+    <entity name="TTUser" representedClassName="TTUser" syncable="YES">
         <attribute name="identifier" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="profile_image_url" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="screen_name" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
-    <entity name="RKWPAttachment" representedClassName="RKWPAttachment" syncable="YES">
+    <entity name="WPAttachment" representedClassName="WPAttachment" syncable="YES">
         <attribute name="caption" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="description_" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="identifier" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
@@ -74,7 +74,7 @@
         <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="url" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
-    <entity name="RKWPAuthor" representedClassName="RKWPAuthor" syncable="YES">
+    <entity name="WPAuthor" representedClassName="WPAuthor" syncable="YES">
         <attribute name="description_" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="first_name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="identifier" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
@@ -85,7 +85,7 @@
         <attribute name="uppercaseFirstLetterOfName" optional="YES" transient="YES" attributeType="String" syncable="YES"/>
         <attribute name="url" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
-    <entity name="RKWPCategory" representedClassName="RKWPCategory" syncable="YES">
+    <entity name="WPCategory" representedClassName="WPCategory" syncable="YES">
         <attribute name="description_" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="identifier" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
         <attribute name="parent" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
@@ -93,16 +93,16 @@
         <attribute name="slug" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
-    <entity name="RKWPComment" representedClassName="RKWPComment" syncable="YES">
+    <entity name="WPComment" representedClassName="WPComment" syncable="YES">
         <attribute name="content" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="date" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="identifier" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="parent" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
         <attribute name="url" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="author" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="RKWPAuthor" syncable="YES"/>
+        <relationship name="author" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="WPAuthor" syncable="YES"/>
     </entity>
-    <entity name="RKWPPost" representedClassName="RKWPPost" syncable="YES">
+    <entity name="WPPost" representedClassName="WPPost" syncable="YES">
         <attribute name="comment_count" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
         <attribute name="comment_status" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="content" optional="YES" attributeType="String" syncable="YES"/>
@@ -116,12 +116,12 @@
         <attribute name="title_plain" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="type" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="url" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="attachments" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="RKWPAttachment" syncable="YES"/>
-        <relationship name="categories" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="RKWPCategory" syncable="YES"/>
-        <relationship name="comments" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="RKWPComment" syncable="YES"/>
-        <relationship name="tags" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="RKWPTag" syncable="YES"/>
+        <relationship name="attachments" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="WPAttachment" syncable="YES"/>
+        <relationship name="categories" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="WPCategory" syncable="YES"/>
+        <relationship name="comments" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="WPComment" syncable="YES"/>
+        <relationship name="tags" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="WPTag" syncable="YES"/>
     </entity>
-    <entity name="RKWPTag" representedClassName="RKWPTag" syncable="YES">
+    <entity name="WPTag" representedClassName="WPTag" syncable="YES">
         <attribute name="description_" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="identifier" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
         <attribute name="post_count" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
@@ -129,15 +129,15 @@
         <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <elements>
-        <element name="RKGHRepository" positionX="160" positionY="192" width="128" height="480"/>
-        <element name="RKGHUser" positionX="160" positionY="192" width="128" height="315"/>
-        <element name="RKTTTweet" positionX="160" positionY="192" width="128" height="105"/>
-        <element name="RKTTUser" positionX="160" positionY="192" width="128" height="105"/>
-        <element name="RKWPAttachment" positionX="-5652" positionY="-612" width="128" height="165"/>
-        <element name="RKWPAuthor" positionX="160" positionY="192" width="128" height="180"/>
-        <element name="RKWPCategory" positionX="160" positionY="192" width="128" height="135"/>
-        <element name="RKWPComment" positionX="160" positionY="192" width="128" height="150"/>
-        <element name="RKWPPost" positionX="-5895" positionY="-765" width="128" height="300"/>
-        <element name="RKWPTag" positionX="160" positionY="192" width="128" height="105"/>
+        <element name="GHRepository" positionX="160" positionY="192" width="128" height="480"/>
+        <element name="GHUser" positionX="160" positionY="192" width="128" height="330"/>
+        <element name="TTTweet" positionX="160" positionY="192" width="128" height="105"/>
+        <element name="TTUser" positionX="160" positionY="192" width="128" height="105"/>
+        <element name="WPAttachment" positionX="-5652" positionY="-612" width="128" height="165"/>
+        <element name="WPAuthor" positionX="160" positionY="192" width="128" height="180"/>
+        <element name="WPCategory" positionX="160" positionY="192" width="128" height="135"/>
+        <element name="WPComment" positionX="160" positionY="192" width="128" height="150"/>
+        <element name="WPPost" positionX="-5895" positionY="-765" width="128" height="300"/>
+        <element name="WPTag" positionX="160" positionY="192" width="128" height="120"/>
     </elements>
 </model>

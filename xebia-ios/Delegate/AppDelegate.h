@@ -15,7 +15,7 @@
 #import "RestKit.h"
 
 
-@interface AppDelegate : UIResponder <UIApplicationDelegate, UINavigationControllerDelegate>
+@interface AppDelegate : UIResponder <UIApplicationDelegate>
 
 @property(strong, nonatomic) WPDataAccessor *wpDataAccessor;
 
