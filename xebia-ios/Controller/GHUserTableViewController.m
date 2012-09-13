@@ -45,6 +45,7 @@ UIImage* defaultAvatarImage;
      Configure the RestKit table controller to drive our view
      */
     self.tableController = [[RKObjectManager sharedManager] fetchedResultsTableControllerForTableViewController:self];
+    self.tableController.cacheName = @"Users";
     self.tableController.delegate = self;
 
     NSSortDescriptor *descriptor = [NSSortDescriptor sortDescriptorWithKey:@"login" ascending:YES];

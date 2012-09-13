@@ -60,10 +60,10 @@
     RKLogConfigureByName("RestKit/ObjectMapping", RKLogLevelError);
     RKLogConfigureByName("RestKit/ObjectMapping/JSON", RKLogLevelError);
     
-    //    RKLogConfigureByName("RestKit/UI", RKLogLevelTrace);
-    //    RKLogConfigureByName("RestKit/Network", RKLogLevelTrace);
-    //    RKLogConfigureByName("RestKit/ObjectMapping", RKLogLevelTrace);
-    //    RKLogConfigureByName("RestKit/ObjectMapping/JSON", RKLogLevelTrace);
+//        RKLogConfigureByName("RestKit/UI", RKLogLevelTrace);
+//        RKLogConfigureByName("RestKit/Network", RKLogLevelTrace);
+//        RKLogConfigureByName("RestKit/ObjectMapping", RKLogLevelTrace);
+//        RKLogConfigureByName("RestKit/ObjectMapping/JSON", RKLogLevelTrace);
 }
 
 - (void)initializeRestKit {
@@ -85,6 +85,8 @@
 //    self.objectManager = [RKObjectManager managerWithBaseURLString:@"http://xebia-mobile.cloudfoundry.com/v1.0/"];
     self.objectStore = [RKManagedObjectStore objectStoreWithStoreFilename:@"xebia.sqlite"];
     self.objectManager.objectStore = self.objectStore;
+    self.objectManager.objectStore.delegate = self;
+    self.objectManager.objectStore.cacheStrategy = [RKFetchRequestManagedObjectCache new];
     self.objectManager.mappingProvider = [XBMappingProvider mappingProviderWithObjectStore:self.objectStore];
 }
 
@@ -100,4 +102,25 @@
     }
 }
 
+// Delegates
+
+- (void)managedObjectStore:(RKManagedObjectStore *)objectStore didFailToCreatePersistentStoreCoordinatorWithError:(NSError *)error
+{
+    NSLog(@"Fail to create a persistent store. Error: %@", error);
+}
+
+- (void)managedObjectStore:(RKManagedObjectStore *)objectStore didFailToDeletePersistentStore:(NSString *)pathToStoreFile error:(NSError *)error;
+{
+    NSLog(@"Fail to delete a persistent store at path %@. Error: %@", pathToStoreFile, error);
+}
+
+- (void)managedObjectStore:(RKManagedObjectStore *)objectStore didFailToCopySeedDatabase:(NSString *)seedDatabase error:(NSError *)error
+{
+    NSLog(@"Fail to copy seed database: %@. Error: %@", seedDatabase, error);
+}
+
+- (void)managedObjectStore:(RKManagedObjectStore *)objectStore didFailToSaveContext:(NSManagedObjectContext *)context error:(NSError *)error exception:(NSException *)exception
+{
+    NSLog(@"Fail to save context: %@. Error: %@ (%@)", context, error, exception);
+}
 @end

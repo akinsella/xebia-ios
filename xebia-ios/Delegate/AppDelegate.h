@@ -15,7 +15,7 @@
 #import "RestKit.h"
 
 
-@interface AppDelegate : UIResponder <UIApplicationDelegate>
+@interface AppDelegate : UIResponder <UIApplicationDelegate, RKManagedObjectStoreDelegate>
 
 @property(strong, nonatomic) WPDataAccessor *wpDataAccessor;
 

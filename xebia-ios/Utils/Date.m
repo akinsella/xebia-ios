@@ -29,9 +29,12 @@
     NSInteger dayDiff = (int)[midnight timeIntervalSinceNow] / (60*60*24);
 
     if(dayDiff == 0) {
-        NSDateFormatter *dateFormatter = [[[NSDateFormatter alloc] init] autorelease];
-        [dateFormatter setDateFormat:@"Today, 'hh':'mm'"];
-        return [dateFormatter stringFromDate:date];
+        NSDateFormatter *df2 = [[NSDateFormatter alloc] init];
+        [df2 setDateFormat:@"HH:mm"];
+        NSString *dateFormatted = [df2 stringFromDate:date];
+        NSLog(@"Date formatted: %@", dateFormatted);
+        [df2 release];
+        return [NSString stringWithFormat:@"Today, %@", dateFormatted];
     }
     else if(dayDiff == -1) {
         return @"Yesterday";

@@ -84,12 +84,14 @@
              fetchRequest.sortDescriptors = [NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:@"name" ascending:NO]];
              return fetchRequest;
          }];
-        
+
         [self setObjectMapping:[self githubUserObjectMapping]
         forResourcePathPattern:@"/github/orgs/xebia-france/public_members"
          withFetchRequestBlock:^NSFetchRequest *(NSString *resourcePath) {
              // NOTE: We could use RKPathMatcher here to easily tokenize the requested resourcePath
+             NSPredicate *predicate = [NSPredicate predicateWithFormat:@"type == %@", @"User"];
              NSFetchRequest *fetchRequest = [GHUser fetchRequest];
+             [fetchRequest setPredicate:predicate];
              fetchRequest.sortDescriptors = [NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:@"name" ascending:NO]];
              return fetchRequest;
          }];

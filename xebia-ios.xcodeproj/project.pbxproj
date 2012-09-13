@@ -19,6 +19,7 @@
 		540C092115C58A4B00615B00 /* Default-Landscape~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 540C092015C58A4B00615B00 /* Default-Landscape~ipad.png */; };
 		540C092315C58C5700615B00 /* Default-Portrait~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 540C092215C58C5700615B00 /* Default-Portrait~ipad.png */; };
 		540C092515C58C5A00615B00 /* Default-Portrait@2x~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 540C092415C58C5A00615B00 /* Default-Portrait@2x~ipad.png */; };
+		54308F9115FFD48200F16EB4 /* UIColorTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 54308F9015FFD48200F16EB4 /* UIColorTest.m */; };
 		5432CAF415F3AE4A00412BDC /* GHUserTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5432CAF315F3AE4A00412BDC /* GHUserTableViewController.m */; };
 		5432CAF815F3B09B00412BDC /* GHUserCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5432CAF615F3B09B00412BDC /* GHUserCell.m */; };
 		5432CAF915F3B09B00412BDC /* GHUserCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5432CAF715F3B09B00412BDC /* GHUserCell.xib */; };
@@ -110,7 +111,6 @@
 		54C2DF0A15BDFAFC00CABB12 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54C2DEEC15BDFAFB00CABB12 /* Foundation.framework */; };
 		54C2DF0B15BDFAFC00CABB12 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54C2DEF015BDFAFB00CABB12 /* CoreData.framework */; };
 		54C2DF1315BDFAFC00CABB12 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 54C2DF1115BDFAFC00CABB12 /* InfoPlist.strings */; };
-		54C2DF1615BDFAFC00CABB12 /* xebia_iosTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 54C2DF1515BDFAFC00CABB12 /* xebia_iosTests.m */; };
 		54C2DF4515BDFB6600CABB12 /* XBDetailPostViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 54C2DF2515BDFB6500CABB12 /* XBDetailPostViewController.m */; };
 		54C2DF4615BDFB6600CABB12 /* WPPostTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 54C2DF2715BDFB6500CABB12 /* WPPostTableViewController.m */; };
 		54C2DF4915BDFB6600CABB12 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 54C2DF2E15BDFB6500CABB12 /* AppDelegate.m */; };
@@ -130,6 +130,7 @@
 		54F9D40E15D80C5A00A8E511 /* avatar_placeholder.png in Resources */ = {isa = PBXBuildFile; fileRef = 54F9D40D15D80C5A00A8E511 /* avatar_placeholder.png */; };
 		54F9D42015D81A4100A8E511 /* GravatarHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 54F9D41F15D81A4100A8E511 /* GravatarHelper.m */; };
 		B56E64C3C14D4A618E4C1641 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EDB581D723EF4E5C808B5615 /* libPods.a */; };
+		DB34D961D8EB1C8AC527AB60 /* NSError+XBAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34D8626C4FFDBBD0C7D3FE /* NSError+XBAdditions.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -157,6 +158,8 @@
 		540C092015C58A4B00615B00 /* Default-Landscape~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Landscape~ipad.png"; sourceTree = "<group>"; };
 		540C092215C58C5700615B00 /* Default-Portrait~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Portrait~ipad.png"; sourceTree = "<group>"; };
 		540C092415C58C5A00615B00 /* Default-Portrait@2x~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Portrait@2x~ipad.png"; sourceTree = "<group>"; };
+		54308F8F15FFD48200F16EB4 /* UIColorTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIColorTest.h; sourceTree = "<group>"; };
+		54308F9015FFD48200F16EB4 /* UIColorTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIColorTest.m; sourceTree = "<group>"; };
 		5432CAF215F3AE4A00412BDC /* GHUserTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GHUserTableViewController.h; sourceTree = "<group>"; };
 		5432CAF315F3AE4A00412BDC /* GHUserTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GHUserTableViewController.m; sourceTree = "<group>"; };
 		5432CAF515F3B09B00412BDC /* GHUserCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GHUserCell.h; sourceTree = "<group>"; };
@@ -280,8 +283,6 @@
 		54C2DF0715BDFAFC00CABB12 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		54C2DF1015BDFAFC00CABB12 /* xebia-iosTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "xebia-iosTests-Info.plist"; sourceTree = "<group>"; };
 		54C2DF1215BDFAFC00CABB12 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		54C2DF1415BDFAFC00CABB12 /* xebia_iosTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = xebia_iosTests.h; sourceTree = "<group>"; };
-		54C2DF1515BDFAFC00CABB12 /* xebia_iosTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = xebia_iosTests.m; sourceTree = "<group>"; };
 		54C2DF2415BDFB6500CABB12 /* XBDetailPostViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XBDetailPostViewController.h; sourceTree = "<group>"; };
 		54C2DF2515BDFB6500CABB12 /* XBDetailPostViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XBDetailPostViewController.m; sourceTree = "<group>"; };
 		54C2DF2615BDFB6500CABB12 /* WPPostTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WPPostTableViewController.h; sourceTree = "<group>"; };
@@ -312,6 +313,8 @@
 		54F9D40D15D80C5A00A8E511 /* avatar_placeholder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = avatar_placeholder.png; sourceTree = "<group>"; };
 		54F9D41E15D81A4100A8E511 /* GravatarHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GravatarHelper.h; sourceTree = "<group>"; };
 		54F9D41F15D81A4100A8E511 /* GravatarHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GravatarHelper.m; sourceTree = "<group>"; };
+		DB34D0A8986BBE213BA4DEDB /* NSError+XBAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSError+XBAdditions.h"; sourceTree = "<group>"; };
+		DB34D8626C4FFDBBD0C7D3FE /* NSError+XBAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSError+XBAdditions.m"; sourceTree = "<group>"; };
 		EDB581D723EF4E5C808B5615 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		FFE479B60E604A7197B75249 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
@@ -520,9 +523,9 @@
 		54C2DF0E15BDFAFC00CABB12 /* xebia-iosTests */ = {
 			isa = PBXGroup;
 			children = (
-				54C2DF1415BDFAFC00CABB12 /* xebia_iosTests.h */,
-				54C2DF1515BDFAFC00CABB12 /* xebia_iosTests.m */,
 				54C2DF0F15BDFAFC00CABB12 /* Supporting Files */,
+				54308F8F15FFD48200F16EB4 /* UIColorTest.h */,
+				54308F9015FFD48200F16EB4 /* UIColorTest.m */,
 			);
 			path = "xebia-iosTests";
 			sourceTree = "<group>";
@@ -630,6 +633,8 @@
 		54E325AF15E19D5900F55F6A /* Category */ = {
 			isa = PBXGroup;
 			children = (
+				DB34D0A8986BBE213BA4DEDB /* NSError+XBAdditions.h */,
+				DB34D8626C4FFDBBD0C7D3FE /* NSError+XBAdditions.m */,
 				54E325BA15E55C3A00F55F6A /* UISearchBar+XBAdditions.h */,
 				54E325BB15E55C3B00F55F6A /* UISearchBar+XBAdditions.m */,
 				54E325B015E19D5900F55F6A /* UIImage+XBAdditions.h */,
@@ -888,6 +893,7 @@
 				54BB39F015F8E8DB009AB219 /* UIStoryboard+XBAdditions.m in Sources */,
 				54975A4E15FD250800C29F6C /* UIViewController+XBAdditions.m in Sources */,
 				54975A5115FD298900C29F6C /* UINavigationController+XBAdditions.m in Sources */,
+				DB34D961D8EB1C8AC527AB60 /* NSError+XBAdditions.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -895,7 +901,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				54C2DF1615BDFAFC00CABB12 /* xebia_iosTests.m in Sources */,
+				54308F9115FFD48200F16EB4 /* UIColorTest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
