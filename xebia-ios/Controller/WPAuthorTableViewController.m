@@ -15,6 +15,8 @@
 #import "SDImageCache.h"
 #import "SDWebImageManager.h"
 #import "UIImageView+WebCache.h"
+#import "WPPost.h"
+#import "WPPostTableViewController.h"
 
 @interface WPAuthorTableViewController ()
 @property (nonatomic, strong) RKFetchedResultsTableController *tableController;
@@ -107,11 +109,12 @@ UIImage* defaultAvatarImage;
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-//    if ([segue.identifier isEqualToString:@"showDetail"]) {        
-//        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
-//        WPAuthor *author = [self.tableController objectForRowAtIndexPath:indexPath];
-//        [[segue destinationViewController] setAuthor:author];
-//    }
+    if ([segue.identifier isEqualToString:@"showDetail"]) {        
+        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+        WPAuthor *author = [self.tableController objectForRowAtIndexPath:indexPath];
+        WPPostTableViewController *ptvc = [segue destinationViewController];
+        [ptvc initWithPostType:AUTHOR identifier:author.identifier];
+    }
 }
 
 @end

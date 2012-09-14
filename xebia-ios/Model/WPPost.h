@@ -25,4 +25,13 @@
 @property(nonatomic, strong) NSNumber *comment_count;
 @property(nonatomic, strong) NSString *comment_status;
 
+@property (nonatomic, strong, readonly) NSURL *imageUrl;
+
+typedef enum {
+    RECENT = 1,
+    TAG = 2,
+    CATEGORY = 3,
+    AUTHOR = 4
+} POST_TYPE;
+
 @end

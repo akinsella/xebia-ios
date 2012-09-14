@@ -7,13 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "Post.h"
-#import "MBProgressHUD.h"
 
-@interface WPPostTableViewController : UITableViewController<MBProgressHUDDelegate>
+@interface WPPostTableViewController : UITableViewController<RKFetchedResultsTableControllerDelegate>
 
-@property(nonatomic, strong) NSMutableArray *posts;
 @property(nonatomic, assign) POST_TYPE postType;
-@property(nonatomic, assign) int identifier;
+@property(nonatomic, assign) NSNumber *identifier;
+
+-(id)initWithPostType:(POST_TYPE)postType identifier:(NSNumber *)identifier;
 
 @end

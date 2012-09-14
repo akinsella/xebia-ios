@@ -6,116 +6,139 @@
 //  Copyright (c) 2012 Xebia France. All rights reserved.
 //
 
+
+#import <RestKit/RestKit.h>
+#import <RestKit/UI.h>
+#import "WPPost.h"
 #import "WPPostTableViewController.h"
-#import "XBDetailPostViewController.h"
-#import "AppDelegate.h"
-#import "Date.h"
+#import "XBLoadingView.h"
+#import "WPPostCell.h"
+#import "SDImageCache.h"
+#import "SDWebImageManager.h"
+#import "UIImageView+WebCache.h"
+#import "WPPost.h"
+
+@interface WPPostTableViewController ()
+@property (nonatomic, strong) RKFetchedResultsTableController *tableController;
+@end
 
 @implementation WPPostTableViewController
 
+UIImage* defaultPostImage;
+NSMutableDictionary *postTypes;
 
-@synthesize identifier, postType, posts;
+@synthesize tableController;
+@synthesize identifier, postType;
 
-- (id)initWithStyle:(UITableViewStyle)style {
-    self = [super initWithStyle:style];
-    if (self) {
-        // Custom initialization
+-(id)initWithPostType:(POST_TYPE)postType identifier:(NSNumber *)identifier
+{
+    self = [super initWithStyle:UITableViewStylePlain];
+    
+    if (self != nil) {
+        self.postType = postType;
+        self.identifier = identifier;
+        
+        postTypes = [[NSMutableDictionary alloc] initWithObjectsAndKeys:
+                           @"recent",  [[NSNumber numberWithInt: RECENT] description],
+                           @"author", [[NSNumber numberWithInt: AUTHOR] description],
+                           @"tag", [[NSNumber numberWithInt: TAG] description],
+                           @"category", [[NSNumber numberWithInt: CATEGORY] description],
+                           nil];
+
+        
     }
+    
     return self;
 }
 
-- (void)viewDidLoad {
+- (void)viewDidLoad
+{
     [super viewDidLoad];
-
-    MBProgressHUD *HUD = [[MBProgressHUD alloc] initWithView:self.navigationController.view];
-    [self.navigationController.view addSubview:HUD];
-
-    HUD.delegate = self;
-    HUD.labelText = @"Loading";
-
-    [HUD showWhileExecuting:@selector(updatePosts) onTarget:self withObject:nil animated:YES];
-}
-
-- (void)updatePosts {
-    AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
-
-    [appDelegate updatePostsWithPostType:postType Id:identifier Count:100];
-
-    posts = appDelegate.posts;
-
-    [[self tableView] reloadData];
-}
-
-- (void)viewDidUnload {
-    [super viewDidUnload];
-}
-
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
-    return YES;
-}
-
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    if ([[segue identifier] isEqualToString:@"showDetail"]) {
-      XBDetailPostViewController *detailPostViewController = [segue destinationViewController];
-        Post *post = [self.posts objectAtIndex:[self.tableView indexPathForSelectedRow].row];
-        detailPostViewController.post = post;
-    }
-}
-
-#pragma mark - Table view data source
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 1;
-}
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return posts.count;
-}
-
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    static NSString *cellIdentifier = @"PostCell";
-    UITableViewCell *cell = (UITableViewCell *) [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
-
-    if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cellIdentifier];
-    }
-
-    Post *post = [self.posts objectAtIndex:indexPath.row];
-
-    cell.textLabel.text = post.title;
-    cell.detailTextLabel.text = [Date formattedDateRelativeToNow:[Date parseDate: post.date withFormat: @"yyyy-MM-dd HH:mm:ss"]];
-
-    return cell;
-}
-
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        [self.posts removeObjectAtIndex:indexPath.row];
-        [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    }
-}
-
-
-#pragma mark - Table view delegate
-
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-
-    Post *post = [posts objectAtIndex:indexPath.row];
-
-//    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:post.title 
-//                                                    message:[NSString stringWithFormat:@"You selected '%@': %@", post.title, post.description] 
-//                                                   delegate:nil 
-//                                          cancelButtonTitle:nil 
-//                                          otherButtonTitles:@"Ok", nil];
-//    [alert show];
-
-    [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    // Navigation logic may go here. Create and push another view controller.
-    /*
-     <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
-     // ...
-     // Pass the selected object to the new view controller.
-     [self.navigationController pushViewController:detailViewController animated:YES];
+    
+    self.title = @"Posts";
+    
+    defaultPostImage = [UIImage imageNamed:@"avatar_placeholder"];
+    
+    /**
+     Configure the RestKit table controller to drive our view
      */
+    self.tableController = [[RKObjectManager sharedManager] fetchedResultsTableControllerForTableViewController:self];
+    self.tableController.delegate = self;
+    
+    NSSortDescriptor *descriptor = [NSSortDescriptor sortDescriptorWithKey:@"date" ascending:YES];
+    self.tableController.fetchRequest.sortDescriptors = [NSArray arrayWithObject:descriptor];
+    
+    self.tableController.showsSectionIndexTitles = FALSE;
+    self.tableController.autoRefreshFromNetwork = YES;
+    self.tableController.pullToRefreshEnabled = YES;
+
+    NSString *currentPostType = [postTypes valueForKey:[[NSNumber numberWithInt: postType] description]];
+
+    self.tableController.resourcePath = [NSString stringWithFormat: @"/wordpress/get_%@_index/?id=%@", currentPostType, identifier];
+    self.tableController.variableHeightRows = YES;
+    
+    /**
+     Configure the Pull to Refresh View
+     */
+    NSBundle *restKitResources = [NSBundle restKitResourcesBundle];
+    UIImage *arrowImage = [restKitResources imageWithContentsOfResource:@"blueArrow" withExtension:@"png"];
+    [[RKRefreshTriggerView appearance] setTitleFont:[UIFont fontWithName:@"HelveticaNeue-Bold" size:13]];
+    [[RKRefreshTriggerView appearance] setLastUpdatedFont:[UIFont fontWithName:@"HelveticaNeue" size:11]];
+    [[RKRefreshTriggerView appearance] setArrowImage:arrowImage];
+    
+    /**
+     Configure a basic loading view
+     */
+    XBLoadingView *loadingView = [[XBLoadingView alloc] initWithFrame:CGRectMake(0, 0, 80, 80)];
+    loadingView.center = self.tableView.center;
+    self.tableController.loadingView = loadingView;
+    
+    /**
+     Setup some images for various table states
+     */
+    self.tableController.imageForOffline = [UIImage imageNamed:@"offline.png"];
+    self.tableController.imageForError = [UIImage imageNamed:@"error.png"];
+    self.tableController.imageForEmpty = [UIImage imageNamed:@"empty.png"];
+    
+    RKTableViewCellMapping *cellMapping = [RKTableViewCellMapping cellMapping];
+    cellMapping.cellClassName = @"WPPostCell";
+    cellMapping.reuseIdentifier = @"WPPost";
+    //    cellMapping.rowHeight = 100.0;
+    [cellMapping mapKeyPath:@"title" toAttribute:@"titleLabel.text"];
+    [cellMapping mapKeyPath:@"identifier" toAttribute:@"identifier"];
+    
+    [tableController mapObjectsWithClass:[WPPost class] toTableCellsWithMapping:cellMapping];
+    
+    /**
+     Use a custom Nib to draw our table cells for GHIssue objects
+     */
+    [self.tableView registerNib:[UINib nibWithNibName:@"WPPostCell" bundle:nil] forCellReuseIdentifier:@"WPPost"];
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    
+    /**
+     Load the table view!
+     */
+    [tableController loadTable];
+}
+
+- (void)tableController:(RKAbstractTableController *)tableController willDisplayCell:(UITableViewCell *)cell forObject:(id)object atIndexPath:(NSIndexPath *)indexPath;
+{
+    WPPost *post = object;
+    WPPostCell *postCell = (WPPostCell *)cell;
+    [postCell.imageView setImageWithURL:[post imageUrl] placeholderImage:defaultPostImage];
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+//    if ([segue.identifier isEqualToString:@"showDetail"]) {
+//        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+//        WPAuthor *author = [self.tableController objectForRowAtIndexPath:indexPath];
+//        [[segue destinationViewController] loadWithPostType:AUTHOR identifier:author.identifier];
+//    }
 }
 
 @end

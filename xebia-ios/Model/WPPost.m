@@ -7,6 +7,7 @@
 //
 
 #import "WPPost.h"
+#import "GravatarHelper.h"
 
 @implementation WPPost
 
@@ -23,5 +24,9 @@
 @dynamic modified;
 @dynamic comment_count;
 @dynamic comment_status;
+
+- (NSURL *)imageUrl {
+    return [GravatarHelper getGravatarURL: [NSString stringWithFormat:@"%@@xebia.fr", @"akinsella"]];
+}
 
 @end

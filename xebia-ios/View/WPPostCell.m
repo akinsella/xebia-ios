@@ -6,18 +6,16 @@
 //  Copyright (c) 2012 RestKit. All rights reserved.
 //
 
-#import "WPAuthorCell.h"
+#import "WPPostCell.h"
 #import "SDImageCache.h"
-#import "WPAuthor.h"
+#import "WPPost.h"
 
-@implementation WPAuthorCell
+@implementation WPPostCell
 
 @synthesize titleLabel;
 @synthesize descriptionLabel;
-@synthesize bottomDetailLabel;
-@synthesize itemCount = _itemCount;
 @synthesize identifier;
-@synthesize avatarImage;
+@synthesize postImage;
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
@@ -32,18 +30,10 @@
     self.imageView.frame = CGRectMake(0,0,44,44);
 }
 
-- (void)setItemCount:(NSInteger)itemCount {
-    _itemCount = itemCount;
-    [self updateBottomDetailLabel];
-}
-
-- (void)updateBottomDetailLabel {
-    self.bottomDetailLabel.text = [NSString stringWithFormat:@"%d posts", self.itemCount];
-}
 
 -(void) prepareForReuse {
     identifier = nil;
-    avatarImage = nil;
+    postImage = nil;
 }
 
 @end

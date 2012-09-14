@@ -43,10 +43,4 @@
 
 - (NSDictionary*) getAsDictionary;
 
-typedef enum {
-    TAG = 1,
-    CATEGORY = 2,
-    AUTHOR = 3
-} POST_TYPE;
-
 @end
