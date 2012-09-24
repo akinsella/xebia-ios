@@ -19,4 +19,5 @@
 
 - (id)initWithViewControllerManager:(XBViewControllerManager *)viewControllerManager;
 
+- (void)revealViewController:(UIViewController *)controller;
 @end

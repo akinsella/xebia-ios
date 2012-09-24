@@ -69,9 +69,9 @@
         forResourcePathPattern:@"/wordpress/get_author_posts/"
          withFetchRequestBlock:^NSFetchRequest *(NSString *resourcePath) {
              // NOTE: We could use RKPathMatcher here to easily tokenize the requested resourcePath
-             NSPredicate *predicate = [NSPredicate predicateWithFormat:@"slug == %@", @"akinsella"];
-             NSFetchRequest *fetchRequest = [GHUser fetchRequest];
-             [fetchRequest setPredicate:predicate];
+//             NSPredicate *predicate = [NSPredicate predicateWithFormat:@"idendifier == %@", @"50"];
+             NSFetchRequest *fetchRequest = [WPPost fetchRequest];
+//             [fetchRequest setPredicate:predicate];
              fetchRequest.sortDescriptors = [NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:@"date" ascending:YES]];
              return fetchRequest;
          }];
@@ -81,7 +81,7 @@
          withFetchRequestBlock:^NSFetchRequest *(NSString *resourcePath) {
              // NOTE: We could use RKPathMatcher here to easily tokenize the requested resourcePath
              NSPredicate *predicate = [NSPredicate predicateWithFormat:@"slug == %@", @"android"];
-             NSFetchRequest *fetchRequest = [GHUser fetchRequest];
+             NSFetchRequest *fetchRequest = [WPPost fetchRequest];
              [fetchRequest setPredicate:predicate];
              fetchRequest.sortDescriptors = [NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:@"date" ascending:YES]];
              return fetchRequest;
@@ -92,7 +92,7 @@
          withFetchRequestBlock:^NSFetchRequest *(NSString *resourcePath) {
              // NOTE: We could use RKPathMatcher here to easily tokenize the requested resourcePath
              NSPredicate *predicate = [NSPredicate predicateWithFormat:@"slug == %@", @"web"];
-             NSFetchRequest *fetchRequest = [GHUser fetchRequest];
+             NSFetchRequest *fetchRequest = [WPPost fetchRequest];
              [fetchRequest setPredicate:predicate];
              fetchRequest.sortDescriptors = [NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:@"date" ascending:YES]];
              return fetchRequest;

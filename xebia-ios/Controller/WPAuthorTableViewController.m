@@ -18,6 +18,8 @@
 #import "WPPost.h"
 #import "WPPostTableViewController.h"
 #import "UINavigationController+XBAdditions.h"
+#import "UIViewController+XBAdditions.h"
+#import "XBMainViewController.h"
 
 @interface WPAuthorTableViewController ()
 @property (nonatomic, strong) RKFetchedResultsTableController *tableController;
@@ -82,18 +84,17 @@ UIImage* defaultAvatarImage;
 //    cellMapping.rowHeight = 100.0;
     [cellMapping mapKeyPath:@"name" toAttribute:@"titleLabel.text"];
     [cellMapping mapKeyPath:@"identifier" toAttribute:@"identifier"];
-     
-    [tableController mapObjectsWithClass:[WPAuthor class] toTableCellsWithMapping:cellMapping];
     cellMapping.onSelectCellForObjectAtIndexPath = ^(UITableViewCell *cell, id object, NSIndexPath* indexPath) {
         WPAuthor *author = [self.tableController objectForRowAtIndexPath:indexPath];
         NSLog(@"Author: %@", author);
-        WPPostTableViewController *postController = (WPPostTableViewController *)[self instantiateControllerWithIdentifier:@"posts"];
-        [postController initWithPostType:AUTHOR identifier:author.identifier];
-        
-//        WPPostTableViewController *ptvc = [segue destinationViewController];
-//        [ptvc initWithPostType:AUTHOR identifier:author.identifier];
+
+        WPPostTableViewController *postTableViewController = [[WPPostTableViewController alloc] initWithPostType:AUTHOR identifier:author.identifier];
+        [self.appDelegate.mainViewController revealViewController:postTableViewController];
+        [postTableViewController release];
     };
-    
+
+    [tableController mapObjectsWithClass:[WPAuthor class] toTableCellsWithMapping:cellMapping];
+
     
     /**
      Use a custom Nib to draw our table cells for GHIssue objects

@@ -74,7 +74,7 @@ NSMutableDictionary *postTypes;
 
     NSString *currentPostType = [postTypes valueForKey:[[NSNumber numberWithInt: postType] description]];
 
-    self.tableController.resourcePath = [NSString stringWithFormat: @"/wordpress/get_%@_index/?id=%@", currentPostType, identifier];
+    self.tableController.resourcePath = [NSString stringWithFormat: @"/wordpress/get_%@_posts/?id=%@&count=100", currentPostType, identifier];
     self.tableController.variableHeightRows = YES;
     
     /**
@@ -113,6 +113,7 @@ NSMutableDictionary *postTypes;
      Use a custom Nib to draw our table cells for GHIssue objects
      */
     [self.tableView registerNib:[UINib nibWithNibName:@"WPPostCell" bundle:nil] forCellReuseIdentifier:@"WPPost"];
+    [loadingView release];
 }
 
 - (void)viewWillAppear:(BOOL)animated

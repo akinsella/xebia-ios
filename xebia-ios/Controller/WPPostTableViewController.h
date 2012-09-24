@@ -7,11 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "WPPost.h"
 
 @interface WPPostTableViewController : UITableViewController<RKFetchedResultsTableControllerDelegate>
 
 @property(nonatomic, assign) POST_TYPE postType;
-@property(nonatomic, assign) NSNumber *identifier;
+@property(nonatomic, copy) NSNumber *identifier;
 
 -(id)initWithPostType:(POST_TYPE)postType identifier:(NSNumber *)identifier;
 

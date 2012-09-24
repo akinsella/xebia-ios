@@ -13,6 +13,7 @@
 #import "NSNumber+XBAdditions.h"
 #import "RKTableItem+XKAdditions.h"
 #import "UIImageView+XBAdditions.h"
+#import "WPPostTableViewController.h"
 
 // Enum for row indices
 enum {
@@ -99,6 +100,13 @@ enum {
     _revealController = [[XBRevealController alloc] initWithFrontViewController: homeController.navigationController
                                                             rearViewController:_rearNavigationController];
 }
+
+
+- (void)revealViewController:(UIViewController *)viewController {
+    UINavigationController *frontViewController = (UINavigationController *) _revealController.frontViewController;
+    [frontViewController pushViewController:viewController animated:true];
+}
+
 
 -(void)revealViewControllerWithIdentifier:(NSString *)identifier {
     if ([self currentViewIsViewControllerWithIdentifier: identifier]) {

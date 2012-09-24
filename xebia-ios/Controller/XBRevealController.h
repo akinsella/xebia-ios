@@ -33,10 +33,6 @@
 #import <UIKit/UIKit.h>
 #import "ZUUIRevealController.h"
 
-@class WPAuthorTableViewController;
-@class WPCategoryTableViewController;
-@class WPTagTableViewController;
-
 @interface XBRevealController : ZUUIRevealController <ZUUIRevealControllerDelegate>
 
 @end
