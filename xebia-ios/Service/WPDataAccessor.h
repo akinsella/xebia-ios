@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import <RestKit/RestKit.h>
-#import "Post.h"
+#import "WPPost.h"
 
 @interface WPDataAccessor : NSObject
 

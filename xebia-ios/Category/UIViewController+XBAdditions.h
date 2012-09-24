@@ -7,9 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "AppDelegate.h"
 
 @interface UIViewController (XBAdditions)
 
 - (void) addRevealGesture;
 - (void) addMenuButton;
+- (AppDelegate *) appDelegate;
+
 @end

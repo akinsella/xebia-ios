@@ -9,11 +9,14 @@
 #import <UIKit/UIKit.h>
 #import <RestKit/UI.h>
 #import "XBRevealController.h"
+#import "XBViewControllerManager.h"
 
-@interface XBMenuTableViewController : UITableViewController
+@interface XBMainViewController : UITableViewController
 
 -(void)revealViewControllerWithIdentifier:(NSString *)identifier;
 
 @property (nonatomic, strong, readonly) XBRevealController *revealController;
+
+- (id)initWithViewControllerManager:(XBViewControllerManager *)viewControllerManager;
 
 @end

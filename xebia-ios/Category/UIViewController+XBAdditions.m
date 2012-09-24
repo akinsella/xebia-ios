@@ -8,7 +8,6 @@
 
 #import "UIViewController+XBAdditions.h"
 #import "UINavigationBar+XBAdditions.h"
-#import "UINavigationController+XBAdditions.h"
 
 @implementation UIViewController (XBAdditions)
 
@@ -21,6 +20,7 @@
     
     NSLog(@"self.navigationController.navigationBar: %@", self.navigationController.navigationBar);
     [self.navigationController.navigationBar addGestureRecognizer:gestureRecognizer];
+    [gestureRecognizer release];
 }
 
 - (void) addMenuButton {
@@ -31,5 +31,10 @@
                                                                                 action: @selector(revealToggle:)];
         self.navigationItem.leftBarButtonItem = [[[UIBarButtonItem alloc] initWithCustomView:backButton] autorelease];
 }
+
+- (AppDelegate *) appDelegate {
+    return (AppDelegate *) [[UIApplication sharedApplication] delegate];
+}
+
 
 @end

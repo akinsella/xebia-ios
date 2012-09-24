@@ -9,6 +9,7 @@
 #import "WPDataAccessor.h"
 #import <RestKit/RestKit.h>
 #import "JSONKit.h"
+#import "Post.h"
 
 @implementation WPDataAccessor
 

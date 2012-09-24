@@ -10,20 +10,22 @@
 
 #import "WPDataAccessor.h"
 
-#import "Post.h"
+#import "WPPost.h"
 #import "MBProgressHUD.h"
 #import "RestKit.h"
 
+@class XBViewControllerManager;
+@class XBMainViewController;
 
-@interface AppDelegate : UIResponder <UIApplicationDelegate, RKManagedObjectStoreDelegate>
 
-@property(strong, nonatomic) WPDataAccessor *wpDataAccessor;
+@interface AppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (readonly, strong, nonatomic) RKObjectManager *objectManager;
 @property (readonly, strong, nonatomic) RKManagedObjectStore *objectStore;
 
 @property(strong, nonatomic) NSMutableArray *posts;
+@property(nonatomic, retain) XBViewControllerManager *viewControllerManager;
+@property(nonatomic, retain) XBMainViewController *mainViewController;
 
-- (void)updatePostsWithPostType:(POST_TYPE)postType Id:(int)identifier Count:(int)count;
 
 @end

@@ -1,4 +1,4 @@
-//
+    //
 //  WPAuthorTableViewController.m
 //  xebia-ios
 //
@@ -17,6 +17,7 @@
 #import "UIImageView+WebCache.h"
 #import "WPPost.h"
 #import "WPPostTableViewController.h"
+#import "UINavigationController+XBAdditions.h"
 
 @interface WPAuthorTableViewController ()
 @property (nonatomic, strong) RKFetchedResultsTableController *tableController;
@@ -83,12 +84,33 @@ UIImage* defaultAvatarImage;
     [cellMapping mapKeyPath:@"identifier" toAttribute:@"identifier"];
      
     [tableController mapObjectsWithClass:[WPAuthor class] toTableCellsWithMapping:cellMapping];
+    cellMapping.onSelectCellForObjectAtIndexPath = ^(UITableViewCell *cell, id object, NSIndexPath* indexPath) {
+        WPAuthor *author = [self.tableController objectForRowAtIndexPath:indexPath];
+        NSLog(@"Author: %@", author);
+        WPPostTableViewController *postController = (WPPostTableViewController *)[self instantiateControllerWithIdentifier:@"posts"];
+        [postController initWithPostType:AUTHOR identifier:author.identifier];
+        
+//        WPPostTableViewController *ptvc = [segue destinationViewController];
+//        [ptvc initWithPostType:AUTHOR identifier:author.identifier];
+    };
+    
     
     /**
      Use a custom Nib to draw our table cells for GHIssue objects
      */
     [self.tableView registerNib:[UINib nibWithNibName:@"WPAuthorCell" bundle:nil] forCellReuseIdentifier:@"WPAuthor"];
 }
+
+
+-(UIViewController *)instantiateControllerWithIdentifier: (NSString *)identifier {
+    UIStoryboard *sb = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
+    UIViewController *vc = [sb instantiateViewControllerWithIdentifier:identifier];
+    [[UINavigationController alloc] initWithRootViewController:vc navBarCustomized:YES];
+
+    return vc;
+}
+
+
 
 - (void)viewWillAppear:(BOOL)animated
 {
@@ -105,16 +127,6 @@ UIImage* defaultAvatarImage;
     WPAuthor *author = object;
     WPAuthorCell *authorCell = (WPAuthorCell *)cell;
     [authorCell.imageView setImageWithURL:[author avatarImageUrl] placeholderImage:defaultAvatarImage];
-}
-
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    if ([segue.identifier isEqualToString:@"showDetail"]) {        
-        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
-        WPAuthor *author = [self.tableController objectForRowAtIndexPath:indexPath];
-        WPPostTableViewController *ptvc = [segue destinationViewController];
-        [ptvc initWithPostType:AUTHOR identifier:author.identifier];
-    }
 }
 
 @end
