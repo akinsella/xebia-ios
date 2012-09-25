@@ -67,6 +67,9 @@
 
 - (void)initializeRestKit {
     
+    // Wordpress date format: 2012-07-20 06:30:13
+    [RKObjectMapping addDefaultDateFormatter: [NSDateFormatter initWithDateFormat: @"yyyy-MM-dd HH:mm:ss"]];
+
     // Twitter date format: Wed Aug 29 21:32:43 +0000 2012
     [RKObjectMapping addDefaultDateFormatter: [NSDateFormatter initWithDateFormat: @"eee MMM dd HH:mm:ss ZZZZ yyyy"]];
 

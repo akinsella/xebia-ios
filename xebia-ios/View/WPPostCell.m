@@ -13,7 +13,7 @@
 @implementation WPPostCell
 
 @synthesize titleLabel;
-@synthesize descriptionLabel;
+@synthesize excerptLabel;
 @synthesize identifier;
 @synthesize postImage;
 

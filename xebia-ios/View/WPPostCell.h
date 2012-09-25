@@ -12,7 +12,8 @@
 @interface WPPostCell : UITableViewCell
 
 @property (nonatomic, strong) IBOutlet UILabel *titleLabel;
-@property (nonatomic, strong) IBOutlet UILabel *descriptionLabel;
+@property (nonatomic, strong) IBOutlet UILabel *excerptLabel;
+@property (nonatomic, strong) IBOutlet UILabel *dateLabel;
 
 @property (nonatomic, strong) NSNumber *identifier;
 @property (nonatomic, readonly, strong) UIImage *postImage;

@@ -20,11 +20,13 @@
 @property(nonatomic, strong) NSString *title_plain;
 @property(nonatomic, strong) NSString *content;
 @property(nonatomic, strong) NSString *excerpt;
-@property(nonatomic, strong) NSString *date;
-@property(nonatomic, strong) NSString *modified;
+@property(nonatomic, strong) NSDate *date;
+@property(nonatomic, strong) NSDate *modified;
 @property(nonatomic, strong) NSNumber *comment_count;
 @property(nonatomic, strong) NSString *comment_status;
 
+@property (nonatomic, strong, readonly) NSString *excerptTrim;
+@property (nonatomic, strong, readonly) NSString *dateFormatted;
 @property (nonatomic, strong, readonly) NSURL *imageUrl;
 
 typedef enum {

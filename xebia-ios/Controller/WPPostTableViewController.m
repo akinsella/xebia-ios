@@ -18,6 +18,12 @@
 #import "UIImageView+WebCache.h"
 #import "WPPost.h"
 
+#define FONT_SIZE 13.0f
+#define CELL_CONTENT_WIDTH 232.0f
+#define CELL_MIN_HEIGHT 64.0f
+#define CELL_BASE_HEIGHT 48.0f
+#define CELL_MAX_HEIGHT 1000.0f
+
 @interface WPPostTableViewController ()
 @property (nonatomic, strong) RKFetchedResultsTableController *tableController;
 @end
@@ -105,7 +111,25 @@ NSMutableDictionary *postTypes;
     cellMapping.reuseIdentifier = @"WPPost";
     //    cellMapping.rowHeight = 100.0;
     [cellMapping mapKeyPath:@"title" toAttribute:@"titleLabel.text"];
+    [cellMapping mapKeyPath:@"excerptTrim" toAttribute:@"excerptLabel.text"];
+    [cellMapping mapKeyPath:@"dateFormatted" toAttribute:@"dateLabel.text"];
     [cellMapping mapKeyPath:@"identifier" toAttribute:@"identifier"];
+    
+    cellMapping.heightOfCellForObjectAtIndexPath = ^ CGFloat(id object, NSIndexPath* indexPath) {
+        
+        WPPost *post = object;
+        
+        CGSize constraint = CGSizeMake(CELL_CONTENT_WIDTH, CELL_MAX_HEIGHT);
+        
+        CGSize size = [post.excerptTrim sizeWithFont:[UIFont systemFontOfSize:FONT_SIZE]
+                             constrainedToSize:constraint
+                                 lineBreakMode:UILineBreakModeWordWrap];
+        
+        CGFloat height = MAX(CELL_BASE_HEIGHT + size.height, CELL_MIN_HEIGHT);
+        
+        return height;
+    };
+
     
     [tableController mapObjectsWithClass:[WPPost class] toTableCellsWithMapping:cellMapping];
     
