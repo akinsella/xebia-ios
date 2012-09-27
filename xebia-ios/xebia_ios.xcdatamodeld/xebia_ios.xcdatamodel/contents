@@ -117,6 +117,7 @@
         <attribute name="type" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="url" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="attachments" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="WPAttachment" syncable="YES"/>
+        <relationship name="author" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="WPAuthor" syncable="YES"/>
         <relationship name="categories" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="WPCategory" syncable="YES"/>
         <relationship name="comments" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="WPComment" syncable="YES"/>
         <relationship name="tags" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="WPTag" syncable="YES"/>
@@ -137,7 +138,7 @@
         <element name="WPAuthor" positionX="160" positionY="192" width="128" height="180"/>
         <element name="WPCategory" positionX="160" positionY="192" width="128" height="135"/>
         <element name="WPComment" positionX="160" positionY="192" width="128" height="150"/>
-        <element name="WPPost" positionX="-5895" positionY="-765" width="128" height="300"/>
+        <element name="WPPost" positionX="-5895" positionY="-765" width="128" height="315"/>
         <element name="WPTag" positionX="160" positionY="192" width="128" height="120"/>
     </elements>
 </model>

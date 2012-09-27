@@ -10,6 +10,13 @@
 
 @implementation UIColor (XBAdditions)
 
++ (UIColor*)colorWithPatternImageName:(NSString *)imageName {
+    
+    UIColor* color = [UIColor colorWithPatternImage:[UIImage imageNamed:imageName]];
+    
+    return color;
+}
+
 + (UIColor*)colorWith8BitRed:(NSInteger)red
                        green:(NSInteger)green
                         blue:(NSInteger)blue

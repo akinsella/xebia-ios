@@ -7,7 +7,7 @@
 //
 
 #import "XBDetailPostViewController.h"
-#import "Post.h"
+#import "WPPost.h"
 #import "JSONKit.h" 
 
 @implementation XBDetailPostViewController
@@ -64,7 +64,7 @@
 
     NSError* error = nil;
 
-    NSString* json = [[post getAsDictionary] JSONStringWithOptions:JKParseOptionNone error:&error];
+    NSString* json = @"{}"; //[[post getAsDictionary] JSONStringWithOptions:JKParseOptionNone error:&error];
 
     if (error != nil) {
         NSLog(@"error = %@", [NSString stringWithFormat:@"Code[%i] %@" , error.code, error.description]);

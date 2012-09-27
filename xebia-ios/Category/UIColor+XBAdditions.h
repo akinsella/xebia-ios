@@ -12,6 +12,8 @@
 
 @interface UIColor (XBAdditions)
 
++ (UIColor*)colorWithPatternImageName:(NSString *)imageName;
+
 // wrapper for [UIColor colorWithRed:green:blue:alpha:]
 // values must be in range 0 - 255
 + (UIColor*)colorWith8BitRed:(NSInteger)red

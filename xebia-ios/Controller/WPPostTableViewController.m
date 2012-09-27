@@ -17,6 +17,7 @@
 #import "SDWebImageManager.h"
 #import "UIImageView+WebCache.h"
 #import "WPPost.h"
+#import "UIColor+XBAdditions.h"
 
 #define FONT_SIZE 13.0f
 #define CELL_CONTENT_WIDTH 232.0f
@@ -65,6 +66,9 @@ NSMutableDictionary *postTypes;
     
     defaultPostImage = [UIImage imageNamed:@"avatar_placeholder"];
     
+    self.tableView.backgroundColor = [UIColor colorWithPatternImageName:@"bg_home_pattern"];
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+
     /**
      Configure the RestKit table controller to drive our view
      */
@@ -109,28 +113,15 @@ NSMutableDictionary *postTypes;
     RKTableViewCellMapping *cellMapping = [RKTableViewCellMapping cellMapping];
     cellMapping.cellClassName = @"WPPostCell";
     cellMapping.reuseIdentifier = @"WPPost";
-    //    cellMapping.rowHeight = 100.0;
+    cellMapping.rowHeight = 204.0;
     [cellMapping mapKeyPath:@"title" toAttribute:@"titleLabel.text"];
     [cellMapping mapKeyPath:@"excerptTrim" toAttribute:@"excerptLabel.text"];
     [cellMapping mapKeyPath:@"dateFormatted" toAttribute:@"dateLabel.text"];
+    [cellMapping mapKeyPath:@"tagsFormatted" toAttribute:@"tagsLabel.text"];
+    [cellMapping mapKeyPath:@"categoriesFormatted" toAttribute:@"categoriesLabel.text"];
+    [cellMapping mapKeyPath:@"authorFormatted" toAttribute:@"authorLabel.text"];
     [cellMapping mapKeyPath:@"identifier" toAttribute:@"identifier"];
-    
-    cellMapping.heightOfCellForObjectAtIndexPath = ^ CGFloat(id object, NSIndexPath* indexPath) {
-        
-        WPPost *post = object;
-        
-        CGSize constraint = CGSizeMake(CELL_CONTENT_WIDTH, CELL_MAX_HEIGHT);
-        
-        CGSize size = [post.excerptTrim sizeWithFont:[UIFont systemFontOfSize:FONT_SIZE]
-                             constrainedToSize:constraint
-                                 lineBreakMode:UILineBreakModeWordWrap];
-        
-        CGFloat height = MAX(CELL_BASE_HEIGHT + size.height, CELL_MIN_HEIGHT);
-        
-        return height;
-    };
 
-    
     [tableController mapObjectsWithClass:[WPPost class] toTableCellsWithMapping:cellMapping];
     
     /**

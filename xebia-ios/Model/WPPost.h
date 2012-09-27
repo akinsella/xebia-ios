@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
+#import "WPAuthor.h"
 
 @interface WPPost : NSManagedObject
 
@@ -27,7 +28,15 @@
 
 @property (nonatomic, strong, readonly) NSString *excerptTrim;
 @property (nonatomic, strong, readonly) NSString *dateFormatted;
+@property (nonatomic, strong, readonly) NSString *authorFormatted;
+@property (nonatomic, strong, readonly) NSString *tagsFormatted;
+@property (nonatomic, strong, readonly) NSString *categoriesFormatted;
 @property (nonatomic, strong, readonly) NSURL *imageUrl;
+
+@property(nonatomic, retain) WPAuthor *author;
+@property(nonatomic, retain) NSArray *categories;
+@property(nonatomic, retain) NSArray *tags;
+@property(nonatomic, retain) NSArray *comments;
 
 typedef enum {
     RECENT = 1,

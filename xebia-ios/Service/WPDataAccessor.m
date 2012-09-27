@@ -9,7 +9,7 @@
 #import "WPDataAccessor.h"
 #import <RestKit/RestKit.h>
 #import "JSONKit.h"
-#import "Post.h"
+#import "WPPost.h"
 
 @implementation WPDataAccessor
 
@@ -69,9 +69,9 @@
     NSMutableArray *posts = [[[NSMutableArray alloc] initWithCapacity:[jsonPosts count]] autorelease];
     
     for (NSDictionary *jsonPost in jsonPosts) {
-        Post *post = [Post deserializeFromJson:jsonPost];
-        [posts addObject:post];
-        [post release];
+//        Post *post = [Post deserializeFromJson:jsonPost];
+//        [posts addObject:post];
+//        [post release];
     }
     
     return posts;    

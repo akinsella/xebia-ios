@@ -14,22 +14,25 @@
 
 @synthesize titleLabel;
 @synthesize excerptLabel;
+@synthesize tagsLabel;
+@synthesize categoriesLabel;
+@synthesize authorLabel;
 @synthesize identifier;
 @synthesize postImage;
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
-        // Initialization code
+        self.backgroundView = [ [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"WPPostCell"]] autorelease];
+        self.selectedBackgroundView.backgroundColor=[UIColor blackColor];
     }
     return self;
 }
 
 - (void)layoutSubviews {
     [super layoutSubviews];
-    self.imageView.frame = CGRectMake(0,0,44,44);
+    self.imageView.frame = CGRectMake(9,113,64,64);
 }
-
 
 -(void) prepareForReuse {
     identifier = nil;
