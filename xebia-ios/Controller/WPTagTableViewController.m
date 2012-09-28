@@ -13,6 +13,7 @@
 #import "WPTagTableViewController.h"
 #import "WPCategoryTableViewController.h"
 #import "XBLoadingView.h"
+#import "UIColor+XBAdditions.h"
 
 
 @interface WPTagTableViewController ()
@@ -28,6 +29,9 @@
     [super viewDidLoad];
     
     self.title = @"Tags";
+    
+    self.tableView.backgroundColor = [UIColor colorWithPatternImageName:@"bg_home_pattern"];
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
 
     self.tableController = [[RKObjectManager sharedManager] fetchedResultsTableControllerForTableViewController:self];
     self.tableController.autoRefreshFromNetwork = YES;

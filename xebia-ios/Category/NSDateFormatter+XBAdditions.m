@@ -12,6 +12,7 @@
 
 +(NSDateFormatter *)initWithDateFormat:(NSString *)dateFormat {
     NSDateFormatter *dateFormatter = [[[NSDateFormatter alloc] init] autorelease];
+    [dateFormatter setDateFormat:dateFormat];
     return dateFormatter;
 }
 

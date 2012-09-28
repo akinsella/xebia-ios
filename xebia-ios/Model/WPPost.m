@@ -35,14 +35,19 @@
 @dynamic categories;
 @dynamic comments;
 
-- (id)init {
-    self = [super init];
-    if (self) {
-        _dfDate = [[NSDateFormatter initWithDateFormat: @"yyyy-MM-dd"] retain];
-        _dfTime = [[NSDateFormatter initWithDateFormat: @"HH:mm:ss"] retain];
-    }
+-(void)awakeFromFetch {
+    [super awakeFromInsert];
+    [self initDateFormatters];
+}
 
-    return self;
+-(void)awakeFromInsert {
+    [super awakeFromInsert];
+    [self initDateFormatters];
+}
+
+- (void)initDateFormatters {
+    _dfDate = [[NSDateFormatter initWithDateFormat: @"dd'/'MM'/'yyyy"] retain];
+    _dfTime = [[NSDateFormatter initWithDateFormat: @"HH':'mm"] retain];
 }
 
 - (NSString *)excerptTrim {
@@ -52,19 +57,26 @@
 }
 
 - (NSString *)dateFormatted {
-    return [NSString stringWithFormat: @"Le %@ à %@", [_dfDate stringFromDate:self.date], [_dfTime stringFromDate:self.date]];
-}
-
-- (NSString *)tagsFormatted {
-    return [_array(self.tags).pluck(@"title").unwrap componentsJoinedByString:@", "];
-}
-
-- (NSString *)categoriesFormatted {
-    return [_array(self.categories).pluck(@"title").unwrap componentsJoinedByString:@", "];
+    NSString *date = [_dfDate stringFromDate:self.date];
+    NSString *time = [_dfTime stringFromDate:self.date];
+    return [NSString stringWithFormat:@"Le %@, à %@", date, time];
 }
 
 - (NSString *)authorFormatted {
-    return [NSString stringWithFormat: @"Par %@", self.author.name];
+    NSString *authorFormatted = [NSString stringWithFormat:@"Par %@", self.author.name];
+    return authorFormatted;
+}
+
+- (NSString *)tagsFormatted {
+    NSArray *tagTitles = _array(self.tags).pluck(@"title").unwrap;
+    NSString *tagsFormatted = [tagTitles componentsJoinedByString:@", "];
+    return tagsFormatted;
+}
+
+- (NSString *)categoriesFormatted {
+    NSArray *categoryTitles = _array(self.categories).pluck(@"title").unwrap;
+    NSString *categoriesFormatted = [categoryTitles componentsJoinedByString:@", "];
+    return categoriesFormatted;
 }
 
 - (NSURL *)imageUrl {

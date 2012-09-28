@@ -20,6 +20,7 @@
 #import "UINavigationController+XBAdditions.h"
 #import "UIViewController+XBAdditions.h"
 #import "XBMainViewController.h"
+#import "UIColor+XBAdditions.h"
 
 @interface WPAuthorTableViewController ()
 @property (nonatomic, strong) RKFetchedResultsTableController *tableController;
@@ -39,6 +40,9 @@ UIImage* defaultAvatarImage;
 
     defaultAvatarImage = [UIImage imageNamed:@"avatar_placeholder"];
     
+    self.tableView.backgroundColor = [UIColor colorWithPatternImageName:@"bg_home_pattern"];
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+   
     /**
      Configure the RestKit table controller to drive our view
      */
@@ -81,7 +85,7 @@ UIImage* defaultAvatarImage;
     RKTableViewCellMapping *cellMapping = [RKTableViewCellMapping cellMapping];
     cellMapping.cellClassName = @"WPAuthorCell";
     cellMapping.reuseIdentifier = @"WPAuthor";
-//    cellMapping.rowHeight = 100.0;
+    cellMapping.rowHeight = 64.0;
     [cellMapping mapKeyPath:@"name" toAttribute:@"titleLabel.text"];
     [cellMapping mapKeyPath:@"identifier" toAttribute:@"identifier"];
     cellMapping.onSelectCellForObjectAtIndexPath = ^(UITableViewCell *cell, id object, NSIndexPath* indexPath) {

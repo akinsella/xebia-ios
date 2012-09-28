@@ -9,6 +9,8 @@
 #import "WPAuthorCell.h"
 #import "SDImageCache.h"
 #import "WPAuthor.h"
+#import <QuartzCore/QuartzCore.h>
+#import "UIColor+XBAdditions.h"
 
 @implementation WPAuthorCell
 
@@ -22,14 +24,16 @@
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
-        // Initialization code
+        // set selection color
     }
     return self;
 }
 
 - (void)layoutSubviews {
     [super layoutSubviews];
-    self.imageView.frame = CGRectMake(0,0,44,44);
+    self.imageView.frame = CGRectMake(8,7,44,44);
+    self.imageView.layer.masksToBounds = YES;
+    self.imageView.layer.cornerRadius = 3.0;
 }
 
 - (void)setItemCount:(NSInteger)itemCount {
