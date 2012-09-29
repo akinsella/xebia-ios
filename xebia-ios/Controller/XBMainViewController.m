@@ -144,7 +144,7 @@ enum {
        [RKTableItem tableItemWithText:@"Blog" imageNamed:@"wordpress"],
        [RKTableItem tableItemWithText:@"Tweets" imageNamed:@"twitter"],
        [RKTableItem tableItemWithText:@"Github"  imageNamed:@"github"],
-       [RKTableItem tableItemWithText:@"Events"  imageNamed:@"eventbrite"],
+       [RKTableItem tableItemWithText:@"Events"  imageNamed:@"eventbrite-menu"],
        nil];
 }
 

@@ -136,6 +136,8 @@
 		54EEF72D1617A87A00942349 /* avatar_placeholder@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 54EEF72C1617A87A00942349 /* avatar_placeholder@2x.png */; };
 		54EEF7301617AC3B00942349 /* eventbrite.png in Resources */ = {isa = PBXBuildFile; fileRef = 54EEF72E1617AC3A00942349 /* eventbrite.png */; };
 		54EEF7311617AC3B00942349 /* eventbrite@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 54EEF72F1617AC3B00942349 /* eventbrite@2x.png */; };
+		54EEF7341617B3D100942349 /* eventbrite-menu.png in Resources */ = {isa = PBXBuildFile; fileRef = 54EEF7321617B3D100942349 /* eventbrite-menu.png */; };
+		54EEF7351617B3D100942349 /* eventbrite-menu@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 54EEF7331617B3D100942349 /* eventbrite-menu@2x.png */; };
 		54F9D40E15D80C5A00A8E511 /* avatar_placeholder.png in Resources */ = {isa = PBXBuildFile; fileRef = 54F9D40D15D80C5A00A8E511 /* avatar_placeholder.png */; };
 		54F9D42015D81A4100A8E511 /* GravatarHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 54F9D41F15D81A4100A8E511 /* GravatarHelper.m */; };
 		B56E64C3C14D4A618E4C1641 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EDB581D723EF4E5C808B5615 /* libPods.a */; };
@@ -338,6 +340,8 @@
 		54EEF72C1617A87A00942349 /* avatar_placeholder@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "avatar_placeholder@2x.png"; sourceTree = "<group>"; };
 		54EEF72E1617AC3A00942349 /* eventbrite.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = eventbrite.png; sourceTree = "<group>"; };
 		54EEF72F1617AC3B00942349 /* eventbrite@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "eventbrite@2x.png"; sourceTree = "<group>"; };
+		54EEF7321617B3D100942349 /* eventbrite-menu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "eventbrite-menu.png"; sourceTree = "<group>"; };
+		54EEF7331617B3D100942349 /* eventbrite-menu@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "eventbrite-menu@2x.png"; sourceTree = "<group>"; };
 		54F9D40D15D80C5A00A8E511 /* avatar_placeholder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = avatar_placeholder.png; sourceTree = "<group>"; };
 		54F9D41E15D81A4100A8E511 /* GravatarHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GravatarHelper.h; sourceTree = "<group>"; };
 		54F9D41F15D81A4100A8E511 /* GravatarHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GravatarHelper.m; sourceTree = "<group>"; };
@@ -457,6 +461,8 @@
 		54A2783615C0A2AA0074505A /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				54EEF7321617B3D100942349 /* eventbrite-menu.png */,
+				54EEF7331617B3D100942349 /* eventbrite-menu@2x.png */,
 				54EEF6751614E62000942349 /* WPPostCellFrame.png */,
 				54EEF6761614E62000942349 /* WPPostCellFrame@2x.png */,
 				54EEF6711614E0BB00942349 /* WPPostCellTopImage.png */,
@@ -885,6 +891,8 @@
 				54EEF72D1617A87A00942349 /* avatar_placeholder@2x.png in Resources */,
 				54EEF7301617AC3B00942349 /* eventbrite.png in Resources */,
 				54EEF7311617AC3B00942349 /* eventbrite@2x.png in Resources */,
+				54EEF7341617B3D100942349 /* eventbrite-menu.png in Resources */,
+				54EEF7351617B3D100942349 /* eventbrite-menu@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
