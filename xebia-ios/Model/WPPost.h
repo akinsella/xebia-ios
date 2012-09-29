@@ -3,14 +3,15 @@
 //  xebia-blog-ios
 //
 //  Created by Alexis Kinsella on 21/07/12.
-//  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
+//  Copyright (c) 2012 Xebia France. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 #import "WPAuthor.h"
+#import <RestKit/RestKit.h>
 
-@interface WPPost : NSManagedObject
+@interface WPPost : NSObject
 
 @property(nonatomic, strong) NSNumber *identifier;
 @property(nonatomic, strong) NSString *type;
@@ -44,5 +45,7 @@ typedef enum {
     CATEGORY = 3,
     AUTHOR = 4
 } POST_TYPE;
+
++ (RKObjectMapping *)mapping;
 
 @end

@@ -3,7 +3,7 @@
 //  xebia-ios
 //
 //  Created by Alexis Kinsella on 25/07/12.
-//  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
+//  Copyright (c) 2012 Xebia France. All rights reserved.
 //
 
 #import <RestKit/RestKit.h>
@@ -15,68 +15,79 @@
 
 
 @interface WPCategoryTableViewController ()
-@property (nonatomic, strong) RKFetchedResultsTableController *tableController;
+@property (nonatomic, strong) RKTableController *tableController;
 @end
 
 @implementation WPCategoryTableViewController
 
 @synthesize tableController;
 
-- (void)viewDidLoad
-{
+- (id)init {
+    self = [super init];
+    if (self) {
+        self.title = @"Categories";
+    }
+
+    return self;
+}
+
+- (void)viewDidLoad {
     [super viewDidLoad];
-    
-    self.title = @"Categories";
-    
+    [self configure];
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [tableController loadTableFromResourcePath:@"/wordpress/get_category_index/"];
+}
+
+- (void)configure {
+    [self configureTableView];
+    [self configureTableController];
+    [self configureRefreshTriggerView];
+}
+
+- (RKTableViewCellMapping *)getCellMapping {
+    RKTableViewCellMapping *cellMapping = [RKTableViewCellMapping cellMapping];
+
+    cellMapping.cellClassName = @"WPCategoryCell";
+    cellMapping.reuseIdentifier = @"WPCategory";
+    [cellMapping mapKeyPath:@"title" toAttribute:@"titleLabel.text"];
+    [cellMapping mapKeyPath:@"postCount" toAttribute:@"itemCount"];
+
+    return cellMapping;
+}
+
+- (void)configureTableView {
     self.tableView.backgroundColor = [UIColor colorWithPatternImageName:@"bg_home_pattern"];
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-   
-    self.tableController = [[RKObjectManager sharedManager] fetchedResultsTableControllerForTableViewController:self];
-    self.tableController.autoRefreshFromNetwork = YES;
-    self.tableController.pullToRefreshEnabled = YES;
-    self.tableController.resourcePath = @"/wordpress/get_category_index/";
-    self.tableController.variableHeightRows = YES;
-    NSSortDescriptor *descriptor = [NSSortDescriptor sortDescriptorWithKey:@"title" ascending:YES];
-    self.tableController.sortDescriptors = [NSArray arrayWithObject:descriptor];
- 
+
+    [self.tableView registerNib:[UINib nibWithNibName:@"WPCategoryCell" bundle:nil] forCellReuseIdentifier:@"WPCategory"];
+}
+
+- (void)configureRefreshTriggerView {
     NSBundle *restKitResources = [NSBundle restKitResourcesBundle];
     UIImage *arrowImage = [restKitResources imageWithContentsOfResource:@"blueArrow" withExtension:@"png"];
     [[RKRefreshTriggerView appearance] setTitleFont:[UIFont fontWithName:@"HelveticaNeue-Bold" size:13]];
     [[RKRefreshTriggerView appearance] setLastUpdatedFont:[UIFont fontWithName:@"HelveticaNeue" size:11]];
     [[RKRefreshTriggerView appearance] setArrowImage:arrowImage];
-    
-    XBLoadingView *loadingView = [[XBLoadingView alloc] initWithFrame:CGRectMake(0, 0, 80, 80)];
-    loadingView.center = self.tableView.center;
-    self.tableController.loadingView = loadingView;
-    
+}
+
+- (void)configureTableController {
+    self.tableController = [[RKObjectManager sharedManager] tableControllerForTableViewController:self];
+
+    self.tableController.delegate = self;
+
+    self.tableController.autoRefreshFromNetwork = YES;
+    self.tableController.pullToRefreshEnabled = YES;
+    self.tableController.variableHeightRows = YES;
+
     self.tableController.imageForOffline = [UIImage imageNamed:@"offline.png"];
     self.tableController.imageForError = [UIImage imageNamed:@"error.png"];
     self.tableController.imageForEmpty = [UIImage imageNamed:@"empty.png"];
 
-    RKTableViewCellMapping *cellMapping = [RKTableViewCellMapping cellMapping];
-    cellMapping.cellClassName = @"WPCategoryCell";
-    cellMapping.reuseIdentifier = @"WPCategory";
-    [cellMapping mapKeyPath:@"title" toAttribute:@"titleLabel.text"];
-    [cellMapping mapKeyPath:@"postCount" toAttribute:@"itemCount"];
-    
-    [tableController mapObjectsWithClass:[WPCategory class] toTableCellsWithMapping:cellMapping];
+    [tableController mapObjectsWithClass:[WPCategory class] toTableCellsWithMapping:[self getCellMapping]];
 
-    [self.tableView registerNib:[UINib nibWithNibName:@"WPCategoryCell" bundle:nil] forCellReuseIdentifier:@"WPCategory"];
-}
-
-- (void)viewWillAppear:(BOOL)animated
-{
-    [super viewWillAppear:animated];
-    [tableController loadTable];
-}
-
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    if ([segue.identifier isEqualToString:@"showDetail"]) {        
-//        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
-//        WPCategory *category = [self.tableController objectForRowAtIndexPath:indexPath];
-//        [[segue destinationViewController] setCategory:category];
-    }
 }
 
 @end

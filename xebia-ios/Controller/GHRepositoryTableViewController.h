@@ -1,13 +1,13 @@
 //
-//  TTTwitterTableViewController.h
+//  GHRepositoryTableViewController.h
 //  xebia-ios
 //
 //  Created by Alexis Kinsella on 25/07/12.
-//  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
+//  Copyright (c) 2012 Xebia France. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
 
-@interface GHRepositoryTableViewController : UITableViewController<RKFetchedResultsTableControllerDelegate>
+@interface GHRepositoryTableViewController : UITableViewController<RKTableControllerDelegate>
 
 @end

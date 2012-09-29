@@ -1,9 +1,10 @@
 //
-// Created by akinsella on 24/09/12.
+//  XBViewControllerManager.m
+//  xebia-ios
 //
-// To change the template use AppCode | Preferences | File Templates.
+//  Created by Alexis Kinsella on 19/08/12.
 //
-
+//
 
 #import "XBViewControllerManager.h"
 #import "UINavigationController+XBAdditions.h"
@@ -17,7 +18,7 @@ static XBViewControllerManager *sharedInstance = nil;
 // Get the shared instance and create it if necessary.
 + (XBViewControllerManager *)sharedInstance
 {
-    if (sharedInstance == nil) {
+    if (!sharedInstance) {
         sharedInstance = (XBViewControllerManager *) [[super allocWithZone:NULL] init];
     }
 
@@ -38,13 +39,20 @@ static XBViewControllerManager *sharedInstance = nil;
 
 - (UIViewController *)getOrCreateControllerWithIdentifier:(NSString *)identifier {
     UIViewController *vc = [viewControllers objectForKey:identifier];
-    return vc != nil ? vc : [self instantiateViewControllerWithIdentifier:identifier];
+    if (!vc) {
+        vc = [self instantiateViewControllerWithIdentifier:identifier];
+    }
+    // Workaround to fix some weird autorelease of navigationController associated to the view
+    if (!vc.navigationController) {
+        [[[UINavigationController alloc] initWithRootViewController:vc navBarCustomized:YES] autorelease];
+    }
+
+    return vc;
 }
 
 -(UIViewController *)instantiateViewControllerWithIdentifier: (NSString *)identifier {
     UIStoryboard *sb = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
     UIViewController *vc = [sb instantiateViewControllerWithIdentifier:identifier];
-    [[[UINavigationController alloc] initWithRootViewController:vc navBarCustomized:YES] autorelease];
 
     [viewControllers setValue:vc forKey:identifier];
 

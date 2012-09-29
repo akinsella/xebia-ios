@@ -1,9 +1,9 @@
 //
-//  GHIssueCell.m
-//  RKGithub
+//  TTTweetCell.m
+//  xebia-ios
 //
-//  Created by Brian Morton on 2/24/12.
-//  Copyright (c) 2012 RestKit. All rights reserved.
+//  Created by Alexis Kinsella on 07/25/12
+//  Copyright (c) 2012 Xebia France. All rights reserved.
 //
 
 #import "TTTweetCell.h"

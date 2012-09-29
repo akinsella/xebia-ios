@@ -1,9 +1,10 @@
 //
-// Created by akinsella on 24/09/12.
+//  XBViewControllerManager.m
+//  xebia-ios
 //
-// To change the template use AppCode | Preferences | File Templates.
+//  Created by Alexis Kinsella on 19/08/12.
 //
-
+//
 
 #import <Foundation/Foundation.h>
 

@@ -6,8 +6,6 @@
 //
 //
 
-#import "UIImage+XBAdditions.h"
-
 @implementation UIImage (XBAdditions)
 
 -(UIImage*) centerImage:(UIImage *)inImage inRect:(CGRect) thumbRect {

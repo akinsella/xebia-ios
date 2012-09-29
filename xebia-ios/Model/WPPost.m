@@ -3,7 +3,7 @@
 //  xebia-blog-ios
 //
 //  Created by Alexis Kinsella on 21/07/12.
-//  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
+//  Copyright (c) 2012 Xebia France. All rights reserved.
 //
 
 #import "WPPost.h"
@@ -16,33 +16,33 @@
     NSDateFormatter *_dfTime;
 }
 
-@dynamic identifier;
-@dynamic type;
-@dynamic slug;
-@dynamic url;
-@dynamic status;
-@dynamic title;
-@dynamic title_plain;
-@dynamic content;
-@dynamic excerpt;
-@dynamic date;
-@dynamic modified;
-@dynamic comment_count;
-@dynamic comment_status;
+@synthesize identifier;
+@synthesize type;
+@synthesize slug;
+@synthesize url;
+@synthesize status;
+@synthesize title;
+@synthesize title_plain;
+@synthesize content;
+@synthesize excerpt;
+@synthesize date;
+@synthesize modified;
+@synthesize comment_count;
+@synthesize comment_status;
 
-@dynamic author;
-@dynamic tags;
-@dynamic categories;
-@dynamic comments;
+@synthesize author;
+@synthesize tags;
+@synthesize categories;
+@synthesize comments;
 
--(void)awakeFromFetch {
-    [super awakeFromInsert];
-    [self initDateFormatters];
-}
+-(id)init {
+    self = [super init];
 
--(void)awakeFromInsert {
-    [super awakeFromInsert];
-    [self initDateFormatters];
+    if (self) {
+        [self initDateFormatters];
+    }
+
+    return self;
 }
 
 - (void)initDateFormatters {
@@ -87,6 +87,18 @@
     [_dfDate release];
     [_dfTime release];
     [super dealloc];
+}
+
++ (RKObjectMapping *)mapping {
+    RKObjectMapping *mapping = [RKObjectMapping mappingForClass:[self class] usingBlock:^(RKObjectMapping *mapping) {
+        mapping.rootKeyPath = @"posts";
+        [mapping mapAttributes:@"type", @"slug", @"url", @"status", @"title", @"title_plain", @"content", @"excerpt", @"date", @"modified", @"comment_count", @"comment_status", nil];
+        [mapping mapKeyPathsToAttributes:
+                @"id", @"identifier",
+                nil];
+    }];
+
+    return mapping;
 }
 
 @end

@@ -1,9 +1,9 @@
-    //
+//
 //  WPAuthor.m
 //  xebia-ios
 //
 //  Created by Alexis Kinsella on 24/07/12.
-//  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
+//  Copyright (c) 2012 Xebia France. All rights reserved.
 //
 
 #import "WPAuthor.h"
@@ -11,31 +11,43 @@
 
 @implementation WPAuthor
 
-@dynamic identifier;
-@dynamic slug;
-@dynamic name;
-@dynamic first_name;
-@dynamic last_name;
-@dynamic nickname;
-@dynamic url;
-@dynamic description_;
+@synthesize identifier;
+@synthesize slug;
+@synthesize name;
+@synthesize first_name;
+@synthesize last_name;
+@synthesize nickname;
+@synthesize url;
+@synthesize description_;
 
 - (NSURL *)avatarImageUrl {
     return [GravatarHelper getGravatarURL: [NSString stringWithFormat:@"%@@xebia.fr", [self nickname]]];
 }
 
 - (NSString *)uppercaseFirstLetterOfName {
-    [self willAccessValueForKey:@"uppercaseFirstLetterOfName"];
     NSString *aString = [[self valueForKey:@"name"] uppercaseString];
-    
+
     // support UTF-16:
     NSString *stringToReturn = [aString substringWithRange:[aString rangeOfComposedCharacterSequenceAtIndex:0]];
-    
+
     // OR no UTF-16 support:
     //NSString *stringToReturn = [aString substringToIndex:1];
-    
-    [self didAccessValueForKey:@"uppercaseFirstLetterOfName"];
+
     return stringToReturn;
+}
+
++ (RKObjectMapping *)mapping {
+    RKObjectMapping *mapping = [RKObjectMapping mappingForClass:[self class] usingBlock:^(RKObjectMapping *mapping) {
+        mapping.rootKeyPath = @"authors";
+        [mapping mapAttributes:@"slug", @"name", @"first_name", @"last_name", @"nickname", @"url", nil];
+        [mapping mapKeyPathsToAttributes:
+                @"id", @"identifier",
+                @"description", @"description_",
+                nil];
+
+    }];
+
+    return mapping;
 }
 
 @end

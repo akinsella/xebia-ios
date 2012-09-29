@@ -1,5 +1,5 @@
 //
-//  WPMenuTableViewController.m
+//  XBMainViewController.m
 //  xebia-ios
 //
 //  Created by Alexis Kinsella on 19/08/12.
@@ -20,7 +20,8 @@ enum {
     XBMenuHome = 0,
     XBMenuWordpress,
     XBMenuTwitter,
-    XBMenuGithub
+    XBMenuGithub,
+    XBMenuEvent,
 };
 
 @interface XBMainViewController ()
@@ -96,6 +97,7 @@ enum {
 - (void)initRevealController {
     _rearNavigationController = [[UINavigationController alloc] initWithRootViewController:self navBarCustomized:YES];
     UIViewController *homeController = [_viewControllerManager getOrCreateControllerWithIdentifier:@"home"];
+    [[[UINavigationController alloc] initWithRootViewController:homeController navBarCustomized:YES] autorelease];
 
     _revealController = [[XBRevealController alloc] initWithFrontViewController: homeController.navigationController
                                                             rearViewController:_rearNavigationController];
@@ -132,6 +134,7 @@ enum {
             @"tbBlog", [NSNumber asString:XBMenuWordpress],
             @"tweets", [NSNumber asString:XBMenuTwitter],
             @"tbGithub", [NSNumber asString:XBMenuGithub],
+            @"events", [NSNumber asString:XBMenuEvent],
             nil];
 }
 
@@ -141,6 +144,7 @@ enum {
        [RKTableItem tableItemWithText:@"Blog" imageNamed:@"wordpress"],
        [RKTableItem tableItemWithText:@"Tweets" imageNamed:@"twitter"],
        [RKTableItem tableItemWithText:@"Github"  imageNamed:@"github"],
+       [RKTableItem tableItemWithText:@"Events"  imageNamed:@"eventbrite"],
        nil];
 }
 

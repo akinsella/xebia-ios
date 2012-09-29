@@ -1,15 +1,15 @@
 //
-//  WPAuthor.h
+//  GHRepository.h
 //  xebia-ios
 //
 //  Created by Alexis Kinsella on 24/07/12.
-//  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
+//  Copyright (c) 2012 Xebia France. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
 #import "GHUser.h"
 
-@interface GHRepository : NSManagedObject
+@interface GHRepository : NSObject
 
 @property (nonatomic, strong) NSNumber *identifier;
 @property (nonatomic, strong) NSString *language;
@@ -40,6 +40,8 @@
 @property (nonatomic, strong) NSNumber *open_issues_count;
 @property (nonatomic, strong) NSString *homepage;
 @property (nonatomic, assign) bool private_;
+
++ (RKObjectMapping *)mapping;
 
 @end
 

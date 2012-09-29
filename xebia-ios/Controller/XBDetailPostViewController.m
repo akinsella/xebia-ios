@@ -1,9 +1,9 @@
 //
 //  DetailViewController.m
-//  StoryboardTutorial
+//  xebia-ios
 //
-//  Created by Kurry Tran on 10/20/11.
-//  Copyright (c) 2011 Xebia France. All rights reserved.
+//  Created by Alexis Kinsella on 25/07/12
+//  Copyright (c) 2012 Xebia France. All rights reserved.
 //
 
 #import "XBDetailPostViewController.h"
@@ -30,14 +30,6 @@
 }
 
 #pragma mark - View lifecycle
-
-/*
-// Implement loadView to create a view hierarchy programmatically, without using a nib.
-- (void)loadView
-{
-}
-*/
-
 
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad {

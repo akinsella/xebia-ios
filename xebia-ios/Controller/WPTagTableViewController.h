@@ -1,13 +1,13 @@
 //
-//  WPCategoryTableViewController.h
+//  WPTagTableViewController.h
 //  xebia-ios
 //
 //  Created by Alexis Kinsella on 25/07/12.
-//  Copyright (c) 201/Users/akinsella/Workspace/Projects/iOS/xebia-ios/xebia-ios/MainStoryboard.storyboard2 __MyCompanyName__. All rights reserved.
+//  Copyright (c) 2012 Xebia France. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
 
-@interface WPTagTableViewController : UITableViewController
+@interface WPTagTableViewController : UITableViewController<RKTableControllerDelegate>
 
 @end

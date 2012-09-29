@@ -8,7 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-#import "WPDataAccessor.h"
 
 #import "WPPost.h"
 #import "MBProgressHUD.h"
@@ -20,10 +19,6 @@
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
-@property (readonly, strong, nonatomic) RKObjectManager *objectManager;
-@property (readonly, strong, nonatomic) RKManagedObjectStore *objectStore;
-
-@property(strong, nonatomic) NSMutableArray *posts;
 @property(nonatomic, retain) XBViewControllerManager *viewControllerManager;
 @property(nonatomic, retain) XBMainViewController *mainViewController;
 

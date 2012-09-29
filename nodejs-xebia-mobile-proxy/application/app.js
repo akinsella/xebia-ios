@@ -308,7 +308,7 @@ app.get('/index.html', function(req, res) {
 });
 
 //app.get('/twitter/:user', function(req, res) {
-app.get('/' + API_VERSION + '/twitter/:user', function(req, res) {
+app.get('/' + API_VERSION + '/twitter/user/:user', function(req, res) {
 
     var user = req.params.user;
 //    var user = "XebiaFR";
@@ -366,6 +366,97 @@ app.get('/' + API_VERSION + '/twitter/:user', function(req, res) {
     }
 
 });
+
+
+
+
+app.get('/' + API_VERSION + '/event/list', function(req, res) {
+
+    var eventbriteUrl = "https://www.eventbrite.com/json/event_search?app_key=EHHWMU473LTVEO4JFY&organizer=xebia";
+    console.log("Eventbrite Url: " + eventbriteUrl);
+
+    var options = {
+        req: req,
+        res: res,
+        url: eventbriteUrl,
+        cacheKey: '/event/list',
+        forceNoCache: true,
+        callback: onEventbriteDataLoaded,
+        cacheTimeout: 60,
+        standaloneUrl: true
+    };
+
+    try {
+        getData(options);
+    } catch(err) {
+        var errorMessage = err.name + ": " + err.message;
+        responseData(500, errorMessage, undefined, options);
+    }
+
+    function onEventbriteDataLoaded(statusCode, statusMessage, events, options) {
+        if (statusCode !== 200) {
+            responseData(statusCode, statusMessage, events, options);
+        }
+        else {
+            var callback = getParameterByName(req.url, 'callback');
+            res.header('Content-Type', 'application/json');
+
+            var shortenedEvents = [];
+
+                _(_.pluck(_.tail(JSON.parse(events).events), "event")).each(function(event) {
+                var shortenedEvent = {
+                    id: String(event.id),
+                    type: "eventbrite",
+                    category:event.category,
+                    capacity: event.capacity,
+                    title: event.title,
+                    start_date: event.start_date,
+                    end_date: event.end_date,
+                    timezone_offset: event.timezone_offset,
+                    tags: event.tags,
+                    created: event.created,
+                    url: event.url,
+                    privacy: event.privacy,
+                    status: event.status,
+                    description: event.description,
+                    description_plain_text: event.description.replace(/(<([^>]+)>)/ig,""),
+                    organizer: {
+                        url: event.organizer.url,
+                        description: event.organizer.description,
+                        id: String(event.organizer.id),
+                        name: event.organizer.name
+                    },
+                    venue: {
+                        city: event.venue.city,
+                        name: event.venue.name,
+                        country: event.venue.country,
+                        region: event.venue.region,
+                        longitude: event.venue.longitude,
+                        postal_code: event.venue.postal_code,
+                        address_2: event.venue.address_2,
+                        address: event.venue.address,
+                        latitude: event.venue.latitude,
+                        country_code: event.venue.country_code,
+                        id: String(event.venue.id)
+                    }
+                };
+                shortenedEvents.push(shortenedEvent);
+            });
+
+            res.send(callback ? callback + "(" + JSON.stringify(shortenedEvents) + ");" : JSON.stringify(shortenedEvents));
+        }
+    }
+
+});
+
+
+
+
+
+
+
+
+
 
 
 // To be refactored

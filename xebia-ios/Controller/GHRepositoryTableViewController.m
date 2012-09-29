@@ -3,7 +3,7 @@
 //  xebia-ios
 //
 //  Created by Alexis Kinsella on 25/07/12.
-//  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
+//  Copyright (c) 2012 Xebia France. All rights reserved.
 //
 
 #import <RestKit/RestKit.h>
@@ -24,125 +24,95 @@
 #define CELL_MAX_HEIGHT 1000.0f
 
 @interface GHRepositoryTableViewController ()
-@property (nonatomic, strong) RKFetchedResultsTableController *tableController;
+@property (nonatomic, strong) RKTableController *tableController;
 @end
 
-@implementation GHRepositoryTableViewController
-
-UIImage* defaultAvatarImage;
+@implementation GHRepositoryTableViewController{
+    UIImage* _defaultAvatarImage;
+}
 
 @synthesize tableController;
 
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
-    
-    self.title = @"Repositories";
+- (id)init {
+    self = [super init];
 
-    defaultAvatarImage = [UIImage imageNamed:@"github-gravatar-placeholder"];
-    
-    /**
-     Configure the RestKit table controller to drive our view
-     */
-    self.tableController = [[RKObjectManager sharedManager] fetchedResultsTableControllerForTableViewController:self];
-    self.tableController.cacheName = @"Repositories";
+    if (self) {
+        self.title = @"Repositories";
+    }
+
+    return self;
+}
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    [self configure];
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [tableController loadTableFromResourcePath:@"/github/orgs/xebia-france/repos"];
+}
+
+- (void)configure {
+    _defaultAvatarImage = [UIImage imageNamed:@"github-gravatar-placeholder"];
+
+    [self configureTableView];
+    [self configureTableController];
+    [self configurePullToRefreshTriggerView];
+}
+
+- (void)configureTableController {
+    self.tableController = [[RKObjectManager sharedManager] tableControllerForTableViewController:self];
+
     self.tableController.delegate = self;
 
-    NSSortDescriptor *descriptor = [NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES];
-    self.tableController.fetchRequest.sortDescriptors = [NSArray arrayWithObject:descriptor];
-  
-    self.tableController.showsSectionIndexTitles = FALSE;
     self.tableController.autoRefreshFromNetwork = YES;
     self.tableController.pullToRefreshEnabled = YES;
-    self.tableController.resourcePath = @"/github/orgs/xebia-france/repos";
     self.tableController.variableHeightRows = YES;
-    
-    
-    /**
-     Configure the Pull to Refresh View
-     */
+
+    self.tableController.imageForOffline = [UIImage imageNamed:@"offline.png"];
+    self.tableController.imageForError = [UIImage imageNamed:@"error.png"];
+    self.tableController.imageForEmpty = [UIImage imageNamed:@"empty.png"];
+
+    [tableController mapObjectsWithClass:[GHRepository class] toTableCellsWithMapping:[self createCellMapping]];
+}
+
+- (void)configureTableView {
+    [self.tableView registerNib:[UINib nibWithNibName:@"GHRepositoryCell" bundle:nil] forCellReuseIdentifier:@"GHRepository"];
+}
+
+- (void)configurePullToRefreshTriggerView {
     NSBundle *restKitResources = [NSBundle restKitResourcesBundle];
     UIImage *arrowImage = [restKitResources imageWithContentsOfResource:@"blueArrow" withExtension:@"png"];
     [[RKRefreshTriggerView appearance] setTitleFont:[UIFont fontWithName:@"HelveticaNeue-Bold" size:13]];
     [[RKRefreshTriggerView appearance] setLastUpdatedFont:[UIFont fontWithName:@"HelveticaNeue" size:11]];
     [[RKRefreshTriggerView appearance] setArrowImage:arrowImage];
-    
-    /**
-     Configure a basic loading view
-     */
-    XBLoadingView *loadingView = [[XBLoadingView alloc] initWithFrame:CGRectMake(0, 0, 80, 80)];
-    loadingView.center = self.tableView.center;
-    self.tableController.loadingView = loadingView;
-    
-    /**
-     Setup some images for various table states
-     */
-    self.tableController.imageForOffline = [UIImage imageNamed:@"offline.png"];
-    self.tableController.imageForError = [UIImage imageNamed:@"error.png"];
-    self.tableController.imageForEmpty = [UIImage imageNamed:@"empty.png"];
+}
 
+- (RKTableViewCellMapping *)createCellMapping {
     RKTableViewCellMapping *cellMapping = [RKTableViewCellMapping cellMapping];
     cellMapping.cellClassName = @"GHRepositoryCell";
     cellMapping.reuseIdentifier = @"GHRepository";
     [cellMapping mapKeyPath:@"name" toAttribute:@"titleLabel.text"];
     [cellMapping mapKeyPath:@"description_" toAttribute:@"descriptionLabel.text"];
     [cellMapping mapKeyPath:@"identifier" toAttribute:@"identifier"];
-     
-    cellMapping.heightOfCellForObjectAtIndexPath = ^ CGFloat(id object, NSIndexPath* indexPath) {
-    
-        GHRepository *repository = object;
 
-//        NSLog(@"----------------------------------------------------------------------");
-//        NSLog(@"Repository name: %@", repository.name);
-
-        
+    cellMapping.heightOfCellForObjectAtIndexPath = ^ CGFloat(GHRepository *repository, NSIndexPath* indexPath) {
         CGSize constraint = CGSizeMake(CELL_CONTENT_WIDTH, CELL_MAX_HEIGHT);
-//        NSLog(@"Constraint[width: %f, height: %f]", constraint.width, constraint.height);
-        
         CGSize size = [repository.description_ sizeWithFont:[UIFont systemFontOfSize:FONT_SIZE]
                                           constrainedToSize:constraint
                                               lineBreakMode:UILineBreakModeWordWrap];
-
-//        NSLog(@"Size[width: %f, height: %f]", size.width, size.height);
-
         CGFloat height = MAX(CELL_BASE_HEIGHT + size.height, CELL_MIN_HEIGHT);
-//        NSLog(@"Height: %f", height);
-        
+
         return height;
     };
-    
-    [tableController mapObjectsWithClass:[GHRepository class] toTableCellsWithMapping:cellMapping];
-    
-    /**
-     Use a custom Nib to draw our table cells for WPe objects
-     */
-    [self.tableView registerNib:[UINib nibWithNibName:@"GHRepositoryCell" bundle:nil] forCellReuseIdentifier:@"GHRepository"];
+    return cellMapping;
 }
 
-- (void)viewWillAppear:(BOOL)animated
-{
-    [super viewWillAppear:animated];
-    
-    /**
-     Load the table view!
-     */
-    [tableController loadTable];
-}
-
-- (void)tableController:(RKAbstractTableController *)tableController willDisplayCell:(UITableViewCell *)cell forObject:(id)object atIndexPath:(NSIndexPath *)indexPath;
-{
+- (void)tableController:(RKAbstractTableController *)tableController willDisplayCell:(UITableViewCell *)cell forObject:(id)object atIndexPath:(NSIndexPath *)indexPath {
     GHRepository *repository = object;
     GHRepositoryCell *repositoryCell = (GHRepositoryCell *)cell;
-    [repositoryCell.imageView setImageWithURL:[repository.owner avatarImageUrl] placeholderImage:defaultAvatarImage];    
-}
-
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-//    if ([segue.identifier isEqualToString:@"showDetail"]) {        
-//        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
-//        WPAuthor *author = [self.tableController objectForRowAtIndexPath:indexPath];
-//        [[segue destinationViewController] setAuthor:author];
-//    }
+    [repositoryCell.imageView setImageWithURL:[repository.owner avatarImageUrl] placeholderImage:_defaultAvatarImage];
 }
 
 @end

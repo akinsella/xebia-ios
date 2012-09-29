@@ -1,5 +1,5 @@
 //
-//  WPMenuTableViewController.h
+//  XBMainViewController.h
 //  xebia-ios
 //
 //  Created by Alexis Kinsella on 19/08/12.

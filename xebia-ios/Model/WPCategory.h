@@ -3,12 +3,13 @@
 //  xebia-ios
 //
 //  Created by Alexis Kinsella on 24/07/12.
-//  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
+//  Copyright (c) 2012 Xebia France. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
+#import <RestKit/RestKit.h>
 
-@interface WPCategory : NSManagedObject
+@interface WPCategory : NSObject
 
 @property (nonatomic, strong) NSNumber *identifier;
 @property (nonatomic, strong) NSString *slug;
@@ -18,5 +19,7 @@
 @property (nonatomic, strong) NSNumber *post_count;
 
 @property (nonatomic, readonly) NSInteger postCount;
+
++ (RKObjectMapping *)mapping;
 
 @end

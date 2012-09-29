@@ -18,6 +18,7 @@
 #import "UIImageView+WebCache.h"
 #import "WPPost.h"
 #import "UIColor+XBAdditions.h"
+#import "NSNumber+XBAdditions.h"
 
 #define FONT_SIZE 13.0f
 #define CELL_CONTENT_WIDTH 232.0f
@@ -26,12 +27,13 @@
 #define CELL_MAX_HEIGHT 1000.0f
 
 @interface WPPostTableViewController ()
-@property (nonatomic, strong) RKFetchedResultsTableController *tableController;
+@property (nonatomic, strong) RKTableController *tableController;
 @end
 
-@implementation WPPostTableViewController
+@implementation WPPostTableViewController {
+    UIImage*_defaultPostImage;
+}
 
-UIImage* defaultPostImage;
 NSMutableDictionary *postTypes;
 
 @synthesize tableController;
@@ -41,18 +43,20 @@ NSMutableDictionary *postTypes;
 {
     self = [super initWithStyle:UITableViewStylePlain];
     
-    if (self != nil) {
+    if (self) {
+
+        self.title = @"Posts";
+        _defaultPostImage = [UIImage imageNamed:@"avatar_placeholder"];
+
         self.postType = postType;
         self.identifier = identifier;
         
         postTypes = [[NSMutableDictionary alloc] initWithObjectsAndKeys:
-                           @"recent",  [[NSNumber numberWithInt: RECENT] description],
-                           @"author", [[NSNumber numberWithInt: AUTHOR] description],
-                           @"tag", [[NSNumber numberWithInt: TAG] description],
-                           @"category", [[NSNumber numberWithInt: CATEGORY] description],
+                           @"recent",  [NSNumber asString:RECENT],
+                           @"author", [NSNumber asString: AUTHOR],
+                           @"tag", [NSNumber asString: TAG],
+                           @"category", [NSNumber asString: CATEGORY],
                            nil];
-
-        
     }
     
     return self;
@@ -61,55 +65,40 @@ NSMutableDictionary *postTypes;
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
-    self.title = @"Posts";
-    
-    defaultPostImage = [UIImage imageNamed:@"avatar_placeholder"];
-    
-    self.tableView.backgroundColor = [UIColor colorWithPatternImageName:@"bg_home_pattern"];
-    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    [self configure];
+}
 
-    /**
-     Configure the RestKit table controller to drive our view
-     */
-    self.tableController = [[RKObjectManager sharedManager] fetchedResultsTableControllerForTableViewController:self];
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+
+    NSString *resourcePath = [NSString stringWithFormat: @"/wordpress/get_%@_posts/?id=%@&count=100", [self getCurrentPostType], identifier];
+    [tableController loadTableFromResourcePath:resourcePath];
+}
+
+- (void)configure {
+    [self configureTableController];
+    [self configureRefreshTriggerView];
+    [self configureTableView];
+}
+
+- (void)configureTableController {
+    self.tableController = [[RKObjectManager sharedManager] tableControllerForTableViewController:self];
+
     self.tableController.delegate = self;
-    
-    NSSortDescriptor *descriptor = [NSSortDescriptor sortDescriptorWithKey:@"date" ascending:YES];
-    self.tableController.fetchRequest.sortDescriptors = [NSArray arrayWithObject:descriptor];
-    
-    self.tableController.showsSectionIndexTitles = FALSE;
+
     self.tableController.autoRefreshFromNetwork = YES;
     self.tableController.pullToRefreshEnabled = YES;
-
-    NSString *currentPostType = [postTypes valueForKey:[[NSNumber numberWithInt: postType] description]];
-
-    self.tableController.resourcePath = [NSString stringWithFormat: @"/wordpress/get_%@_posts/?id=%@&count=100", currentPostType, identifier];
     self.tableController.variableHeightRows = YES;
-    
-    /**
-     Configure the Pull to Refresh View
-     */
-    NSBundle *restKitResources = [NSBundle restKitResourcesBundle];
-    UIImage *arrowImage = [restKitResources imageWithContentsOfResource:@"blueArrow" withExtension:@"png"];
-    [[RKRefreshTriggerView appearance] setTitleFont:[UIFont fontWithName:@"HelveticaNeue-Bold" size:13]];
-    [[RKRefreshTriggerView appearance] setLastUpdatedFont:[UIFont fontWithName:@"HelveticaNeue" size:11]];
-    [[RKRefreshTriggerView appearance] setArrowImage:arrowImage];
-    
-    /**
-     Configure a basic loading view
-     */
-    XBLoadingView *loadingView = [[XBLoadingView alloc] initWithFrame:CGRectMake(0, 0, 80, 80)];
-    loadingView.center = self.tableView.center;
-    self.tableController.loadingView = loadingView;
-    
-    /**
-     Setup some images for various table states
-     */
+
     self.tableController.imageForOffline = [UIImage imageNamed:@"offline.png"];
     self.tableController.imageForError = [UIImage imageNamed:@"error.png"];
     self.tableController.imageForEmpty = [UIImage imageNamed:@"empty.png"];
-    
+
+    [tableController mapObjectsWithClass:[WPPost class] toTableCellsWithMapping:[self getCellMapping]];
+}
+
+- (RKTableViewCellMapping *)getCellMapping {
     RKTableViewCellMapping *cellMapping = [RKTableViewCellMapping cellMapping];
     cellMapping.cellClassName = @"WPPostCell";
     cellMapping.reuseIdentifier = @"WPPost";
@@ -121,40 +110,33 @@ NSMutableDictionary *postTypes;
     [cellMapping mapKeyPath:@"categoriesFormatted" toAttribute:@"categoriesLabel.text"];
     [cellMapping mapKeyPath:@"authorFormatted" toAttribute:@"authorLabel.text"];
     [cellMapping mapKeyPath:@"identifier" toAttribute:@"identifier"];
-
-    [tableController mapObjectsWithClass:[WPPost class] toTableCellsWithMapping:cellMapping];
-    
-    /**
-     Use a custom Nib to draw our table cells for GHIssue objects
-     */
-    [self.tableView registerNib:[UINib nibWithNibName:@"WPPostCell" bundle:nil] forCellReuseIdentifier:@"WPPost"];
-    [loadingView release];
+    return cellMapping;
 }
 
-- (void)viewWillAppear:(BOOL)animated
-{
-    [super viewWillAppear:animated];
-    
-    /**
-     Load the table view!
-     */
-    [tableController loadTable];
+- (void)configureTableView {
+    self.tableView.backgroundColor = [UIColor colorWithPatternImageName:@"bg_home_pattern"];
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    [self.tableView registerNib:[UINib nibWithNibName:@"WPPostCell" bundle:nil] forCellReuseIdentifier:@"WPPost"];
+}
+
+- (NSString *)getCurrentPostType {
+    return [postTypes valueForKey:[[NSNumber numberWithInt:postType] description]];
+}
+
+- (void)configureRefreshTriggerView {
+    NSBundle *restKitResources = [NSBundle restKitResourcesBundle];
+    UIImage *arrowImage = [restKitResources imageWithContentsOfResource:@"blueArrow" withExtension:@"png"];
+    [[RKRefreshTriggerView appearance] setTitleFont:[UIFont fontWithName:@"HelveticaNeue-Bold" size:13]];
+    [[RKRefreshTriggerView appearance] setLastUpdatedFont:[UIFont fontWithName:@"HelveticaNeue" size:11]];
+    [[RKRefreshTriggerView appearance] setArrowImage:arrowImage];
 }
 
 - (void)tableController:(RKAbstractTableController *)tableController willDisplayCell:(UITableViewCell *)cell forObject:(id)object atIndexPath:(NSIndexPath *)indexPath;
 {
     WPPost *post = object;
     WPPostCell *postCell = (WPPostCell *)cell;
-    [postCell.imageView setImageWithURL:[post imageUrl] placeholderImage:defaultPostImage];
+    [postCell.imageView setImageWithURL:[post imageUrl] placeholderImage:_defaultPostImage];
 }
 
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-//    if ([segue.identifier isEqualToString:@"showDetail"]) {
-//        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
-//        WPAuthor *author = [self.tableController objectForRowAtIndexPath:indexPath];
-//        [[segue destinationViewController] loadWithPostType:AUTHOR identifier:author.identifier];
-//    }
-}
 
 @end

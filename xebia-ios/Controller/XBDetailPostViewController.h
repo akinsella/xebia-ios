@@ -1,9 +1,9 @@
 //
-//  DetailViewController.h
-//  StoryboardTutorial
+//  XBDetailPostViewController.h
+//  xebia-ios
 //
-//  Created by Kurry Tran on 10/20/11.
-//  Copyright (c) 2011 Xebia France. All rights reserved.
+//  Created by Alexis Kinsella on 25/07/12
+//  Copyright (c) 2012 Xebia France. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
