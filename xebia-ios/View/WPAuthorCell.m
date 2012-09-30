@@ -20,6 +20,7 @@
 @synthesize itemCount = _itemCount;
 @synthesize identifier;
 @synthesize avatarImage;
+@synthesize dashedSeparatorView;
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
@@ -34,6 +35,8 @@
     self.imageView.frame = CGRectMake(8,8,44,44);
     self.imageView.layer.masksToBounds = YES;
     self.imageView.layer.cornerRadius = 3.0;
+    
+    self.dashedSeparatorView.backgroundColor = [UIColor colorWithPatternImageName:@"dashed-separator"];
 }
 
 - (void)setItemCount:(NSInteger)itemCount {

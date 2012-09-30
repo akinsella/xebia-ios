@@ -18,9 +18,10 @@
 #import "UINavigationBar+XBAdditions.h"
 #import "UIViewController+XBAdditions.h"
 #import "UIColor+XBAdditions.h"
+#import "UIScreen+XBAdditions.h"
 
 #define FONT_SIZE 13.0f
-#define CELL_CONTENT_WIDTH 232.0f
+#define CELL_BORDER_WIDTH 88.0f // 320.0f - 232.0f
 #define CELL_MIN_HEIGHT 64.0f
 #define CELL_BASE_HEIGHT 48.0f
 #define CELL_MAX_HEIGHT 1000.0f
@@ -112,7 +113,8 @@
     [cellMapping mapKeyPath:@"identifier" toAttribute:@"identifier"];
 
     cellMapping.heightOfCellForObjectAtIndexPath = ^ CGFloat(TTTweet *tweet, NSIndexPath* indexPath) {
-        CGSize constraint = CGSizeMake(CELL_CONTENT_WIDTH, CELL_MAX_HEIGHT);
+        CGRect bounds = [UIScreen getScreenBoundsForCurrentOrientation];
+        CGSize constraint = CGSizeMake(bounds.size.width - CELL_BORDER_WIDTH, CELL_MAX_HEIGHT);
         CGSize size = [tweet.text sizeWithFont:[UIFont systemFontOfSize:FONT_SIZE]
                                           constrainedToSize:constraint
                                               lineBreakMode:UILineBreakModeWordWrap];

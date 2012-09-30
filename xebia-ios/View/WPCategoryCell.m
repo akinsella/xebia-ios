@@ -7,12 +7,14 @@
 //
 
 #import "WPCategoryCell.h"
+#import "UIColor+XBAdditions.h"
 
 @implementation WPCategoryCell
 @synthesize titleLabel;
 @synthesize descriptionLabel;
 @synthesize bottomDetailLabel;
 @synthesize itemCount = _itemCount;
+@synthesize dashedSeparatorView;
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
@@ -27,6 +29,10 @@
     [self updateBottomDetailLabel];
 }
 
+- (void)layoutSubviews {
+    [super layoutSubviews];
+    self.dashedSeparatorView.backgroundColor = [UIColor colorWithPatternImageName:@"dashed-separator"];
+}
 
 - (void)updateBottomDetailLabel {
     self.bottomDetailLabel.text = [NSString stringWithFormat: 

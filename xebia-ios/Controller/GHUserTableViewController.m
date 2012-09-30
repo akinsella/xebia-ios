@@ -17,9 +17,10 @@
 #import "UIImage+XBAdditions.h"
 #import "UIImageView+WebCache.h"
 #import "UIColor+XBAdditions.h"
+#import "UIScreen+XBAdditions.h"
 
 #define FONT_SIZE 13.0f
-#define CELL_CONTENT_WIDTH 252.0f
+#define CELL_BORDER_WIDTH 68.0f // 320.0f - 252.0f
 #define CELL_MIN_HEIGHT 64.0f
 #define CELL_BASE_HEIGHT 28.0f
 #define CELL_MAX_HEIGHT 1000.0f
@@ -80,7 +81,8 @@
     [cellMapping mapKeyPath:@"identifier" toAttribute:@"identifier"];
 
     cellMapping.heightOfCellForObjectAtIndexPath = ^ CGFloat(GHUser *user, NSIndexPath* indexPath) {
-        CGSize constraint = CGSizeMake(CELL_CONTENT_WIDTH, CELL_MAX_HEIGHT);
+        CGRect bounds = [UIScreen getScreenBoundsForCurrentOrientation];
+        CGSize constraint = CGSizeMake(bounds.size.width - CELL_BORDER_WIDTH, CELL_MAX_HEIGHT);
         CGSize size = [user.description_ sizeWithFont:[UIFont systemFontOfSize:FONT_SIZE]
                                           constrainedToSize:constraint
                                               lineBreakMode:UILineBreakModeWordWrap];

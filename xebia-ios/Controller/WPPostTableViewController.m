@@ -20,12 +20,6 @@
 #import "UIColor+XBAdditions.h"
 #import "NSNumber+XBAdditions.h"
 
-#define FONT_SIZE 13.0f
-#define CELL_CONTENT_WIDTH 232.0f
-#define CELL_MIN_HEIGHT 64.0f
-#define CELL_BASE_HEIGHT 48.0f
-#define CELL_MAX_HEIGHT 1000.0f
-
 @interface WPPostTableViewController ()
 @property (nonatomic, strong) RKTableController *tableController;
 @end

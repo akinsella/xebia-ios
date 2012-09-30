@@ -16,7 +16,7 @@
     [super viewDidLoad];
     
     self.title = @"Home";
-    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"bg_home_pattern"]];
+    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"bg_home_pattern-light"]];
     
     [self addRevealGesture];
     [self addMenuButton];

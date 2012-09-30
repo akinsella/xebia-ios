@@ -15,6 +15,7 @@
 			<string>IBUIImageView</string>
 			<string>IBUILabel</string>
 			<string>IBUITableViewCell</string>
+			<string>IBUIView</string>
 		</array>
 		<array key="IBDocument.PluginDependencies">
 			<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
@@ -201,7 +202,6 @@
 								<int key="NSvFlags">289</int>
 								<string key="NSFrame">{{82, 183}, {224, 18}}</string>
 								<reference key="NSSuperview" ref="840849820"/>
-								<reference key="NSNextKeyView" ref="713602212"/>
 								<string key="NSReuseIdentifierKey">_NS:9</string>
 								<bool key="IBUIOpaque">NO</bool>
 								<bool key="IBUIClipsSubviews">YES</bool>
@@ -240,7 +240,7 @@
 								<int key="NSvFlags">292</int>
 								<string key="NSFrame">{{8, 32}, {304, 72}}</string>
 								<reference key="NSSuperview" ref="840849820"/>
-								<reference key="NSNextKeyView" ref="45681921"/>
+								<reference key="NSNextKeyView" ref="382142114"/>
 								<string key="NSReuseIdentifierKey">_NS:9</string>
 								<bool key="IBUIUserInteractionEnabled">NO</bool>
 								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
@@ -249,18 +249,14 @@
 									<string key="NSResourceName">WPPostCellTopImage.png</string>
 								</object>
 							</object>
-							<object class="IBUIImageView" id="713602212">
+							<object class="IBUIView" id="382142114">
 								<reference key="NSNextResponder" ref="840849820"/>
-								<int key="NSvFlags">292</int>
-								<string key="NSFrame">{{0, 204}, {320, 5}}</string>
+								<int key="NSvFlags">266</int>
+								<string key="NSFrame">{{9, 203}, {304, 5}}</string>
 								<reference key="NSSuperview" ref="840849820"/>
+								<reference key="NSNextKeyView" ref="45681921"/>
 								<string key="NSReuseIdentifierKey">_NS:9</string>
-								<bool key="IBUIUserInteractionEnabled">NO</bool>
 								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
-								<object class="NSCustomResource" key="IBUIImage">
-									<string key="NSClassName">NSImage</string>
-									<string key="NSResourceName">dashed-separator.png</string>
-								</object>
 							</object>
 						</array>
 						<string key="NSFrameSize">{320, 208}</string>
@@ -367,11 +363,11 @@
 							<reference ref="45681921"/>
 							<reference ref="713770745"/>
 							<reference ref="299168678"/>
-							<reference ref="713602212"/>
 							<reference ref="56579686"/>
 							<reference ref="427153354"/>
 							<reference ref="186510788"/>
 							<reference ref="453891946"/>
+							<reference ref="382142114"/>
 						</array>
 						<reference key="parent" ref="0"/>
 						<string key="objectName">Post Cell - WPPostCell</string>
@@ -412,11 +408,6 @@
 						<reference key="parent" ref="506599320"/>
 					</object>
 					<object class="IBObjectRecord">
-						<int key="objectID">34</int>
-						<reference key="object" ref="713602212"/>
-						<reference key="parent" ref="506599320"/>
-					</object>
-					<object class="IBObjectRecord">
 						<int key="objectID">35</int>
 						<reference key="object" ref="56579686"/>
 						<reference key="parent" ref="506599320"/>
@@ -424,6 +415,11 @@
 					<object class="IBObjectRecord">
 						<int key="objectID">36</int>
 						<reference key="object" ref="186510788"/>
+						<reference key="parent" ref="506599320"/>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">45</int>
+						<reference key="object" ref="382142114"/>
 						<reference key="parent" ref="506599320"/>
 					</object>
 				</array>
@@ -442,15 +438,15 @@
 				<string key="31.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="32.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="33.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
-				<string key="34.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="35.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="36.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
+				<string key="45.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 			</dictionary>
 			<dictionary class="NSMutableDictionary" key="unlocalizedProperties"/>
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">44</int>
+			<int key="maxID">45</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes"/>
 		<int key="IBDocument.localizationMode">0</int>
@@ -465,7 +461,6 @@
 			<string key="WPPostCellFrame.png">{320, 155}</string>
 			<string key="WPPostCellTopImage.png">{304, 72}</string>
 			<string key="avatar_placeholder.png">{44, 44}</string>
-			<string key="dashed-separator.png">{320, 5}</string>
 		</dictionary>
 		<string key="IBCocoaTouchPluginVersion">1926</string>
 	</data>

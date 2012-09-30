@@ -9,6 +9,7 @@
 #import "WPPostCell.h"
 #import "SDImageCache.h"
 #import "WPPost.h"
+#import "UIColor+XBAdditions.h"
 
 @implementation WPPostCell
 
@@ -19,6 +20,7 @@
 @synthesize authorLabel;
 @synthesize identifier;
 @synthesize postImage;
+@synthesize dashedSeparatorView;
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
@@ -32,6 +34,8 @@
 - (void)layoutSubviews {
     [super layoutSubviews];
     self.imageView.frame = CGRectMake(9,113,64,64);
+    
+    self.dashedSeparatorView.backgroundColor = [UIColor colorWithPatternImageName:@"dashed-separator"];
 }
 
 -(void) prepareForReuse {

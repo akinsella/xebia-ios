@@ -17,6 +17,7 @@
 @property (nonatomic, strong) IBOutlet UILabel *tagsLabel;
 @property (nonatomic, strong) IBOutlet UILabel *categoriesLabel;
 @property (nonatomic, strong) IBOutlet UILabel *authorLabel;
+@property (nonatomic, strong) IBOutlet UIView *dashedSeparatorView;
 
 @property (nonatomic, strong) NSNumber *identifier;
 @property (nonatomic, readonly, strong) UIImage *postImage;

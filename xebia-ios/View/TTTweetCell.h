@@ -13,8 +13,9 @@
 
 @property (nonatomic, strong) IBOutlet UILabel *authorNameLabel;
 @property (nonatomic, strong) IBOutlet UILabel *nicknameLabel;
-@property (nonatomic, strong) IBOutlet UILabel *contentLabel;
+@property (nonatomic, strong) IBOutlet UITextView *contentLabel;
 @property (nonatomic, strong) IBOutlet UILabel *dateLabel;
+@property (nonatomic, strong) IBOutlet UIView *dashedSeparatorView;
 
 @property (nonatomic, strong) NSString *identifier;
 @property (nonatomic, readonly, strong) UIImage *avatarImage;
