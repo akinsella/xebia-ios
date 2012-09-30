@@ -17,6 +17,8 @@
 #import "UIImage+XBAdditions.h"
 #import "UIImageView+WebCache.h"
 #import "UIViewController+XBAdditions.h"
+#import "UIColor+XBAdditions.h"
+
 
 #define FONT_SIZE 13.0f
 #define CELL_CONTENT_WIDTH 252.0f
@@ -67,6 +69,9 @@
 }
 
 - (void)configureTableView {
+    self.tableView.backgroundColor = [UIColor colorWithPatternImageName:@"bg_home_pattern"];
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    
     [self.tableView registerNib:[UINib nibWithNibName:@"EBEventCell" bundle:nil] forCellReuseIdentifier:@"EBEvent"];
 }
 

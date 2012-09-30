@@ -116,6 +116,7 @@ NSMutableDictionary *postTypes;
 - (void)configureTableView {
     self.tableView.backgroundColor = [UIColor colorWithPatternImageName:@"bg_home_pattern"];
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    
     [self.tableView registerNib:[UINib nibWithNibName:@"WPPostCell" bundle:nil] forCellReuseIdentifier:@"WPPost"];
 }
 

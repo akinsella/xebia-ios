@@ -108,7 +108,7 @@
 							</object>
 							<object class="IBUIImageView" id="316560600">
 								<reference key="NSNextResponder" ref="840849820"/>
-								<int key="NSvFlags">292</int>
+								<int key="NSvFlags">268</int>
 								<string key="NSFrame">{{0, 40}, {320, 5}}</string>
 								<reference key="NSSuperview" ref="840849820"/>
 								<string key="NSReuseIdentifierKey">_NS:9</string>

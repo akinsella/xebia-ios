@@ -8,6 +8,7 @@
 
 #import "EBEventCell.h"
 #import "EBEvent.h"
+#import <QuartzCore/QuartzCore.h>
 
 @implementation EBEventCell
 
@@ -27,6 +28,8 @@
 - (void)layoutSubviews {
     [super layoutSubviews];
     self.imageView.frame = CGRectMake(10,10,44,44);
+    self.imageView.layer.masksToBounds = YES;
+    self.imageView.layer.cornerRadius = 3.0;
 }
 
 -(void) prepareForReuse {

@@ -16,10 +16,11 @@
 #import "GHUserCell.h"
 #import "UIImage+XBAdditions.h"
 #import "UIImageView+WebCache.h"
+#import "UIColor+XBAdditions.h"
 
 #define FONT_SIZE 13.0f
 #define CELL_CONTENT_WIDTH 252.0f
-#define CELL_MIN_HEIGHT 44.0f
+#define CELL_MIN_HEIGHT 64.0f
 #define CELL_BASE_HEIGHT 28.0f
 #define CELL_MAX_HEIGHT 1000.0f
 
@@ -63,6 +64,9 @@
 }
 
 - (void)configureTableView {
+    self.tableView.backgroundColor = [UIColor colorWithPatternImageName:@"bg_home_pattern"];
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+
     [self.tableView registerNib:[UINib nibWithNibName:@"GHUserCell" bundle:nil] forCellReuseIdentifier:@"GHUser"];
 }
 

@@ -17,6 +17,7 @@
 #import "UIImageView+WebCache.h"
 #import "UINavigationBar+XBAdditions.h"
 #import "UIViewController+XBAdditions.h"
+#import "UIColor+XBAdditions.h"
 
 #define FONT_SIZE 13.0f
 #define CELL_CONTENT_WIDTH 232.0f
@@ -69,6 +70,9 @@
 }
 
 - (void)configureTableView {
+    self.tableView.backgroundColor = [UIColor colorWithPatternImageName:@"bg_home_pattern"];
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+
     [self.tableView registerNib:[UINib nibWithNibName:@"TTTweetCell" bundle:nil] forCellReuseIdentifier:@"TTTweet"];
 }
 
@@ -118,10 +122,6 @@
     };
     return cellMapping;
 }
-
-//- (void)tableController:(RKAbstractTableController *)tableController willDisplayCell:(TTTweetCell *)tweetCell forObject:(TTTweet *)tweet atIndexPath:(NSIndexPath *)indexPath {
-//    [tweetCell.imageView setImageWithURL:[tweet.user avatarImageUrl] placeholderImage:_defaultAvatarImage];
-//}
 
 - (void)tableController:(RKAbstractTableController *)tableController willDisplayCell:(UITableViewCell *)cell forObject:(id)object atIndexPath:(NSIndexPath *)indexPath {
     TTTweet *tweet = object;
