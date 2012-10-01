@@ -7,6 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <RestKit/RestKit.h>
+#import <RKTableController.h>
 #import "WPPost.h"
 
 @interface WPPostTableViewController : UITableViewController<RKTableControllerDelegate>

@@ -32,6 +32,7 @@
 
 @implementation TTTweetTableViewController {
     UIImage* _defaultAvatarImage;
+    UIImage* _xebiaAvatarImage;
 }
 
 
@@ -59,7 +60,8 @@
 }
 
 - (void)configure {
-    _defaultAvatarImage = [UIImage imageNamed:@"avatar_placeholder"];
+    _defaultAvatarImage = [[UIImage imageNamed:@"avatar_placeholder"] retain];
+    _xebiaAvatarImage = [[UIImage imageNamed:@"xebia-avatar"] retain];
 
     [self addRevealGesture];
     [self addMenuButton];
@@ -128,7 +130,23 @@
 - (void)tableController:(RKAbstractTableController *)tableController willDisplayCell:(UITableViewCell *)cell forObject:(id)object atIndexPath:(NSIndexPath *)indexPath {
     TTTweet *tweet = object;
     TTTweetCell *tweetCell = (TTTweetCell *)cell;
-    [tweetCell.imageView setImageWithURL:[tweet.user avatarImageUrl] placeholderImage:_defaultAvatarImage];
+    if ([tweet.user.screen_name isEqualToString:@"XebiaFr"]) {
+        tweetCell.imageView.image = _xebiaAvatarImage;
+    }
+    else {
+        [tweetCell.imageView setImageWithURL:[tweet.user avatarImageUrl] placeholderImage:_defaultAvatarImage];
+    }
+}
+
+- (void)didReceiveMemoryWarning{
+    NSLog(@"Did received a memory warning in controller: %@", [self class]);
+    [super didReceiveMemoryWarning];
+}
+
+- (void)dealloc {
+    [_defaultAvatarImage release];
+    [_xebiaAvatarImage release];
+    [super dealloc];
 }
 
 @end

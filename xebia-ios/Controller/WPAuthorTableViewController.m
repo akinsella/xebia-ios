@@ -53,7 +53,7 @@
 }
 
 - (void)configure {
-    _defaultAvatarImage = [UIImage imageNamed:@"avatar_placeholder"];
+    _defaultAvatarImage = [[UIImage imageNamed:@"avatar_placeholder"] retain];
 
     [self configureTableView];
     [self configureTableController];
@@ -69,7 +69,7 @@
     [cellMapping mapKeyPath:@"identifier" toAttribute:@"identifier"];
     cellMapping.onSelectCellForObjectAtIndexPath = ^(UITableViewCell *cell, id object, NSIndexPath* indexPath) {
         WPAuthor *author = [self.tableController objectForRowAtIndexPath:indexPath];
-        NSLog(@"Author: %@", author);
+        NSLog(@"Author selected: %@", author);
 
         WPPostTableViewController *postTableViewController = [[WPPostTableViewController alloc] initWithPostType:AUTHOR identifier:author.identifier];
         [self.appDelegate.mainViewController revealViewController:postTableViewController];
@@ -115,6 +115,16 @@
     WPAuthor *author = object;
     WPAuthorCell *authorCell = (WPAuthorCell *)cell;
     [authorCell.imageView setImageWithURL:[author avatarImageUrl] placeholderImage:_defaultAvatarImage];
+}
+
+- (void)didReceiveMemoryWarning{
+    NSLog(@"Did received a memory warning in controller: %@", [self class]);
+    [super didReceiveMemoryWarning];
+}
+
+- (void)dealloc {
+    [_defaultAvatarImage release];
+    [super dealloc];
 }
 
 @end

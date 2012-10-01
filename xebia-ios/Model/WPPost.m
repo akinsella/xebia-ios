@@ -7,13 +7,14 @@
 //
 
 #import "WPPost.h"
+#import "WPTag.h"
+#import "WPCategory.h"
 #import "GravatarHelper.h"
 #import "NSDateFormatter+XBAdditions.h"
 #import "USArrayWrapper.h"
 
 @implementation WPPost {
-    NSDateFormatter *_dfDate;
-    NSDateFormatter *_dfTime;
+    NSDateFormatter *_df;
 }
 
 @synthesize identifier;
@@ -46,24 +47,22 @@
 }
 
 - (void)initDateFormatters {
-    _dfDate = [[NSDateFormatter initWithDateFormat: @"dd'/'MM'/'yyyy"] retain];
-    _dfTime = [[NSDateFormatter initWithDateFormat: @"HH':'mm"] retain];
+    _df = [[NSDateFormatter initWithDateFormat: @"'Le 'dd'/'MM'/'yyyy', à 'HH':'mm"] retain];
 }
 
-- (NSString *)excerptTrim {
-    NSRange range = {0, MIN([self.excerpt length], 255)};
-    NSRange rangeOfComposedCharacterSequences = [self.excerpt rangeOfComposedCharacterSequencesForRange: range];
-    return [NSString stringWithFormat:@"%@ ...", [self.excerpt substringWithRange:rangeOfComposedCharacterSequences] ];
+- (NSString *)description_ {
+    return [NSString stringWithFormat:@"%@ commentaire%@", comment_count, comment_count.intValue > 1 ? @"s" :@"" ];
+//    NSRange range = {0, MIN([self.excerpt length], 255)};
+//    NSRange rangeOfComposedCharacterSequences = [self.excerpt rangeOfComposedCharacterSequencesForRange: range];
+//    return [NSString stringWithFormat:@"%@ ...", [self.excerpt substringWithRange:rangeOfComposedCharacterSequences] ];
 }
 
 - (NSString *)dateFormatted {
-    NSString *date = [_dfDate stringFromDate:self.date];
-    NSString *time = [_dfTime stringFromDate:self.date];
-    return [NSString stringWithFormat:@"Le %@, à %@", date, time];
+    return [NSString stringWithFormat:@"%@", [_df stringFromDate:self.date]];
 }
 
 - (NSString *)authorFormatted {
-    NSString *authorFormatted = [NSString stringWithFormat:@"Par %@", self.author.name];
+    NSString *authorFormatted = [NSString stringWithFormat:@"%@", self.author.name ? self.author.name : self.author.nickname];
     return authorFormatted;
 }
 
@@ -80,12 +79,11 @@
 }
 
 - (NSURL *)imageUrl {
-    return [GravatarHelper getGravatarURL: [NSString stringWithFormat:@"%@@xebia.fr", @"akinsella"]];
+    return [GravatarHelper getGravatarURL: [NSString stringWithFormat:@"%@@xebia.fr", self.author.nickname]];
 }
 
 - (void)dealloc {
-    [_dfDate release];
-    [_dfTime release];
+    [_df release];
     [super dealloc];
 }
 
@@ -97,6 +95,11 @@
                 @"id", @"identifier",
                 nil];
     }];
+
+    // Relationships
+    [mapping hasMany:@"tags" withMapping:[WPTag mapping]];
+    [mapping hasMany:@"categories" withMapping:[WPCategory mapping]];
+    [mapping hasMany:@"author" withMapping:[WPAuthor mapping]];
 
     return mapping;
 }

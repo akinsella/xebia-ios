@@ -24,8 +24,8 @@
         [self.textLabel setShadowOffset:CGSizeMake(0.0, 1.0)];
 
         
-        UIImage *backgroundImage = [[UIImage imageNamed:@"LightBackground.png"] stretchableImageWithLeftCapWidth:0.0 topCapHeight:1.0];
-        self.backgroundView = [[UIImageView alloc] initWithImage:backgroundImage];
+        UIImage *backgroundImage = [[UIImage imageNamed:@"LightBackground.png"] stretchableImageWithLeftCapWidth:0 topCapHeight:1];
+        self.backgroundView = [[[UIImageView alloc] initWithImage:backgroundImage] autorelease];
         self.backgroundView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
         self.backgroundView.frame = self.bounds;
         self.backgroundView.alpha = 0.8;

@@ -12,6 +12,10 @@
 #import "WPCategoryTableViewController.h"
 #import "XBLoadingView.h"
 #import "UIColor+XBAdditions.h"
+#import "WPPost.h"
+#import "WPPostTableViewController.h"
+#import "UIViewController+XBAdditions.h"
+#import "XBMainViewController.h"
 
 
 @interface WPCategoryTableViewController ()
@@ -54,6 +58,14 @@
     cellMapping.reuseIdentifier = @"WPCategory";
     [cellMapping mapKeyPath:@"title" toAttribute:@"titleLabel.text"];
     [cellMapping mapKeyPath:@"postCount" toAttribute:@"itemCount"];
+    cellMapping.onSelectCellForObjectAtIndexPath = ^(UITableViewCell *cell, id object, NSIndexPath* indexPath) {
+        WPCategory *category = [self.tableController objectForRowAtIndexPath:indexPath];
+        NSLog(@"Category selected: %@", category);
+        
+        WPPostTableViewController *postTableViewController = [[WPPostTableViewController alloc] initWithPostType:CATEGORY identifier:category.identifier];
+        [self.appDelegate.mainViewController revealViewController:postTableViewController];
+        [postTableViewController release];
+    };
 
     return cellMapping;
 }
@@ -87,7 +99,11 @@
     self.tableController.imageForEmpty = [UIImage imageNamed:@"empty.png"];
 
     [tableController mapObjectsWithClass:[WPCategory class] toTableCellsWithMapping:[self getCellMapping]];
+}
 
+- (void)didReceiveMemoryWarning{
+    NSLog(@"Did received a memory warning in controller: %@", [self class]);
+    [super didReceiveMemoryWarning];
 }
 
 @end

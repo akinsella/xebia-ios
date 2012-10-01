@@ -25,7 +25,8 @@
 @end
 
 @implementation WPPostTableViewController {
-    UIImage*_defaultPostImage;
+    UIImage *_defaultPostImage;
+    UIImage *_xebiaPostImage;
 }
 
 NSMutableDictionary *postTypes;
@@ -36,24 +37,28 @@ NSMutableDictionary *postTypes;
 -(id)initWithPostType:(POST_TYPE)postType identifier:(NSNumber *)identifier
 {
     self = [super initWithStyle:UITableViewStylePlain];
-    
+
     if (self) {
-
-        self.title = @"Posts";
-        _defaultPostImage = [UIImage imageNamed:@"avatar_placeholder"];
-
-        self.postType = postType;
-        self.identifier = identifier;
-        
-        postTypes = [[NSMutableDictionary alloc] initWithObjectsAndKeys:
-                           @"recent",  [NSNumber asString:RECENT],
-                           @"author", [NSNumber asString: AUTHOR],
-                           @"tag", [NSNumber asString: TAG],
-                           @"category", [NSNumber asString: CATEGORY],
-                           nil];
+        [self initInternalWithPostType:postType identifier:identifier];
     }
-    
+
     return self;
+}
+
+- (void)initInternalWithPostType:(POST_TYPE)postType identifier:(NSNumber *)identifier {
+    self.title = @"Posts";
+    _defaultPostImage = [[UIImage imageNamed:@"avatar_placeholder"] retain];
+    _xebiaPostImage = [[UIImage imageNamed:@"xebia-avatar"] retain];
+
+    self.postType = postType;
+    self.identifier = identifier;
+
+    postTypes = [[NSMutableDictionary alloc] initWithObjectsAndKeys:
+                @"recent",  [NSNumber asString:RECENT],
+                @"author", [NSNumber asString: AUTHOR],
+                @"tag", [NSNumber asString: TAG],
+                @"category", [NSNumber asString: CATEGORY],
+                nil];
 }
 
 - (void)viewDidLoad
@@ -66,7 +71,10 @@ NSMutableDictionary *postTypes;
 {
     [super viewWillAppear:animated];
 
-    NSString *resourcePath = [NSString stringWithFormat: @"/wordpress/get_%@_posts/?id=%@&count=100", [self getCurrentPostType], identifier];
+    NSString *resourcePath = identifier ?
+            [NSString stringWithFormat: @"/wordpress/get_%@_posts/?id=%@&count=10", [self getCurrentPostType], identifier] :
+            [NSString stringWithFormat: @"/wordpress/get_%@_posts/?count=10", [self getCurrentPostType]];
+
     [tableController loadTableFromResourcePath:resourcePath];
 }
 
@@ -88,6 +96,10 @@ NSMutableDictionary *postTypes;
     self.tableController.imageForOffline = [UIImage imageNamed:@"offline.png"];
     self.tableController.imageForError = [UIImage imageNamed:@"error.png"];
     self.tableController.imageForEmpty = [UIImage imageNamed:@"empty.png"];
+    
+//    XBLoadingView *loadingView = [[[XBLoadingView alloc] initWithFrame:CGRectMake(0, 0, 80, 80)] autorelease];
+//    loadingView.center = self.tableView.center;
+//    self.tableController.loadingView = loadingView;
 
     [tableController mapObjectsWithClass:[WPPost class] toTableCellsWithMapping:[self getCellMapping]];
 }
@@ -96,9 +108,9 @@ NSMutableDictionary *postTypes;
     RKTableViewCellMapping *cellMapping = [RKTableViewCellMapping cellMapping];
     cellMapping.cellClassName = @"WPPostCell";
     cellMapping.reuseIdentifier = @"WPPost";
-    cellMapping.rowHeight = 204.0;
-    [cellMapping mapKeyPath:@"title" toAttribute:@"titleLabel.text"];
-    [cellMapping mapKeyPath:@"excerptTrim" toAttribute:@"excerptLabel.text"];
+    cellMapping.rowHeight = 102.0;
+    [cellMapping mapKeyPath:@"title_plain" toAttribute:@"titleLabel.text"];
+    [cellMapping mapKeyPath:@"description_" toAttribute:@"excerptLabel.text"];
     [cellMapping mapKeyPath:@"dateFormatted" toAttribute:@"dateLabel.text"];
     [cellMapping mapKeyPath:@"tagsFormatted" toAttribute:@"tagsLabel.text"];
     [cellMapping mapKeyPath:@"categoriesFormatted" toAttribute:@"categoriesLabel.text"];
@@ -130,8 +142,23 @@ NSMutableDictionary *postTypes;
 {
     WPPost *post = object;
     WPPostCell *postCell = (WPPostCell *)cell;
-    [postCell.imageView setImageWithURL:[post imageUrl] placeholderImage:_defaultPostImage];
+    if (![post.author.slug isEqualToString:@"xebiafrance" ]) {
+        [postCell.imageView setImageWithURL: [post imageUrl] placeholderImage:_defaultPostImage];
+    }
+    else {
+        postCell.imageView.image = _xebiaPostImage;
+    }
 }
 
+- (void)didReceiveMemoryWarning{
+    NSLog(@"Did received a memory warning in controller: %@", [self class]);
+    [super didReceiveMemoryWarning];
+}
+
+- (void)dealloc {
+    [_defaultPostImage release];
+    [_xebiaPostImage release];
+    [super dealloc];
+}
 
 @end

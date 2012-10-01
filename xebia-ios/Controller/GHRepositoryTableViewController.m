@@ -31,6 +31,7 @@
 
 @implementation GHRepositoryTableViewController {
     UIImage* _defaultAvatarImage;
+    UIImage* _xebiaAvatarImage;
 }
 
 @synthesize tableController;
@@ -56,7 +57,8 @@
 }
 
 - (void)configure {
-    _defaultAvatarImage = [UIImage imageNamed:@"github-gravatar-placeholder"];
+    _defaultAvatarImage = [[UIImage imageNamed:@"github-gravatar-placeholder"] retain];
+    _xebiaAvatarImage = [[UIImage imageNamed:@"xebia-avatar"] retain];
 
     [self configureTableView];
     [self configureTableController];
@@ -118,7 +120,19 @@
 - (void)tableController:(RKAbstractTableController *)tableController willDisplayCell:(UITableViewCell *)cell forObject:(id)object atIndexPath:(NSIndexPath *)indexPath {
     GHRepository *repository = object;
     GHRepositoryCell *repositoryCell = (GHRepositoryCell *)cell;
-    [repositoryCell.imageView setImageWithURL:[repository.owner avatarImageUrl] placeholderImage:_defaultAvatarImage];
+    repositoryCell.imageView.image = _xebiaAvatarImage;
+//    [repositoryCell.imageView setImageWithURL:[repository.owner avatarImageUrl] placeholderImage:_defaultAvatarImage];
+}
+
+- (void)didReceiveMemoryWarning{
+    NSLog(@"Did received a memory warning in controller: %@", [self class]);
+    [super didReceiveMemoryWarning];
+}
+
+- (void)dealloc {
+    [_defaultAvatarImage release];
+    [_xebiaAvatarImage release];
+    [super dealloc];
 }
 
 @end

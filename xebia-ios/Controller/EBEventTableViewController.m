@@ -58,7 +58,7 @@
 }
 
 - (void)configure {
-    _defaultAvatarImage = [UIImage imageNamed:@"avatar-placeholder"];
+    _defaultAvatarImage = [[UIImage imageNamed:@"avatar_placeholder.png"] retain];
 
     [self addRevealGesture];
     [self addMenuButton];
@@ -129,6 +129,11 @@
     EBEvent *event = object;
     EBEventCell *eventCell = (EBEventCell *)cell;
     [eventCell.imageView setImage:[UIImage imageNamed:@"eventbrite"]];
+}
+
+- (void)dealloc {
+    [_defaultAvatarImage release];
+    [super dealloc];
 }
 
 @end

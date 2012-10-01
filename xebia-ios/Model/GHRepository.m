@@ -49,6 +49,7 @@
                 @"private", @"private_",
                 nil];
     }];
+
     // Relationships
     [mapping hasMany:@"owner" withMapping:[GHUser mapping]];
 

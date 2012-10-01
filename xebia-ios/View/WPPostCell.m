@@ -9,6 +9,7 @@
 #import "WPPostCell.h"
 #import "SDImageCache.h"
 #import "WPPost.h"
+#import <QuartzCore/QuartzCore.h>
 #import "UIColor+XBAdditions.h"
 
 @implementation WPPostCell
@@ -33,8 +34,10 @@
 
 - (void)layoutSubviews {
     [super layoutSubviews];
-    self.imageView.frame = CGRectMake(9,113,64,64);
-    
+    self.imageView.frame = CGRectMake(9,26,64,64);
+    self.imageView.layer.masksToBounds = YES;
+    self.imageView.layer.cornerRadius = 3.0;
+
     self.dashedSeparatorView.backgroundColor = [UIColor colorWithPatternImageName:@"dashed-separator"];
 }
 

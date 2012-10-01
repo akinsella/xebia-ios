@@ -57,7 +57,7 @@
 }
 
 - (void)configure {
-    _defaultAvatarImage = [UIImage imageNamed:@"github-gravatar-placeholder"];
+    _defaultAvatarImage = [[UIImage imageNamed:@"github-gravatar-placeholder"] retain];
 
     [self configureTableController];
     [self configureRefreshTriggerView];
@@ -125,6 +125,16 @@
     GHUser *user = object;
     GHUserCell *userCell = (GHUserCell *)cell;
     [userCell.imageView setImageWithURL:[user avatarImageUrl] placeholderImage:_defaultAvatarImage];
+}
+
+- (void)didReceiveMemoryWarning{
+    NSLog(@"Did received a memory warning in controller: %@", [self class]);
+    [super didReceiveMemoryWarning];
+}
+
+- (void)dealloc {
+    [_defaultAvatarImage release];
+    [super dealloc];
 }
 
 @end

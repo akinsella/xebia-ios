@@ -36,7 +36,7 @@ NSString* const XBErrorDomain = @"fr.xebia.ErrorDomain";
 
 //    RKLogConfigureByName("RestKit/UI", RKLogLevelTrace);
 //    RKLogConfigureByName("RestKit/Network", RKLogLevelTrace);
-//    RKLogConfigureByName("RestKit/ObjectMapping", RKLogLevelTrace);
+    RKLogConfigureByName("RestKit/ObjectMapping", RKLogLevelTrace);
 //    RKLogConfigureByName("RestKit/ObjectMapping/JSON", RKLogLevelTrace);
 }
 
@@ -60,6 +60,11 @@ NSString* const XBErrorDomain = @"fr.xebia.ErrorDomain";
 
     objectManager.client.cachePolicy = RKRequestCachePolicyEnabled;
     objectManager.client.requestCache.storagePolicy = RKRequestCacheStoragePolicyPermanently;
+    objectManager.client.requestQueue.showsNetworkActivityIndicatorWhenBusy = YES;
+//    objectManager.client.serviceUnavailableAlertEnabled = YES;
+//    objectManager.client.serviceUnavailableAlertTitle = @"Erreur";
+//    objectManager.client.serviceUnavailableAlertMessage = @"Service indisponible. Veuillez réessayer plus tard.";
+
 //    [objectManager.client.requestCache invalidateAll];
 }
 
@@ -88,10 +93,10 @@ NSString* const XBErrorDomain = @"fr.xebia.ErrorDomain";
 
     RKObjectMapping *wpPostMapping = [WPPost mapping];
     [omp addObjectMapping:wpPostMapping];
-    [omp setObjectMapping:wpPostMapping forResourcePathPattern:@"/wordpress/get_recent_posts/?id=:identifier"];
-    [omp setObjectMapping:wpPostMapping forResourcePathPattern:@"/wordpress/get_author_posts/?id=:identifier"];
-    [omp setObjectMapping:wpPostMapping forResourcePathPattern:@"/wordpress/get_tag_posts/?id=:identifier"];
-    [omp setObjectMapping:wpPostMapping forResourcePathPattern:@"/wordpress/get_category_posts/?id=:identifier"];
+    [omp setObjectMapping:wpPostMapping forResourcePathPattern:@"/wordpress/get_recent_posts/"];
+    [omp setObjectMapping:wpPostMapping forResourcePathPattern:@"/wordpress/get_author_posts/"];
+    [omp setObjectMapping:wpPostMapping forResourcePathPattern:@"/wordpress/get_tag_posts/"];
+    [omp setObjectMapping:wpPostMapping forResourcePathPattern:@"/wordpress/get_category_posts/"];
 
     RKObjectMapping *ttTweet = [TTTweet mapping];
     [omp addObjectMapping:ttTweet];

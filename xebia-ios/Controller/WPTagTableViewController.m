@@ -14,6 +14,10 @@
 #import "WPCategoryTableViewController.h"
 #import "XBLoadingView.h"
 #import "UIColor+XBAdditions.h"
+#import "WPPostTableViewController.h"
+#import "WPPost.h"
+#import "UIViewController+XBAdditions.h"
+#import "XBMainViewController.h"
 
 
 @interface WPTagTableViewController ()
@@ -78,6 +82,14 @@
     [cellMapping mapKeyPath:@"capitalizedTitle" toAttribute:@"titleLabel.text"];
     [cellMapping mapKeyPath:@"description_" toAttribute:@"descriptionLabel.text"];
     [cellMapping mapKeyPath:@"postCount" toAttribute:@"itemCount"];
+    cellMapping.onSelectCellForObjectAtIndexPath = ^(UITableViewCell *cell, id object, NSIndexPath* indexPath) {
+        WPTag *tag = [self.tableController objectForRowAtIndexPath:indexPath];
+        NSLog(@"Tag selected: %@", tag);
+        
+        WPPostTableViewController *postTableViewController = [[WPPostTableViewController alloc] initWithPostType:TAG identifier:tag.identifier];
+        [self.appDelegate.mainViewController revealViewController:postTableViewController];
+        [postTableViewController release];
+    };
 
     return cellMapping;
 }
@@ -87,6 +99,11 @@
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
 
     [self.tableView registerNib:[UINib nibWithNibName:@"WPTagCell" bundle:nil] forCellReuseIdentifier:@"WPTag"];
+}
+
+- (void)didReceiveMemoryWarning{
+    NSLog(@"Did received a memory warning in controller: %@", [self class]);
+    [super didReceiveMemoryWarning];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
