@@ -36,8 +36,12 @@
     return YES;
 }
 
-- (void)applicationWillTerminate:(UIApplication *)application {
+- (void)applicationDidReceiveMemoryWarning:(UIApplication *)application {
+    NSLog(@"Application received a memory warning !");
+}
 
+- (void)applicationWillTerminate:(UIApplication *)application {
+    NSLog(@"Application will terminate !!");
 }
 
 - (void)dealloc {

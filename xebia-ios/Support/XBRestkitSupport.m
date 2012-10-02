@@ -28,7 +28,10 @@ NSString* const XBErrorDomain = @"fr.xebia.ErrorDomain";
 }
 
 + (void)configureLoggers {
-    RKLogConfigureByName("RestKit/*", RKLogLevelInfo);
+    RKLogConfigureByName("RestKit/*", RKLogLevelError);
+//    RKLogConfigureByName("RestKit/*", RKLogLevelTrace);
+
+    
 //    RKLogConfigureByName("RestKit/UI", RKLogLevelError);
 //    RKLogConfigureByName("RestKit/Network", RKLogLevelError);
 //    RKLogConfigureByName("RestKit/ObjectMapping", RKLogLevelError);
@@ -56,16 +59,17 @@ NSString* const XBErrorDomain = @"fr.xebia.ErrorDomain";
 
 + (void)configureObjectManager {
 
-    RKObjectManager *objectManager = [RKObjectManager managerWithBaseURLString:@"http://127.0.0.1:9000/v1.0/"];
+//    RKObjectManager *objectManager = [RKObjectManager managerWithBaseURLString:@"http://192.168.1.10:9000/v1.0/"];
+    RKObjectManager *objectManager = [RKObjectManager managerWithBaseURLString:@"http://xebia-mobile.cloudfoundry.com/v1.0/"];
 
-    objectManager.client.cachePolicy = RKRequestCachePolicyEnabled;
-    objectManager.client.requestCache.storagePolicy = RKRequestCacheStoragePolicyPermanently;
+    objectManager.client.cachePolicy = RKRequestCachePolicyNone;
+//    objectManager.client.requestCache.storagePolicy = RKRequestCacheStoragePolicyPermanently;
     objectManager.client.requestQueue.showsNetworkActivityIndicatorWhenBusy = YES;
 //    objectManager.client.serviceUnavailableAlertEnabled = YES;
 //    objectManager.client.serviceUnavailableAlertTitle = @"Erreur";
 //    objectManager.client.serviceUnavailableAlertMessage = @"Service indisponible. Veuillez réessayer plus tard.";
 
-//    [objectManager.client.requestCache invalidateAll];
+    [objectManager.client.requestCache invalidateAll];
 }
 
 + (void)configureMappings {

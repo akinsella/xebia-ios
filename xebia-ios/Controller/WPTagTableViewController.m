@@ -80,7 +80,6 @@
     cellMapping.reuseIdentifier = @"WPTag";
 
     [cellMapping mapKeyPath:@"capitalizedTitle" toAttribute:@"titleLabel.text"];
-    [cellMapping mapKeyPath:@"description_" toAttribute:@"descriptionLabel.text"];
     [cellMapping mapKeyPath:@"postCount" toAttribute:@"itemCount"];
     cellMapping.onSelectCellForObjectAtIndexPath = ^(UITableViewCell *cell, id object, NSIndexPath* indexPath) {
         WPTag *tag = [self.tableController objectForRowAtIndexPath:indexPath];
@@ -96,14 +95,15 @@
 
 - (void)configureTableView {
     self.tableView.backgroundColor = [UIColor colorWithPatternImageName:@"bg_home_pattern"];
+//    self.tableView.backgroundColor = [UIColor colorWithHex:@"#191919" alpha:1.0];
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
 
     [self.tableView registerNib:[UINib nibWithNibName:@"WPTagCell" bundle:nil] forCellReuseIdentifier:@"WPTag"];
 }
 
 - (void)didReceiveMemoryWarning{
-    NSLog(@"Did received a memory warning in controller: %@", [self class]);
     [super didReceiveMemoryWarning];
+    NSLog(@"Did received a memory warning in controller: %@", [self class]);
 }
 
 - (void)viewWillAppear:(BOOL)animated {

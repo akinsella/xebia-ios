@@ -72,6 +72,7 @@
 
 - (void)configureTableView {
     self.tableView.backgroundColor = [UIColor colorWithPatternImageName:@"bg_home_pattern"];
+//    self.tableView.backgroundColor = [UIColor colorWithHex:@"#191919" alpha:1.0];
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
 
     [self.tableView registerNib:[UINib nibWithNibName:@"WPCategoryCell" bundle:nil] forCellReuseIdentifier:@"WPCategory"];

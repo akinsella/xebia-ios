@@ -12,7 +12,7 @@
 
 @implementation TTTweetCell
 
-@synthesize authorNameLabel, nicknameLabel, dateLabel, contentLabel;
+@synthesize authorNameLabel, dateLabel, contentLabel;
 
 @synthesize identifier;
 @synthesize avatarImage;

@@ -17,8 +17,8 @@
 @synthesize post_count;
 
 - (NSString *)capitalizedTitle {
-    return [self.title stringByReplacingCharactersInRange:NSMakeRange(0,1)  
-                                              withString:[[self.title substringToIndex:1] capitalizedString]];
+    return self.title;//[self.title stringByReplacingCharactersInRange:NSMakeRange(0,1)
+           //                                   withString:[[self.title substringToIndex:1] capitalizedString]];
 }
 
 - (NSInteger)postCount {

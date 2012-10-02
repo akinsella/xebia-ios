@@ -72,8 +72,8 @@ NSMutableDictionary *postTypes;
     [super viewWillAppear:animated];
 
     NSString *resourcePath = identifier ?
-            [NSString stringWithFormat: @"/wordpress/get_%@_posts/?id=%@&count=10", [self getCurrentPostType], identifier] :
-            [NSString stringWithFormat: @"/wordpress/get_%@_posts/?count=10", [self getCurrentPostType]];
+            [NSString stringWithFormat: @"/wordpress/get_%@_posts/?id=%@", [self getCurrentPostType], identifier] :
+            [NSString stringWithFormat: @"/wordpress/get_%@_posts/?count=25", [self getCurrentPostType]];
 
     [tableController loadTableFromResourcePath:resourcePath];
 }
@@ -121,6 +121,7 @@ NSMutableDictionary *postTypes;
 
 - (void)configureTableView {
     self.tableView.backgroundColor = [UIColor colorWithPatternImageName:@"bg_home_pattern"];
+//    self.tableView.backgroundColor = [UIColor colorWithHex:@"#191919" alpha:1.0];
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     
     [self.tableView registerNib:[UINib nibWithNibName:@"WPPostCell" bundle:nil] forCellReuseIdentifier:@"WPPost"];
@@ -151,8 +152,8 @@ NSMutableDictionary *postTypes;
 }
 
 - (void)didReceiveMemoryWarning{
-    NSLog(@"Did received a memory warning in controller: %@", [self class]);
     [super didReceiveMemoryWarning];
+    NSLog(@"Did received a memory warning in controller: %@", [self class]);
 }
 
 - (void)dealloc {

@@ -8,6 +8,7 @@
 
 #import "UINavigationController+XBAdditions.h"
 #import "UINavigationBar+XBAdditions.h"
+#import "UIColor+XBAdditions.h"
 
 @implementation UINavigationController (XBAdditions)
 

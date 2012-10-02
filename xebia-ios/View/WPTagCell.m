@@ -12,7 +12,6 @@
 @implementation WPTagCell
 
 @synthesize titleLabel;
-@synthesize descriptionLabel;
 @synthesize bottomDetailLabel;
 @synthesize itemCount = _itemCount;
 @synthesize dashedSeparatorView;
@@ -20,7 +19,7 @@
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
-        // Initialization code
+        self.dashedSeparatorView.backgroundColor = [UIColor colorWithPatternImageName:@"dashed-separator"];
     }
     return self;
 }
@@ -32,7 +31,6 @@
 
 - (void)layoutSubviews {
     [super layoutSubviews];
-    self.dashedSeparatorView.backgroundColor = [UIColor colorWithPatternImageName:@"dashed-separator"];
 }
 
 - (void)updateBottomDetailLabel {

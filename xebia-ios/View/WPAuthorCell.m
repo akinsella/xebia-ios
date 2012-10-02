@@ -15,7 +15,6 @@
 @implementation WPAuthorCell
 
 @synthesize titleLabel;
-@synthesize descriptionLabel;
 @synthesize bottomDetailLabel;
 @synthesize itemCount = _itemCount;
 @synthesize identifier;
