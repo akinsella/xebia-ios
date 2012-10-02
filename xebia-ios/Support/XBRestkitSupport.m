@@ -36,7 +36,7 @@ NSString* const XBErrorDomain = @"fr.xebia.ErrorDomain";
 
 //    RKLogConfigureByName("RestKit/UI", RKLogLevelTrace);
 //    RKLogConfigureByName("RestKit/Network", RKLogLevelTrace);
-    RKLogConfigureByName("RestKit/ObjectMapping", RKLogLevelTrace);
+//    RKLogConfigureByName("RestKit/ObjectMapping", RKLogLevelTrace);
 //    RKLogConfigureByName("RestKit/ObjectMapping/JSON", RKLogLevelTrace);
 }
 

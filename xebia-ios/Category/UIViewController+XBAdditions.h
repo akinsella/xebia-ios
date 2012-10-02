@@ -14,5 +14,6 @@
 - (void) addRevealGesture;
 - (void) addMenuButton;
 - (AppDelegate *) appDelegate;
+-(void)toggleEdit:(id)sender;
 
 @end
