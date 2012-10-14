@@ -112,7 +112,7 @@
     [cellMapping mapKeyPath:@"user.name" toAttribute:@"authorNameLabel.text"];
 //    [cellMapping mapKeyPath:@"user.screen_name" toAttribute:@"nicknameLabel.text"];
     [cellMapping mapKeyPath:@"dateFormatted" toAttribute:@"dateLabel.text"];
-    [cellMapping mapKeyPath:@"text" toAttribute:@"contentLabel.text"];
+    [cellMapping mapKeyPath:@"text" toAttribute:@"contentLabel.content"];
     [cellMapping mapKeyPath:@"identifier" toAttribute:@"identifier"];
 
     cellMapping.heightOfCellForObjectAtIndexPath = ^ CGFloat(TTTweet *tweet, NSIndexPath* indexPath) {
@@ -131,12 +131,13 @@
 - (void)tableController:(RKAbstractTableController *)tableController willDisplayCell:(UITableViewCell *)cell forObject:(id)object atIndexPath:(NSIndexPath *)indexPath {
     TTTweet *tweet = object;
     TTTweetCell *tweetCell = (TTTweetCell *)cell;
-    if ([tweet.user.screen_name isEqualToString:@"XebiaFr"]) {
+    if ([tweet.ownerScreenName isEqualToString:@"XebiaFr"]) {
         tweetCell.imageView.image = _xebiaAvatarImage;
     }
     else {
-        [tweetCell.imageView setImageWithURL:[tweet.user avatarImageUrl] placeholderImage:_defaultAvatarImage];
+        [tweetCell.imageView setImageWithURL:tweet.ownerImageUrl placeholderImage:_defaultAvatarImage];
     }
+    [tweetCell.contentLabel setNeedsDisplay];
 }
 
 - (void)didReceiveMemoryWarning{

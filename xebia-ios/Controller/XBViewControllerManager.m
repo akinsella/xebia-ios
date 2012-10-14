@@ -8,6 +8,7 @@
 
 #import "XBViewControllerManager.h"
 #import "UINavigationController+XBAdditions.h"
+#import "XBWebViewController.h"
 
 @implementation XBViewControllerManager
 
@@ -37,6 +38,16 @@ static XBViewControllerManager *sharedInstance = nil;
     return self;
 }
 
+-(BOOL)openURL:(NSURL *)url {
+    NSLog(@"Url click handled: %@", url);
+    
+    XBWebViewController *webViewController = (XBWebViewController *)[self getOrCreateControllerWithIdentifier: @"webview"];
+    
+    [webViewController.webView loadRequest:[NSURLRequest requestWithURL:url]];
+    
+    return YES;
+}
+
 - (UIViewController *)getOrCreateControllerWithIdentifier:(NSString *)identifier {
     UIViewController *vc = [viewControllers objectForKey:identifier];
     if (!vc) {
@@ -49,6 +60,7 @@ static XBViewControllerManager *sharedInstance = nil;
 
     return vc;
 }
+
 
 -(UIViewController *)instantiateViewControllerWithIdentifier: (NSString *)identifier {
     UIStoryboard *sb = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];

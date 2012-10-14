@@ -23,6 +23,7 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+
     [XBRestkitSupport configure];
 
     _window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
@@ -42,6 +43,15 @@
 
 - (void)applicationWillTerminate:(UIApplication *)application {
     NSLog(@"Application will terminate !!");
+}
+
+-(BOOL)openURL:(NSURL *)url {
+    if  ([[XBViewControllerManager sharedInstance] openURL:url]) {
+        return YES;
+    }
+    else {
+        return [super openURL:url];
+    }
 }
 
 - (void)dealloc {

@@ -7,9 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5404E95B15BDFE1F00CCDE1F /* iphone-portrait.pxm in Resources */ = {isa = PBXBuildFile; fileRef = 5404E95215BDFE1F00CCDE1F /* iphone-portrait.pxm */; };
-		5404E95C15BDFE1F00CCDE1F /* splash-iphone-portrait.png in Resources */ = {isa = PBXBuildFile; fileRef = 5404E95315BDFE1F00CCDE1F /* splash-iphone-portrait.png */; };
-		5404E95D15BDFE1F00CCDE1F /* splash-iphone-portrait@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5404E95415BDFE1F00CCDE1F /* splash-iphone-portrait@2x.png */; };
 		5404E96015BDFE3900CCDE1F /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 5404E95F15BDFE3900CCDE1F /* Default.png */; };
 		5404E96215BDFE3C00CCDE1F /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5404E96115BDFE3C00CCDE1F /* Default@2x.png */; };
 		5405B77415E8328B00B70B71 /* XBRevealController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5405B77215E8328B00B70B71 /* XBRevealController.m */; };
@@ -79,11 +76,15 @@
 		547C879A15EEBD1600A31E63 /* TTTweet.m in Sources */ = {isa = PBXBuildFile; fileRef = 547C879715EEBD1600A31E63 /* TTTweet.m */; };
 		547C879B15EEBD1600A31E63 /* TTUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 547C879915EEBD1600A31E63 /* TTUser.m */; };
 		547C87A015EEBD4400A31E63 /* TTTweetCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 547C879E15EEBD4400A31E63 /* TTTweetCell.m */; };
+		547E36F3161E327A001F35E8 /* XBWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 547E36F2161E3279001F35E8 /* XBWebViewController.m */; };
 		5483B3F015BF4C3400E60EE0 /* WPTag.m in Sources */ = {isa = PBXBuildFile; fileRef = 5483B3EF15BF4C3400E60EE0 /* WPTag.m */; };
 		5483B3F415BF4C4300E60EE0 /* WPCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 5483B3F315BF4C4300E60EE0 /* WPCategory.m */; };
 		5483B3F715BF4DC900E60EE0 /* WPAuthor.m in Sources */ = {isa = PBXBuildFile; fileRef = 5483B3F615BF4DC900E60EE0 /* WPAuthor.m */; };
 		5483B3FA15BF4E9E00E60EE0 /* WPComment.m in Sources */ = {isa = PBXBuildFile; fileRef = 5483B3F915BF4E9E00E60EE0 /* WPComment.m */; };
 		5483B3FD15BF4F4400E60EE0 /* WPAttachment.m in Sources */ = {isa = PBXBuildFile; fileRef = 5483B3FC15BF4F4300E60EE0 /* WPAttachment.m */; };
+		548564F31628B63100388EA9 /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 548564F21628B63100388EA9 /* CoreText.framework */; };
+		548564F71628B67D00388EA9 /* TTTweetMessageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 548564F61628B67D00388EA9 /* TTTweetMessageView.m */; };
+		548564F91628C13F00388EA9 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 548564F81628C13F00388EA9 /* Default-568h@2x.png */; };
 		5496961A15F7BE4300BD1E70 /* menu-btn.png in Resources */ = {isa = PBXBuildFile; fileRef = 5496961815F7BE4100BD1E70 /* menu-btn.png */; };
 		5496961B15F7BE4300BD1E70 /* menu-btn@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5496961915F7BE4200BD1E70 /* menu-btn@2x.png */; };
 		5496962215F7E4EE00BD1E70 /* homeview.png in Resources */ = {isa = PBXBuildFile; fileRef = 5496962015F7E4EB00BD1E70 /* homeview.png */; };
@@ -157,11 +158,14 @@
 		DB34D27F35642ABBF5FAD321 /* EBEventCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34D4BF128361ED826DEEA5 /* EBEventCell.m */; };
 		DB34D31F43808E3D3BAC5791 /* EBEventTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34D4BCAF95EF93FA46DFEB /* EBEventTableViewController.m */; };
 		DB34D379E55AEDAE9C5C3FDA /* EBEventCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DB34DD55D5BC7C448FDE1C8F /* EBEventCell.xib */; };
+		DB34D454336B59400C068044 /* TTEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34DCE1BDCEB48937F3C353 /* TTEntity.m */; };
 		DB34D580536DA60C6BD70DAE /* NSNumber+XBAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34DB490E75A8DE23774368 /* NSNumber+XBAdditions.m */; };
+		DB34D78B0A56721821BAAB8E /* TTEntities.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34DBB7151A59B19EE4CF5A /* TTEntities.m */; };
 		DB34D7A0C0DC762A500A6F35 /* WPPostCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34D4CDA49EC859D49E82B8 /* WPPostCell.m */; };
 		DB34D961D8EB1C8AC527AB60 /* NSError+XBAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34D8626C4FFDBBD0C7D3FE /* NSError+XBAdditions.m */; };
 		DB34DA26475934C39FFF4734 /* EBVenue.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34DAFC921F4EC44602113E /* EBVenue.m */; };
 		DB34DA8C65C6B4BEB93333F7 /* EBOrganizer.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34DC3B0D2EEB462493D8BE /* EBOrganizer.m */; };
+		DB34DB30F8101DE1034BE9A9 /* TTRetweetedStatus.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34DFB375B289DB5B59E1A0 /* TTRetweetedStatus.m */; };
 		DB34DD5D3F63612EEDACA913 /* RKTableItem+XKAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34D267050FFB324A8EE58F /* RKTableItem+XKAdditions.m */; };
 		DB34DE2CBE5E187AB7FA1B58 /* EBEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34D89482FE01F4B98C0B0C /* EBEvent.m */; };
 		DB34DE626EBB6C2E122EE216 /* NSDateFormatter+XBAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34D5341324A3A620923384 /* NSDateFormatter+XBAdditions.m */; };
@@ -179,9 +183,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		5404E95215BDFE1F00CCDE1F /* iphone-portrait.pxm */ = {isa = PBXFileReference; lastKnownFileType = file; path = "iphone-portrait.pxm"; sourceTree = "<group>"; };
-		5404E95315BDFE1F00CCDE1F /* splash-iphone-portrait.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "splash-iphone-portrait.png"; sourceTree = "<group>"; };
-		5404E95415BDFE1F00CCDE1F /* splash-iphone-portrait@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "splash-iphone-portrait@2x.png"; sourceTree = "<group>"; };
 		5404E95F15BDFE3900CCDE1F /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		5404E96115BDFE3C00CCDE1F /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		5405B77215E8328B00B70B71 /* XBRevealController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XBRevealController.m; sourceTree = "<group>"; };
@@ -274,6 +275,8 @@
 		547C879915EEBD1600A31E63 /* TTUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTUser.m; sourceTree = "<group>"; };
 		547C879D15EEBD4400A31E63 /* TTTweetCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTTweetCell.h; sourceTree = "<group>"; };
 		547C879E15EEBD4400A31E63 /* TTTweetCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTTweetCell.m; sourceTree = "<group>"; };
+		547E36F1161E3279001F35E8 /* XBWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XBWebViewController.h; sourceTree = "<group>"; };
+		547E36F2161E3279001F35E8 /* XBWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XBWebViewController.m; sourceTree = "<group>"; };
 		5483B3EE15BF4C3400E60EE0 /* WPTag.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WPTag.h; sourceTree = "<group>"; };
 		5483B3EF15BF4C3400E60EE0 /* WPTag.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WPTag.m; sourceTree = "<group>"; };
 		5483B3F215BF4C4300E60EE0 /* WPCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WPCategory.h; sourceTree = "<group>"; };
@@ -284,6 +287,10 @@
 		5483B3F915BF4E9E00E60EE0 /* WPComment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WPComment.m; sourceTree = "<group>"; };
 		5483B3FB15BF4F4300E60EE0 /* WPAttachment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WPAttachment.h; sourceTree = "<group>"; };
 		5483B3FC15BF4F4300E60EE0 /* WPAttachment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WPAttachment.m; sourceTree = "<group>"; };
+		548564F21628B63100388EA9 /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
+		548564F51628B67D00388EA9 /* TTTweetMessageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTTweetMessageView.h; sourceTree = "<group>"; };
+		548564F61628B67D00388EA9 /* TTTweetMessageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTTweetMessageView.m; sourceTree = "<group>"; };
+		548564F81628C13F00388EA9 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		5496961815F7BE4100BD1E70 /* menu-btn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "menu-btn.png"; sourceTree = "<group>"; };
 		5496961915F7BE4200BD1E70 /* menu-btn@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "menu-btn@2x.png"; sourceTree = "<group>"; };
 		5496962015F7E4EB00BD1E70 /* homeview.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = homeview.png; sourceTree = "<group>"; };
@@ -383,6 +390,7 @@
 		DB34D4BF128361ED826DEEA5 /* EBEventCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EBEventCell.m; sourceTree = "<group>"; };
 		DB34D4CDA49EC859D49E82B8 /* WPPostCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WPPostCell.m; sourceTree = "<group>"; };
 		DB34D5341324A3A620923384 /* NSDateFormatter+XBAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDateFormatter+XBAdditions.m"; sourceTree = "<group>"; };
+		DB34D54D067749E7B31FD258 /* TTRetweetedStatus.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTRetweetedStatus.h; sourceTree = "<group>"; };
 		DB34D6ABE8DD69804FD1209D /* EBOrganizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EBOrganizer.h; sourceTree = "<group>"; };
 		DB34D6ABFADC8E84E0DA3E06 /* UIImageView+XBAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+XBAdditions.m"; sourceTree = "<group>"; };
 		DB34D7692616F09934674C68 /* EBEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EBEvent.h; sourceTree = "<group>"; };
@@ -392,10 +400,15 @@
 		DB34D9F47ADA9772B32A4EF4 /* EBVenue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EBVenue.h; sourceTree = "<group>"; };
 		DB34DAFC921F4EC44602113E /* EBVenue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EBVenue.m; sourceTree = "<group>"; };
 		DB34DB490E75A8DE23774368 /* NSNumber+XBAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSNumber+XBAdditions.m"; sourceTree = "<group>"; };
+		DB34DBB7151A59B19EE4CF5A /* TTEntities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTEntities.m; sourceTree = "<group>"; };
 		DB34DC3B0D2EEB462493D8BE /* EBOrganizer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EBOrganizer.m; sourceTree = "<group>"; };
+		DB34DCE1BDCEB48937F3C353 /* TTEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTEntity.m; sourceTree = "<group>"; };
 		DB34DD55D5BC7C448FDE1C8F /* EBEventCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EBEventCell.xib; sourceTree = "<group>"; };
+		DB34DD7E8993C8010DE00380 /* TTEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTEntity.h; sourceTree = "<group>"; };
 		DB34DEED8EC9BFDDB4164F08 /* XBViewControllerManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XBViewControllerManager.m; sourceTree = "<group>"; };
+		DB34DEF2E5441F3B214FC5E3 /* TTEntities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTEntities.h; sourceTree = "<group>"; };
 		DB34DF9FC4988F42593E16CD /* RKTableItem+XKAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "RKTableItem+XKAdditions.h"; sourceTree = "<group>"; };
+		DB34DFB375B289DB5B59E1A0 /* TTRetweetedStatus.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTRetweetedStatus.m; sourceTree = "<group>"; };
 		EDB581D723EF4E5C808B5615 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		FFE479B60E604A7197B75249 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
@@ -405,6 +418,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				548564F31628B63100388EA9 /* CoreText.framework in Frameworks */,
 				54C2DEEB15BDFAFB00CABB12 /* UIKit.framework in Frameworks */,
 				54C2DEED15BDFAFB00CABB12 /* Foundation.framework in Frameworks */,
 				54C2DEEF15BDFAFB00CABB12 /* CoreGraphics.framework in Frameworks */,
@@ -432,20 +446,9 @@
 			children = (
 				5458482B15C1E1AC00DD03F4 /* RestKitResources.bundle */,
 				54A2783615C0A2AA0074505A /* Images */,
-				5404E95115BDFE1F00CCDE1F /* Splash */,
 			);
 			name = Resource;
 			path = "xebia-ios/Resource";
-			sourceTree = "<group>";
-		};
-		5404E95115BDFE1F00CCDE1F /* Splash */ = {
-			isa = PBXGroup;
-			children = (
-				5404E95215BDFE1F00CCDE1F /* iphone-portrait.pxm */,
-				5404E95315BDFE1F00CCDE1F /* splash-iphone-portrait.png */,
-				5404E95415BDFE1F00CCDE1F /* splash-iphone-portrait@2x.png */,
-			);
-			path = Splash;
 			sourceTree = "<group>";
 		};
 		5458481C15C1E0A300DD03F4 /* View */ = {
@@ -480,6 +483,8 @@
 				5458482815C1E0D800DD03F4 /* WPTagCell.h */,
 				5458482915C1E0D800DD03F4 /* WPTagCell.m */,
 				5458482D15C1E1C700DD03F4 /* WPTagCell.xib */,
+				548564F51628B67D00388EA9 /* TTTweetMessageView.h */,
+				548564F61628B67D00388EA9 /* TTTweetMessageView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -559,7 +564,9 @@
 		54C2DEDB15BDFAFB00CABB12 = {
 			isa = PBXGroup;
 			children = (
+				548564F21628B63100388EA9 /* CoreText.framework */,
 				540C092415C58C5A00615B00 /* Default-Portrait@2x~ipad.png */,
+				548564F81628C13F00388EA9 /* Default-568h@2x.png */,
 				540C092215C58C5700615B00 /* Default-Portrait~ipad.png */,
 				540C092015C58A4B00615B00 /* Default-Landscape~ipad.png */,
 				540C091D15C58A4600615B00 /* Default-Landscape@2x~ipad.png */,
@@ -684,6 +691,8 @@
 				54E325A215E18D8700F55F6A /* XBMainViewController.m */,
 				54F1B905161A26A700AC7DB8 /* WPRecentPostTableViewController.h */,
 				54F1B906161A26AA00AC7DB8 /* WPRecentPostTableViewController.m */,
+				547E36F1161E3279001F35E8 /* XBWebViewController.h */,
+				547E36F2161E3279001F35E8 /* XBWebViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -691,6 +700,12 @@
 		54C2DF3215BDFB6500CABB12 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				DB34D54D067749E7B31FD258 /* TTRetweetedStatus.h */,
+				DB34DFB375B289DB5B59E1A0 /* TTRetweetedStatus.m */,
+				DB34DD7E8993C8010DE00380 /* TTEntity.h */,
+				DB34DCE1BDCEB48937F3C353 /* TTEntity.m */,
+				DB34DEF2E5441F3B214FC5E3 /* TTEntities.h */,
+				DB34DBB7151A59B19EE4CF5A /* TTEntities.m */,
 				DB34D9F47ADA9772B32A4EF4 /* EBVenue.h */,
 				DB34DAFC921F4EC44602113E /* EBVenue.m */,
 				DB34D6ABE8DD69804FD1209D /* EBOrganizer.h */,
@@ -828,6 +843,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 0430;
+				ORGANIZATIONNAME = Xebia;
 			};
 			buildConfigurationList = 54C2DEE015BDFAFB00CABB12 /* Build configuration list for PBXProject "xebia-ios" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -855,9 +871,6 @@
 				54C2DEF715BDFAFB00CABB12 /* InfoPlist.strings in Resources */,
 				54C2DF5415BDFBA000CABB12 /* www in Resources */,
 				54C2DF5615BDFBD900CABB12 /* MainStoryboard.storyboard in Resources */,
-				5404E95B15BDFE1F00CCDE1F /* iphone-portrait.pxm in Resources */,
-				5404E95C15BDFE1F00CCDE1F /* splash-iphone-portrait.png in Resources */,
-				5404E95D15BDFE1F00CCDE1F /* splash-iphone-portrait@2x.png in Resources */,
 				5404E96015BDFE3900CCDE1F /* Default.png in Resources */,
 				5404E96215BDFE3C00CCDE1F /* Default@2x.png in Resources */,
 				54A2783D15C0A2AA0074505A /* 112-group.png in Resources */,
@@ -943,6 +956,7 @@
 				54079FCF161A6268002A2B5D /* btn-menu-pressed@2x.png in Resources */,
 				54079FD3161A6649002A2B5D /* menu-btn-ios.png in Resources */,
 				54079FD4161A6649002A2B5D /* menu-btn-ios@2x.png in Resources */,
+				548564F91628C13F00388EA9 /* Default-568h@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1048,6 +1062,11 @@
 				DB34D27F35642ABBF5FAD321 /* EBEventCell.m in Sources */,
 				54F1B9001618EE1A00AC7DB8 /* UIScreen+XBAdditions.m in Sources */,
 				54F1B907161A26AC00AC7DB8 /* WPRecentPostTableViewController.m in Sources */,
+				DB34D78B0A56721821BAAB8E /* TTEntities.m in Sources */,
+				DB34D454336B59400C068044 /* TTEntity.m in Sources */,
+				DB34DB30F8101DE1034BE9A9 /* TTRetweetedStatus.m in Sources */,
+				547E36F3161E327A001F35E8 /* XBWebViewController.m in Sources */,
+				548564F71628B67D00388EA9 /* TTTweetMessageView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1144,6 +1163,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "xebia-ios/xebia-ios-Prefix.pch";
 				INFOPLIST_FILE = "xebia-ios/xebia-ios-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -1157,6 +1177,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "xebia-ios/xebia-ios-Prefix.pch";
 				INFOPLIST_FILE = "xebia-ios/xebia-ios-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};

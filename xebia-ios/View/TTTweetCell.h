@@ -8,11 +8,12 @@
 
 #import <UIKit/UIKit.h>
 #import "TTTweet.h"
+#import "TTTweetMessageView.h"
 
-@interface TTTweetCell : UITableViewCell
+@interface TTTweetCell : UITableViewCell<UIWebViewDelegate>
 
 @property (nonatomic, strong) IBOutlet UILabel *authorNameLabel;
-@property (nonatomic, strong) IBOutlet UITextView *contentLabel;
+@property (nonatomic, strong) IBOutlet TTTweetMessageView *contentLabel;
 @property (nonatomic, strong) IBOutlet UILabel *dateLabel;
 @property (nonatomic, strong) IBOutlet UIView *dashedSeparatorView;
 

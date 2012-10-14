@@ -277,6 +277,7 @@ function getData(options) {
 function fetchDataFromUrl(options) {
     console.log("[" + options.url + "] Fetching data from url");
     restler.get(options.url).on('complete', function (data, response) {
+        console.log("Response Headers: ", response.headers);
         var contentType = getContentType(response);
         console.log("[" + options.url + "] Http Response - Content-Type: " + contentType);
         if ( !isContentTypeJsonOrScript(contentType) ) {
@@ -313,15 +314,15 @@ app.get('/' + API_VERSION + '/twitter/user/:user', function(req, res) {
     var user = req.params.user;
 //    var user = "XebiaFR";
     console.log("User: " + user);
-    var twitterUrl = "http://api.twitter.com/1/statuses/user_timeline.json?screen_name=" + user + "&contributor_details=false&include_entities=false&include_rts=true&exclude_replies=true&count=50&exclude_replies=false";
+    var twitterUrl = "http://api.twitter.com/1/statuses/user_timeline.json?screen_name=" + user + "&contributor_details=false&include_entities=true&include_rts=true&exclude_replies=false&count=50&exclude_replies=false";
     console.log("Twitter Url: " + twitterUrl);
 
     var options = {
         req: req,
         res: res,
         url: twitterUrl,
-        cacheKey: '/twitter/' + user,
-        forceNoCache: true,//getIfUseCache(req),
+        cacheKey: req.url,
+        forceNoCache: false,//getIfUseCache(req),
         callback: onTwitterDataLoaded,
         user: user,
         cacheTimeout: 60,
@@ -347,17 +348,44 @@ app.get('/' + API_VERSION + '/twitter/user/:user', function(req, res) {
 
             _(JSON.parse(tweets)).each(function(tweet) {
                 var tweetShortened = {
-                    id: String(tweet.id),
+                    id: tweet.id,
+                    id_str: tweet.id_str,
                     created_at: tweet.created_at,
-                    user: {
-                        id: String(tweet.user.id),
+                    text: tweet.text,
+                    favorited: tweet.favorited,
+                    retweeted: tweet.retweeted,
+                    retweet_count: tweet.retweet_count,
+                    entities: tweet.entities
+                };
+
+                if (tweet.user) {
+                    tweetShortened.user =  {
+                        id: tweet.user.id,
+                        id_str: tweet.user.id_str,
                         screen_name: tweet.user.screen_name,
                         name: tweet.user.name,
                         profile_image_url: tweet.user.profile_image_url
-                    },
-                    text: tweet.text
+                    };
+                }
 
-                };
+                if (tweet.retweeted_status) {
+                    tweetShortened.retweeted_status = {
+                         id: tweet.retweeted_status.id,
+                         id_str: tweet.retweeted_status.id_str,
+                         created_at: tweet.retweeted_status.created_at
+                    };
+
+                    if (tweet.retweeted_status.user) {
+                        tweetShortened.retweeted_status.user =  {
+                            id: String(tweet.retweeted_status.user.id),
+                            screen_name: tweet.retweeted_status.user.screen_name,
+                            name: tweet.retweeted_status.user.name,
+                            profile_image_url: tweet.retweeted_status.user.profile_image_url
+                        };
+                    }
+
+                }
+
                 tweetsShortened.push(tweetShortened);
             });
 
@@ -366,9 +394,6 @@ app.get('/' + API_VERSION + '/twitter/user/:user', function(req, res) {
     }
 
 });
-
-
-
 
 app.get('/' + API_VERSION + '/event/list', function(req, res) {
 
@@ -379,10 +404,10 @@ app.get('/' + API_VERSION + '/event/list', function(req, res) {
         req: req,
         res: res,
         url: eventbriteUrl,
-        cacheKey: '/event/list',
-        forceNoCache: true,
+        cacheKey: req.url,
+        forceNoCache: false,
         callback: onEventbriteDataLoaded,
-        cacheTimeout: 60,
+        cacheTimeout: 300,
         standaloneUrl: true
     };
 
@@ -449,16 +474,6 @@ app.get('/' + API_VERSION + '/event/list', function(req, res) {
 
 });
 
-
-
-
-
-
-
-
-
-
-
 // To be refactored
 app.get('/' + API_VERSION + '/github/orgs/xebia-france/repos', function(req, res) {
 
@@ -508,6 +523,7 @@ app.get('/' + API_VERSION + '/github/orgs/xebia-france/repos', function(req, res
         url: "https://api.github.com/orgs/xebia-france/repos",
         cacheKey: getCacheKey(req),
         forceNoCache: getIfUseCache(req),
+        cacheTimeout: 900,
         callback: callback
     };
 
@@ -518,7 +534,6 @@ app.get('/' + API_VERSION + '/github/orgs/xebia-france/repos', function(req, res
         responseData(500, errorMessage, undefined, options);
     }
 });
-
 
 // To be refactored
 app.get('/' + API_VERSION + '/github/orgs/xebia-france/public_members', function(req, res) {
@@ -566,6 +581,7 @@ app.get('/' + API_VERSION + '/github/orgs/xebia-france/public_members', function
         url: "https://api.github.com/orgs/xebia-france/public_members",
         cacheKey: getCacheKey(req),
         forceNoCache: getIfUseCache(req),
+        cacheTimeout: 900,
         callback: callback
     };
 
@@ -586,6 +602,7 @@ app.get('/' + API_VERSION + '/github/*', function(req, res) {
         url: "https://api.github.com/" + getUrlToFetch(req).substring(("/" + API_VERSION + "/github/").length),
         cacheKey: getCacheKey(req),
         forceNoCache: getIfUseCache(req),
+        cacheTimeout: 900,
         callback: responseData
     };
 
@@ -606,6 +623,7 @@ app.get('/' + API_VERSION + '/wordpress/*', function(req, res) {
         url: "http://blog.xebia.fr/wp-json-api/" + getUrlToFetch(req).substring(("/" + API_VERSION + "/wordpress/").length),
         cacheKey: getCacheKey(req),
         forceNoCache: getIfUseCache(req),
+        cacheTimeout: 900,
         callback: responseData
     };
 

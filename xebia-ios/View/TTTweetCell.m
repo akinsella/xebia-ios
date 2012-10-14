@@ -35,6 +35,12 @@
     self.dashedSeparatorView.backgroundColor = [UIColor colorWithPatternImageName:@"dashed-separator"];
 }
 
+- (void)setNeedsDisplay
+{
+    [super setNeedsDisplay];
+    [contentLabel setNeedsDisplay];
+}
+
 -(void) prepareForReuse {
     identifier = nil;
     avatarImage = nil;
