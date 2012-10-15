@@ -18,7 +18,8 @@
         "redis": "*",
         "mysql": "*",
         "underscore": "*",
-        "request": "*"
+        "request": "*",
+        "ntwitter": "*"
     },
     "devDependencies": {
     },

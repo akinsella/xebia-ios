@@ -38,5 +38,8 @@ devoxx-proxy/node_modules
 tags
 dump
 
+#Redis
+nodejs-xebia-mobile-proxy/application/dump.rdb
+
 #Working dir
 target
