@@ -12,20 +12,6 @@
 
 @implementation TTTweetCell
 
-@synthesize authorNameLabel, dateLabel, contentLabel;
-
-@synthesize identifier;
-@synthesize avatarImage;
-@synthesize dashedSeparatorView;
-
-- (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
-    self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
-    if (self) {
-        // Initialization code
-    }
-    return self;
-}
-
 - (void)layoutSubviews {
     [super layoutSubviews];
     self.imageView.frame = CGRectMake(10,10,44,44);
@@ -38,12 +24,7 @@
 - (void)setNeedsDisplay
 {
     [super setNeedsDisplay];
-    [contentLabel setNeedsDisplay];
-}
-
--(void) prepareForReuse {
-    identifier = nil;
-    avatarImage = nil;
+    [self.contentLabel setNeedsDisplay];
 }
 
 @end

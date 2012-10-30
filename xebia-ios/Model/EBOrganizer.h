@@ -12,7 +12,7 @@
 
 @property (nonatomic, strong) NSNumber *identifier;
 @property (nonatomic, strong) NSString *url;
-@property (nonatomic, strong) NSString *description;
+@property (nonatomic, strong) NSString *description_;
 @property (nonatomic, strong) NSString *name;
 
 + (RKObjectMapping *)mapping;

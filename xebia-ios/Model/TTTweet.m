@@ -13,28 +13,18 @@
 
 @implementation TTTweet
 
-@synthesize identifier;
-@synthesize created_at;
-@synthesize user;
-@synthesize text;
-@synthesize retweeted_status;
-@synthesize entities;
-@synthesize favorited;
-@synthesize retweeted;
-@synthesize retweet_count;
-
 - (NSString *)dateFormatted {
     return [Date formattedDateRelativeToNow: self.created_at];
 }
 
 - (NSString *)ownerScreenName {
-    return retweeted_status ? retweeted_status.user.screen_name : user.screen_name;
+    return self.retweeted_status ? self.retweeted_status.user.screen_name : self.user.screen_name;
 }
 
 - (NSURL *)ownerImageUrl {
-    NSURL *ownerImageUrl = retweeted_status ?
-            [NSURL URLWithString:retweeted_status.user.profile_image_url] :
-            [NSURL URLWithString:user.profile_image_url];
+    NSURL *ownerImageUrl = self.retweeted_status ?
+            [NSURL URLWithString:self.retweeted_status.user.profile_image_url] :
+            [NSURL URLWithString:self.user.profile_image_url];
 
     return ownerImageUrl;
 }

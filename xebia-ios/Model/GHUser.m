@@ -11,27 +11,6 @@
 
 @implementation GHUser
 
-@synthesize identifier;
-@synthesize login;
-@synthesize gravatar_id;
-@synthesize url;
-@synthesize avatar_url;
-@synthesize created_at;
-@synthesize type;
-@synthesize bio;
-@synthesize public_gists;
-@synthesize public_repos;
-@synthesize email;
-@synthesize html_url;
-@synthesize followers;
-@synthesize name;
-@synthesize company;
-@synthesize hireable;
-@synthesize following;
-@synthesize blog;
-@synthesize location;
-
-
 - (NSURL *)avatarImageUrl {
     NSLog(@"User: %@", self );
     return self.gravatar_id != nil ?

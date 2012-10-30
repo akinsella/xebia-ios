@@ -14,15 +14,6 @@
 
 @implementation WPPostCell
 
-@synthesize titleLabel;
-@synthesize excerptLabel;
-@synthesize tagsLabel;
-@synthesize categoriesLabel;
-@synthesize authorLabel;
-@synthesize identifier;
-@synthesize postImage;
-@synthesize dashedSeparatorView;
-
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
@@ -39,11 +30,6 @@
     self.imageView.layer.cornerRadius = 3.0;
 
     self.dashedSeparatorView.backgroundColor = [UIColor colorWithPatternImageName:@"dashed-separator"];
-}
-
--(void) prepareForReuse {
-    identifier = nil;
-    postImage = nil;
 }
 
 @end

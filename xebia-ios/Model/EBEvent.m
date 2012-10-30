@@ -10,23 +10,6 @@
 
 @implementation EBEvent
 
-@synthesize identifier;
-@synthesize type;
-@synthesize capacity;
-@synthesize title;
-@synthesize start_date;
-@synthesize end_date;
-@synthesize timezone_offset;
-@synthesize tags;
-@synthesize created;
-@synthesize url;
-@synthesize privacy;
-@synthesize status;
-@synthesize description_;
-@synthesize description_plain_text;
-@synthesize venue;
-@synthesize organizer;
-
 + (RKObjectMapping *)mapping {
     RKObjectMapping *mapping = [RKObjectMapping mappingForClass:[self class] usingBlock:^(RKObjectMapping *mapping) {
         [mapping mapAttributes: @"text", @"type", @"capacity", @"title", @"start_date",

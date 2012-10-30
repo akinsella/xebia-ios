@@ -22,16 +22,14 @@
 
 @interface WPPostTableViewController ()
 @property (nonatomic, strong) RKTableController *tableController;
+@property (nonatomic, strong) UIImage *defaultPostImage;
+@property (nonatomic, strong) UIImage *xebiaPostImage;
 @end
 
-@implementation WPPostTableViewController {
-    UIImage *_defaultPostImage;
-    UIImage *_xebiaPostImage;
-}
+@implementation WPPostTableViewController
 
 NSMutableDictionary *postTypes;
 
-@synthesize tableController;
 @synthesize identifier, postType;
 
 -(id)initWithPostType:(POST_TYPE)postType identifier:(NSNumber *)identifier
@@ -47,8 +45,8 @@ NSMutableDictionary *postTypes;
 
 - (void)initInternalWithPostType:(POST_TYPE)postType identifier:(NSNumber *)identifier {
     self.title = @"Posts";
-    _defaultPostImage = [[UIImage imageNamed:@"avatar_placeholder"] retain];
-    _xebiaPostImage = [[UIImage imageNamed:@"xebia-avatar"] retain];
+    self.defaultPostImage = [[UIImage imageNamed:@"avatar_placeholder"] retain];
+    self.xebiaPostImage = [[UIImage imageNamed:@"xebia-avatar"] retain];
 
     self.postType = postType;
     self.identifier = identifier;
@@ -75,7 +73,7 @@ NSMutableDictionary *postTypes;
             [NSString stringWithFormat: @"/wordpress/get_%@_posts/?id=%@", [self getCurrentPostType], identifier] :
             [NSString stringWithFormat: @"/wordpress/get_%@_posts/?count=25", [self getCurrentPostType]];
 
-    [tableController loadTableFromResourcePath:resourcePath];
+    [self.tableController loadTableFromResourcePath:resourcePath];
 }
 
 - (void)configure {
@@ -101,7 +99,7 @@ NSMutableDictionary *postTypes;
 //    loadingView.center = self.tableView.center;
 //    self.tableController.loadingView = loadingView;
 
-    [tableController mapObjectsWithClass:[WPPost class] toTableCellsWithMapping:[self getCellMapping]];
+    [self.tableController mapObjectsWithClass:[WPPost class] toTableCellsWithMapping:[self getCellMapping]];
 }
 
 - (RKTableViewCellMapping *)getCellMapping {
@@ -144,10 +142,10 @@ NSMutableDictionary *postTypes;
     WPPost *post = object;
     WPPostCell *postCell = (WPPostCell *)cell;
     if (![post.author.slug isEqualToString:@"xebiafrance" ]) {
-        [postCell.imageView setImageWithURL: [post imageUrl] placeholderImage:_defaultPostImage];
+        [postCell.imageView setImageWithURL: [post imageUrl] placeholderImage:self.defaultPostImage];
     }
     else {
-        postCell.imageView.image = _xebiaPostImage;
+        postCell.imageView.image = self.xebiaPostImage;
     }
 }
 
@@ -157,8 +155,8 @@ NSMutableDictionary *postTypes;
 }
 
 - (void)dealloc {
-    [_defaultPostImage release];
-    [_xebiaPostImage release];
+    [self.defaultPostImage release];
+    [self.xebiaPostImage release];
     [super dealloc];
 }
 

@@ -10,11 +10,6 @@
 
 @implementation TTUser
 
-@synthesize identifier;
-@synthesize screen_name;
-@synthesize name;
-@synthesize profile_image_url;
-
 - (NSURL *)avatarImageUrl {
     return [NSURL URLWithString:[self profile_image_url]];
 }

@@ -10,13 +10,6 @@
 
 @implementation WPComment
 
-@synthesize identifier;
-@synthesize name;
-@synthesize url;
-@synthesize date;
-@synthesize content;
-@synthesize parent;
-
 + (RKObjectMapping *)mapping {
     RKObjectMapping *mapping = [RKObjectMapping mappingForClass:[self class] usingBlock:^(RKObjectMapping *mapping) {
 

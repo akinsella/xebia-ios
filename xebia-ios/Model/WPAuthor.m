@@ -11,15 +11,6 @@
 
 @implementation WPAuthor
 
-@synthesize identifier;
-@synthesize slug;
-@synthesize name;
-@synthesize first_name;
-@synthesize last_name;
-@synthesize nickname;
-@synthesize url;
-@synthesize description_;
-
 - (NSURL *)avatarImageUrl {
     return [GravatarHelper getGravatarURL: [NSString stringWithFormat:@"%@@xebia.fr", [self nickname]]];
 }

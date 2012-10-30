@@ -13,28 +13,11 @@
 #import "NSDateFormatter+XBAdditions.h"
 #import "USArrayWrapper.h"
 
-@implementation WPPost {
-    NSDateFormatter *_df;
-}
+@interface WPPost()
+@property(nonatomic, strong)NSDateFormatter *df;
+@end
 
-@synthesize identifier;
-@synthesize type;
-@synthesize slug;
-@synthesize url;
-@synthesize status;
-@synthesize title;
-@synthesize title_plain;
-@synthesize content;
-@synthesize excerpt;
-@synthesize date;
-@synthesize modified;
-@synthesize comment_count;
-@synthesize comment_status;
-
-@synthesize author;
-@synthesize tags;
-@synthesize categories;
-@synthesize comments;
+@implementation WPPost
 
 -(id)init {
     self = [super init];
@@ -47,18 +30,18 @@
 }
 
 - (void)initDateFormatters {
-    _df = [[NSDateFormatter initWithDateFormat: @"'Le 'dd'/'MM'/'yyyy', à 'HH':'mm"] retain];
+    self.df = [[NSDateFormatter initWithDateFormat: @"'Le 'dd'/'MM'/'yyyy', à 'HH':'mm"] retain];
 }
 
 - (NSString *)description_ {
-    return [NSString stringWithFormat:@"%@ commentaire%@", comment_count, comment_count.intValue > 1 ? @"s" :@"" ];
+    return [NSString stringWithFormat:@"%@ commentaire%@", self.comment_count, self.comment_count.intValue > 1 ? @"s" :@"" ];
 //    NSRange range = {0, MIN([self.excerpt length], 255)};
 //    NSRange rangeOfComposedCharacterSequences = [self.excerpt rangeOfComposedCharacterSequencesForRange: range];
 //    return [NSString stringWithFormat:@"%@ ...", [self.excerpt substringWithRange:rangeOfComposedCharacterSequences] ];
 }
 
 - (NSString *)dateFormatted {
-    return [NSString stringWithFormat:@"%@", [_df stringFromDate:self.date]];
+    return [NSString stringWithFormat:@"%@", [self.df stringFromDate:self.date]];
 }
 
 - (NSString *)authorFormatted {
@@ -83,7 +66,7 @@
 }
 
 - (void)dealloc {
-    [_df release];
+    [self.df release];
     [super dealloc];
 }
 

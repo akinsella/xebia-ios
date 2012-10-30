@@ -13,19 +13,9 @@
 
 @implementation TTRetweetedStatus
 
-    @synthesize identifier;
-    @synthesize created_at;
-    @synthesize user;
-    @synthesize text;
-    @synthesize entities;
-    @synthesize favorited;
-    @synthesize retweeted;
-    @synthesize retweet_count;
-
     - (NSString *)dateFormatted {
         return [Date formattedDateRelativeToNow: self.created_at];
     }
-
 
     + (RKObjectMapping *)mapping {
         RKObjectMapping *mapping = [RKObjectMapping mappingForClass:[self class] usingBlock:^(RKObjectMapping *mapping) {

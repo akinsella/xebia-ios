@@ -10,18 +10,6 @@
 #import "UIColor+XBAdditions.h"
 
 @implementation WPCategoryCell
-@synthesize titleLabel;
-@synthesize bottomDetailLabel;
-@synthesize itemCount = _itemCount;
-@synthesize dashedSeparatorView;
-
-- (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
-    self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
-    if (self) {
-        // Initialization code
-    }
-    return self;
-}
 
 - (void)setItemCount:(NSInteger)itemCount {
     _itemCount = itemCount;

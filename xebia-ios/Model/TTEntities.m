@@ -11,10 +11,6 @@
 
 @implementation TTEntities
 
-@synthesize hashtags;
-@synthesize urls;
-@synthesize user_mentions;
-
 + (RKObjectMapping *)mapping {
     RKObjectMapping *mapping = [RKObjectMapping mappingForClass:[self class] usingBlock:^(RKObjectMapping *mapping) {
 

@@ -28,16 +28,11 @@
 
 @interface TTTweetTableViewController ()
 @property (nonatomic, strong) RKTableController *tableController;
+@property (nonatomic, strong) UIImage* defaultAvatarImage;
+@property (nonatomic, strong) UIImage* xebiaAvatarImage;
 @end
 
-@implementation TTTweetTableViewController {
-    UIImage* _defaultAvatarImage;
-    UIImage* _xebiaAvatarImage;
-}
-
-
-
-@synthesize tableController;
+@implementation TTTweetTableViewController
 
 - (id)init {
     self = [super init];
@@ -51,7 +46,7 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
 
-    [tableController loadTableFromResourcePath:@"/twitter/user/XebiaFR"];
+    [self.tableController loadTableFromResourcePath:@"/twitter/user/XebiaFR"];
 }
 
 - (void)viewDidLoad {
@@ -60,8 +55,8 @@
 }
 
 - (void)configure {
-    _defaultAvatarImage = [[UIImage imageNamed:@"avatar_placeholder"] retain];
-    _xebiaAvatarImage = [[UIImage imageNamed:@"xebia-avatar"] retain];
+    self.defaultAvatarImage = [[UIImage imageNamed:@"avatar_placeholder"] retain];
+    self.xebiaAvatarImage = [[UIImage imageNamed:@"xebia-avatar"] retain];
 
     [self addRevealGesture];
     [self addMenuButton];
@@ -93,7 +88,7 @@
     self.tableController.imageForError = [UIImage imageNamed:@"error.png"];
     self.tableController.imageForEmpty = [UIImage imageNamed:@"empty.png"];
 
-    [tableController mapObjectsWithClass:[TTTweet class] toTableCellsWithMapping: [self getCellMapping]];
+    [self.tableController mapObjectsWithClass:[TTTweet class] toTableCellsWithMapping: [self getCellMapping]];
 }
 
 - (void)configureRefreshTriggerView {
@@ -132,10 +127,10 @@
     TTTweet *tweet = object;
     TTTweetCell *tweetCell = (TTTweetCell *)cell;
     if ([tweet.ownerScreenName isEqualToString:@"XebiaFr"]) {
-        tweetCell.imageView.image = _xebiaAvatarImage;
+        tweetCell.imageView.image = self.xebiaAvatarImage;
     }
     else {
-        [tweetCell.imageView setImageWithURL:tweet.ownerImageUrl placeholderImage:_defaultAvatarImage];
+        [tweetCell.imageView setImageWithURL:tweet.ownerImageUrl placeholderImage:self.defaultAvatarImage];
     }
     [tweetCell.contentLabel setNeedsDisplay];
 }
@@ -146,8 +141,8 @@
 }
 
 - (void)dealloc {
-    [_defaultAvatarImage release];
-    [_xebiaAvatarImage release];
+    [self.defaultAvatarImage release];
+    [self.xebiaAvatarImage release];
     [super dealloc];
 }
 

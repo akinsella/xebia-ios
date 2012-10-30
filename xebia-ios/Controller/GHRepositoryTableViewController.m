@@ -27,14 +27,11 @@
 
 @interface GHRepositoryTableViewController ()
 @property (nonatomic, strong) RKTableController *tableController;
+@property (nonatomic, strong) UIImage* defaultAvatarImage;
+@property (nonatomic, strong) UIImage* xebiaAvatarImage;
 @end
 
-@implementation GHRepositoryTableViewController {
-    UIImage* _defaultAvatarImage;
-    UIImage* _xebiaAvatarImage;
-}
-
-@synthesize tableController;
+@implementation GHRepositoryTableViewController
 
 - (id)init {
     self = [super init];
@@ -53,12 +50,12 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    [tableController loadTableFromResourcePath:@"/github/orgs/xebia-france/repos"];
+    [self.tableController loadTableFromResourcePath:@"/github/orgs/xebia-france/repos"];
 }
 
 - (void)configure {
-    _defaultAvatarImage = [[UIImage imageNamed:@"github-gravatar-placeholder"] retain];
-    _xebiaAvatarImage = [[UIImage imageNamed:@"xebia-avatar"] retain];
+    self.defaultAvatarImage = [[UIImage imageNamed:@"github-gravatar-placeholder"] retain];
+    self.xebiaAvatarImage = [[UIImage imageNamed:@"xebia-avatar"] retain];
 
     [self configureTableView];
     [self configureTableController];
@@ -78,7 +75,7 @@
     self.tableController.imageForError = [UIImage imageNamed:@"error.png"];
     self.tableController.imageForEmpty = [UIImage imageNamed:@"empty.png"];
 
-    [tableController mapObjectsWithClass:[GHRepository class] toTableCellsWithMapping:[self createCellMapping]];
+    [self.tableController mapObjectsWithClass:[GHRepository class] toTableCellsWithMapping:[self createCellMapping]];
 }
 
 - (void)configureTableView {
@@ -118,11 +115,11 @@
     return cellMapping;
 }
 
-- (void)tableController:(RKAbstractTableController *)tableController willDisplayCell:(UITableViewCell *)cell forObject:(id)object atIndexPath:(NSIndexPath *)indexPath {
-    GHRepository *repository = object;
-    GHRepositoryCell *repositoryCell = (GHRepositoryCell *)cell;
-    repositoryCell.imageView.image = _xebiaAvatarImage;
-//    [repositoryCell.imageView setImageWithURL:[repository.owner avatarImageUrl] placeholderImage:_defaultAvatarImage];
+- (void)tableController:(RKAbstractTableController *)tableController
+        willDisplayCell:(GHRepositoryCell *)repositoryCell
+              forObject:(GHRepository *)repository
+            atIndexPath:(NSIndexPath *)indexPath {
+    repositoryCell.imageView.image = self.xebiaAvatarImage;
 }
 
 - (void)didReceiveMemoryWarning{
@@ -131,8 +128,8 @@
 }
 
 - (void)dealloc {
-    [_defaultAvatarImage release];
-    [_xebiaAvatarImage release];
+    [self.defaultAvatarImage release];
+    [self.xebiaAvatarImage release];
     [super dealloc];
 }
 

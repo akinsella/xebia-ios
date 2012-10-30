@@ -8,16 +8,12 @@
 
 @implementation EBOrganizer
 
-@synthesize identifier;
-@synthesize url;
-@synthesize description;
-@synthesize name;
-
 + (RKObjectMapping *)mapping {
     RKObjectMapping *mapping = [RKObjectMapping mappingForClass:[self class] usingBlock:^(RKObjectMapping *mapping) {
-        [mapping mapAttributes: @"url", @"description", @"name", nil];
+        [mapping mapAttributes: @"url", @"name", nil];
         [mapping mapKeyPathsToAttributes:
                 @"id", @"identifier",
+                @"description", @"description_",
                 nil];
     }];
 

@@ -10,13 +10,6 @@
 
 @implementation WPCategory
 
-@synthesize identifier;
-@synthesize slug;
-@synthesize description_;
-@synthesize title;
-@synthesize parent;
-@synthesize post_count;
-
 - (NSInteger)postCount {
     return [self.post_count integerValue];
 }

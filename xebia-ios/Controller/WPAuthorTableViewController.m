@@ -24,13 +24,10 @@
 
 @interface WPAuthorTableViewController ()
 @property (nonatomic, strong) RKTableController *tableController;
+@property (nonatomic, strong) UIImage* defaultAvatarImage;
 @end
 
-@implementation WPAuthorTableViewController {
-    UIImage* _defaultAvatarImage;
-}
-
-@synthesize tableController;
+@implementation WPAuthorTableViewController
 
 - (id)init {
     self = [super init];
@@ -49,11 +46,11 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
 
-    [tableController loadTableFromResourcePath:@"/wordpress/get_author_index/"];
+    [self.tableController loadTableFromResourcePath:@"/wordpress/get_author_index/"];
 }
 
 - (void)configure {
-    _defaultAvatarImage = [[UIImage imageNamed:@"avatar_placeholder"] retain];
+    self.defaultAvatarImage = [[UIImage imageNamed:@"avatar_placeholder"] retain];
 
     [self configureTableView];
     [self configureTableController];
@@ -101,7 +98,7 @@
     self.tableController.imageForError = [UIImage imageNamed:@"error.png"];
     self.tableController.imageForEmpty = [UIImage imageNamed:@"empty.png"];
 
-    [tableController mapObjectsWithClass:[WPAuthor class] toTableCellsWithMapping:[self getCellMapping]];
+    [self.tableController mapObjectsWithClass:[WPAuthor class] toTableCellsWithMapping:[self getCellMapping]];
 }
 
 - (void)configureTableView {
@@ -115,7 +112,7 @@
 - (void)tableController:(RKAbstractTableController *)tableController willDisplayCell:(UITableViewCell *)cell forObject:(id)object atIndexPath:(NSIndexPath *)indexPath; {
     WPAuthor *author = object;
     WPAuthorCell *authorCell = (WPAuthorCell *)cell;
-    [authorCell.imageView setImageWithURL:[author avatarImageUrl] placeholderImage:_defaultAvatarImage];
+    [authorCell.imageView setImageWithURL:[author avatarImageUrl] placeholderImage:self.defaultAvatarImage];
 }
 
 - (void)didReceiveMemoryWarning{
@@ -124,7 +121,7 @@
 }
 
 - (void)dealloc {
-    [_defaultAvatarImage release];
+    [self.defaultAvatarImage release];
     [super dealloc];
 }
 

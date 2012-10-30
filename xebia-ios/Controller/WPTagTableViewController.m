@@ -26,8 +26,6 @@
 
 @implementation WPTagTableViewController
 
-@synthesize tableController;
-
 - (id)init {
     self = [super init];
     if (self) {
@@ -45,7 +43,7 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
 
-    [tableController loadTableFromResourcePath:@"/wordpress/get_tag_index/"];
+    [self.tableController loadTableFromResourcePath:@"/wordpress/get_tag_index/"];
 }
 
 - (void)configure {
@@ -67,7 +65,7 @@
     self.tableController.imageForError = [UIImage imageNamed:@"error.png"];
     self.tableController.imageForEmpty = [UIImage imageNamed:@"empty.png"];
 
-    [tableController mapObjectsWithClass:[WPTag class] toTableCellsWithMapping:[self getCellMapping]];
+    [self.tableController mapObjectsWithClass:[WPTag class] toTableCellsWithMapping:[self getCellMapping]];
 }
 
 - (void)configureRefreshTriggerView {

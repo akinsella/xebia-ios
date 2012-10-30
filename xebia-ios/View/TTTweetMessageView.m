@@ -11,9 +11,6 @@
 
 @implementation TTTweetMessageView
 
-@synthesize font, color, strokeColor, strokeWidth;
-@synthesize content;
-
 -(id)initWithCoder:(NSCoder*)coder
 {
     self = [super initWithCoder:coder];
@@ -25,7 +22,6 @@
     }
     return self;
 }
-
 
 // Only override drawRect: if you perform custom drawing.
 // An empty implementation adversely affects performance during animation.
@@ -54,7 +50,7 @@
   
     CFRelease(fontRef);
 
-    NSAttributedString* attString = [[[NSAttributedString alloc] initWithString:content attributes:attrs] autorelease];
+    NSAttributedString* attString = [[[NSAttributedString alloc] initWithString:self.content attributes:attrs] autorelease];
     
     CTFramesetterRef framesetter = CTFramesetterCreateWithAttributedString((CFAttributedStringRef)attString); //3
     CTFrameRef frame = CTFramesetterCreateFrame(framesetter, CFRangeMake(0, [attString length]), path, NULL);
@@ -64,15 +60,6 @@
     CFRelease(frame); //5
     CFRelease(path);
     CFRelease(framesetter);
-}
-
--(void)dealloc
-{
-    self.font = nil;
-    self.color = nil;
-    self.strokeColor = nil;
-    
-    [super dealloc];
 }
 
 @end

@@ -8,15 +8,6 @@
 
 @implementation EBVenue
 
-@synthesize identifier;
-@synthesize city;
-@synthesize name;
-@synthesize region;
-@synthesize postal_code;
-@synthesize longitude;
-@synthesize latitude;
-@synthesize country_code;
-
 + (RKObjectMapping *)mapping {
     RKObjectMapping *mapping = [RKObjectMapping mappingForClass:[self class] usingBlock:^(RKObjectMapping *mapping) {
         [mapping mapAttributes: @"url", @"description", @"name", nil];

@@ -10,9 +10,6 @@
 
 @implementation TTEntity
 
-@synthesize text;
-@synthesize indices;
-
 + (RKObjectMapping *)mapping {
     RKObjectMapping *mapping = [RKObjectMapping mappingForClass:[self class] usingBlock:^(RKObjectMapping *mapping) {
         [mapping mapAttributes: @"text", @"indices", nil];

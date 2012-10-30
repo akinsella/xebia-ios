@@ -27,14 +27,10 @@
 
 @interface GHUserTableViewController ()
 @property (nonatomic, strong) RKTableController *tableController;
+@property (nonatomic, strong) UIImage* defaultAvatarImage;
 @end
 
-@implementation GHUserTableViewController {
-    UIImage* _defaultAvatarImage;
-}
-
-
-@synthesize tableController;
+@implementation GHUserTableViewController
 
 - (id)init {
     self = [super init];
@@ -48,7 +44,7 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    [tableController loadTableFromResourcePath:@"/github/orgs/xebia-france/public_members"];
+    [self.tableController loadTableFromResourcePath:@"/github/orgs/xebia-france/public_members"];
 }
 
 - (void)viewDidLoad {
@@ -57,7 +53,7 @@
 }
 
 - (void)configure {
-    _defaultAvatarImage = [[UIImage imageNamed:@"github-gravatar-placeholder"] retain];
+    self.defaultAvatarImage = [[UIImage imageNamed:@"github-gravatar-placeholder"] retain];
 
     [self configureTableController];
     [self configureRefreshTriggerView];
@@ -119,13 +115,14 @@
     self.tableController.imageForError = [UIImage imageNamed:@"error.png"];
     self.tableController.imageForEmpty = [UIImage imageNamed:@"empty.png"];
 
-    [tableController mapObjectsWithClass:[GHUser class] toTableCellsWithMapping:[self getCellMapping]];
+    [self.tableController mapObjectsWithClass:[GHUser class] toTableCellsWithMapping:[self getCellMapping]];
 }
 
-- (void)tableController:(RKAbstractTableController *)tableController willDisplayCell:(UITableViewCell *)cell forObject:(id)object atIndexPath:(NSIndexPath *)indexPath {
-    GHUser *user = object;
-    GHUserCell *userCell = (GHUserCell *)cell;
-    [userCell.imageView setImageWithURL:[user avatarImageUrl] placeholderImage:_defaultAvatarImage];
+- (void)tableController:(RKAbstractTableController *)tableController
+        willDisplayCell:(GHUserCell *)userCell
+              forObject:(GHUser *)user
+            atIndexPath:(NSIndexPath *)indexPath {
+    [userCell.imageView setImageWithURL:[user avatarImageUrl] placeholderImage:self.defaultAvatarImage];
 }
 
 - (void)didReceiveMemoryWarning{
@@ -134,7 +131,7 @@
 }
 
 - (void)dealloc {
-    [_defaultAvatarImage release];
+    [self.defaultAvatarImage release];
     [super dealloc];
 }
 

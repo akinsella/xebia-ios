@@ -14,21 +14,6 @@
 
 @implementation WPAuthorCell
 
-@synthesize titleLabel;
-@synthesize bottomDetailLabel;
-@synthesize itemCount = _itemCount;
-@synthesize identifier;
-@synthesize avatarImage;
-@synthesize dashedSeparatorView;
-
-- (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
-    self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
-    if (self) {
-        // set selection color
-    }
-    return self;
-}
-
 - (void)layoutSubviews {
     [super layoutSubviews];
     self.imageView.frame = CGRectMake(8,8,44,44);
@@ -45,11 +30,6 @@
 
 - (void)updateBottomDetailLabel {
     self.bottomDetailLabel.text = [NSString stringWithFormat:@"%d posts", self.itemCount];
-}
-
--(void) prepareForReuse {
-    identifier = nil;
-    avatarImage = nil;
 }
 
 @end

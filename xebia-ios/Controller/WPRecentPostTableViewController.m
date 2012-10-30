@@ -10,7 +10,6 @@
 
 @interface WPRecentPostTableViewController ()
 - (void)initInternalWithPostType:(POST_TYPE)postType identifier:(NSNumber *)identifier;
-
 @end
 
 @implementation WPRecentPostTableViewController
@@ -22,7 +21,6 @@
     }
 
     return self;
-
 }
 
 - (void)viewDidLoad {

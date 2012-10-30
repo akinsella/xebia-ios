@@ -28,14 +28,10 @@
 
 @interface EBEventTableViewController ()
 @property (nonatomic, strong) RKTableController *tableController;
+@property (nonatomic, strong) UIImage* defaultAvatarImage;
 @end
 
-@implementation EBEventTableViewController {
-    UIImage* _defaultAvatarImage;
-}
-
-
-@synthesize tableController;
+@implementation EBEventTableViewController
 
 - (id)init {
     self = [super init];
@@ -49,7 +45,7 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    [tableController loadTableFromResourcePath:@"/event/list"];
+    [self.tableController loadTableFromResourcePath:@"/event/list"];
 }
 
 - (void)viewDidLoad {
@@ -58,7 +54,7 @@
 }
 
 - (void)configure {
-    _defaultAvatarImage = [[UIImage imageNamed:@"avatar_placeholder.png"] retain];
+    self.defaultAvatarImage = [[UIImage imageNamed:@"avatar_placeholder.png"] retain];
 
     [self addRevealGesture];
     [self addMenuButton];
@@ -123,17 +119,18 @@
     self.tableController.imageForError = [UIImage imageNamed:@"error.png"];
     self.tableController.imageForEmpty = [UIImage imageNamed:@"empty.png"];
     
-    [tableController mapObjectsWithClass:[EBEvent class] toTableCellsWithMapping:[self getCellMapping]];
+    [self.tableController mapObjectsWithClass:[EBEvent class] toTableCellsWithMapping:[self getCellMapping]];
 }
 
-- (void)tableController:(RKAbstractTableController *)tableController willDisplayCell:(UITableViewCell *)cell forObject:(id)object atIndexPath:(NSIndexPath *)indexPath {
-    EBEvent *event = object;
-    EBEventCell *eventCell = (EBEventCell *)cell;
+- (void)tableController:(RKAbstractTableController *)tableController
+        willDisplayCell:(EBEventCell *)eventCell
+              forObject:(EBEvent *)event
+            atIndexPath:(NSIndexPath *)indexPath {
     [eventCell.imageView setImage:[UIImage imageNamed:@"eventbrite"]];
 }
 
 - (void)dealloc {
-    [_defaultAvatarImage release];
+    [self.defaultAvatarImage release];
     [super dealloc];
 }
 
