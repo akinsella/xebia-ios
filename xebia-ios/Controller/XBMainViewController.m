@@ -25,28 +25,22 @@ enum {
 };
 
 @interface XBMainViewController ()
-
 @property (nonatomic, strong) RKTableController *tableController;
-
+@property (nonatomic, strong) XBRevealController *revealController;
+@property (nonatomic, strong) NSMutableDictionary *viewIdentifiers;
+@property (nonatomic, strong) XBViewControllerManager *viewControllerManager;
+@property (nonatomic, strong) UINavigationController *rearNavigationController;
+@property (nonatomic, strong) RKTableViewCellMapping *tableCellMapping;
+@property (nonatomic, strong) NSArray *tableItems;
 @end
 
-@implementation XBMainViewController {
-    XBRevealController *_revealController;
-    NSMutableDictionary *_viewIdentifiers;
-    XBViewControllerManager *_viewControllerManager;
-    UINavigationController *_rearNavigationController;
-    RKTableViewCellMapping *_tableCellMapping;
-    NSArray *_tableItems;
-}
-
-@synthesize tableController;
-@synthesize revealController = _revealController;
+@implementation XBMainViewController
 
 - (id)initWithViewControllerManager:(XBViewControllerManager *)viewControllerManager {
     self = [super init];
 
     if (self) {
-        _viewControllerManager = viewControllerManager;
+        self.viewControllerManager = viewControllerManager;
         [self initNavigationBar];
         [self initRevealController];
         [self initViewIdentifiers];
@@ -68,8 +62,8 @@ enum {
     [self initTableItems];
 
     [self initCellMapping];
-    [self.tableController loadTableItems:_tableItems withMapping: _tableCellMapping];
-    [_tableItems release];
+    [self.tableController loadTableItems:self.tableItems withMapping: self.tableCellMapping];
+    [self.tableItems release];
 }
 
 
@@ -95,33 +89,33 @@ enum {
 //-----------------------------------------------------------------------
 
 - (void)initRevealController {
-    _rearNavigationController = [[UINavigationController alloc] initWithRootViewController:self navBarCustomized:YES];
-    UIViewController *homeController = [_viewControllerManager getOrCreateControllerWithIdentifier:@"home"];
+    self.rearNavigationController = [[UINavigationController alloc] initWithRootViewController:self navBarCustomized:YES];
+    UIViewController *homeController = [self.viewControllerManager getOrCreateControllerWithIdentifier:@"home"];
     [[[UINavigationController alloc] initWithRootViewController:homeController navBarCustomized:YES] autorelease];
 
-    _revealController = [[XBRevealController alloc] initWithFrontViewController: homeController.navigationController
-                                                            rearViewController:_rearNavigationController];
+    self.revealController = [[XBRevealController alloc] initWithFrontViewController: homeController.navigationController
+                                                            rearViewController:self.rearNavigationController];
 }
 
 
 - (void)revealViewController:(UIViewController *)viewController {
-    UINavigationController *frontViewController = (UINavigationController *) _revealController.frontViewController;
+    UINavigationController *frontViewController = (UINavigationController *) self.revealController.frontViewController;
     [frontViewController pushViewController:viewController animated:true];
 }
 
 
 -(void)revealViewControllerWithIdentifier:(NSString *)identifier {
     if ([self currentViewIsViewControllerWithIdentifier: identifier]) {
-        [_revealController revealToggle:self];
+        [self.revealController revealToggle:self];
     }
     else {
-        UIViewController * viewController = [_viewControllerManager getOrCreateControllerWithIdentifier: identifier];
-        [_revealController setFrontViewController:viewController.navigationController animated:NO];
+        UIViewController * viewController = [self.viewControllerManager getOrCreateControllerWithIdentifier: identifier];
+        [self.revealController setFrontViewController:viewController.navigationController animated:NO];
     }
 }
 
 -(BOOL)currentViewIsViewControllerWithIdentifier:(NSString *)identifier {
-    return ((UINavigationController *)_revealController.frontViewController).topViewController == [_viewControllerManager getOrCreateControllerWithIdentifier:identifier];
+    return ((UINavigationController *)self.revealController.frontViewController).topViewController == [self.viewControllerManager getOrCreateControllerWithIdentifier:identifier];
 }
 
 //-----------------------------------------------------------------------
@@ -129,45 +123,45 @@ enum {
 //-----------------------------------------------------------------------
 
 - (void)initViewIdentifiers {
-    _viewIdentifiers = [[NSMutableDictionary alloc] initWithObjectsAndKeys:
-            @"home", [NSNumber asString:XBMenuHome],
-            @"tbBlog", [NSNumber asString:XBMenuWordpress],
-            @"tweets", [NSNumber asString:XBMenuTwitter],
-            @"tbGithub", [NSNumber asString:XBMenuGithub],
-            @"events", [NSNumber asString:XBMenuEvent],
-            nil];
+    self.viewIdentifiers = [@{
+        [NSNumber asString:XBMenuHome]: @"home",
+        [NSNumber asString:XBMenuWordpress]: @"tbBlog",
+        [NSNumber asString:XBMenuTwitter]: @"tweets",
+        [NSNumber asString:XBMenuGithub]: @"tbGithub",
+        [NSNumber asString:XBMenuEvent]: @"events"
+    } mutableCopy];
 }
 
 - (void)initTableItems {
-    _tableItems = [[NSArray alloc] initWithObjects:
+    self.tableItems = @[
        [RKTableItem tableItemWithText:@"Home" imageNamed:@"home"],
        [RKTableItem tableItemWithText:@"Blog" imageNamed:@"wordpress"],
        [RKTableItem tableItemWithText:@"Tweets" imageNamed:@"twitter"],
        [RKTableItem tableItemWithText:@"Github"  imageNamed:@"github"],
-       [RKTableItem tableItemWithText:@"Events"  imageNamed:@"eventbrite-menu"],
-       nil];
+       [RKTableItem tableItemWithText:@"Events"  imageNamed:@"eventbrite-menu"]
+    ];
 }
 
 - (void)initCellMapping {
-    _tableCellMapping = [RKTableViewCellMapping defaultCellMapping];
+    self.tableCellMapping = [RKTableViewCellMapping defaultCellMapping];
 
-    _tableCellMapping.cellClassName = @"XBMenuCell";
-    _tableCellMapping.reuseIdentifier = @"XBMenu";
-    _tableCellMapping.accessoryType = UITableViewCellAccessoryNone;
+    self.tableCellMapping.cellClassName = @"XBMenuCell";
+    self.tableCellMapping.reuseIdentifier = @"XBMenu";
+    self.tableCellMapping.accessoryType = UITableViewCellAccessoryNone;
 
-    [_tableCellMapping mapKeyPath:@"text" toAttribute:@"titleLabel.text"];
+    [self.tableCellMapping mapKeyPath:@"text" toAttribute:@"titleLabel.text"];
 
-    _tableCellMapping.onSelectCellForObjectAtIndexPath = ^(UITableViewCell *cell, id object, NSIndexPath* indexPath) {
-        NSString *identifier = [_viewIdentifiers valueForKey:[NSNumber asString:indexPath.row]];
+    self.tableCellMapping.onSelectCellForObjectAtIndexPath = ^(UITableViewCell *cell, id object, NSIndexPath* indexPath) {
+        NSString *identifier = [self.viewIdentifiers valueForKey:[NSNumber asString:indexPath.row]];
         [self revealViewControllerWithIdentifier: identifier];
     };
 }
 
 - (void)dealloc {
-    [_revealController release];
-    [_rearNavigationController release];
-    [_viewIdentifiers release];
-    [_tableItems release];
+    [self.revealController release];
+    [self.rearNavigationController release];
+    [self.viewIdentifiers release];
+    [self.tableItems release];
     [super dealloc];
 }
 
