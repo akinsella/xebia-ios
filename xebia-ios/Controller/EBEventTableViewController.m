@@ -19,12 +19,7 @@
 #import "UIViewController+XBAdditions.h"
 #import "UIColor+XBAdditions.h"
 #import "UIScreen+XBAdditions.h"
-
-#define FONT_SIZE 13.0f
-#define CELL_BORDER_WIDTH 68.0f // 320.0f - 252.0f
-#define CELL_MIN_HEIGHT 44.0f
-#define CELL_BASE_HEIGHT 28.0f
-#define CELL_MAX_HEIGHT 1000.0f
+#import "XBMainViewController.h"
 
 @interface EBEventTableViewController ()
 @property (nonatomic, strong) RKTableController *tableController;
@@ -78,17 +73,11 @@
     cellMapping.reuseIdentifier = @"EBEvent";
     
     [cellMapping mapKeyPath:@"title" toAttribute:@"titleLabel.text"];
-    [cellMapping mapKeyPath:@"description_plain_text" toAttribute:@"descriptionLabel.text"];
+    [cellMapping mapKeyPath:@"description_plain_text" toAttribute:@"content"];
     [cellMapping mapKeyPath:@"identifier" toAttribute:@"identifier"];
     
     cellMapping.heightOfCellForObjectAtIndexPath = ^ CGFloat(EBEvent *event, NSIndexPath* indexPath) {
-        CGRect bounds = [UIScreen getScreenBoundsForCurrentOrientation];
-        CGSize constraint = CGSizeMake(bounds.size.width - CELL_BORDER_WIDTH, CELL_MAX_HEIGHT);
-        CGSize size = [event.description_ sizeWithFont:[UIFont systemFontOfSize:FONT_SIZE]
-                                    constrainedToSize:constraint
-                                        lineBreakMode:UILineBreakModeWordWrap];
-        CGFloat height = MAX(CELL_BASE_HEIGHT + size.height, CELL_MIN_HEIGHT);
-        
+        CGFloat height = [EBEventCell heightForCellWithText: event.description_plain_text];
         return height;
     };
     
@@ -127,6 +116,12 @@
               forObject:(EBEvent *)event
             atIndexPath:(NSIndexPath *)indexPath {
     [eventCell.imageView setImage:[UIImage imageNamed:@"eventbrite"]];
+    eventCell.descriptionLabel.delegate = self;
+}
+
+- (void)attributedLabel:(TTTAttributedLabel *)label didSelectLinkWithURL:(NSURL *)url {
+    NSLog(@"Url requested: %@", url);
+    [self.appDelegate.mainViewController openURL:url withTitle:@"EventBrite"];
 }
 
 - (void)dealloc {

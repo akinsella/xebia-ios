@@ -45,15 +45,6 @@
     NSLog(@"Application will terminate !!");
 }
 
--(BOOL)openURL:(NSURL *)url {
-    if  ([[XBViewControllerManager sharedInstance] openURL:url]) {
-        return YES;
-    }
-    else {
-        return [super openURL:url];
-    }
-}
-
 - (void)dealloc {
     [_viewControllerManager release];
     [_mainViewController release];

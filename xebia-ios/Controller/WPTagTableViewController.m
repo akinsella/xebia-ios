@@ -96,51 +96,8 @@
     return cellMapping;
 }
 
-//- (void)tableController:(RKTableController *)tableController didLoadObjects:(NSArray *)objects inSection:(RKTableSection *)section {
-//    NSLog(@"Loaded %d elements in section %@", [objects count], section);
-//}
-//
-//- (void)tableController:(RKAbstractTableController *)tableController willLoadTableWithObjectLoader:(RKObjectLoader *)objectLoader {
-//    NSLog(@"%@ will load table with object loader %@", tableController, objectLoader);
-//}
-//
-//- (void)tableController:(RKAbstractTableController *)tableController didLoadTableWithObjectLoader:(RKObjectLoader *)objectLoader {
-//    NSLog(@"%@ did load table with object loader %@", tableController, objectLoader);
-//}
-//
-//- (void)tableControllerDidFinalizeLoad:(RKAbstractTableController *)tableController {
-//    NSLog(@"%@ did finalize load", tableController);
-//}
-
-// Cells
-//- (void)tableController:(RKAbstractTableController *)tableController willDisplayCell:(UITableViewCell *)cell forObject:(id)object atIndexPath:(NSIndexPath *)indexPath {
-//    NSLog(@"%@ will display cell %@ for object: %@ at index path: %@", tableController, cell, object, indexPath);
-//}
-//
-//- (void)tableController:(RKAbstractTableController *)tableController didSelectCell:(UITableViewCell *)cell forObject:(id)object atIndexPath:(NSIndexPath *)indexPath {
-//    NSLog(@"%@ did select cell %@ for object: %@ at index path: %@", tableController, cell, object, indexPath);
-//}
-
-
-/**
- Sent when the table view has transitioned out of the loading state regardless of outcome
- */
-//- (void)tableControllerDidFinishLoad:(RKAbstractTableController *)tableController {
-//    NSLog(@"%@ did finish load", tableController);
-//}
-//
-//- (void)tableController:(RKAbstractTableController *)tableController didFailLoadWithError:(NSError *)error {
-//    NSLog(@"%@ did fail load with error: %@", tableController, error);
-//}
-//
-//- (void)tableControllerDidCancelLoad:(RKAbstractTableController *)tableController {
-//    NSLog(@"%@ did cancel load", tableController);
-//}
-
-
 - (void)configureTableView {
     self.tableView.backgroundColor = [UIColor colorWithPatternImageName:@"bg_home_pattern"];
-//    self.tableView.backgroundColor = [UIColor colorWithHex:@"#191919" alpha:1.0];
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
 
     [self.tableView registerNib:[UINib nibWithNibName:@"WPTagCell" bundle:nil] forCellReuseIdentifier:@"WPTag"];

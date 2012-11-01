@@ -19,12 +19,6 @@
 #import "UIColor+XBAdditions.h"
 #import "UIScreen+XBAdditions.h"
 
-#define FONT_SIZE 13.0f
-#define CELL_BORDER_WIDTH 88.0f // 320.0f - 232.0f
-#define CELL_MIN_HEIGHT 64.0f
-#define CELL_BASE_HEIGHT 48.0f
-#define CELL_MAX_HEIGHT 1000.0f
-
 @interface GHRepositoryTableViewController ()
 @property (nonatomic, strong) RKTableController *tableController;
 @property (nonatomic, strong) UIImage* defaultAvatarImage;
@@ -103,13 +97,7 @@
     [cellMapping mapKeyPath:@"identifier" toAttribute:@"identifier"];
 
     cellMapping.heightOfCellForObjectAtIndexPath = ^ CGFloat(GHRepository *repository, NSIndexPath* indexPath) {
-        CGRect bounds = [UIScreen getScreenBoundsForCurrentOrientation];
-        CGSize constraint = CGSizeMake(bounds.size.width - CELL_BORDER_WIDTH, CELL_MAX_HEIGHT);
-        CGSize size = [repository.description_ sizeWithFont:[UIFont systemFontOfSize:FONT_SIZE]
-                                          constrainedToSize:constraint
-                                              lineBreakMode:UILineBreakModeWordWrap];
-        CGFloat height = MAX(CELL_BASE_HEIGHT + size.height, CELL_MIN_HEIGHT);
-
+        CGFloat height = [GHRepositoryCell heightForCellWithText:repository.description_];
         return height;
     };
     return cellMapping;

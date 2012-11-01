@@ -109,9 +109,10 @@
     [self.tableView registerNib:[UINib nibWithNibName:@"WPAuthorCell" bundle:nil] forCellReuseIdentifier:@"WPAuthor"];
 }
 
-- (void)tableController:(RKAbstractTableController *)tableController willDisplayCell:(UITableViewCell *)cell forObject:(id)object atIndexPath:(NSIndexPath *)indexPath; {
-    WPAuthor *author = object;
-    WPAuthorCell *authorCell = (WPAuthorCell *)cell;
+- (void)tableController:(RKAbstractTableController *)tableController
+        willDisplayCell: (WPAuthorCell *)authorCell
+              forObject:(WPAuthor *)author
+            atIndexPath:(NSIndexPath *)indexPath; {
     [authorCell.imageView setImageWithURL:[author avatarImageUrl] placeholderImage:self.defaultAvatarImage];
 }
 

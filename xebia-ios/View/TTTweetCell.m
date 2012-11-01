@@ -17,13 +17,14 @@
 #import "UIColor+XBAdditions.h"
 
 #define FONT_SIZE 13.0f
+#define FONT_NAME @"Helvetica"
 #define CELL_BORDER_WIDTH 88.0f // 320.0f - 232.0f
 #define CELL_MIN_HEIGHT 64.0f
 #define CELL_BASE_HEIGHT 48.0f
 #define CELL_MAX_HEIGHT 1000.0f
 
-
 @implementation TTTweetCell
+
 
 - (void)layoutSubviews {
     [super layoutSubviews];
@@ -40,9 +41,9 @@
 }
 
 - (void)initContentLabel {
-    self.contentLabel.font = [UIFont fontWithName:@"Helvetica" size:FONT_SIZE];
+    self.contentLabel.font = [UIFont fontWithName:FONT_NAME size:FONT_SIZE];
     self.contentLabel.textColor = [UIColor colorWithHex:@"#fafafa" alpha:1.0];
-    self.contentLabel.lineBreakMode = (NSLineBreakMode) UILineBreakModeWordWrap;
+    self.contentLabel.lineBreakMode = (NSLineBreakMode) UILineBreakModeTailTruncation;
     self.contentLabel.numberOfLines = 0;
 
     self.contentLabel.linkAttributes = @{
@@ -55,7 +56,7 @@
         (NSString *)kCTUnderlineStyleAttributeName: @NO
     };
 
-    [self.contentLabel setText:self.content];
+    [[self contentLabel] setText: self.content];
 
     for (TTUserMentionEntity *entity in _entities.user_mentions) {
         NSRange linkRange = NSMakeRange( [entity.indices[0] unsignedIntegerValue], [entity.indices[1] unsignedIntegerValue] - [entity.indices[0] unsignedIntegerValue] );
@@ -78,16 +79,15 @@
 
 - (void)dealloc {
     [_contentLabel release];
-    [_content release];
     [super dealloc];
 }
 
 + (CGFloat)heightForCellWithText:(NSString *)text {
     CGRect bounds = [UIScreen getScreenBoundsForCurrentOrientation];
     CGSize constraint = CGSizeMake(bounds.size.width - CELL_BORDER_WIDTH, CELL_MAX_HEIGHT);
-    CGSize size = [text sizeWithFont:[UIFont systemFontOfSize:FONT_SIZE]
+    CGSize size = [text sizeWithFont:[UIFont fontWithName:FONT_NAME size:FONT_SIZE]
                    constrainedToSize:constraint
-                       lineBreakMode:(NSLineBreakMode) UILineBreakModeWordWrap];
+                       lineBreakMode:(NSLineBreakMode) UILineBreakModeTailTruncation];
     CGFloat height = MAX(CELL_BASE_HEIGHT + size.height, CELL_MIN_HEIGHT);
 
     return height;

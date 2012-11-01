@@ -18,8 +18,8 @@
 @property (nonatomic, strong) IBOutlet UIView *dashedSeparatorView;
 
 @property (nonatomic, strong) NSString *identifier;
-@property (nonatomic, strong) NSString *content;
 @property (nonatomic, strong) TTEntities *entities;
+@property (nonatomic, strong) NSString *content;
 @property (nonatomic, readonly, strong) UIImage *avatarImage;
 
 + (CGFloat)heightForCellWithText:(NSString *)text;

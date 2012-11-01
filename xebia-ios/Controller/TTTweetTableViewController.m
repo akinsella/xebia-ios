@@ -101,7 +101,6 @@
     cellMapping.reuseIdentifier = @"TTTweet";
 
     [cellMapping mapKeyPath:@"user.name" toAttribute:@"authorNameLabel.text"];
-//    [cellMapping mapKeyPath:@"user.screen_name" toAttribute:@"nicknameLabel.text"];
     [cellMapping mapKeyPath:@"dateFormatted" toAttribute:@"dateLabel.text"];
     [cellMapping mapKeyPath:@"text" toAttribute:@"content"];
     [cellMapping mapKeyPath:@"entities" toAttribute:@"entities"];
@@ -128,9 +127,10 @@
     return cellMapping;
 }
 
-- (void)tableController:(RKAbstractTableController *)tableController willDisplayCell:(UITableViewCell *)cell forObject:(id)object atIndexPath:(NSIndexPath *)indexPath {
-    TTTweet *tweet = object;
-    TTTweetCell *tweetCell = (TTTweetCell *)cell;
+- (void)tableController:(RKAbstractTableController *)tableController
+        willDisplayCell:(TTTweetCell *)tweetCell
+              forObject:(TTTweet *)tweet
+            atIndexPath:(NSIndexPath *)indexPath {
     tweetCell.contentLabel.delegate = self;
     if ([tweet.ownerScreenName isEqualToString:@"XebiaFr"]) {
         tweetCell.imageView.image = self.xebiaAvatarImage;
@@ -142,7 +142,7 @@
 
 - (void)attributedLabel:(TTTAttributedLabel *)label didSelectLinkWithURL:(NSURL *)url {
     NSLog(@"Url requested: %@", url);
-    [self.appDelegate.mainViewController openURL:url withTitle:@"Twitter Web View"];
+    [self.appDelegate.mainViewController openURL:url withTitle:@"Twitter"];
 }
 
 - (void)didReceiveMemoryWarning{

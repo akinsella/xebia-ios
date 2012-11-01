@@ -10,6 +10,14 @@
 #import "EBEvent.h"
 #import <QuartzCore/QuartzCore.h>
 #import "UIColor+XBAdditions.h"
+#import "UIScreen+XBAdditions.h"
+
+#define FONT_SIZE 13.0f
+#define FONT_NAME @"Helvetica"
+#define CELL_BORDER_WIDTH 68.0f // 320.0f - 252.0f
+#define CELL_MIN_HEIGHT 64.0f
+#define CELL_BASE_HEIGHT 28.0f
+#define CELL_MAX_HEIGHT 5000.0f
 
 @implementation EBEventCell
 
@@ -23,6 +31,42 @@
     
     self.layer.shouldRasterize = YES;
     self.layer.rasterizationScale = [[UIScreen mainScreen] scale];
+    [self initContentLabel];
+}
+
+
+- (void)initContentLabel {
+    self.descriptionLabel.font = [UIFont fontWithName:@"Helvetica" size:FONT_SIZE];
+    self.descriptionLabel.textColor = [UIColor colorWithHex:@"#fafafa" alpha:1.0];
+    self.descriptionLabel.lineBreakMode = (NSLineBreakMode) UILineBreakModeTailTruncation;
+    self.descriptionLabel.numberOfLines = 0;
+
+    self.descriptionLabel.linkAttributes = @{
+        (NSString *)kCTForegroundColorAttributeName: (id)[UIColor colorWithHex:@"#72b8f6"].CGColor,
+        (NSString *)kCTUnderlineStyleAttributeName: @YES
+    };
+
+    self.descriptionLabel.activeLinkAttributes = @{
+        (NSString *)kCTForegroundColorAttributeName: (id)[UIColor colorWithHex:@"#446F94"].CGColor,
+        (NSString *)kCTUnderlineStyleAttributeName: @NO
+    };
+
+    self.descriptionLabel.dataDetectorTypes = UIDataDetectorTypeLink;
+
+    [self.descriptionLabel setText:self.content];
+}
+
++ (CGFloat)heightForCellWithText:(NSString *)text {
+    CGRect bounds = [UIScreen getScreenBoundsForCurrentOrientation];
+    NSLog(@"bounds.size.width: %f,  CELL_BORDER_WIDTH: %f, CELL_MAX_HEIGHT: %f", bounds.size.width,  CELL_BORDER_WIDTH, CELL_MAX_HEIGHT);
+    CGSize constraint = CGSizeMake(bounds.size.width - CELL_BORDER_WIDTH, CELL_MAX_HEIGHT);
+    CGSize size = [text sizeWithFont:[UIFont fontWithName:FONT_NAME size:FONT_SIZE]
+                   constrainedToSize:constraint
+                       lineBreakMode:(NSLineBreakMode) UILineBreakModeTailTruncation];
+    NSLog(@"size.width: %f,  size.height: %f", size.width, size.height);
+    CGFloat height = MAX(CELL_BASE_HEIGHT + size.height, CELL_MIN_HEIGHT);
+
+    return height;
 }
 
 @end

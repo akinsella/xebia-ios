@@ -137,10 +137,11 @@ NSMutableDictionary *postTypes;
     [[RKRefreshTriggerView appearance] setArrowImage:arrowImage];
 }
 
-- (void)tableController:(RKAbstractTableController *)tableController willDisplayCell:(UITableViewCell *)cell forObject:(id)object atIndexPath:(NSIndexPath *)indexPath;
+- (void)tableController:(RKAbstractTableController *)tableController
+        willDisplayCell:(WPPostCell *)postCell
+              forObject:(WPPost *)post
+            atIndexPath:(NSIndexPath *)indexPath;
 {
-    WPPost *post = object;
-    WPPostCell *postCell = (WPPostCell *)cell;
     if (![post.author.slug isEqualToString:@"xebiafrance" ]) {
         [postCell.imageView setImageWithURL: [post imageUrl] placeholderImage:self.defaultPostImage];
     }
