@@ -10,9 +10,6 @@
 
 @interface TTEntity : NSObject
 
-@property(nonatomic, strong) NSString *text;
 @property (nonatomic, strong) NSArray *indices;
-
-+ (RKObjectMapping *)mapping;
 
 @end

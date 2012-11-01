@@ -19,6 +19,9 @@
     self.imageView.layer.cornerRadius = 3.0;
     
     self.dashedSeparatorView.backgroundColor = [UIColor colorWithPatternImageName:@"dashed-separator"];
+    
+    self.layer.shouldRasterize = YES;
+    self.layer.rasterizationScale = [[UIScreen mainScreen] scale];
 }
 
 @end

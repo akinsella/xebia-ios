@@ -21,6 +21,8 @@
                         blue:(NSInteger)blue
                        alpha:(CGFloat)alpha;
 
++ (UIColor*)colorWithHex:(NSString*)hex;
+
 // Creates color using hex representation
 // hex - must be in format: #FF00CC
 // alpha - must be in range 0.0 - 1.0

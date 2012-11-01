@@ -19,6 +19,7 @@
         [mapping mapAttributes: @"screen_name", @"name", @"profile_image_url", nil];
         [mapping mapKeyPathsToAttributes:
                 @"id", @"identifier",
+                @"id_str", @"identifier_str",
                 nil];
     }];
 

@@ -22,6 +22,7 @@
             [mapping mapAttributes: @"text", @"created_at", nil];
             [mapping mapKeyPathsToAttributes:
                     @"id", @"identifier",
+                    @"id_str", @"identifier_str",
                     nil];
 
             // Relationships

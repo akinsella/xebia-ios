@@ -38,16 +38,6 @@ static XBViewControllerManager *sharedInstance = nil;
     return self;
 }
 
--(BOOL)openURL:(NSURL *)url {
-    NSLog(@"Url click handled: %@", url);
-    
-    XBWebViewController *webViewController = (XBWebViewController *)[self getOrCreateControllerWithIdentifier: @"webview"];
-    
-    [webViewController.webView loadRequest:[NSURLRequest requestWithURL:url]];
-    
-    return YES;
-}
-
 - (UIViewController *)getOrCreateControllerWithIdentifier:(NSString *)identifier {
     UIViewController *vc = [viewControllers objectForKey:identifier];
     if (!vc) {

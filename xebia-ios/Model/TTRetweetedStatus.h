@@ -13,6 +13,7 @@
 @interface TTRetweetedStatus : NSObject
 
 @property (nonatomic, strong) NSString *identifier;
+@property (nonatomic, strong) NSString *identifier_str;
 @property (nonatomic, strong) NSDate *created_at;
 @property (nonatomic, strong) TTUser *user;
 @property (nonatomic, strong) NSString *text;

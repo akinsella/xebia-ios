@@ -11,6 +11,7 @@
 @interface TTUser : NSObject
 
 @property (nonatomic, strong) NSString *identifier;
+@property (nonatomic, strong) NSString *identifier_str;
 @property (nonatomic, strong) NSString *screen_name;
 @property (nonatomic, strong) NSString *name;
 @property (nonatomic, strong) NSString *profile_image_url;

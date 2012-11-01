@@ -8,12 +8,11 @@
 
 #import "XBMainViewController.h"
 
-#import "XBRevealController.h"
 #import "UINavigationController+XBAdditions.h"
 #import "NSNumber+XBAdditions.h"
 #import "RKTableItem+XKAdditions.h"
 #import "UIImageView+XBAdditions.h"
-#import "WPPostTableViewController.h"
+#import "XBWebViewController.h"
 
 // Enum for row indices
 enum {
@@ -83,7 +82,6 @@ enum {
     [backgrounView release];
 }
 
-
 //-----------------------------------------------------------------------
 // Reveal Controller initialization
 //-----------------------------------------------------------------------
@@ -103,6 +101,13 @@ enum {
     [frontViewController pushViewController:viewController animated:true];
 }
 
+-(void)openURL:(NSURL *)url withTitle:(NSString *)title {
+    XBWebViewController *webViewController = (XBWebViewController *)[self.viewControllerManager getOrCreateControllerWithIdentifier: @"webview"];
+    UINavigationController *frontViewController = (UINavigationController *) self.revealController.frontViewController;
+    [frontViewController pushViewController:webViewController animated:true];
+    webViewController.title = title;
+    [webViewController.webView loadRequest:[NSURLRequest requestWithURL:url]];
+}
 
 -(void)revealViewControllerWithIdentifier:(NSString *)identifier {
     if ([self currentViewIsViewControllerWithIdentifier: identifier]) {

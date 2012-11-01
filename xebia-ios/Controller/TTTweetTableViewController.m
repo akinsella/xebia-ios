@@ -19,12 +19,8 @@
 #import "UIViewController+XBAdditions.h"
 #import "UIColor+XBAdditions.h"
 #import "UIScreen+XBAdditions.h"
-
-#define FONT_SIZE 13.0f
-#define CELL_BORDER_WIDTH 88.0f // 320.0f - 232.0f
-#define CELL_MIN_HEIGHT 64.0f
-#define CELL_BASE_HEIGHT 48.0f
-#define CELL_MAX_HEIGHT 1000.0f
+#import "XBWebViewController.h"
+#import "XBMainViewController.h"
 
 @interface TTTweetTableViewController ()
 @property (nonatomic, strong) RKTableController *tableController;
@@ -107,32 +103,46 @@
     [cellMapping mapKeyPath:@"user.name" toAttribute:@"authorNameLabel.text"];
 //    [cellMapping mapKeyPath:@"user.screen_name" toAttribute:@"nicknameLabel.text"];
     [cellMapping mapKeyPath:@"dateFormatted" toAttribute:@"dateLabel.text"];
-    [cellMapping mapKeyPath:@"text" toAttribute:@"contentLabel.content"];
+    [cellMapping mapKeyPath:@"text" toAttribute:@"content"];
+    [cellMapping mapKeyPath:@"entities" toAttribute:@"entities"];
     [cellMapping mapKeyPath:@"identifier" toAttribute:@"identifier"];
 
     cellMapping.heightOfCellForObjectAtIndexPath = ^ CGFloat(TTTweet *tweet, NSIndexPath* indexPath) {
-        CGRect bounds = [UIScreen getScreenBoundsForCurrentOrientation];
-        CGSize constraint = CGSizeMake(bounds.size.width - CELL_BORDER_WIDTH, CELL_MAX_HEIGHT);
-        CGSize size = [tweet.text sizeWithFont:[UIFont systemFontOfSize:FONT_SIZE]
-                                          constrainedToSize:constraint
-                                              lineBreakMode:UILineBreakModeWordWrap];
-        CGFloat height = MAX(CELL_BASE_HEIGHT + size.height, CELL_MIN_HEIGHT);
-
-        return height;
+        CGFloat heightForCellWithText = [TTTweetCell heightForCellWithText:tweet.text];
+        NSLog(@"Height: %f for cell with text: %@", heightForCellWithText, tweet.text);
+        return heightForCellWithText;
     };
+
+    cellMapping.onSelectCellForObjectAtIndexPath = ^(UITableViewCell *cell, id object, NSIndexPath* indexPath) {
+        TTTweet *tweet = [self.tableController objectForRowAtIndexPath:indexPath];
+
+        NSURL *tweetStatusUrl = [NSURL URLWithString:[NSString stringWithFormat:@"https://twitter.com/%@/status/%@",
+                        tweet.retweeted_status ? tweet.retweeted_status.user.screen_name : tweet.user.screen_name,
+                        tweet.retweeted_status ? tweet.retweeted_status.identifier_str : tweet.identifier_str
+        ]];
+        NSLog(@"Url requested: %@", tweetStatusUrl);
+        [self.appDelegate.mainViewController openURL:tweetStatusUrl withTitle:tweet.user.name];
+    };
+
+
     return cellMapping;
 }
 
 - (void)tableController:(RKAbstractTableController *)tableController willDisplayCell:(UITableViewCell *)cell forObject:(id)object atIndexPath:(NSIndexPath *)indexPath {
     TTTweet *tweet = object;
     TTTweetCell *tweetCell = (TTTweetCell *)cell;
+    tweetCell.contentLabel.delegate = self;
     if ([tweet.ownerScreenName isEqualToString:@"XebiaFr"]) {
         tweetCell.imageView.image = self.xebiaAvatarImage;
     }
     else {
         [tweetCell.imageView setImageWithURL:tweet.ownerImageUrl placeholderImage:self.defaultAvatarImage];
     }
-    [tweetCell.contentLabel setNeedsDisplay];
+}
+
+- (void)attributedLabel:(TTTAttributedLabel *)label didSelectLinkWithURL:(NSURL *)url {
+    NSLog(@"Url requested: %@", url);
+    [self.appDelegate.mainViewController openURL:url withTitle:@"Twitter Web View"];
 }
 
 - (void)didReceiveMemoryWarning{

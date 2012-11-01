@@ -83,7 +83,6 @@
 		5483B3FA15BF4E9E00E60EE0 /* WPComment.m in Sources */ = {isa = PBXBuildFile; fileRef = 5483B3F915BF4E9E00E60EE0 /* WPComment.m */; };
 		5483B3FD15BF4F4400E60EE0 /* WPAttachment.m in Sources */ = {isa = PBXBuildFile; fileRef = 5483B3FC15BF4F4300E60EE0 /* WPAttachment.m */; };
 		548564F31628B63100388EA9 /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 548564F21628B63100388EA9 /* CoreText.framework */; };
-		548564F71628B67D00388EA9 /* TTTweetMessageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 548564F61628B67D00388EA9 /* TTTweetMessageView.m */; };
 		548564F91628C13F00388EA9 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 548564F81628C13F00388EA9 /* Default-568h@2x.png */; };
 		5496961A15F7BE4300BD1E70 /* menu-btn.png in Resources */ = {isa = PBXBuildFile; fileRef = 5496961815F7BE4100BD1E70 /* menu-btn.png */; };
 		5496961B15F7BE4300BD1E70 /* menu-btn@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5496961915F7BE4200BD1E70 /* menu-btn@2x.png */; };
@@ -154,12 +153,15 @@
 		54F9D40E15D80C5A00A8E511 /* avatar_placeholder.png in Resources */ = {isa = PBXBuildFile; fileRef = 54F9D40D15D80C5A00A8E511 /* avatar_placeholder.png */; };
 		54F9D42015D81A4100A8E511 /* GravatarHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 54F9D41F15D81A4100A8E511 /* GravatarHelper.m */; };
 		B56E64C3C14D4A618E4C1641 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EDB581D723EF4E5C808B5615 /* libPods.a */; };
+		DB34D0F0346B324446AB4038 /* TTUrlEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34DF7606E2711AD729DDBC /* TTUrlEntity.m */; };
 		DB34D27BA192BDDF6C89949D /* XBViewControllerManager.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34DEED8EC9BFDDB4164F08 /* XBViewControllerManager.m */; };
 		DB34D27F35642ABBF5FAD321 /* EBEventCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34D4BF128361ED826DEEA5 /* EBEventCell.m */; };
 		DB34D31F43808E3D3BAC5791 /* EBEventTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34D4BCAF95EF93FA46DFEB /* EBEventTableViewController.m */; };
 		DB34D379E55AEDAE9C5C3FDA /* EBEventCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DB34DD55D5BC7C448FDE1C8F /* EBEventCell.xib */; };
 		DB34D454336B59400C068044 /* TTEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34DCE1BDCEB48937F3C353 /* TTEntity.m */; };
+		DB34D51E6CB20D506BD0702D /* TTHashtagEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34DC4A49554BC91B3F5686 /* TTHashtagEntity.m */; };
 		DB34D580536DA60C6BD70DAE /* NSNumber+XBAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34DB490E75A8DE23774368 /* NSNumber+XBAdditions.m */; };
+		DB34D6BA04A77078B3A8ADBF /* TTUserMentionEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34DFE697E1B43FA9DEFEC8 /* TTUserMentionEntity.m */; };
 		DB34D78B0A56721821BAAB8E /* TTEntities.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34DBB7151A59B19EE4CF5A /* TTEntities.m */; };
 		DB34D7A0C0DC762A500A6F35 /* WPPostCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34D4CDA49EC859D49E82B8 /* WPPostCell.m */; };
 		DB34D961D8EB1C8AC527AB60 /* NSError+XBAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34D8626C4FFDBBD0C7D3FE /* NSError+XBAdditions.m */; };
@@ -288,8 +290,6 @@
 		5483B3FB15BF4F4300E60EE0 /* WPAttachment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WPAttachment.h; sourceTree = "<group>"; };
 		5483B3FC15BF4F4300E60EE0 /* WPAttachment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WPAttachment.m; sourceTree = "<group>"; };
 		548564F21628B63100388EA9 /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
-		548564F51628B67D00388EA9 /* TTTweetMessageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTTweetMessageView.h; sourceTree = "<group>"; };
-		548564F61628B67D00388EA9 /* TTTweetMessageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTTweetMessageView.m; sourceTree = "<group>"; };
 		548564F81628C13F00388EA9 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		5496961815F7BE4100BD1E70 /* menu-btn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "menu-btn.png"; sourceTree = "<group>"; };
 		5496961915F7BE4200BD1E70 /* menu-btn@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "menu-btn@2x.png"; sourceTree = "<group>"; };
@@ -397,18 +397,24 @@
 		DB34D7C6C51532EBB1DCB7C4 /* XBViewControllerManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XBViewControllerManager.h; sourceTree = "<group>"; };
 		DB34D8626C4FFDBBD0C7D3FE /* NSError+XBAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSError+XBAdditions.m"; sourceTree = "<group>"; };
 		DB34D89482FE01F4B98C0B0C /* EBEvent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EBEvent.m; sourceTree = "<group>"; };
+		DB34D98F60516B2AA418357A /* TTHashtagEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTHashtagEntity.h; sourceTree = "<group>"; };
 		DB34D9F47ADA9772B32A4EF4 /* EBVenue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EBVenue.h; sourceTree = "<group>"; };
 		DB34DAFC921F4EC44602113E /* EBVenue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EBVenue.m; sourceTree = "<group>"; };
 		DB34DB490E75A8DE23774368 /* NSNumber+XBAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSNumber+XBAdditions.m"; sourceTree = "<group>"; };
 		DB34DBB7151A59B19EE4CF5A /* TTEntities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTEntities.m; sourceTree = "<group>"; };
 		DB34DC3B0D2EEB462493D8BE /* EBOrganizer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EBOrganizer.m; sourceTree = "<group>"; };
+		DB34DC4A49554BC91B3F5686 /* TTHashtagEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTHashtagEntity.m; sourceTree = "<group>"; };
+		DB34DC6E8E2207CAD2A10E4E /* TTUserMentionEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTUserMentionEntity.h; sourceTree = "<group>"; };
 		DB34DCE1BDCEB48937F3C353 /* TTEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTEntity.m; sourceTree = "<group>"; };
 		DB34DD55D5BC7C448FDE1C8F /* EBEventCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EBEventCell.xib; sourceTree = "<group>"; };
 		DB34DD7E8993C8010DE00380 /* TTEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTEntity.h; sourceTree = "<group>"; };
 		DB34DEED8EC9BFDDB4164F08 /* XBViewControllerManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XBViewControllerManager.m; sourceTree = "<group>"; };
 		DB34DEF2E5441F3B214FC5E3 /* TTEntities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTEntities.h; sourceTree = "<group>"; };
+		DB34DF7606E2711AD729DDBC /* TTUrlEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTUrlEntity.m; sourceTree = "<group>"; };
 		DB34DF9FC4988F42593E16CD /* RKTableItem+XKAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "RKTableItem+XKAdditions.h"; sourceTree = "<group>"; };
+		DB34DFACB850A57E22247BCB /* TTUrlEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTUrlEntity.h; sourceTree = "<group>"; };
 		DB34DFB375B289DB5B59E1A0 /* TTRetweetedStatus.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTRetweetedStatus.m; sourceTree = "<group>"; };
+		DB34DFE697E1B43FA9DEFEC8 /* TTUserMentionEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTUserMentionEntity.m; sourceTree = "<group>"; };
 		EDB581D723EF4E5C808B5615 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		FFE479B60E604A7197B75249 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
@@ -483,8 +489,6 @@
 				5458482815C1E0D800DD03F4 /* WPTagCell.h */,
 				5458482915C1E0D800DD03F4 /* WPTagCell.m */,
 				5458482D15C1E1C700DD03F4 /* WPTagCell.xib */,
-				548564F51628B67D00388EA9 /* TTTweetMessageView.h */,
-				548564F61628B67D00388EA9 /* TTTweetMessageView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -700,6 +704,12 @@
 		54C2DF3215BDFB6500CABB12 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				DB34DFACB850A57E22247BCB /* TTUrlEntity.h */,
+				DB34DF7606E2711AD729DDBC /* TTUrlEntity.m */,
+				DB34DC6E8E2207CAD2A10E4E /* TTUserMentionEntity.h */,
+				DB34DFE697E1B43FA9DEFEC8 /* TTUserMentionEntity.m */,
+				DB34D98F60516B2AA418357A /* TTHashtagEntity.h */,
+				DB34DC4A49554BC91B3F5686 /* TTHashtagEntity.m */,
 				DB34D54D067749E7B31FD258 /* TTRetweetedStatus.h */,
 				DB34DFB375B289DB5B59E1A0 /* TTRetweetedStatus.m */,
 				DB34DD7E8993C8010DE00380 /* TTEntity.h */,
@@ -1066,7 +1076,9 @@
 				DB34D454336B59400C068044 /* TTEntity.m in Sources */,
 				DB34DB30F8101DE1034BE9A9 /* TTRetweetedStatus.m in Sources */,
 				547E36F3161E327A001F35E8 /* XBWebViewController.m in Sources */,
-				548564F71628B67D00388EA9 /* TTTweetMessageView.m in Sources */,
+				DB34D51E6CB20D506BD0702D /* TTHashtagEntity.m in Sources */,
+				DB34D6BA04A77078B3A8ADBF /* TTUserMentionEntity.m in Sources */,
+				DB34D0F0346B324446AB4038 /* TTUrlEntity.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

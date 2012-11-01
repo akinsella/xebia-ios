@@ -10,7 +10,6 @@
 #import "Date.h"
 #import "TTEntities.h"
 
-
 @implementation TTTweet
 
 - (NSString *)dateFormatted {
@@ -34,6 +33,7 @@
         [mapping mapAttributes: @"text", @"created_at", nil];
         [mapping mapKeyPathsToAttributes:
                 @"id", @"identifier",
+                @"id_str", @"identifier_str",
                 nil];
 
         // Relationships

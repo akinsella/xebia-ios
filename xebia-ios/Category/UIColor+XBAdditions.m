@@ -27,6 +27,10 @@
     return color;
 }
 
++ (UIColor*)colorWithHex:(NSString*)hex {
+    return [self colorWithHex:(NSString*)hex alpha:1.0];
+}
+
 + (UIColor*)colorWithHex:(NSString*)hex alpha:(CGFloat)alpha {
     
     assert(7 == [hex length]);

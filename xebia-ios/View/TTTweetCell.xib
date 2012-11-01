@@ -80,7 +80,7 @@
 								<string key="NSFrame">{{203, 3}, {97, 16}}</string>
 								<reference key="NSSuperview" ref="840849820"/>
 								<reference key="NSWindow"/>
-								<reference key="NSNextKeyView" ref="1008458158"/>
+								<reference key="NSNextKeyView" ref="784768833"/>
 								<string key="NSReuseIdentifierKey">_NS:9</string>
 								<bool key="IBUIOpaque">NO</bool>
 								<bool key="IBUIClipsSubviews">YES</bool>
@@ -115,7 +115,7 @@
 								<string key="NSReuseIdentifierKey">_NS:9</string>
 								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 							</object>
-							<object class="IBUIView" id="1008458158">
+							<object class="IBUILabel" id="784768833">
 								<reference key="NSNextResponder" ref="840849820"/>
 								<int key="NSvFlags">274</int>
 								<string key="NSFrame">{{66, 20}, {232, 36}}</string>
@@ -124,7 +124,30 @@
 								<reference key="NSNextKeyView" ref="502712742"/>
 								<string key="NSReuseIdentifierKey">_NS:9</string>
 								<bool key="IBUIOpaque">NO</bool>
+								<bool key="IBUIClipsSubviews">YES</bool>
+								<int key="IBUIContentMode">7</int>
+								<bool key="IBUIUserInteractionEnabled">NO</bool>
 								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
+								<string key="IBUIText">Label sfklsj gfg fgj fdkjgl qflgkj fklgjs fkljds f</string>
+								<object class="NSColor" key="IBUITextColor">
+									<int key="NSColorSpace">1</int>
+									<bytes key="NSRGB">MCAwIDAAA</bytes>
+									<string key="IBUIColorCocoaTouchKeyPath">darkTextColor</string>
+								</object>
+								<reference key="IBUIHighlightedColor" ref="262642770"/>
+								<int key="IBUIBaselineAdjustment">0</int>
+								<int key="IBUINumberOfLines">0</int>
+								<object class="IBUIFontDescription" key="IBUIFontDescription">
+									<int key="type">1</int>
+									<double key="pointSize">13</double>
+								</object>
+								<object class="NSFont" key="IBUIFont">
+									<string key="NSName">Helvetica</string>
+									<double key="NSSize">13</double>
+									<int key="NSfFlags">16</int>
+								</object>
+								<bool key="IBUIAdjustsFontSizeToFit">NO</bool>
+								<double key="preferredMaxLayoutWidth">232</double>
 							</object>
 						</array>
 						<string key="NSFrameSize">{300, 63}</string>
@@ -185,9 +208,9 @@
 					<object class="IBCocoaTouchOutletConnection" key="connection">
 						<string key="label">contentLabel</string>
 						<reference key="source" ref="506599320"/>
-						<reference key="destination" ref="1008458158"/>
+						<reference key="destination" ref="784768833"/>
 					</object>
-					<int key="connectionID">44</int>
+					<int key="connectionID">47</int>
 				</object>
 			</array>
 			<object class="IBMutableOrderedSet" key="objectRecords">
@@ -216,7 +239,7 @@
 							<reference ref="453891946"/>
 							<reference ref="894365236"/>
 							<reference ref="502712742"/>
-							<reference ref="1008458158"/>
+							<reference ref="784768833"/>
 						</array>
 						<reference key="parent" ref="0"/>
 						<string key="objectName">Tweet Cell -TTTweetCell</string>
@@ -239,8 +262,8 @@
 						<reference key="parent" ref="506599320"/>
 					</object>
 					<object class="IBObjectRecord">
-						<int key="objectID">43</int>
-						<reference key="object" ref="1008458158"/>
+						<int key="objectID">45</int>
+						<reference key="object" ref="784768833"/>
 						<reference key="parent" ref="506599320"/>
 					</object>
 				</array>
@@ -255,23 +278,31 @@
 				<string key="2.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="22.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="3.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
-				<string key="43.CustomClassName">TTTweetMessageView</string>
-				<string key="43.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
+				<string key="45.CustomClassName">TTTAttributedLabel</string>
+				<string key="45.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 			</dictionary>
 			<dictionary class="NSMutableDictionary" key="unlocalizedProperties"/>
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">44</int>
+			<int key="maxID">47</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
+				<object class="IBPartialClassDescription">
+					<string key="className">TTTAttributedLabel</string>
+					<string key="superclassName">UILabel</string>
+					<object class="IBClassDescriptionSource" key="sourceIdentifier">
+						<string key="majorKey">IBProjectSource</string>
+						<string key="minorKey">./Classes/TTTAttributedLabel.h</string>
+					</object>
+				</object>
 				<object class="IBPartialClassDescription">
 					<string key="className">TTTweetCell</string>
 					<string key="superclassName">UITableViewCell</string>
 					<dictionary class="NSMutableDictionary" key="outlets">
 						<string key="authorNameLabel">UILabel</string>
-						<string key="contentLabel">TTTweetMessageView</string>
+						<string key="contentLabel">TTTAttributedLabel</string>
 						<string key="dashedSeparatorView">UIView</string>
 						<string key="dateLabel">UILabel</string>
 					</dictionary>
@@ -282,7 +313,7 @@
 						</object>
 						<object class="IBToOneOutletInfo" key="contentLabel">
 							<string key="name">contentLabel</string>
-							<string key="candidateClassName">TTTweetMessageView</string>
+							<string key="candidateClassName">TTTAttributedLabel</string>
 						</object>
 						<object class="IBToOneOutletInfo" key="dashedSeparatorView">
 							<string key="name">dashedSeparatorView</string>
@@ -296,14 +327,6 @@
 					<object class="IBClassDescriptionSource" key="sourceIdentifier">
 						<string key="majorKey">IBProjectSource</string>
 						<string key="minorKey">./Classes/TTTweetCell.h</string>
-					</object>
-				</object>
-				<object class="IBPartialClassDescription">
-					<string key="className">TTTweetMessageView</string>
-					<string key="superclassName">UIView</string>
-					<object class="IBClassDescriptionSource" key="sourceIdentifier">
-						<string key="majorKey">IBProjectSource</string>
-						<string key="minorKey">./Classes/TTTweetMessageView.h</string>
 					</object>
 				</object>
 			</array>

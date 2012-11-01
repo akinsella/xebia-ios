@@ -20,4 +20,7 @@
 - (id)initWithViewControllerManager:(XBViewControllerManager *)viewControllerManager;
 
 - (void)revealViewController:(UIViewController *)controller;
+
+-(void)openURL:(NSURL *)url withTitle:(NSString *)title;
+
 @end

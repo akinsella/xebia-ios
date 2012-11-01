@@ -8,6 +8,7 @@
 
 #import "WPCategoryCell.h"
 #import "UIColor+XBAdditions.h"
+#import <QuartzCore/QuartzCore.h>
 
 @implementation WPCategoryCell
 
@@ -19,6 +20,9 @@
 - (void)layoutSubviews {
     [super layoutSubviews];
     self.dashedSeparatorView.backgroundColor = [UIColor colorWithPatternImageName:@"dashed-separator"];
+    
+    self.layer.shouldRasterize = YES;
+    self.layer.rasterizationScale = [[UIScreen mainScreen] scale];
 }
 
 - (void)updateBottomDetailLabel {

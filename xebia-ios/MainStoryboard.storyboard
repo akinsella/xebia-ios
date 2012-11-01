@@ -88,9 +88,6 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
-                                <connections>
-                                    <segue destination="nSK-wZ-QT8" kind="push" identifier="showDetail" id="9t2-uE-Af9"/>
-                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -103,24 +100,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Hj-EB-cYa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-342" y="-1056"/>
-        </scene>
-        <!--DetailView-->
-        <scene sceneID="DQn-As-ncM">
-            <objects>
-                <viewController id="nSK-wZ-QT8" userLabel="DetailView" customClass="XBDetailPostViewController" sceneMemberID="viewController">
-                    <webView key="view" contentMode="scaleToFill" id="4Cf-yf-NO0" userLabel="DetailPostWebView">
-                        <rect key="frame" x="0.0" y="64" width="320" height="455"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                    </webView>
-                    <navigationItem key="navigationItem" title="Blog Entry" id="Imr-tI-TJS"/>
-                    <connections>
-                        <outlet property="webView" destination="4Cf-yf-NO0" id="6MN-Yv-q8H"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="hpj-iw-hPV" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="140" y="-1056"/>
         </scene>
         <!--Main View Controller - Menu-->
         <scene sceneID="vbd-ri-y8V">
@@ -410,30 +389,31 @@
             </objects>
             <point key="canvasLocation" x="-881" y="-340"/>
         </scene>
-        <!--Web View Controller - Tweet-->
+        <!--Web View Controller - Web-->
         <scene sceneID="ZNz-mZ-g1I">
             <objects>
                 <viewController storyboardIdentifier="webview" id="Flp-WE-6CR" customClass="XBWebViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="9GA-mM-cZ9">
-                        <rect key="frame" x="0.0" y="20" width="320" height="548"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <webView contentMode="scaleToFill" id="dua-qS-gSE">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="548"/>
+                            <webView contentMode="scaleToFill" id="Z90-rI-n31">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             </webView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Tweet" id="wOD-jp-fQD"/>
-                    <nil key="simulatedTopBarMetrics"/>
+                    <navigationItem key="navigationItem" title="Web" id="wOD-jp-fQD"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="blackOpaque" prompted="NO"/>
                     <connections>
-                        <outlet property="webView" destination="dua-qS-gSE" id="Sot-Lp-PKI"/>
+                        <outlet property="webView" destination="Z90-rI-n31" id="NCb-St-Ee0"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SYh-qT-ZlI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-325" y="377"/>
+            <point key="canvasLocation" x="-342" y="188"/>
         </scene>
     </scenes>
     <resources>
@@ -478,12 +458,6 @@
         <class className="WPTagTableViewController" superclassName="UITableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/WPTagTableViewController.h"/>
         </class>
-        <class className="XBDetailPostViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/XBDetailPostViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="webView" candidateClass="UIWebView"/>
-            </relationships>
-        </class>
         <class className="XBHomeController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/XBHomeController.h"/>
         </class>
@@ -503,6 +477,6 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="cmj-Uz-XJJ"/>
+        <segue reference="vel-80-Cn5"/>
     </inferredMetricsTieBreakers>
 </document>
