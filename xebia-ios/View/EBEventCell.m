@@ -14,7 +14,7 @@
 
 #define FONT_SIZE 13.0f
 #define FONT_NAME @"Helvetica"
-#define CELL_BORDER_WIDTH 68.0f // 320.0f - 252.0f
+#define CELL_BORDER_WIDTH 88.0f // 320.0f - 232.0f
 #define CELL_MIN_HEIGHT 64.0f
 #define CELL_BASE_HEIGHT 28.0f
 #define CELL_MAX_HEIGHT 5000.0f
