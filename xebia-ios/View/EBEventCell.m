@@ -7,7 +7,6 @@
 //
 
 #import "EBEventCell.h"
-#import "EBEvent.h"
 #import <QuartzCore/QuartzCore.h>
 #import "UIColor+XBAdditions.h"
 #import "UIScreen+XBAdditions.h"
@@ -16,8 +15,8 @@
 #define FONT_NAME @"Helvetica"
 #define CELL_BORDER_WIDTH 88.0f // 320.0f - 232.0f
 #define CELL_MIN_HEIGHT 64.0f
-#define CELL_BASE_HEIGHT 28.0f
-#define CELL_MAX_HEIGHT 5000.0f
+#define CELL_BASE_HEIGHT 48.0f
+#define CELL_MAX_HEIGHT 2000.0f
 
 @implementation EBEventCell
 
@@ -58,7 +57,7 @@
 
 + (CGFloat)heightForCellWithText:(NSString *)text {
     CGRect bounds = [UIScreen getScreenBoundsForCurrentOrientation];
-    NSLog(@"bounds.size.width: %f,  CELL_BORDER_WIDTH: %f, CELL_MAX_HEIGHT: %f", bounds.size.width,  CELL_BORDER_WIDTH, CELL_MAX_HEIGHT);
+    NSLog(@"bounds.size.width: %f, CELL_BORDER_WIDTH: %f, CELL_MAX_HEIGHT: %f", bounds.size.width, CELL_BORDER_WIDTH, CELL_MAX_HEIGHT);
     CGSize constraint = CGSizeMake(bounds.size.width - CELL_BORDER_WIDTH, CELL_MAX_HEIGHT);
     CGSize size = [text sizeWithFont:[UIFont fontWithName:FONT_NAME size:FONT_SIZE]
                    constrainedToSize:constraint
