@@ -21,37 +21,36 @@
 #import "NSNumber+XBAdditions.h"
 
 @interface WPPostTableViewController ()
+@property (nonatomic, strong) NSMutableDictionary *postTypes;
 @property (nonatomic, strong) RKTableController *tableController;
 @property (nonatomic, strong) UIImage *defaultPostImage;
 @property (nonatomic, strong) UIImage *xebiaPostImage;
+@property(nonatomic, assign) POST_TYPE postType;
+@property(nonatomic, copy) NSNumber *identifier;
 @end
 
 @implementation WPPostTableViewController
 
-NSMutableDictionary *postTypes;
-
-@synthesize identifier, postType;
-
--(id)initWithPostType:(POST_TYPE)postType identifier:(NSNumber *)identifier
+-(id)initWithPostType:(POST_TYPE)pPostType identifier:(NSNumber *)pIdentifier
 {
     self = [super initWithStyle:UITableViewStylePlain];
 
     if (self) {
-        [self initInternalWithPostType:postType identifier:identifier];
+        [self initInternalWithPostType:pPostType identifier:pIdentifier];
     }
 
     return self;
 }
 
-- (void)initInternalWithPostType:(POST_TYPE)postType identifier:(NSNumber *)identifier {
+- (void)initInternalWithPostType:(POST_TYPE)pPostType identifier:(NSNumber *)pIdentifier {
     self.title = @"Posts";
-    self.defaultPostImage = [[UIImage imageNamed:@"avatar_placeholder"] retain];
-    self.xebiaPostImage = [[UIImage imageNamed:@"xebia-avatar"] retain];
+    self.defaultPostImage = [UIImage imageNamed:@"avatar_placeholder"];
+    self.xebiaPostImage = [UIImage imageNamed:@"xebia-avatar"];
 
-    self.postType = postType;
-    self.identifier = identifier;
+    self.postType = pPostType;
+    self.identifier = pIdentifier;
 
-    postTypes = [[NSMutableDictionary alloc] initWithObjectsAndKeys:
+    self.postTypes = [[NSMutableDictionary alloc] initWithObjectsAndKeys:
                 @"recent",  [NSNumber asString:RECENT],
                 @"author", [NSNumber asString: AUTHOR],
                 @"tag", [NSNumber asString: TAG],
@@ -69,8 +68,8 @@ NSMutableDictionary *postTypes;
 {
     [super viewWillAppear:animated];
 
-    NSString *resourcePath = identifier ?
-            [NSString stringWithFormat: @"/wordpress/get_%@_posts/?id=%@", [self getCurrentPostType], identifier] :
+    NSString *resourcePath = self.identifier ?
+            [NSString stringWithFormat: @"/wordpress/get_%@_posts/?id=%@", [self getCurrentPostType], self.identifier] :
             [NSString stringWithFormat: @"/wordpress/get_%@_posts/?count=25", [self getCurrentPostType]];
 
     [self.tableController loadTableFromResourcePath:resourcePath];
@@ -95,7 +94,7 @@ NSMutableDictionary *postTypes;
     self.tableController.imageForError = [UIImage imageNamed:@"error.png"];
     self.tableController.imageForEmpty = [UIImage imageNamed:@"empty.png"];
     
-//    XBLoadingView *loadingView = [[[XBLoadingView alloc] initWithFrame:CGRectMake(0, 0, 80, 80)] autorelease];
+//    XBLoadingView *loadingView = [[XBLoadingView alloc] initWithFrame:CGRectMake(0, 0, 80, 80)];
 //    loadingView.center = self.tableView.center;
 //    self.tableController.loadingView = loadingView;
 
@@ -126,7 +125,7 @@ NSMutableDictionary *postTypes;
 }
 
 - (NSString *)getCurrentPostType {
-    return [postTypes valueForKey:[[NSNumber numberWithInt:postType] description]];
+    return [self.postTypes valueForKey:[[NSNumber numberWithInt:self.postType] description]];
 }
 
 - (void)configureRefreshTriggerView {
@@ -153,12 +152,6 @@ NSMutableDictionary *postTypes;
 - (void)didReceiveMemoryWarning{
     [super didReceiveMemoryWarning];
     NSLog(@"Did received a memory warning in controller: %@", [self class]);
-}
-
-- (void)dealloc {
-    [self.defaultPostImage release];
-    [self.xebiaPostImage release];
-    [super dealloc];
 }
 
 @end

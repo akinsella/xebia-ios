@@ -90,7 +90,6 @@
         
         WPPostTableViewController *postTableViewController = [[WPPostTableViewController alloc] initWithPostType:TAG identifier:tag.identifier];
         [self.appDelegate.mainViewController revealViewController:postTableViewController];
-        [postTableViewController release];
     };
 
     return cellMapping;

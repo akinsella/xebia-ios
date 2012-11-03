@@ -13,9 +13,6 @@
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
-//        [self setBackgroundView: [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"menu-cell-bg.png"]]];
-//        [self.textLabel setTextColor:[UIColor whiteColor] /*#dac7dc*/];
-//        [self.textLabel setBackgroundColor:[UIColor clearColor]];
         [self.textLabel setFont:[UIFont fontWithName:@"HelveticaNeue-Bold" size:17.0]];
         [self.textLabel setTextColor: [UIColor whiteColor]];
         [self.textLabel setShadowColor: [UIColor colorWithRed:0.0 green:0.0 blue:0.0 alpha:0.75]];
@@ -23,7 +20,7 @@
 
         
         UIImage *backgroundImage = [[UIImage imageNamed:@"LightBackground.png"] stretchableImageWithLeftCapWidth:0 topCapHeight:1];
-        self.backgroundView = [[[UIImageView alloc] initWithImage:backgroundImage] autorelease];
+        self.backgroundView = [[UIImageView alloc] initWithImage:backgroundImage];
         self.backgroundView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
         self.backgroundView.frame = self.bounds;
         self.backgroundView.alpha = 0.8;

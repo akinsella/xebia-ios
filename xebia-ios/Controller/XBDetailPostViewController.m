@@ -47,11 +47,11 @@
 
 }
 
-- (void)webViewDidStartLoad:(UIWebView *)webView {
+- (void)webViewDidStartLoad:(UIWebView *)pWebView {
     NSLog(@"Started loading");
 }
 
-- (void)webViewDidFinishLoad:(UIWebView *)webView {
+- (void)webViewDidFinishLoad:(UIWebView *)pWebView {
     NSLog(@"Finshed loading");
 
     NSError* error = nil;
@@ -66,7 +66,7 @@
         NSLog(@"json = %@",json);
     }
 
-    [webView stringByEvaluatingJavaScriptFromString:[NSString stringWithFormat:@"onLoad(%@)", json]];
+    [pWebView stringByEvaluatingJavaScriptFromString:[NSString stringWithFormat:@"onLoad(%@)", json]];
 }
 
 - (BOOL)webView:(UIWebView *)webView2

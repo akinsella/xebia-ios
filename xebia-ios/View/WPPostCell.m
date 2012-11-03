@@ -17,7 +17,7 @@
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
-        self.backgroundView = [ [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"WPPostCell"]] autorelease];
+        self.backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"WPPostCell"]];
         self.selectedBackgroundView.backgroundColor=[UIColor blackColor];
     }
     return self;

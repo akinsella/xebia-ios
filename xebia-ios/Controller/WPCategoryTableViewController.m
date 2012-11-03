@@ -62,7 +62,6 @@
         
         WPPostTableViewController *postTableViewController = [[WPPostTableViewController alloc] initWithPostType:CATEGORY identifier:category.identifier];
         [self.appDelegate.mainViewController revealViewController:postTableViewController];
-        [postTableViewController release];
     };
 
     return cellMapping;

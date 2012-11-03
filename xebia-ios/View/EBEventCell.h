@@ -20,6 +20,4 @@
 @property (nonatomic, strong) NSString *content;
 @property (nonatomic, readonly, strong) UIImage *avatarImage;
 
-+ (CGFloat)heightForCellWithText:(NSString *)text;
-
 @end

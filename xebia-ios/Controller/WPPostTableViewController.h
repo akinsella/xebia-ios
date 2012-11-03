@@ -13,9 +13,6 @@
 
 @interface WPPostTableViewController : UITableViewController<RKTableControllerDelegate>
 
-@property(nonatomic, assign) POST_TYPE postType;
-@property(nonatomic, copy) NSNumber *identifier;
-
 -(id)initWithPostType:(POST_TYPE)postType identifier:(NSNumber *)identifier;
 
 @end

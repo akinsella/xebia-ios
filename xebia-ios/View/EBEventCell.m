@@ -9,14 +9,7 @@
 #import "EBEventCell.h"
 #import <QuartzCore/QuartzCore.h>
 #import "UIColor+XBAdditions.h"
-#import "UIScreen+XBAdditions.h"
-
-#define FONT_SIZE 13.0f
-#define FONT_NAME @"Helvetica"
-#define CELL_BORDER_WIDTH 88.0f // 320.0f - 232.0f
-#define CELL_MIN_HEIGHT 64.0f
-#define CELL_BASE_HEIGHT 48.0f
-#define CELL_MAX_HEIGHT 2000.0f
+#import "XBConstants.h"
 
 @implementation EBEventCell
 
@@ -35,7 +28,7 @@
 
 
 - (void)initContentLabel {
-    self.descriptionLabel.font = [UIFont fontWithName:@"Helvetica" size:FONT_SIZE];
+    self.descriptionLabel.font = [UIFont fontWithName:FONT_NAME size:FONT_SIZE];
     self.descriptionLabel.textColor = [UIColor colorWithHex:@"#fafafa" alpha:1.0];
     self.descriptionLabel.lineBreakMode = (NSLineBreakMode) UILineBreakModeTailTruncation;
     self.descriptionLabel.numberOfLines = 0;
@@ -53,19 +46,6 @@
     self.descriptionLabel.dataDetectorTypes = UIDataDetectorTypeLink;
 
     [self.descriptionLabel setText:self.content];
-}
-
-+ (CGFloat)heightForCellWithText:(NSString *)text {
-    CGRect bounds = [UIScreen getScreenBoundsForCurrentOrientation];
-    NSLog(@"bounds.size.width: %f, CELL_BORDER_WIDTH: %f, CELL_MAX_HEIGHT: %f", bounds.size.width, CELL_BORDER_WIDTH, CELL_MAX_HEIGHT);
-    CGSize constraint = CGSizeMake(bounds.size.width - CELL_BORDER_WIDTH, CELL_MAX_HEIGHT);
-    CGSize size = [text sizeWithFont:[UIFont fontWithName:FONT_NAME size:FONT_SIZE]
-                   constrainedToSize:constraint
-                       lineBreakMode:(NSLineBreakMode) UILineBreakModeTailTruncation];
-    NSLog(@"size.width: %f,  size.height: %f", size.width, size.height);
-    CGFloat height = MAX(CELL_BASE_HEIGHT + size.height, CELL_MIN_HEIGHT);
-
-    return height;
 }
 
 @end

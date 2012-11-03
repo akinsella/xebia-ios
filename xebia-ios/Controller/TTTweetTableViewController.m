@@ -21,6 +21,7 @@
 #import "UIScreen+XBAdditions.h"
 #import "XBWebViewController.h"
 #import "XBMainViewController.h"
+#import "UITableViewCell+XBAdditions.h"
 
 @interface TTTweetTableViewController ()
 @property (nonatomic, strong) RKTableController *tableController;
@@ -51,8 +52,8 @@
 }
 
 - (void)configure {
-    self.defaultAvatarImage = [[UIImage imageNamed:@"avatar_placeholder"] retain];
-    self.xebiaAvatarImage = [[UIImage imageNamed:@"xebia-avatar"] retain];
+    self.defaultAvatarImage = [UIImage imageNamed:@"avatar_placeholder"];
+    self.xebiaAvatarImage = [UIImage imageNamed:@"xebia-avatar"];
 
     [self addRevealGesture];
     [self addMenuButton];
@@ -148,12 +149,6 @@
 - (void)didReceiveMemoryWarning{
     NSLog(@"Did received a memory warning in controller: %@", [self class]);
     [super didReceiveMemoryWarning];
-}
-
-- (void)dealloc {
-    [self.defaultAvatarImage release];
-    [self.xebiaAvatarImage release];
-    [super dealloc];
 }
 
 @end

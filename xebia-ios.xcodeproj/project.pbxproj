@@ -70,6 +70,8 @@
 		546F35EE15F2BBEA00945466 /* GHRepositoryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 546F35EC15F2BBE700945466 /* GHRepositoryCell.m */; };
 		546F35EF15F2BBEA00945466 /* GHRepositoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 546F35ED15F2BBE900945466 /* GHRepositoryCell.xib */; };
 		546F35F215F2C21600945466 /* GHTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 546F35F115F2C21500945466 /* GHTabBarController.m */; };
+		5470117516456F4C008152AE /* XBConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 5470117416456F4C008152AE /* XBConstants.m */; };
+		5470117B164570FE008152AE /* UITableViewCell+XBAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 5470117A164570FE008152AE /* UITableViewCell+XBAdditions.m */; };
 		5475DBA915ED7169009DDCF3 /* github.png in Resources */ = {isa = PBXBuildFile; fileRef = 5475DBA715ED7169009DDCF3 /* github.png */; };
 		5475DBAA15ED7169009DDCF3 /* github@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5475DBA815ED7169009DDCF3 /* github@2x.png */; };
 		5475DBAE15ED72DD009DDCF3 /* TTTweetTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5475DBAD15ED72DD009DDCF3 /* TTTweetTableViewController.m */; };
@@ -267,6 +269,10 @@
 		546F35ED15F2BBE900945466 /* GHRepositoryCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GHRepositoryCell.xib; sourceTree = "<group>"; };
 		546F35F015F2C21400945466 /* GHTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GHTabBarController.h; sourceTree = "<group>"; };
 		546F35F115F2C21500945466 /* GHTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GHTabBarController.m; sourceTree = "<group>"; };
+		5470117316456F4B008152AE /* XBConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XBConstants.h; sourceTree = "<group>"; };
+		5470117416456F4C008152AE /* XBConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XBConstants.m; sourceTree = "<group>"; };
+		54701179164570FE008152AE /* UITableViewCell+XBAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableViewCell+XBAdditions.h"; sourceTree = "<group>"; };
+		5470117A164570FE008152AE /* UITableViewCell+XBAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableViewCell+XBAdditions.m"; sourceTree = "<group>"; };
 		5475DBA715ED7169009DDCF3 /* github.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = github.png; sourceTree = "<group>"; };
 		5475DBA815ED7169009DDCF3 /* github@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "github@2x.png"; sourceTree = "<group>"; };
 		5475DBAC15ED72DD009DDCF3 /* TTTweetTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTTweetTableViewController.h; sourceTree = "<group>"; };
@@ -626,6 +632,8 @@
 				54C2DF4015BDFB6600CABB12 /* Utils */,
 				5458481C15C1E0A300DD03F4 /* View */,
 				54C2DEF315BDFAFB00CABB12 /* Supporting Files */,
+				5470117316456F4B008152AE /* XBConstants.h */,
+				5470117416456F4C008152AE /* XBConstants.m */,
 			);
 			path = "xebia-ios";
 			sourceTree = "<group>";
@@ -685,6 +693,8 @@
 				5458483815C1EC3300DD03F4 /* WPAuthorTableViewController.m */,
 				54A2782E15C0A0240074505A /* WPCategoryTableViewController.h */,
 				54A2782F15C0A0240074505A /* WPCategoryTableViewController.m */,
+				54F1B905161A26A700AC7DB8 /* WPRecentPostTableViewController.h */,
+				54F1B906161A26AA00AC7DB8 /* WPRecentPostTableViewController.m */,
 				54C2DF2615BDFB6500CABB12 /* WPPostTableViewController.h */,
 				54C2DF2715BDFB6500CABB12 /* WPPostTableViewController.m */,
 				5458482F15C1E2CD00DD03F4 /* WPTagTableViewController.h */,
@@ -693,8 +703,6 @@
 				5475DBAD15ED72DD009DDCF3 /* TTTweetTableViewController.m */,
 				54E325A115E18D8700F55F6A /* XBMainViewController.h */,
 				54E325A215E18D8700F55F6A /* XBMainViewController.m */,
-				54F1B905161A26A700AC7DB8 /* WPRecentPostTableViewController.h */,
-				54F1B906161A26AA00AC7DB8 /* WPRecentPostTableViewController.m */,
 				547E36F1161E3279001F35E8 /* XBWebViewController.h */,
 				547E36F2161E3279001F35E8 /* XBWebViewController.m */,
 			);
@@ -793,6 +801,8 @@
 				54975A5015FD298900C29F6C /* UINavigationController+XBAdditions.m */,
 				54F1B8FE1618EE1A00AC7DB8 /* UIScreen+XBAdditions.h */,
 				54F1B8FF1618EE1A00AC7DB8 /* UIScreen+XBAdditions.m */,
+				54701179164570FE008152AE /* UITableViewCell+XBAdditions.h */,
+				5470117A164570FE008152AE /* UITableViewCell+XBAdditions.m */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -1079,6 +1089,8 @@
 				DB34D51E6CB20D506BD0702D /* TTHashtagEntity.m in Sources */,
 				DB34D6BA04A77078B3A8ADBF /* TTUserMentionEntity.m in Sources */,
 				DB34D0F0346B324446AB4038 /* TTUrlEntity.m in Sources */,
+				5470117516456F4C008152AE /* XBConstants.m in Sources */,
+				5470117B164570FE008152AE /* UITableViewCell+XBAdditions.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1171,7 +1183,8 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = FFE479B60E604A7197B75249 /* Pods.xcconfig */;
 			buildSettings = {
-				CLANG_ENABLE_OBJC_ARC = NO;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_OBJCPP_ARC_ABI = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "xebia-ios/xebia-ios-Prefix.pch";
 				INFOPLIST_FILE = "xebia-ios/xebia-ios-Info.plist";
@@ -1185,7 +1198,8 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = FFE479B60E604A7197B75249 /* Pods.xcconfig */;
 			buildSettings = {
-				CLANG_ENABLE_OBJC_ARC = NO;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_OBJCPP_ARC_ABI = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "xebia-ios/xebia-ios-Prefix.pch";
 				INFOPLIST_FILE = "xebia-ios/xebia-ios-Info.plist";

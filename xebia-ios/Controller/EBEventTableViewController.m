@@ -20,6 +20,7 @@
 #import "UIColor+XBAdditions.h"
 #import "UIScreen+XBAdditions.h"
 #import "XBMainViewController.h"
+#import "UITableViewCell+XBAdditions.h"
 
 @interface EBEventTableViewController ()
 @property (nonatomic, strong) RKTableController *tableController;
@@ -49,7 +50,7 @@
 }
 
 - (void)configure {
-    self.defaultAvatarImage = [[UIImage imageNamed:@"avatar_placeholder.png"] retain];
+    self.defaultAvatarImage = [UIImage imageNamed:@"avatar_placeholder.png"];
 
     [self addRevealGesture];
     [self addMenuButton];
@@ -122,11 +123,6 @@
 - (void)attributedLabel:(TTTAttributedLabel *)label didSelectLinkWithURL:(NSURL *)url {
     NSLog(@"Url requested: %@", url);
     [self.appDelegate.mainViewController openURL:url withTitle:@"EventBrite"];
-}
-
-- (void)dealloc {
-    [self.defaultAvatarImage release];
-    [super dealloc];
 }
 
 @end

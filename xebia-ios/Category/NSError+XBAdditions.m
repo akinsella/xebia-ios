@@ -11,30 +11,23 @@
 @implementation NSError (XBAdditions)
 
 
-- (NSString *)debugDescription;
-{
+- (NSString *)debugDescription {
     //  Log the entirety of domain, code, userInfo for debugging.
     //  Operates recursively on underlying errors
 
     NSMutableDictionary *dictionaryRep = [[self userInfo] mutableCopy];
 
-    [dictionaryRep setObject:[self domain]
-                      forKey:@"domain"];
-    [dictionaryRep setObject:[NSNumber numberWithInteger:[self code]]
-                      forKey:@"code"];
+    [dictionaryRep setObject:[self domain] forKey:@"domain"];
+    [dictionaryRep setObject:[NSNumber numberWithInteger:[self code]] forKey:@"code"];
 
     NSError *underlyingError = [[self userInfo] objectForKey:NSUnderlyingErrorKey];
     NSString *underlyingErrorDescription = [underlyingError debugDescription];
-    if (underlyingErrorDescription)
-    {
-        [dictionaryRep setObject:underlyingErrorDescription
-                          forKey:NSUnderlyingErrorKey];
+    if (underlyingErrorDescription) {
+        [dictionaryRep setObject:underlyingErrorDescription forKey:NSUnderlyingErrorKey];
     }
 
     // Finish up
-    NSString *result = [dictionaryRep description];
-    [dictionaryRep release];
-    return result;
+    return [dictionaryRep description];
 }
 
 @end

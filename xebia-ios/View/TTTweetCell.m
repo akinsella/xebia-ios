@@ -15,16 +15,9 @@
 #import "TTUrlEntity.h"
 #import "TTUserMentionEntity.h"
 #import "UIColor+XBAdditions.h"
-
-#define FONT_SIZE 13.0f
-#define FONT_NAME @"Helvetica"
-#define CELL_BORDER_WIDTH 88.0f // 320.0f - 232.0f
-#define CELL_MIN_HEIGHT 64.0f
-#define CELL_BASE_HEIGHT 48.0f
-#define CELL_MAX_HEIGHT 1000.0f
+#import "XBConstants.h"
 
 @implementation TTTweetCell
-
 
 - (void)layoutSubviews {
     [super layoutSubviews];
@@ -75,22 +68,6 @@
         [self.contentLabel addLinkToURL:url withRange:linkRange];
     }
 
-}
-
-- (void)dealloc {
-    [_contentLabel release];
-    [super dealloc];
-}
-
-+ (CGFloat)heightForCellWithText:(NSString *)text {
-    CGRect bounds = [UIScreen getScreenBoundsForCurrentOrientation];
-    CGSize constraint = CGSizeMake(bounds.size.width - CELL_BORDER_WIDTH, CELL_MAX_HEIGHT);
-    CGSize size = [text sizeWithFont:[UIFont fontWithName:FONT_NAME size:FONT_SIZE]
-                   constrainedToSize:constraint
-                       lineBreakMode:(NSLineBreakMode) UILineBreakModeTailTruncation];
-    CGFloat height = MAX(CELL_BASE_HEIGHT + size.height, CELL_MIN_HEIGHT);
-
-    return height;
 }
 
 @end

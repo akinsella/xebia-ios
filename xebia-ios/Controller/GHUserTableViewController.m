@@ -19,6 +19,7 @@
 #import "UIColor+XBAdditions.h"
 #import "UIScreen+XBAdditions.h"
 #import "GHUserCell.h"
+#import "UITableViewCell+XBAdditions.h"
 
 @interface GHUserTableViewController ()
 @property (nonatomic, strong) RKTableController *tableController;
@@ -48,7 +49,7 @@
 }
 
 - (void)configure {
-    self.defaultAvatarImage = [[UIImage imageNamed:@"github-gravatar-placeholder"] retain];
+    self.defaultAvatarImage = [UIImage imageNamed:@"github-gravatar-placeholder"];
 
     [self configureTableController];
     [self configureRefreshTriggerView];
@@ -114,11 +115,6 @@
 - (void)didReceiveMemoryWarning{
     NSLog(@"Did received a memory warning in controller: %@", [self class]);
     [super didReceiveMemoryWarning];
-}
-
-- (void)dealloc {
-    [self.defaultAvatarImage release];
-    [super dealloc];
 }
 
 @end

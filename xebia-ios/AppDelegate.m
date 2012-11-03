@@ -45,11 +45,5 @@
     NSLog(@"Application will terminate !!");
 }
 
-- (void)dealloc {
-    [_viewControllerManager release];
-    [_mainViewController release];
-    [_window release];
-    [super dealloc];
-}
 
 @end

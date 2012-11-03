@@ -50,7 +50,7 @@
 }
 
 - (void)configure {
-    self.defaultAvatarImage = [[UIImage imageNamed:@"avatar_placeholder"] retain];
+    self.defaultAvatarImage = [UIImage imageNamed:@"avatar_placeholder"];
 
     [self configureTableView];
     [self configureTableController];
@@ -70,7 +70,6 @@
 
         WPPostTableViewController *postTableViewController = [[WPPostTableViewController alloc] initWithPostType:AUTHOR identifier:author.identifier];
         [self.appDelegate.mainViewController revealViewController:postTableViewController];
-        [postTableViewController release];
     };
     return cellMapping;
 }
@@ -119,11 +118,6 @@
 - (void)didReceiveMemoryWarning{
     NSLog(@"Did received a memory warning in controller: %@", [self class]);
     [super didReceiveMemoryWarning];
-}
-
-- (void)dealloc {
-    [self.defaultAvatarImage release];
-    [super dealloc];
 }
 
 @end

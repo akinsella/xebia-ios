@@ -21,7 +21,6 @@
     
     NSLog(@"self.navigationController.navigationBar: %@", self.navigationController.navigationBar);
     [self.navigationController.navigationBar addGestureRecognizer:gestureRecognizer];
-    [gestureRecognizer release];
 }
 
 - (void) addMenuButton {
@@ -53,7 +52,7 @@
     editButton.tintColor = [UIColor colorWithHex:@"#81247A" alpha:1.0];
 
     
-        self.navigationItem.leftBarButtonItem = editButton; // [[[UIBarButtonItem alloc] initWithCustomView:button] autorelease];
+        self.navigationItem.leftBarButtonItem = editButton;
         self.navigationController.navigationBar.tintColor = [UIColor colorWithHex:@"#81247A" alpha:1.0];
 }
 

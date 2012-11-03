@@ -15,7 +15,6 @@
     [df setDateFormat:format];
     [df setTimeZone:[NSTimeZone localTimeZone]];
     NSDate *date = [df dateFromString:dateStr];
-    [df release];
     
     return date;
 }
@@ -24,7 +23,6 @@
     NSDateFormatter *df = [[NSDateFormatter alloc] init];
     [df setDateFormat:@"yyyy-MM-dd"];
     NSDate *midnight = [df dateFromString:[df stringFromDate:date]];
-    [df release];
 
     NSInteger dayDiff = (int)[midnight timeIntervalSinceNow] / (60*60*24);
 
@@ -33,7 +31,6 @@
         [df2 setDateFormat:@"HH:mm"];
         NSString *dateFormatted = [df2 stringFromDate:date];
         NSLog(@"Date formatted: %@", dateFormatted);
-        [df2 release];
         return [NSString stringWithFormat:@"Today, %@", dateFormatted];
     }
     else if(dayDiff == -1) {
@@ -67,7 +64,7 @@
         return @"A long time ago";
     }
     else {
-        NSDateFormatter *dateFormatter = [[[NSDateFormatter alloc] init] autorelease];
+        NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
         [dateFormatter setDateFormat:@"'yyyy'/'MM'/'dd', 'hh':'mm'"];
         return [dateFormatter stringFromDate:date];        
     }

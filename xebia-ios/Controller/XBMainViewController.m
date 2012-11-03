@@ -40,6 +40,7 @@ enum {
 
     if (self) {
         self.viewControllerManager = viewControllerManager;
+
         [self initNavigationBar];
         [self initRevealController];
         [self initViewIdentifiers];
@@ -62,7 +63,6 @@ enum {
 
     [self initCellMapping];
     [self.tableController loadTableItems:self.tableItems withMapping: self.tableCellMapping];
-    [self.tableItems release];
 }
 
 
@@ -79,7 +79,6 @@ enum {
     UIView* backgrounView = [[UIView alloc] initWithFrame: self.tableView.bounds];
     [backgrounView setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"NSTexturedFullScreenBackgroundColor"]]];
     [self.tableView setBackgroundView:backgrounView];
-    [backgrounView release];
 }
 
 //-----------------------------------------------------------------------
@@ -89,7 +88,6 @@ enum {
 - (void)initRevealController {
     self.rearNavigationController = [[UINavigationController alloc] initWithRootViewController:self navBarCustomized:YES];
     UIViewController *homeController = [self.viewControllerManager getOrCreateControllerWithIdentifier:@"home"];
-    [[[UINavigationController alloc] initWithRootViewController:homeController navBarCustomized:YES] autorelease];
 
     self.revealController = [[XBRevealController alloc] initWithFrontViewController: homeController.navigationController
                                                             rearViewController:self.rearNavigationController];
@@ -156,18 +154,12 @@ enum {
 
     [self.tableCellMapping mapKeyPath:@"text" toAttribute:@"titleLabel.text"];
 
+    // Avoid leak on self in block
+    __weak XBMainViewController *mvc = self;
     self.tableCellMapping.onSelectCellForObjectAtIndexPath = ^(UITableViewCell *cell, id object, NSIndexPath* indexPath) {
         NSString *identifier = [self.viewIdentifiers valueForKey:[NSNumber asString:indexPath.row]];
-        [self revealViewControllerWithIdentifier: identifier];
+        [mvc revealViewControllerWithIdentifier: identifier];
     };
-}
-
-- (void)dealloc {
-    [self.revealController release];
-    [self.rearNavigationController release];
-    [self.viewIdentifiers release];
-    [self.tableItems release];
-    [super dealloc];
 }
 
 @end

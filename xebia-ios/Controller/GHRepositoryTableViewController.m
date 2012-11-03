@@ -18,6 +18,7 @@
 #import "UIImageView+WebCache.h"
 #import "UIColor+XBAdditions.h"
 #import "UIScreen+XBAdditions.h"
+#import "UITableViewCell+XBAdditions.h"
 
 @interface GHRepositoryTableViewController ()
 @property (nonatomic, strong) RKTableController *tableController;
@@ -48,8 +49,8 @@
 }
 
 - (void)configure {
-    self.defaultAvatarImage = [[UIImage imageNamed:@"github-gravatar-placeholder"] retain];
-    self.xebiaAvatarImage = [[UIImage imageNamed:@"xebia-avatar"] retain];
+    self.defaultAvatarImage = [UIImage imageNamed:@"github-gravatar-placeholder"];
+    self.xebiaAvatarImage = [UIImage imageNamed:@"xebia-avatar"];
 
     [self configureTableView];
     [self configureTableController];
@@ -113,12 +114,6 @@
 - (void)didReceiveMemoryWarning{
     NSLog(@"Did received a memory warning in controller: %@", [self class]);
     [super didReceiveMemoryWarning];
-}
-
-- (void)dealloc {
-    [self.defaultAvatarImage release];
-    [self.xebiaAvatarImage release];
-    [super dealloc];
 }
 
 @end

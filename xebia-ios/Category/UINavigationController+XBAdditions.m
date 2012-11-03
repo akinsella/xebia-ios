@@ -14,15 +14,19 @@
 
 - (id)initWithRootViewController:(UIViewController *)rootViewController navBarCustomized:(BOOL) customized
 {
-    [self initWithRootViewController:rootViewController];
-    [self customizeNavigationBar];
+    self = [self initWithRootViewController:rootViewController];
+    if (self) {
+        [self customizeNavigationBar];
+    }
     return self;
 }
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil navBarCustomized:(BOOL) customized
 {
-    [self initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    [self customizeNavigationBar];
+    self = [self initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    if (self) {
+        
+    }[self customizeNavigationBar];
     
     return self;
 }

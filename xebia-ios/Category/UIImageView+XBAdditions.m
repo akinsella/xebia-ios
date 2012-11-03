@@ -11,7 +11,7 @@
 @implementation UIImageView (XBAdditions)
 
 +(UIImageView *)initWithImageNamed:(NSString *)imageNamed {
-    return [[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"Xebia-Logo"]] autorelease];
+    return [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"Xebia-Logo"]];
 }
 
 @end

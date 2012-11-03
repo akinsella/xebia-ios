@@ -30,7 +30,7 @@
 }
 
 - (void)initDateFormatters {
-    self.df = [[NSDateFormatter initWithDateFormat: @"'Le 'dd'/'MM'/'yyyy', à 'HH':'mm"] retain];
+    self.df = [NSDateFormatter initWithDateFormat: @"'Le 'dd'/'MM'/'yyyy', à 'HH':'mm"];
 }
 
 - (NSString *)description_ {
@@ -63,11 +63,6 @@
 
 - (NSURL *)imageUrl {
     return [GravatarHelper getGravatarURL: [NSString stringWithFormat:@"%@@xebia.fr", self.author.nickname]];
-}
-
-- (void)dealloc {
-    [self.df release];
-    [super dealloc];
 }
 
 + (RKObjectMapping *)mapping {
