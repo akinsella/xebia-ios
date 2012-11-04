@@ -29,23 +29,7 @@
 
     self.layer.shouldRasterize = YES;
     self.layer.rasterizationScale = [[UIScreen mainScreen] scale];
-}
 
-- (void)configure {
-    self.contentLabel.font = [UIFont fontWithName:FONT_NAME size:FONT_SIZE];
-    self.contentLabel.textColor = [UIColor colorWithHex:@"#fafafa" alpha:1.0];
-    self.contentLabel.lineBreakMode = (NSLineBreakMode) UILineBreakModeTailTruncation;
-    self.contentLabel.numberOfLines = 0;
-
-    self.contentLabel.linkAttributes = @{
-        (NSString *)kCTForegroundColorAttributeName: (id)[UIColor colorWithHex:@"#72b8f6"].CGColor,
-        (NSString *)kCTUnderlineStyleAttributeName: @YES
-    };
-
-    self.contentLabel.activeLinkAttributes = @{
-        (NSString *)kCTForegroundColorAttributeName: (id)[UIColor colorWithHex:@"#446F94"].CGColor,
-        (NSString *)kCTUnderlineStyleAttributeName: @NO
-    };
 
     for (TTUserMentionEntity *entity in _entities.user_mentions) {
         NSRange linkRange = NSMakeRange( [entity.indices[0] unsignedIntegerValue], [entity.indices[1] unsignedIntegerValue] - [entity.indices[0] unsignedIntegerValue] );
@@ -63,7 +47,23 @@
         NSURL *url = [NSURL URLWithString:entity.expanded_url];
         [self.contentLabel addLinkToURL:url withRange:linkRange];
     }
+}
 
+- (void)configure {
+    self.contentLabel.font = [UIFont fontWithName:FONT_NAME size:FONT_SIZE];
+    self.contentLabel.textColor = [UIColor colorWithHex:@"#fafafa" alpha:1.0];
+    self.contentLabel.lineBreakMode = (NSLineBreakMode) UILineBreakModeTailTruncation;
+    self.contentLabel.numberOfLines = 0;
+
+    self.contentLabel.linkAttributes = @{
+        (NSString *)kCTForegroundColorAttributeName: (id)[UIColor colorWithHex:@"#72b8f6"].CGColor,
+        (NSString *)kCTUnderlineStyleAttributeName: @YES
+    };
+
+    self.contentLabel.activeLinkAttributes = @{
+        (NSString *)kCTForegroundColorAttributeName: (id)[UIColor colorWithHex:@"#446F94"].CGColor,
+        (NSString *)kCTUnderlineStyleAttributeName: @NO
+    };
 }
 
 - (CGFloat)heightForCell {
