@@ -19,7 +19,6 @@
 #import "UIColor+XBAdditions.h"
 #import "UIScreen+XBAdditions.h"
 #import "GHUserCell.h"
-#import "UITableViewCell+XBAdditions.h"
 
 @interface GHUserTableViewController ()
 @property (nonatomic, strong) RKTableController *tableController;
@@ -74,8 +73,8 @@
     [cellMapping mapKeyPath:@"identifier" toAttribute:@"identifier"];
 
     cellMapping.heightOfCellForObjectAtIndexPath = ^ CGFloat(GHUser *user, NSIndexPath* indexPath) {
-        CGFloat height = [GHUserCell heightForCellWithText:user.description_];
-        return height;
+        GHUserCell *userCell = (GHUserCell *)[[self tableController] tableView:self.tableView cellForRowAtIndexPath:indexPath];
+        return [userCell heightForCell];
     };
 
     return cellMapping;

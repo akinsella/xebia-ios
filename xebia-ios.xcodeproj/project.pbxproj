@@ -71,7 +71,6 @@
 		546F35EF15F2BBEA00945466 /* GHRepositoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 546F35ED15F2BBE900945466 /* GHRepositoryCell.xib */; };
 		546F35F215F2C21600945466 /* GHTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 546F35F115F2C21500945466 /* GHTabBarController.m */; };
 		5470117516456F4C008152AE /* XBConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 5470117416456F4C008152AE /* XBConstants.m */; };
-		5470117B164570FE008152AE /* UITableViewCell+XBAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 5470117A164570FE008152AE /* UITableViewCell+XBAdditions.m */; };
 		5475DBA915ED7169009DDCF3 /* github.png in Resources */ = {isa = PBXBuildFile; fileRef = 5475DBA715ED7169009DDCF3 /* github.png */; };
 		5475DBAA15ED7169009DDCF3 /* github@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5475DBA815ED7169009DDCF3 /* github@2x.png */; };
 		5475DBAE15ED72DD009DDCF3 /* TTTweetTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5475DBAD15ED72DD009DDCF3 /* TTTweetTableViewController.m */; };
@@ -271,8 +270,6 @@
 		546F35F115F2C21500945466 /* GHTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GHTabBarController.m; sourceTree = "<group>"; };
 		5470117316456F4B008152AE /* XBConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XBConstants.h; sourceTree = "<group>"; };
 		5470117416456F4C008152AE /* XBConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XBConstants.m; sourceTree = "<group>"; };
-		54701179164570FE008152AE /* UITableViewCell+XBAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableViewCell+XBAdditions.h"; sourceTree = "<group>"; };
-		5470117A164570FE008152AE /* UITableViewCell+XBAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableViewCell+XBAdditions.m"; sourceTree = "<group>"; };
 		5475DBA715ED7169009DDCF3 /* github.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = github.png; sourceTree = "<group>"; };
 		5475DBA815ED7169009DDCF3 /* github@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "github@2x.png"; sourceTree = "<group>"; };
 		5475DBAC15ED72DD009DDCF3 /* TTTweetTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTTweetTableViewController.h; sourceTree = "<group>"; };
@@ -801,8 +798,6 @@
 				54975A5015FD298900C29F6C /* UINavigationController+XBAdditions.m */,
 				54F1B8FE1618EE1A00AC7DB8 /* UIScreen+XBAdditions.h */,
 				54F1B8FF1618EE1A00AC7DB8 /* UIScreen+XBAdditions.m */,
-				54701179164570FE008152AE /* UITableViewCell+XBAdditions.h */,
-				5470117A164570FE008152AE /* UITableViewCell+XBAdditions.m */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -1090,7 +1085,6 @@
 				DB34D6BA04A77078B3A8ADBF /* TTUserMentionEntity.m in Sources */,
 				DB34D0F0346B324446AB4038 /* TTUrlEntity.m in Sources */,
 				5470117516456F4C008152AE /* XBConstants.m in Sources */,
-				5470117B164570FE008152AE /* UITableViewCell+XBAdditions.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

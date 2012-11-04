@@ -18,7 +18,6 @@
 #import "UIImageView+WebCache.h"
 #import "UIColor+XBAdditions.h"
 #import "UIScreen+XBAdditions.h"
-#import "UITableViewCell+XBAdditions.h"
 
 @interface GHRepositoryTableViewController ()
 @property (nonatomic, strong) RKTableController *tableController;
@@ -98,9 +97,10 @@
     [cellMapping mapKeyPath:@"identifier" toAttribute:@"identifier"];
 
     cellMapping.heightOfCellForObjectAtIndexPath = ^ CGFloat(GHRepository *repository, NSIndexPath* indexPath) {
-        CGFloat height = [GHRepositoryCell heightForCellWithText:repository.description_];
-        return height;
+        GHRepositoryCell *repositoryCell = (GHRepositoryCell *)[[self tableController] tableView:self.tableView cellForRowAtIndexPath:indexPath];
+        return [repositoryCell heightForCell];
     };
+
     return cellMapping;
 }
 

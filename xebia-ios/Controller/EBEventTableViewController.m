@@ -20,7 +20,6 @@
 #import "UIColor+XBAdditions.h"
 #import "UIScreen+XBAdditions.h"
 #import "XBMainViewController.h"
-#import "UITableViewCell+XBAdditions.h"
 
 @interface EBEventTableViewController ()
 @property (nonatomic, strong) RKTableController *tableController;
@@ -75,11 +74,16 @@
     
     [cellMapping mapKeyPath:@"title" toAttribute:@"titleLabel.text"];
     [cellMapping mapKeyPath:@"description_plain_text" toAttribute:@"content"];
+    [cellMapping mapKeyPath:@"description_plain_text" toAttribute:@"descriptionLabel.text"];
     [cellMapping mapKeyPath:@"identifier" toAttribute:@"identifier"];
-    
+
+    [cellMapping addPrepareCellBlock:^(UITableViewCell *eventCell) {
+        [(EBEventCell *)eventCell configure];
+    }];
+
     cellMapping.heightOfCellForObjectAtIndexPath = ^ CGFloat(EBEvent *event, NSIndexPath* indexPath) {
-        CGFloat height = [EBEventCell heightForCellWithText: event.description_plain_text];
-        return height;
+        EBEventCell *eventCell = (EBEventCell *)[[self tableController] tableView:self.tableView cellForRowAtIndexPath:indexPath];
+        return [eventCell heightForCell];
     };
     
     return cellMapping;

@@ -10,6 +10,7 @@
 #import "QuartzCore/QuartzCore.h"
 #import "UIColor+XBAdditions.h"
 #import "UIScreen+XBAdditions.h"
+#import "XBConstants.h"
 
 @implementation GHRepositoryCell
 
@@ -23,6 +24,12 @@
     
     self.layer.shouldRasterize = YES;
     self.layer.rasterizationScale = [[UIScreen mainScreen] scale];
+}
+
+- (CGFloat)heightForCell {
+    CGRect bounds = [UIScreen getScreenBoundsForCurrentOrientation];
+    CGSize size = [self.descriptionLabel sizeThatFits:CGSizeMake(bounds.size.width - CELL_BORDER_WIDTH, CGFLOAT_MAX)];
+    return MAX(CELL_BASE_HEIGHT + size.height, CELL_MIN_HEIGHT);
 }
 
 @end

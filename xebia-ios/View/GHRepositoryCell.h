@@ -18,4 +18,6 @@
 @property (nonatomic, strong) NSNumber *identifier;
 @property (nonatomic, readonly, strong) UIImage *avatarImage;
 
+- (CGFloat)heightForCell;
+
 @end

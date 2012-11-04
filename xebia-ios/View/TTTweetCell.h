@@ -22,4 +22,8 @@
 @property (nonatomic, strong) NSString *content;
 @property (nonatomic, readonly, strong) UIImage *avatarImage;
 
+- (void)configure;
+
+- (CGFloat)heightForCell;
+
 @end

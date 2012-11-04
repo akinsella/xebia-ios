@@ -21,7 +21,6 @@
 #import "UIScreen+XBAdditions.h"
 #import "XBWebViewController.h"
 #import "XBMainViewController.h"
-#import "UITableViewCell+XBAdditions.h"
 
 @interface TTTweetTableViewController ()
 @property (nonatomic, strong) RKTableController *tableController;
@@ -104,13 +103,17 @@
     [cellMapping mapKeyPath:@"user.name" toAttribute:@"authorNameLabel.text"];
     [cellMapping mapKeyPath:@"dateFormatted" toAttribute:@"dateLabel.text"];
     [cellMapping mapKeyPath:@"text" toAttribute:@"content"];
+    [cellMapping mapKeyPath:@"text" toAttribute:@"contentLabel.text"];
     [cellMapping mapKeyPath:@"entities" toAttribute:@"entities"];
     [cellMapping mapKeyPath:@"identifier" toAttribute:@"identifier"];
 
+    [cellMapping addPrepareCellBlock:^(UITableViewCell *tweetCell) {
+        [(TTTweetCell *)tweetCell configure];
+    }];
+
     cellMapping.heightOfCellForObjectAtIndexPath = ^ CGFloat(TTTweet *tweet, NSIndexPath* indexPath) {
-        CGFloat heightForCellWithText = [TTTweetCell heightForCellWithText:tweet.text];
-        NSLog(@"Height: %f for cell with text: %@", heightForCellWithText, tweet.text);
-        return heightForCellWithText;
+        TTTweetCell *tweetCell = (TTTweetCell *)[[self tableController] tableView:self.tableView cellForRowAtIndexPath:indexPath];
+        return [tweetCell heightForCell];
     };
 
     cellMapping.onSelectCellForObjectAtIndexPath = ^(UITableViewCell *cell, id object, NSIndexPath* indexPath) {

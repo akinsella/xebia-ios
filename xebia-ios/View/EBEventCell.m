@@ -10,24 +10,11 @@
 #import <QuartzCore/QuartzCore.h>
 #import "UIColor+XBAdditions.h"
 #import "XBConstants.h"
+#import "UIScreen+XBAdditions.h"
 
 @implementation EBEventCell
 
-- (void)layoutSubviews {
-    [super layoutSubviews];
-    self.imageView.frame = CGRectMake(10,10,44,44);
-    self.imageView.layer.masksToBounds = YES;
-    self.imageView.layer.cornerRadius = 3.0;
-    
-    self.dashedSeparatorView.backgroundColor = [UIColor colorWithPatternImageName:@"dashed-separator"];
-    
-    self.layer.shouldRasterize = YES;
-    self.layer.rasterizationScale = [[UIScreen mainScreen] scale];
-    [self initContentLabel];
-}
-
-
-- (void)initContentLabel {
+- (void)configure {
     self.descriptionLabel.font = [UIFont fontWithName:FONT_NAME size:FONT_SIZE];
     self.descriptionLabel.textColor = [UIColor colorWithHex:@"#fafafa" alpha:1.0];
     self.descriptionLabel.lineBreakMode = (NSLineBreakMode) UILineBreakModeTailTruncation;
@@ -44,8 +31,24 @@
     };
 
     self.descriptionLabel.dataDetectorTypes = UIDataDetectorTypeLink;
+}
 
-    [self.descriptionLabel setText:self.content];
+- (void)layoutSubviews {
+    [super layoutSubviews];
+    self.imageView.frame = CGRectMake(10,10,44,44);
+    self.imageView.layer.masksToBounds = YES;
+    self.imageView.layer.cornerRadius = 3.0;
+    
+    self.dashedSeparatorView.backgroundColor = [UIColor colorWithPatternImageName:@"dashed-separator"];
+    
+    self.layer.shouldRasterize = YES;
+    self.layer.rasterizationScale = [[UIScreen mainScreen] scale];
+}
+
+- (CGFloat)heightForCell {
+    CGRect bounds = [UIScreen getScreenBoundsForCurrentOrientation];
+    CGSize size = [self.descriptionLabel sizeThatFits:CGSizeMake(bounds.size.width - CELL_BORDER_WIDTH, CGFLOAT_MAX)];
+    return MAX(CELL_BASE_HEIGHT + size.height, CELL_MIN_HEIGHT);
 }
 
 @end

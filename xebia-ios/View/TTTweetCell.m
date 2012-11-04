@@ -29,11 +29,9 @@
 
     self.layer.shouldRasterize = YES;
     self.layer.rasterizationScale = [[UIScreen mainScreen] scale];
-
-    [self initContentLabel];
 }
 
-- (void)initContentLabel {
+- (void)configure {
     self.contentLabel.font = [UIFont fontWithName:FONT_NAME size:FONT_SIZE];
     self.contentLabel.textColor = [UIColor colorWithHex:@"#fafafa" alpha:1.0];
     self.contentLabel.lineBreakMode = (NSLineBreakMode) UILineBreakModeTailTruncation;
@@ -48,8 +46,6 @@
         (NSString *)kCTForegroundColorAttributeName: (id)[UIColor colorWithHex:@"#446F94"].CGColor,
         (NSString *)kCTUnderlineStyleAttributeName: @NO
     };
-
-    [[self contentLabel] setText: self.content];
 
     for (TTUserMentionEntity *entity in _entities.user_mentions) {
         NSRange linkRange = NSMakeRange( [entity.indices[0] unsignedIntegerValue], [entity.indices[1] unsignedIntegerValue] - [entity.indices[0] unsignedIntegerValue] );
@@ -68,6 +64,13 @@
         [self.contentLabel addLinkToURL:url withRange:linkRange];
     }
 
+}
+
+- (CGFloat)heightForCell {
+    CGRect bounds = [UIScreen getScreenBoundsForCurrentOrientation];
+    CGSize size = [self.contentLabel sizeThatFits:CGSizeMake(bounds.size.width - CELL_BORDER_WIDTH, CGFLOAT_MAX)];
+    NSLog(@"t: %@ w: %f, h: %f", self.contentLabel.text, size.width, size.height);
+    return MAX(CELL_BASE_HEIGHT + size.height, CELL_MIN_HEIGHT);
 }
 
 @end
