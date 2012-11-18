@@ -19,7 +19,6 @@
 
 - (void)layoutSubviews {
     [super layoutSubviews];
-    
     self.dashedSeparatorView.backgroundColor = [UIColor colorWithPatternImageName:@"dashed-separator"];
     
     self.layer.shouldRasterize = YES;

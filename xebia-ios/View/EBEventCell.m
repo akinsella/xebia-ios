@@ -48,7 +48,8 @@
 - (CGFloat)heightForCell {
     CGRect bounds = [UIScreen getScreenBoundsForCurrentOrientation];
     CGSize size = [self.descriptionLabel sizeThatFits:CGSizeMake(bounds.size.width - CELL_BORDER_WIDTH, CGFLOAT_MAX)];
-    return MAX(CELL_BASE_HEIGHT + size.height, CELL_MIN_HEIGHT);
+    CGFloat computedHeight = MAX(CELL_BASE_HEIGHT + size.height, CELL_MIN_HEIGHT);
+    return MIN(computedHeight, MAX_CELL_HEIGHT);
 }
 
 @end

@@ -73,7 +73,6 @@
     cellMapping.reuseIdentifier = @"EBEvent";
     
     [cellMapping mapKeyPath:@"title" toAttribute:@"titleLabel.text"];
-    [cellMapping mapKeyPath:@"description_plain_text" toAttribute:@"content"];
     [cellMapping mapKeyPath:@"description_plain_text" toAttribute:@"descriptionLabel.text"];
     [cellMapping mapKeyPath:@"identifier" toAttribute:@"identifier"];
 

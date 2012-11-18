@@ -19,6 +19,7 @@
 #import "UIViewController+XBAdditions.h"
 #import "XBMainViewController.h"
 
+static NSString *const reuseIdentifier = @"WPTag";
 
 @interface WPTagTableViewController ()
 @property (nonatomic, strong) RKTableController *tableController;
@@ -57,9 +58,9 @@
 
     self.tableController.delegate = self;
 
-    self.tableController.autoRefreshFromNetwork = YES;
+    self.tableController.autoRefreshFromNetwork = NO;
     self.tableController.pullToRefreshEnabled = YES;
-    self.tableController.variableHeightRows = YES;
+    self.tableController.variableHeightRows = NO;
 
     self.tableController.imageForOffline = [UIImage imageNamed:@"offline.png"];
     self.tableController.imageForError = [UIImage imageNamed:@"error.png"];
@@ -80,8 +81,8 @@
     RKTableViewCellMapping *cellMapping = [RKTableViewCellMapping cellMapping];
 
     cellMapping.cellClassName = @"WPTagCell";
-    cellMapping.reuseIdentifier = @"WPTag";
-
+    cellMapping.reuseIdentifier = reuseIdentifier;
+    
     [cellMapping mapKeyPath:@"capitalizedTitle" toAttribute:@"titleLabel.text"];
     [cellMapping mapKeyPath:@"postCount" toAttribute:@"itemCount"];
     cellMapping.onSelectCellForObjectAtIndexPath = ^(UITableViewCell *cell, id object, NSIndexPath* indexPath) {
@@ -99,7 +100,7 @@
     self.tableView.backgroundColor = [UIColor colorWithPatternImageName:@"bg_home_pattern"];
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
 
-    [self.tableView registerNib:[UINib nibWithNibName:@"WPTagCell" bundle:nil] forCellReuseIdentifier:@"WPTag"];
+    [self.tableView registerNib:[UINib nibWithNibName:@"WPTagCell" bundle:nil] forCellReuseIdentifier:reuseIdentifier];
 }
 
 - (void)didReceiveMemoryWarning{

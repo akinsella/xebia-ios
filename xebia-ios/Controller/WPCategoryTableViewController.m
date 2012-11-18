@@ -17,6 +17,7 @@
 #import "UIViewController+XBAdditions.h"
 #import "XBMainViewController.h"
 
+static NSString *const reuseIdentifier = @"WPCategory";
 
 @interface WPCategoryTableViewController ()
 @property (nonatomic, strong) RKTableController *tableController;
@@ -52,8 +53,9 @@
 - (RKTableViewCellMapping *)getCellMapping {
     RKTableViewCellMapping *cellMapping = [RKTableViewCellMapping cellMapping];
 
+
     cellMapping.cellClassName = @"WPCategoryCell";
-    cellMapping.reuseIdentifier = @"WPCategory";
+    cellMapping.reuseIdentifier = reuseIdentifier;
     [cellMapping mapKeyPath:@"title" toAttribute:@"titleLabel.text"];
     [cellMapping mapKeyPath:@"postCount" toAttribute:@"itemCount"];
     cellMapping.onSelectCellForObjectAtIndexPath = ^(UITableViewCell *cell, id object, NSIndexPath* indexPath) {
@@ -72,7 +74,7 @@
 //    self.tableView.backgroundColor = [UIColor colorWithHex:@"#191919" alpha:1.0];
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
 
-    [self.tableView registerNib:[UINib nibWithNibName:@"WPCategoryCell" bundle:nil] forCellReuseIdentifier:@"WPCategory"];
+    [self.tableView registerNib:[UINib nibWithNibName:@"WPCategoryCell" bundle:nil] forCellReuseIdentifier:reuseIdentifier];
 }
 
 - (void)configureRefreshTriggerView {
@@ -88,7 +90,7 @@
 
     self.tableController.delegate = self;
 
-    self.tableController.autoRefreshFromNetwork = YES;
+    self.tableController.autoRefreshFromNetwork = NO;
     self.tableController.pullToRefreshEnabled = YES;
     self.tableController.variableHeightRows = YES;
 

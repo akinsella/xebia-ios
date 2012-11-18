@@ -17,7 +17,7 @@
 @property (nonatomic, strong) NSString *description_;
 @property (nonatomic, strong) NSNumber *post_count;
 
-@property (nonatomic, retain, readonly) NSString *capitalizedTitle;
+@property (nonatomic, strong, readonly) NSString *capitalizedTitle;
 
 @property (nonatomic, readonly) NSInteger postCount;
 

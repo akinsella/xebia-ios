@@ -10,6 +10,8 @@
 #import "EBEvent.h"
 #import "TTTAttributedLabel.h"
 
+static CGFloat const MAX_CELL_HEIGHT = 240.0;
+
 @interface EBEventCell : UITableViewCell
 
 @property (nonatomic, strong) IBOutlet UILabel *titleLabel;
@@ -17,11 +19,9 @@
 @property (nonatomic, strong) IBOutlet UIView *dashedSeparatorView;
 
 @property (nonatomic, strong) NSNumber *identifier;
-@property (nonatomic, strong) NSString *content;
 @property (nonatomic, readonly, strong) UIImage *avatarImage;
 
 - (void)configure;
-
 - (CGFloat)heightForCell;
 
 @end

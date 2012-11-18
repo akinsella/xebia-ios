@@ -49,7 +49,6 @@
 		5458482615C1E0A300DD03F4 /* XBLoadingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5458482115C1E0A300DD03F4 /* XBLoadingView.m */; };
 		5458482A15C1E0D800DD03F4 /* WPTagCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5458482915C1E0D800DD03F4 /* WPTagCell.m */; };
 		5458482C15C1E1AC00DD03F4 /* RestKitResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 5458482B15C1E1AC00DD03F4 /* RestKitResources.bundle */; };
-		5458482E15C1E1C700DD03F4 /* WPTagCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5458482D15C1E1C700DD03F4 /* WPTagCell.xib */; };
 		5458483115C1E2CD00DD03F4 /* WPTagTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5458483015C1E2CD00DD03F4 /* WPTagTableViewController.m */; };
 		5458483515C1EAD500DD03F4 /* WPAuthorCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5458483315C1EAD500DD03F4 /* WPAuthorCell.m */; };
 		5458483615C1EAD500DD03F4 /* WPAuthorCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5458483415C1EAD500DD03F4 /* WPAuthorCell.xib */; };
@@ -123,6 +122,7 @@
 		54C2DF5215BDFB6600CABB12 /* Date.m in Sources */ = {isa = PBXBuildFile; fileRef = 54C2DF4215BDFB6600CABB12 /* Date.m */; };
 		54C2DF5415BDFBA000CABB12 /* www in Resources */ = {isa = PBXBuildFile; fileRef = 54C2DF5315BDFBA000CABB12 /* www */; };
 		54C2DF5615BDFBD900CABB12 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 54C2DF5515BDFBD900CABB12 /* MainStoryboard.storyboard */; };
+		54D1D11116586802007734E6 /* WPTagCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 54D1D11016586802007734E6 /* WPTagCell.xib */; };
 		54E325A315E18D8700F55F6A /* XBMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 54E325A215E18D8700F55F6A /* XBMainViewController.m */; };
 		54E325B215E19D5900F55F6A /* UIImage+XBAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 54E325B115E19D5900F55F6A /* UIImage+XBAdditions.m */; };
 		54E325B615E1A10000F55F6A /* XBMenuCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 54E325B415E1A10000F55F6A /* XBMenuCell.m */; };
@@ -239,7 +239,6 @@
 		5458482815C1E0D800DD03F4 /* WPTagCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WPTagCell.h; sourceTree = "<group>"; };
 		5458482915C1E0D800DD03F4 /* WPTagCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WPTagCell.m; sourceTree = "<group>"; };
 		5458482B15C1E1AC00DD03F4 /* RestKitResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = RestKitResources.bundle; sourceTree = "<group>"; };
-		5458482D15C1E1C700DD03F4 /* WPTagCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WPTagCell.xib; sourceTree = "<group>"; };
 		5458482F15C1E2CD00DD03F4 /* WPTagTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WPTagTableViewController.h; sourceTree = "<group>"; };
 		5458483015C1E2CD00DD03F4 /* WPTagTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WPTagTableViewController.m; sourceTree = "<group>"; };
 		5458483215C1EAD400DD03F4 /* WPAuthorCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WPAuthorCell.h; sourceTree = "<group>"; };
@@ -344,6 +343,7 @@
 		54C2DF4215BDFB6600CABB12 /* Date.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Date.m; sourceTree = "<group>"; };
 		54C2DF5315BDFBA000CABB12 /* www */ = {isa = PBXFileReference; lastKnownFileType = folder; path = www; sourceTree = "<group>"; };
 		54C2DF5515BDFBD900CABB12 /* MainStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MainStoryboard.storyboard; sourceTree = "<group>"; };
+		54D1D11016586802007734E6 /* WPTagCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WPTagCell.xib; sourceTree = "<group>"; };
 		54E325A115E18D8700F55F6A /* XBMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XBMainViewController.h; sourceTree = "<group>"; };
 		54E325A215E18D8700F55F6A /* XBMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XBMainViewController.m; sourceTree = "<group>"; };
 		54E325B015E19D5900F55F6A /* UIImage+XBAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+XBAdditions.h"; sourceTree = "<group>"; };
@@ -491,7 +491,7 @@
 				54EEF66516126C0700942349 /* WPPostCell.xib */,
 				5458482815C1E0D800DD03F4 /* WPTagCell.h */,
 				5458482915C1E0D800DD03F4 /* WPTagCell.m */,
-				5458482D15C1E1C700DD03F4 /* WPTagCell.xib */,
+				54D1D11016586802007734E6 /* WPTagCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -899,7 +899,6 @@
 				54A2784815C0A2E20074505A /* offline.png in Resources */,
 				5458482515C1E0A300DD03F4 /* WPCategoryCell.xib in Resources */,
 				5458482C15C1E1AC00DD03F4 /* RestKitResources.bundle in Resources */,
-				5458482E15C1E1C700DD03F4 /* WPTagCell.xib in Resources */,
 				5458483615C1EAD500DD03F4 /* WPAuthorCell.xib in Resources */,
 				5458483B15C4C5B900DD03F4 /* ios-icon-144.png in Resources */,
 				5458483D15C4C5BE00DD03F4 /* ios-icon-72.png in Resources */,
@@ -972,6 +971,7 @@
 				54079FD3161A6649002A2B5D /* menu-btn-ios.png in Resources */,
 				54079FD4161A6649002A2B5D /* menu-btn-ios@2x.png in Resources */,
 				548564F91628C13F00388EA9 /* Default-568h@2x.png in Resources */,
+				54D1D11116586802007734E6 /* WPTagCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

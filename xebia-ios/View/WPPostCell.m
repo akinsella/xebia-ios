@@ -23,6 +23,14 @@
     return self;
 }
 
+-(id)initWithCoder:(NSCoder *)aDecoder {
+    if ( !(self = [super initWithCoder:aDecoder]) ) return nil;
+
+    // Your code goes here!
+
+    return self;
+}
+
 - (void)layoutSubviews {
     [super layoutSubviews];
     self.imageView.frame = CGRectMake(9,26,44,44);

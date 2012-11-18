@@ -29,15 +29,6 @@
         <scene sceneID="11">
             <objects>
                 <viewController storyboardIdentifier="tags" title="Tags" id="2" customClass="WPTagTableViewController" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="4CG-gz-erm" userLabel="TagTableView">
-                        <rect key="frame" x="0.0" y="64" width="320" height="455"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <connections>
-                            <outlet property="dataSource" destination="2" id="hAC-ik-GbO"/>
-                            <outlet property="delegate" destination="2" id="atB-3X-EM8"/>
-                        </connections>
-                    </tableView>
                     <tabBarItem key="tabBarItem" title="Tags" image="15-tags.png" id="7lg-Ws-daY"/>
                     <navigationItem key="navigationItem" title="Tags" id="DxH-MZ-HDT"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="blackOpaque" prompted="NO"/>

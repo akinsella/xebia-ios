@@ -28,7 +28,6 @@
 @property (nonatomic, strong) EBVenue *venue;
 @property (nonatomic, strong) EBOrganizer *organizer;
 
-
 + (RKObjectMapping *)mapping;
 
 @end

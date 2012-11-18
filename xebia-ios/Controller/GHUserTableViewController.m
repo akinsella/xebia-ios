@@ -93,7 +93,7 @@
 
     self.tableController.delegate = self;
 
-    self.tableController.autoRefreshFromNetwork = YES;
+    self.tableController.autoRefreshFromNetwork = NO;
     self.tableController.pullToRefreshEnabled = YES;
     self.tableController.variableHeightRows = YES;
 

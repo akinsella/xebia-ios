@@ -28,7 +28,7 @@ NSString* const XBErrorDomain = @"fr.xebia.ErrorDomain";
 }
 
 + (void)configureLoggers {
-    RKLogConfigureByName("RestKit/*", RKLogLevelInfo);
+    RKLogConfigureByName("RestKit/*", RKLogLevelWarning);
 //    RKLogConfigureByName("RestKit/*", RKLogLevelTrace);
 
     
@@ -37,7 +37,7 @@ NSString* const XBErrorDomain = @"fr.xebia.ErrorDomain";
 //    RKLogConfigureByName("RestKit/ObjectMapping", RKLogLevelError);
 //    RKLogConfigureByName("RestKit/ObjectMapping/JSON", RKLogLevelError);
 
-//    RKLogConfigureByName("RestKit/UI", RKLogLevelTrace);
+//    RKLogConfigureByName("RestKit/UI", RKLogLevelWarning);
 //    RKLogConfigureByName("RestKit/Network", RKLogLevelTrace);
 //    RKLogConfigureByName("RestKit/ObjectMapping", RKLogLevelTrace);
 //    RKLogConfigureByName("RestKit/ObjectMapping/JSON", RKLogLevelTrace);
@@ -71,6 +71,8 @@ NSString* const XBErrorDomain = @"fr.xebia.ErrorDomain";
 //    objectManager.client.serviceUnavailableAlertMessage = @"Service indisponible. Veuillez réessayer plus tard.";
 
     [objectManager.client.requestCache invalidateAll];
+    
+    
 }
 
 + (void)configureMappings {
