@@ -21,6 +21,9 @@ NSString* const XBErrorDomain = @"fr.xebia.ErrorDomain";
 @implementation XBRestkitSupport
 
 + (void) configure {
+    [RKObjectManager sharedManager].acceptMIMEType = RKMIMETypeJSON;
+    [RKObjectManager sharedManager].serializationMIMEType = RKMIMETypeJSON;
+    
     [self configureLoggers];
     [self configureDateFormatters];
     [self configureObjectManager];
@@ -28,8 +31,8 @@ NSString* const XBErrorDomain = @"fr.xebia.ErrorDomain";
 }
 
 + (void)configureLoggers {
-    RKLogConfigureByName("RestKit/*", RKLogLevelWarning);
-//    RKLogConfigureByName("RestKit/*", RKLogLevelTrace);
+//    RKLogConfigureByName("RestKit/*", RKLogLevelWarning);
+    RKLogConfigureByName("RestKit/*", RKLogLevelTrace);
 
     
 //    RKLogConfigureByName("RestKit/UI", RKLogLevelError);
@@ -59,9 +62,9 @@ NSString* const XBErrorDomain = @"fr.xebia.ErrorDomain";
 
 + (void)configureObjectManager {
 
-//    RKObjectManager *objectManager = [RKObjectManager managerWithBaseURLString:@"http://192.168.1.10:9000/v1.0/"];
-    RKObjectManager *objectManager = [RKObjectManager managerWithBaseURLString:@"http://xebia-mobile.cloudfoundry.com/v1.0/"];
-//    RKObjectManager *objectManager = [RKObjectManager managerWithBaseURLString:@"http://10.1.20.21:9000/v1.0/"];
+//    RKObjectManager *objectManager = [RKObjectManager managerWithBaseURLString:@"http://127.0.0.1:8000/v1.0/"];
+    RKObjectManager *objectManager = [RKObjectManager managerWithBaseURLString:@"http://192.168.1.10:8000/v1.0/"];
+//    RKObjectManager *objectManager = [RKObjectManager managerWithBaseURLString:@"http://xebia-mobile.cloudfoundry.com/v1.0/"];
     
     objectManager.client.cachePolicy = RKRequestCachePolicyNone;
 //    objectManager.client.requestCache.storagePolicy = RKRequestCacheStoragePolicyPermanently;

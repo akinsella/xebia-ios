@@ -21,6 +21,7 @@
 
 @property(nonatomic, retain) XBViewControllerManager *viewControllerManager;
 @property(nonatomic, retain) XBMainViewController *mainViewController;
-
+@property(nonatomic, assign) Boolean registered;
+@property(nonatomic, retain) NSString *deviceToken;
 
 @end
