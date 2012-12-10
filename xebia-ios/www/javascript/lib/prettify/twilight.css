@@ -1,0 +1,51 @@
+/* Pretty printing styles. Used with prettify.js. */
+/* Twilight theme by Alexis Kinsella */
+
+pre.prettyprint{background:#141414;color:#f8f8f8;}
+pre.prettyprint span.str,pre.prettyprint span.atv{color:#8f9d6a;}
+pre.prettyprint span.kwd,pre.prettyprint span.pun{color:#cda869;}
+pre.prettyprint span.com{color:#5f5a60;font-style:italic;}
+pre.prettyprint span.typ{color:#9b703f;}
+pre.prettyprint span.lit{color:#cf6a4c;}
+pre.prettyprint span.pln{color:#7587a6;}
+pre.prettyprint span.tag{color:#ac885b;}
+pre.prettyprint span.atn{color:#e0c589;}
+pre.prettyprint span.dec{color:#494949;}
+
+
+pre.prettyprint, code.prettyprint {
+    background-color: #000;
+    -moz-border-radius: 8px;
+    -webkit-border-radius: 8px;
+    -o-border-radius: 8px;
+    -ms-border-radius: 8px;
+    -khtml-border-radius: 8px;
+    border-radius: 8px;
+}
+
+pre.prettyprint {
+    width: 95%;
+    margin: 1em auto;
+    padding: 1em;
+    white-space: pre-wrap;
+}
+
+
+/* Specify class=linenums on a pre to get line numbering */
+ol.linenums { margin-top: 0; margin-bottom: 0; color: #AEAEAE; } /* IE indents via margin-left */
+li.L0,li.L1,li.L2,li.L3,li.L5,li.L6,li.L7,li.L8 { }
+/* Alternate shading for lines */
+li.L1,li.L3,li.L5,li.L7,li.L9 { }
+
+@media print {
+    pre .str, code .str { color: #060; }
+    pre .kwd, code .kwd { color: #006; font-weight: bold; }
+    pre .com, code .com { color: #600; font-style: italic; }
+    pre .typ, code .typ { color: #404; font-weight: bold; }
+    pre .lit, code .lit { color: #044; }
+    pre .pun, code .pun { color: #440; }
+    pre .pln, code .pln { color: #000; }
+    pre .tag, code .tag { color: #006; font-weight: bold; }
+    pre .atn, code .atn { color: #404; }
+    pre .atv, code .atv { color: #060; }
+}

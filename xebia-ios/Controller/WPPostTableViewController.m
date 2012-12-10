@@ -19,6 +19,11 @@
 #import "WPPost.h"
 #import "UIColor+XBAdditions.h"
 #import "NSNumber+XBAdditions.h"
+#import "SHK.h"
+#import "UIViewController+XBAdditions.h"
+#import "XBMainViewController.h"
+#import "XBShareInfo.h"
+#import "WPCategory.h"
 
 @interface WPPostTableViewController ()
 @property (nonatomic, strong) NSMutableDictionary *postTypes;
@@ -94,9 +99,6 @@
     self.tableController.imageForError = [UIImage imageNamed:@"error.png"];
     self.tableController.imageForEmpty = [UIImage imageNamed:@"empty.png"];
     
-//    XBLoadingView *loadingView = [[XBLoadingView alloc] initWithFrame:CGRectMake(0, 0, 80, 80)];
-//    loadingView.center = self.tableView.center;
-//    self.tableController.loadingView = loadingView;
 
     [self.tableController mapObjectsWithClass:[WPPost class] toTableCellsWithMapping:[self getCellMapping]];
 }
@@ -113,6 +115,50 @@
     [cellMapping mapKeyPath:@"categoriesFormatted" toAttribute:@"categoriesLabel.text"];
     [cellMapping mapKeyPath:@"authorFormatted" toAttribute:@"authorLabel.text"];
     [cellMapping mapKeyPath:@"identifier" toAttribute:@"identifier"];
+    
+    cellMapping.onSelectCellForObjectAtIndexPath = ^(UITableViewCell *cell, id object, NSIndexPath* indexPath) {
+        WPPost *post = [self.tableController objectForRowAtIndexPath:indexPath];
+        NSLog(@"Post selected: %@", post);
+
+        WPCategory *postCategory = [post.categories objectAtIndex:0];
+
+        NSString *postUrl = [NSString stringWithFormat:@"/wordpress/get_post/%@", post.identifier];
+
+//        XBLoadingView *loadingView = [[XBLoadingView alloc] initWithFrame:CGRectMake(0, 0, 80, 80)];
+//        loadingView.center = self.tableView.center;
+//        self.tableController.loadingView = loadingView;
+
+
+        [[RKObjectManager sharedManager] loadObjectsAtResourcePath:postUrl usingBlock:^(RKObjectLoader *loader) {
+
+            loader.onDidLoadObject = ^(id mappedObject) {
+                NSError* error = nil;
+
+                RKObjectMapping *serializationMapping = [[[RKObjectManager sharedManager] mappingProvider] serializationMappingForClass:[mappedObject class]];
+                RKObjectSerializer* serializer = [RKObjectSerializer serializerWithObject:mappedObject mapping:serializationMapping];
+                NSString *json = [serializer serializedObjectForMIMEType:RKMIMETypeJSON error:&error];
+
+                if (error) {
+                    RKLogError(@"Serializing failed for source object %@ to MIME Type %@: %@", object, RKMIMETypeJSON, [error localizedDescription]);
+                }
+                else {
+                    XBShareInfo* shareInfo = [XBShareInfo shareInfoWithUrl:post.url title:post.title];
+                    [self.appDelegate.mainViewController openLocalURL:@"index"
+                                                            withTitle:postCategory.title
+                                                                 json:json
+                                                            shareInfo: shareInfo];
+                }
+            };
+
+            loader.onDidFailWithError = ^(NSError *error) {
+//                self.tableController.loadingView = nil;
+                NSLog(@"Fetch post with id: '%@' failure: %@", post.identifier, error);
+            };
+
+        }];
+
+    };
+    
     return cellMapping;
 }
 

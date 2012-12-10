@@ -1,75 +1,311 @@
 <!DOCTYPE html>
 <html>
    <head>
-       <title>Post Details</title>
+       <title>Post</title>
+
        <meta charset="UTF-8">
-       <script src="javascript/lib/zepto/zepto-1.0-rc1.min.js"></script>
+
+       <meta name="viewport" content="initial-scale=1" />
+       <!--<meta name="viewport" content="initial-scale=1,user-scalable=no" />-->
+
+       <meta name="viewport" content="initial-scale=1" />
+       <meta name="format-detection" content="telephone=no">
+
+       <!-- <script src="javascript/lib/zepto/zepto-1.0-rc1.min.js"></script> -->
+       <script src="javascript/lib/jquery/jquery-1.7.1.js"></script>
        <script src="javascript/lib/handlebars/handlebars-1.0.beta6.js"></script>
        <script src="javascript/lib/underscore/underscore-1.3.1.min.js"></script>
+       <script src="javascript/lib/moment/moment-1.7.2.min.js"></script>
+       <script src="javascript/lib/prettify/prettify.js"></script>
+       <script src="javascript/lib/prettify/lang-css.js"></script>
+       <script src="javascript/lib/prettify/lang-scala.js"></script>
+       <script src="javascript/lib/prettify/lang-sql.js"></script>
+       <script src="javascript/md5.js"></script>
+
        <link rel="stylesheet" href="css/styles.css">
+       <link rel="stylesheet" href="javascript/lib/prettify/twilight.css" />
    </head>
-   <body style="background: white;">
-       <div id="post-content">
+   <body>
+
+       <div id="post">
+           <div id="post-header"></div>
+           <div id="post-body"></div>
        </div>
-   </body>
-   <script>
 
-       // Debug
-       console = new Object();
-       console.log = function(log) {
-            location.href = "ios-log://" + log;
-       };
+       <script>
 
-       console.debug = console.log;
-       console.info = console.log;
-       console.warn = console.log;
-       console.error = console.log;
+           function isIOSBrowser() {
+               return navigator.userAgent.match(/(iPhone|iPod|iPad)/i);
+           }
 
-       function onLoad(data) {
-           console.log("Data received: ", data);
-           var source = $('#post-template').html();
-           console.log("source", source);
-           var template = Handlebars.compile(source);
-           var html = template({ post: data });
-           $('#post-content').html(html);
-       }
+           function initLogging() {
 
-       $(document).ready(function() {
-           onLoad({
-               "title":"Offre promotionnelle - Formation MongoDB Administration animée par 10GEN",
-               "excerpt":"",
-               "modified":"2012-05-16 10:42:46",
-               "type":"post",
-               "slug":"offre-promotionnelle-formation-mongodb-administration-animee-par-10gen",
-               "date":"2012-05-16 10:41:05"
-           });
-       });
+               if(isIOSBrowser()) {
+                   // Debug
+                   console = new Object();
+                   console.log = function(log) {
+                      executeObjcCall("ios-log://" + log);
+                   };
 
-   </script>
+                   console.debug = console.log;
+                   console.info = console.log;
+                   console.warn = console.log;
+                   console.error = console.log;
+               }
+           }
 
-   <script id="post-template" type="text/x-handlebars-template">
-       {{#with post}}
-           <div class="post">
-               <div class="post-header">
-                   <img src="" class="post-image" />
-                   <div class="post-date">{{modified}}</div>
-                   <!--<h1 class="post-author">{{this.author.first_name}} {{this.author.last_name}}</h1>-->
-                   <h1 class="post-title">{{title}}</h1>
-               </div>
+           initLogging();
 
-               <div class="post-body">
-                   <!--
-                   <ul class="post-tags">
-                       {{#each this.tags}}
-                       <li class="post-tag">{{this.title}}</li>
-                       {{/each}}
-                   </ul>
-                   -->
-                   <div class="post-content">{{excerpt}}</div>
-               </div>
+           var jsonPost;
 
+           function onLoad(data) {
+               jsonPost = data;
+               applyTemplate('#post-header-template', '#post-header', {
+                   post: jsonPost,
+                   modified: moment(jsonPost.modified, "YYYY-MM-DD").format("DD/MM/YYYY")
+               });
+
+               applyTemplate('#post-body-template', '#post-body', {
+                   post: jsonPost,
+                   content: htmlDecode(jsonPost.content)
+               }, [prettifyImages]);
+
+               prettyPrint();
+
+               prettifyGravatar("post-author-image", jsonPost.author);
+           }
+
+           function applyTemplate(templateId, targetId, data, processors) {
+               var source = $(templateId).html();
+               var template = Handlebars.compile(source);
+               var html = template(data);
+
+               if (processors) {
+                   _(processors).each(function(processor) {
+                      html = processor(html);
+                   });
+               }
+
+               $(targetId).html(html);
+           }
+
+//           $(document).ready(function() {
+//               var json = {"id":12822,"excerpt":"","title":"Scrum Master Academy - Parlons d'attitude","tags":[{"title":"Méthodes agiles","id":27,"description":"","post_count":189,"slug":"methodes-agiles"},{"title":"Scrum Master Academy","id":1062,"description":"","post_count":9,"slug":"scrum-master-academy"}],"type":"post","url":"http://blog.xebia.fr/2012/12/06/scrum-master-academy-parlons-dattitude/","slug":"scrum-master-academy-parlons-dattitude","comment_count":0,"title_plain":"Scrum Master Academy - Parlons d'attitude","comment_status":"open","categories":[{"title":"Méthodes agiles","id":15,"description":"","parent":0,"slug":"agilite","post_count":121}],"modified":"2012-12-06 12:58:47 +0000","author":{"url":"http://www.xebia.fr","description":"J'ai 13 ans d’expérience professionelle. Je suis impliqué sur des projets itératifs et offshore depuis 2001 et j'y ai occupé tour à tour les postes d'ingénieur qualité, responsable des tests, analyste fonctionnel, et directeur de projet. \r\n\r\nJe forme et j'accompagne les clients de Xebia dans l’adoption de méthodes agiles (SCRUM, XP) et de pratiques d’ingénierie pilotées par les tests (TDR, ATDD). J'ai développé mon expertise au travers d’interventions dans des domaines métiers aussi variés que l’industrie, l’e-commerce, l’édition logiciel, le luxe, le public, les télécoms, ou les banques d’investissement.\r\n\r\nJ'intervient régulièrement dans les conférences traitant de l'agilité et des tests depuis 2008.","id":74,"name":"Gilles Mantel","first_name":"Gilles","slug":"gmantel","last_name":"Mantel","nickname":"gmantel"},"content":"&lt;p&gt;Dans un précédent billet je vous présentais quelques règles pour &lt;a href=&quot;http://blog.xebia.fr/2012/08/01/scrum-master-academy-parlons-de-charisme/&quot; rel=&quot;nofollow&quot;&gt;gagner des points de charisme&lt;/a&gt;. Sachant qu'il est difficile à évaluer le résultat n'est pas garanti. Je vais vous parler ici de ma vision de l'attitude du Scrum Master, et c'est beaucoup plus facile à mettre en oeuvre. Quoique …&lt;/p&gt;\r\n\r\n&lt;p style=&quot;text-align: center;&quot;&gt;&lt;img width=&quot;500&quot; src=&quot;http://blog.xebia.fr/wp-content/uploads/2012/10/scrum-master-academy1.jpg&quot; /&gt;&lt;/p&gt;\r\n\r\n&lt;span id=&quot;more-12822&quot;&gt;&lt;/span&gt;\r\n\r\n&lt;h3 id=&quot;ScrumMasterAcademy-Parlonsd&amp;#39;attitude-Règlen°12:Ontravailletoujoursenéquipe&quot;&gt;Règle n°12 : On travaille toujours en équipe&lt;/h3&gt;\r\n&lt;p&gt;L'équipe est l'élément de base de la réussite d'un projet agile. Assurez-vous que les décisions sont partagées et que personne ne part en franc tireur pour &amp;quot;aller plus vite&amp;quot;. Cette unité d'équipe est difficile à maintenir au cours du temps. Les plus cultivés d'entre vous doivent connaître le modèle de Tuckman qui décrit les différents états par lesquels passe une équipe: forming, norming, storming, performing. L'idée n'est pas ici de vous distiller la théorie, mais de vous donner des éléments concrets. &lt;/p&gt;&lt;p&gt;Il existe de nombreuses façons de créer un esprit d'équipe. Je commence généralement mes interventions d'accompagnement en allant boire un verre avec toute l'équipe (donc y compris le PO) à la fin du premier sprint, c'est bête mais ça forme des liens. On discute dans un environnement différent et les informations ne sont pas les mêmes, on parle de nos enfants, de nos expériences similaires, on développe une sympathie pour l'autre qui sera un atout non négligeable dans les coups durs. Avant même ce verre, j'organise un déjeuner commun si les membres de l'équipe n'ont pas l'habitude de se retrouver pour manger. Ce n'est pas tout, je constate souvent qu'une équipe qui démarre avec Scrum passe par un état d'euphorie lors de son premier sprint. Je vois souvent des post-its fleurir à la première rétrospective expliquant combien il est agréable de travailler avec cette équipe. &lt;/p&gt;&lt;/p&gt;Il y a quelques années, je disais &amp;quot;Bravo&amp;quot; et nous passions ensuite aux problèmes pour essayer de trouver des points d'action. Je constate avec l'expérience que cette belle euphorie est fragile et qu'elle a tendance à voler en éclat avec les premières difficultés (c'est à dire le sprint 2). &lt;/p&gt;&lt;p&gt;Aujourd'hui je passe un peu de temps à la première rétrospective pour creuser les raisons de cette euphorie: pourquoi avez-vous apprécié de travailler avec cette équipe ? Je recueille généralement quelques regards vides ou des réponses triviales du type &amp;quot;Ben, parce que c'est bien&amp;quot;. Il faut généralement prendre quelques exemples concrets pour commencer à avoir des éléments intéressants: à quel moment as-tu le plus senti cette osmose ? Pourquoi ? On commence alors à identifier les raisons: &amp;quot;On n'a pas hésité à s'aider&amp;quot;, &amp;quot;On a dépassé le cadre de notre rôle&amp;quot;, &amp;quot;Il n'y avait pas de responsabilités individuelles&amp;quot;, &amp;quot;Bruno a ramené les croissants&amp;quot;, &amp;quot;On a mangé ensemble&amp;quot;, &amp;quot;Je n'ai pas eu peur de demander de l'aide&amp;quot;, &amp;quot;on est au courant de ce que font les autres&amp;quot;, &amp;quot;Estelle a passé du temps à m'expliquer le schéma de la base&amp;quot; etc, etc. Je note soigneusement ces éléments sur des post-its que j'affiche ostensiblement dans le bureau, ce sera la &amp;quot;Charte d'Equipe&amp;quot; pour les sprints à venir.&lt;/p&gt;\r\n&lt;h3 id=&quot;ScrumMasterAcademy-Parlonsd&amp;#39;attitude-Règlen°19:Nobrokenwindow&quot;&gt;Règle n°19 : No broken window&lt;/h3&gt;\r\n&lt;p&gt;La théorie de &lt;a href=&quot;http://en.wikipedia.org/wiki/Broken_windows_theory&quot; rel=&quot;nofollow&quot;&gt;la fenêtre cassée&lt;/a&gt; est issue d'expérimentations sociales datant du milieu du XXè siècle. &lt;/p&gt;&lt;p&gt;Ce principe fût utilisé par le Maire de New York dans les années 90 pour améliorer les conditions de sécurité dans les quartiers difficiles. Bien que les conclusions de ces expérimentations soient parfois remise en cause, l'application de ce principe possède des vertus indiscutables. Parce qu'un écart toléré, ou un bug non corrigé entérine le comportement, assurez-vous de toujours recadrer les pratiques ou corriger immédiatement les anomalies qui trainent.&lt;/p&gt;\r\n&lt;h3 id=&quot;ScrumMasterAcademy-Parlonsd&amp;#39;attitude-Règlen°21:Evaluerégulièrementoùl&amp;#39;équipeenestdesamaîtrisedel&amp;#39;agile&quot;&gt;Règle n°21: Evalue régulièrement où l'équipe en est de sa maîtrise de l'agile&lt;/h3&gt;\r\n&lt;p&gt;Ce n'est pas parce qu'on applique Scrum que l'on a fini sa progression vers l'agilité. L'agilité est un chemin plus qu'un but, alors regardez le chemin parcouru et évaluez régulièrement celui qui reste à parcourir. Il existe de nombreux modèles d'évaluation de sa maturité agile qui vous permettront de vous situer sur ce chemin. &lt;/p&gt;&lt;p&gt;Le plus simple est le site &lt;a href=&quot;http://www.abetterteam.org/&quot; rel=&quot;nofollow&quot;&gt;abetterteam.org&lt;/a&gt; qui propose un questionnaire appelant des réponses binaires et qui propose à l'issue de la saisie un niveau de sécurité rouge, orange, ou vert. Vous allez voir qu'il est difficile d'obtenir le niveau vert. Le formulaire est basé sur les &lt;a href=&quot;http://www.jamesshore.com/Agile-Book&quot; rel=&quot;nofollow&quot;&gt;écrits de James Shore&lt;/a&gt; très orienté XP. Vous avez aussi une &lt;a href=&quot;http://scrum.jeffsutherland.com/2012/02/scrum-assessment-checklist.html&quot; rel=&quot;nofollow&quot;&gt;checklist plus orienté Scrum&lt;/a&gt; mise au point par Henrik Kniberg et utilisée par Jeff Sutherland lui-même, ou encore &lt;a href=&quot;http://scalingsoftwareagilityblog.com/wp-content/uploads/2008/01/team-agility-assessment-in-pdf.pdf&quot; rel=&quot;nofollow&quot;&gt;un questionnaire d'enquête&lt;/a&gt; mis au point par Dean Leffingwell. L'idée ici n'est pas d'utiliser un seul support mais de les varier pour avoir différents points de vue. Il n'y a pas une seule agilité, mais toutes les agilités peuvent vous apprendre des choses.&lt;/p&gt;\r\n&lt;h3 id=&quot;ScrumMasterAcademy-Parlonsd&amp;#39;attitude-Règlen°24:Veilleàlapluralitédescompétencesdel&amp;#39;équipe&quot;&gt;Règle n°24 : Veille à la pluralité des compétences de l'équipe&lt;/h3&gt;\r\n&lt;p&gt;Pour assurer un travail en autonomie et livrer un incrément opérationnel du produit final, l'équipe Scrum doit-être pluridisciplinaire. Le Scrum Master doit veiller à évaluer régulièrement que les compétences de l'équipe couvrent les compétences requises pour livrer du logiciel opérationnel en fin de sprint. Dans le cas contraire, ajoutez un obstacle à votre liste et agissez dessus.&lt;/p&gt;\r\n&lt;h3 id=&quot;ScrumMasterAcademy-Parlonsd&amp;#39;attitude-Règlen°25:Toujoursavoirdespost-itssursoi&quot;&gt;Règle n°25 : Toujours avoir des post-its sur soi&lt;/h3&gt;\r\n&lt;p&gt;Outil emblématique de l'agilité, il n'est pas seulement un attribut folklorique du Scrum Master mais sert en toute occasion (planning, réunion de travail, retrospective, …). Ils existent en de nombreuses formes et couleurs pour diversifier votre utilisation, éviter de vous cantonner aux post-its standards. J'ai découvert cette année les post-it &lt;a href=&quot;http://zapsense.com/&quot; rel=&quot;nofollow&quot;&gt;électrostatique&lt;/a&gt; Stattys grâce à &lt;a href=&quot;http://twitter.com/elpedromajor&quot; rel=&quot;nofollow&quot;&gt;@elpedromajor&lt;/a&gt;, j'ai découvert il y a quelques années les post-its flèches grâce à &lt;a href=&quot;http://www.twitter.com/jcgrosjean&quot; rel=&quot;nofollow&quot;&gt;@jcgrosjean&lt;/a&gt;. Vous pouvez même faire imprimer vos propres post-its à votre goût et selon votre gabarit. Prenez les commandes avant de vous retrouver nu !&lt;/p&gt;\r\n&lt;h3 id=&quot;ScrumMasterAcademy-Parlonsd&amp;#39;attitude-Règlen°16:Latransparencec&amp;#39;esttoiquilaporte&quot;&gt;Règle n°16 : La transparence c'est toi qui la porte&lt;/h3&gt;\r\n&lt;p&gt;Contribuez et vérifiez que les informations visuelles, écrites, et orales permettent aux parties-prenantes de comprendre ce qu'il se passe: affichage physique, diffusion de synthèses de sprint, CR de réunion, etc. La propreté et l'organisation du tableau d'affichage est souvent laissé pour compte et l'accent est mis sur le reporting papier. Pourtant un tableau d'affichage qui ressemble à une envolée de post-its de toutes les couleurs ne donne ni une impression de sérieux, ni un sentiment de confiance. Je préfère de loin confier un projet à une équipe qui a un tableau agréable et lisible, où les post-its suivent le même format et sont correctement alignés. Pour paraphraser Jurgen Appelo dans &lt;a href=&quot;http://www.noop.nl/2012/08/a-task-board-that-really-sucks.html&quot; rel=&quot;nofollow&quot;&gt;l'un de ses articles&lt;/a&gt;, si votre tableau d'affichage donne l'impression qu'un tas de feuilles a fait une soirée disco, ça ne va pas vous aider à être pris au sérieux.&lt;/p&gt;\r\n&lt;h3 id=&quot;ScrumMasterAcademy-Parlonsd&amp;#39;attitude-Prochainement:&quot;&gt;Prochainement :&lt;/h3&gt;\r\n&lt;p&gt; &lt;/p&gt;\r\n&lt;ul&gt;\r\n  &lt;li&gt;Règle n°9 : Tu n'estimeras pas en jour/homme&lt;/li&gt;\r\n  &lt;li&gt;Règle n°11 : Ne deviens pas un garagiste&lt;/li&gt;\r\n  &lt;li&gt;Règle n°13 : Reste à la page&lt;/li&gt;\r\n  &lt;li&gt;Règle n°23 : Ecoute et tais toi&lt;/li&gt;\r\n  &lt;li&gt;Règle n°33 : Tu déploies tous les jours en environnement de tests&lt;/li&gt;\r\n&lt;/ul&gt;\r\n&lt;p&gt; &lt;/p&gt;\r\n","date":"2012-12-06 05:30:09 +0000","status":"publish"};
+//               var json = {"id":12759,"type":"post","slug":"utilisation-des-blocks-en-objective-c","url":"http:\/\/blog.xebia.fr\/2012\/11\/26\/utilisation-des-blocks-en-objective-c\/","status":"publish","title":"Utilisation des Blocks en Objective-C","title_plain":"Utilisation des Blocks en Objective-C","content":"&lt;p&gt;&lt;img vspace=&quot;4&quot; src=&quot;http:\/\/blog.xebia.fr\/wp-content\/uploads\/2012\/11\/new_hero20110308.png&quot; style=&quot;float:right; margin:0 0 10px 10px;&quot; \/&gt;&lt;br \/&gt; Introduits en 2010 avec la sortie d'iOS4, les Blocks ont profond\u00e9ment chang\u00e9 la mani\u00e8re d'\u00e9crire des applications en Objectif-C.&lt;\/p&gt;\r\n&lt;p&gt;L'impl\u00e9mentation de callbacks via la cr\u00e9ation de protocole\u00a0est un proc\u00e9d\u00e9 verbeux\u00a0mais qui a l'avantage de rester simple \u00e0 comprendre. Les blocks quant \u00e0 eux ont une syntaxe d\u00e9clarative moins \u00e9vidente \u00e0 appr\u00e9hender de prime abord, mais sont bien plus expressifs et permettent d'\u00e9viter les allers et retours dans le code entre protocoles, interfaces et impl\u00e9mentations.&lt;\/p&gt;\r\n&lt;p&gt;A travers cet article, je vous propose de d\u00e9couvrir les diff\u00e9rences de styles qu'il existe entre l'usage des protocoles, plus classiques, et des blocks qui se veulent plus modernes.&lt;\/p&gt;\r\n\r\n&lt;span id=&quot;more-12759&quot;&gt;&lt;\/span&gt;\r\n\r\n&lt;h3 id=&quot;UtilisationdesBlocksenObjective-C-Lagestiond&amp;#39;\u00e9v\u00e9nementsdansiOS&quot;&gt;La gestion d'\u00e9v\u00e9nements dans iOS&lt;\/h3&gt;\r\n&lt;p&gt;Un programme informatique dans la plus simple de ses expressions un simple traitement ex\u00e9cutant de fa\u00e7on s\u00e9quentielle une suite d'instructions. Cependant, la plupart du temps une application plus complexe aura \u00e0 r\u00e9agir \u00e0 diff\u00e9rents \u00e9v\u00e9nements qu'ils proviennent d'interactions avec le r\u00e9seau, avec le syst\u00e8me de fichier ou bien encore avec la personne qui le commande via le clavier, la souris ou le touch\u00e9. Le plus souvent ces \u00e9v\u00e9nements sont notifi\u00e9s au programme sous forme de callback.&lt;\/p&gt;\r\n&lt;p&gt;Sous iOS, un callback r\u00e9sultant d'un \u00e9v\u00e9nement peut prendre 3 formes:&lt;\/p&gt;\r\n&lt;ul&gt;\r\n  &lt;li&gt;Le callback de type&lt;em&gt; Target-action&lt;\/em&gt;: Lorsqu'un \u00e9v\u00e9nement survient, un objet &lt;em&gt;target&lt;\/em&gt; est notifi\u00e9 par l'objet source de l'\u00e9v\u00e9nement. Pour cela il va appeler un selecteur. Ce selecteur correspond \u00e0 l'&lt;em&gt;action&lt;\/em&gt;. Les timers iOS impl\u00e9mentent ce m\u00e9canisme:&lt;\/li&gt;\r\n&lt;\/ul&gt;\r\n[java gutter=&quot;true&quot;]#import &amp;lt;Foundation\/Foundation.h&amp;gt;\r\n#import &amp;quot;Logger.h&amp;quot;\r\n\r\nint main(int argc, const char *argv[]) {\r\n    @autoreleasepool {\r\n        Logger *logger = [[Logger alloc] init];\r\n\r\n        NSTimer *timer : [NSTimer scheduledTimerWithTimeInterval: 1.0\r\n                                                          target: logger\r\n                                                        selector: @selector:(onTick:)\r\n                                                        userInfo: nil\r\n                                                         repeats: YES];\r\n\r\n        NSRunLoop *runLoop = [NSRunLoop currentRunLoop];\r\n        [runLoop addTimer:timer forMode:NSDefaultRunLoopMode];\r\n        [runLoop run];\r\n    }\r\n    return 0;\r\n}\r\n[\/java]\r\n[java gutter=&quot;true&quot;]#import &amp;lt;Foundation\/Foundation.h&amp;gt;\r\n\r\n@interface Logger : NSObject\r\n- (void)onTick:(NSTimer *)timer;\r\n@end\r\n[\/java]\r\n[java gutter=&quot;true&quot;]#import &amp;lt;Foundation\/Foundation.h&amp;gt;\r\n\r\n@implementation Logger\r\n- (void)onTick:(NSTimer *)timer {\r\n    NSLog(@&amp;quot;Tick!&amp;quot;);\r\n}\r\n@end[\/java]\r\n&lt;p&gt;\u00a0&lt;\/p&gt;\r\n&lt;ul&gt;\r\n  &lt;li&gt;Le callback de type&lt;em&gt; Helper objects&lt;\/em&gt;: Un &lt;em&gt;helper object&lt;\/em&gt; sera utilis\u00e9 lorsque l'objet &lt;em&gt;target&lt;\/em&gt; est susceptible de traiter plusieurs types d'\u00e9v\u00e9nements. Pour cela, le &lt;em&gt;helper object&lt;\/em&gt; impl\u00e9mentera un protocole. Les &lt;em&gt;helpers objects&lt;\/em&gt; sont souvent identifi\u00e9s par les termes &lt;em&gt;delegate&lt;\/em&gt; ou bien encore &lt;em&gt;data sources&lt;\/em&gt;. Une exemple sera donn\u00e9 dans la section suivante.&lt;\/li&gt;\r\n&lt;\/ul&gt;\r\n&lt;ul&gt;\r\n  &lt;li&gt;Le callback de type&lt;em&gt;\u00a0Notification&lt;\/em&gt;: Lorsque plusieurs objets sont susceptibles d'\u00eatre int\u00e9ress\u00e9s par un ou plusieurs types d'\u00e9v\u00e9nements, alors ces objets souscrivent au centre de notification. Le centre notification est une classe qui permet de dispatcher des \u00e9v\u00e9nements \u00e0 des objets qui se sont au pr\u00e9alable inscrits:&lt;\/li&gt;\r\n&lt;\/ul&gt;\r\n&lt;p&gt;\u00a0&lt;\/p&gt;\r\n[java gutter=&quot;true&quot;]#import &amp;lt;Foundation\/Foundation.h&amp;gt;\r\n#import &amp;quot;Logger.h&amp;quot;\r\n\r\nint main(int argc, const char *argv[]) {\r\n    @autoreleasepool {\r\n        Logger *logger = [[Logger alloc] init];\r\n\r\n        [[Reachability sharedReachability] setHostName:@&amp;quot;blog.xebia.fr&amp;quot;]];\r\n        [Reachability sharedReachability].networkStatusNotificationsEnabled = YES;\r\n\r\n        [NSNotificationCenter defaultCenter]\r\n                                        addObserver:self\r\n                                           selector:@selector(handleReachability: )\r\n                                               name:@&amp;quot;kNetworkReachabilityChangedNotification&amp;quot; object:nil];\r\n\r\n        ...\r\n\r\n        [[NSRunLoop currentRunLoo] run];\r\n    }\r\n    return 0;\r\n}\r\n[\/java]\r\n[java gutter=&quot;true&quot;]#import &amp;lt;Foundation\/Foundation.h&amp;gt;\r\n#import &amp;quot;Reachability.h&amp;quot;\r\n\r\n@interface Logger : NSObject\r\n- (void)handleReachability:(NSNotificationCenter*)notification;\r\n@end\r\n[\/java]\r\n[java gutter=&quot;true&quot;]#import &amp;lt;Foundation\/Foundation.h&amp;gt;\r\n\r\n@implementation Logger\r\n\r\n- (void)handleReachability:(NSNotificationCenter*)notification {\r\n    if([[Reachability sharedReachability] remoteHostStatus] == NotReachable) {\r\n        NSLog(@&amp;quot;Network not reachable!&amp;quot;);\r\n    }\r\n    else {\r\n        NSLog(@&amp;quot;Network reachable!&amp;quot;);\r\n    }\r\n}\r\n\r\n@end\r\n[\/java]\r\n&lt;h3 id=&quot;UtilisationdesBlocksenObjective-C-Lesprotocoles(@protocol)&quot;&gt;Les protocoles (@protocol)&lt;\/h3&gt;\r\n&lt;p&gt;Le design pattern &lt;em&gt;Delegate&lt;\/em&gt; (&lt;a href=&quot;http:\/\/en.wikipedia.org\/wiki\/Delegation_pattern&quot; rel=&quot;nofollow&quot;&gt;Delegation&lt;\/a&gt;\u00a0sur Wikipedia) est un pattern majeur en Objective-C. Il est impl\u00e9mentable \u00e0 travers la notion de protocole (@protocol). Un protocole est tr\u00e8s similaire \u00e0 une interface java, puisqu'il permet de d\u00e9clarer des m\u00e9thodes qui ont pour but d'\u00eatre impl\u00e9ment\u00e9es par une classe. Les protocoles se diff\u00e9rencient cependant par le fait qu'ils permettent de d\u00e9clarer des m\u00e9thodes requises ou optionnelles. Les m\u00e9thodes optionnelles seront d\u00e9clar\u00e9es apr\u00e8s le mot cl\u00e9: &lt;em&gt;@optional&lt;\/em&gt;, alors que les m\u00e9thodes requises seront d\u00e9clar\u00e9es apr\u00e8s le mot cl\u00e9 &lt;em&gt;@required&lt;\/em&gt;. Lorsqu'une m\u00e9thode est d\u00e9clar\u00e9e sans \u00eatre pr\u00e9c\u00e9d\u00e9e par un des mots cl\u00e9s &lt;em&gt;@required&lt;\/em&gt; ou @&lt;em&gt;optional&lt;\/em&gt;, le comportement associ\u00e9 par d\u00e9faut \u00e0 la m\u00e9thode est\u00a0&lt;em&gt;@required&lt;\/em&gt;.&lt;\/p&gt;\r\n[java gutter=&quot;true&quot;]@protocol MyProtocol\r\n\r\n- (void)aRequiredMethod;\r\n\r\n@optional\r\n- (void)anOptionalMethod;\r\n- (void)anotherOptionalMethod;\r\n\r\n@required\r\n- (void)anotherRequiredMethod;\r\n\r\n@end\r\n[\/java]\r\n&lt;p&gt;Cette diff\u00e9rentiation entre m\u00e9thode requise et optionelle est parfaitement adapt\u00e9e \u00e0 un mod\u00e8le de programmation \u00e9v\u00e9nementielle, puisqu'une classe qui aura la possibilit\u00e9 d'impl\u00e9menter certaines m\u00e9thodes de callbacks sans pour autant devoir toutes les impl\u00e9menter.&lt;\/p&gt;\r\n&lt;p&gt;Une classe adoptera un protocole via la d\u00e9claration suivante sur son interface:&lt;\/p&gt;\r\n[java gutter=&quot;true&quot;]@interface ClassName : SomeSuperclass &amp;lt; protocol list &amp;gt;\r\n[\/java]\r\n&lt;p&gt;De la m\u00eame mani\u00e8re une categorie adoptera un protocole via la d\u00e9claration suivante:&lt;\/p&gt;\r\n[java gutter=&quot;true&quot;]@interface ClassName ( CategoryName ) &amp;lt; protocol list &amp;gt;\r\n[\/java]\r\n&lt;p&gt;Une classe qui adoptera plusieurs protocoles sera d\u00e9clar\u00e9e de la fa\u00e7on suivante:&lt;\/p&gt;\r\n[java gutter=&quot;true&quot;]@interface Formatter : NSObject &amp;lt; Formatting, Prettifying &amp;gt;\r\n[\/java]\r\n&lt;p&gt;\u00a0&lt;\/p&gt;\r\n&lt;p&gt;Exemple de programme complet impl\u00e9mentant le protocole &lt;a href=&quot;https:\/\/developer.apple.com\/library\/mac\/#documentation\/Foundation\/Reference\/NSURLConnectionDelegate_Protocol\/Reference\/Reference.html#\/\/apple_ref\/occ\/intf\/NSURLConnectionDelegate&quot; rel=&quot;nofollow&quot;&gt;NSURLConnectionDelegate&lt;\/a&gt;\u00a0via l'utilisation d'un &lt;em&gt;delegate&lt;\/em&gt;:&lt;\/p&gt;\r\n[java gutter=&quot;true&quot;]#import &amp;lt;Foundation\/Foundation.h&amp;gt;\r\n#import &amp;quot;Logger.h&amp;quot;\r\n\r\nint main(int argc, const char *argv[]) {\r\n    @autoreleasepool {\r\n        Logger *logger = [[Logger alloc] init];\r\n\r\n        NSURL *url = [NSURL URLWithString: @&amp;quot;http:\/\/blog.xebia.fr&amp;quot;];\r\n        NSURLRequest *request = [NSURLRequest requestWithURL:url];\r\n        NSURLConnection *connection = [[NSURLConnection alloc] initWithRequest: request\r\n                                                                      delegate: logger\r\n                                                              startImmediately: YES];\r\n\r\n\r\n        ...\r\n\r\n        [[NSRunLoop currentRunLoo] run];\r\n    }\r\n    return 0;\r\n}\r\n[\/java]\r\n[java gutter=&quot;true&quot;]#import &amp;lt;Foundation\/Foundation.h&amp;gt;\r\n\r\n@interface Logger : NSObject {\r\n    NSMutableData *data;\r\n}\r\n@end\r\n[\/java]\r\n[java gutter=&quot;true&quot;]#import &amp;lt;Foundation\/Foundation.h&amp;gt;\r\n@implementation Logger\r\n\r\n- (void)connection:(NSURLConnection *)connection didReceivedData:(NSData *)dataChunk {\r\n    if (!data) {\r\n        data = [[NSMutableData alloc] init];\r\n    }\r\n\r\n    [data appendData: dataChunk];\r\n}\r\n\r\n- (void)connectionDidFinishLoading:(NSURLConnection *)connection {\r\n    NSString *content = [[NSString alloc] initWithData:data encoding: NSUTF8StringEncoding];\r\n    NSLog(@&amp;quot;Received content: %@&amp;quot;, content);\r\n    data = nil;\r\n}\r\n\r\n- (void)connection:(NSURLCOnnection *)connection didFailWithError:(NSError *)error {\r\n    NSLog(@&amp;quot;Connection failed: %@&amp;quot;, [error localizedDescription]);\r\n    data = nil;\r\n}\r\n@end\r\n[\/java]\r\n&lt;h3 id=&quot;UtilisationdesBlocksenObjective-C-Lesblocks&quot;&gt;Les blocks&lt;\/h3&gt;\r\n&lt;p&gt;Les blocks sont une extension du langage C, et sont compl\u00e8tements support\u00e9s par le langage Objective-C. Ils sont comparables dans une certaine mesure aux lambda expressions de Java 8 : ils permettent d'encapsuler un segment de code &lt;em&gt;(unit of work)&lt;\/em&gt;\u00a0qui peut \u00eatre ex\u00e9cut\u00e9 \u00e0 tout moment. Ce sont des fonctions anonymes portables qui peuvent \u00eatre pass\u00e9s en tant qu'argument de m\u00e9thodes ou bien retourn\u00e9s en argument de retour.&lt;br \/&gt; Un block a une liste d'arguments typ\u00e9s, et peut avoir un type de retour inf\u00e9r\u00e9 ou bien d\u00e9clar\u00e9. Il peut \u00e9galement \u00eatre affect\u00e9 \u00e0 une variable et appel\u00e9 tel une fonction.&lt;\/p&gt;\r\n&lt;p&gt;Le symbole ^\u00a0est utilis\u00e9 comme marqueur syntaxique pour identifier un block. Dans l'exemple suivant, la variable de block &lt;em&gt;Add&lt;\/em&gt; prend deux param\u00e8tres entiers et retourne un entier en r\u00e9ponse.&lt;\/p&gt;\r\n[java gutter=&quot;true&quot;]int (^Add)(int, int) = ^(int op1, int op2) {\r\n    return op1 + op2;\r\n};\r\nint result = Add(3, 8);\r\n[\/java]\r\n&lt;p&gt;Lorsqu'un block est pass\u00e9 en argument de fonction, il peut \u00eatre consid\u00e9r\u00e9 comme un callback ou bien comme une forme de d\u00e9l\u00e9gation limit\u00e9e au scope de la fonction.&lt;\/p&gt;\r\n&lt;p&gt;Comme vu pr\u00e9c\u00e9demment, le centre de notification utilise un pattern &lt;em&gt;target\/action&lt;\/em&gt; pour enregistrer un callback:&lt;\/p&gt;\r\n[java gutter=&quot;true&quot;]- (void)viewDidLoad {\r\n   [super viewDidLoad];\r\n    [[NSNotificationCenter defaultCenter] addObserver:self\r\n                                             selector:@selector(keyboardWillShow:)\r\n                                                 name:UIKeyboardWillShowNotification\r\n                                               object:nil];\r\n}\r\n\r\n- (void)keyboardWillShow:(NSNotification *)notification {\r\n    \/\/ Code de gestion de la notification\r\n}\r\n[\/java]\r\n&lt;p&gt;Ceci peut \u00eatre avantageusement remplac\u00e9 par l'usage d'un callback de type block comme le permet la m\u00e9thode &lt;a href=&quot;http:\/\/developer.apple.com\/library\/ios\/#documentation\/Cocoa\/Reference\/Foundation\/Classes\/NSNotificationCenter_Class\/Reference\/Reference.html#\/\/apple_ref\/occ\/instm\/NSNotificationCenter\/addObserverForName:object:queue:usingBlock:&quot; rel=&quot;nofollow&quot;&gt;addObserverForName:object:queue:usingBlock:&lt;\/a&gt;\u00a0:&lt;\/p&gt;\r\n[java gutter=&quot;true&quot;]- (void)viewDidLoad {\r\n    [super viewDidLoad];\r\n    [[NSNotificationCenter defaultCenter] addObserverForName:UIKeyboardWillShowNotification\r\n                                                      object:nil\r\n                                                       queue:[NSOperationQueue mainQueue]\r\n                                                  usingBlock:^(NSNotification *notification) {\r\n             \/\/ Code de gestion de la notification\r\n    }];\r\n}\r\n[\/java]\r\n&lt;p&gt;Le code est non seulement moins verbeux, mais la d\u00e9claration inlin\u00e9e du block rend \u00e9galement la lecture du code plus claire et plus fluide.&lt;\/p&gt;\r\n&lt;p&gt;Les blocks ont un avantage crucial par rapport aux autres formes de callbacks, puisqu'ils ont acc\u00e8s aux donn\u00e9es pr\u00e9sentes dans le scope local dans lequel ils sont d\u00e9clar\u00e9s. Ainsi, lorsqu'un block est d\u00e9clar\u00e9 dans une m\u00e9thode, non seulement, il aura acc\u00e8s aux variables locales de la m\u00e9thode, \u00e0 ses param\u00e8tres, mais \u00e9galement aux fonctions et variables globales incluant les variables d'instance. Autrement dit, un block est une closure.&lt;br \/&gt; Il faut toutefois noter que les blocks n'ont acc\u00e8s \u00e0 ces donn\u00e9es qu'en lecture seule par d\u00e9faut. Pour obtenir le droit de modification sur une donn\u00e9e, il faut d\u00e9clarer une variable avec le &lt;em&gt;modifier&lt;\/em&gt;: &lt;em&gt;__block&lt;\/em&gt;.&lt;br \/&gt; Un block est capable d'un tel fonctionnement m\u00eame apr\u00e8s destruction du contexte local dans lequel il a \u00e9t\u00e9 d\u00e9clar\u00e9 tout simplement parce qu'il persiste dans sa structure les variables auquel il a acc\u00e8s.&lt;\/p&gt;\r\n&lt;p&gt;Les cas d'utilisation des blocks sont nombreux, parmis eux, nous pouvons compter les suivants:&lt;\/p&gt;\r\n&lt;ul&gt;\r\n  &lt;li&gt;Handlers de compl\u00e9tion,\u00a0de notification,\u00a0d'erreur&lt;\/li&gt;\r\n  &lt;li&gt;Enum\u00e9ration d'\u00e9l\u00e9ments&lt;\/li&gt;\r\n  &lt;li&gt;Tri d'\u00e9l\u00e9ments&lt;\/li&gt;\r\n  &lt;li&gt;...&lt;\/li&gt;\r\n&lt;\/ul&gt;\r\n&lt;p&gt;Si vous souhaitez \u00e9num\u00e9rer les \u00e9l\u00e9ments d'une liste d'objets, vous pouvez utiliser la m\u00e9thode:&lt;\/p&gt;\r\n[java gutter=&quot;true&quot;]NSArray *deviceManufacturers =\r\n    [NSArray arrayWithObjects:@&amp;quot;Apple&amp;quot;, @&amp;quot;Samsung&amp;quot;, @&amp;quot;HTC&amp;quot;, @&amp;quot;BlackBerry&amp;quot;, @&amp;quot;Nokia&amp;quot;, nil];\r\n\r\n[deviceManufacturers enumerateObjectsUsingBlock:^(id object, NSUInteger index, BOOL *stop) {\r\n    NSLog(@&amp;quot;%@ constructor at index %d&amp;quot;, object, index);\r\n}];\r\n[\/java]\r\n&lt;p&gt;Ce block prend 3 param\u00e8tres: l'\u00e9l\u00e9ment courant du tableau, son index, ainsi qu'un boolean indiquant si l'\u00e9num\u00e9ration doit s'arr\u00eater.&lt;\/p&gt;\r\n&lt;h4 id=&quot;UtilisationdesBlocksenObjective-C-D\u00e9clarations&quot;&gt;D\u00e9clarations&lt;\/h4&gt;\r\n&lt;p&gt;La d\u00e9claration de block la plus simple est la suivante:&lt;\/p&gt;\r\n[java gutter=&quot;true&quot;]^ {\r\n    NSString *content = @&amp;quot;Some content&amp;quot;;\r\n    NSLog(@&amp;quot;The content is: '%@'&amp;quot;, content);\r\n};\r\n[\/java]\r\n&lt;p&gt;Cette d\u00e9claration intervient lorsqu'un block est d\u00e9clar\u00e9 en tant que param\u00e8tre de fonction. Dans ce cas nous n'avons ni de param\u00e8tre d'entr\u00e9e, ni de param\u00e8tre de retour.&lt;\/p&gt;\r\n&lt;p&gt;Dans le cas, o\u00f9 nous souhaiterions d\u00e9clarer un block en tant variable, nous devrions \u00e9crire la d\u00e9claration suivante:&lt;\/p&gt;\r\n[java gutter=&quot;true&quot;]void (^doSomething)(void) = ^ {\r\n    NSString *content = @&amp;quot;Some content&amp;quot;;\r\n    NSLog(@&amp;quot;The content is: '%@'&amp;quot;, content);\r\n};\r\n[\/java]\r\n&lt;p&gt;Dans l'exemple pr\u00e9c\u00e9dent, la d\u00e9claration de la variable de block indique que le type de retour est &lt;em&gt;void&lt;\/em&gt; tout comme le param\u00e8tre d'entr\u00e9e. Son nom est &lt;em&gt;doSomething&lt;\/em&gt;, il est pr\u00e9fix\u00e9 d'un caret &lt;em&gt;^&lt;\/em&gt; et se trouve entre parenth\u00e8ses.&lt;\/p&gt;\r\n[java gutter=&quot;true&quot;]void (^doSomething)(void)\r\n[\/java]\r\n&lt;p&gt;Comme indiqu\u00e9 pr\u00e9c\u00e9demment, les variables de block sont appelables comme des fonctions. il est ainsi possible d'ex\u00e9cuter le block d\u00e9clar\u00e9 via l'appel suivant:&lt;\/p&gt;\r\n[java gutter=&quot;true&quot;]doSomething();\r\n[\/java]\r\n&lt;p&gt;Un block \u00e9tant une closure, il a acc\u00e8s au contexte local dans lequel il est d\u00e9clar\u00e9, il est ainsi possible d'utiliser des variables du contexte local:&lt;\/p&gt;\r\n[java gutter=&quot;true&quot;]NSString *content = @&amp;quot;Some content&amp;quot;;\r\n\r\nvoid (^doSomething)(void) = ^ {\r\n    NSLog(@&amp;quot;The content is: '%@'&amp;quot;, content);\r\n};\r\n\r\ndoSomething();\r\n[\/java]\r\n&lt;p&gt;Lorsqu'un block a un type de retour , ou bien des param\u00e8tres d'entr\u00e9e diff\u00e9rents de &lt;em&gt;void&lt;\/em&gt;, la d\u00e9claration prend la forme suivante:&lt;\/p&gt;\r\n[java gutter=&quot;true&quot;]int (^Add)(int, int) = ^(int x, int y) {\r\n    return x + y;\r\n};\r\n[\/java]\r\n&lt;p&gt;Ici, la m\u00e9thode prend 2 entiers en entr\u00e9e, tandis qu'elle retourne un entier.&lt;\/p&gt;\r\n&lt;h4 id=&quot;UtilisationdesBlocksenObjective-C-Cr\u00e9ationdetypes&quot;&gt;Cr\u00e9ation de types&lt;\/h4&gt;\r\n&lt;p&gt;Il est tout \u00e0 fait possible de cr\u00e9er des types sp\u00e9cialis\u00e9s rempla\u00e7ant avantageusement les d\u00e9clarations verbeuses de blocks. Leur utilisation rend la lecture d'un code source plus claire.&lt;\/p&gt;\r\n&lt;p&gt;Ainsi, au lieu d'utiliser une signature de ce type:&lt;\/p&gt;\r\n[java gutter=&quot;true&quot;]- (void)loadDataWithParam: (NSString*)param \r\n                   onLoad:void(^DidLoadObjectsBlock)(NSArray *objects)\r\n                  onError:void(^DidFailWithErrorBlock)(NSError *error) {\r\n   ...\r\n}\r\n[\/java]\r\n&lt;p&gt;Vous pouvez d\u00e9clarer avantageusement les types de blocks suivants:&lt;\/p&gt;\r\n[java gutter=&quot;true&quot;]typedef void(^DidLoadObjectsBlock)(NSArray *objects);\r\ntypedef void(^DidFailWithErrorBlock)(NSError *error);\r\n[\/java]\r\n&lt;p&gt;Et les utiliser pour simplifier la d\u00e9claration pr\u00e9c\u00e9dente comme suit:&lt;\/p&gt;\r\n[java gutter=&quot;true&quot;]- (void)loadDataWithParam: (NSString*)param \r\n                   onLoad:(DidLoadObjectsBlock)loadBlock \r\n                  onError:(DidFailLoadWithErrorBlock)failBlock {\r\n   ...\r\n}\r\n[\/java]\r\n&lt;p&gt;La d\u00e9claration de types permet d'\u00e9viter la r\u00e9p\u00e9tition de d\u00e9clarations complexes, et donc permet d'\u00e9viter les erreurs de d\u00e9clarations. En outre, le refactoring de ce type de d\u00e9claration devient chose ais\u00e9e puisqu'il suffit de modifier la d\u00e9claration du type plut\u00f4t qu'un ensemble plus ou moins cons\u00e9quent de d\u00e9clarations de blocks \u00e9parpill\u00e9es dans le code.&lt;\/p&gt;\r\n&lt;h4 id=&quot;UtilisationdesBlocksenObjective-C-Gestiondelam\u00e9moire&quot;&gt;Gestion de la m\u00e9moire&lt;\/h4&gt;\r\n&lt;p&gt;La gestion de la m\u00e9moire des blocks n'est pas aussi triviale qu'il n'y para\u00eet. Ainsi si vous cr\u00e9ez un block dans une m\u00e9thode et que vous le retournez, sa zone m\u00e9moire aura \u00e9t\u00e9 allou\u00e9e sur la zone de la stack correspondant \u00e0 l'appel de la m\u00e9thode et non dans la m\u00e9moire heap.&lt;\/p&gt;\r\n&lt;p&gt;Lorsque vous retournez d'une m\u00e9thode qui a allou\u00e9 un block sur la stack, sa zone m\u00e9moire sera lib\u00e9r\u00e9e. Le pointeur du block retourn\u00e9 par la m\u00e9thode ne sera donc pas valide et provoquera selon toute vraisemblance une erreur de type &lt;em&gt;segfault&lt;\/em&gt;, ou bien vous travaillerez tout simplement avec une zone m\u00e9moire corrompue.&lt;\/p&gt;\r\n&lt;p&gt;Il est donc n\u00e9cessaire, si vous cr\u00e9ez et retournez un block depuis une m\u00e9thode d'appeler la m\u00e9thode\u00a0&lt;em&gt;copy&lt;\/em&gt; sur votre block afin de dupliquer sa zone m\u00e9moire depuis la stack vers la heap, et ainsi travailler avec une zone m\u00e9moire valide qui ne sera pas corrompue ou d\u00e9-allou\u00e9e.&lt;\/p&gt;\r\n&lt;p&gt;Il est bien entendu n\u00e9cessaire de releaser les blocks apr\u00e8s usage. Les block supportent d'ailleurs l'autorelease. Il est donc possible de retourner un block depuis une fonction apr\u00e8s l'avoir copi\u00e9 et marqu\u00e9 en autorelease:&lt;\/p&gt;\r\n[java gutter=&quot;true&quot;]typedef void(^SomeBlock)(void);\r\n@interface Logger : NSObject {\r\n NSString *level;\r\n}\r\n@end\r\n@implementation Logger\r\n-(SomeBlock)logMessage:(NSString*)message {\r\n return [[^ {\r\n  NSLog(@&amp;quot;%@: %@&amp;quot;, level, message);\r\n } copy] autorelease];\r\n}\r\n@end[\/java]\r\n&lt;p&gt;Avec l'arriv\u00e9e de l'Automatic Reference Counting (ARC), toute la gestion de la m\u00e9moire a \u00e9t\u00e9 simplifi\u00e9e. Cela vaut \u00e9galement pour les blocks. Il n'est donc plus n\u00e9cessaire de faire de copie ou bien de release explicite des blocks. Cependant, pour que le compilateur puisse savoir quoi faire, il faut \u00e9viter de d\u00e9clarer un block avec le type wildcard (&lt;em&gt;id&lt;\/em&gt;).&lt;\/p&gt;\r\n&lt;h4 id=&quot;UtilisationdesBlocksenObjective-C-Laconcurrence&quot;&gt;La concurrence&lt;\/h4&gt;\r\n&lt;p&gt;Parce que les blocks sont des objets portables et anonymes encapsulant du code pouvant \u00eatre ex\u00e9cut\u00e9 de fa\u00e7on asynchrone, ils sont une pi\u00e8ce centrale du Grand Central Dispatch (GCD) et de la classe &lt;a href=&quot;http:\/\/developer.apple.com\/library\/ios\/documentation\/Cocoa\/Reference\/NSOperationQueue_class\/Reference\/Reference.html#\/\/apple_ref\/occ\/cl\/NSOperationQueue&quot; rel=&quot;nofollow&quot;&gt;NSOperationQueue&lt;\/a&gt;, qui sont tous deux des technologies recommand\u00e9es pour le traitement concurrent. Ainsi, deux des fonctions centrales de GCD, &lt;a href=&quot;http:\/\/developer.apple.com\/library\/ios\/documentation\/Performance\/Reference\/GCD_libdispatch_Ref\/Reference\/reference.html#\/\/apple_ref\/c\/func\/dispatch_sync&quot; rel=&quot;nofollow&quot;&gt;dispatch_sync&lt;\/a&gt; et &lt;a href=&quot;http:\/\/developer.apple.com\/library\/ios\/documentation\/Performance\/Reference\/GCD_libdispatch_Ref\/Reference\/reference.html#\/\/apple_ref\/c\/func\/dispatch_async&quot; rel=&quot;nofollow&quot;&gt;dispatch_async&lt;\/a&gt; prennent en second argument un block.&lt;\/p&gt;\r\n&lt;h3 id=&quot;UtilisationdesBlocksenObjective-C-Conclusion&quot;&gt;Conclusion&lt;\/h3&gt;\r\n&lt;p&gt;Bien que les blocks soient une petite r\u00e9volution, ils continuent de cohabiter avec les diff\u00e9rents autres moyens mis \u00e0 disposition par le langage permettant de g\u00e9rer des \u00e9v\u00e9nements. Ils apportent n\u00e9anmoins claret\u00e9 et concision aux extraits de codes les exploitant. Associ\u00e9s aux derni\u00e8res \u00e9volutions sur les litt\u00e9raux, les blocks participent grandement \u00e0 moderniser le langage sans pour autant apporter de nouvelle complexit\u00e9. Ils repr\u00e9sentent un facteur de simplification de premier ordre lorsqu'ils sont appliqu\u00e9s au code existant en permettant de revoir diff\u00e9rents concepts avec beaucoup d'efficacit\u00e9.&lt;\/p&gt;\r\n&lt;h3 id=&quot;UtilisationdesBlocksenObjective-C-Liensutilesetsources&quot;&gt;Liens utiles et sources&lt;\/h3&gt;\r\n&lt;ul&gt;\r\n  &lt;li&gt;&lt;a href=&quot;http:\/\/pragmaticstudio.com\/blog\/2010\/7\/28\/ios4-blocks-1&quot; rel=&quot;nofollow&quot;&gt;http:\/\/pragmaticstudio.com\/blog\/2010\/7\/28\/ios4-blocks-1&lt;\/a&gt;&lt;\/li&gt;\r\n  &lt;li&gt;&lt;a href=&quot;http:\/\/mobiledevelopertips.com\/objective-c\/the-basics-of-protocols-and-delegates.html&quot; rel=&quot;nofollow&quot;&gt;http:\/\/mobiledevelopertips.com\/objective-c\/the-basics-of-protocols-and-delegates.html&lt;\/a&gt;&lt;\/li&gt;\r\n  &lt;li&gt;&lt;a href=&quot;https:\/\/developer.apple.com\/library\/mac\/#documentation\/Cocoa\/Conceptual\/ObjectiveC\/Chapters\/ocProtocols.html&quot; rel=&quot;nofollow&quot;&gt;https:\/\/developer.apple.com\/library\/mac\/#documentation\/Cocoa\/Conceptual\/ObjectiveC\/Chapters\/ocProtocols.html&lt;\/a&gt;&lt;\/li&gt;\r\n  &lt;li&gt;&lt;a href=&quot;http:\/\/developer.apple.com\/library\/ios\/#featuredarticles\/Short_Practical_Guide_Blocks\/_index.html&quot; rel=&quot;nofollow&quot;&gt;http:\/\/developer.apple.com\/library\/ios\/#featuredarticles\/Short_Practical_Guide_Blocks\/_index.html&lt;\/a&gt;&lt;\/li&gt;\r\n  &lt;li&gt;&lt;a href=&quot;http:\/\/thirdcog.eu\/pwcblocks\/&quot; rel=&quot;nofollow&quot;&gt;http:\/\/thirdcog.eu\/pwcblocks\/&lt;\/a&gt;&lt;\/li&gt;\r\n&lt;\/ul&gt;\r\n","excerpt":"","date":"2012-11-26 02:45:39","modified":"2012-11-26 02:51:53","categories":[{"id":265,"slug":"mobilite","title":"Mobilit\u00e9","description":"","parent":0,"post_count":18}],"tags":[{"id":815,"slug":"ios","title":"iOS","description":"","post_count":7},{"id":1141,"slug":"objective-c","title":"Objective-C","description":"","post_count":2},{"id":804,"slug":"xcode","title":"Xcode","description":"","post_count":4}],"author":{"id":50,"slug":"akinsella","name":"Alexis Kinsella","first_name":"Alexis","last_name":"Kinsella","nickname":"akinsella","url":"http:\/\/www.xebia.fr","description":""},"comments":[],"attachments":[{"id":12758,"url":"http:\/\/blog.xebia.fr\/wp-content\/uploads\/2012\/11\/new_hero20110308.png","slug":"new_hero20110308-png","title":"new_hero20110308.png","description":"","caption":"","parent":12759,"mime_type":"image\/png","images":{"full":{"url":"http:\/\/blog.xebia.fr\/wp-content\/uploads\/2012\/11\/new_hero20110308.png","width":239,"height":216},"thumbnail":{"url":"http:\/\/blog.xebia.fr\/wp-content\/uploads\/2012\/11\/new_hero20110308-150x150.png","width":150,"height":150},"medium":{"url":"http:\/\/blog.xebia.fr\/wp-content\/uploads\/2012\/11\/new_hero20110308.png","width":239,"height":216},"large":{"url":"http:\/\/blog.xebia.fr\/wp-content\/uploads\/2012\/11\/new_hero20110308.png","width":239,"height":216},"guest-author-32":{"url":"http:\/\/blog.xebia.fr\/wp-content\/uploads\/2012\/11\/new_hero20110308-32x32.png","width":32,"height":32},"guest-author-64":{"url":"http:\/\/blog.xebia.fr\/wp-content\/uploads\/2012\/11\/new_hero20110308-64x64.png","width":64,"height":64},"guest-author-96":{"url":"http:\/\/blog.xebia.fr\/wp-content\/uploads\/2012\/11\/new_hero20110308-96x96.png","width":96,"height":96},"guest-author-128":{"url":"http:\/\/blog.xebia.fr\/wp-content\/uploads\/2012\/11\/new_hero20110308-128x128.png","width":128,"height":128}}}],"comment_count":0,"comment_status":"open"};
+//               var json = {"id":11927,"type":"post","slug":"solution-du-quizz-java-8","url":"http:\/\/blog.xebia.fr\/2012\/07\/17\/solution-du-quizz-java-8\/","status":"publish","title":"Solution du Quizz Java 8","title_plain":"Solution du Quizz Java 8","content":"&lt;p&gt;La semaine derni\u00e8re, nous avons propos\u00e9 sur ce blog un &lt;a href=&quot;http:\/\/blog.xebia.fr\/2012\/07\/12\/quizz-java-8\/&quot; rel=&quot;nofollow&quot;&gt;quizz sp\u00e9cifique \u00e0 Java 8&lt;\/a&gt;. Au vu du comportement pr\u00e9vu pour Java 8 actuellement, la bonne r\u00e9ponse \u00e0 ce quizz est :&lt;\/p&gt;\r\n\r\n\r\n[java gutter=&quot;false&quot;]\r\nx2\r\nx2\r\n[\/java]\r\n\r\n\r\n&lt;p&gt;Retrouvez toutes les explications dans la suite du billet :&lt;\/p&gt;\r\n&lt;ul&gt;\r\n &lt;li&gt;OpenJdk 8 : comportement par d\u00e9faut&lt;\/li&gt;\r\n &lt;li&gt;Lambda, invokedynamic et metafactory&lt;\/li&gt;\r\n&lt;\/ul&gt;\r\n\r\n\r\n\r\n&lt;span id=&quot;more-11927&quot;&gt;&lt;\/span&gt;\r\n\r\n\r\n&lt;h3&gt;&lt;a name=&quot;SolutionduQuizzJava8-OpenJdk8%3Acomportementpard%C3%A9faut&quot;&gt;&lt;\/a&gt;OpenJdk 8 : comportement par d\u00e9faut&lt;\/h3&gt;\r\n\r\n&lt;p&gt;Pour le moment Java 8 n'est pas disponible. Seul l'OpenJDK 8 en cours de d\u00e9veloppement permet d'observer ce que sera Java 8. \u00c0 l'heure o\u00f9 ces lignes sont \u00e9crites (nous utilisons ici l'OpenJDK 8 24.0-b07), l'OpenJDK 8 affiche par d\u00e9faut :&lt;\/p&gt;\r\n\r\n\r\n[java gutter=&quot;false&quot;]\r\nx1\r\nx2\r\n[\/java]\r\n\r\n\r\n&lt;p&gt;En effet, par d\u00e9faut, la lambda expression () -&amp;gt; { System.out.println(&quot;X&quot;); } est directement traduite par une inner classe anonyme. Pour rappel, nous avions une m\u00e9thode &lt;code&gt;makeX&lt;\/code&gt; :&lt;\/p&gt;\r\n\r\n\r\n[java gutter=&quot;true&quot;]\r\nprivate static X makeX() {\r\n    return () -&amp;gt; { System.out.println(&amp;quot;X&amp;quot;); };\r\n}\r\n[\/java]\r\n\r\n\r\n&lt;p&gt;Par d\u00e9faut, elle est traduite en :&lt;\/p&gt;\r\n\r\n\r\n[java gutter=&quot;true&quot;]\r\nprivate static X makeX() {\r\n    return new X() {\r\n         @Override\r\n         public void run() {\r\n              System.out.println(&amp;quot;X&amp;quot;);\r\n         }\r\n    }\r\n}\r\n[\/java]\r\n\r\n\r\n&lt;p&gt;On peut l'observer en affichant directement &lt;code&gt;x1.toString()&lt;\/code&gt; et &lt;code&gt;x2.toString()&lt;\/code&gt; :&lt;\/p&gt;\r\n\r\n\r\n[java gutter=&quot;false&quot;]\r\nYourTestClass$1@30ae8764\r\nYourTestClass$1@123acf34\r\n[\/java]\r\n\r\n\r\n&lt;p&gt;Chaque appel \u00e0 &lt;code&gt;makeX&lt;\/code&gt; g\u00e9n\u00e8re donc une nouvelle instance d'une classe anonyme. Si vous regardez le r\u00e9pertoire contenant les binaires Java (ie. &lt;code&gt;*.class&lt;\/code&gt;), le compilateur vous a g\u00e9n\u00e9r\u00e9 le fichier &lt;code&gt;YourTestClass$1.class&lt;\/code&gt;.&lt;\/p&gt;\r\n\r\n&lt;h3&gt;&lt;a name=&quot;SolutionduQuizzJava8-Lambda%2Cinvokedynamicetmetafactory&quot;&gt;&lt;\/a&gt;Lambda, invokedynamic et metafactory&lt;\/h3&gt;\r\n\r\n&lt;p&gt;Toutefois, dans l'OpenJDK 8, le compilateur &lt;code&gt;javac&lt;\/code&gt; propose l'option &lt;code&gt;-XDlambdaToMethod&lt;\/code&gt;. Cette option vous permet d'activer le comportement \u00e0 terme de la traduction des lambdas expressions. En activant cette option et en relan\u00e7ant le programme, nous obtenons la bonne r\u00e9ponse du Quizz. Si nous nous amusons \u00e0 afficher directement &lt;code&gt;x1.toString()&lt;\/code&gt; et &lt;code&gt;x2.toString()&lt;\/code&gt;, nous obtenons :&lt;\/p&gt;\r\n\r\n\r\n[java gutter=&quot;false&quot;]\r\nYourTestClass$$Lambda$1@5506d4ea\r\nYourTestClass$$Lambda$1@5506d4ea\r\n[\/java]\r\n\r\n\r\n&lt;p&gt;Chaque appel \u00e0 &lt;code&gt;makeX&lt;\/code&gt; semble fournir un singleton provenant d'une m\u00eame inner classe anonyme \u00e9trangement nomm\u00e9e. N\u00e9anmoins, si vous regardez le r\u00e9pertoire de destination des binaires Java (en ayant soigneusement supprim\u00e9 tous les fichiers &lt;code&gt;*.class&lt;\/code&gt; avant d'effectuer la compilation), vous ne trouverez pas de fichier &lt;code&gt;YourTestClass$$Lambda$1.class&lt;\/code&gt; dans vos r\u00e9pertoires.&lt;\/p&gt;\r\n\r\n&lt;h4&gt;&lt;a name=&quot;SolutionduQuizzJava8-Compilation&quot;&gt;&lt;\/a&gt;Compilation&lt;\/h4&gt;\r\n\r\n&lt;p&gt;La traduction de la lambda expression n'est pas vraiment faite au moment de la compilation. En r\u00e9alit\u00e9, elle est r\u00e9partie entre la phase de compilation et le runtime. Le compilateur va placer au niveau de la lambda expression une instruction qui a \u00e9t\u00e9 r\u00e9cemment ajout\u00e9e \u00e0 la JVM : la fameuse instruction &lt;code&gt;invokedynamic&lt;\/code&gt; de la &lt;a href=&quot;http:\/\/jcp.org\/en\/jsr\/detail?id=292&quot; rel=&quot;nofollow&quot;&gt;JSR292&lt;\/a&gt;. Cette instruction est accompagn\u00e9e de toutes les m\u00e9ta-informations n\u00e9cessaires \u00e0 la traduction de la lambda expression au runtime. Cela inclut le nom de la m\u00e9thode \u00e0 appeler, ses types d'entr\u00e9e et de sortie, ainsi qu'une m\u00e9thode appel\u00e9e &lt;em&gt;bootstrap&lt;\/em&gt;. Le &lt;em&gt;bootstrap&lt;\/em&gt; a pour r\u00f4le de d\u00e9finir l'instance sur laquelle la m\u00e9thode sera appel\u00e9e, lorsque la JVM ex\u00e9cute l'instruction &lt;code&gt;invokedynamic&lt;\/code&gt;. Dans la cadre d'une lambda expression, Java fait appel \u00e0 une m\u00e9thode de &lt;em&gt;bootstrap&lt;\/em&gt; particuli\u00e8re appel\u00e9 &lt;em&gt;lambda metafactory&lt;\/em&gt;.&lt;\/p&gt;\r\n\r\n&lt;p&gt;Pour en revenir \u00e0 notre Quizz, le corps de la lambda expression est converti en m\u00e9thode priv\u00e9e static. Ainsi, () -&amp;gt; { System.out.println(&quot;X&quot;); } est convertie dans YourTestClass en :&lt;\/p&gt;\r\n\r\n\r\n[java gutter=&quot;true&quot;]\r\nprivate static void lambda$0() {\r\n    System.out.println(&amp;quot;X&amp;quot;);\r\n}\r\n[\/java]\r\n\r\n\r\n&lt;p&gt;Vous pouvez l'observer si vous utilisez le d\u00e9compilateur javap (fournit avec le JDK) avec l'option -private. Quand \u00e0 la m\u00e9thode &lt;code&gt;makeX&lt;\/code&gt;, en lieu et place de la lambda expression, vous trouverez l'instruction &lt;code&gt;invokedynamic&lt;\/code&gt; avec notamment la r\u00e9f\u00e9rence sur un constructeur d'une classe bas\u00e9e sur &lt;code&gt;X&lt;\/code&gt;.&lt;\/p&gt;\r\n\r\n&lt;h4&gt;&lt;a name=&quot;SolutionduQuizzJava8-Runtime&quot;&gt;&lt;\/a&gt;Runtime&lt;\/h4&gt;\r\n\r\n&lt;p&gt;Lorsque vous lancez le programme, d\u00e8s que la JVM tente d'interpr\u00e9ter l'instruction &lt;code&gt;invokedynamic&lt;\/code&gt; pour la premi\u00e8re fois, la JVM va faire appel \u00e0 la &lt;em&gt;lambda metafactory&lt;\/em&gt;, dont nous avons parl\u00e9 pr\u00e9c\u00e9demment. Dans notre exemple, lors du premier appel \u00e0 &lt;code&gt;makeX&lt;\/code&gt;, la &lt;em&gt;lambda metafactory&lt;\/em&gt; g\u00e9n\u00e8re une instance de &lt;code&gt;X&lt;\/code&gt; et lie dynamiquement la m\u00e9thode &lt;code&gt;run&lt;\/code&gt; \u00e0 la m\u00e9thode &lt;code&gt;lambda$0&lt;\/code&gt;. Cette instance est alors conserv\u00e9e en m\u00e9moire. Au second appel \u00e0 &lt;code&gt;makeX&lt;\/code&gt;, l'instance est restitu\u00e9e. Il s'agit par cons\u00e9quent de la m\u00eame instance qu'au premier appel.&lt;\/p&gt;\r\n\r\n&lt;h3&gt;&lt;a name=&quot;SolutionduQuizzJava8-Conclusion&quot;&gt;&lt;\/a&gt;Conclusion&lt;\/h3&gt;\r\n\r\n&lt;p&gt;L'utilisation d'une lambda expression dans notre exemple fait que la relation x1 == x2 est v\u00e9rifi\u00e9e. Tout du moins, il s'agit du comportement \u00e0 terme de Java 8.&lt;\/p&gt;\r\n\r\n&lt;p&gt;Ainsi, dans le cadre de Java 8, il peut \u00eatre dangereux d'utiliser des mixins comme celui d\u00e9fini dans notre &lt;a href=&quot;http:\/\/blog.xebia.fr\/2012\/07\/12\/quizz-java-8\/&quot; rel=&quot;nofollow&quot;&gt;quizz de la semaine derni\u00e8re&lt;\/a&gt; ou comme celui que nous avons pr\u00e9sent\u00e9 dans notre article sur les &lt;a href=&quot;http:\/\/blog.xebia.fr\/2011\/10\/05\/les-methodes-virtuelles-dextension-dans-java-8\/&quot; rel=&quot;nofollow&quot;&gt;m\u00e9thodes virtuelles d'extension&lt;\/a&gt;.&lt;\/p&gt;\r\n\r\n&lt;h3&gt;&lt;a name=&quot;SolutionduQuizzJava8-R%C3%A9f%C3%A9rences&quot;&gt;&lt;\/a&gt;R\u00e9f\u00e9rences&lt;\/h3&gt;\r\n\r\n&lt;ul&gt;\r\n &lt;li&gt;R\u00e9mi Forax. &quot;JSR 292 Cookbook&quot;. &lt;a href=&quot;http:\/\/www.oracle.com\/technetwork\/java\/javase\/community\/jvmls2011-sessions-461516.html&quot; rel=&quot;nofollow&quot;&gt;JVM Language Summit 2011&lt;\/a&gt;.\r\n&lt;a href=&quot;http:\/\/wiki.jvmlangsummit.com\/images\/9\/93\/2011_Forax.pdf&quot; rel=&quot;nofollow&quot;&gt;http:\/\/wiki.jvmlangsummit.com\/images\/9\/93\/2011_Forax.pdf&lt;\/a&gt;&lt;\/li&gt;\r\n &lt;li&gt;Brian Goetz. &quot;Translation of Lambda Expressions&quot;. Avril 2012.\r\n&lt;a href=&quot;http:\/\/cr.openjdk.java.net\/~briangoetz\/lambda\/lambda-translation.html&quot; rel=&quot;nofollow&quot;&gt;http:\/\/cr.openjdk.java.net\/~briangoetz\/lambda\/lambda-translation.html&lt;\/a&gt;&lt;\/li&gt;\r\n&lt;\/ul&gt;\r\n\r\n\r\n","excerpt":"","date":"2012-07-17 15:02:55","modified":"2012-07-17 15:07:49","categories":[{"id":9,"slug":"java-jee","title":"Java \/ JEE","description":"","parent":0,"post_count":343}],"tags":[{"id":934,"slug":"java-8","title":"Java 8","description":"","post_count":7},{"id":1096,"slug":"mixins","title":"Mixins","description":"","post_count":2},{"id":245,"slug":"openjdk","title":"OpenJDK","description":"","post_count":15}],"author":{"id":68,"slug":"fsarradin","name":"Fran\u00e7ois Sarradin","first_name":"Fran\u00e7ois","last_name":"Sarradin","nickname":"Fsarradin","url":"http:\/\/kerflyn.wordpress.com\/","description":"Consultant Java et \u03bb d\u00e9veloppeur.\r\n\r\nBlog personnel : http:\/\/kerflyn.wordpress.com\/\r\nTwitter : @fsarradin"},"comments":[{"id":252856,"name":"Duff","url":"","date":"2012-07-18 08:29:42","content":"&lt;p&gt;Merci pour cette article, par contre je me demande le comportement de la Jvm en cas de (forte) concurrence. Y aura t il toujours qu&amp;rsquo;une seul instance? La lambda metafactory est elle propre a ta thread ou \u00e0 ta jvm?&lt;\/p&gt;\n","parent":0},{"id":253909,"name":"doanduyhai","url":"http:\/\/doanduyhai;wordpress.com","date":"2012-07-19 15:03:38","content":"&lt;p&gt;Tr\u00e8s int\u00e9ressant comme r\u00e9sultat !&lt;\/p&gt;\n","parent":0},{"id":255471,"name":"Fran\u00e7ois Sarradin","url":"http:\/\/kerflyn.wordpress.com\/","date":"2012-07-21 20:12:50","content":"&lt;p&gt;@Duff: d&amp;rsquo;apr\u00e8s le code de l&amp;rsquo;OpenJDK 8, ce que renvoit la lambda metafactory est un &lt;code&gt;ConstantCallSite&lt;\/code&gt; (&lt;a href=&quot;http:\/\/docs.oracle.com\/javase\/7\/docs\/api\/java\/lang\/invoke\/ConstantCallSite.html&quot; rel=&quot;nofollow&quot;&gt;http:\/\/docs.oracle.com\/javase\/7\/docs\/api\/java\/lang\/invoke\/ConstantCallSite.html&lt;\/a&gt;). J&amp;rsquo;ignore pour le moment quelle garantie d&amp;rsquo;unicit\u00e9 offre ce call site. Mais au dire de Brian Goetz, l&amp;rsquo;unicit\u00e9 n&amp;rsquo;est en fait pas garantie. Le &lt;em&gt;runtime&lt;\/em&gt; fournit \u00e0 sa &amp;laquo;&amp;nbsp;discr\u00e9tion&amp;nbsp;&amp;raquo; ce qui est le plus efficace. Tout ce que vous devez savoir c&amp;rsquo;est que vous obtiendrez quelque chose qui impl\u00e9mente la bonne interface &lt;img src=&#039;http:\/\/blog.xebia.fr\/wp-includes\/images\/smilies\/icon_wink.gif&#039; alt=&#039;;)&#039; class=&#039;wp-smiley&#039; \/&gt; &lt;\/p&gt;\n&lt;p&gt;En apart\u00e9 : l&amp;rsquo;option &lt;code&gt;-XDlambdaToMethod&lt;\/code&gt; sera activ\u00e9e par d\u00e9faut d\u00e8s que le code de l&amp;rsquo;OpenJDK 8 sera transf\u00e9r\u00e9 dans le JDK.&lt;\/p&gt;\n","parent":252856,"author":{"id":68,"slug":"fsarradin","name":"Fran\u00e7ois Sarradin","first_name":"Fran\u00e7ois","last_name":"Sarradin","nickname":"Fsarradin","url":"http:\/\/kerflyn.wordpress.com\/","description":"Consultant Java et \u03bb d\u00e9veloppeur.\r\n\r\nBlog personnel : http:\/\/kerflyn.wordpress.com\/\r\nTwitter : @fsarradin"}}],"attachments":[],"comment_count":3,"comment_status":"open"};
+//               onLoad(json);
+//           });
+       </script>
+
+       <script id="post-header-template" type="text/x-handlebars-template">
+
+           <div id="post-header-title">
+               <h1>{{post.title}}</h1>
            </div>
-       {{/with}}
-   </script>
+
+           <div id="post-header-body">
+               <div id="post-author-images-content">
+                   <ul id="post-author-images">
+                       <li data-id="{{post.id}}">
+                           <img id="post-author-image" src="image/avatar/xebia-avatar.png" />
+                       </li>
+                   </ul>
+               </div>
+               <div id="post-header-body-content">
+                   <h1>{{post.author.first_name}} {{post.author.last_name}}</h1>
+                   <h2>Publié le : <em>{{modified}}</em></h2>
+                   <h2>
+                       Tags : <em><ul id="post-tags" style="display: inline;">
+                           {{#each post.tags}}
+                           <li style="display: inline;"><a href="wordpress://tag/{{this.slug}}">{{this.title}}</a></li>
+                           {{/each}}
+                       </ul></em>
+                   </h2>
+               </div>
+           </div>
+
+       </script>
+
+       <script id="post-body-template" type="text/x-handlebars-template">
+           {{{content}}}
+       </script>
+
+       <script>
+           function prettifyCodeFragments(content) {
+
+               var languages = {
+                   'javascript': 'js',
+                   'java': 'java',
+                   'html': 'html',
+                   'scala': 'scala',
+                   'css': 'css',
+                   'sql': 'sql',
+                   'coffee': 'coffee',
+                   'coffeescript': 'coffee',
+                   'groovy': 'groovy',
+                   'shell': 'sh',
+                   'ruby': 'rb',
+                   'phyton': 'py',
+                   'dart': 'dart',
+                   'jruby': 'jruby',
+                   'clojure': 'cojure',
+                   'c': 'c',
+                   'cpp': 'cpp',
+                   'cs': 'cs',
+                   'objc': 'c',
+                   'obj-c': 'c',
+                   'erlang': 'erlang',
+                   'xml': 'xml',
+                   'xsl': 'xsl',
+                   'actionscript': 'js',
+                   'mxml': 'mxml'
+               };
+
+               _(languages).each(function (value, key) {
+
+                   var open = '<pre class="prettyprint linenums:1 gutter:false"><code class="lang-' + value + '" style="white-space: nowrap;">';
+                   var openWithGutter = '<pre class="prettyprint linenums gutter:true"><code class="lang-' + value + '" style="white-space: nowrap;">';
+                   var close = '</pre></code>';
+
+                   var openRegExp = new RegExp('\\[' + key + '\\]', 'g');
+                   var closeegExp = new RegExp('\\[\\/' + key + '\\]', 'g');
+
+                   content = content.replace(openRegExp, open).replace(closeegExp, close);
+
+                   openRegExp = new RegExp('\\[' + key + '\\ gutter=\\"false"\\]', 'g');
+                   closeegExp = new RegExp('\\[\\/' + key + '\\ gutter=\\"false\\"]', 'g');
+
+                   content = content.replace(openRegExp, open).replace(closeegExp, close);
+
+                   openRegExp = new RegExp('\\[' + key + '\\ gutter=\\"true"\\]', 'g');
+                   closeegExp = new RegExp('\\[\\/' + key + '\\ gutter=\\"true\\"]', 'g');
+
+                   content = content.replace(openRegExp, openWithGutter).replace(closeegExp, close);
+
+               });
+
+               return content;
+           }
+
+           function prettyLineReturns(html) {
+               html = html.replace("<br>", "<br />").replace("<br/>", "<br />");
+               html = html.replace(/(<br \/>)+/g, '<br />');
+               html = html.replace(/<p>\u00a0<\/p>/g, '');
+
+               return html;
+           }
+
+           if (typeof String.prototype.startsWith != 'function') {
+             // see below for better implementation!
+             String.prototype.startsWith = function (str){
+               return this.indexOf(str) == 0;
+             };
+           }
+
+           function prettifyImages(html) {
+               var htmlAsDom = $("<div/>");
+               htmlAsDom.html(html);
+
+               $("img", htmlAsDom).each(function() {
+                   var image = $($(this)[0]);
+
+                   if (isIOSBrowser()) {
+                       if (image.attr("src").startsWith("http") || image.attr("src").startsWith("https")) {
+                           var imageGUID = GUID();
+                           image.attr("data-guid", imageGUID);
+                           image.attr("data-src", "cid://img/" + imageGUID + "/" + encodeURIComponent(image.attr("src")));
+                           image.attr("src", "image/spacer.png");
+                           executeObjcCall(image.attr("data-src"));
+                       }
+                   }
+
+                   var floatValue = image.css("float");
+                   var windowWidth = $(window).width();
+                   if (floatValue == 'left' || floatValue == 'right') {
+                       image.css("max-width", "33%");
+                   }
+                   else {
+                       image.css("max-width", "90%");
+                   }
+                   image.removeAttr("vspace");
+                   image.css("margin", "10px");
+                   image.css("border", "none");
+                   image.css("padding", "0");
+               });
+
+               var html = htmlAsDom.html();
+
+               return html;
+           }
+
+           function GUID ()
+           {
+               var S4 = function ()
+               {
+                   return Math.floor(
+                           Math.random() * 0x10000 /* 65536 */
+                       ).toString(16);
+               };
+
+               var guid = (
+                                      S4() + S4() + "-" +
+                                      S4() + "-" +
+                                      S4() + "-" +
+                                      S4() + "-" +
+                                      S4() + S4() + S4()
+                                  );
+
+               return guid;
+           }
+
+           function htmlDecode(value) {
+               var html = $('<div/>').html(value).text();
+//                 html = html.replace(/\r\n|\r|\n/g, '');
+
+               html = prettifyCodeFragments(html);
+               html = prettyLineReturns(html);
+
+               return html;
+           }
+
+           function onImageLoaded(id, src) {
+               $("img[data-guid='" + id + "']").attr("src", src);
+               console.log("Src: " + src + ", id: " + id);
+           }
+
+           function prettifyGravatar(id, author) {
+               if(isIOSBrowser()) {
+                   var image = $($('img#' + id)[0]);
+
+                   var imageGUID = GUID();
+                   image.attr("data-guid", imageGUID);
+                   image.attr("data-src", "cid://gravatar/" + imageGUID + "/" + encodeURIComponent(author.slug + "@xebia.fr"));
+                   image.attr("src", "image/spacer.png");
+
+                   executeObjcCall(image.attr("data-src"));
+               }
+
+//               if ("Xebia France" == author.nickname) {
+//                   return "image/avatar/xebia-avatar.png";
+//               }
+//
+//               var md5Hash = md5(author.nickname + '@xebia.fr', false, false);
+//               var prettifyGravatar = 'http://www.gravatar.com/avatar/' + md5Hash + '?s=' + (size || 80);
+//               console.log("Nickname: " + author.nickname);
+//               console.log("prettifyGravatar: " + prettifyGravatar);
+//               return prettifyGravatar;
+           }
+
+           function executeObjcCall(statement) {
+               var iframe = document.createElement("IFRAME");
+               iframe.setAttribute("src", statement);
+               document.documentElement.appendChild(iframe);
+               iframe.parentNode.removeChild(iframe);
+               iframe = null;
+           }
+
+       </script>
+
+   </body>
 
 </html>

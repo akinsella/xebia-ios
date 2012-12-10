@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html>
+   <head>
+       <title>Post Details</title>
+       <meta charset="UTF-8">
+       <script src="javascript/lib/zepto/zepto-1.0-rc1.min.js"></script>
+       <script src="javascript/lib/handlebars/handlebars-1.0.beta6.js"></script>
+       <script src="javascript/lib/underscore/underscore-1.3.1.min.js"></script>
+       <script src="javascript/lib/moment/moment-1.7.2.min.js"></script>
+       <script src="javascript/md5.js"></script>
+       <link rel="stylesheet" href="css/styles.css">
+   </head>
+   <body>
+
+       <div id="body-content">
+
+       </div>
+
+       <script>
+
+
+           // Debug
+           console = new Object();
+           console.log = function(log) {
+           //   location.href = "ios-log://" + log;
+           };
+
+           console.debug = console.log;
+           console.info = console.log;
+           console.warn = console.log;
+           console.error = console.log;
+
+           var jsonPost;
+
+           function onLoad(data) {
+               jsonPost = data;
+               applyTemplate('#post-template', '#body-content', {
+                   post: jsonPost,
+                   gravatarUrl: gravatarUrl(jsonPost.author, 44),
+                   content: htmlDecode(jsonPost.content)
+               });
+           }
+
+           function applyTemplate(templateId, targetId, data) {
+               var source = $(templateId).html();
+               var template = Handlebars.compile(source);
+               var html = template(data);
+               $(targetId).html(html);
+           }
+
+           $(document).ready(function() {
+               onLoad({
+                   "id":12828,
+                   "excerpt":"",
+                   "title":"Vert.x - La boîte à outils",
+                   "tags":[
+                       {
+                           "title":"Vert.x",
+                           "id":1073,
+                           "description":"",
+                           "post_count":3,
+                           "slug":"vert-x"
+                       }
+                   ],
+                   "type":"post",
+                   "url":"http://blog.xebia.fr/2012/12/05/vert-x-la-boite-a-outils/",
+                   "slug":"vert-x-la-boite-a-outils",
+                   "comment_count":5,
+                   "title_plain":"Vert.x - La boîte à outils",
+                   "comment_status":"open",
+                   "categories":[
+                       {
+                           "title":"Java / JEE",
+                           "id":9,
+                           "description":"",
+                           "parent":0,
+                           "slug":"java-jee",
+                           "post_count":343
+                       }
+                   ],
+                   "modified":"2012-12-05 07:23:59 +0000",
+                   "author":{
+                       "url":"http://www.xebia.fr",
+                       "description":"",
+                       "id":40,
+                       "name":"Guillaume Arnaud",
+                       "first_name":"Guillaume",
+                       "slug":"garnaud",
+                       "last_name":"Arnaud",
+                       "nickname":"garnaud",
+                       "avatarUrl":"image/avatar/garnaud.jpg"
+                   },
+                   "content":"<p> En mai de cette année, <a href=\"http://vertx.io/\" rel=\"nofollow\">Vert.x</a> a fait son entrée dans le monde des serveurs asynchrones. <a href=\"https://twitter.com/timfox\" rel=\"nofollow\">Tim Fox</a>, le créateur, a pour ambition de fournir un système à la fois polyglotte et scalable tout en proposant un modèle concurrentiel simple.</p>\n\n<h3 id=\"Vert.x-Laboîteàoutils-Restonspolyglottes\">Restons polyglottes</h3>\n <p>Il s’agit bien ici de parler plusieurs langages : Java, Groovy, Javascript, Coffeescript, Ruby et Python. En ce qui concerne Java, c’est tout naturel pour une application construite autour du framework asynchrone <a href=\"https://netty.io/\" rel=\"nofollow\">Netty</a>. Et quand on parle Java, Groovy coule de source. Pour avoir testé le framework essentiellement avec ce dernier, on a apprécié la richesse fonctionnelle associée à la productivité de Groovy. S’agissant de Javascript, Vert.x a été clairement conçu pour venir concurrencer Node.js ; Tim Fox a d’ailleurs publié un <a href=\"http://vertxproject.wordpress.com/2012/05/09/vert-x-vs-node-js-simple-http-benchmarks/\" rel=\"nofollow\">benchmark </a>qui a généré beaucoup de commentaires. Ruby et Python s’appuient sur les librairies JRuby et Jython et positionnent Vert.x à l’intersection de plusieurs communautés.</p>\n<h3 id=\"Vert.x-Laboîteàoutils-Del’ULMauquadri-moteur \">De l’ULM au quadri-moteur</h3>\n<p>En plus de rajouter une couche de simplification vis-à-vis de Netty, Vert.x apporte toute une variété de fonctionnalités qui, mises bout à bout, confèrent une grande cohérence au modèle. Tout comme Node.js, Vert.x applique le pattern <a href=\"http://en.wikipedia.org/wiki/Reactor_pattern\" rel=\"nofollow\">reactor</a>, les tâches à traiter sont effectuées sur un même thread qui dispatche ensuite la réponse. On parle même de pattern multi-reactor, car en réalité Vert.x est capable de gérer plusieurs event loops à la demande, mettant à profit le nombre de processeurs à disposition. On nomme verticle chacune de ces boucles. Ce modèle impose qu’aucune action ne soit bloquante dans le thread principal, au risque de ralentir tout le monde. Dans la vraie vie ce n’est pas toujours possible, ne serait-ce que pour accéder à un module de persistance. Dans ce cas, Vert.x s’inspire du pattern Actor, popularisé par Erlang et Scala entre autres (Akka a été une des sources d’inspiration de Vert.x). Un message est publié dans un bus d’évènements, ce message sera traité par un <em>worker</em>, géré dans un pool de threads dédié. Un handler traitera la réponse dans le thread principal. Dans la suite de cet article nous allons balayer les différentes fonctionnalités importantes. Il ne s’agit pas réellement d’un tutorial, pour cela le site (<a href=\"http://vertx.io\" rel=\"nofollow\">http://vertx.io</a>) de Vert.x est très bien fait, mais plutôt d’une visite guidée.</p>\n <a href=\"http://blog.xebia.fr/2012/12/05/vert-x-la-boite-a-outils/#more-12828\" class=\"more-link\">Read more</a>",
+                   "date":"2012-12-05 05:30:40 +0000",
+                   "status":"publish"
+               });
+           });
+
+          /* ,{
+               "url":"http://www.xebia.fr",
+                       "description":"",
+                       "id":32,
+                       "name":"Gilles Mantel",
+                       "first_name":"Gilles",
+                       "slug":"gmantel",
+                       "last_name":"Mantel",
+                       "nickname":"gmantel",
+                       "avatarUrl":"image/avatar/gmantel.jpg"
+           }
+           */
+       </script>
+
+       <script id="post-body-header-content-template" type="text/x-handlebars-template">
+           <h1>{{author.first_name}} {{author.last_name}}</h1>
+           <h2>Publié le : <em>{{modified}}</em></h2>
+           <h2>
+               Tags : <em><ul style="display: inline;">
+                   {{#each tags}}
+                   <li style="display: inline;">{{this.title}}</li>
+                   {{/each}}
+               </ul></em>
+           </h2>
+       </script>
+
+       <script id="post-template" type="text/x-handlebars-template">
+           <div id="post">
+               <div id="post-header">
+                   <h1 id="post-title">{{post.title}}</h1>
+               </div>
+               <div id="post-body">
+                   <div id="post-body-header">
+                       <ul id="post-author-images">
+                           <li data-id="{{post.id}}">
+                               <img src="{{gravatarUrl}}" />
+                           </li>
+                       </ul>
+                       <div id="post-body-header-content">
+                       </div>
+                   </div>
+               </div>
+               <div id="post-content">{{{content}}}</div>
+
+           </div>
+       </script>
+
+       <script>
+           function htmlDecode(value){
+               return value;
+           }
+
+           function gravatarUrl(author, size) {
+               var md5Hash = md5(author.nickname + '@xebia.fr', false, false);
+               var gravatarUrl = 'http://www.gravatar.com/avatar/' + md5Hash + '?s=' + (size || 80);
+               console.log("Nickname: " + author.nickname);
+               console.log("gravatarUrl: " + gravatarUrl);
+               return gravatarUrl;
+           }
+
+           function selectAuthor(authorElt) {
+               var authorId = Number($(authorElt).attr("data-id"));
+               $("#post-author-images li").removeClass("selected");
+               $(authorElt).addClass("selected");
+
+               applyTemplate('#post-body-header-content-template', '#post-body-header-content', {
+                   author: jsonPost.author,
+                   modified: moment(jsonPost.modified, "YYYY-MM-DD").format("DD/MM/YYYY"),
+                   tags: jsonPost.tags
+               });
+           }
+
+           $(document).ready(function() {
+               selectAuthor($("#post-author-images li")[0]);
+               $("#post-author-images li").click(function() {
+                   selectAuthor(this);
+               });
+           });
+       </script>
+
+   </body>
+
+</html>

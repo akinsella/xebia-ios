@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "TTTAttributedLabel.h"
+#import <TTTAttributedLabel.h>
 
 @interface TTTweetTableViewController : UITableViewController<RKTableControllerDelegate, TTTAttributedLabelDelegate>
 

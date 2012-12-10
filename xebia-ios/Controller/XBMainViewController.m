@@ -13,6 +13,16 @@
 #import "RKTableItem+XKAdditions.h"
 #import "UIImageView+XBAdditions.h"
 #import "XBWebViewController.h"
+#import <RestKit/RestKit.h>
+#import "RKMIMETypes.h"
+#import "RKObjectSerializer.h"
+#import "RKMimeTypes.h"
+#import "WPPost.h"
+#import "JSONKit.h"
+#import "NSDictionary+RKRequestSerialization.h"
+#import "RKRequestSerialization.h"
+#import "XBShareInfo.h"
+
 
 // Enum for row indices
 enum {
@@ -99,12 +109,41 @@ enum {
     [frontViewController pushViewController:viewController animated:true];
 }
 
+-(void)openLocalURL:(NSString *)htmlFileRef withTitle:(NSString *)title object:(id)object shareInfo: (XBShareInfo *)shareInfo {
+    RKObjectMapping *serializationMapping = [[[RKObjectManager sharedManager] mappingProvider] serializationMappingForClass:[object class]];
+    RKObjectSerializer* serializer = [RKObjectSerializer serializerWithObject:object mapping:serializationMapping];
+    NSError* error = nil;
+    NSString *json = [serializer serializedObjectForMIMEType:RKMIMETypeJSON error:&error];
+
+    if (error) {
+        RKLogError(@"Serializing failed for source object %@ to MIME Type %@: %@", object, RKMIMETypeJSON, [error localizedDescription]);
+    } else {
+        [self openLocalURL:htmlFileRef withTitle:title json:json shareInfo:shareInfo];
+    }
+}
+
+-(void)openLocalURL:(NSString *)htmlFileRef withTitle:(NSString *)title json:(NSString *)json shareInfo: (XBShareInfo *)shareInfo
+ {
+    XBWebViewController *webViewController = (XBWebViewController *)[self.viewControllerManager getOrCreateControllerWithIdentifier: @"webview"];
+    UINavigationController *frontViewController = (UINavigationController *) self.revealController.frontViewController;
+
+     webViewController.title = title;
+     webViewController.shareInfo = shareInfo;
+     webViewController.json = json;
+    [frontViewController pushViewController:webViewController animated:true];
+
+     NSString *htmlFile = [[NSBundle mainBundle] pathForResource:htmlFileRef ofType:@"html" inDirectory:@"www"];
+     NSURL *htmlDocumentUrl = [NSURL fileURLWithPath:htmlFile];
+    [webViewController.webView loadRequest:[NSURLRequest requestWithURL:htmlDocumentUrl]];
+}
+
 -(void)openURL:(NSURL *)url withTitle:(NSString *)title {
     XBWebViewController *webViewController = (XBWebViewController *)[self.viewControllerManager getOrCreateControllerWithIdentifier: @"webview"];
     UINavigationController *frontViewController = (UINavigationController *) self.revealController.frontViewController;
     [frontViewController pushViewController:webViewController animated:true];
     webViewController.title = title;
-    [webViewController.webView loadRequest:[NSURLRequest requestWithURL:url]];
+    
+    [webViewController.webView loadRequest:[NSURLRequest requestWithURL: url]];
 }
 
 -(void)revealViewControllerWithIdentifier:(NSString *)identifier {

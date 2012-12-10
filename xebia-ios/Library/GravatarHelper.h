@@ -12,5 +12,6 @@
 @interface GravatarHelper : NSObject
 + (NSURL*) getGravatarURL:(NSString *) emailAddress;
 + (NSURL*) getGravatarURLWithGravatarId:(NSString *) gravatarId;
++ (NSString*)getMd5:(NSString*)data;
 
 @end

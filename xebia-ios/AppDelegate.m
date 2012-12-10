@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "XBSharekitSupport.h"
 #import "XBRestkitSupport.h"
 #import "ZUUIRevealController.h"
 #import "XBMainViewController.h"
@@ -28,6 +29,10 @@ static NSString* const DeviceTokenKey = @"DeviceToken";
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
 
+    #if (TARGET_IPHONE_SIMULATOR)
+        [NSClassFromString(@"WebView") performSelector:@selector(_enableRemoteInspector)];
+    #endif
+
     if (launchOptions != nil)
 	{
 		NSDictionary* dictionary = [launchOptions objectForKey:UIApplicationLaunchOptionsRemoteNotificationKey];
@@ -39,6 +44,8 @@ static NSString* const DeviceTokenKey = @"DeviceToken";
 	}
     
     [[NSUserDefaults standardUserDefaults] registerDefaults: @{ @"0" : DeviceTokenKey }];
+    
+    [XBSharekitSupport configure];
     
     [XBRestkitSupport configure];
 
@@ -110,8 +117,7 @@ static NSString* const DeviceTokenKey = @"DeviceToken";
             }
         };
         
-        request.onDidFailLoadWithError = ^(NSError *error)
-        {
+        request.onDidFailLoadWithError = ^(NSError *error) {
             NSLog(@"Device was registered by server as expected: %@", error);
         };
     }];

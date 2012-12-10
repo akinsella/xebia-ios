@@ -82,4 +82,21 @@
     return mapping;
 }
 
++ (RKObjectMapping *)mappingForOne {
+    RKObjectMapping *mapping = [RKObjectMapping mappingForClass:[self class] usingBlock:^(RKObjectMapping *mapping) {
+        mapping.rootKeyPath = @"post";
+        [mapping mapAttributes:@"type", @"slug", @"url", @"status", @"title", @"title_plain", @"content", @"excerpt", @"date", @"modified", @"comment_count", @"comment_status", nil];
+        [mapping mapKeyPathsToAttributes:
+                @"id", @"identifier",
+                nil];
+    }];
+
+    // Relationships
+    [mapping hasMany:@"tags" withMapping:[WPTag mapping]];
+    [mapping hasMany:@"categories" withMapping:[WPCategory mapping]];
+    [mapping hasMany:@"author" withMapping:[WPAuthor mapping]];
+
+    return mapping;
+}
+
 @end

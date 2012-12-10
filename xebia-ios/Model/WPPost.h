@@ -47,5 +47,6 @@ typedef enum {
 } POST_TYPE;
 
 + (RKObjectMapping *)mapping;
++ (RKObjectMapping *)mappingForOne;
 
 @end

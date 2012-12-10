@@ -10,6 +10,7 @@
 #import <RestKit/UI.h>
 #import "XBRevealController.h"
 #import "XBViewControllerManager.h"
+#import "XBShareInfo.h"
 
 @interface XBMainViewController : UITableViewController
 
@@ -22,5 +23,9 @@
 - (void)revealViewController:(UIViewController *)controller;
 
 -(void)openURL:(NSURL *)url withTitle:(NSString *)title;
+
+-(void)openLocalURL:(NSString *)htmlFileRef withTitle:(NSString *)title object:(id)object shareInfo:(XBShareInfo *)shareInfo;
+
+-(void)openLocalURL:(NSString *)htmlFileRef withTitle:(NSString *)title json:(NSString *)object shareInfo: (XBShareInfo *)shareInfo;
 
 @end

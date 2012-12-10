@@ -7,9 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "XBShareInfo.h"
+#import "SDWebImageManagerDelegate.h"
 
-@interface XBWebViewController : UIViewController<UIWebViewDelegate>
+@interface XBWebViewController : UIViewController<UIWebViewDelegate, SDWebImageManagerDelegate>
 
 @property (nonatomic, retain) IBOutlet UIWebView *webView;
+@property (nonatomic, retain) NSString *json;
+@property (nonatomic, retain) XBShareInfo *shareInfo;
 
 @end
