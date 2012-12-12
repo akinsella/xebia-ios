@@ -1,30 +1,21 @@
 //
-//  GHUser.m
-//  xebia-ios
+// Created by akinsella on 13/12/12.
 //
-//  Created by Alexis Kinsella on 24/07/12.
-//  Copyright (c) 2012 Xebia France. All rights reserved.
+// To change the template use AppCode | Preferences | File Templates.
 //
 
-#import "GHUser.h"
+
+#import <RestKit/RestKit.h>
+#import "GHOwner.h"
 #import "GravatarHelper.h"
 
-@implementation GHUser
+@implementation GHOwner
 
 - (NSURL *)avatarImageUrl {
     NSLog(@"User: %@", self );
     return self.gravatar_id != nil ?
-        [GravatarHelper getGravatarURLWithGravatarId: self.gravatar_id] :
-        [NSURL URLWithString: self.avatar_url];
-}
-
-- (NSString *)description_ {
-    if (self.location != nil) {
-        return [NSString stringWithFormat:@"%@ - %@ follower%@", self.location, self.followers, self.followers.intValue > 1 ? @"s" : @""];
-    }
-    else {
-        return [NSString stringWithFormat:@"%@ follower%@", self.followers, self.followers.intValue > 1 ? @"s" : @""];
-    }
+            [GravatarHelper getGravatarURLWithGravatarId: self.gravatar_id] :
+            [NSURL URLWithString: self.avatar_url];
 }
 
 + (RKObjectMapping *)mapping {
@@ -40,4 +31,3 @@
 }
 
 @end
-

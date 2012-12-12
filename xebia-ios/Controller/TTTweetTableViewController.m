@@ -42,7 +42,7 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
 
-    [self.tableController loadTableFromResourcePath:@"/twitter/user/XebiaFR"];
+    [self.tableController loadTableFromResourcePath:@"/twitter/timeline"];
 }
 
 - (void)viewDidLoad {

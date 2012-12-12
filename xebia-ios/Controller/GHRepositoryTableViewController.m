@@ -44,7 +44,7 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    [self.tableController loadTableFromResourcePath:@"/github/orgs/xebia-france/repos"];
+    [self.tableController loadTableFromResourcePath:@"/github/repositories"];
 }
 
 - (void)configure {

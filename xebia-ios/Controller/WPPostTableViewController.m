@@ -55,12 +55,12 @@
     self.postType = pPostType;
     self.identifier = pIdentifier;
 
-    self.postTypes = [[NSMutableDictionary alloc] initWithObjectsAndKeys:
-                @"recent",  [NSNumber asString:RECENT],
-                @"author", [NSNumber asString: AUTHOR],
-                @"tag", [NSNumber asString: TAG],
-                @"category", [NSNumber asString: CATEGORY],
-                nil];
+    self.postTypes = @{
+        [NSNumber asString:RECENT], @"recent",
+        [NSNumber asString:AUTHOR], @"author",
+        [NSNumber asString:TAG], @"tag",
+        [NSNumber asString:CATEGORY], @"category"
+    };
 }
 
 - (void)viewDidLoad
@@ -73,9 +73,9 @@
 {
     [super viewWillAppear:animated];
 
-    NSString *resourcePath = self.identifier ?
-            [NSString stringWithFormat: @"/wordpress/get_%@_posts/?id=%@", [self getCurrentPostType], self.identifier] :
-            [NSString stringWithFormat: @"/wordpress/get_%@_posts/?count=25", [self getCurrentPostType]];
+    NSString *resourcePath = [[self getCurrentPostType] isEqualToString:@"recent"] ?
+        @"/wordpress/recent/posts?count=25" :
+        [NSString stringWithFormat:@"/wordpress/%@/posts?id=%@", [self getCurrentPostType], self.identifier];
 
     [self.tableController loadTableFromResourcePath:resourcePath];
 }

@@ -39,7 +39,7 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    [self.tableController loadTableFromResourcePath:@"/github/orgs/xebia-france/public_members"];
+    [self.tableController loadTableFromResourcePath:@"/github/users"];
 }
 
 - (void)viewDidLoad {

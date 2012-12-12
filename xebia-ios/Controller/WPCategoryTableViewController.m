@@ -41,7 +41,7 @@ static NSString *const reuseIdentifier = @"WPCategory";
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    [self.tableController loadTableFromResourcePath:@"/wordpress/get_category_index/"];
+    [self.tableController loadTableFromResourcePath:@"/wordpress/categories"];
 }
 
 - (void)configure {

@@ -44,7 +44,7 @@ static NSString *const reuseIdentifier = @"WPTag";
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
 
-    [self.tableController loadTableFromResourcePath:@"/wordpress/get_tag_index/"];
+    [self.tableController loadTableFromResourcePath:@"/wordpress/tags"];
 }
 
 - (void)configure {

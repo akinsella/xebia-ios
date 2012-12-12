@@ -7,21 +7,24 @@
 //
 
 #import "GHRepository.h"
+#import "GHOwner.h"
 
 @implementation GHRepository
 
 + (RKObjectMapping *)mapping {
     RKObjectMapping *mapping = [RKObjectMapping mappingForClass:[self class] usingBlock:^(RKObjectMapping *mapping) {
-        [mapping mapAttributes: @"text", @"language", /* @"pushed_at", */ /*@"created_at",*/ @"forks", @"mirror_url", @"has_wiki", @"clone_url", @"watchers", @"ssh_url", /* @"updated_at" ,*/ @"open_issues", @"git_url", @"has_issues", @"html_url", /* @"watchers_count",*/ @"size", @"fork", @"full_name", @"forks_count", @"has_downloads", @"svn_url", @"name", @"url", @"open_issues_count", @"homepage", nil];
+        [mapping mapAttributes:
+                        @"name", @"full_name", @"language", @"html_url", @"homepage",
+                        @"has_wiki", @"has_issues", @"has_downloads", @"fork", @"watchers", @"forks",
+                        @"open_issues", @"size", @"pushed_at", @"created_at", @"updated_at", nil];
         [mapping mapKeyPathsToAttributes:
                 @"id", @"identifier",
                 @"description", @"description_",
-                @"private", @"private_",
                 nil];
     }];
 
     // Relationships
-    [mapping hasMany:@"owner" withMapping:[GHUser mapping]];
+    [mapping hasMany:@"owner" withMapping:[GHOwner mapping]];
 
     return mapping;
 }

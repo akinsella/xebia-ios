@@ -40,7 +40,7 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    [self.tableController loadTableFromResourcePath:@"/event/list"];
+    [self.tableController loadTableFromResourcePath:@"/eventbrite/events"];
 }
 
 - (void)viewDidLoad {
