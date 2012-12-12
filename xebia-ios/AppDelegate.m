@@ -107,7 +107,7 @@ static NSString* const DeviceTokenKey = @"DeviceToken";
 
 - (void)sendProviderDeviceToken:(NSString *)deviceToken {
     NSString* jsonBody = [NSString stringWithFormat: @"{\"udid\":\"%@\",\"token\":\"%@\"}", [self udid], deviceToken];
-    [[RKClient clientWithBaseURLString:@"http://192.168.1.10:9000/"] post:@"/api/notification/register" usingBlock:^(RKRequest *request) {
+    [[RKClient clientWithBaseURLString:@"http://dev.xebia.fr:9000/"] post:@"/api/ios/notification/register" usingBlock:^(RKRequest *request) {
         request.params = [RKRequestSerialization serializationWithData:[jsonBody dataUsingEncoding:NSUTF8StringEncoding] MIMEType:RKMIMETypeJSON];
         request.onDidLoadResponse = ^(RKResponse *response){
             if (response.statusCode > 299) {
