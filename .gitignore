@@ -37,6 +37,7 @@ devoxx-proxy/node_modules
 .settings
 tags
 dump
+build_*
 
 #Redis
 nodejs-xebia-mobile-proxy/application/dump.rdb
