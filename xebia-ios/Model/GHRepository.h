@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "GHUser.h"
+#import "GHOwner.h"
 
 @interface GHRepository : NSObject
 
@@ -28,8 +28,12 @@
 @property (nonatomic, strong) NSDate *pushed_at;
 @property (nonatomic, strong) NSDate *created_at;
 @property (nonatomic, strong) NSDate *updated_at;
+@property (nonatomic, strong) GHOwner *owner;
+
 
 + (RKObjectMapping *)mapping;
+
+@property (nonatomic, strong, readonly) NSString *description_;
 
 @end
 

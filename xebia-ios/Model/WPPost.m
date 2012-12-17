@@ -34,7 +34,7 @@
 }
 
 - (NSString *)description_ {
-    return [NSString stringWithFormat:@"%@ commentaire%@", self.comment_count, self.comment_count.intValue > 1 ? @"s" :@"" ];
+    return [NSString stringWithFormat:@"%@ commentaire%@", self.commentCount, self.commentCount.intValue > 1 ? @"s" :@"" ];
 //    NSRange range = {0, MIN([self.excerpt length], 255)};
 //    NSRange rangeOfComposedCharacterSequences = [self.excerpt rangeOfComposedCharacterSequencesForRange: range];
 //    return [NSString stringWithFormat:@"%@ ...", [self.excerpt substringWithRange:rangeOfComposedCharacterSequences] ];
@@ -67,8 +67,8 @@
 
 + (RKObjectMapping *)mapping {
     RKObjectMapping *mapping = [RKObjectMapping mappingForClass:[self class] usingBlock:^(RKObjectMapping *mapping) {
-        mapping.rootKeyPath = @"posts";
-        [mapping mapAttributes:@"type", @"slug", @"url", @"status", @"title", @"title_plain", @"content", @"excerpt", @"date", @"modified", @"comment_count", @"comment_status", nil];
+//        mapping.rootKeyPath = @"posts";
+        [mapping mapAttributes:@"type", @"slug", @"url", @"status", @"title", @"titlePlain", @"content", @"excerpt", @"date", @"modified", @"commentCount", @"commentStatus", nil];
         [mapping mapKeyPathsToAttributes:
                 @"id", @"identifier",
                 nil];
@@ -84,8 +84,8 @@
 
 + (RKObjectMapping *)mappingForOne {
     RKObjectMapping *mapping = [RKObjectMapping mappingForClass:[self class] usingBlock:^(RKObjectMapping *mapping) {
-        mapping.rootKeyPath = @"post";
-        [mapping mapAttributes:@"type", @"slug", @"url", @"status", @"title", @"title_plain", @"content", @"excerpt", @"date", @"modified", @"comment_count", @"comment_status", nil];
+//        mapping.rootKeyPath = @"post";
+        [mapping mapAttributes:@"type", @"slug", @"url", @"status", @"title", @"titlePlain", @"content", @"excerpt", @"date", @"modified", @"commentCount", @"commentStatus", nil];
         [mapping mapKeyPathsToAttributes:
                 @"id", @"identifier",
                 nil];

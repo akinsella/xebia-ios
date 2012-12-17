@@ -21,7 +21,7 @@
 		540C092315C58C5700615B00 /* Default-Portrait~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 540C092215C58C5700615B00 /* Default-Portrait~ipad.png */; };
 		540C092515C58C5A00615B00 /* Default-Portrait@2x~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 540C092415C58C5A00615B00 /* Default-Portrait@2x~ipad.png */; };
 		54308F9115FFD48200F16EB4 /* UIColorTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 54308F9015FFD48200F16EB4 /* UIColorTest.m */; };
-		5432CAF415F3AE4A00412BDC /* GHUserTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5432CAF315F3AE4A00412BDC /* GHUserTableViewController.m */; };
+		5432CAF415F3AE4A00412BDC /* GHOwnerTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5432CAF315F3AE4A00412BDC /* GHOwnerTableViewController.m */; };
 		5432CAF815F3B09B00412BDC /* GHUserCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5432CAF615F3B09B00412BDC /* GHUserCell.m */; };
 		5432CAF915F3B09B00412BDC /* GHUserCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5432CAF715F3B09B00412BDC /* GHUserCell.xib */; };
 		5433340B15EA5E2E007AC690 /* menu.png in Resources */ = {isa = PBXBuildFile; fileRef = 5433340915EA5E2E007AC690 /* menu.png */; };
@@ -94,6 +94,7 @@
 		548564F31628B63100388EA9 /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 548564F21628B63100388EA9 /* CoreText.framework */; };
 		548564F91628C13F00388EA9 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 548564F81628C13F00388EA9 /* Default-568h@2x.png */; };
 		54862BDD16713FA6001A54BE /* Lobster.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 54862BDC16713FA6001A54BE /* Lobster.ttf */; };
+		54862BF8167E8F33001A54BE /* GHOwnerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 54862BF7167E8F33001A54BE /* GHOwnerCell.xib */; };
 		5496961A15F7BE4300BD1E70 /* menu-btn.png in Resources */ = {isa = PBXBuildFile; fileRef = 5496961815F7BE4100BD1E70 /* menu-btn.png */; };
 		5496961B15F7BE4300BD1E70 /* menu-btn@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5496961915F7BE4200BD1E70 /* menu-btn@2x.png */; };
 		5496962215F7E4EE00BD1E70 /* homeview.png in Resources */ = {isa = PBXBuildFile; fileRef = 5496962015F7E4EB00BD1E70 /* homeview.png */; };
@@ -173,6 +174,7 @@
 		DB34D31F43808E3D3BAC5791 /* EBEventTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34D4BCAF95EF93FA46DFEB /* EBEventTableViewController.m */; };
 		DB34D379E55AEDAE9C5C3FDA /* EBEventCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DB34DD55D5BC7C448FDE1C8F /* EBEventCell.xib */; };
 		DB34D454336B59400C068044 /* TTEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34DCE1BDCEB48937F3C353 /* TTEntity.m */; };
+		DB34D4AAA85D936EB5ED3855 /* GHOwnerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34DA77559D8D43F58BFFD4 /* GHOwnerCell.m */; };
 		DB34D51E6CB20D506BD0702D /* TTHashtagEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34DC4A49554BC91B3F5686 /* TTHashtagEntity.m */; };
 		DB34D580536DA60C6BD70DAE /* NSNumber+XBAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34DB490E75A8DE23774368 /* NSNumber+XBAdditions.m */; };
 		DB34D6BA04A77078B3A8ADBF /* TTUserMentionEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34DFE697E1B43FA9DEFEC8 /* TTUserMentionEntity.m */; };
@@ -216,8 +218,8 @@
 		540C092415C58C5A00615B00 /* Default-Portrait@2x~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Portrait@2x~ipad.png"; sourceTree = "<group>"; };
 		54308F8F15FFD48200F16EB4 /* UIColorTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIColorTest.h; sourceTree = "<group>"; };
 		54308F9015FFD48200F16EB4 /* UIColorTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIColorTest.m; sourceTree = "<group>"; };
-		5432CAF215F3AE4A00412BDC /* GHUserTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GHUserTableViewController.h; sourceTree = "<group>"; };
-		5432CAF315F3AE4A00412BDC /* GHUserTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GHUserTableViewController.m; sourceTree = "<group>"; };
+		5432CAF215F3AE4A00412BDC /* GHOwnerTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GHOwnerTableViewController.h; sourceTree = "<group>"; };
+		5432CAF315F3AE4A00412BDC /* GHOwnerTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GHOwnerTableViewController.m; sourceTree = "<group>"; };
 		5432CAF515F3B09B00412BDC /* GHUserCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GHUserCell.h; sourceTree = "<group>"; };
 		5432CAF615F3B09B00412BDC /* GHUserCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GHUserCell.m; sourceTree = "<group>"; };
 		5432CAF715F3B09B00412BDC /* GHUserCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GHUserCell.xib; sourceTree = "<group>"; };
@@ -321,6 +323,7 @@
 		548564F21628B63100388EA9 /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
 		548564F81628C13F00388EA9 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		54862BDC16713FA6001A54BE /* Lobster.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Lobster.ttf; sourceTree = "<group>"; };
+		54862BF7167E8F33001A54BE /* GHOwnerCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GHOwnerCell.xib; sourceTree = "<group>"; };
 		5496961815F7BE4100BD1E70 /* menu-btn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "menu-btn.png"; sourceTree = "<group>"; };
 		5496961915F7BE4200BD1E70 /* menu-btn@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "menu-btn@2x.png"; sourceTree = "<group>"; };
 		5496962015F7E4EB00BD1E70 /* homeview.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = homeview.png; sourceTree = "<group>"; };
@@ -422,6 +425,7 @@
 		DB34D4BCAF95EF93FA46DFEB /* EBEventTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EBEventTableViewController.m; sourceTree = "<group>"; };
 		DB34D4BF128361ED826DEEA5 /* EBEventCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EBEventCell.m; sourceTree = "<group>"; };
 		DB34D4CDA49EC859D49E82B8 /* WPPostCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WPPostCell.m; sourceTree = "<group>"; };
+		DB34D52C517DAEA9926E3EA4 /* GHOwnerCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GHOwnerCell.h; sourceTree = "<group>"; };
 		DB34D5341324A3A620923384 /* NSDateFormatter+XBAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDateFormatter+XBAdditions.m"; sourceTree = "<group>"; };
 		DB34D54D067749E7B31FD258 /* TTRetweetedStatus.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTRetweetedStatus.h; sourceTree = "<group>"; };
 		DB34D6ABE8DD69804FD1209D /* EBOrganizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EBOrganizer.h; sourceTree = "<group>"; };
@@ -432,6 +436,7 @@
 		DB34D89482FE01F4B98C0B0C /* EBEvent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EBEvent.m; sourceTree = "<group>"; };
 		DB34D98F60516B2AA418357A /* TTHashtagEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTHashtagEntity.h; sourceTree = "<group>"; };
 		DB34D9F47ADA9772B32A4EF4 /* EBVenue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EBVenue.h; sourceTree = "<group>"; };
+		DB34DA77559D8D43F58BFFD4 /* GHOwnerCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GHOwnerCell.m; sourceTree = "<group>"; };
 		DB34DAFC921F4EC44602113E /* EBVenue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EBVenue.m; sourceTree = "<group>"; };
 		DB34DB490E75A8DE23774368 /* NSNumber+XBAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSNumber+XBAdditions.m"; sourceTree = "<group>"; };
 		DB34DBB7151A59B19EE4CF5A /* TTEntities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTEntities.m; sourceTree = "<group>"; };
@@ -507,6 +512,9 @@
 				DB34D430510F687289EA3CB8 /* EBEventCell.h */,
 				DB34D4BF128361ED826DEEA5 /* EBEventCell.m */,
 				DB34DD55D5BC7C448FDE1C8F /* EBEventCell.xib */,
+				DB34D52C517DAEA9926E3EA4 /* GHOwnerCell.h */,
+				DB34DA77559D8D43F58BFFD4 /* GHOwnerCell.m */,
+				54862BF7167E8F33001A54BE /* GHOwnerCell.xib */,
 				5432CAF515F3B09B00412BDC /* GHUserCell.h */,
 				5432CAF615F3B09B00412BDC /* GHUserCell.m */,
 				5432CAF715F3B09B00412BDC /* GHUserCell.xib */,
@@ -722,8 +730,8 @@
 				DB34DEED8EC9BFDDB4164F08 /* XBViewControllerManager.m */,
 				546F35E015F281D500945466 /* GHRepositoryTableViewController.h */,
 				546F35E115F281D500945466 /* GHRepositoryTableViewController.m */,
-				5432CAF215F3AE4A00412BDC /* GHUserTableViewController.h */,
-				5432CAF315F3AE4A00412BDC /* GHUserTableViewController.m */,
+				5432CAF215F3AE4A00412BDC /* GHOwnerTableViewController.h */,
+				5432CAF315F3AE4A00412BDC /* GHOwnerTableViewController.m */,
 				546F35F015F2C21400945466 /* GHTabBarController.h */,
 				546F35F115F2C21500945466 /* GHTabBarController.m */,
 				5433345D15EC2EFA007AC690 /* WPTabBarController.h */,
@@ -1032,6 +1040,7 @@
 				54652C31166E9F9400765A62 /* SHKSharers.plist in Resources */,
 				DB34DA6C928EA9F01F0F8A9F /* styles.bak in Resources */,
 				54862BDD16713FA6001A54BE /* Lobster.ttf in Resources */,
+				54862BF8167E8F33001A54BE /* GHOwnerCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1117,7 +1126,7 @@
 				546F35E215F281D600945466 /* GHRepositoryTableViewController.m in Sources */,
 				546F35EE15F2BBEA00945466 /* GHRepositoryCell.m in Sources */,
 				546F35F215F2C21600945466 /* GHTabBarController.m in Sources */,
-				5432CAF415F3AE4A00412BDC /* GHUserTableViewController.m in Sources */,
+				5432CAF415F3AE4A00412BDC /* GHOwnerTableViewController.m in Sources */,
 				5432CAF815F3B09B00412BDC /* GHUserCell.m in Sources */,
 				54BB39F015F8E8DB009AB219 /* UIStoryboard+XBAdditions.m in Sources */,
 				54975A4E15FD250800C29F6C /* UIViewController+XBAdditions.m in Sources */,
@@ -1149,6 +1158,7 @@
 				54652C27166D64AE00765A62 /* XBSHKConfigurator.m in Sources */,
 				54652C34166FF5A700765A62 /* XBShareInfo.m in Sources */,
 				DB34D044D8E35DBF98E169AC /* GHOwner.m in Sources */,
+				DB34D4AAA85D936EB5ED3855 /* GHOwnerCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

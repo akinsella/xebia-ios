@@ -31,8 +31,8 @@ NSString* const XBErrorDomain = @"fr.xebia.ErrorDomain";
 }
 
 + (void)configureLoggers {
-    RKLogConfigureByName("RestKit/*", RKLogLevelWarning);
-//    RKLogConfigureByName("RestKit/*", RKLogLevelTrace);
+//    RKLogConfigureByName("RestKit/*", RKLogLevelWarning);
+    RKLogConfigureByName("RestKit/*", RKLogLevelTrace);
     
     
 //    RKLogConfigureByName("RestKit/UI", RKLogLevelError);
@@ -62,8 +62,8 @@ NSString* const XBErrorDomain = @"fr.xebia.ErrorDomain";
 
 + (void)configureObjectManager {
 
-//    RKObjectManager *objectManager = [RKObjectManager managerWithBaseURLString:@"http://dev.xebia.fr:8000/"];
-    RKObjectManager *objectManager = [RKObjectManager managerWithBaseURLString:@"http://xebia-mobile-backend.cloudfoundry.com/"];
+    RKObjectManager *objectManager = [RKObjectManager managerWithBaseURLString:@"http://dev.xebia.fr:9000/api"];
+//    RKObjectManager *objectManager = [RKObjectManager managerWithBaseURLString:@"http://xebia-mobile-backend.cloudfoundry.com/api"];
     objectManager.client.cachePolicy = RKRequestCachePolicyNone;
 //    objectManager.client.requestCache.storagePolicy = RKRequestCacheStoragePolicyPermanently;
     objectManager.client.requestQueue.showsNetworkActivityIndicatorWhenBusy = YES;
@@ -84,10 +84,10 @@ NSString* const XBErrorDomain = @"fr.xebia.ErrorDomain";
     [omp setObjectMapping:ghRepositoryObjectMapping forResourcePathPattern:@"/github/repositories"];
     [omp setSerializationMapping:[ghRepositoryObjectMapping inverseMapping] forClass:[GHRepository class]];
 
-    RKObjectMapping *ghUserMapping = [GHUser mapping];
-    [omp addObjectMapping:ghUserMapping];
-    [omp setObjectMapping:ghUserMapping forResourcePathPattern:@"/github/users"];
-    [omp setSerializationMapping:[ghUserMapping inverseMapping] forClass:[GHUser class]];
+    RKObjectMapping *ghOwnerMapping = [GHOwner mapping];
+    [omp addObjectMapping:ghOwnerMapping];
+    [omp setObjectMapping:ghOwnerMapping forResourcePathPattern:@"/github/owners"];
+    [omp setSerializationMapping:[ghOwnerMapping inverseMapping] forClass:[GHOwner class]];
 
     RKObjectMapping *wpCategoryMapping = [WPCategory mapping];
     [omp addObjectMapping:wpCategoryMapping];

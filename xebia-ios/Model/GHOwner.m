@@ -20,7 +20,7 @@
 
 + (RKObjectMapping *)mapping {
     RKObjectMapping *mapping = [RKObjectMapping mappingForClass:[self class] usingBlock:^(RKObjectMapping *mapping) {
-        [mapping mapAttributes: @"created_at", @"type", @"bio", @"login", @"public_gists", @"email", @"gravatar_id", @"public_repos", @"html_url", @"followers", @"avatar_url", @"name", @"url", @"name", @"url", @"company", @"hireable", @"following", @"blog", @"location", nil];
+        [mapping mapAttributes: @"login", @"gravatar_id", @"avatar_url", nil];
         [mapping mapKeyPathsToAttributes:
                 @"id", @"identifier",
                 nil];

@@ -55,12 +55,12 @@
     self.postType = pPostType;
     self.identifier = pIdentifier;
 
-    self.postTypes = @{
-        [NSNumber asString:RECENT], @"recent",
-        [NSNumber asString:AUTHOR], @"author",
-        [NSNumber asString:TAG], @"tag",
-        [NSNumber asString:CATEGORY], @"category"
-    };
+    self.postTypes = [@{
+        [NSNumber asString:RECENT]: @"recent",
+        [NSNumber asString:AUTHOR]: @"author",
+        [NSNumber asString:TAG]: @"tag",
+        [NSNumber asString:CATEGORY]: @"category"
+    } mutableCopy];
 }
 
 - (void)viewDidLoad
@@ -74,7 +74,7 @@
     [super viewWillAppear:animated];
 
     NSString *resourcePath = [[self getCurrentPostType] isEqualToString:@"recent"] ?
-        @"/wordpress/recent/posts?count=25" :
+        @"/wordpress/posts/recent?count=25" :
         [NSString stringWithFormat:@"/wordpress/%@/posts?id=%@", [self getCurrentPostType], self.identifier];
 
     [self.tableController loadTableFromResourcePath:resourcePath];
@@ -108,7 +108,7 @@
     cellMapping.cellClassName = @"WPPostCell";
     cellMapping.reuseIdentifier = @"WPPost";
     cellMapping.rowHeight = 102.0;
-    [cellMapping mapKeyPath:@"title_plain" toAttribute:@"titleLabel.text"];
+    [cellMapping mapKeyPath:@"titlePlain" toAttribute:@"titleLabel.text"];
     [cellMapping mapKeyPath:@"description_" toAttribute:@"excerptLabel.text"];
     [cellMapping mapKeyPath:@"dateFormatted" toAttribute:@"dateLabel.text"];
     [cellMapping mapKeyPath:@"tagsFormatted" toAttribute:@"tagsLabel.text"];
@@ -122,7 +122,7 @@
 
         WPCategory *postCategory = [post.categories objectAtIndex:0];
 
-        NSString *postUrl = [NSString stringWithFormat:@"/wordpress/get_post/%@", post.identifier];
+        NSString *postUrl = [NSString stringWithFormat:@"/wordpress/post/%@", post.identifier];
 
 //        XBLoadingView *loadingView = [[XBLoadingView alloc] initWithFrame:CGRectMake(0, 0, 80, 80)];
 //        loadingView.center = self.tableView.center;

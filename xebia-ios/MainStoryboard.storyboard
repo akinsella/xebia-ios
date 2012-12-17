@@ -161,7 +161,7 @@
         <!--Github User Controller-->
         <scene sceneID="bYc-JS-vyV">
             <objects>
-                <tableViewController storyboardIdentifier="ghMembers" title="Members" id="2H0-MA-oyT" userLabel="Github User Controller" customClass="GHUserTableViewController" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="ghMembers" title="Members" id="2H0-MA-oyT" userLabel="Github User Controller" customClass="GHOwnerTableViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="uUY-c3-VsJ">
                         <rect key="frame" x="0.0" y="64" width="320" height="455"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -300,14 +300,14 @@
         <class className="EBEventTableViewController" superclassName="UITableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/EBEventTableViewController.h"/>
         </class>
+        <class className="GHOwnerTableViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/GHOwnerTableViewController.h"/>
+        </class>
         <class className="GHRepositoryTableViewController" superclassName="UITableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/GHRepositoryTableViewController.h"/>
         </class>
         <class className="GHTabBarController" superclassName="UITabBarController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/GHTabBarController.h"/>
-        </class>
-        <class className="GHUserTableViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/GHUserTableViewController.h"/>
         </class>
         <class className="TTTweetTableViewController" superclassName="UITableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/TTTweetTableViewController.h"/>

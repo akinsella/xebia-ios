@@ -19,13 +19,13 @@
 @property(nonatomic, strong) NSString *url;
 @property(nonatomic, strong) NSString *status;
 @property(nonatomic, strong) NSString *title;
-@property(nonatomic, strong) NSString *title_plain;
+@property(nonatomic, strong) NSString *titlePlain;
 @property(nonatomic, strong) NSString *content;
 @property(nonatomic, strong) NSString *excerpt;
 @property(nonatomic, strong) NSDate *date;
 @property(nonatomic, strong) NSDate *modified;
-@property(nonatomic, strong) NSNumber *comment_count;
-@property(nonatomic, strong) NSString *comment_status;
+@property(nonatomic, strong) NSNumber *commentCount;
+@property(nonatomic, strong) NSString *commentStatus;
 
 @property (nonatomic, strong, readonly) NSString *excerptTrim;
 @property (nonatomic, strong, readonly) NSString *dateFormatted;

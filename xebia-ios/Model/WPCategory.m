@@ -16,7 +16,7 @@
 
 + (RKObjectMapping *)mapping {
     RKObjectMapping *mapping = [RKObjectMapping mappingForClass:[self class] usingBlock:^(RKObjectMapping *mapping) {
-        mapping.rootKeyPath = @"categories";
+//        mapping.rootKeyPath = @"categories";
         [mapping mapAttributes:@"slug", @"title", @"parent", @"post_count", nil];
         [mapping mapKeyPathsToAttributes:
                 @"id", @"identifier",

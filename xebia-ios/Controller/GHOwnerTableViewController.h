@@ -1,5 +1,5 @@
 //
-//  GHUserTableViewController.h
+//  GHOwnerTableViewController.h
 //  xebia-ios
 //
 //  Created by Alexis Kinsella on 25/07/12.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface GHUserTableViewController : UITableViewController<RKTableControllerDelegate>
+@interface GHOwnerTableViewController : UITableViewController<RKTableControllerDelegate>
 
 @end

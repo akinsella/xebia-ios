@@ -1,5 +1,5 @@
 //
-//  GHUserTableViewController.m
+//  GHOwnerTableViewController.m
 //  xebia-ios
 //
 //  Created by Alexis Kinsella on 25/07/12.
@@ -8,30 +8,29 @@
 
 #import <RestKit/RestKit.h>
 #import <RestKit/UI.h>
-#import "GHUser.h"
-#import "GHUserTableViewController.h"
+#import "GHOwner.h"
+#import "GHOwnerTableViewController.h"
 #import "XBLoadingView.h"
 #import "SDImageCache.h"
 #import "SDWebImageManager.h"
-#import "GHUserCell.h"
 #import "UIImage+XBAdditions.h"
 #import "UIImageView+WebCache.h"
 #import "UIColor+XBAdditions.h"
 #import "UIScreen+XBAdditions.h"
-#import "GHUserCell.h"
+#import "GHOwnerCell.h"
 
-@interface GHUserTableViewController ()
+@interface GHOwnerTableViewController ()
 @property (nonatomic, strong) RKTableController *tableController;
 @property (nonatomic, strong) UIImage* defaultAvatarImage;
 @end
 
-@implementation GHUserTableViewController
+@implementation GHOwnerTableViewController
 
 - (id)init {
     self = [super init];
 
     if (self) {
-        self.title = @"Users";
+        self.title = @"Owners";
     }
 
     return self;
@@ -39,7 +38,7 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    [self.tableController loadTableFromResourcePath:@"/github/users"];
+    [self.tableController loadTableFromResourcePath:@"/github/owners"];
 }
 
 - (void)viewDidLoad {
@@ -60,21 +59,20 @@
 //    self.tableView.backgroundColor = [UIColor colorWithHex:@"#191919" alpha:1.0];
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
 
-    [self.tableView registerNib:[UINib nibWithNibName:@"GHUserCell" bundle:nil] forCellReuseIdentifier:@"GHUser"];
+    [self.tableView registerNib:[UINib nibWithNibName:@"GHOwnerCell" bundle:nil] forCellReuseIdentifier:@"GHOwner"];
 }
 
 - (RKTableViewCellMapping *)getCellMapping {
     RKTableViewCellMapping *cellMapping = [RKTableViewCellMapping cellMapping];
-    cellMapping.cellClassName = @"GHUserCell";
-    cellMapping.reuseIdentifier = @"GHUser";
+    cellMapping.cellClassName = @"GHOwnerCell";
+    cellMapping.reuseIdentifier = @"GHOwner";
 
-    [cellMapping mapKeyPath:@"name" toAttribute:@"titleLabel.text"];
-    [cellMapping mapKeyPath:@"description_" toAttribute:@"descriptionLabel.text"];
+    [cellMapping mapKeyPath:@"login" toAttribute:@"titleLabel.text"];
     [cellMapping mapKeyPath:@"identifier" toAttribute:@"identifier"];
 
-    cellMapping.heightOfCellForObjectAtIndexPath = ^ CGFloat(GHUser *user, NSIndexPath* indexPath) {
-        GHUserCell *userCell = (GHUserCell *)[[self tableController] tableView:self.tableView cellForRowAtIndexPath:indexPath];
-        return [userCell heightForCell];
+    cellMapping.heightOfCellForObjectAtIndexPath = ^ CGFloat(GHOwner *owner, NSIndexPath* indexPath) {
+        GHOwnerCell *ownerCell = (GHOwnerCell *)[[self tableController] tableView:self.tableView cellForRowAtIndexPath:indexPath];
+        return [ownerCell heightForCell];
     };
 
     return cellMapping;
@@ -101,14 +99,14 @@
     self.tableController.imageForError = [UIImage imageNamed:@"error.png"];
     self.tableController.imageForEmpty = [UIImage imageNamed:@"empty.png"];
 
-    [self.tableController mapObjectsWithClass:[GHUser class] toTableCellsWithMapping:[self getCellMapping]];
+    [self.tableController mapObjectsWithClass:[GHOwner class] toTableCellsWithMapping:[self getCellMapping]];
 }
 
 - (void)tableController:(RKAbstractTableController *)tableController
-        willDisplayCell:(GHUserCell *)userCell
-              forObject:(GHUser *)user
+        willDisplayCell:(GHOwnerCell *)ownerCell
+              forObject:(GHOwner *)owner
             atIndexPath:(NSIndexPath *)indexPath {
-    [userCell.imageView setImageWithURL:[user avatarImageUrl] placeholderImage:self.defaultAvatarImage];
+    [ownerCell.imageView setImageWithURL:[owner avatarImageUrl] placeholderImage:self.defaultAvatarImage];
 }
 
 - (void)didReceiveMemoryWarning{

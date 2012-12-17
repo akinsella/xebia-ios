@@ -1,5 +1,5 @@
 //
-//  GHUserTableViewController.m
+//  EBEventTableViewController.m
 //  xebia-ios
 //
 //  Created by Alexis Kinsella on 25/07/12.
