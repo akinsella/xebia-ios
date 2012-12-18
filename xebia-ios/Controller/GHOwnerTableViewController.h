@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface GHOwnerTableViewController : UITableViewController<RKTableControllerDelegate>
+@interface GHOwnerTableViewController : UITableViewController<UITableViewDelegate, UITableViewDataSource>
 
 @end

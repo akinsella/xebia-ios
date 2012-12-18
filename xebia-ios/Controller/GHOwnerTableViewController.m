@@ -14,13 +14,17 @@
 #import "SDImageCache.h"
 #import "SDWebImageManager.h"
 #import "UIImage+XBAdditions.h"
-#import "UIImageView+WebCache.h"
 #import "UIColor+XBAdditions.h"
 #import "UIScreen+XBAdditions.h"
 #import "GHOwnerCell.h"
+#import "SVPullToRefresh.h"
+#import "AFNetworking.h"
+#import "SVProgressHUD.h"
+//#import "UIImageView+AFNetworking.h"
+#import "UIImageView+WebCache.h"
 
 @interface GHOwnerTableViewController ()
-@property (nonatomic, strong) RKTableController *tableController;
+@property (nonatomic, strong) NSMutableArray *dataSource;
 @property (nonatomic, strong) UIImage* defaultAvatarImage;
 @end
 
@@ -38,7 +42,41 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    [self.tableController loadTableFromResourcePath:@"/github/owners"];
+
+    [self loadTableData];
+
+}
+
+- (void)loadTableData {
+
+/*
+    AFHTTPClient *client = [AFHTTPClient clientWithBaseURL:[NSURL URLWithString:@"http://xebia-mobile-backend.cloudfoundry.com/api"]];
+    NSURLRequest *request = [client requestWithMethod:@"GET" path:@"/github/owners" parameters:nil];
+    AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
+
+    [SVProgressHUD showWithStatus:@"Fetching users" maskType:SVProgressHUDMaskTypeBlack];
+    [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
+        [SVProgressHUD showSuccessWithStatus:@"Done!"];
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        [SVProgressHUD showErrorWithStatus:@"Got some issue!"];
+    }];
+*/
+
+    [SVProgressHUD showWithStatus:@"Fetching users" maskType:SVProgressHUDMaskTypeBlack];
+
+    [[RKObjectManager sharedManager] loadObjectsAtResourcePath:@"/github/owners" usingBlock:^(RKObjectLoader *loader) {
+
+        loader.onDidLoadObjects = ^(NSArray *objects) {
+            [SVProgressHUD showSuccessWithStatus:@"Done!"];
+            self.dataSource = [objects mutableCopy];
+            [self.tableView reloadData];
+        };
+
+        loader.onDidFailWithError = ^(NSError *error) {
+            [SVProgressHUD showErrorWithStatus:@"Got some issue!"];
+        };
+
+    }];
 }
 
 - (void)viewDidLoad {
@@ -49,8 +87,6 @@
 - (void)configure {
     self.defaultAvatarImage = [UIImage imageNamed:@"github-gravatar-placeholder"];
 
-    [self configureTableController];
-    [self configureRefreshTriggerView];
     [self configureTableView];
 }
 
@@ -60,58 +96,49 @@
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
 
     [self.tableView registerNib:[UINib nibWithNibName:@"GHOwnerCell" bundle:nil] forCellReuseIdentifier:@"GHOwner"];
-}
 
-- (RKTableViewCellMapping *)getCellMapping {
-    RKTableViewCellMapping *cellMapping = [RKTableViewCellMapping cellMapping];
-    cellMapping.cellClassName = @"GHOwnerCell";
-    cellMapping.reuseIdentifier = @"GHOwner";
-
-    [cellMapping mapKeyPath:@"login" toAttribute:@"titleLabel.text"];
-    [cellMapping mapKeyPath:@"identifier" toAttribute:@"identifier"];
-
-    cellMapping.heightOfCellForObjectAtIndexPath = ^ CGFloat(GHOwner *owner, NSIndexPath* indexPath) {
-        GHOwnerCell *ownerCell = (GHOwnerCell *)[[self tableController] tableView:self.tableView cellForRowAtIndexPath:indexPath];
-        return [ownerCell heightForCell];
-    };
-
-    return cellMapping;
-}
-
-- (void)configureRefreshTriggerView {
-    NSBundle *restKitResources = [NSBundle restKitResourcesBundle];
-    UIImage *arrowImage = [restKitResources imageWithContentsOfResource:@"blueArrow" withExtension:@"png"];
-    [[RKRefreshTriggerView appearance] setTitleFont:[UIFont fontWithName:@"HelveticaNeue-Bold" size:13]];
-    [[RKRefreshTriggerView appearance] setLastUpdatedFont:[UIFont fontWithName:@"HelveticaNeue" size:11]];
-    [[RKRefreshTriggerView appearance] setArrowImage:arrowImage];
-}
-
-- (void)configureTableController {
-    self.tableController = [[RKObjectManager sharedManager] tableControllerForTableViewController:self];
-
-    self.tableController.delegate = self;
-
-    self.tableController.autoRefreshFromNetwork = NO;
-    self.tableController.pullToRefreshEnabled = YES;
-    self.tableController.variableHeightRows = YES;
-
-    self.tableController.imageForOffline = [UIImage imageNamed:@"offline.png"];
-    self.tableController.imageForError = [UIImage imageNamed:@"error.png"];
-    self.tableController.imageForEmpty = [UIImage imageNamed:@"empty.png"];
-
-    [self.tableController mapObjectsWithClass:[GHOwner class] toTableCellsWithMapping:[self getCellMapping]];
-}
-
-- (void)tableController:(RKAbstractTableController *)tableController
-        willDisplayCell:(GHOwnerCell *)ownerCell
-              forObject:(GHOwner *)owner
-            atIndexPath:(NSIndexPath *)indexPath {
-    [ownerCell.imageView setImageWithURL:[owner avatarImageUrl] placeholderImage:self.defaultAvatarImage];
+    self.tableView.pullToRefreshView.arrowColor = [UIColor whiteColor];
+    self.tableView.pullToRefreshView.textColor = [UIColor whiteColor];
+    self.tableView.pullToRefreshView.activityIndicatorViewStyle = UIActivityIndicatorViewStyleWhite;
 }
 
 - (void)didReceiveMemoryWarning{
     NSLog(@"Did received a memory warning in controller: %@", [self class]);
     [super didReceiveMemoryWarning];
+}
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    return 1;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return self.dataSource.count;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+
+    static NSString *identifier = @"GHOwner";
+    GHOwnerCell *ownerCell = [self.tableView dequeueReusableCellWithIdentifier:identifier];
+
+    if (!ownerCell) {
+        // fix for rdar://11549999 (registerNib… fails on iOS 5 if VoiceOver is enabled)
+        ownerCell = [[[NSBundle mainBundle] loadNibNamed:identifier owner:self options:nil] objectAtIndex:0];
+    }
+
+    GHOwner *owner = [self.dataSource objectAtIndex:indexPath.row];
+    ownerCell.titleLabel.text = owner.login;
+    ownerCell.identifier = owner.identifier;
+
+
+    [ownerCell.imageView setImageWithURL:[owner avatarImageUrl] placeholderImage:self.defaultAvatarImage];
+
+    return ownerCell;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    GHOwnerCell *ownerCell =  (GHOwnerCell *)[self tableView:tableView cellForRowAtIndexPath:indexPath];
+
+    return [ownerCell heightForCell];
 }
 
 @end

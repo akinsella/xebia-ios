@@ -31,8 +31,8 @@ NSString* const XBErrorDomain = @"fr.xebia.ErrorDomain";
 }
 
 + (void)configureLoggers {
-//    RKLogConfigureByName("RestKit/*", RKLogLevelWarning);
-    RKLogConfigureByName("RestKit/*", RKLogLevelTrace);
+    RKLogConfigureByName("RestKit/*", RKLogLevelWarning);
+//    RKLogConfigureByName("RestKit/*", RKLogLevelTrace);
     
     
 //    RKLogConfigureByName("RestKit/UI", RKLogLevelError);
@@ -62,8 +62,8 @@ NSString* const XBErrorDomain = @"fr.xebia.ErrorDomain";
 
 + (void)configureObjectManager {
 
-    RKObjectManager *objectManager = [RKObjectManager managerWithBaseURLString:@"http://dev.xebia.fr:9000/api"];
-//    RKObjectManager *objectManager = [RKObjectManager managerWithBaseURLString:@"http://xebia-mobile-backend.cloudfoundry.com/api"];
+//    RKObjectManager *objectManager = [RKObjectManager managerWithBaseURLString:@"http://dev.xebia.fr:9000/api"];
+    RKObjectManager *objectManager = [RKObjectManager managerWithBaseURLString:@"http://xebia-mobile-backend.cloudfoundry.com/api"];
     objectManager.client.cachePolicy = RKRequestCachePolicyNone;
 //    objectManager.client.requestCache.storagePolicy = RKRequestCacheStoragePolicyPermanently;
     objectManager.client.requestQueue.showsNetworkActivityIndicatorWhenBusy = YES;

@@ -13,6 +13,8 @@
 #import "XBMainViewController.h"
 #import <RestKit/RestKit.h>
 #import <RestKit/RKRequestSerialization.h>
+//#import <PonyDebugger/PDDebugger.h>
+#import "SDUrlCache.h"
 
 static NSString* const DeviceTokenKey = @"DeviceToken";
 
@@ -29,9 +31,22 @@ static NSString* const DeviceTokenKey = @"DeviceToken";
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
 
-    #if (TARGET_IPHONE_SIMULATOR)
+
+    SDURLCache *URLCache = [[SDURLCache alloc] initWithMemoryCapacity:1024*1024*2
+                                                         diskCapacity:1024*1024*20
+                                                             diskPath:[SDURLCache defaultCachePath]];
+    [NSURLCache setSharedURLCache:URLCache];
+
+
+//#if DEBUG
+//    PDDebugger *debugger = [PDDebugger defaultInstance];
+//    [debugger connectToURL:[NSURL URLWithString:@"ws://localhost:9000/device"]];
+//    [debugger enableNetworkTrafficDebugging];
+//#endif
+
+#if (TARGET_IPHONE_SIMULATOR)
         [NSClassFromString(@"WebView") performSelector:@selector(_enableRemoteInspector)];
-    #endif
+#endif
 
     if (launchOptions != nil)
 	{

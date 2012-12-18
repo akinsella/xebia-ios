@@ -12,7 +12,6 @@
 @implementation GHUser
 
 - (NSURL *)avatarImageUrl {
-    NSLog(@"User: %@", self );
     return self.gravatar_id != nil ?
         [GravatarHelper getGravatarURLWithGravatarId: self.gravatar_id] :
         [NSURL URLWithString: self.avatar_url];
