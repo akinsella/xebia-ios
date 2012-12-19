@@ -18,16 +18,4 @@
             [NSURL URLWithString: self.avatar_url];
 }
 
-+ (RKObjectMapping *)mapping {
-    RKObjectMapping *mapping = [RKObjectMapping mappingForClass:[self class] usingBlock:^(RKObjectMapping *mapping) {
-        [mapping mapAttributes: @"login", @"gravatar_id", @"avatar_url", nil];
-        [mapping mapKeyPathsToAttributes:
-                @"id", @"identifier",
-                nil];
-    }];
-
-    return mapping;
-
-}
-
 @end

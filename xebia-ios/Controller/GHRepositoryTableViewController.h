@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface GHRepositoryTableViewController : UITableViewController<RKTableControllerDelegate>
+@interface GHRepositoryTableViewController : UITableViewController<UITableViewDelegate, UITableViewDataSource>
 
 @end

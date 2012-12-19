@@ -79,6 +79,7 @@ NSString* const XBErrorDomain = @"fr.xebia.ErrorDomain";
 + (void)configureMappings {
         RKObjectMappingProvider *omp = [RKObjectManager sharedManager].mappingProvider;
 
+/*
     RKObjectMapping *ghRepositoryObjectMapping = [GHRepository mapping];
     [omp addObjectMapping:ghRepositoryObjectMapping];
     [omp setObjectMapping:ghRepositoryObjectMapping forResourcePathPattern:@"/github/repositories"];
@@ -88,6 +89,7 @@ NSString* const XBErrorDomain = @"fr.xebia.ErrorDomain";
     [omp addObjectMapping:ghOwnerMapping];
     [omp setObjectMapping:ghOwnerMapping forResourcePathPattern:@"/github/owners"];
     [omp setSerializationMapping:[ghOwnerMapping inverseMapping] forClass:[GHOwner class]];
+*/
 
     RKObjectMapping *wpCategoryMapping = [WPCategory mapping];
     [omp addObjectMapping:wpCategoryMapping];

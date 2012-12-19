@@ -11,22 +11,10 @@
 
 @implementation GHRepository
 
-+ (RKObjectMapping *)mapping {
-    RKObjectMapping *mapping = [RKObjectMapping mappingForClass:[self class] usingBlock:^(RKObjectMapping *mapping) {
-        [mapping mapAttributes:
-                        @"name", @"full_name", @"language", @"html_url", @"homepage",
-                        @"has_wiki", @"has_issues", @"has_downloads", @"fork", @"watchers", @"forks",
-                        @"open_issues", @"size", @"pushed_at", @"created_at", @"updated_at", nil];
-        [mapping mapKeyPathsToAttributes:
-                @"id", @"identifier",
-                @"description", @"description_",
-                nil];
-    }];
 
-    // Relationships
-    [mapping hasMany:@"owner" withMapping:[GHOwner mapping]];
+- (NSString *)description_ {
+    return [NSString stringWithFormat:@"%@ - Forks: %@  Watchers: %@ - issues: %@", self.language, self.forks, self.watchers, self.open_issues];
 
-    return mapping;
 }
 
 @end

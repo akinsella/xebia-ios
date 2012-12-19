@@ -8,7 +8,7 @@
 #import <Foundation/Foundation.h>
 #import <RestKit/RestKit.h>
 
-@interface GHOwner : NSObject
+@interface GHOwner : NSManagedObject
 
 @property (nonatomic, strong) NSNumber *identifier;
 @property (nonatomic, strong) NSString *login;
@@ -16,7 +16,5 @@
 @property (nonatomic, strong) NSString *avatar_url;
 
 @property (nonatomic, strong, readonly) NSURL *avatarImageUrl;
-
-+ (RKObjectMapping *)mapping;
 
 @end

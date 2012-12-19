@@ -22,6 +22,8 @@
 #import "SVProgressHUD.h"
 //#import "UIImageView+AFNetworking.h"
 #import "UIImageView+WebCache.h"
+#import "CoreData+MagicalRecord.h"
+#import "NSManagedObject+MagicalDataImport.h"
 
 @interface GHOwnerTableViewController ()
 @property (nonatomic, strong) NSMutableArray *dataSource;
@@ -43,25 +45,45 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
 
-    [self loadTableData];
-
+    [self loadTableDataForce: false UsingBlock:^{ }];
 }
 
-- (void)loadTableData {
+- (void)loadTableDataForce:(bool)force UsingBlock:(void (^)(void))block {
+
+    self.dataSource = [[GHOwner MR_findAll] mutableCopy];
+    if (!force && self.dataSource && self.dataSource.count > 0) {
+        [self.tableView reloadData];
+        if (block) {
+            block();
+        }
+    }
+    else {
+        AFHTTPClient *client = [AFHTTPClient clientWithBaseURL:[NSURL URLWithString:@"http://xebia-mobile-backend.cloudfoundry.com"]];
+        NSURLRequest *urlRequest = [client requestWithMethod:@"GET" path:@"/api/github/owners" parameters:nil];
+
+        [SVProgressHUD showWithStatus:@"Fetching owners" maskType:SVProgressHUDMaskTypeBlack];
+        AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:urlRequest
+                success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
+                    [SVProgressHUD showSuccessWithStatus:@"Done!"];
+                    [GHOwner MR_importFromArray:JSON];
+                    self.dataSource = [[GHOwner MR_findAll] mutableCopy];
+                    [self.tableView reloadData];
+                    if (block) {
+                        block();
+                    }
+                }
+                failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
+                    [SVProgressHUD showErrorWithStatus:@"Got some issue!"];
+                    if (block) {
+                        block();
+                    }
+                }
+        ];
+
+        [operation start];
+    }
 
 /*
-    AFHTTPClient *client = [AFHTTPClient clientWithBaseURL:[NSURL URLWithString:@"http://xebia-mobile-backend.cloudfoundry.com/api"]];
-    NSURLRequest *request = [client requestWithMethod:@"GET" path:@"/github/owners" parameters:nil];
-    AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
-
-    [SVProgressHUD showWithStatus:@"Fetching users" maskType:SVProgressHUDMaskTypeBlack];
-    [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
-        [SVProgressHUD showSuccessWithStatus:@"Done!"];
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        [SVProgressHUD showErrorWithStatus:@"Got some issue!"];
-    }];
-*/
-
     [SVProgressHUD showWithStatus:@"Fetching users" maskType:SVProgressHUDMaskTypeBlack];
 
     [[RKObjectManager sharedManager] loadObjectsAtResourcePath:@"/github/owners" usingBlock:^(RKObjectLoader *loader) {
@@ -77,6 +99,7 @@
         };
 
     }];
+*/
 }
 
 - (void)viewDidLoad {
@@ -100,6 +123,12 @@
     self.tableView.pullToRefreshView.arrowColor = [UIColor whiteColor];
     self.tableView.pullToRefreshView.textColor = [UIColor whiteColor];
     self.tableView.pullToRefreshView.activityIndicatorViewStyle = UIActivityIndicatorViewStyleWhite;
+
+    [self.tableView addPullToRefreshWithActionHandler:^{
+        [self loadTableDataForce: true UsingBlock:^{
+            [self.tableView.pullToRefreshView stopAnimating];
+        }];
+    }];
 }
 
 - (void)didReceiveMemoryWarning{
