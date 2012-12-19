@@ -7,8 +7,8 @@
 
 #import <UIKit/UIKit.h>
 #import "TTTAttributedLabel.h"
+#import "XBTableViewController.h"
 
-
-@interface EBEventTableViewController : UITableViewController<RKTableControllerDelegate, TTTAttributedLabelDelegate>
+@interface EBEventTableViewController : XBTableViewController<RKTableControllerDelegate, TTTAttributedLabelDelegate, XBTableViewControllerDelegate>
 
 @end

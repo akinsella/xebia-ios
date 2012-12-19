@@ -7,7 +7,7 @@
 #import <UIKit/UIKit.h>
 #import <RestKit/RestKit.h>
 
-@interface EBVenue : NSObject
+@interface EBVenue : NSManagedObject
 
 @property (nonatomic, strong) NSNumber *identifier;
 @property (nonatomic, strong) NSString *city;
@@ -17,7 +17,5 @@
 @property (nonatomic, strong) NSNumber *longitude;
 @property (nonatomic, strong) NSNumber *latitude;
 @property (nonatomic, strong) NSString *country_code;
-
-+ (RKObjectMapping *)mapping;
 
 @end

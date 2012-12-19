@@ -29,6 +29,10 @@ static NSString* const DeviceTokenKey = @"DeviceToken";
 @synthesize viewControllerManager = _viewControllerManager;
 @synthesize mainViewController = _mainViewController;
 
++(NSString *)baseUrl {
+    return @"http://dev.xebia.fr:9000";
+//    return @"http://xebia-mobile-backend.cloudfoundry.com";
+}
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
 
@@ -49,9 +53,9 @@ static NSString* const DeviceTokenKey = @"DeviceToken";
 //    [debugger enableNetworkTrafficDebugging];
 //#endif
 
-#if (TARGET_IPHONE_SIMULATOR)
-        [NSClassFromString(@"WebView") performSelector:@selector(_enableRemoteInspector)];
-#endif
+//#if (TARGET_IPHONE_SIMULATOR)
+//        [NSClassFromString(@"WebView") performSelector:@selector(_enableRemoteInspector)];
+//#endif
 
     if (launchOptions != nil)
 	{
@@ -127,7 +131,7 @@ static NSString* const DeviceTokenKey = @"DeviceToken";
 
 - (void)sendProviderDeviceToken:(NSString *)deviceToken {
     NSString* jsonBody = [NSString stringWithFormat: @"{\"udid\":\"%@\",\"token\":\"%@\"}", [self udid], deviceToken];
-    [[RKClient clientWithBaseURLString:@"http://xebia-mobile-backend.cloudfoundry.com/"]
+    [[RKClient clientWithBaseURLString:[AppDelegate baseUrl]]
 //    [[RKClient clientWithBaseURLString:@"http://dev.xebia.fr:9000/"]
             post:@"/api/ios/notification/register" usingBlock:^(RKRequest *request) {
         request.params = [RKRequestSerialization serializationWithData:[jsonBody dataUsingEncoding:NSUTF8StringEncoding] MIMEType:RKMIMETypeJSON];

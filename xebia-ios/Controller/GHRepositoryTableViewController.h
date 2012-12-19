@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "XBTableViewController.h"
 
-@interface GHRepositoryTableViewController : UITableViewController<UITableViewDelegate, UITableViewDataSource>
+@interface GHRepositoryTableViewController : XBTableViewController<UITableViewDelegate, UITableViewDataSource, XBTableViewControllerDelegate>
 
 @end

@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "XBTableViewController.h"
 
-@interface GHOwnerTableViewController : UITableViewController<UITableViewDelegate, UITableViewDataSource>
+@interface GHOwnerTableViewController : XBTableViewController<UITableViewDelegate, UITableViewDataSource, XBTableViewControllerDelegate>
 
 @end

@@ -11,10 +11,8 @@
 
 @implementation GHRepository
 
-
 - (NSString *)description_ {
-    return [NSString stringWithFormat:@"%@ - Forks: %@  Watchers: %@ - issues: %@", self.language, self.forks, self.watchers, self.open_issues];
-
+    return [NSString stringWithFormat:@"Language: %@ -  %@ Forks - %@ Watchers - %@ issues", self.language, self.forks, self.watchers, self.open_issues];
 }
 
 @end

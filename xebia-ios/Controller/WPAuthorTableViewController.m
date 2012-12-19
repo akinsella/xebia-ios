@@ -46,7 +46,7 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
 
-    [self.tableController loadTableFromResourcePath:@"/wordpress/authors"];
+    [self.tableController loadTableFromResourcePath:@"/api/wordpress/authors"];
 }
 
 - (void)configure {

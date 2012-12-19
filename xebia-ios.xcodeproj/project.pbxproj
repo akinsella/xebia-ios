@@ -168,10 +168,12 @@
 		54F9D40E15D80C5A00A8E511 /* avatar_placeholder.png in Resources */ = {isa = PBXBuildFile; fileRef = 54F9D40D15D80C5A00A8E511 /* avatar_placeholder.png */; };
 		54F9D42015D81A4100A8E511 /* GravatarHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 54F9D41F15D81A4100A8E511 /* GravatarHelper.m */; };
 		B56E64C3C14D4A618E4C1641 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EDB581D723EF4E5C808B5615 /* libPods.a */; };
+		DB34D038241FD449D6A29F5B /* XBTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34DE6D9CB3F60F62377F9D /* XBTableViewController.m */; };
 		DB34D044D8E35DBF98E169AC /* GHOwner.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34D465F893EC50AD52D5F4 /* GHOwner.m */; };
 		DB34D0F0346B324446AB4038 /* TTUrlEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34DF7606E2711AD729DDBC /* TTUrlEntity.m */; };
 		DB34D27BA192BDDF6C89949D /* XBViewControllerManager.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34DEED8EC9BFDDB4164F08 /* XBViewControllerManager.m */; };
 		DB34D27F35642ABBF5FAD321 /* EBEventCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34D4BF128361ED826DEEA5 /* EBEventCell.m */; };
+		DB34D2C8A984873F9E603419 /* XBFetchInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34DBD8BF4F10B43BA074A0 /* XBFetchInfo.m */; };
 		DB34D31F43808E3D3BAC5791 /* EBEventTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34D4BCAF95EF93FA46DFEB /* EBEventTableViewController.m */; };
 		DB34D379E55AEDAE9C5C3FDA /* EBEventCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DB34DD55D5BC7C448FDE1C8F /* EBEventCell.xib */; };
 		DB34D454336B59400C068044 /* TTEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34DCE1BDCEB48937F3C353 /* TTEntity.m */; };
@@ -417,6 +419,7 @@
 		54F9D41F15D81A4100A8E511 /* GravatarHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GravatarHelper.m; sourceTree = "<group>"; };
 		DB34D01444532461EF356FCE /* WPPostCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WPPostCell.h; sourceTree = "<group>"; };
 		DB34D076AE26B9089D3B1C8F /* NSDateFormatter+XBAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDateFormatter+XBAdditions.h"; sourceTree = "<group>"; };
+		DB34D0823A22E53D51A89F53 /* XBTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XBTableViewController.h; sourceTree = "<group>"; };
 		DB34D0A8986BBE213BA4DEDB /* NSError+XBAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSError+XBAdditions.h"; sourceTree = "<group>"; };
 		DB34D1B1F4224776A0A9FB5E /* EBEventTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EBEventTableViewController.h; sourceTree = "<group>"; };
 		DB34D267050FFB324A8EE58F /* RKTableItem+XKAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "RKTableItem+XKAdditions.m"; sourceTree = "<group>"; };
@@ -432,6 +435,8 @@
 		DB34D54D067749E7B31FD258 /* TTRetweetedStatus.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTRetweetedStatus.h; sourceTree = "<group>"; };
 		DB34D6ABE8DD69804FD1209D /* EBOrganizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EBOrganizer.h; sourceTree = "<group>"; };
 		DB34D6ABFADC8E84E0DA3E06 /* UIImageView+XBAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+XBAdditions.m"; sourceTree = "<group>"; };
+		DB34D70505B8669C4B2CD8A8 /* XBFetchInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XBFetchInfo.h; sourceTree = "<group>"; };
+		DB34D72794DFBE2959D37839 /* UITableViewCell+VariableHeight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableViewCell+VariableHeight.h"; sourceTree = "<group>"; };
 		DB34D7692616F09934674C68 /* EBEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EBEvent.h; sourceTree = "<group>"; };
 		DB34D7C6C51532EBB1DCB7C4 /* XBViewControllerManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XBViewControllerManager.h; sourceTree = "<group>"; };
 		DB34D8626C4FFDBBD0C7D3FE /* NSError+XBAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSError+XBAdditions.m"; sourceTree = "<group>"; };
@@ -442,6 +447,7 @@
 		DB34DAFC921F4EC44602113E /* EBVenue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EBVenue.m; sourceTree = "<group>"; };
 		DB34DB490E75A8DE23774368 /* NSNumber+XBAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSNumber+XBAdditions.m"; sourceTree = "<group>"; };
 		DB34DBB7151A59B19EE4CF5A /* TTEntities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTEntities.m; sourceTree = "<group>"; };
+		DB34DBD8BF4F10B43BA074A0 /* XBFetchInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XBFetchInfo.m; sourceTree = "<group>"; };
 		DB34DC3B0D2EEB462493D8BE /* EBOrganizer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EBOrganizer.m; sourceTree = "<group>"; };
 		DB34DC4A49554BC91B3F5686 /* TTHashtagEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTHashtagEntity.m; sourceTree = "<group>"; };
 		DB34DC6E8E2207CAD2A10E4E /* TTUserMentionEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTUserMentionEntity.h; sourceTree = "<group>"; };
@@ -450,6 +456,7 @@
 		DB34DD7E8993C8010DE00380 /* TTEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTEntity.h; sourceTree = "<group>"; };
 		DB34DDDAC15A52FF78EF66F7 /* styles.bak */ = {isa = PBXFileReference; lastKnownFileType = file.bak; name = styles.bak; path = www/css/styles.bak; sourceTree = "<group>"; };
 		DB34DE46BBF23AA120699C20 /* GHOwner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GHOwner.h; sourceTree = "<group>"; };
+		DB34DE6D9CB3F60F62377F9D /* XBTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XBTableViewController.m; sourceTree = "<group>"; };
 		DB34DEED8EC9BFDDB4164F08 /* XBViewControllerManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XBViewControllerManager.m; sourceTree = "<group>"; };
 		DB34DEF2E5441F3B214FC5E3 /* TTEntities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTEntities.h; sourceTree = "<group>"; };
 		DB34DF7606E2711AD729DDBC /* TTUrlEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTUrlEntity.m; sourceTree = "<group>"; };
@@ -727,6 +734,8 @@
 		54C2DF1F15BDFB6500CABB12 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				DB34D0823A22E53D51A89F53 /* XBTableViewController.h */,
+				DB34DE6D9CB3F60F62377F9D /* XBTableViewController.m */,
 				DB34D1B1F4224776A0A9FB5E /* EBEventTableViewController.h */,
 				DB34D4BCAF95EF93FA46DFEB /* EBEventTableViewController.m */,
 				DB34D7C6C51532EBB1DCB7C4 /* XBViewControllerManager.h */,
@@ -766,6 +775,8 @@
 		54C2DF3215BDFB6500CABB12 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				DB34D70505B8669C4B2CD8A8 /* XBFetchInfo.h */,
+				DB34DBD8BF4F10B43BA074A0 /* XBFetchInfo.m */,
 				DB34D7692616F09934674C68 /* EBEvent.h */,
 				DB34D89482FE01F4B98C0B0C /* EBEvent.m */,
 				DB34D6ABE8DD69804FD1209D /* EBOrganizer.h */,
@@ -837,6 +848,7 @@
 		54E325AF15E19D5900F55F6A /* Category */ = {
 			isa = PBXGroup;
 			children = (
+				DB34D72794DFBE2959D37839 /* UITableViewCell+VariableHeight.h */,
 				DB34D076AE26B9089D3B1C8F /* NSDateFormatter+XBAdditions.h */,
 				DB34D5341324A3A620923384 /* NSDateFormatter+XBAdditions.m */,
 				DB34D35EA5BDEDE61A31D131 /* UIImageView+XBAdditions.h */,
@@ -1163,6 +1175,8 @@
 				DB34D044D8E35DBF98E169AC /* GHOwner.m in Sources */,
 				DB34D4AAA85D936EB5ED3855 /* GHOwnerCell.m in Sources */,
 				54862C6116813056001A54BE /* xebia_ios.xcdatamodeld in Sources */,
+				DB34D2C8A984873F9E603419 /* XBFetchInfo.m in Sources */,
+				DB34D038241FD449D6A29F5B /* XBTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

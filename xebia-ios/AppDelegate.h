@@ -24,4 +24,7 @@
 @property(nonatomic, assign) Boolean registered;
 @property(nonatomic, retain) NSString *deviceToken;
 
++ (NSString *)baseUrl;
+
+
 @end

@@ -17,6 +17,7 @@ NSString* const XBErrorDomain = @"fr.xebia.ErrorDomain";
 #import "GHRepository.h"
 #import "NSDateFormatter+XBAdditions.h"
 #import "EBEvent.h"
+#import "AppDelegate.h"
 
 @implementation XBRestkitSupport
 
@@ -61,9 +62,7 @@ NSString* const XBErrorDomain = @"fr.xebia.ErrorDomain";
 }
 
 + (void)configureObjectManager {
-
-//    RKObjectManager *objectManager = [RKObjectManager managerWithBaseURLString:@"http://dev.xebia.fr:9000/api"];
-    RKObjectManager *objectManager = [RKObjectManager managerWithBaseURLString:@"http://xebia-mobile-backend.cloudfoundry.com/api"];
+    RKObjectManager *objectManager = [RKObjectManager managerWithBaseURLString:[NSString stringWithFormat:@"%@", [AppDelegate baseUrl]]];
     objectManager.client.cachePolicy = RKRequestCachePolicyNone;
 //    objectManager.client.requestCache.storagePolicy = RKRequestCacheStoragePolicyPermanently;
     objectManager.client.requestQueue.showsNetworkActivityIndicatorWhenBusy = YES;
@@ -72,8 +71,6 @@ NSString* const XBErrorDomain = @"fr.xebia.ErrorDomain";
 //    objectManager.client.serviceUnavailableAlertMessage = @"Service indisponible. Veuillez réessayer plus tard.";
 
     [objectManager.client.requestCache invalidateAll];
-    
-    
 }
 
 + (void)configureMappings {
@@ -82,54 +79,54 @@ NSString* const XBErrorDomain = @"fr.xebia.ErrorDomain";
 /*
     RKObjectMapping *ghRepositoryObjectMapping = [GHRepository mapping];
     [omp addObjectMapping:ghRepositoryObjectMapping];
-    [omp setObjectMapping:ghRepositoryObjectMapping forResourcePathPattern:@"/github/repositories"];
+    [omp setObjectMapping:ghRepositoryObjectMapping forResourcePathPattern:@"/api/github/repositories"];
     [omp setSerializationMapping:[ghRepositoryObjectMapping inverseMapping] forClass:[GHRepository class]];
 
     RKObjectMapping *ghOwnerMapping = [GHOwner mapping];
     [omp addObjectMapping:ghOwnerMapping];
-    [omp setObjectMapping:ghOwnerMapping forResourcePathPattern:@"/github/owners"];
+    [omp setObjectMapping:ghOwnerMapping forResourcePathPattern:@"/api/github/owners"];
     [omp setSerializationMapping:[ghOwnerMapping inverseMapping] forClass:[GHOwner class]];
 */
 
     RKObjectMapping *wpCategoryMapping = [WPCategory mapping];
     [omp addObjectMapping:wpCategoryMapping];
-    [omp setObjectMapping:wpCategoryMapping forResourcePathPattern:@"/wordpress/categories"];
+    [omp setObjectMapping:wpCategoryMapping forResourcePathPattern:@"/api/wordpress/categories"];
     [omp setSerializationMapping:[wpCategoryMapping inverseMapping] forClass:[WPCategory class]];
 
     RKObjectMapping *wpTagMapping = [WPTag mapping];
     [omp addObjectMapping:wpTagMapping];
-    [omp setObjectMapping:wpTagMapping forResourcePathPattern:@"/wordpress/tags"];
+    [omp setObjectMapping:wpTagMapping forResourcePathPattern:@"/api/wordpress/tags"];
     [omp setSerializationMapping:[wpTagMapping inverseMapping] forClass:[WPTag class]];
     
     RKObjectMapping *wpAuthorMapping = [WPAuthor mapping];
     [omp addObjectMapping:wpAuthorMapping];
-    [omp setObjectMapping:wpAuthorMapping forResourcePathPattern:@"/wordpress/authors"];
+    [omp setObjectMapping:wpAuthorMapping forResourcePathPattern:@"/api/wordpress/authors"];
     [omp setSerializationMapping:[wpAuthorMapping inverseMapping] forClass:[WPAuthor class]];
 
     RKObjectMapping *wpPostMapping = [WPPost mapping];
     [omp addObjectMapping:wpPostMapping];
     [omp setSerializationMapping:[wpPostMapping inverseMapping] forClass:[WPPost class]];
 
-    [omp setObjectMapping:wpPostMapping forResourcePathPattern:@"/wordpress/posts/recent"];
-    [omp setObjectMapping:wpPostMapping forResourcePathPattern:@"/wordpress/author/:identifier/posts"];
-    [omp setObjectMapping:wpPostMapping forResourcePathPattern:@"/wordpress/tag/:identifier/posts"];
-    [omp setObjectMapping:wpPostMapping forResourcePathPattern:@"/wordpress/category/:identifier/posts"];
+    [omp setObjectMapping:wpPostMapping forResourcePathPattern:@"/api/wordpress/posts/recent"];
+    [omp setObjectMapping:wpPostMapping forResourcePathPattern:@"/api/wordpress/author/:identifier/posts"];
+    [omp setObjectMapping:wpPostMapping forResourcePathPattern:@"/api/wordpress/tag/:identifier/posts"];
+    [omp setObjectMapping:wpPostMapping forResourcePathPattern:@"/api/wordpress/category/:identifier/posts"];
     // http://blog.xebia.fr/wp-json-api/get_post/?post_id=12467
 
 
     RKObjectMapping *wpPostOneMapping = [WPPost mappingForOne];
     [omp addObjectMapping:wpPostOneMapping];
-    [omp setObjectMapping:wpPostOneMapping forResourcePathPattern:@"/wordpress/post/:identifier"];
+    [omp setObjectMapping:wpPostOneMapping forResourcePathPattern:@"/api/wordpress/post/:identifier"];
 
     RKObjectMapping *ttTweetMapping = [TTTweet mapping];
     [omp addObjectMapping:ttTweetMapping];
-    [omp setObjectMapping:ttTweetMapping forResourcePathPattern:@"/twitter/timeline"];
+    [omp setObjectMapping:ttTweetMapping forResourcePathPattern:@"/api/twitter/timeline"];
     [omp setSerializationMapping:[ttTweetMapping inverseMapping] forClass:[TTTweet class]];
 
-    RKObjectMapping *ebEventMapping = [EBEvent mapping];
-    [omp addObjectMapping:ebEventMapping];
-    [omp setObjectMapping:ebEventMapping forResourcePathPattern:@"/eventbrite/events"];
-    [omp setSerializationMapping:[ebEventMapping inverseMapping] forClass:[EBEvent class]];
+//    RKObjectMapping *ebEventMapping = [EBEvent mapping];
+//    [omp addObjectMapping:ebEventMapping];
+//    [omp setObjectMapping:ebEventMapping forResourcePathPattern:@"/api/eventbrite/events"];
+//    [omp setSerializationMapping:[ebEventMapping inverseMapping] forClass:[EBEvent class]];
 }
 
 @end

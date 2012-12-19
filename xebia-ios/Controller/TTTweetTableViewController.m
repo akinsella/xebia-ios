@@ -42,7 +42,7 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
 
-    [self.tableController loadTableFromResourcePath:@"/twitter/timeline"];
+    [self.tableController loadTableFromResourcePath:@"/api/twitter/timeline"];
 }
 
 - (void)viewDidLoad {

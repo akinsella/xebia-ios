@@ -9,7 +9,7 @@
 #import "EBVenue.h"
 #import "EBOrganizer.h"
 
-@interface EBEvent : NSObject
+@interface EBEvent : NSManagedObject
 
 @property (nonatomic, strong) NSNumber *identifier;
 @property (nonatomic, strong) NSString *type;
@@ -27,7 +27,5 @@
 @property (nonatomic, strong) NSString *description_plain_text;
 @property (nonatomic, strong) EBVenue *venue;
 @property (nonatomic, strong) EBOrganizer *organizer;
-
-+ (RKObjectMapping *)mapping;
 
 @end

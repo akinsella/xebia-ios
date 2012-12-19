@@ -6,187 +6,67 @@
 //  Copyright (c) 2012 Xebia France. All rights reserved.
 //
 
-#import <RestKit/RestKit.h>
-#import <RestKit/UI.h>
 #import "GHRepository.h"
 #import "GHRepositoryTableViewController.h"
-#import "XBLoadingView.h"
-#import "SDImageCache.h"
-#import "SDWebImageManager.h"
 #import "GHRepositoryCell.h"
-#import "UIImage+XBAdditions.h"
-#import "UIImageView+WebCache.h"
-#import "UIColor+XBAdditions.h"
-#import "UIScreen+XBAdditions.h"
 
-#import <RestKit/RestKit.h>
-#import <RestKit/UI.h>
-#import "GHOwner.h"
-#import "GHOwnerTableViewController.h"
-#import "XBLoadingView.h"
-#import "SDImageCache.h"
-#import "SDWebImageManager.h"
-#import "UIImage+XBAdditions.h"
-#import "UIColor+XBAdditions.h"
-#import "UIScreen+XBAdditions.h"
-#import "GHOwnerCell.h"
-#import "SVPullToRefresh.h"
-#import "AFNetworking.h"
-#import "SVProgressHUD.h"
-//#import "UIImageView+AFNetworking.h"
-#import "UIImageView+WebCache.h"
-#import "CoreData+MagicalRecord.h"
-#import "NSManagedObject+MagicalDataImport.h"
-
-@interface GHRepositoryTableViewController ()
-@property (nonatomic, strong) NSMutableArray *dataSource;
+@interface GHRepositoryTableViewController()
 @property (nonatomic, strong) UIImage* xebiaAvatarImage;
 @end
 
 @implementation GHRepositoryTableViewController
 
-- (id)init {
-    self = [super init];
-
-    if (self) {
-        self.title = @"Repositories";
-    }
-
-    return self;
-}
-
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-
-    [self loadTableDataForce: false UsingBlock:^{}];
-
-}
-
-- (void)loadTableDataForce:(bool)force UsingBlock:(void(^)(void))block {
-
-    self.dataSource = [[GHRepository MR_findAll] mutableCopy];
-    if (!force && self.dataSource && self.dataSource.count > 0) {
-        [self.tableView reloadData];
-        if (block) {
-            block();
-        }
-    }
-    else {
-        AFHTTPClient *client = [AFHTTPClient clientWithBaseURL:[NSURL URLWithString:@"http://xebia-mobile-backend.cloudfoundry.com"]];
-        NSURLRequest *urlRequest = [client requestWithMethod:@"GET" path:@"/api/github/repositories" parameters:nil];
-
-        [SVProgressHUD showWithStatus:@"Fetching repositories" maskType:SVProgressHUDMaskTypeBlack];
-
-        AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:urlRequest
-            success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
-                NSLog(@"JSON: %@", JSON);
-                [SVProgressHUD showSuccessWithStatus:@"Done!"];
-                [GHRepository MR_importFromArray: JSON];
-                self.dataSource = [[GHRepository MR_findAll] mutableCopy];
-                [self.tableView reloadData];
-                    if (block) {
-                    block();
-                }
-            }
-            failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
-                [SVProgressHUD showErrorWithStatus:@"Got some issue!"];
-                NSLog(@"Error: %@, JSON: %@", error, JSON);
-                if (block) {
-                    block();
-                }
-            }
-        ];
-
-        [operation start];
-    }
-
-/*
-    [SVProgressHUD showWithStatus:@"Fetching users" maskType:SVProgressHUDMaskTypeBlack];
-
-    [[RKObjectManager sharedManager] loadObjectsAtResourcePath:@"/github/repositories" usingBlock:^(RKObjectLoader *loader) {
-
-        loader.onDidLoadObjects = ^(NSArray *objects) {
-            [SVProgressHUD showSuccessWithStatus:@"Done!"];
-            self.dataSource = [objects mutableCopy];
-            [self.tableView reloadData];
-        };
-
-        loader.onDidFailWithError = ^(NSError *error) {
-            [SVProgressHUD showErrorWithStatus:@"Got some issue!"];
-        };
-
-    }];
-*/
 }
 
 - (void)viewDidLoad {
-    [super viewDidLoad];
-    [self configure];
-}
 
-- (void)configure {
+    self.delegate = self;
+    self.title = @"Repositories";
     self.xebiaAvatarImage = [UIImage imageNamed:@"xebia-avatar"];
 
-    [self configureTableView];
+    [super viewDidLoad];
 }
 
-- (void)configureTableView {
-    self.tableView.backgroundColor = [UIColor colorWithPatternImageName:@"bg_home_pattern"];
-//    self.tableView.backgroundColor = [UIColor colorWithHex:@"#191919" alpha:1.0];
-    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-
-    [self.tableView registerNib:[UINib nibWithNibName:@"GHRepositoryCell" bundle:nil] forCellReuseIdentifier:@"GHRepository"];
-
-    self.tableView.pullToRefreshView.arrowColor = [UIColor whiteColor];
-    self.tableView.pullToRefreshView.textColor = [UIColor whiteColor];
-    self.tableView.pullToRefreshView.activityIndicatorViewStyle = UIActivityIndicatorViewStyleWhite;
-
-    [self.tableView addPullToRefreshWithActionHandler:^{
-        [self loadTableDataForce: true UsingBlock:^{
-            [self.tableView.pullToRefreshView stopAnimating];
-        }];
-    }];
-
+- (int)maxDataAgeInSecondsBeforeServerFetch {
+    return 120;
 }
 
-- (void)didReceiveMemoryWarning{
-    NSLog(@"Did received a memory warning in controller: %@", [self class]);
-    [super didReceiveMemoryWarning];
+- (Class)dataClass {
+    return [GHRepository class];
 }
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 1;
+- (NSArray *)fetchDataFromDB {
+    return [GHRepository MR_findAllSortedBy:@"name" ascending:YES];
 }
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return self.dataSource.count;
+- (NSString *)cellReuseIdentifier {
+    // Needs to be static
+    static NSString *const cellReuseIdentifier = @"GHRepository";
+
+    return cellReuseIdentifier;
 }
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+- (NSString *)cellNibName {
+    return @"GHRepositoryCell";
+}
 
-    static NSString *identifier = @"GHRepository";
-    GHOwnerCell *repositoryCell = [self.tableView dequeueReusableCellWithIdentifier:identifier];
+- (NSString *)urlPath {
+    return @"/api/github/repositories";
+}
 
-    if (!repositoryCell) {
-        // fix for rdar://11549999 (registerNib… fails on iOS 5 if VoiceOver is enabled)
-        repositoryCell = [[[NSBundle mainBundle] loadNibNamed:identifier owner:self options:nil] objectAtIndex:0];
-    }
+- (UIImage *)defaultImage {
+    return [UIImage imageNamed:@"xebia-avatar"];
+}
 
-    GHRepository *repository = [self.dataSource objectAtIndex:indexPath.row];
+- (void)configureCell: (UITableViewCell *)cell atIndex:(NSIndexPath *)indexPath {
+    GHRepositoryCell *repositoryCell = (GHRepositoryCell *)cell;
+    GHRepository *repository = [self.delegate objectAtIndex:(NSUInteger) indexPath.row];
     repositoryCell.titleLabel.text = repository.name;
     repositoryCell.descriptionLabel.text = repository.description_;
     repositoryCell.identifier = repository.identifier;
-
-
-    [repositoryCell.imageView setImage:self.xebiaAvatarImage];
-
-    return repositoryCell;
-}
-
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    GHOwnerCell *repositoryCell =  (GHOwnerCell *)[self tableView:tableView cellForRowAtIndexPath:indexPath];
-
-    return [repositoryCell heightForCell];
+    [repositoryCell.imageView setImage:self.defaultImage];
 }
 
 @end

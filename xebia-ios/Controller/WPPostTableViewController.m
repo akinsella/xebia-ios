@@ -74,8 +74,8 @@
     [super viewWillAppear:animated];
 
     NSString *resourcePath = [[self getCurrentPostType] isEqualToString:@"recent"] ?
-        @"/wordpress/posts/recent?count=25" :
-        [NSString stringWithFormat:@"/wordpress/%@/posts?id=%@", [self getCurrentPostType], self.identifier];
+        @"/api/wordpress/posts/recent?count=25" :
+        [NSString stringWithFormat:@"/api/wordpress/%@/posts?id=%@", [self getCurrentPostType], self.identifier];
 
     [self.tableController loadTableFromResourcePath:resourcePath];
 }

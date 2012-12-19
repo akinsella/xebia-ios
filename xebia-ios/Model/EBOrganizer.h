@@ -8,13 +8,11 @@
 #import <Foundation/Foundation.h>
 #import <RestKit/RestKit.h>
 
-@interface EBOrganizer : NSObject
+@interface EBOrganizer : NSManagedObject
 
 @property (nonatomic, strong) NSNumber *identifier;
 @property (nonatomic, strong) NSString *url;
 @property (nonatomic, strong) NSString *description_;
 @property (nonatomic, strong) NSString *name;
-
-+ (RKObjectMapping *)mapping;
 
 @end
