@@ -18,12 +18,7 @@
 @property (nonatomic, strong) UIImage* defaultAvatarImage;
 @end
 
-
 @implementation GHOwnerTableViewController
-
-- (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
-}
 
 - (void)viewDidLoad {
 
@@ -53,19 +48,19 @@
     return @"GHOwnerCell";
 }
 
-- (NSString *)urlPath {
+- (NSString *)resourcePath {
     return @"/api/github/owners";
 }
 
 - (NSArray *)fetchDataFromDB {
-    return [GHOwner MR_findAllSortedBy:@"login" ascending:YES];
+    return [[self dataClass] MR_findAllSortedBy:@"login" ascending:YES];
 }
 
 - (void)configureCell:(UITableViewCell *)cell atIndex:(NSIndexPath *)indexPath {
 
     GHOwnerCell * ownerCell = (GHOwnerCell *) cell;
 
-    GHOwner *owner = [self.delegate objectAtIndex:(NSUInteger) indexPath.row];
+    GHOwner *owner = [self objectAtIndex:(NSUInteger) indexPath.row];
     ownerCell.titleLabel.text = owner.login;
     ownerCell.identifier = owner.identifier;
 

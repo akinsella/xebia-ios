@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <TTTAttributedLabel.h>
+#import "TTTAttributedLabel.h"
+#import "XBTableViewController.h"
 
-@interface TTTweetTableViewController : UITableViewController<RKTableControllerDelegate, TTTAttributedLabelDelegate>
+@interface TTTweetTableViewController : UITableViewController<UITableViewDelegate, UITableViewDataSource, TTTAttributedLabelDelegate, XBTableViewControllerDelegate>
 
 @end

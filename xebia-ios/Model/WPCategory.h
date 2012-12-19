@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import <RestKit/RestKit.h>
 
-@interface WPCategory : NSObject
+@interface WPCategory : NSManagedObject
 
 @property (nonatomic, strong) NSNumber *identifier;
 @property (nonatomic, strong) NSString *slug;
@@ -18,8 +18,6 @@
 @property (nonatomic, strong) NSNumber *parent;
 @property (nonatomic, strong) NSNumber *post_count;
 
-@property (nonatomic, readonly) NSInteger postCount;
-
-+ (RKObjectMapping *)mapping;
+-(NSInteger)postCount;
 
 @end

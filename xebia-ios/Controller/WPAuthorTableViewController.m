@@ -10,17 +10,14 @@
 #import <RestKit/UI.h>
 #import "WPAuthor.h"
 #import "WPAuthorTableViewController.h"
-#import "XBLoadingView.h"
 #import "WPAuthorCell.h"
 #import "SDImageCache.h"
 #import "SDWebImageManager.h"
 #import "UIImageView+WebCache.h"
 #import "WPPost.h"
 #import "WPPostTableViewController.h"
-#import "UINavigationController+XBAdditions.h"
 #import "UIViewController+XBAdditions.h"
 #import "XBMainViewController.h"
-#import "UIColor+XBAdditions.h"
 
 @interface WPAuthorTableViewController ()
 @property (nonatomic, strong) RKTableController *tableController;
@@ -29,95 +26,60 @@
 
 @implementation WPAuthorTableViewController
 
-- (id)init {
-    self = [super init];
-    if (self) {
-        self.title = @"Authors";
-    }
-
-    return self;
-}
-
 - (void)viewDidLoad {
-    [super viewDidLoad];
-    [self configure];
-}
 
-- (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
-
-    [self.tableController loadTableFromResourcePath:@"/api/wordpress/authors"];
-}
-
-- (void)configure {
+    self.delegate = self;
+    self.tableView.rowHeight = 64;
+    self.title = @"Authors";
     self.defaultAvatarImage = [UIImage imageNamed:@"avatar_placeholder"];
 
-    [self configureTableView];
-    [self configureTableController];
-    [self configureRefreshTriggerView];
+    [super viewDidLoad];
 }
 
-- (RKTableViewCellMapping *)getCellMapping {
-    RKTableViewCellMapping *cellMapping = [RKTableViewCellMapping cellMapping];
-    cellMapping.cellClassName = @"WPAuthorCell";
-    cellMapping.reuseIdentifier = @"WPAuthor";
-    cellMapping.rowHeight = 64.0;
-    [cellMapping mapKeyPath:@"name" toAttribute:@"titleLabel.text"];
-    [cellMapping mapKeyPath:@"identifier" toAttribute:@"identifier"];
-    cellMapping.onSelectCellForObjectAtIndexPath = ^(UITableViewCell *cell, id object, NSIndexPath* indexPath) {
-        WPAuthor *author = [self.tableController objectForRowAtIndexPath:indexPath];
-        NSLog(@"Author selected: %@", author);
-
-        WPPostTableViewController *postTableViewController = [[WPPostTableViewController alloc] initWithPostType:AUTHOR identifier:author.identifier];
-        [self.appDelegate.mainViewController revealViewController:postTableViewController];
-    };
-    return cellMapping;
+- (int)maxDataAgeInSecondsBeforeServerFetch {
+    return 120;
 }
 
-- (void)configureRefreshTriggerView {
-    NSBundle *restKitResources = [NSBundle restKitResourcesBundle];
-    UIImage *arrowImage = [restKitResources imageWithContentsOfResource:@"blueArrow" withExtension:@"png"];
-    [[RKRefreshTriggerView appearance] setTitleFont:[UIFont fontWithName:@"HelveticaNeue-Bold" size:13]];
-    [[RKRefreshTriggerView appearance] setLastUpdatedFont:[UIFont fontWithName:@"HelveticaNeue" size:11]];
-    [[RKRefreshTriggerView appearance] setArrowImage:arrowImage];
+- (Class)dataClass {
+    return [WPAuthor class];
 }
 
-- (void)configureTableController {
-    self.tableController = [[RKObjectManager sharedManager] tableControllerForTableViewController:self];
+- (NSString *)cellReuseIdentifier {
+    // Needs to be static
+    static NSString *cellReuseIdentifier = @"WPAuthor";
 
-//    self.tableController.sectionNameKeyPath = @"uppercaseFirstLetterOfName";
-
-    self.tableController.delegate = self;
-
-    self.tableController.autoRefreshFromNetwork = NO;
-    self.tableController.pullToRefreshEnabled = YES;
-    self.tableController.variableHeightRows = YES;
-
-    self.tableController.imageForOffline = [UIImage imageNamed:@"offline.png"];
-    self.tableController.imageForError = [UIImage imageNamed:@"error.png"];
-    self.tableController.imageForEmpty = [UIImage imageNamed:@"empty.png"];
-
-    [self.tableController mapObjectsWithClass:[WPAuthor class] toTableCellsWithMapping:[self getCellMapping]];
+    return cellReuseIdentifier;
 }
 
-- (void)configureTableView {
-    self.tableView.backgroundColor = [UIColor colorWithPatternImageName:@"bg_home_pattern"];
-//    self.tableView.backgroundColor = [UIColor colorWithHex:@"#191919" alpha:1.0];
-    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-
-    [self.tableView registerNib:[UINib nibWithNibName:@"WPAuthorCell" bundle:nil] forCellReuseIdentifier:@"WPAuthor"];
+- (NSString *)cellNibName {
+    return @"WPAuthorCell";
 }
 
-- (void)tableController:(RKAbstractTableController *)tableController
-        willDisplayCell: (WPAuthorCell *)authorCell
-              forObject:(WPAuthor *)author
-            atIndexPath:(NSIndexPath *)indexPath; {
+- (NSString *)resourcePath {
+    return @"/api/wordpress/authors";
+}
+
+- (NSArray *)fetchDataFromDB {
+    return [[self dataClass] MR_findAllSortedBy:@"name" ascending:YES];
+}
+
+- (void)configureCell:(UITableViewCell *)cell atIndex:(NSIndexPath *)indexPath {
+
+    WPAuthorCell *authorCell = (WPAuthorCell *) cell;
+
+    WPAuthor *author = [self objectAtIndex:(NSUInteger) indexPath.row];
+    authorCell.identifier = author.identifier;
+    authorCell.titleLabel.text = author.name;
+
     [authorCell.imageView setImageWithURL:[author avatarImageUrl] placeholderImage:self.defaultAvatarImage];
 }
 
-- (void)didReceiveMemoryWarning{
-    NSLog(@"Did received a memory warning in controller: %@", [self class]);
-    [super didReceiveMemoryWarning];
+-(void)onSelectCell: (UITableViewCell *)cell forObject: (id) object withIndex: (NSIndexPath *)indexPath {
+    WPAuthor *author = [self.tableController objectForRowAtIndexPath:indexPath];
+    NSLog(@"Author selected: %@", author);
+
+    WPPostTableViewController *postTableViewController = [[WPPostTableViewController alloc] initWithPostType:AUTHOR identifier:author.identifier];
+    [self.appDelegate.mainViewController revealViewController:postTableViewController];
 }
 
 @end

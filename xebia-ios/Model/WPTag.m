@@ -15,22 +15,10 @@
                                                withString:[[self.title substringToIndex:1] capitalizedString]];
 }
 
+/*
 - (NSInteger)postCount {
     return [self.post_count integerValue];
 }
-
-+ (RKObjectMapping *)mapping {
-    RKObjectMapping *mapping = [RKObjectMapping mappingForClass:[self class] usingBlock:^(RKObjectMapping *mapping) {
-//        mapping.rootKeyPath = @"tags";
-        [mapping mapAttributes:@"slug", @"title", @"post_count", nil];
-        [mapping mapKeyPathsToAttributes:
-                @"id", @"identifier",
-                @"description", @"description_",
-                nil];
-
-    }];
-
-    return mapping;
-}
+*/
 
 @end

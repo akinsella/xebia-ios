@@ -11,7 +11,7 @@
 #import "WPAuthor.h"
 #import <RestKit/RestKit.h>
 
-@interface WPPost : NSObject
+@interface  WPPost : NSManagedObject
 
 @property(nonatomic, strong) NSNumber *identifier;
 @property(nonatomic, strong) NSString *type;
@@ -28,6 +28,7 @@
 @property(nonatomic, strong) NSString *commentStatus;
 
 @property (nonatomic, strong, readonly) NSString *excerptTrim;
+@property (nonatomic, strong, readonly) NSString *description_;
 @property (nonatomic, strong, readonly) NSString *dateFormatted;
 @property (nonatomic, strong, readonly) NSString *authorFormatted;
 @property (nonatomic, strong, readonly) NSString *tagsFormatted;
@@ -45,8 +46,5 @@ typedef enum {
     CATEGORY = 3,
     AUTHOR = 4
 } POST_TYPE;
-
-+ (RKObjectMapping *)mapping;
-+ (RKObjectMapping *)mappingForOne;
 
 @end

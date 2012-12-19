@@ -7,11 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <RestKit/RestKit.h>
-#import <RKTableController.h>
+#import "XBTableViewController.h"
 #import "WPPost.h"
 
-@interface WPPostTableViewController : UITableViewController<RKTableControllerDelegate>
+@interface WPPostTableViewController : XBTableViewController<UITableViewDelegate, UITableViewDataSource, XBTableViewControllerDelegate>
 
 -(id)initWithPostType:(POST_TYPE)postType identifier:(NSNumber *)identifier;
 

@@ -191,6 +191,7 @@
 		DB34DD5D3F63612EEDACA913 /* RKTableItem+XKAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34D267050FFB324A8EE58F /* RKTableItem+XKAdditions.m */; };
 		DB34DE2CBE5E187AB7FA1B58 /* EBEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34D89482FE01F4B98C0B0C /* EBEvent.m */; };
 		DB34DE626EBB6C2E122EE216 /* NSDateFormatter+XBAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34D5341324A3A620923384 /* NSDateFormatter+XBAdditions.m */; };
+		DB34DFCDC1E245F9702F77A3 /* NSManagedObject+XBAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34DFE3E4A5B41DDB241A3F /* NSManagedObject+XBAdditions.m */; };
 		DB34DFEAD9C2A996A1C1BFAA /* UIImageView+XBAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34D6ABFADC8E84E0DA3E06 /* UIImageView+XBAdditions.m */; };
 /* End PBXBuildFile section */
 
@@ -452,6 +453,7 @@
 		DB34DC4A49554BC91B3F5686 /* TTHashtagEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTHashtagEntity.m; sourceTree = "<group>"; };
 		DB34DC6E8E2207CAD2A10E4E /* TTUserMentionEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTUserMentionEntity.h; sourceTree = "<group>"; };
 		DB34DCE1BDCEB48937F3C353 /* TTEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTEntity.m; sourceTree = "<group>"; };
+		DB34DD0490C0D6AE0CB2B924 /* NSManagedObject+XBAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSManagedObject+XBAdditions.h"; sourceTree = "<group>"; };
 		DB34DD55D5BC7C448FDE1C8F /* EBEventCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EBEventCell.xib; sourceTree = "<group>"; };
 		DB34DD7E8993C8010DE00380 /* TTEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTEntity.h; sourceTree = "<group>"; };
 		DB34DDDAC15A52FF78EF66F7 /* styles.bak */ = {isa = PBXFileReference; lastKnownFileType = file.bak; name = styles.bak; path = www/css/styles.bak; sourceTree = "<group>"; };
@@ -463,6 +465,7 @@
 		DB34DF9FC4988F42593E16CD /* RKTableItem+XKAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "RKTableItem+XKAdditions.h"; sourceTree = "<group>"; };
 		DB34DFACB850A57E22247BCB /* TTUrlEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTUrlEntity.h; sourceTree = "<group>"; };
 		DB34DFB375B289DB5B59E1A0 /* TTRetweetedStatus.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTRetweetedStatus.m; sourceTree = "<group>"; };
+		DB34DFE3E4A5B41DDB241A3F /* NSManagedObject+XBAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSManagedObject+XBAdditions.m"; sourceTree = "<group>"; };
 		DB34DFE697E1B43FA9DEFEC8 /* TTUserMentionEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTUserMentionEntity.m; sourceTree = "<group>"; };
 		EDB581D723EF4E5C808B5615 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		FFE479B60E604A7197B75249 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
@@ -848,6 +851,8 @@
 		54E325AF15E19D5900F55F6A /* Category */ = {
 			isa = PBXGroup;
 			children = (
+				DB34DD0490C0D6AE0CB2B924 /* NSManagedObject+XBAdditions.h */,
+				DB34DFE3E4A5B41DDB241A3F /* NSManagedObject+XBAdditions.m */,
 				DB34D72794DFBE2959D37839 /* UITableViewCell+VariableHeight.h */,
 				DB34D076AE26B9089D3B1C8F /* NSDateFormatter+XBAdditions.h */,
 				DB34D5341324A3A620923384 /* NSDateFormatter+XBAdditions.m */,
@@ -1177,6 +1182,7 @@
 				54862C6116813056001A54BE /* xebia_ios.xcdatamodeld in Sources */,
 				DB34D2C8A984873F9E603419 /* XBFetchInfo.m in Sources */,
 				DB34D038241FD449D6A29F5B /* XBTableViewController.m in Sources */,
+				DB34DFCDC1E245F9702F77A3 /* NSManagedObject+XBAdditions.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

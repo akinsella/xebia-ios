@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "XBTableViewController.h"
 
-@interface WPCategoryTableViewController : UITableViewController<RKTableControllerDelegate>
+@interface WPCategoryTableViewController : XBTableViewController<UITableViewDelegate, UITableViewDataSource, XBTableViewControllerDelegate>
 
 @end

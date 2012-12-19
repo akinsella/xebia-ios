@@ -27,19 +27,5 @@
     return stringToReturn;
 }
 
-+ (RKObjectMapping *)mapping {
-    RKObjectMapping *mapping = [RKObjectMapping mappingForClass:[self class] usingBlock:^(RKObjectMapping *mapping) {
-//        mapping.rootKeyPath = @"authors";
-        [mapping mapAttributes:@"slug", @"name", @"first_name", @"last_name", @"nickname", @"url", nil];
-        [mapping mapKeyPathsToAttributes:
-                @"id", @"identifier",
-                @"description", @"description_",
-                nil];
-
-    }];
-
-    return mapping;
-}
-
 @end
 

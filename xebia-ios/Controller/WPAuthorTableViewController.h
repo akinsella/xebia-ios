@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "XBTableViewController.h"
 
-@interface WPAuthorTableViewController : UITableViewController<RKTableControllerDelegate>
+@interface WPAuthorTableViewController : XBTableViewController<UITableViewDelegate, UITableViewDataSource, XBTableViewControllerDelegate>
 
 @end

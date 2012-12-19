@@ -76,47 +76,45 @@ NSString* const XBErrorDomain = @"fr.xebia.ErrorDomain";
 + (void)configureMappings {
         RKObjectMappingProvider *omp = [RKObjectManager sharedManager].mappingProvider;
 
-/*
-    RKObjectMapping *ghRepositoryObjectMapping = [GHRepository mapping];
-    [omp addObjectMapping:ghRepositoryObjectMapping];
-    [omp setObjectMapping:ghRepositoryObjectMapping forResourcePathPattern:@"/api/github/repositories"];
-    [omp setSerializationMapping:[ghRepositoryObjectMapping inverseMapping] forClass:[GHRepository class]];
+//    RKObjectMapping *ghRepositoryObjectMapping = [GHRepository mapping];
+//    [omp addObjectMapping:ghRepositoryObjectMapping];
+//    [omp setObjectMapping:ghRepositoryObjectMapping forResourcePathPattern:@"/api/github/repositories"];
+//    [omp setSerializationMapping:[ghRepositoryObjectMapping inverseMapping] forClass:[GHRepository class]];
+//
+//    RKObjectMapping *ghOwnerMapping = [GHOwner mapping];
+//    [omp addObjectMapping:ghOwnerMapping];
+//    [omp setObjectMapping:ghOwnerMapping forResourcePathPattern:@"/api/github/owners"];
+//    [omp setSerializationMapping:[ghOwnerMapping inverseMapping] forClass:[GHOwner class]];
 
-    RKObjectMapping *ghOwnerMapping = [GHOwner mapping];
-    [omp addObjectMapping:ghOwnerMapping];
-    [omp setObjectMapping:ghOwnerMapping forResourcePathPattern:@"/api/github/owners"];
-    [omp setSerializationMapping:[ghOwnerMapping inverseMapping] forClass:[GHOwner class]];
-*/
-
-    RKObjectMapping *wpCategoryMapping = [WPCategory mapping];
-    [omp addObjectMapping:wpCategoryMapping];
-    [omp setObjectMapping:wpCategoryMapping forResourcePathPattern:@"/api/wordpress/categories"];
-    [omp setSerializationMapping:[wpCategoryMapping inverseMapping] forClass:[WPCategory class]];
-
-    RKObjectMapping *wpTagMapping = [WPTag mapping];
-    [omp addObjectMapping:wpTagMapping];
-    [omp setObjectMapping:wpTagMapping forResourcePathPattern:@"/api/wordpress/tags"];
-    [omp setSerializationMapping:[wpTagMapping inverseMapping] forClass:[WPTag class]];
-    
-    RKObjectMapping *wpAuthorMapping = [WPAuthor mapping];
-    [omp addObjectMapping:wpAuthorMapping];
-    [omp setObjectMapping:wpAuthorMapping forResourcePathPattern:@"/api/wordpress/authors"];
-    [omp setSerializationMapping:[wpAuthorMapping inverseMapping] forClass:[WPAuthor class]];
-
-    RKObjectMapping *wpPostMapping = [WPPost mapping];
-    [omp addObjectMapping:wpPostMapping];
-    [omp setSerializationMapping:[wpPostMapping inverseMapping] forClass:[WPPost class]];
-
-    [omp setObjectMapping:wpPostMapping forResourcePathPattern:@"/api/wordpress/posts/recent"];
-    [omp setObjectMapping:wpPostMapping forResourcePathPattern:@"/api/wordpress/author/:identifier/posts"];
-    [omp setObjectMapping:wpPostMapping forResourcePathPattern:@"/api/wordpress/tag/:identifier/posts"];
-    [omp setObjectMapping:wpPostMapping forResourcePathPattern:@"/api/wordpress/category/:identifier/posts"];
-    // http://blog.xebia.fr/wp-json-api/get_post/?post_id=12467
-
-
-    RKObjectMapping *wpPostOneMapping = [WPPost mappingForOne];
-    [omp addObjectMapping:wpPostOneMapping];
-    [omp setObjectMapping:wpPostOneMapping forResourcePathPattern:@"/api/wordpress/post/:identifier"];
+//    RKObjectMapping *wpCategoryMapping = [WPCategory mapping];
+//    [omp addObjectMapping:wpCategoryMapping];
+//    [omp setObjectMapping:wpCategoryMapping forResourcePathPattern:@"/api/wordpress/categories"];
+//    [omp setSerializationMapping:[wpCategoryMapping inverseMapping] forClass:[WPCategory class]];
+//
+//    RKObjectMapping *wpTagMapping = [WPTag mapping];
+//    [omp addObjectMapping:wpTagMapping];
+//    [omp setObjectMapping:wpTagMapping forResourcePathPattern:@"/api/wordpress/tags"];
+//    [omp setSerializationMapping:[wpTagMapping inverseMapping] forClass:[WPTag class]];
+//
+//    RKObjectMapping *wpAuthorMapping = [WPAuthor mapping];
+//    [omp addObjectMapping:wpAuthorMapping];
+//    [omp setObjectMapping:wpAuthorMapping forResourcePathPattern:@"/api/wordpress/authors"];
+//    [omp setSerializationMapping:[wpAuthorMapping inverseMapping] forClass:[WPAuthor class]];
+//
+//    RKObjectMapping *wpPostMapping = [WPPost mapping];
+//    [omp addObjectMapping:wpPostMapping];
+//    [omp setSerializationMapping:[wpPostMapping inverseMapping] forClass:[WPPost class]];
+//
+//    [omp setObjectMapping:wpPostMapping forResourcePathPattern:@"/api/wordpress/posts/recent"];
+//    [omp setObjectMapping:wpPostMapping forResourcePathPattern:@"/api/wordpress/author/:identifier/posts"];
+//    [omp setObjectMapping:wpPostMapping forResourcePathPattern:@"/api/wordpress/tag/:identifier/posts"];
+//    [omp setObjectMapping:wpPostMapping forResourcePathPattern:@"/api/wordpress/category/:identifier/posts"];
+//    // http://blog.xebia.fr/wp-json-api/get_post/?post_id=12467
+//
+//
+//    RKObjectMapping *wpPostOneMapping = [WPPost mappingForOne];
+//    [omp addObjectMapping:wpPostOneMapping];
+//    [omp setObjectMapping:wpPostOneMapping forResourcePathPattern:@"/api/wordpress/post/:identifier"];
 
     RKObjectMapping *ttTweetMapping = [TTTweet mapping];
     [omp addObjectMapping:ttTweetMapping];

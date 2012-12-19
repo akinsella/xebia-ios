@@ -8,6 +8,7 @@
 #import <Foundation/Foundation.h>
 
 @protocol XBTableViewControllerDelegate<NSObject>
+
 @required
 
 - (int)maxDataAgeInSecondsBeforeServerFetch;
@@ -18,13 +19,15 @@
 
 - (NSString *)cellNibName;
 
-- (NSString *)urlPath;
+- (NSString *)resourcePath;
 
 - (NSArray *)fetchDataFromDB;
 
 - (void)configureCell: (UITableViewCell *)cell atIndex:(NSIndexPath *)indexPath;
 
-- (id)objectAtIndex:(NSUInteger)index1;
+@optional
+
+-(void)onSelectCell: (UITableViewCell *)cell forObject: (id) object withIndex: (NSIndexPath *)indexPath;
 
 @end
 
@@ -32,5 +35,6 @@
 
 @property (nonatomic, strong) id<XBTableViewControllerDelegate> delegate;
 
+- (id)objectAtIndex:(NSUInteger)index;
 
 @end

@@ -9,6 +9,6 @@
 #import "TTTAttributedLabel.h"
 #import "XBTableViewController.h"
 
-@interface EBEventTableViewController : XBTableViewController<RKTableControllerDelegate, TTTAttributedLabelDelegate, XBTableViewControllerDelegate>
+@interface EBEventTableViewController : XBTableViewController<UITableViewDelegate, UITableViewDataSource, TTTAttributedLabelDelegate, XBTableViewControllerDelegate>
 
 @end

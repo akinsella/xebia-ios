@@ -16,10 +16,6 @@
 
 @implementation GHRepositoryTableViewController
 
-- (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
-}
-
 - (void)viewDidLoad {
 
     self.delegate = self;
@@ -38,7 +34,7 @@
 }
 
 - (NSArray *)fetchDataFromDB {
-    return [GHRepository MR_findAllSortedBy:@"name" ascending:YES];
+    return [[self dataClass] MR_findAllSortedBy:@"name" ascending:YES];
 }
 
 - (NSString *)cellReuseIdentifier {
@@ -52,7 +48,7 @@
     return @"GHRepositoryCell";
 }
 
-- (NSString *)urlPath {
+- (NSString *)resourcePath {
     return @"/api/github/repositories";
 }
 
@@ -62,7 +58,7 @@
 
 - (void)configureCell: (UITableViewCell *)cell atIndex:(NSIndexPath *)indexPath {
     GHRepositoryCell *repositoryCell = (GHRepositoryCell *)cell;
-    GHRepository *repository = [self.delegate objectAtIndex:(NSUInteger) indexPath.row];
+    GHRepository *repository = [self objectAtIndex:(NSUInteger) indexPath.row];
     repositoryCell.titleLabel.text = repository.name;
     repositoryCell.descriptionLabel.text = repository.description_;
     repositoryCell.identifier = repository.identifier;

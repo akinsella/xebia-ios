@@ -14,17 +14,4 @@
     return [self.post_count integerValue];
 }
 
-+ (RKObjectMapping *)mapping {
-    RKObjectMapping *mapping = [RKObjectMapping mappingForClass:[self class] usingBlock:^(RKObjectMapping *mapping) {
-//        mapping.rootKeyPath = @"categories";
-        [mapping mapAttributes:@"slug", @"title", @"parent", @"post_count", nil];
-        [mapping mapKeyPathsToAttributes:
-                @"id", @"identifier",
-                @"description", @"description_",
-                nil];
-    }];
-
-    return mapping;
-}
-
 @end

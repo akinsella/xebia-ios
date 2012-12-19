@@ -6,106 +6,68 @@
 //  Copyright (c) 2012 Xebia France. All rights reserved.
 //
 
-#import <RestKit/RestKit.h>
-#import <RestKit/UI.h>
-#import "WPCategory.h"
 #import "WPTag.h"
 #import "WPTagTableViewController.h"
-#import "WPCategoryTableViewController.h"
-#import "XBLoadingView.h"
-#import "UIColor+XBAdditions.h"
 #import "WPPostTableViewController.h"
-#import "WPPost.h"
 #import "UIViewController+XBAdditions.h"
 #import "XBMainViewController.h"
-
-static NSString *const reuseIdentifier = @"WPTag";
-
-@interface WPTagTableViewController ()
-@property (nonatomic, strong) RKTableController *tableController;
-@end
+#import "WPTagCell.h"
 
 @implementation WPTagTableViewController
 
-- (id)init {
-    self = [super init];
-    if (self) {
-        self.title = @"Tags";
-    }
-
-    return self;
-}
-
 - (void)viewDidLoad {
+
+    self.delegate = self;
+    self.title = @"Tags";
+
     [super viewDidLoad];
-    [self configure];
 }
 
-- (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
-
-    [self.tableController loadTableFromResourcePath:@"/api/wordpress/tags"];
+- (int)maxDataAgeInSecondsBeforeServerFetch {
+    return 120;
 }
 
-- (void)configure {
-    [self configureTableController];
-    [self configureRefreshTriggerView];
-    [self configureTableView];
+- (Class)dataClass {
+    return [WPTag class];
 }
 
-- (void)configureTableController {
-    self.tableController = [[RKObjectManager sharedManager] tableControllerForTableViewController:self];
+- (NSString *)cellReuseIdentifier {
+    // Needs to be static
+    static NSString *cellReuseIdentifier = @"WPTag" ;
 
-    self.tableController.delegate = self;
-
-    self.tableController.autoRefreshFromNetwork = NO;
-    self.tableController.pullToRefreshEnabled = YES;
-    self.tableController.variableHeightRows = NO;
-
-    self.tableController.imageForOffline = [UIImage imageNamed:@"offline.png"];
-    self.tableController.imageForError = [UIImage imageNamed:@"error.png"];
-    self.tableController.imageForEmpty = [UIImage imageNamed:@"empty.png"];
-
-    [self.tableController mapObjectsWithClass:[WPTag class] toTableCellsWithMapping:[self getCellMapping]];
+    return cellReuseIdentifier;
 }
 
-- (void)configureRefreshTriggerView {
-    NSBundle *restKitResources = [NSBundle restKitResourcesBundle];
-    UIImage *arrowImage = [restKitResources imageWithContentsOfResource:@"blueArrow" withExtension:@"png"];
-    [[RKRefreshTriggerView appearance] setTitleFont:[UIFont fontWithName:@"HelveticaNeue-Bold" size:13]];
-    [[RKRefreshTriggerView appearance] setLastUpdatedFont:[UIFont fontWithName:@"HelveticaNeue" size:11]];
-    [[RKRefreshTriggerView appearance] setArrowImage:arrowImage];
+- (NSString *)cellNibName {
+    return @"WPTagCell";
 }
 
-- (RKTableViewCellMapping *)getCellMapping {
-    RKTableViewCellMapping *cellMapping = [RKTableViewCellMapping cellMapping];
-
-    cellMapping.cellClassName = @"WPTagCell";
-    cellMapping.reuseIdentifier = reuseIdentifier;
-    
-    [cellMapping mapKeyPath:@"capitalizedTitle" toAttribute:@"titleLabel.text"];
-    [cellMapping mapKeyPath:@"postCount" toAttribute:@"itemCount"];
-    cellMapping.onSelectCellForObjectAtIndexPath = ^(UITableViewCell *cell, id object, NSIndexPath* indexPath) {
-        WPTag *tag = [self.tableController objectForRowAtIndexPath:indexPath];
-        NSLog(@"Tag selected: %@", tag);
-        
-        WPPostTableViewController *postTableViewController = [[WPPostTableViewController alloc] initWithPostType:TAG identifier:tag.identifier];
-        [self.appDelegate.mainViewController revealViewController:postTableViewController];
-    };
-
-    return cellMapping;
+- (NSString *)resourcePath {
+    return @"/api/wordpress/tags";
 }
 
-- (void)configureTableView {
-    self.tableView.backgroundColor = [UIColor colorWithPatternImageName:@"bg_home_pattern"];
-    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-
-    [self.tableView registerNib:[UINib nibWithNibName:@"WPTagCell" bundle:nil] forCellReuseIdentifier:reuseIdentifier];
+- (NSArray *)fetchDataFromDB {
+    return [[self dataClass] MR_findAllSortedBy:@"title" ascending:YES];
 }
 
-- (void)didReceiveMemoryWarning{
-    [super didReceiveMemoryWarning];
-    NSLog(@"Did received a memory warning in controller: %@", [self class]);
+- (void)configureCell:(UITableViewCell *)cell atIndex:(NSIndexPath *)indexPath {
+
+    WPTagCell *tagCell = (WPTagCell *) cell;
+
+    WPTag *tag = [self objectAtIndex:(NSUInteger) indexPath.row];
+    tagCell.titleLabel.text = [tag capitalizedTitle];
+    tagCell.itemCount = tag.postCount.intValue;
+}
+
+
+
+-(void)onSelectCell: (UITableViewCell *)cell forObject: (id) object withIndex: (NSIndexPath *)indexPath {
+
+    WPTag *tag = [self objectAtIndex:(NSUInteger) indexPath.row];
+    NSLog(@"Tag selected: %@", tag);
+
+    WPPostTableViewController *postTableViewController = [[WPPostTableViewController alloc] initWithPostType:TAG identifier:tag.identifier];
+    [self.appDelegate.mainViewController revealViewController:postTableViewController];
 }
 
 @end

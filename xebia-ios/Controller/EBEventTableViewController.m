@@ -24,18 +24,14 @@
 
 @implementation EBEventTableViewController
 
-
-
-
-- (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
-}
-
 - (void)viewDidLoad {
 
     self.delegate = self;
-    self.title = @"Owners";
+    self.title = @"Events";
     self.defaultImage = [UIImage imageNamed:@"eventbrite"];
+
+    [self addRevealGesture];
+    [self addMenuButton];
 
     [super viewDidLoad];
 }
@@ -59,12 +55,12 @@
     return @"EBEventCell";
 }
 
-- (NSString *)urlPath {
+- (NSString *)resourcePath {
     return @"/api/eventbrite/events";
 }
 
 - (NSArray *)fetchDataFromDB {
-    return [EBEvent MR_findAllSortedBy:@"start_date" ascending:YES];
+    return [[self dataClass] MR_findAllSortedBy:@"start_date" ascending:YES];
 }
 
 - (void)configureCell:(UITableViewCell *)cell atIndex:(NSIndexPath *)indexPath {
@@ -72,7 +68,7 @@
     EBEventCell *eventCell = (EBEventCell *) cell;
     [eventCell configure];
 
-    EBEvent *event = [self.delegate objectAtIndex:(NSUInteger) indexPath.row];
+    EBEvent *event = [self objectAtIndex:(NSUInteger) indexPath.row];
     [eventCell.imageView setImage: self.defaultImage];
     eventCell.descriptionLabel.delegate = self;
     eventCell.identifier = event.identifier;

@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "XBTableViewController.h"
 
-@interface WPTagTableViewController : UITableViewController<RKTableControllerDelegate>
+@interface WPTagTableViewController : XBTableViewController<UITableViewDelegate, UITableViewDataSource, XBTableViewControllerDelegate>
 
 @end

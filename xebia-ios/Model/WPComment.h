@@ -8,7 +8,7 @@
 
 #import <RestKit/RestKit.h>
 
-@interface WPComment : NSObject
+@interface WPComment : NSManagedObject
 
 @property (nonatomic, strong) NSNumber *identifier;
 @property (nonatomic, strong) NSString *name;
@@ -16,7 +16,5 @@
 @property (nonatomic, strong) NSString *date;
 @property (nonatomic, strong) NSString *content;
 @property (nonatomic, strong) NSNumber *parent;
-
-+ (RKObjectMapping *)mapping;
 
 @end

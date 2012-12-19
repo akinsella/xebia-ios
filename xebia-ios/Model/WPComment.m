@@ -10,12 +10,5 @@
 
 @implementation WPComment
 
-+ (RKObjectMapping *)mapping {
-    RKObjectMapping *mapping = [RKObjectMapping mappingForClass:[self class] usingBlock:^(RKObjectMapping *mapping) {
-
-    }];
-
-    return mapping;
-}
 
 @end

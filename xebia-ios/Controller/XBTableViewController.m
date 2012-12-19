@@ -81,7 +81,7 @@
 
 - (void)fetchDataFromServer:(void (^)())callback {
     AFHTTPClient *client = [AFHTTPClient clientWithBaseURL:[NSURL URLWithString:[AppDelegate baseUrl]]];
-    NSURLRequest *urlRequest = [client requestWithMethod:@"GET" path:[self.delegate urlPath] parameters:nil];
+    NSURLRequest *urlRequest = [client requestWithMethod:@"GET" path:[self.delegate resourcePath] parameters:nil];
 
     [SVProgressHUD showWithStatus:@"Fetching data" maskType:SVProgressHUDMaskTypeBlack];
 

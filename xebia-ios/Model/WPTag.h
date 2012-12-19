@@ -9,18 +9,14 @@
 #import <UIKit/UIKit.h>
 #import <RestKit/RestKit.h>
 
-@interface WPTag : NSObject
+@interface WPTag : NSManagedObject
 
 @property (nonatomic, strong) NSNumber *identifier;
 @property (nonatomic, strong) NSString *slug;
 @property (nonatomic, strong) NSString *title;
 @property (nonatomic, strong) NSString *description_;
-@property (nonatomic, strong) NSNumber *post_count;
+@property (nonatomic, strong) NSNumber *postCount;
 
-@property (nonatomic, strong, readonly) NSString *capitalizedTitle;
-
-@property (nonatomic, readonly) NSInteger postCount;
-
-+ (RKObjectMapping *)mapping;
+- (NSString *)capitalizedTitle;
 
 @end

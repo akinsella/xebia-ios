@@ -23,13 +23,5 @@
     return self;
 }
 
-- (void)viewDidLoad {
-    [super viewDidLoad];
-}
-
-- (void)didReceiveMemoryWarning{
-    NSLog(@"Did received a memory warning in controller: %@", [self class]);
-    [super didReceiveMemoryWarning];
-}
 
 @end

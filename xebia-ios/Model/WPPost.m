@@ -13,25 +13,7 @@
 #import "NSDateFormatter+XBAdditions.h"
 #import "USArrayWrapper.h"
 
-@interface WPPost()
-@property(nonatomic, strong)NSDateFormatter *df;
-@end
-
 @implementation WPPost
-
--(id)init {
-    self = [super init];
-
-    if (self) {
-        [self initDateFormatters];
-    }
-
-    return self;
-}
-
-- (void)initDateFormatters {
-    self.df = [NSDateFormatter initWithDateFormat: @"'Le 'dd'/'MM'/'yyyy', à 'HH':'mm"];
-}
 
 - (NSString *)description_ {
     return [NSString stringWithFormat:@"%@ commentaire%@", self.commentCount, self.commentCount.intValue > 1 ? @"s" :@"" ];
@@ -41,7 +23,7 @@
 }
 
 - (NSString *)dateFormatted {
-    return [NSString stringWithFormat:@"%@", [self.df stringFromDate:self.date]];
+    return [NSString stringWithFormat:@"%@", [[NSDateFormatter initWithDateFormat: @"'Le 'dd'/'MM'/'yyyy', à 'HH':'mm"] stringFromDate:self.date]];
 }
 
 - (NSString *)authorFormatted {
@@ -63,40 +45,6 @@
 
 - (NSURL *)imageUrl {
     return [GravatarHelper getGravatarURL: [NSString stringWithFormat:@"%@@xebia.fr", self.author.nickname]];
-}
-
-+ (RKObjectMapping *)mapping {
-    RKObjectMapping *mapping = [RKObjectMapping mappingForClass:[self class] usingBlock:^(RKObjectMapping *mapping) {
-//        mapping.rootKeyPath = @"posts";
-        [mapping mapAttributes:@"type", @"slug", @"url", @"status", @"title", @"titlePlain", @"content", @"excerpt", @"date", @"modified", @"commentCount", @"commentStatus", nil];
-        [mapping mapKeyPathsToAttributes:
-                @"id", @"identifier",
-                nil];
-    }];
-
-    // Relationships
-    [mapping hasMany:@"tags" withMapping:[WPTag mapping]];
-    [mapping hasMany:@"categories" withMapping:[WPCategory mapping]];
-    [mapping hasMany:@"author" withMapping:[WPAuthor mapping]];
-
-    return mapping;
-}
-
-+ (RKObjectMapping *)mappingForOne {
-    RKObjectMapping *mapping = [RKObjectMapping mappingForClass:[self class] usingBlock:^(RKObjectMapping *mapping) {
-//        mapping.rootKeyPath = @"post";
-        [mapping mapAttributes:@"type", @"slug", @"url", @"status", @"title", @"titlePlain", @"content", @"excerpt", @"date", @"modified", @"commentCount", @"commentStatus", nil];
-        [mapping mapKeyPathsToAttributes:
-                @"id", @"identifier",
-                nil];
-    }];
-
-    // Relationships
-    [mapping hasMany:@"tags" withMapping:[WPTag mapping]];
-    [mapping hasMany:@"categories" withMapping:[WPCategory mapping]];
-    [mapping hasMany:@"author" withMapping:[WPAuthor mapping]];
-
-    return mapping;
 }
 
 @end

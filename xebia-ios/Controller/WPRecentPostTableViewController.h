@@ -10,6 +10,6 @@
 #import <RestKit/RestKit.h>
 #import <RestKit/UI.h>
 
-@interface WPRecentPostTableViewController : WPPostTableViewController<RKTableControllerDelegate>
+@interface WPRecentPostTableViewController : WPPostTableViewController
 
 @end
