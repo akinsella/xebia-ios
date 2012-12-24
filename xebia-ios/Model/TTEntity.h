@@ -8,7 +8,7 @@
 #import <Foundation/Foundation.h>
 #import <RestKit/RestKit.h>
 
-@interface TTEntity : NSObject
+@interface TTEntity : NSManagedObject
 
 @property (nonatomic, strong) NSArray *indices;
 

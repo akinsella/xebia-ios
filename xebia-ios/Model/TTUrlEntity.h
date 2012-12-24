@@ -14,7 +14,6 @@
 @property(nonatomic, strong) NSString *url;
 @property(nonatomic, strong) NSString *expanded_url;
 @property(nonatomic, strong) NSString *display_url;
-
-+ (RKObjectMapping *)mapping;
+@property (nonatomic, strong) NSArray *indices;
 
 @end

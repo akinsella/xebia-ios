@@ -21,6 +21,9 @@
 #import "WPCategory.h"
 #import "NSManagedObject+XBAdditions.h"
 #import "JSONKit.h"
+#import "AFHTTPClient.h"
+#import "SVProgressHUD.h"
+#import "AFNetworking.h"
 
 @interface WPPostTableViewController ()
 @property (nonatomic, strong) NSMutableDictionary *postTypes;
@@ -53,10 +56,10 @@
     self.identifier = pIdentifier;
 
     self.postTypes = [@{
-    [NSNumber asString:RECENT]: @"recent",
-    [NSNumber asString:AUTHOR]: @"author",
-    [NSNumber asString:TAG]: @"tag",
-    [NSNumber asString:CATEGORY]: @"category"
+        [NSNumber asString:RECENT]: @"recent",
+        [NSNumber asString:AUTHOR]: @"author",
+        [NSNumber asString:TAG]: @"tag",
+        [NSNumber asString:CATEGORY]: @"category"
     } mutableCopy];
 }
 
@@ -75,7 +78,7 @@
 }
 
 - (int)maxDataAgeInSecondsBeforeServerFetch {
-    return 120;
+    return 600;
 }
 
 - (Class)dataClass {
@@ -104,7 +107,21 @@
 }
 
 - (NSArray *)fetchDataFromDB {
-    return [[self dataClass] MR_findAllSortedBy:@"date" ascending:FALSE];
+    if ([[self getCurrentPostType] isEqualToString:@"recent"]) {
+        return [[self dataClass] MR_findAllSortedBy:@"date" ascending:NO];
+    }
+    else if ([[self getCurrentPostType] isEqualToString:@"author"]) {
+        NSPredicate *predicate = [NSPredicate predicateWithFormat:@"author.identifier == %@", self.identifier];
+        return [[self dataClass] MR_findAllSortedBy:@"date" ascending:NO withPredicate:predicate];
+    }
+    else if ([[self getCurrentPostType] isEqualToString:@"tag"]) {
+        NSPredicate *predicate = [NSPredicate predicateWithFormat:@"ANY tags.identifier == %@", self.identifier];
+        return [[self dataClass] MR_findAllSortedBy:@"date" ascending:NO withPredicate:predicate];
+    }
+    else if ([[self getCurrentPostType] isEqualToString:@"category"]) {
+        NSPredicate *predicate = [NSPredicate predicateWithFormat:@"ANY categories.identifier == %@", self.identifier];
+        return [[self dataClass] MR_findAllSortedBy:@"date" ascending:NO withPredicate:predicate];
+    }
 }
 
 - (void)configureCell:(UITableViewCell *)cell atIndex:(NSIndexPath *)indexPath {
@@ -130,35 +147,74 @@
 }
 
 -(void)onSelectCell: (UITableViewCell *)cell forObject: (id) object withIndex: (NSIndexPath *)indexPath {
+    [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
 
-    WPPost *post = [self objectAtIndex:(NSUInteger) indexPath.row];
+    WPPost *post = (WPPost *)[self objectAtIndex:(NSUInteger) indexPath.row];
     NSLog(@"Post selected: %@", post);
 
-    WPCategory *postCategory = [post.categories objectAtIndex:0];
 
-    NSString *postUrl = [NSString stringWithFormat:@"/wordpress/post/%@", post.identifier];
+    NSString *postUrl = [NSString stringWithFormat:@"/api/wordpress/post/%@", post.identifier];
 
-    [[RKObjectManager sharedManager] loadObjectsAtResourcePath:postUrl usingBlock:^(RKObjectLoader *loader) {
 
-        loader.onDidLoadObject = ^(id mappedObject) {
-            NSDictionary *dict = [NSManagedObject dictionaryWithPropertiesOfObject: post];
+    [self fetchDataFromServerWithResourcePath:postUrl
+        success:^(id JSON) {
+            NSManagedObjectContext *myContext = [NSManagedObjectContext MR_context];
+            [[self.delegate dataClass] MR_importFromObject: JSON inContext: myContext];
 
-            NSString *json = [dict JSONString];
+            WPPost *fullPost = [WPPost MR_findFirstByAttribute:@"identifier" withValue:[post identifier] inContext: myContext];
+
+            NSDictionary *dict = [NSManagedObject dictionaryWithPropertiesOfObject: fullPost];
+
+            NSDateFormatter *outputFormatter = [[NSDateFormatter alloc] init];
+            [outputFormatter setDateFormat:@"yyyy-MM-dd'T'HH:mm:ss.SSSZZZ"];
+
+            NSString* json = [dict JSONStringWithOptions:JKSerializeOptionNone serializeUnsupportedClassesUsingBlock:^id(id object) {
+                if([object isKindOfClass:[NSDate class]]) { return([outputFormatter stringFromDate:object]); }
+                return(nil);
+            } error:nil];
 
             XBShareInfo* shareInfo = [XBShareInfo shareInfoWithUrl:post.url title:post.title];
+
+            WPCategory *postCategory = (WPCategory *)[[post.categories allObjects] objectAtIndex:0];
             [self.appDelegate.mainViewController openLocalURL:@"index"
                                                     withTitle:postCategory.title
                                                          json:json
                                                     shareInfo: shareInfo];
-        };
-
-        loader.onDidFailWithError = ^(NSError *error) {
-//                self.tableController.loadingView = nil;
+        }
+        failure:^(NSError *error) {
             NSLog(@"Fetch post with id: '%@' failure: %@", post.identifier, error);
-        };
-
-    }];
-
+        }
+    ];
 }
+
+
+- (void)fetchDataFromServerWithResourcePath:(NSString *)path success:(void (^)(id JSON))success failure:(void (^)(NSError *error))failure {
+    AFHTTPClient *client = [AFHTTPClient clientWithBaseURL:[NSURL URLWithString:[AppDelegate baseUrl]]];
+    NSURLRequest *urlRequest = [client requestWithMethod:@"GET" path:path parameters:nil];
+
+    [SVProgressHUD showWithStatus:@"Fetching data" maskType:SVProgressHUDMaskTypeBlack];
+
+    AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:urlRequest
+        success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
+            [SVProgressHUD showSuccessWithStatus:@"Done!"];
+            NSLog(@"JSON: %@", JSON);
+
+            if (success) {
+                success(JSON);
+            }
+        }
+        failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
+            [SVProgressHUD showErrorWithStatus:@"Got some issue!"];
+            NSLog(@"Error: %@, JSON: %@", error, JSON);
+
+            if (failure) {
+                failure(error);
+            }
+        }
+    ];
+
+    [operation start];
+}
+
 
 @end

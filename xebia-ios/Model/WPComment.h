@@ -13,7 +13,7 @@
 @property (nonatomic, strong) NSNumber *identifier;
 @property (nonatomic, strong) NSString *name;
 @property (nonatomic, strong) NSString *url;
-@property (nonatomic, strong) NSString *date;
+@property (nonatomic, strong) NSDate *date;
 @property (nonatomic, strong) NSString *content;
 @property (nonatomic, strong) NSNumber *parent;
 

@@ -6,8 +6,6 @@
 //  Copyright (c) 2012 Xebia France. All rights reserved.
 //
 
-#import <RestKit/RestKit.h>
-#import <RestKit/UI.h>
 #import "WPAuthor.h"
 #import "WPAuthorTableViewController.h"
 #import "WPAuthorCell.h"
@@ -20,7 +18,6 @@
 #import "XBMainViewController.h"
 
 @interface WPAuthorTableViewController ()
-@property (nonatomic, strong) RKTableController *tableController;
 @property (nonatomic, strong) UIImage* defaultAvatarImage;
 @end
 
@@ -75,7 +72,10 @@
 }
 
 -(void)onSelectCell: (UITableViewCell *)cell forObject: (id) object withIndex: (NSIndexPath *)indexPath {
-    WPAuthor *author = [self.tableController objectForRowAtIndexPath:indexPath];
+
+    [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
+
+    WPAuthor *author = [self objectAtIndex:(NSUInteger) indexPath.row];
     NSLog(@"Author selected: %@", author);
 
     WPPostTableViewController *postTableViewController = [[WPPostTableViewController alloc] initWithPostType:AUTHOR identifier:author.identifier];

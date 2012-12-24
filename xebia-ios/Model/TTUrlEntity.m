@@ -10,12 +10,4 @@
 
 @implementation TTUrlEntity
 
-+ (RKObjectMapping *)mapping {
-    RKObjectMapping *mapping = [RKObjectMapping mappingForClass:[self class] usingBlock:^(RKObjectMapping *mapping) {
-        [mapping mapAttributes: @"url", @"expanded_url", @"display_url", @"indices", nil];
-    }];
-
-    return mapping;
-}
-
 @end

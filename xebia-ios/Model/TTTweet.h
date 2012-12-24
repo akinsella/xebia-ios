@@ -10,27 +10,27 @@
 #import "TTUser.h"
 #import <RestKit/RestKit.h>
 #import "TTRetweetedStatus.h"
-#import "TTEntities.h"
 
-@interface TTTweet : NSObject
+@interface TTTweet : NSManagedObject
 
 @property (nonatomic, strong) NSString *identifier;
 @property (nonatomic, strong) NSString *identifier_str;
 @property (nonatomic, strong) NSDate *created_at;
 @property (nonatomic, strong) TTUser *user;
 @property (nonatomic, strong) NSString *text;
-@property (nonatomic, strong, readonly) NSString *dateFormatted;
-@property (nonatomic, strong, readonly) NSString *ownerScreenName;
-@property (nonatomic, strong, readonly) NSURL *ownerImageUrl;
-@property (nonatomic, strong) TTEntities *entities;
 @property (nonatomic, strong) TTRetweetedStatus *retweeted_status;
+@property(nonatomic, strong) NSArray *hashtags;
+@property(nonatomic, strong) NSArray *urls;
+@property(nonatomic, strong) NSArray *user_mentions;
 @property (nonatomic, assign) bool favorited;
 @property (nonatomic, assign) bool retweeted;
 @property (nonatomic, strong) NSNumber *retweet_count;
 
-@property (nonatomic, strong) NSString *contentAsHtml;
+- (NSString *)dateFormatted;
 
-+ (RKObjectMapping *)mapping;
+- (NSString *)ownerScreenName;
+
+- (NSURL *)ownerImageUrl;
 
 @end
 

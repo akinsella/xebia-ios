@@ -11,7 +11,6 @@
 @interface TTHashtagEntity : TTEntity
 
 @property(nonatomic, strong) NSString *text;
-
-+ (RKObjectMapping *)mapping;
+@property (nonatomic, strong) NSArray *indices;
 
 @end

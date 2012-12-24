@@ -31,18 +31,18 @@
     self.layer.rasterizationScale = [[UIScreen mainScreen] scale];
 
 
-    for (TTUserMentionEntity *entity in _entities.user_mentions) {
+    for (TTUserMentionEntity *entity in self.user_mentions) {
         NSRange linkRange = NSMakeRange( [entity.indices[0] unsignedIntegerValue], [entity.indices[1] unsignedIntegerValue] - [entity.indices[0] unsignedIntegerValue] );
         NSString *urlStr = [NSString stringWithFormat:@"http://twitter.com/%@", entity.screen_name];
         NSURL *url = [NSURL URLWithString:urlStr];
         [self.contentLabel addLinkToURL:url withRange:linkRange];
     }
-    for (TTHashtagEntity *entity in _entities.hashtags) {
+    for (TTHashtagEntity *entity in self.hashtags) {
         NSRange linkRange = NSMakeRange( [entity.indices[0] unsignedIntegerValue], [entity.indices[1] unsignedIntegerValue] - [entity.indices[0] unsignedIntegerValue] );
         NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"https://twitter.com/search?q=%%23%@&src=hash", entity.text]];
         [self.contentLabel addLinkToURL:url withRange:linkRange];
     }
-    for (TTUrlEntity *entity in _entities.urls) {
+    for (TTUrlEntity *entity in self.urls) {
         NSRange linkRange = NSMakeRange( [entity.indices[0] unsignedIntegerValue], [entity.indices[1] unsignedIntegerValue] - [entity.indices[0] unsignedIntegerValue] );
         NSURL *url = [NSURL URLWithString:entity.expanded_url];
         [self.contentLabel addLinkToURL:url withRange:linkRange];

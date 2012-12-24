@@ -62,6 +62,8 @@
 
 -(void)onSelectCell: (UITableViewCell *)cell forObject: (id) object withIndex: (NSIndexPath *)indexPath {
 
+    [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
+
     WPCategory *category = [self objectAtIndex:(NSUInteger) indexPath.row];
     NSLog(@"Category selected: %@", category);
 

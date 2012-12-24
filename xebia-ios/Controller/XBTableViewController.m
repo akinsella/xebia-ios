@@ -180,6 +180,15 @@
     return [cell respondsToSelector:@selector(heightForCell)] ? [cell heightForCell] : self.tableView.rowHeight;
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+
+    if ([self.delegate respondsToSelector:@selector(onSelectCell:forObject:withIndex:)]) {
+        UITableViewCell *cell = [self tableView:tableView cellForRowAtIndexPath:indexPath];
+
+        [self.delegate onSelectCell:cell forObject:[self.dataSource objectAtIndex:(NSUInteger) indexPath.row] withIndex:indexPath];
+    }
+}
+
 - (void)didReceiveMemoryWarning{
     NSLog(@"Did received a memory warning in controller: %@", [self class]);
     [super didReceiveMemoryWarning];

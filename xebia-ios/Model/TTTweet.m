@@ -8,7 +8,6 @@
 
 #import "TTTweet.h"
 #import "Date.h"
-#import "TTEntities.h"
 
 @implementation TTTweet
 
@@ -26,23 +25,6 @@
             [NSURL URLWithString:self.user.profile_image_url];
 
     return ownerImageUrl;
-}
-
-+ (RKObjectMapping *)mapping {
-    RKObjectMapping *mapping = [RKObjectMapping mappingForClass:[self class] usingBlock:^(RKObjectMapping *mapping) {
-        [mapping mapAttributes: @"text", @"created_at", nil];
-        [mapping mapKeyPathsToAttributes:
-                @"id", @"identifier",
-                @"id_str", @"identifier_str",
-                nil];
-
-        // Relationships
-        [mapping hasMany:@"user" withMapping:[TTUser mapping]];
-        [mapping mapKeyPath:@"retweeted_status" toRelationship:@"retweeted_status" withMapping:[TTRetweetedStatus mapping]];
-        [mapping mapKeyPath:@"entities" toRelationship:@"entities" withMapping:[TTEntities mapping]];
-    }];
-
-    return mapping;
 }
 
 @end

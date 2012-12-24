@@ -13,7 +13,6 @@
 @property(nonatomic, strong) NSString *screen_name;
 @property(nonatomic, strong) NSString *name;
 @property(nonatomic, strong) NSNumber *identifier;
-
-+ (RKObjectMapping *)mapping;
+@property (nonatomic, strong) NSArray *indices;
 
 @end

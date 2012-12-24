@@ -27,18 +27,18 @@
 @property(nonatomic, strong) NSNumber *commentCount;
 @property(nonatomic, strong) NSString *commentStatus;
 
-@property (nonatomic, strong, readonly) NSString *excerptTrim;
-@property (nonatomic, strong, readonly) NSString *description_;
-@property (nonatomic, strong, readonly) NSString *dateFormatted;
-@property (nonatomic, strong, readonly) NSString *authorFormatted;
-@property (nonatomic, strong, readonly) NSString *tagsFormatted;
-@property (nonatomic, strong, readonly) NSString *categoriesFormatted;
-@property (nonatomic, strong, readonly) NSURL *imageUrl;
+-(NSString *)excerptTrim;
+-(NSString *)description_;
+-(NSString *)dateFormatted;
+-(NSString *)authorFormatted;
+-(NSString *)tagsFormatted;
+-(NSString *)categoriesFormatted;
+-(NSURL *)imageUrl;
 
 @property(nonatomic, retain) WPAuthor *author;
-@property(nonatomic, retain) NSArray *categories;
-@property(nonatomic, retain) NSArray *tags;
-@property(nonatomic, retain) NSArray *comments;
+@property(nonatomic, retain) NSSet *categories;
+@property(nonatomic, retain) NSSet *tags;
+@property(nonatomic, retain) NSSet *comments;
 
 typedef enum {
     RECENT = 1,

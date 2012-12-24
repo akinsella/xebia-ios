@@ -23,118 +23,60 @@
 #import "XBMainViewController.h"
 
 @interface TTTweetTableViewController ()
-@property (nonatomic, strong) RKTableController *tableController;
 @property (nonatomic, strong) UIImage* defaultAvatarImage;
 @property (nonatomic, strong) UIImage* xebiaAvatarImage;
 @end
 
 @implementation TTTweetTableViewController
 
-- (id)init {
-    self = [super init];
-    if (self) {
-        self.title = @"Tweets";
-    }
-
-    return self;
-}
-
-- (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
-
-    [self.tableController loadTableFromResourcePath:@"/api/twitter/timeline"];
-}
-
 - (void)viewDidLoad {
-    [super viewDidLoad];
-    [self configure];
-}
 
-- (void)configure {
+    self.delegate = self;
+    self.title = @"Tweets";
+
     self.defaultAvatarImage = [UIImage imageNamed:@"avatar_placeholder"];
     self.xebiaAvatarImage = [UIImage imageNamed:@"xebia-avatar"];
 
     [self addRevealGesture];
     [self addMenuButton];
 
-    [self configureTableController];
-    [self configureRefreshTriggerView];
-
-    [self configureTableView];
+    [super viewDidLoad];
 }
 
-- (void)configureTableView {
-    self.tableView.backgroundColor = [UIColor colorWithPatternImageName:@"bg_home_pattern"];
-//    self.tableView.backgroundColor = [UIColor colorWithHex:@"#191919" alpha:1.0];
-    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-
-    [self.tableView registerNib:[UINib nibWithNibName:@"TTTweetCell" bundle:nil] forCellReuseIdentifier:@"TTTweet"];
+- (int)maxDataAgeInSecondsBeforeServerFetch {
+    return 120;
 }
 
-- (void)configureTableController {
-    self.tableController = [[RKObjectManager sharedManager] tableControllerForTableViewController:self];
-
-    self.tableController.delegate = self;
-
-    self.tableController.autoRefreshFromNetwork = YES;
-    self.tableController.pullToRefreshEnabled = YES;
-    self.tableController.variableHeightRows = YES;
-
-    self.tableController.imageForOffline = [UIImage imageNamed:@"offline.png"];
-    self.tableController.imageForError = [UIImage imageNamed:@"error.png"];
-    self.tableController.imageForEmpty = [UIImage imageNamed:@"empty.png"];
-
-    [self.tableController mapObjectsWithClass:[TTTweet class] toTableCellsWithMapping: [self getCellMapping]];
+- (Class)dataClass {
+    return [TTTweet class];
 }
 
-- (void)configureRefreshTriggerView {
-    NSBundle *restKitResources = [NSBundle restKitResourcesBundle];
-    UIImage *arrowImage = [restKitResources imageWithContentsOfResource:@"blueArrow" withExtension:@"png"];
-    [[RKRefreshTriggerView appearance] setTitleFont:[UIFont fontWithName:@"HelveticaNeue-Bold" size:13]];
-    [[RKRefreshTriggerView appearance] setLastUpdatedFont:[UIFont fontWithName:@"HelveticaNeue" size:11]];
-    [[RKRefreshTriggerView appearance] setArrowImage:arrowImage];
+- (NSString *)cellReuseIdentifier {
+    // Needs to be static
+    static NSString *cellReuseIdentifier = @"TTTweet";
+
+    return cellReuseIdentifier;
 }
 
-- (RKTableViewCellMapping *)getCellMapping {
-    RKTableViewCellMapping *cellMapping = [RKTableViewCellMapping cellMapping];
-    cellMapping.cellClassName = @"TTTweetCell";
-    cellMapping.reuseIdentifier = @"TTTweet";
-
-    [cellMapping mapKeyPath:@"user.name" toAttribute:@"authorNameLabel.text"];
-    [cellMapping mapKeyPath:@"dateFormatted" toAttribute:@"dateLabel.text"];
-    [cellMapping mapKeyPath:@"text" toAttribute:@"content"];
-    [cellMapping mapKeyPath:@"text" toAttribute:@"contentLabel.text"];
-    [cellMapping mapKeyPath:@"entities" toAttribute:@"entities"];
-    [cellMapping mapKeyPath:@"identifier" toAttribute:@"identifier"];
-
-    [cellMapping addPrepareCellBlock:^(UITableViewCell *tweetCell) {
-        [(TTTweetCell *)tweetCell configure];
-    }];
-
-    cellMapping.heightOfCellForObjectAtIndexPath = ^ CGFloat(TTTweet *tweet, NSIndexPath* indexPath) {
-        TTTweetCell *tweetCell = (TTTweetCell *)[[self tableController] tableView:self.tableView cellForRowAtIndexPath:indexPath];
-        return [tweetCell heightForCell];
-    };
-
-    cellMapping.onSelectCellForObjectAtIndexPath = ^(UITableViewCell *cell, id object, NSIndexPath* indexPath) {
-        TTTweet *tweet = [self.tableController objectForRowAtIndexPath:indexPath];
-
-        NSURL *tweetStatusUrl = [NSURL URLWithString:[NSString stringWithFormat:@"https://twitter.com/%@/status/%@",
-                        tweet.retweeted_status ? tweet.retweeted_status.user.screen_name : tweet.user.screen_name,
-                        tweet.retweeted_status ? tweet.retweeted_status.identifier_str : tweet.identifier_str
-        ]];
-        NSLog(@"Url requested: %@", tweetStatusUrl);
-        [self.appDelegate.mainViewController openURL:tweetStatusUrl withTitle:tweet.user.name];
-    };
-
-
-    return cellMapping;
+- (NSString *)cellNibName {
+    return @"TTTweetCell";
 }
 
-- (void)tableController:(RKAbstractTableController *)tableController
-        willDisplayCell:(TTTweetCell *)tweetCell
-              forObject:(TTTweet *)tweet
-            atIndexPath:(NSIndexPath *)indexPath {
+- (NSString *)resourcePath {
+    return @"/api/twitter/timeline";
+}
+
+- (NSArray *)fetchDataFromDB {
+    return [[self dataClass] MR_findAllSortedBy:@"created_at" ascending:NO];
+}
+
+- (void)configureCell:(UITableViewCell *)cell atIndex:(NSIndexPath *)indexPath {
+
+    TTTweetCell *tweetCell = (TTTweetCell *) cell;
+    [tweetCell configure];
+
+    TTTweet *tweet = [self objectAtIndex:(NSUInteger) indexPath.row];
+
     tweetCell.contentLabel.delegate = self;
     if ([tweet.ownerScreenName isEqualToString:@"XebiaFr"]) {
         tweetCell.imageView.image = self.xebiaAvatarImage;
@@ -142,6 +84,14 @@
     else {
         [tweetCell.imageView setImageWithURL:tweet.ownerImageUrl placeholderImage:self.defaultAvatarImage];
     }
+
+    tweetCell.identifier = tweet.identifier;
+    tweetCell.dateLabel.text = tweet.dateFormatted;
+    tweetCell.content = tweet.text;
+    tweetCell.contentLabel.text = tweet.text;
+    tweetCell.hashtags = tweet.hashtags;
+    tweetCell.urls = tweet.urls;
+    tweetCell.user_mentions = tweet.user_mentions;
 }
 
 - (void)attributedLabel:(TTTAttributedLabel *)label didSelectLinkWithURL:(NSURL *)url {
@@ -149,9 +99,15 @@
     [self.appDelegate.mainViewController openURL:url withTitle:@"Twitter"];
 }
 
-- (void)didReceiveMemoryWarning{
-    NSLog(@"Did received a memory warning in controller: %@", [self class]);
-    [super didReceiveMemoryWarning];
+-(void)onSelectCell: (UITableViewCell *)cell forObject: (id) object withIndex: (NSIndexPath *)indexPath {
+    TTTweet *tweet = [self objectAtIndex:(NSUInteger) indexPath.row];
+
+    NSURL *tweetStatusUrl = [NSURL URLWithString:[NSString stringWithFormat:@"https://twitter.com/%@/status/%@",
+        tweet.retweeted_status ? tweet.retweeted_status.user.screen_name : tweet.user.screen_name,
+        tweet.retweeted_status ? tweet.retweeted_status.identifier_str : tweet.identifier_str
+    ]];
+    NSLog(@"Url requested: %@", tweetStatusUrl);
+    [self.appDelegate.mainViewController openURL:tweetStatusUrl withTitle:tweet.user.name];
 }
 
 @end

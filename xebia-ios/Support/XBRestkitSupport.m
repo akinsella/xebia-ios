@@ -116,10 +116,10 @@ NSString* const XBErrorDomain = @"fr.xebia.ErrorDomain";
 //    [omp addObjectMapping:wpPostOneMapping];
 //    [omp setObjectMapping:wpPostOneMapping forResourcePathPattern:@"/api/wordpress/post/:identifier"];
 
-    RKObjectMapping *ttTweetMapping = [TTTweet mapping];
-    [omp addObjectMapping:ttTweetMapping];
-    [omp setObjectMapping:ttTweetMapping forResourcePathPattern:@"/api/twitter/timeline"];
-    [omp setSerializationMapping:[ttTweetMapping inverseMapping] forClass:[TTTweet class]];
+//    RKObjectMapping *ttTweetMapping = [TTTweet mapping];
+//    [omp addObjectMapping:ttTweetMapping];
+//    [omp setObjectMapping:ttTweetMapping forResourcePathPattern:@"/api/twitter/timeline"];
+//    [omp setSerializationMapping:[ttTweetMapping inverseMapping] forClass:[TTTweet class]];
 
 //    RKObjectMapping *ebEventMapping = [EBEvent mapping];
 //    [omp addObjectMapping:ebEventMapping];

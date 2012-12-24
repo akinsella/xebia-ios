@@ -175,16 +175,87 @@
             <entry key="relatedByAttribute" value="identifier"/>
         </userInfo>
     </entity>
-    <entity name="TTTweet" representedClassName="TTTweet" syncable="YES">
-        <attribute name="created_at" optional="YES" attributeType="Date" syncable="YES"/>
-        <attribute name="identifier" optional="YES" attributeType="String" syncable="YES"/>
+    <entity name="TTHashtagEntity" representedClassName="TTHashtagEntity" syncable="YES">
+        <attribute name="indices" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="text" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="TTRetweetedStatus" representedClassName="TTRetweetedStatus" syncable="YES">
+        <attribute name="created_at" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="favorited" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="identifier" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="identifier_str" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="retweeted" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="retweeted_count" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="text" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="hashtags" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="TTHashtagEntity" syncable="YES">
+            <userInfo>
+                <entry key="relatedByAttribute" value="entities.hashags"/>
+            </userInfo>
+        </relationship>
+        <relationship name="urls" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="TTUserMentionEntity" syncable="YES">
+            <userInfo>
+                <entry key="relatedByAttribute" value="entities.urls"/>
+            </userInfo>
+        </relationship>
         <relationship name="user" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="TTUser" syncable="YES"/>
+        <relationship name="user_mentions" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="TTUserMentionEntity" syncable="YES">
+            <userInfo>
+                <entry key="relatedByAttributes" value="entities.user_mentions"/>
+            </userInfo>
+        </relationship>
+    </entity>
+    <entity name="TTTweet" representedClassName="TTTweet" syncable="YES">
+        <attribute name="contentAsHtml" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="created_at" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="favorited" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="identifier" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="identifier_str" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="retweet_count" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="retweeted" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="text" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="hashtags" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="TTHashtagEntity" syncable="YES">
+            <userInfo>
+                <entry key="relatedByAttribute" value="entities.hashtags"/>
+            </userInfo>
+        </relationship>
+        <relationship name="urls" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="TTUrlEntity" syncable="YES">
+            <userInfo>
+                <entry key="relatedByAttributes" value="entities.urls"/>
+            </userInfo>
+        </relationship>
+        <relationship name="user" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="TTUser" syncable="YES">
+            <userInfo>
+                <entry key="relatedByAttribute" value="identifier"/>
+            </userInfo>
+        </relationship>
+        <relationship name="user_mentions" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="TTUserMentionEntity" syncable="YES">
+            <userInfo>
+                <entry key="relatedByAttributes" value="entities.user_mentions"/>
+            </userInfo>
+        </relationship>
+        <userInfo>
+            <entry key="relatedByAttribute" value="identifier"/>
+        </userInfo>
+    </entity>
+    <entity name="TTUrlEntity" representedClassName="TTUrlEntity" syncable="YES">
+        <attribute name="display_url" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="expanded_url" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="indices" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="url" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <entity name="TTUser" representedClassName="TTUser" syncable="YES">
         <attribute name="identifier" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="profile_image_url" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="screen_name" optional="YES" attributeType="String" syncable="YES"/>
+        <userInfo>
+            <entry key="relatedByAttribute" value="identifier"/>
+        </userInfo>
+    </entity>
+    <entity name="TTUserMentionEntity" representedClassName="TTUserMentionEntity" syncable="YES">
+        <attribute name="identifier" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="indices" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="screen_name" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <entity name="WPAttachment" representedClassName="WPAttachment" syncable="YES">
@@ -258,7 +329,11 @@
     </entity>
     <entity name="WPComment" representedClassName="WPComment" syncable="YES">
         <attribute name="content" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="date" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="date" optional="YES" attributeType="Date" syncable="YES">
+            <userInfo>
+                <entry key="dateFormat" value="yyyy-MM-dd HH:mm:ss"/>
+            </userInfo>
+        </attribute>
         <attribute name="identifier" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES">
             <userInfo>
                 <entry key="mappedKeyName" value="id"/>
@@ -357,11 +432,18 @@
         </userInfo>
     </entity>
     <elements>
+        <element name="EBEvent" positionX="-23229" positionY="-20106" width="128" height="285"/>
+        <element name="EBOrganizer" positionX="-23078" positionY="-20139" width="128" height="105"/>
+        <element name="EBVenue" positionX="-22934" positionY="-20007" width="128" height="165"/>
         <element name="GHOwner" positionX="-22824" positionY="-19305" width="128" height="105"/>
         <element name="GHRepository" positionX="-23024" positionY="-19674" width="128" height="375"/>
         <element name="GHUser" positionX="-22653" positionY="-19620" width="128" height="330"/>
-        <element name="TTTweet" positionX="-22599" positionY="-19854" width="128" height="105"/>
+        <element name="TTHashtagEntity" positionX="160" positionY="192" width="128" height="75"/>
+        <element name="TTRetweetedStatus" positionX="160" positionY="192" width="128" height="210"/>
+        <element name="TTTweet" positionX="-22599" positionY="-19854" width="128" height="225"/>
+        <element name="TTUrlEntity" positionX="160" positionY="192" width="128" height="105"/>
         <element name="TTUser" positionX="-22815" positionY="-19770" width="128" height="105"/>
+        <element name="TTUserMentionEntity" positionX="160" positionY="192" width="128" height="105"/>
         <element name="WPAttachment" positionX="-21989" positionY="-19848" width="128" height="165"/>
         <element name="WPAuthor" positionX="-22383" positionY="-19854" width="128" height="165"/>
         <element name="WPCategory" positionX="-21942" positionY="-19602" width="128" height="135"/>
@@ -369,8 +451,5 @@
         <element name="WPPost" positionX="-22187" positionY="-19791" width="128" height="315"/>
         <element name="WPTag" positionX="-21989" positionY="-19452" width="128" height="120"/>
         <element name="XBFetchInfo" positionX="-22833" positionY="-19584" width="128" height="75"/>
-        <element name="EBVenue" positionX="-22934" positionY="-20007" width="128" height="165"/>
-        <element name="EBOrganizer" positionX="-23078" positionY="-20139" width="128" height="105"/>
-        <element name="EBEvent" positionX="-23229" positionY="-20106" width="128" height="285"/>
     </elements>
 </model>

@@ -14,18 +14,5 @@
     return [NSURL URLWithString:[self profile_image_url]];
 }
 
-+ (RKObjectMapping *)mapping {
-    RKObjectMapping *mapping = [RKObjectMapping mappingForClass:[self class] usingBlock:^(RKObjectMapping *mapping) {
-        [mapping mapAttributes: @"screen_name", @"name", @"profile_image_url", nil];
-        [mapping mapKeyPathsToAttributes:
-                @"id", @"identifier",
-                @"id_str", @"identifier_str",
-                nil];
-    }];
-
-    return mapping;
-}
-
-
 @end
 

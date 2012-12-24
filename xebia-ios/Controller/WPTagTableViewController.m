@@ -59,10 +59,9 @@
     tagCell.itemCount = tag.postCount.intValue;
 }
 
-
-
 -(void)onSelectCell: (UITableViewCell *)cell forObject: (id) object withIndex: (NSIndexPath *)indexPath {
 
+    [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
     WPTag *tag = [self objectAtIndex:(NSUInteger) indexPath.row];
     NSLog(@"Tag selected: %@", tag);
 

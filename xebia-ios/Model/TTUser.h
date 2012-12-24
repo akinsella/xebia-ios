@@ -18,7 +18,5 @@
 
 @property (nonatomic, strong, readonly) NSURL *avatarImageUrl;
 
-+ (RKObjectMapping *)mapping;
-
 @end
 

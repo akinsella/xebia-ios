@@ -10,6 +10,6 @@
 #import "TTTAttributedLabel.h"
 #import "XBTableViewController.h"
 
-@interface TTTweetTableViewController : UITableViewController<UITableViewDelegate, UITableViewDataSource, TTTAttributedLabelDelegate, XBTableViewControllerDelegate>
+@interface TTTweetTableViewController : XBTableViewController<UITableViewDelegate, UITableViewDataSource, TTTAttributedLabelDelegate, XBTableViewControllerDelegate>
 
 @end
