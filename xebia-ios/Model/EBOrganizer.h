@@ -4,10 +4,6 @@
 // To change the template use AppCode | Preferences | File Templates.
 //
 
-
-#import <Foundation/Foundation.h>
-#import <RestKit/RestKit.h>
-
 @interface EBOrganizer : NSManagedObject
 
 @property (nonatomic, strong) NSNumber *identifier;

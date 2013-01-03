@@ -48,7 +48,6 @@
 		5458482515C1E0A300DD03F4 /* WPCategoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5458481F15C1E0A300DD03F4 /* WPCategoryCell.xib */; };
 		5458482615C1E0A300DD03F4 /* XBLoadingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5458482115C1E0A300DD03F4 /* XBLoadingView.m */; };
 		5458482A15C1E0D800DD03F4 /* WPTagCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5458482915C1E0D800DD03F4 /* WPTagCell.m */; };
-		5458482C15C1E1AC00DD03F4 /* RestKitResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 5458482B15C1E1AC00DD03F4 /* RestKitResources.bundle */; };
 		5458483115C1E2CD00DD03F4 /* WPTagTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5458483015C1E2CD00DD03F4 /* WPTagTableViewController.m */; };
 		5458483515C1EAD500DD03F4 /* WPAuthorCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5458483315C1EAD500DD03F4 /* WPAuthorCell.m */; };
 		5458483615C1EAD500DD03F4 /* WPAuthorCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5458483415C1EAD500DD03F4 /* WPAuthorCell.xib */; };
@@ -130,7 +129,6 @@
 		54C2DF1315BDFAFC00CABB12 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 54C2DF1115BDFAFC00CABB12 /* InfoPlist.strings */; };
 		54C2DF4615BDFB6600CABB12 /* WPPostTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 54C2DF2715BDFB6500CABB12 /* WPPostTableViewController.m */; };
 		54C2DF4915BDFB6600CABB12 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 54C2DF2E15BDFB6500CABB12 /* AppDelegate.m */; };
-		54C2DF4A15BDFB6600CABB12 /* XBRestkitSupport.m in Sources */ = {isa = PBXBuildFile; fileRef = 54C2DF3015BDFB6500CABB12 /* XBRestkitSupport.m */; };
 		54C2DF4B15BDFB6600CABB12 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 54C2DF3115BDFB6500CABB12 /* main.m */; };
 		54C2DF4F15BDFB6600CABB12 /* WPPost.m in Sources */ = {isa = PBXBuildFile; fileRef = 54C2DF3A15BDFB6600CABB12 /* WPPost.m */; };
 		54C2DF5215BDFB6600CABB12 /* Date.m in Sources */ = {isa = PBXBuildFile; fileRef = 54C2DF4215BDFB6600CABB12 /* Date.m */; };
@@ -180,17 +178,16 @@
 		DB34D51E6CB20D506BD0702D /* TTHashtagEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34DC4A49554BC91B3F5686 /* TTHashtagEntity.m */; };
 		DB34D580536DA60C6BD70DAE /* NSNumber+XBAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34DB490E75A8DE23774368 /* NSNumber+XBAdditions.m */; };
 		DB34D6BA04A77078B3A8ADBF /* TTUserMentionEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34DFE697E1B43FA9DEFEC8 /* TTUserMentionEntity.m */; };
-		DB34D6D1045111185FBA8869 /* TTEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34D55325895ECCF91E4DB6 /* TTEntity.m */; };
 		DB34D7A0C0DC762A500A6F35 /* WPPostCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34D4CDA49EC859D49E82B8 /* WPPostCell.m */; };
+		DB34D7A9F133C872A52B1B8A /* TTIndices.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34D16016A1C834B375AFF6 /* TTIndices.m */; };
 		DB34D961D8EB1C8AC527AB60 /* NSError+XBAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34D8626C4FFDBBD0C7D3FE /* NSError+XBAdditions.m */; };
 		DB34DA26475934C39FFF4734 /* EBVenue.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34DAFC921F4EC44602113E /* EBVenue.m */; };
 		DB34DA6C928EA9F01F0F8A9F /* styles.bak in Resources */ = {isa = PBXBuildFile; fileRef = DB34DDDAC15A52FF78EF66F7 /* styles.bak */; };
 		DB34DA8C65C6B4BEB93333F7 /* EBOrganizer.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34DC3B0D2EEB462493D8BE /* EBOrganizer.m */; };
 		DB34DB30F8101DE1034BE9A9 /* TTRetweetedStatus.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34DFB375B289DB5B59E1A0 /* TTRetweetedStatus.m */; };
-		DB34DD5D3F63612EEDACA913 /* RKTableItem+XKAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34D267050FFB324A8EE58F /* RKTableItem+XKAdditions.m */; };
 		DB34DE2CBE5E187AB7FA1B58 /* EBEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34D89482FE01F4B98C0B0C /* EBEvent.m */; };
 		DB34DE626EBB6C2E122EE216 /* NSDateFormatter+XBAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34D5341324A3A620923384 /* NSDateFormatter+XBAdditions.m */; };
-		DB34DFCDC1E245F9702F77A3 /* NSManagedObject+XBAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34DFE3E4A5B41DDB241A3F /* NSManagedObject+XBAdditions.m */; };
+		DB34DFCDC1E245F9702F77A3 /* XBMapper.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34DFE3E4A5B41DDB241A3F /* XBMapper.m */; };
 		DB34DFEAD9C2A996A1C1BFAA /* UIImageView+XBAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34D6ABFADC8E84E0DA3E06 /* UIImageView+XBAdditions.m */; };
 /* End PBXBuildFile section */
 
@@ -250,6 +247,7 @@
 		5433346115EC3276007AC690 /* XBHomeController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XBHomeController.m; sourceTree = "<group>"; };
 		5433346315EC3738007AC690 /* home.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = home.png; sourceTree = "<group>"; };
 		5433346415EC3738007AC690 /* home@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "home@2x.png"; sourceTree = "<group>"; };
+		545639C61691C810003A27C8 /* xebia-ios.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "xebia-ios.entitlements"; sourceTree = "<group>"; };
 		5458481D15C1E0A300DD03F4 /* WPCategoryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WPCategoryCell.h; sourceTree = "<group>"; };
 		5458481E15C1E0A300DD03F4 /* WPCategoryCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WPCategoryCell.m; sourceTree = "<group>"; };
 		5458481F15C1E0A300DD03F4 /* WPCategoryCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WPCategoryCell.xib; sourceTree = "<group>"; };
@@ -257,7 +255,6 @@
 		5458482115C1E0A300DD03F4 /* XBLoadingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XBLoadingView.m; sourceTree = "<group>"; };
 		5458482815C1E0D800DD03F4 /* WPTagCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WPTagCell.h; sourceTree = "<group>"; };
 		5458482915C1E0D800DD03F4 /* WPTagCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WPTagCell.m; sourceTree = "<group>"; };
-		5458482B15C1E1AC00DD03F4 /* RestKitResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = RestKitResources.bundle; sourceTree = "<group>"; };
 		5458482F15C1E2CD00DD03F4 /* WPTagTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WPTagTableViewController.h; sourceTree = "<group>"; };
 		5458483015C1E2CD00DD03F4 /* WPTagTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WPTagTableViewController.m; sourceTree = "<group>"; };
 		5458483215C1EAD400DD03F4 /* WPAuthorCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WPAuthorCell.h; sourceTree = "<group>"; };
@@ -370,8 +367,6 @@
 		54C2DF2715BDFB6500CABB12 /* WPPostTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WPPostTableViewController.m; sourceTree = "<group>"; };
 		54C2DF2D15BDFB6500CABB12 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		54C2DF2E15BDFB6500CABB12 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		54C2DF2F15BDFB6500CABB12 /* XBRestkitSupport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XBRestkitSupport.h; sourceTree = "<group>"; };
-		54C2DF3015BDFB6500CABB12 /* XBRestkitSupport.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XBRestkitSupport.m; sourceTree = "<group>"; };
 		54C2DF3115BDFB6500CABB12 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		54C2DF3915BDFB6600CABB12 /* WPPost.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WPPost.h; sourceTree = "<group>"; };
 		54C2DF3A15BDFB6600CABB12 /* WPPost.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WPPost.m; sourceTree = "<group>"; };
@@ -421,8 +416,8 @@
 		DB34D076AE26B9089D3B1C8F /* NSDateFormatter+XBAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDateFormatter+XBAdditions.h"; sourceTree = "<group>"; };
 		DB34D0823A22E53D51A89F53 /* XBTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XBTableViewController.h; sourceTree = "<group>"; };
 		DB34D0A8986BBE213BA4DEDB /* NSError+XBAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSError+XBAdditions.h"; sourceTree = "<group>"; };
+		DB34D16016A1C834B375AFF6 /* TTIndices.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTIndices.m; sourceTree = "<group>"; };
 		DB34D1B1F4224776A0A9FB5E /* EBEventTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EBEventTableViewController.h; sourceTree = "<group>"; };
-		DB34D267050FFB324A8EE58F /* RKTableItem+XKAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "RKTableItem+XKAdditions.m"; sourceTree = "<group>"; };
 		DB34D35EA5BDEDE61A31D131 /* UIImageView+XBAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+XBAdditions.h"; sourceTree = "<group>"; };
 		DB34D42F8234AE6A25794DBC /* NSNumber+XBAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSNumber+XBAdditions.h"; sourceTree = "<group>"; };
 		DB34D430510F687289EA3CB8 /* EBEventCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EBEventCell.h; sourceTree = "<group>"; };
@@ -433,7 +428,6 @@
 		DB34D52C517DAEA9926E3EA4 /* GHOwnerCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GHOwnerCell.h; sourceTree = "<group>"; };
 		DB34D5341324A3A620923384 /* NSDateFormatter+XBAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDateFormatter+XBAdditions.m"; sourceTree = "<group>"; };
 		DB34D54D067749E7B31FD258 /* TTRetweetedStatus.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTRetweetedStatus.h; sourceTree = "<group>"; };
-		DB34D55325895ECCF91E4DB6 /* TTEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTEntity.m; sourceTree = "<group>"; };
 		DB34D6ABE8DD69804FD1209D /* EBOrganizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EBOrganizer.h; sourceTree = "<group>"; };
 		DB34D6ABFADC8E84E0DA3E06 /* UIImageView+XBAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+XBAdditions.m"; sourceTree = "<group>"; };
 		DB34D70505B8669C4B2CD8A8 /* XBFetchInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XBFetchInfo.h; sourceTree = "<group>"; };
@@ -448,21 +442,20 @@
 		DB34DAFC921F4EC44602113E /* EBVenue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EBVenue.m; sourceTree = "<group>"; };
 		DB34DB490E75A8DE23774368 /* NSNumber+XBAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSNumber+XBAdditions.m"; sourceTree = "<group>"; };
 		DB34DBD8BF4F10B43BA074A0 /* XBFetchInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XBFetchInfo.m; sourceTree = "<group>"; };
-		DB34DBFE2EDC0536F6C38443 /* TTEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTEntity.h; sourceTree = "<group>"; };
 		DB34DC3B0D2EEB462493D8BE /* EBOrganizer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EBOrganizer.m; sourceTree = "<group>"; };
 		DB34DC4A49554BC91B3F5686 /* TTHashtagEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTHashtagEntity.m; sourceTree = "<group>"; };
 		DB34DC6E8E2207CAD2A10E4E /* TTUserMentionEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTUserMentionEntity.h; sourceTree = "<group>"; };
-		DB34DD0490C0D6AE0CB2B924 /* NSManagedObject+XBAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSManagedObject+XBAdditions.h"; sourceTree = "<group>"; };
+		DB34DD0490C0D6AE0CB2B924 /* XBMapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XBMapper.h; sourceTree = "<group>"; };
+		DB34DD32928251D7E75A4EB0 /* TTIndices.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTIndices.h; sourceTree = "<group>"; };
 		DB34DD55D5BC7C448FDE1C8F /* EBEventCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EBEventCell.xib; sourceTree = "<group>"; };
 		DB34DDDAC15A52FF78EF66F7 /* styles.bak */ = {isa = PBXFileReference; lastKnownFileType = file.bak; name = styles.bak; path = www/css/styles.bak; sourceTree = "<group>"; };
 		DB34DE46BBF23AA120699C20 /* GHOwner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GHOwner.h; sourceTree = "<group>"; };
 		DB34DE6D9CB3F60F62377F9D /* XBTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XBTableViewController.m; sourceTree = "<group>"; };
 		DB34DEED8EC9BFDDB4164F08 /* XBViewControllerManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XBViewControllerManager.m; sourceTree = "<group>"; };
 		DB34DF7606E2711AD729DDBC /* TTUrlEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTUrlEntity.m; sourceTree = "<group>"; };
-		DB34DF9FC4988F42593E16CD /* RKTableItem+XKAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "RKTableItem+XKAdditions.h"; sourceTree = "<group>"; };
 		DB34DFACB850A57E22247BCB /* TTUrlEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTUrlEntity.h; sourceTree = "<group>"; };
 		DB34DFB375B289DB5B59E1A0 /* TTRetweetedStatus.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTRetweetedStatus.m; sourceTree = "<group>"; };
-		DB34DFE3E4A5B41DDB241A3F /* NSManagedObject+XBAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSManagedObject+XBAdditions.m"; sourceTree = "<group>"; };
+		DB34DFE3E4A5B41DDB241A3F /* XBMapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XBMapper.m; sourceTree = "<group>"; };
 		DB34DFE697E1B43FA9DEFEC8 /* TTUserMentionEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTUserMentionEntity.m; sourceTree = "<group>"; };
 		EDB581D723EF4E5C808B5615 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		FFE479B60E604A7197B75249 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
@@ -508,7 +501,6 @@
 				54862BDC16713FA6001A54BE /* Lobster.ttf */,
 				54652C30166E9F9400765A62 /* SHKSharers.plist */,
 				54652C2E166E9F8A00765A62 /* ShareKit.bundle */,
-				5458482B15C1E1AC00DD03F4 /* RestKitResources.bundle */,
 				54A2783615C0A2AA0074505A /* Images */,
 			);
 			name = Resource;
@@ -681,6 +673,7 @@
 		54C2DEF215BDFAFB00CABB12 /* xebia-ios */ = {
 			isa = PBXGroup;
 			children = (
+				545639C61691C810003A27C8 /* xebia-ios.entitlements */,
 				54862C5F16813056001A54BE /* xebia_ios.xcdatamodeld */,
 				DB34DDDAC15A52FF78EF66F7 /* styles.bak */,
 				54C2DF2D15BDFB6500CABB12 /* AppDelegate.h */,
@@ -775,8 +768,6 @@
 		54C2DF3215BDFB6500CABB12 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				DB34D55325895ECCF91E4DB6 /* TTEntity.m */,
-				DB34DBFE2EDC0536F6C38443 /* TTEntity.h */,
 				DB34D70505B8669C4B2CD8A8 /* XBFetchInfo.h */,
 				DB34DBD8BF4F10B43BA074A0 /* XBFetchInfo.m */,
 				DB34D7692616F09934674C68 /* EBEvent.h */,
@@ -817,6 +808,8 @@
 				5483B3FC15BF4F4300E60EE0 /* WPAttachment.m */,
 				54652C32166FF5A500765A62 /* XBShareInfo.h */,
 				54652C33166FF5A600765A62 /* XBShareInfo.m */,
+				DB34D16016A1C834B375AFF6 /* TTIndices.m */,
+				DB34DD32928251D7E75A4EB0 /* TTIndices.h */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -824,8 +817,6 @@
 		54C2DF3D15BDFB6600CABB12 /* Support */ = {
 			isa = PBXGroup;
 			children = (
-				54C2DF2F15BDFB6500CABB12 /* XBRestkitSupport.h */,
-				54C2DF3015BDFB6500CABB12 /* XBRestkitSupport.m */,
 				54652C21166D641C00765A62 /* XBSharekitSupport.h */,
 				54652C22166D641C00765A62 /* XBSharekitSupport.m */,
 				54652C25166D64AE00765A62 /* XBSHKConfigurator.h */,
@@ -839,6 +830,8 @@
 			children = (
 				54C2DF4115BDFB6600CABB12 /* Date.h */,
 				54C2DF4215BDFB6600CABB12 /* Date.m */,
+				DB34DD0490C0D6AE0CB2B924 /* XBMapper.h */,
+				DB34DFE3E4A5B41DDB241A3F /* XBMapper.m */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -846,15 +839,11 @@
 		54E325AF15E19D5900F55F6A /* Category */ = {
 			isa = PBXGroup;
 			children = (
-				DB34DD0490C0D6AE0CB2B924 /* NSManagedObject+XBAdditions.h */,
-				DB34DFE3E4A5B41DDB241A3F /* NSManagedObject+XBAdditions.m */,
 				DB34D72794DFBE2959D37839 /* UITableViewCell+VariableHeight.h */,
 				DB34D076AE26B9089D3B1C8F /* NSDateFormatter+XBAdditions.h */,
 				DB34D5341324A3A620923384 /* NSDateFormatter+XBAdditions.m */,
 				DB34D35EA5BDEDE61A31D131 /* UIImageView+XBAdditions.h */,
 				DB34D6ABFADC8E84E0DA3E06 /* UIImageView+XBAdditions.m */,
-				DB34DF9FC4988F42593E16CD /* RKTableItem+XKAdditions.h */,
-				DB34D267050FFB324A8EE58F /* RKTableItem+XKAdditions.m */,
 				DB34D42F8234AE6A25794DBC /* NSNumber+XBAdditions.h */,
 				DB34DB490E75A8DE23774368 /* NSNumber+XBAdditions.m */,
 				DB34D0A8986BBE213BA4DEDB /* NSError+XBAdditions.h */,
@@ -977,7 +966,6 @@
 				54A2784715C0A2E20074505A /* error.png in Resources */,
 				54A2784815C0A2E20074505A /* offline.png in Resources */,
 				5458482515C1E0A300DD03F4 /* WPCategoryCell.xib in Resources */,
-				5458482C15C1E1AC00DD03F4 /* RestKitResources.bundle in Resources */,
 				5458483615C1EAD500DD03F4 /* WPAuthorCell.xib in Resources */,
 				5458483B15C4C5B900DD03F4 /* ios-icon-144.png in Resources */,
 				5458483D15C4C5BE00DD03F4 /* ios-icon-72.png in Resources */,
@@ -1106,7 +1094,6 @@
 			files = (
 				54C2DF4615BDFB6600CABB12 /* WPPostTableViewController.m in Sources */,
 				54C2DF4915BDFB6600CABB12 /* AppDelegate.m in Sources */,
-				54C2DF4A15BDFB6600CABB12 /* XBRestkitSupport.m in Sources */,
 				54C2DF4B15BDFB6600CABB12 /* main.m in Sources */,
 				54C2DF4F15BDFB6600CABB12 /* WPPost.m in Sources */,
 				54C2DF5215BDFB6600CABB12 /* Date.m in Sources */,
@@ -1150,7 +1137,6 @@
 				DB34D7A0C0DC762A500A6F35 /* WPPostCell.m in Sources */,
 				DB34D27BA192BDDF6C89949D /* XBViewControllerManager.m in Sources */,
 				DB34D580536DA60C6BD70DAE /* NSNumber+XBAdditions.m in Sources */,
-				DB34DD5D3F63612EEDACA913 /* RKTableItem+XKAdditions.m in Sources */,
 				DB34DFEAD9C2A996A1C1BFAA /* UIImageView+XBAdditions.m in Sources */,
 				DB34DE626EBB6C2E122EE216 /* NSDateFormatter+XBAdditions.m in Sources */,
 				DB34D31F43808E3D3BAC5791 /* EBEventTableViewController.m in Sources */,
@@ -1175,8 +1161,8 @@
 				54862C6116813056001A54BE /* xebia_ios.xcdatamodeld in Sources */,
 				DB34D2C8A984873F9E603419 /* XBFetchInfo.m in Sources */,
 				DB34D038241FD449D6A29F5B /* XBTableViewController.m in Sources */,
-				DB34DFCDC1E245F9702F77A3 /* NSManagedObject+XBAdditions.m in Sources */,
-				DB34D6D1045111185FBA8869 /* TTEntity.m in Sources */,
+				DB34DFCDC1E245F9702F77A3 /* XBMapper.m in Sources */,
+				DB34D7A9F133C872A52B1B8A /* TTIndices.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1271,15 +1257,15 @@
 			buildSettings = {
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN_OBJCPP_ARC_ABI = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Alexis Kinsella (46N4T2UZ32)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Alexis Kinsella (46N4T2UZ32)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "xebia-ios/xebia-ios-Prefix.pch";
 				INFOPLIST_FILE = "xebia-ios/xebia-ios-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "D9851FD4-974F-487C-BD98-D394D0E302A5";
+				PROVISIONING_PROFILE = "1E9DD2A0-F7E4-4689-AA02-4822400EF93F";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "1E9DD2A0-F7E4-4689-AA02-4822400EF93F";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -1290,15 +1276,15 @@
 			buildSettings = {
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN_OBJCPP_ARC_ABI = YES;
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Alexis Kinsella (46N4T2UZ32)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Alexis Kinsella (46N4T2UZ32)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "xebia-ios/xebia-ios-Prefix.pch";
 				INFOPLIST_FILE = "xebia-ios/xebia-ios-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "D9851FD4-974F-487C-BD98-D394D0E302A5";
+				PROVISIONING_PROFILE = "1E9DD2A0-F7E4-4689-AA02-4822400EF93F";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "1E9DD2A0-F7E4-4689-AA02-4822400EF93F";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

@@ -4,9 +4,6 @@
 // To change the template use AppCode | Preferences | File Templates.
 //
 
-#import <UIKit/UIKit.h>
-#import <RestKit/RestKit.h>
-
 @interface EBVenue : NSManagedObject
 
 @property (nonatomic, strong) NSNumber *identifier;

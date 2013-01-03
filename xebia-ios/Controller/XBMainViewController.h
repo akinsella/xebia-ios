@@ -7,12 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <RestKit/UI.h>
 #import "XBRevealController.h"
 #import "XBViewControllerManager.h"
 #import "XBShareInfo.h"
 
-@interface XBMainViewController : UITableViewController
+@interface XBMainViewController : UITableViewController<UITableViewDataSource, UITableViewDelegate>
 
 -(void)revealViewControllerWithIdentifier:(NSString *)identifier;
 

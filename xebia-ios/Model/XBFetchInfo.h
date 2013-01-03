@@ -5,9 +5,6 @@
 //
 
 
-#import <Foundation/Foundation.h>
-
-
 @interface XBFetchInfo : NSManagedObject
 
 @property (nonatomic, strong) NSString *key;

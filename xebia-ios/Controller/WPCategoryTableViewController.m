@@ -57,7 +57,7 @@
 
     WPCategory *category = [self objectAtIndex:(NSUInteger) indexPath.row];
     categoryCell.titleLabel.text = category.title;
-
+    [categoryCell setItemCount:[category.post_count intValue]];
 }
 
 -(void)onSelectCell: (UITableViewCell *)cell forObject: (id) object withIndex: (NSIndexPath *)indexPath {

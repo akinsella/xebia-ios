@@ -7,8 +7,6 @@
 //
 
 
-#import <RestKit/RestKit.h>
-#import <RestKit/UI.h>
 #import "WPPost.h"
 #import "WPPostTableViewController.h"
 #import "WPPostCell.h"
@@ -19,15 +17,15 @@
 #import "UIViewController+XBAdditions.h"
 #import "XBMainViewController.h"
 #import "WPCategory.h"
-#import "NSManagedObject+XBAdditions.h"
+#import "XBMapper.h"
 #import "JSONKit.h"
 #import "AFHTTPClient.h"
 #import "SVProgressHUD.h"
 #import "AFNetworking.h"
+#import "XBMapper.h"
 
 @interface WPPostTableViewController ()
 @property (nonatomic, strong) NSMutableDictionary *postTypes;
-@property (nonatomic, strong) RKTableController *tableController;
 @property (nonatomic, strong) UIImage *defaultPostImage;
 @property (nonatomic, strong) UIImage *xebiaPostImage;
 @property(nonatomic, assign) POST_TYPE postType;
@@ -163,7 +161,7 @@
 
             WPPost *fullPost = [WPPost MR_findFirstByAttribute:@"identifier" withValue:[post identifier] inContext: myContext];
 
-            NSDictionary *dict = [NSManagedObject dictionaryWithPropertiesOfObject: fullPost];
+            NSDictionary *dict = [XBMapper dictionaryWithPropertiesOfObject:fullPost];
 
             NSDateFormatter *outputFormatter = [[NSDateFormatter alloc] init];
             [outputFormatter setDateFormat:@"yyyy-MM-dd'T'HH:mm:ss.SSSZZZ"];

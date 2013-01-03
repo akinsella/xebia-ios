@@ -9,12 +9,10 @@
 #import "TTTweetCell.h"
 #import <QuartzCore/QuartzCore.h>
 #import "UIColor+XBAdditions.h"
-#import "TTEntity.h"
 #import "UIScreen+XBAdditions.h"
 #import "TTHashtagEntity.h"
 #import "TTUrlEntity.h"
 #import "TTUserMentionEntity.h"
-#import "UIColor+XBAdditions.h"
 #import "XBConstants.h"
 
 @implementation TTTweetCell
@@ -32,18 +30,18 @@
 
 
     for (TTUserMentionEntity *entity in self.user_mentions) {
-        NSRange linkRange = NSMakeRange( [entity.indices[0] unsignedIntegerValue], [entity.indices[1] unsignedIntegerValue] - [entity.indices[0] unsignedIntegerValue] );
+        NSRange linkRange = NSMakeRange( [entity.indices.start unsignedIntegerValue], [entity.indices.end unsignedIntegerValue] - [entity.indices.start unsignedIntegerValue] );
         NSString *urlStr = [NSString stringWithFormat:@"http://twitter.com/%@", entity.screen_name];
         NSURL *url = [NSURL URLWithString:urlStr];
         [self.contentLabel addLinkToURL:url withRange:linkRange];
     }
     for (TTHashtagEntity *entity in self.hashtags) {
-        NSRange linkRange = NSMakeRange( [entity.indices[0] unsignedIntegerValue], [entity.indices[1] unsignedIntegerValue] - [entity.indices[0] unsignedIntegerValue] );
+        NSRange linkRange = NSMakeRange( [entity.indices.start unsignedIntegerValue], [entity.indices.end unsignedIntegerValue] - [entity.indices.start unsignedIntegerValue] );
         NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"https://twitter.com/search?q=%%23%@&src=hash", entity.text]];
         [self.contentLabel addLinkToURL:url withRange:linkRange];
     }
     for (TTUrlEntity *entity in self.urls) {
-        NSRange linkRange = NSMakeRange( [entity.indices[0] unsignedIntegerValue], [entity.indices[1] unsignedIntegerValue] - [entity.indices[0] unsignedIntegerValue] );
+        NSRange linkRange = NSMakeRange( [entity.indices.start unsignedIntegerValue], [entity.indices.end unsignedIntegerValue] - [entity.indices.start unsignedIntegerValue] );
         NSURL *url = [NSURL URLWithString:entity.expanded_url];
         [self.contentLabel addLinkToURL:url withRange:linkRange];
     }

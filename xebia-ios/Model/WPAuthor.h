@@ -6,10 +6,8 @@
 //  Copyright (c) 2012 Xebia France. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
-#import <RestKit/RestKit.h>
-
 @interface WPAuthor : NSManagedObject
+
 @property (nonatomic, strong) NSNumber *identifier;
 @property (nonatomic, strong) NSString *slug;
 @property (nonatomic, strong) NSString *name;

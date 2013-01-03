@@ -4,14 +4,11 @@
 // To change the template use AppCode | Preferences | File Templates.
 //
 
-
-#import <Foundation/Foundation.h>
 #import "TTUser.h"
-#import <RestKit/RestKit.h>
 
 @interface TTRetweetedStatus : NSManagedObject
 
-@property (nonatomic, strong) NSString *identifier;
+@property (nonatomic, strong) NSNumber *identifier;
 @property (nonatomic, strong) NSString *identifier_str;
 @property (nonatomic, strong) NSDate *created_at;
 @property (nonatomic, strong) TTUser *user;

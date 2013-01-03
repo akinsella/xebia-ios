@@ -6,9 +6,6 @@
 //  Copyright (c) 2012 Xebia France. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
-#import <RestKit/RestKit.h>
-
 @interface WPCategory : NSManagedObject
 
 @property (nonatomic, strong) NSNumber *identifier;

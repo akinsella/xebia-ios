@@ -7,8 +7,6 @@
 //
 
 #import "WPPostTableViewController.h"
-#import <RestKit/RestKit.h>
-#import <RestKit/UI.h>
 
 @interface WPRecentPostTableViewController : WPPostTableViewController
 

@@ -6,8 +6,6 @@
 //  Copyright (c) 2012 Xebia France. All rights reserved.
 //
 
-#import <RestKit/RestKit.h>
-
 @interface WPComment : NSManagedObject
 
 @property (nonatomic, strong) NSNumber *identifier;

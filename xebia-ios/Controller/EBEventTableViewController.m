@@ -6,8 +6,6 @@
 //  Copyright (c) 2012 Xebia France. All rights reserved.
 //
 
-#import <RestKit/RestKit.h>
-#import <RestKit/UI.h>
 #import "EBEventTableViewController.h"
 #import "EBEvent.h"
 #import "SDImageCache.h"
@@ -18,7 +16,6 @@
 #import "XBMainViewController.h"
 
 @interface EBEventTableViewController ()
-@property (nonatomic, strong) RKTableController *tableController;
 @property (nonatomic, strong) UIImage*defaultImage;
 @end
 

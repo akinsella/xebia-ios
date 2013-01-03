@@ -4,13 +4,11 @@
 // To change the template use AppCode | Preferences | File Templates.
 //
 
+#import "TTIndices.h"
 
-#import <Foundation/Foundation.h>
-#import "TTEntity.h"
-
-@interface TTHashtagEntity : TTEntity
+@interface TTHashtagEntity : NSManagedObject
 
 @property(nonatomic, strong) NSString *text;
-@property (nonatomic, strong) NSArray *indices;
+@property(nonatomic, strong) TTIndices *indices;
 
 @end

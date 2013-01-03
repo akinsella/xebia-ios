@@ -30,7 +30,7 @@
         NSDateFormatter *df2 = [[NSDateFormatter alloc] init];
         [df2 setDateFormat:@"HH:mm"];
         NSString *dateFormatted = [df2 stringFromDate:date];
-        NSLog(@"Date formatted: %@", dateFormatted);
+//        NSLog(@"Date formatted: %@", dateFormatted);
         return [NSString stringWithFormat:@"Today, %@", dateFormatted];
     }
     else if(dayDiff == -1) {

@@ -6,7 +6,6 @@
 //  Copyright (c) 2012 Xebia France. All rights reserved.
 //
 
-#import "GHRepository.h"
 #import "GHRepositoryTableViewController.h"
 #import "UIColor+XBAdditions.h"
 #import "SVPullToRefresh.h"
@@ -98,7 +97,8 @@
             }
             [self updateFetchInfos:localContext];
 
-            [SVProgressHUD showSuccessWithStatus:@"Done!"];
+            [SVProgressHUD dismiss];
+//            [SVProgressHUD showSuccessWithStatus:@"Done!"];
         }
         failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
             [SVProgressHUD showErrorWithStatus:@"Got some issue!"];

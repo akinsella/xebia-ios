@@ -6,14 +6,12 @@
 //  Copyright (c) 2012 Xebia France. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
 #import "TTUser.h"
-#import <RestKit/RestKit.h>
 #import "TTRetweetedStatus.h"
 
 @interface TTTweet : NSManagedObject
 
-@property (nonatomic, strong) NSString *identifier;
+@property (nonatomic, strong) NSNumber *identifier;
 @property (nonatomic, strong) NSString *identifier_str;
 @property (nonatomic, strong) NSDate *created_at;
 @property (nonatomic, strong) TTUser *user;

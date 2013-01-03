@@ -10,18 +10,14 @@
 
 #import "UINavigationController+XBAdditions.h"
 #import "NSNumber+XBAdditions.h"
-#import "RKTableItem+XKAdditions.h"
 #import "UIImageView+XBAdditions.h"
 #import "XBWebViewController.h"
-#import <RestKit/RestKit.h>
-#import "RKMIMETypes.h"
-#import "RKObjectSerializer.h"
-#import "RKMimeTypes.h"
 #import "WPPost.h"
 #import "JSONKit.h"
-#import "NSDictionary+RKRequestSerialization.h"
-#import "RKRequestSerialization.h"
 #import "XBShareInfo.h"
+#import "XBMapper.h"
+#import "NSDateFormatter+XBAdditions.h"
+#import "XBMenuCell.h"
 
 
 // Enum for row indices
@@ -34,13 +30,11 @@ enum {
 };
 
 @interface XBMainViewController ()
-@property (nonatomic, strong) RKTableController *tableController;
 @property (nonatomic, strong) XBRevealController *revealController;
 @property (nonatomic, strong) NSMutableDictionary *viewIdentifiers;
 @property (nonatomic, strong) XBViewControllerManager *viewControllerManager;
 @property (nonatomic, strong) UINavigationController *rearNavigationController;
-@property (nonatomic, strong) RKTableViewCellMapping *tableCellMapping;
-@property (nonatomic, strong) NSArray *tableItems;
+@property (nonatomic, strong) NSArray *dataSource;
 @end
 
 @implementation XBMainViewController
@@ -51,10 +45,12 @@ enum {
     if (self) {
         self.viewControllerManager = viewControllerManager;
 
+        [self initTableItems];
         [self initNavigationBar];
         [self initRevealController];
         [self initViewIdentifiers];
-        [self initTable];
+
+        [self configureTableView];
     }
 
     return self;
@@ -65,15 +61,6 @@ enum {
     [super viewDidLoad];
 }
 
-- (void)initTable {
-    [self.tableView setSeparatorStyle: UITableViewCellSeparatorStyleNone];
-    self.tableController = [RKTableController tableControllerForTableViewController:self];
-
-    [self initTableItems];
-
-    [self initCellMapping];
-    [self.tableController loadTableItems:self.tableItems withMapping: self.tableCellMapping];
-}
 
 
 //-----------------------------------------------------------------------
@@ -110,16 +97,18 @@ enum {
 }
 
 -(void)openLocalURL:(NSString *)htmlFileRef withTitle:(NSString *)title object:(id)object shareInfo: (XBShareInfo *)shareInfo {
-    RKObjectMapping *serializationMapping = [[[RKObjectManager sharedManager] mappingProvider] serializationMappingForClass:[object class]];
-    RKObjectSerializer* serializer = [RKObjectSerializer serializerWithObject:object mapping:serializationMapping];
-    NSError* error = nil;
-    NSString *json = [serializer serializedObjectForMIMEType:RKMIMETypeJSON error:&error];
 
-    if (error) {
-        RKLogError(@"Serializing failed for source object %@ to MIME Type %@: %@", object, RKMIMETypeJSON, [error localizedDescription]);
-    } else {
-        [self openLocalURL:htmlFileRef withTitle:title json:json shareInfo:shareInfo];
-    }
+    NSDateFormatter *outputFormatter = [NSDateFormatter initWithDateFormat:@"yyyy-MM-dd'T'HH:mm:ss.SSSZZZ"];
+
+    NSDictionary *dict = [XBMapper dictionaryWithPropertiesOfObject:object];
+    NSString* json = [dict JSONStringWithOptions:JKSerializeOptionNone serializeUnsupportedClassesUsingBlock:^id(id objectToSerialize) {
+        if([objectToSerialize isKindOfClass:[NSDate class]]) {
+            return([outputFormatter stringFromDate:object]);
+        }
+        return(nil);
+    } error:nil];
+
+    [self openLocalURL:htmlFileRef withTitle:title json:json shareInfo:shareInfo];
 }
 
 -(void)openLocalURL:(NSString *)htmlFileRef withTitle:(NSString *)title json:(NSString *)json shareInfo: (XBShareInfo *)shareInfo
@@ -175,30 +164,52 @@ enum {
 }
 
 - (void)initTableItems {
-    self.tableItems = @[
-       [RKTableItem tableItemWithText:@"Home" imageNamed:@"home"],
-       [RKTableItem tableItemWithText:@"Blog" imageNamed:@"wordpress"],
-       [RKTableItem tableItemWithText:@"Tweets" imageNamed:@"twitter"],
-       [RKTableItem tableItemWithText:@"Github"  imageNamed:@"github"],
-       [RKTableItem tableItemWithText:@"Events"  imageNamed:@"eventbrite-menu"]
+    self.dataSource = @[
+            @{ @"title": @"Home", @"imageName" :@"home"},
+            @{ @"title": @"Blog", @"imageName" :@"wordpress"},
+            @{ @"title": @"Tweets", @"imageName" :@"twitter"},
+            @{ @"title": @"GitHub", @"imageName" :@"github"},
+            @{ @"title": @"Events", @"imageName" :@"eventbrite-menu"},
     ];
 }
 
-- (void)initCellMapping {
-    self.tableCellMapping = [RKTableViewCellMapping defaultCellMapping];
+- (void)configureTableView {
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+}
 
-    self.tableCellMapping.cellClassName = @"XBMenuCell";
-    self.tableCellMapping.reuseIdentifier = @"XBMenu";
-    self.tableCellMapping.accessoryType = UITableViewCellAccessoryNone;
 
-    [self.tableCellMapping mapKeyPath:@"text" toAttribute:@"titleLabel.text"];
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    return 1;
+}
 
-    // Avoid leak on self in block
-    __weak XBMainViewController *mvc = self;
-    self.tableCellMapping.onSelectCellForObjectAtIndexPath = ^(UITableViewCell *cell, id object, NSIndexPath* indexPath) {
-        NSString *identifier = [self.viewIdentifiers valueForKey:[NSNumber asString:indexPath.row]];
-        [mvc revealViewControllerWithIdentifier: identifier];
-    };
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return self.dataSource.count;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+
+    XBMenuCell *menuCell = [self.tableView dequeueReusableCellWithIdentifier:@"XBMenu"];
+
+    if (!menuCell) {
+        // fix for rdar://11549999 (registerNib… fails on iOS 5 if VoiceOver is enabled)
+        menuCell = [[[NSBundle mainBundle] loadNibNamed:@"XBMenuCell" owner:self options:nil] objectAtIndex:0];
+    }
+    menuCell.accessoryType = UITableViewCellAccessoryNone;
+    NSDictionary *tableItem = [self.dataSource objectAtIndex:(NSUInteger) indexPath.row];
+    menuCell.titleLabel.text = [tableItem objectForKey:@"title"];
+    menuCell.imageView.image = [UIImage imageNamed:[tableItem objectForKey:@"imageName"]];
+
+    return menuCell;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return self.tableView.rowHeight;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
+    NSString *identifier = [self.viewIdentifiers valueForKey:[NSNumber asString:indexPath.row]];
+    [self revealViewControllerWithIdentifier: identifier];
 }
 
 @end

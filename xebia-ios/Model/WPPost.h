@@ -6,10 +6,8 @@
 //  Copyright (c) 2012 Xebia France. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 #import "WPAuthor.h"
-#import <RestKit/RestKit.h>
 
 @interface  WPPost : NSManagedObject
 

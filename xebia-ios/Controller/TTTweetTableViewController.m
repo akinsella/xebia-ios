@@ -6,20 +6,13 @@
 //  Copyright (c) 2012 Xebia France. All rights reserved.
 //
 
-#import <RestKit/RestKit.h>
-#import <RestKit/UI.h>
 #import "TTTweet.h"
 #import "TTTweetTableViewController.h"
-#import "XBLoadingView.h"
 #import "TTTweetCell.h"
 #import "SDImageCache.h"
 #import "SDWebImageManager.h"
 #import "UIImageView+WebCache.h"
-#import "UINavigationBar+XBAdditions.h"
 #import "UIViewController+XBAdditions.h"
-#import "UIColor+XBAdditions.h"
-#import "UIScreen+XBAdditions.h"
-#import "XBWebViewController.h"
 #import "XBMainViewController.h"
 
 @interface TTTweetTableViewController ()
@@ -85,6 +78,7 @@
         [tweetCell.imageView setImageWithURL:tweet.ownerImageUrl placeholderImage:self.defaultAvatarImage];
     }
 
+    tweetCell.authorNameLabel.text = tweet.ownerScreenName;
     tweetCell.identifier = tweet.identifier;
     tweetCell.dateLabel.text = tweet.dateFormatted;
     tweetCell.content = tweet.text;

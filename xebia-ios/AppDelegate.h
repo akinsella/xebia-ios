@@ -10,8 +10,6 @@
 
 
 #import "WPPost.h"
-#import "MBProgressHUD.h"
-#import "RestKit.h"
 
 @class XBViewControllerManager;
 @class XBMainViewController;

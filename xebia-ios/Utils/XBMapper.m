@@ -4,12 +4,9 @@
 // To change the template use AppCode | Preferences | File Templates.
 //
 
+#import <objc/runtime.h>
 
-#import "NSManagedObject+XBAdditions.h"
-#import <objc/objc-runtime.h>
-
-@implementation NSManagedObject (XBAdditions)
-
+@implementation XBMapper
 
 +(NSDictionary *) dictionaryWithPropertiesOfObject:(id)obj;
 {
@@ -47,6 +44,10 @@
 
                 [dict setObject:entries forKey:key];
             }
+            else if ([value isKindOfClass:NSObject.class]) {
+                id subObj = [self dictionaryWithPropertiesOfObject:value];
+                [dict setObject:subObj forKey:key];
+            }
             else {
                 [dict setObject:value forKey:key];
             }
@@ -57,6 +58,5 @@
 
     return [NSDictionary dictionaryWithDictionary:dict];
 }
-
 
 @end

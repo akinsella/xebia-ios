@@ -8,14 +8,12 @@
 
 #import "AppDelegate.h"
 #import "XBSharekitSupport.h"
-#import "XBRestkitSupport.h"
 #import "ZUUIRevealController.h"
 #import "XBMainViewController.h"
-#import <RestKit/RestKit.h>
-#import <RestKit/RKRequestSerialization.h>
 //#import <PonyDebugger/PDDebugger.h>
 #import "SDUrlCache.h"
 #import "AFHTTPRequestOperationLogger.h"
+#import "AFNetworking.h"
 
 static NSString* const DeviceTokenKey = @"DeviceToken";
 
@@ -30,8 +28,8 @@ static NSString* const DeviceTokenKey = @"DeviceToken";
 @synthesize mainViewController = _mainViewController;
 
 +(NSString *)baseUrl {
-    return @"http://dev.xebia.fr:9000";
-//    return @"http://xebia-mobile-backend.cloudfoundry.com";
+//    return @"http://dev.xebia.fr:9000";
+    return @"http://xebia-mobile-backend.cloudfoundry.com";
 }
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
@@ -70,8 +68,6 @@ static NSString* const DeviceTokenKey = @"DeviceToken";
     [[NSUserDefaults standardUserDefaults] registerDefaults: @{ @"0" : DeviceTokenKey }];
     
     [XBSharekitSupport configure];
-    
-    [XBRestkitSupport configure];
 
     _window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
 
@@ -130,23 +126,27 @@ static NSString* const DeviceTokenKey = @"DeviceToken";
 }
 
 - (void)sendProviderDeviceToken:(NSString *)deviceToken {
-    NSString* jsonBody = [NSString stringWithFormat: @"{\"udid\":\"%@\",\"token\":\"%@\"}", [self udid], deviceToken];
-    [[RKClient clientWithBaseURLString:[AppDelegate baseUrl]]
-//    [[RKClient clientWithBaseURLString:@"http://dev.xebia.fr:9000/"]
-            post:@"/api/ios/notification/register" usingBlock:^(RKRequest *request) {
-        request.params = [RKRequestSerialization serializationWithData:[jsonBody dataUsingEncoding:NSUTF8StringEncoding] MIMEType:RKMIMETypeJSON];
-        request.onDidLoadResponse = ^(RKResponse *response){
+    NSDictionary *jsonPayload = @{ @"udid": [self udid], @"token": deviceToken};
+
+    AFHTTPClient *client = [AFHTTPClient clientWithBaseURL:[NSURL URLWithString:[AppDelegate baseUrl]]];
+    NSURLRequest *urlRequest = [client requestWithMethod:@"POST" path:@"/api/notification/register" parameters:jsonPayload];
+
+    AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:urlRequest
+        success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
             if (response.statusCode > 299) {
-                NSLog(@"We got an error ! Status code: %i - Message: %@", response.statusCode, response.localizedStatusCodeString);
+                NSString *reasonPhrase = (__bridge_transfer NSString *)CFHTTPMessageCopyResponseStatusLine((__bridge CFHTTPMessageRef)response);
+                NSLog(@"We got an error ! Status code: %i - Message: %@", response.statusCode, reasonPhrase);
             } else {
                 NSLog(@"Device was registered by server as expected");
             }
-        };
-        
-        request.onDidFailLoadWithError = ^(NSError *error) {
-            NSLog(@"Device was registered by server as expected: %@", error);
-        };
-    }];
+        }
+        failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
+            NSLog(@"Device was registered by server as expected. Error: %@, JSON: %@", error, JSON);
+        }
+    ];
+
+    [operation start];
+
 }
 
 - (void)processRemoteNotification:(NSDictionary*)userInfo {

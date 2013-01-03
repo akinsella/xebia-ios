@@ -7,8 +7,6 @@
 //
 
 #import "WPPost.h"
-#import "WPTag.h"
-#import "WPCategory.h"
 #import "GravatarHelper.h"
 #import "NSDateFormatter+XBAdditions.h"
 #import "USArrayWrapper.h"

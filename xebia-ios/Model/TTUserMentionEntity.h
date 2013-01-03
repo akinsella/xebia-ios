@@ -4,15 +4,14 @@
 // To change the template use AppCode | Preferences | File Templates.
 //
 
+#import "TTIndices.h"
 
-#import <Foundation/Foundation.h>
-#import "TTEntity.h"
+@interface TTUserMentionEntity : NSManagedObject
 
-@interface TTUserMentionEntity : TTEntity
-
+@property(nonatomic, strong) NSNumber *identifier;
+@property (nonatomic, strong) NSString *identifier_str;
 @property(nonatomic, strong) NSString *screen_name;
 @property(nonatomic, strong) NSString *name;
-@property(nonatomic, strong) NSNumber *identifier;
-@property (nonatomic, strong) NSArray *indices;
+@property(nonatomic, strong) TTIndices *indices;
 
 @end

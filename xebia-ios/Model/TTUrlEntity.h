@@ -4,16 +4,13 @@
 // To change the template use AppCode | Preferences | File Templates.
 //
 
+#import "TTIndices.h"
 
-#import <Foundation/Foundation.h>
-#import "TTEntity.h"
-
-
-@interface TTUrlEntity : TTEntity
+@interface TTUrlEntity : NSManagedObject
 
 @property(nonatomic, strong) NSString *url;
 @property(nonatomic, strong) NSString *expanded_url;
 @property(nonatomic, strong) NSString *display_url;
-@property (nonatomic, strong) NSArray *indices;
+@property(nonatomic, strong) TTIndices *indices;
 
 @end

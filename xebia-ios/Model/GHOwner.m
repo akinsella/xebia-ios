@@ -4,8 +4,6 @@
 // To change the template use AppCode | Preferences | File Templates.
 //
 
-
-#import <RestKit/RestKit.h>
 #import "GHOwner.h"
 #import "GravatarHelper.h"
 

@@ -6,8 +6,6 @@
 //  Copyright (c) 2012 Xebia. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
-
 @interface XBShareInfo : NSObject
 
 @property (nonatomic, strong) NSString *url;
