@@ -10,22 +10,19 @@
 
 @implementation XBMenuCell
 
-- (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
-    self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
-    if (self) {
-        [self.textLabel setFont:[UIFont fontWithName:@"HelveticaNeue-Bold" size:17.0]];
-        [self.textLabel setTextColor: [UIColor whiteColor]];
-        [self.textLabel setShadowColor: [UIColor colorWithRed:0.0 green:0.0 blue:0.0 alpha:0.75]];
-        [self.textLabel setShadowOffset:CGSizeMake(0.0, 1.0)];
+- (void)layoutSubviews {
+    [super layoutSubviews];
 
-        
-        UIImage *backgroundImage = [[UIImage imageNamed:@"LightBackground.png"] stretchableImageWithLeftCapWidth:0 topCapHeight:1];
-        self.backgroundView = [[UIImageView alloc] initWithImage:backgroundImage];
-        self.backgroundView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
-        self.backgroundView.frame = self.bounds;
-        self.backgroundView.alpha = 0.8;
-    }
-    return self;
+    [self.textLabel setFont:[UIFont fontWithName:@"HelveticaNeue-Bold" size:17.0]];
+    [self.textLabel setTextColor: [UIColor whiteColor]];
+    [self.textLabel setShadowColor: [UIColor colorWithRed:0.0 green:0.0 blue:0.0 alpha:0.75]];
+    [self.textLabel setShadowOffset:CGSizeMake(0.0, 1.0)];
+
+    UIImage *backgroundImage = [[UIImage imageNamed:@"LightBackground.png"] stretchableImageWithLeftCapWidth:0 topCapHeight:1];
+    self.backgroundView = [[UIImageView alloc] initWithImage:backgroundImage];
+    self.backgroundView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+    self.backgroundView.frame = self.bounds;
+    self.backgroundView.alpha = 0.8;
 }
 
 @end
