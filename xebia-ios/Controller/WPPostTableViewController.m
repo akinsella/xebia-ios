@@ -98,8 +98,7 @@
 
     NSString *resourcePath = [[self getCurrentPostType] isEqualToString:@"recent"] ?
             @"/api/wordpress/posts/recent?count=25" :
-            [NSString stringWithFormat:@"/api/wordpress/%@/posts?id=%@", [self getCurrentPostType], self.identifier];
-
+            [NSString stringWithFormat:@"/api/wordpress/%@/%@/posts", [self getCurrentPostType], self.identifier];
 
     return resourcePath;
 }
