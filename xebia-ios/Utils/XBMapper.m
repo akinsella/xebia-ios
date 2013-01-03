@@ -5,6 +5,8 @@
 //
 
 #import <objc/runtime.h>
+#import "XBMapper.h"
+#import "NSDateFormatter+XBAdditions.h"
 
 @implementation XBMapper
 
@@ -21,14 +23,14 @@
 
         if (value) {
             if ([value isKindOfClass:NSManagedObject.class]) {
-                id subObj = [self dictionaryWithPropertiesOfObject:value];
+                id subObj = [XBMapper dictionaryWithPropertiesOfObject:value];
                 [dict setObject:subObj forKey:key];
             }
             else if ([value isKindOfClass:NSArray.class]) {
                 NSSet *array = (NSSet *)value;
                 NSMutableArray *entries = [NSMutableArray arrayWithCapacity:[array count]];
                 for (id entry in array) {
-                    id subObj = [self dictionaryWithPropertiesOfObject:entry];
+                    id subObj = [XBMapper dictionaryWithPropertiesOfObject:entry];
                     [entries addObject:subObj];
                 }
 
@@ -38,18 +40,26 @@
                 NSSet *set = (NSSet *)value;
                 NSMutableArray *entries = [NSMutableArray arrayWithCapacity:[set count]];
                 for (id entry in set) {
-                    id subObj = [self dictionaryWithPropertiesOfObject:entry];
+                    id subObj = [XBMapper dictionaryWithPropertiesOfObject:entry];
                     [entries addObject:subObj];
                 }
 
                 [dict setObject:entries forKey:key];
             }
-            else if ([value isKindOfClass:NSObject.class]) {
-                id subObj = [self dictionaryWithPropertiesOfObject:value];
-                [dict setObject:subObj forKey:key];
+            else if ([value isKindOfClass:NSDate.class]) {
+                [dict setObject:value forKey:[[NSDateFormatter initWithDateFormat:@"yyyy-MM-dd HH:mm:ss"] stringFromDate:value]];
             }
             else {
-                [dict setObject:value forKey:key];
+                Class classObject = NSClassFromString([key capitalizedString]);
+                if (classObject) {
+                    id subObj = [self dictionaryWithPropertiesOfObject:[obj valueForKey:key]];
+                    [dict setObject:subObj forKey:key];
+                }
+                else {
+                    if(value) {
+                        [dict setObject:value forKey:key];
+                    }
+                }
             }
         }
     }

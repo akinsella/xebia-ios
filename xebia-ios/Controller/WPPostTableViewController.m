@@ -149,9 +149,7 @@
     WPPost *post = (WPPost *)[self objectAtIndex:(NSUInteger) indexPath.row];
     NSLog(@"Post selected: %@", post);
 
-
     NSString *postUrl = [NSString stringWithFormat:@"/api/wordpress/post/%@", post.identifier];
-
 
     [self fetchDataFromServerWithResourcePath:postUrl
         success:^(id JSON) {
