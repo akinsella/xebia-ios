@@ -14,6 +14,7 @@
 #import "SDUrlCache.h"
 #import "AFHTTPRequestOperationLogger.h"
 #import "AFNetworking.h"
+#import "MagicalRecord+Setup.h"
 
 static NSString* const DeviceTokenKey = @"DeviceToken";
 
@@ -33,6 +34,10 @@ static NSString* const DeviceTokenKey = @"DeviceToken";
 }
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    NSString *storeFileName = [MagicalRecord defaultStoreName];
+    NSURL *url = [NSPersistentStore MR_urlForStoreName:storeFileName];
+    [[NSFileManager defaultManager] removeItemAtURL:url error:nil];
+    MRLog(@"Removed store for debug purpose: %@", [url lastPathComponent]);
 
     [[AFHTTPRequestOperationLogger sharedLogger] startLogging];
 

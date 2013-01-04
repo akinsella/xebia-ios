@@ -104,20 +104,22 @@
 }
 
 - (NSArray *)fetchDataFromDB {
+    NSManagedObjectContext *localContext = [NSManagedObjectContext MR_contextForCurrentThread];
+
     if ([[self getCurrentPostType] isEqualToString:@"recent"]) {
-        return [[self dataClass] MR_findAllSortedBy:@"date" ascending:NO];
+        return [[self dataClass] MR_findAllSortedBy:@"date" ascending:NO inContext:localContext];
     }
     else if ([[self getCurrentPostType] isEqualToString:@"author"]) {
         NSPredicate *predicate = [NSPredicate predicateWithFormat:@"author.identifier == %@", self.identifier];
-        return [[self dataClass] MR_findAllSortedBy:@"date" ascending:NO withPredicate:predicate];
+        return [[self dataClass] MR_findAllSortedBy:@"date" ascending:NO withPredicate:predicate inContext:localContext];
     }
     else if ([[self getCurrentPostType] isEqualToString:@"tag"]) {
         NSPredicate *predicate = [NSPredicate predicateWithFormat:@"ANY tags.identifier == %@", self.identifier];
-        return [[self dataClass] MR_findAllSortedBy:@"date" ascending:NO withPredicate:predicate];
+        return [[self dataClass] MR_findAllSortedBy:@"date" ascending:NO withPredicate:predicate inContext:localContext];
     }
     else if ([[self getCurrentPostType] isEqualToString:@"category"]) {
         NSPredicate *predicate = [NSPredicate predicateWithFormat:@"ANY categories.identifier == %@", self.identifier];
-        return [[self dataClass] MR_findAllSortedBy:@"date" ascending:NO withPredicate:predicate];
+        return [[self dataClass] MR_findAllSortedBy:@"date" ascending:NO withPredicate:predicate inContext:localContext];
     }
 }
 
@@ -153,10 +155,10 @@
 
     [self fetchDataFromServerWithResourcePath:postUrl
         success:^(id JSON) {
-            NSManagedObjectContext *myContext = [NSManagedObjectContext MR_context];
-            [[self.delegate dataClass] MR_importFromObject: JSON inContext: myContext];
+            NSManagedObjectContext *localContext = [NSManagedObjectContext MR_contextForCurrentThread];
+            [[self.delegate dataClass] MR_importFromObject: JSON inContext: localContext];
 
-            WPPost *fullPost = [WPPost MR_findFirstByAttribute:@"identifier" withValue:[post identifier] inContext: myContext];
+            WPPost *fullPost = [WPPost MR_findFirstByAttribute:@"identifier" withValue:[post identifier] inContext: localContext];
 
             NSDictionary *dict = [XBMapper dictionaryWithPropertiesOfObject:fullPost];
 

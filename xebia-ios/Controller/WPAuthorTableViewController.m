@@ -57,7 +57,8 @@
 }
 
 - (NSArray *)fetchDataFromDB {
-    return [[self dataClass] MR_findAllSortedBy:@"name" ascending:YES];
+    NSManagedObjectContext *localContext = [NSManagedObjectContext MR_contextForCurrentThread];
+    return [[self dataClass] MR_findAllSortedBy:@"name" ascending:YES inContext:localContext];
 }
 
 - (void)configureCell:(UITableViewCell *)cell atIndex:(NSIndexPath *)indexPath {

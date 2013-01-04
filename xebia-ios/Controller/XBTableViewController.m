@@ -51,7 +51,8 @@
 
     self.dataSource = [[self.delegate fetchDataFromDB] mutableCopy];
 
-    XBFetchInfo *fetchInfo = [self fetchInfos];
+    NSManagedObjectContext *localContext = [NSManagedObjectContext MR_contextForCurrentThread];
+    XBFetchInfo *fetchInfo = [self fetchInfos: localContext];
 
     NSTimeInterval repositoryDataAge = [self dataAgeFromFetchInfo:fetchInfo];
     BOOL needUpdateFromServer = repositoryDataAge > [self.delegate maxDataAgeInSecondsBeforeServerFetch];
@@ -87,19 +88,22 @@
     AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:urlRequest
         success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
             NSLog(@"JSON: %@", JSON);
-            NSManagedObjectContext *localContext = [NSManagedObjectContext MR_contextForCurrentThread];
+            [MagicalRecord saveInBackgroundWithBlock:^(NSManagedObjectContext *context) {
 
-            [[self.delegate dataClass] MR_importFromArray: JSON];
-            self.dataSource = [[self.delegate fetchDataFromDB] mutableCopy];
-            [self.tableView reloadData];
-            if (callback) {
-                callback();
-            }
-            [self updateFetchInfos:localContext];
+                [[self.delegate dataClass] MR_importFromArray: JSON inContext:context];
+                [self updateFetchInfos:context];
 
-            [SVProgressHUD dismiss];
 //            [SVProgressHUD showSuccessWithStatus:@"Done!"];
-        }
+            }
+            completion:^{
+                self.dataSource = [[self.delegate fetchDataFromDB] mutableCopy];
+                [self.tableView reloadData];
+                if (callback) {
+                    callback();
+                }
+                [SVProgressHUD dismiss];
+            }];
+         }
         failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
             [SVProgressHUD showErrorWithStatus:@"Got some issue!"];
             NSLog(@"Error: %@, JSON: %@", error, JSON);
@@ -113,17 +117,17 @@
 }
 
 - (void)updateFetchInfos:(NSManagedObjectContext *)localContext {
-    XBFetchInfo *fetchInfo = [self fetchInfos];
+    XBFetchInfo *fetchInfo = [self fetchInfos: localContext];
     if (!fetchInfo) {
-        fetchInfo = [XBFetchInfo MR_createEntity];
+        fetchInfo = [XBFetchInfo MR_createInContext:localContext];
         fetchInfo.key = [[self.delegate dataClass] description];
     }
     fetchInfo.lastUpdate = [NSDate date];
     [localContext MR_saveNestedContexts];
 }
 
-- (XBFetchInfo *)fetchInfos {
-    return [XBFetchInfo MR_findFirstByAttribute:@"key" withValue:[[_delegate dataClass] description]];
+- (XBFetchInfo *)fetchInfos:(NSManagedObjectContext *)localContext {
+    return [XBFetchInfo MR_findFirstByAttribute:@"key" withValue:[[_delegate dataClass] description] inContext:localContext];
 }
 
 
