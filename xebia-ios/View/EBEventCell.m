@@ -17,17 +17,17 @@
 - (void)configure {
     self.descriptionLabel.font = [UIFont fontWithName:FONT_NAME size:FONT_SIZE];
     self.descriptionLabel.textColor = [UIColor colorWithHex:@"#fafafa" alpha:1.0];
-    self.descriptionLabel.lineBreakMode = (NSLineBreakMode) UILineBreakModeTailTruncation;
+    self.descriptionLabel.lineBreakMode = UILineBreakModeTailTruncation;
     self.descriptionLabel.numberOfLines = 0;
 
     self.descriptionLabel.linkAttributes = @{
         (NSString *)kCTForegroundColorAttributeName: (id)[UIColor colorWithHex:@"#72b8f6"].CGColor,
-        (NSString *)kCTUnderlineStyleAttributeName: @YES
+        (NSString *)kCTUnderlineStyleAttributeName: [NSNumber numberWithBool:YES]
     };
 
     self.descriptionLabel.activeLinkAttributes = @{
         (NSString *)kCTForegroundColorAttributeName: (id)[UIColor colorWithHex:@"#446F94"].CGColor,
-        (NSString *)kCTUnderlineStyleAttributeName: @NO
+        (NSString *)kCTUnderlineStyleAttributeName: [NSNumber numberWithBool:NO]
     };
 
     self.descriptionLabel.dataDetectorTypes = UIDataDetectorTypeLink;

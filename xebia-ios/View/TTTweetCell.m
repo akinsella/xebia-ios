@@ -50,17 +50,17 @@
 - (void)configure {
     self.contentLabel.font = [UIFont fontWithName:FONT_NAME size:FONT_SIZE];
     self.contentLabel.textColor = [UIColor colorWithHex:@"#fafafa" alpha:1.0];
-    self.contentLabel.lineBreakMode = (NSLineBreakMode) UILineBreakModeTailTruncation;
+    self.contentLabel.lineBreakMode = UILineBreakModeTailTruncation;
     self.contentLabel.numberOfLines = 0;
 
     self.contentLabel.linkAttributes = @{
         (NSString *)kCTForegroundColorAttributeName: (id)[UIColor colorWithHex:@"#72b8f6"].CGColor,
-        (NSString *)kCTUnderlineStyleAttributeName: @YES
+        (NSString *)kCTUnderlineStyleAttributeName: [NSNumber numberWithBool:YES]
     };
 
     self.contentLabel.activeLinkAttributes = @{
         (NSString *)kCTForegroundColorAttributeName: (id)[UIColor colorWithHex:@"#446F94"].CGColor,
-        (NSString *)kCTUnderlineStyleAttributeName: @NO
+        (NSString *)kCTUnderlineStyleAttributeName: [NSNumber numberWithBool:NO]
     };
 }
 
