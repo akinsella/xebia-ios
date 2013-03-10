@@ -13,6 +13,7 @@
 #import "GHOwnerCell.h"
 #import "AFNetworking.h"
 #import "UIImageView+WebCache.h"
+#import "JSONKit.h"
 
 @interface GHOwnerTableViewController ()
 @property (nonatomic, strong) UIImage* defaultAvatarImage;
@@ -44,6 +45,10 @@
     return cellReuseIdentifier;
 }
 
+- (NSString *)storageFileName {
+    return @"gh-owners.json";
+}
+
 - (NSString *)cellNibName {
     return @"GHOwnerCell";
 }
@@ -52,10 +57,18 @@
     return @"/api/github/owners";
 }
 
-- (NSArray *)fetchDataFromDB {
-    NSManagedObjectContext *localContext = [NSManagedObjectContext MR_contextForCurrentThread];
-    return [[self dataClass] MR_findAllSortedBy:@"login" ascending:YES inContext:localContext];
-}
+//- (NSDictionary *)fetchDataFromDB {
+////    NSManagedObjectContext *localContext = [NSManagedObjectContext MR_contextForCurrentThread];
+////    return [[self dataClass] MR_findAllSortedBy:@"login" ascending:YES inContext:localContext];
+//
+//    NSString *filePath = [NSHomeDirectory() stringByAppendingPathComponent:@"gh-owners.json"];
+//    NSLog(@"GHOwners Json path: %@", filePath);
+//
+//    NSString *fileContent = [NSString stringWithContentsOfFile:filePath encoding:NSUTF8StringEncoding error:nil];
+//    NSDictionary *json = [fileContent objectFromJSONString];
+//
+//    return json;
+//}
 
 - (void)configureCell:(UITableViewCell *)cell atIndex:(NSIndexPath *)indexPath {
 

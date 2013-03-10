@@ -16,6 +16,7 @@
 #import "WPPostTableViewController.h"
 #import "UIViewController+XBAdditions.h"
 #import "XBMainViewController.h"
+#import "JSONKit.h"
 
 @interface WPAuthorTableViewController ()
 @property (nonatomic, strong) UIImage* defaultAvatarImage;
@@ -48,6 +49,10 @@
     return cellReuseIdentifier;
 }
 
+- (NSString *)storageFileName {
+    return @"wp-authors.json";
+}
+
 - (NSString *)cellNibName {
     return @"WPAuthorCell";
 }
@@ -56,10 +61,16 @@
     return @"/api/wordpress/authors";
 }
 
-- (NSArray *)fetchDataFromDB {
-    NSManagedObjectContext *localContext = [NSManagedObjectContext MR_contextForCurrentThread];
-    return [[self dataClass] MR_findAllSortedBy:@"name" ascending:YES inContext:localContext];
-}
+//- (NSDictionary *)fetchDataFromDB {
+//
+//    NSString *filePath = [NSHomeDirectory() stringByAppendingPathComponent:@"wp-authors.json"];
+//    NSLog(@"WPAuthors Json path: %@", filePath);
+//
+//    NSString *fileContent = [NSString stringWithContentsOfFile:filePath encoding:NSUTF8StringEncoding error:nil];
+//    NSDictionary *json = [fileContent objectFromJSONString];
+//
+//    return json;
+//}
 
 - (void)configureCell:(UITableViewCell *)cell atIndex:(NSIndexPath *)indexPath {
 

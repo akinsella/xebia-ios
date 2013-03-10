@@ -6,7 +6,7 @@
 
 #import "TTUser.h"
 
-@interface TTRetweetedStatus : NSManagedObject
+@interface TTRetweetedStatus : NSObject
 
 @property (nonatomic, strong) NSNumber *identifier;
 @property (nonatomic, strong) NSString *identifier_str;

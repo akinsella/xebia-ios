@@ -21,13 +21,15 @@
 
 - (NSString *)resourcePath;
 
-- (NSArray *)fetchDataFromDB;
+//- (NSDictionary *)fetchDataFromDB;
 
 - (void)configureCell: (UITableViewCell *)cell atIndex:(NSIndexPath *)indexPath;
 
 @optional
 
 -(void)onSelectCell: (UITableViewCell *)cell forObject: (id) object withIndex: (NSIndexPath *)indexPath;
+
+- (NSString *)storageFileName;
 
 @end
 

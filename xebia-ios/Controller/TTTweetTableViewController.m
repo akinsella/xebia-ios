@@ -14,6 +14,7 @@
 #import "UIImageView+WebCache.h"
 #import "UIViewController+XBAdditions.h"
 #import "XBMainViewController.h"
+#import "JSONKit.h"
 
 @interface TTTweetTableViewController ()
 @property (nonatomic, strong) UIImage* defaultAvatarImage;
@@ -51,6 +52,10 @@
     return cellReuseIdentifier;
 }
 
+- (NSString *)storageFileName {
+    return @"tt-tweets.json";
+}
+
 - (NSString *)cellNibName {
     return @"TTTweetCell";
 }
@@ -59,10 +64,19 @@
     return @"/api/twitter/timeline";
 }
 
-- (NSArray *)fetchDataFromDB {
-    NSManagedObjectContext *localContext = [NSManagedObjectContext MR_contextForCurrentThread];
-    return [[self dataClass] MR_findAllSortedBy:@"created_at" ascending:NO inContext:localContext];
-}
+//- (NSDictionary *)fetchDataFromDB {
+////    NSManagedObjectContext *localContext = [NSManagedObjectContext MR_contextForCurrentThread];
+////    return [[self dataClass] MR_findAllSortedBy:@"created_at" ascending:NO inContext:localContext];
+//
+//
+//    NSString *filePath = [NSHomeDirectory() stringByAppendingPathComponent:@"tt-tweets.json"];
+//    NSLog(@"TTTweets Json path: %@", filePath);
+//
+//    NSString *fileContent = [NSString stringWithContentsOfFile:filePath encoding:NSUTF8StringEncoding error:nil];
+//    NSDictionary *json = [fileContent objectFromJSONString];
+//
+//    return json;
+//}
 
 - (void)configureCell:(UITableViewCell *)cell atIndex:(NSIndexPath *)indexPath {
 

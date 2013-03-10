@@ -9,7 +9,7 @@
 #import <CoreData/CoreData.h>
 #import "WPAuthor.h"
 
-@interface  WPPost : NSManagedObject
+@interface  WPPost : NSObject
 
 @property(nonatomic, strong) NSNumber *identifier;
 @property(nonatomic, strong) NSString *type;

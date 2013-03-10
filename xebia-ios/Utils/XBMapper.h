@@ -8,4 +8,6 @@
 
 +(NSDictionary *) dictionaryWithPropertiesOfObject:(id)obj;
 
++ (NSArray *)parseData:(NSArray*)objectArray intoObjectsOfType:(Class)objectClass;
+
 @end

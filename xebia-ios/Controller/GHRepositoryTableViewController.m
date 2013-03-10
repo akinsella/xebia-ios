@@ -9,6 +9,7 @@
 #import "GHRepository.h"
 #import "GHRepositoryTableViewController.h"
 #import "GHRepositoryCell.h"
+#import "JSONKit.h"
 
 @interface GHRepositoryTableViewController()
 @property (nonatomic, strong) UIImage* xebiaAvatarImage;
@@ -33,10 +34,18 @@
     return [GHRepository class];
 }
 
-- (NSArray *)fetchDataFromDB {
-    NSManagedObjectContext *localContext = [NSManagedObjectContext MR_contextForCurrentThread];
-    return [[self dataClass] MR_findAllSortedBy:@"name" ascending:YES inContext:localContext];
-}
+//- (NSDictionary *)fetchDataFromDB {
+////    NSManagedObjectContext *localContext = [NSManagedObjectContext MR_contextForCurrentThread];
+////    return [[self dataClass] MR_findAllSortedBy:@"name" ascending:YES inContext:localContext];
+//
+//    NSString *filePath = [NSHomeDirectory() stringByAppendingPathComponent:@"gh-repositories.json"];
+//    NSLog(@"GHRepositories Json path: %@", filePath);
+//
+//    NSString *fileContent = [NSString stringWithContentsOfFile:filePath encoding:NSUTF8StringEncoding error:nil];
+//    NSDictionary *json = [fileContent objectFromJSONString];
+//
+//    return json;
+//}
 
 - (NSString *)cellReuseIdentifier {
     // Needs to be static
@@ -47,6 +56,10 @@
 
 - (NSString *)cellNibName {
     return @"GHRepositoryCell";
+}
+
+- (NSString *)storageFileName {
+    return @"gh-repositories.json";
 }
 
 - (NSString *)resourcePath {

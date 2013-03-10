@@ -128,7 +128,7 @@ shouldStartLoadWithRequest:(NSURLRequest *)request
             SDWebImageManager *manager = [SDWebImageManager sharedManager];
             [manager downloadWithURL:imageURL
                             delegate:self
-                             options:0 success:^(UIImage *image) {
+                             options:kNilOptions success:^(UIImage *image) {
                                 NSLog(@"Image download with success: %@", image);
                                 [UIImageJPEGRepresentation(image, 1.0) writeToFile:jpgPath atomically:YES];
             

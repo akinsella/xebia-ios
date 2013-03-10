@@ -13,6 +13,7 @@
 #import "UIViewController+XBAdditions.h"
 #import "XBMainViewController.h"
 #import "WPCategoryCell.h"
+#import "JSONKit.h"
 
 @implementation WPCategoryTableViewController
 
@@ -39,6 +40,10 @@
     return cellReuseIdentifier;
 }
 
+- (NSString *)storageFileName {
+    return @"wp-categories.json";
+}
+
 - (NSString *)cellNibName {
     return @"WPCategoryCell";
 }
@@ -47,10 +52,18 @@
     return @"/api/wordpress/categories";
 }
 
-- (NSArray *)fetchDataFromDB {
-    NSManagedObjectContext *localContext = [NSManagedObjectContext MR_contextForCurrentThread];
-    return [[self dataClass] MR_findAllSortedBy:@"title" ascending:YES inContext:localContext];
-}
+//- (NSDictionary *)fetchDataFromDB {
+////    NSManagedObjectContext *localContext = [NSManagedObjectContext MR_contextForCurrentThread];
+////    return [[self dataClass] MR_findAllSortedBy:@"title" ascending:YES inContext:localContext];
+//
+//    NSString *filePath = [NSHomeDirectory() stringByAppendingPathComponent:@"wp-categories.json"];
+//    NSLog(@"WPAuthors Json path: %@", filePath);
+//
+//    NSString *fileContent = [NSString stringWithContentsOfFile:filePath encoding:NSUTF8StringEncoding error:nil];
+//    NSDictionary *json = [fileContent objectFromJSONString];
+//
+//    return json;
+//}
 
 - (void)configureCell:(UITableViewCell *)cell atIndex:(NSIndexPath *)indexPath {
 

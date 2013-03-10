@@ -6,7 +6,7 @@
 //  Copyright (c) 2012 Xebia France. All rights reserved.
 //
 
-@interface GHUser : NSManagedObject
+@interface GHUser : NSObject
 
 @property (nonatomic, strong) NSNumber *identifier;
 

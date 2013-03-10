@@ -6,7 +6,7 @@
 //  Copyright (c) 2012 Xebia France. All rights reserved.
 //
 
-@interface WPCategory : NSManagedObject
+@interface WPCategory : NSObject
 
 @property (nonatomic, strong) NSNumber *identifier;
 @property (nonatomic, strong) NSString *slug;

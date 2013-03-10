@@ -6,7 +6,7 @@
 
 #import "TTIndices.h"
 
-@interface TTUserMentionEntity : NSManagedObject
+@interface TTUserMentionEntity : NSObject
 
 @property(nonatomic, strong) NSNumber *identifier;
 @property (nonatomic, strong) NSString *identifier_str;

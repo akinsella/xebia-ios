@@ -6,7 +6,7 @@
 //  Copyright (c) 2012 Xebia France. All rights reserved.
 //
 
-@interface TTUser : NSManagedObject
+@interface TTUser : NSObject
 
 @property (nonatomic, strong) NSNumber *identifier;
 @property (nonatomic, strong) NSString *identifier_str;

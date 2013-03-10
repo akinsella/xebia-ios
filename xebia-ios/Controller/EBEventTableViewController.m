@@ -14,6 +14,7 @@
 #import "UIImageView+WebCache.h"
 #import "UIViewController+XBAdditions.h"
 #import "XBMainViewController.h"
+#import "JSONKit.h"
 
 @interface EBEventTableViewController ()
 @property (nonatomic, strong) UIImage*defaultImage;
@@ -48,6 +49,10 @@
     return cellReuseIdentifier;
 }
 
+- (NSString *)storageFileName {
+    return @"eb-events.json";
+}
+
 - (NSString *)cellNibName {
     return @"EBEventCell";
 }
@@ -56,10 +61,18 @@
     return @"/api/eventbrite/events";
 }
 
-- (NSArray *)fetchDataFromDB {
-    NSManagedObjectContext *localContext = [NSManagedObjectContext MR_contextForCurrentThread];
-    return [[self dataClass] MR_findAllSortedBy:@"start_date" ascending:YES inContext:localContext];
-}
+//- (NSDictionary *)fetchDataFromDB {
+////    NSManagedObjectContext *localContext = [NSManagedObjectContext MR_contextForCurrentThread];
+////    return [[self dataClass] MR_findAllSortedBy:@"start_date" ascending:YES inContext:localContext];
+//
+//    NSString *filePath = [NSHomeDirectory() stringByAppendingPathComponent: self.storageFileName];
+//    NSLog(@"Event Json path: %@", filePath);
+//
+//    NSString *fileContent = [NSString stringWithContentsOfFile:filePath encoding:NSUTF8StringEncoding error:nil];
+//    NSDictionary *json = [fileContent objectFromJSONString];
+//
+//    return json;
+//}
 
 - (void)configureCell:(UITableViewCell *)cell atIndex:(NSIndexPath *)indexPath {
 

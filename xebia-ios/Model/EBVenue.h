@@ -4,7 +4,7 @@
 // To change the template use AppCode | Preferences | File Templates.
 //
 
-@interface EBVenue : NSManagedObject
+@interface EBVenue : NSObject
 
 @property (nonatomic, strong) NSNumber *identifier;
 @property (nonatomic, strong) NSString *city;

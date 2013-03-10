@@ -14,7 +14,7 @@
 #import "SDUrlCache.h"
 #import "AFHTTPRequestOperationLogger.h"
 #import "AFNetworking.h"
-#import "MagicalRecord+Setup.h"
+//#import "MagicalRecord+Setup.h"
 
 static NSString* const DeviceTokenKey = @"DeviceToken";
 
@@ -44,7 +44,7 @@ static NSString* const DeviceTokenKey = @"DeviceToken";
 
     [[AFHTTPRequestOperationLogger sharedLogger] startLogging];
 
-    [MagicalRecord setupCoreDataStack];
+//    [MagicalRecord setupCoreDataStack];
 
 
     SDURLCache *URLCache = [[SDURLCache alloc] initWithMemoryCapacity:1024*1024*2
@@ -169,7 +169,7 @@ static NSString* const DeviceTokenKey = @"DeviceToken";
 
 - (void)applicationWillTerminate:(UIApplication *)application {
     NSLog(@"Application will terminate !!");
-    [MagicalRecord cleanUp];
+//    [MagicalRecord cleanUp];
 }
 
 

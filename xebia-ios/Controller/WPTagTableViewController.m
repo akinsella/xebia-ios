@@ -12,6 +12,7 @@
 #import "UIViewController+XBAdditions.h"
 #import "XBMainViewController.h"
 #import "WPTagCell.h"
+#import "JSONKit.h"
 
 @implementation WPTagTableViewController
 
@@ -38,6 +39,10 @@
     return cellReuseIdentifier;
 }
 
+- (NSString *)storageFileName {
+    return @"wp-tags.json";
+}
+
 - (NSString *)cellNibName {
     return @"WPTagCell";
 }
@@ -46,10 +51,19 @@
     return @"/api/wordpress/tags";
 }
 
-- (NSArray *)fetchDataFromDB {
-    NSManagedObjectContext *localContext = [NSManagedObjectContext MR_contextForCurrentThread];
-    return [[self dataClass] MR_findAllSortedBy:@"title" ascending:YES inContext:localContext];
-}
+//- (NSDictionary *)fetchDataFromDB {
+////    NSManagedObjectContext *localContext = [NSManagedObjectContext MR_contextForCurrentThread];
+////    return [[self dataClass] MR_findAllSortedBy:@"title" ascending:YES inContext:localContext];
+//
+//    NSString *filePath = [NSHomeDirectory() stringByAppendingPathComponent:@"wp-tags.json"];
+//    NSLog(@"WPTags Json path: %@", filePath);
+//
+//    NSString *fileContent = [NSString stringWithContentsOfFile:filePath encoding:NSUTF8StringEncoding error:nil];
+//    NSDictionary *json = [fileContent objectFromJSONString];
+//
+//    return json;
+//
+//}
 
 - (void)configureCell:(UITableViewCell *)cell atIndex:(NSIndexPath *)indexPath {
 

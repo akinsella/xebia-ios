@@ -4,7 +4,7 @@
 // To change the template use AppCode | Preferences | File Templates.
 //
 
-@interface EBOrganizer : NSManagedObject
+@interface EBOrganizer : NSObject
 
 @property (nonatomic, strong) NSNumber *identifier;
 @property (nonatomic, strong) NSString *url;

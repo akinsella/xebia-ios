@@ -6,7 +6,7 @@
 
 #import "TTIndices.h"
 
-@interface TTHashtagEntity : NSManagedObject
+@interface TTHashtagEntity : NSObject
 
 @property(nonatomic, strong) NSString *text;
 @property(nonatomic, strong) TTIndices *indices;

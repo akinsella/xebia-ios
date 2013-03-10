@@ -8,7 +8,7 @@
 
 #import "GHOwner.h"
 
-@interface GHRepository : NSManagedObject
+@interface GHRepository : NSObject
 
 @property (nonatomic, strong) NSNumber *identifier;
 

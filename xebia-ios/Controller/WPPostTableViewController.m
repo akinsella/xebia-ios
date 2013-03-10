@@ -23,6 +23,7 @@
 #import "SVProgressHUD.h"
 #import "AFNetworking.h"
 #import "XBMapper.h"
+#import "XBObjectDataSource.h"
 
 @interface WPPostTableViewController ()
 @property (nonatomic, strong) NSMutableDictionary *postTypes;
@@ -90,6 +91,10 @@
     return cellReuseIdentifier;
 }
 
+- (NSString *)storageFileName {
+    return @"wp-posts.json";
+}
+
 - (NSString *)cellNibName {
     return @"WPPostCell";
 }
@@ -103,25 +108,33 @@
     return resourcePath;
 }
 
-- (NSArray *)fetchDataFromDB {
-    NSManagedObjectContext *localContext = [NSManagedObjectContext MR_contextForCurrentThread];
-
-    if ([[self getCurrentPostType] isEqualToString:@"recent"]) {
-        return [[self dataClass] MR_findAllSortedBy:@"date" ascending:NO inContext:localContext];
-    }
-    else if ([[self getCurrentPostType] isEqualToString:@"author"]) {
-        NSPredicate *predicate = [NSPredicate predicateWithFormat:@"author.identifier == %@", self.identifier];
-        return [[self dataClass] MR_findAllSortedBy:@"date" ascending:NO withPredicate:predicate inContext:localContext];
-    }
-    else if ([[self getCurrentPostType] isEqualToString:@"tag"]) {
-        NSPredicate *predicate = [NSPredicate predicateWithFormat:@"ANY tags.identifier == %@", self.identifier];
-        return [[self dataClass] MR_findAllSortedBy:@"date" ascending:NO withPredicate:predicate inContext:localContext];
-    }
-    else if ([[self getCurrentPostType] isEqualToString:@"category"]) {
-        NSPredicate *predicate = [NSPredicate predicateWithFormat:@"ANY categories.identifier == %@", self.identifier];
-        return [[self dataClass] MR_findAllSortedBy:@"date" ascending:NO withPredicate:predicate inContext:localContext];
-    }
-}
+//- (NSDictionary *)fetchDataFromDB {
+////    NSManagedObjectContext *localContext = [NSManagedObjectContext MR_contextForCurrentThread];
+////
+////    if ([[self getCurrentPostType] isEqualToString:@"recent"]) {
+////        return [[self dataClass] MR_findAllSortedBy:@"date" ascending:NO inContext:localContext];
+////    }
+////    else if ([[self getCurrentPostType] isEqualToString:@"author"]) {
+////        NSPredicate *predicate = [NSPredicate predicateWithFormat:@"author.identifier == %@", self.identifier];
+////        return [[self dataClass] MR_findAllSortedBy:@"date" ascending:NO withPredicate:predicate inContext:localContext];
+////    }
+////    else if ([[self getCurrentPostType] isEqualToString:@"tag"]) {
+////        NSPredicate *predicate = [NSPredicate predicateWithFormat:@"ANY tags.identifier == %@", self.identifier];
+////        return [[self dataClass] MR_findAllSortedBy:@"date" ascending:NO withPredicate:predicate inContext:localContext];
+////    }
+////    else if ([[self getCurrentPostType] isEqualToString:@"category"]) {
+////        NSPredicate *predicate = [NSPredicate predicateWithFormat:@"ANY categories.identifier == %@", self.identifier];
+////        return [[self dataClass] MR_findAllSortedBy:@"date" ascending:NO withPredicate:predicate inContext:localContext];
+////    }
+//
+//    NSString *filePath = [NSHomeDirectory() stringByAppendingPathComponent:@"wp-posts.json"];
+//    NSLog(@"WPPosts Json path: %@", filePath);
+//
+//    NSString *fileContent = [NSString stringWithContentsOfFile:filePath encoding:NSUTF8StringEncoding error:nil];
+//    NSDictionary *json = [fileContent objectFromJSONString];
+//
+//    return json;
+//}
 
 - (void)configureCell:(UITableViewCell *)cell atIndex:(NSIndexPath *)indexPath {
 
@@ -155,10 +168,13 @@
 
     [self fetchDataFromServerWithResourcePath:postUrl
         success:^(id JSON) {
-            NSManagedObjectContext *localContext = [NSManagedObjectContext MR_contextForCurrentThread];
-            [[self.delegate dataClass] MR_importFromObject: JSON inContext: localContext];
+//            NSManagedObjectContext *localContext = [NSManagedObjectContext MR_contextForCurrentThread];
+//            [[self.delegate dataClass] MR_importFromObject: JSON inContext: localContext];
+//
+//            WPPost *fullPost = [WPPost MR_findFirstByAttribute:@"identifier" withValue:[post identifier] inContext: localContext];
 
-            WPPost *fullPost = [WPPost MR_findFirstByAttribute:@"identifier" withValue:[post identifier] inContext: localContext];
+
+            WPPost *fullPost = [XBObjectDataSource initFromFileWithStorageFileName:JSON forType:[WPPost class]];
 
             NSDictionary *dict = [XBMapper dictionaryWithPropertiesOfObject:fullPost];
 

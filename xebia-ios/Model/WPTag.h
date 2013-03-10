@@ -6,7 +6,7 @@
 //  Copyright (c) 2012 Xebia France. All rights reserved.
 //
 
-@interface WPTag : NSManagedObject
+@interface WPTag : NSObject
 
 @property (nonatomic, strong) NSNumber *identifier;
 @property (nonatomic, strong) NSString *slug;

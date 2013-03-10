@@ -6,7 +6,7 @@
 //  Copyright (c) 2012 Xebia France. All rights reserved.
 //
 
-@interface WPAttachment : NSManagedObject
+@interface WPAttachment : NSObject
 
 @property (nonatomic, strong) NSNumber *identifier;
 @property (nonatomic, strong) NSString *url;

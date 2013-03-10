@@ -7,7 +7,7 @@
 #import "EBVenue.h"
 #import "EBOrganizer.h"
 
-@interface EBEvent : NSManagedObject
+@interface EBEvent : NSObject
 
 @property (nonatomic, strong) NSNumber *identifier;
 @property (nonatomic, strong) NSString *type;

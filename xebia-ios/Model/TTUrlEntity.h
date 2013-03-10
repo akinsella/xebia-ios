@@ -6,7 +6,7 @@
 
 #import "TTIndices.h"
 
-@interface TTUrlEntity : NSManagedObject
+@interface TTUrlEntity : NSObject
 
 @property(nonatomic, strong) NSString *url;
 @property(nonatomic, strong) NSString *expanded_url;

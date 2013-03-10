@@ -4,7 +4,7 @@
 // To change the template use AppCode | Preferences | File Templates.
 //
 
-@interface TTIndices : NSManagedObject
+@interface TTIndices : NSObject
 
 @property (nonatomic, strong) NSNumber *start;
 @property (nonatomic, strong) NSNumber *end;

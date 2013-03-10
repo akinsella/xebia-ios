@@ -7,6 +7,8 @@
 #import <objc/runtime.h>
 #import "XBMapper.h"
 #import "NSDateFormatter+XBAdditions.h"
+#import "DCKeyValueObjectMapping.h"
+#import "DCParserConfiguration.h"
 
 @implementation XBMapper
 
@@ -67,6 +69,15 @@
     free(properties);
 
     return [NSDictionary dictionaryWithDictionary:dict];
+}
+
++ (NSArray *)parseData:(NSArray*)objectArray intoObjectsOfType:(Class)objectClass {
+    DCParserConfiguration *config = [DCParserConfiguration configuration];
+    config.datePattern = @"dd/MM/yyyy";
+
+    DCKeyValueObjectMapping *parser = [DCKeyValueObjectMapping mapperForClass: objectClass andConfiguration: config];
+
+    return [parser parseArray:objectArray];
 }
 
 @end
