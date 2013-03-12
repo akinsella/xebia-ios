@@ -12,7 +12,7 @@
 @interface WPPostCell : UITableViewCell
 
 @property (nonatomic, strong) IBOutlet UILabel *titleLabel;
-@property (nonatomic, strong) IBOutlet UILabel *excerptLabel;
+@property (nonatomic, strong) IBOutlet UILabel *commentLabel;
 @property (nonatomic, strong) IBOutlet UILabel *dateLabel;
 @property (nonatomic, strong) IBOutlet UILabel *tagsLabel;
 @property (nonatomic, strong) IBOutlet UILabel *categoriesLabel;

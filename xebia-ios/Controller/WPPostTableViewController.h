@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "XBTableViewController.h"
-#import "WPPost.h"
+#import "WPSPost.h"
 
 @interface WPPostTableViewController : XBTableViewController<UITableViewDelegate, UITableViewDataSource, XBTableViewControllerDelegate>
 

@@ -296,56 +296,6 @@
         <image name="44-shoebox.png" width="24" height="22"/>
         <image name="homeview.png" width="245" height="114"/>
     </resources>
-    <classes>
-        <class className="EBEventTableViewController" superclassName="XBTableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/EBEventTableViewController.h"/>
-        </class>
-        <class className="GHOwnerTableViewController" superclassName="XBTableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/GHOwnerTableViewController.h"/>
-        </class>
-        <class className="GHRepositoryTableViewController" superclassName="XBTableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/GHRepositoryTableViewController.h"/>
-        </class>
-        <class className="GHTabBarController" superclassName="UITabBarController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/GHTabBarController.h"/>
-        </class>
-        <class className="TTTweetTableViewController" superclassName="XBTableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/TTTweetTableViewController.h"/>
-        </class>
-        <class className="WPAuthorTableViewController" superclassName="XBTableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/WPAuthorTableViewController.h"/>
-        </class>
-        <class className="WPCategoryTableViewController" superclassName="XBTableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/WPCategoryTableViewController.h"/>
-        </class>
-        <class className="WPPostTableViewController" superclassName="XBTableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/WPPostTableViewController.h"/>
-        </class>
-        <class className="WPRecentPostTableViewController" superclassName="WPPostTableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/WPRecentPostTableViewController.h"/>
-        </class>
-        <class className="WPTabBarController" superclassName="UITabBarController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/WPTabBarController.h"/>
-        </class>
-        <class className="WPTagTableViewController" superclassName="XBTableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/WPTagTableViewController.h"/>
-        </class>
-        <class className="XBHomeController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/XBHomeController.h"/>
-        </class>
-        <class className="XBMainViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/XBMainViewController.h"/>
-        </class>
-        <class className="XBTableViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/XBTableViewController.h"/>
-        </class>
-        <class className="XBWebViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/XBWebViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="webView" candidateClass="UIWebView"/>
-            </relationships>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

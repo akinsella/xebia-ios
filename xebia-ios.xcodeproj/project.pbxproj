@@ -168,6 +168,8 @@
 		DB34D044D8E35DBF98E169AC /* GHOwner.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34D465F893EC50AD52D5F4 /* GHOwner.m */; };
 		DB34D07C9975E509C175AE21 /* XBObjectDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34D1997FC5744942F321B9 /* XBObjectDataSource.m */; };
 		DB34D0F0346B324446AB4038 /* TTUrlEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34DF7606E2711AD729DDBC /* TTUrlEntity.m */; };
+		DB34D174D785D0B4CB38A2E7 /* WPSCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34DE8E1330834C79021FF2 /* WPSCategory.m */; };
+		DB34D1AFBC10D203D3F25807 /* WPSTag.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34D7CC8E73DD450E0C9988 /* WPSTag.m */; };
 		DB34D27BA192BDDF6C89949D /* XBViewControllerManager.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34DEED8EC9BFDDB4164F08 /* XBViewControllerManager.m */; };
 		DB34D27F35642ABBF5FAD321 /* EBEventCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34D4BF128361ED826DEEA5 /* EBEventCell.m */; };
 		DB34D31F43808E3D3BAC5791 /* EBEventTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34D4BCAF95EF93FA46DFEB /* EBEventTableViewController.m */; };
@@ -178,6 +180,7 @@
 		DB34D6BA04A77078B3A8ADBF /* TTUserMentionEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34DFE697E1B43FA9DEFEC8 /* TTUserMentionEntity.m */; };
 		DB34D7A0C0DC762A500A6F35 /* WPPostCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34D4CDA49EC859D49E82B8 /* WPPostCell.m */; };
 		DB34D7A9F133C872A52B1B8A /* TTIndices.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34D16016A1C834B375AFF6 /* TTIndices.m */; };
+		DB34D8DFAAEFB3BFE9E99C64 /* WPSAuthor.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34D57937ED56D27C3C8480 /* WPSAuthor.m */; };
 		DB34D961D8EB1C8AC527AB60 /* NSError+XBAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34D8626C4FFDBBD0C7D3FE /* NSError+XBAdditions.m */; };
 		DB34D995DA6CF61CCFDEB209 /* XBArrayDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34D163D20D7DA196A0104C /* XBArrayDataSource.m */; };
 		DB34DA26475934C39FFF4734 /* EBVenue.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34DAFC921F4EC44602113E /* EBVenue.m */; };
@@ -188,6 +191,7 @@
 		DB34DE626EBB6C2E122EE216 /* NSDateFormatter+XBAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34D5341324A3A620923384 /* NSDateFormatter+XBAdditions.m */; };
 		DB34DFCDC1E245F9702F77A3 /* XBMapper.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34DFE3E4A5B41DDB241A3F /* XBMapper.m */; };
 		DB34DFEAD9C2A996A1C1BFAA /* UIImageView+XBAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34D6ABFADC8E84E0DA3E06 /* UIImageView+XBAdditions.m */; };
+		DB34DFEB100B6C97F2CDE081 /* WPSPost.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34DD1442A6ABD73416FE6C /* WPSPost.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -429,11 +433,14 @@
 		DB34D52C517DAEA9926E3EA4 /* GHOwnerCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GHOwnerCell.h; sourceTree = "<group>"; };
 		DB34D5341324A3A620923384 /* NSDateFormatter+XBAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDateFormatter+XBAdditions.m"; sourceTree = "<group>"; };
 		DB34D54D067749E7B31FD258 /* TTRetweetedStatus.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTRetweetedStatus.h; sourceTree = "<group>"; };
+		DB34D57937ED56D27C3C8480 /* WPSAuthor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WPSAuthor.m; sourceTree = "<group>"; };
+		DB34D5B8A64A69F9F1D0332B /* WPSTag.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WPSTag.h; sourceTree = "<group>"; };
 		DB34D6ABE8DD69804FD1209D /* EBOrganizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EBOrganizer.h; sourceTree = "<group>"; };
 		DB34D6ABFADC8E84E0DA3E06 /* UIImageView+XBAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+XBAdditions.m"; sourceTree = "<group>"; };
 		DB34D72794DFBE2959D37839 /* UITableViewCell+VariableHeight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableViewCell+VariableHeight.h"; sourceTree = "<group>"; };
 		DB34D7692616F09934674C68 /* EBEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EBEvent.h; sourceTree = "<group>"; };
 		DB34D7C6C51532EBB1DCB7C4 /* XBViewControllerManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XBViewControllerManager.h; sourceTree = "<group>"; };
+		DB34D7CC8E73DD450E0C9988 /* WPSTag.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WPSTag.m; sourceTree = "<group>"; };
 		DB34D8626C4FFDBBD0C7D3FE /* NSError+XBAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSError+XBAdditions.m"; sourceTree = "<group>"; };
 		DB34D89482FE01F4B98C0B0C /* EBEvent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EBEvent.m; sourceTree = "<group>"; };
 		DB34D98F60516B2AA418357A /* TTHashtagEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTHashtagEntity.h; sourceTree = "<group>"; };
@@ -445,12 +452,17 @@
 		DB34DC4A49554BC91B3F5686 /* TTHashtagEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTHashtagEntity.m; sourceTree = "<group>"; };
 		DB34DC6E8E2207CAD2A10E4E /* TTUserMentionEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTUserMentionEntity.h; sourceTree = "<group>"; };
 		DB34DD0490C0D6AE0CB2B924 /* XBMapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XBMapper.h; sourceTree = "<group>"; };
+		DB34DD1442A6ABD73416FE6C /* WPSPost.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WPSPost.m; sourceTree = "<group>"; };
 		DB34DD32928251D7E75A4EB0 /* TTIndices.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTIndices.h; sourceTree = "<group>"; };
 		DB34DD55D5BC7C448FDE1C8F /* EBEventCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EBEventCell.xib; sourceTree = "<group>"; };
+		DB34DDC60253865AAFC7EEB2 /* WPSPost.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WPSPost.h; sourceTree = "<group>"; };
 		DB34DDDAC15A52FF78EF66F7 /* styles.bak */ = {isa = PBXFileReference; lastKnownFileType = file.bak; name = styles.bak; path = www/css/styles.bak; sourceTree = "<group>"; };
 		DB34DE46BBF23AA120699C20 /* GHOwner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GHOwner.h; sourceTree = "<group>"; };
 		DB34DE6D9CB3F60F62377F9D /* XBTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XBTableViewController.m; sourceTree = "<group>"; };
+		DB34DE8E1330834C79021FF2 /* WPSCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WPSCategory.m; sourceTree = "<group>"; };
 		DB34DEED8EC9BFDDB4164F08 /* XBViewControllerManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XBViewControllerManager.m; sourceTree = "<group>"; };
+		DB34DEFD000655A16C1DE020 /* WPSAuthor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WPSAuthor.h; sourceTree = "<group>"; };
+		DB34DF6A04D77E29A267659C /* WPSCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WPSCategory.h; sourceTree = "<group>"; };
 		DB34DF7606E2711AD729DDBC /* TTUrlEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTUrlEntity.m; sourceTree = "<group>"; };
 		DB34DFACB850A57E22247BCB /* TTUrlEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTUrlEntity.h; sourceTree = "<group>"; };
 		DB34DFB375B289DB5B59E1A0 /* TTRetweetedStatus.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTRetweetedStatus.m; sourceTree = "<group>"; };
@@ -809,6 +821,14 @@
 				DB34D335D9B0E6D83CD513E8 /* XBArrayDataSource.h */,
 				DB34D1997FC5744942F321B9 /* XBObjectDataSource.m */,
 				DB34D1BA6AF0250C0B8B20CB /* XBObjectDataSource.h */,
+				DB34DEFD000655A16C1DE020 /* WPSAuthor.h */,
+				DB34D57937ED56D27C3C8480 /* WPSAuthor.m */,
+				DB34DF6A04D77E29A267659C /* WPSCategory.h */,
+				DB34DE8E1330834C79021FF2 /* WPSCategory.m */,
+				DB34D5B8A64A69F9F1D0332B /* WPSTag.h */,
+				DB34D7CC8E73DD450E0C9988 /* WPSTag.m */,
+				DB34DDC60253865AAFC7EEB2 /* WPSPost.h */,
+				DB34DD1442A6ABD73416FE6C /* WPSPost.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1161,6 +1181,10 @@
 				DB34D7A9F133C872A52B1B8A /* TTIndices.m in Sources */,
 				DB34D995DA6CF61CCFDEB209 /* XBArrayDataSource.m in Sources */,
 				DB34D07C9975E509C175AE21 /* XBObjectDataSource.m in Sources */,
+				DB34D8DFAAEFB3BFE9E99C64 /* WPSAuthor.m in Sources */,
+				DB34D174D785D0B4CB38A2E7 /* WPSCategory.m in Sources */,
+				DB34D1AFBC10D203D3F25807 /* WPSTag.m in Sources */,
+				DB34DFEB100B6C97F2CDE081 /* WPSPost.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

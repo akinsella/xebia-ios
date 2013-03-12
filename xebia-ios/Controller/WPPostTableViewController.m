@@ -8,6 +8,7 @@
 
 
 #import "WPPost.h"
+#import "WPSPost.h"
 #import "WPPostTableViewController.h"
 #import "WPPostCell.h"
 #import "SDImageCache.h"
@@ -22,7 +23,6 @@
 #import "AFHTTPClient.h"
 #import "SVProgressHUD.h"
 #import "AFNetworking.h"
-#import "XBMapper.h"
 #import "XBObjectDataSource.h"
 
 @interface WPPostTableViewController ()
@@ -86,17 +86,18 @@
 
 - (NSString *)cellReuseIdentifier {
     // Needs to be static
-    static NSString *cellReuseIdentifier = @"WPPost";
+    static NSString *cellReuseIdentifier = @"WPSPost";
 
     return cellReuseIdentifier;
 }
 
 - (NSString *)storageFileName {
-    return @"wp-posts.json";
+    return [NSString stringWithFormat: @"wp-posts%@.json", [self getCurrentPostType]];
+    ;
 }
 
 - (NSString *)cellNibName {
-    return @"WPPostCell";
+    return @"WPSPostCell";
 }
 
 - (NSString *)resourcePath {
@@ -142,7 +143,7 @@
 
     WPPost *post = [self objectAtIndex:(NSUInteger) indexPath.row];
     postCell.titleLabel.text = post.title;
-    postCell.excerptLabel.text = post.description_;
+    postCell.commentLabel.text = post.description_;
     postCell.dateLabel.text = post.dateFormatted;
     postCell.tagsLabel.text = post.tagsFormatted;
     postCell.categoriesLabel.text = post.categoriesFormatted;
@@ -161,19 +162,13 @@
 -(void)onSelectCell: (UITableViewCell *)cell forObject: (id) object withIndex: (NSIndexPath *)indexPath {
     [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
 
-    WPPost *post = (WPPost *)[self objectAtIndex:(NSUInteger) indexPath.row];
+    WPSPost *post = (WPSPost *)[self objectAtIndex:(NSUInteger) indexPath.row];
     NSLog(@"Post selected: %@", post);
 
     NSString *postUrl = [NSString stringWithFormat:@"/api/wordpress/post/%@", post.identifier];
 
     [self fetchDataFromServerWithResourcePath:postUrl
         success:^(id JSON) {
-//            NSManagedObjectContext *localContext = [NSManagedObjectContext MR_contextForCurrentThread];
-//            [[self.delegate dataClass] MR_importFromObject: JSON inContext: localContext];
-//
-//            WPPost *fullPost = [WPPost MR_findFirstByAttribute:@"identifier" withValue:[post identifier] inContext: localContext];
-
-
             WPPost *fullPost = [XBObjectDataSource initFromFileWithStorageFileName:JSON forType:[WPPost class]];
 
             NSDictionary *dict = [XBMapper dictionaryWithPropertiesOfObject:fullPost];
