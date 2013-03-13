@@ -6,7 +6,9 @@
 //  Copyright (c) 2012 Xebia France. All rights reserved.
 //
 
-@interface WPAttachment : NSObject
+#import "XBMappingProvider.h"
+
+@interface WPAttachment : NSObject<XBMappingProvider>
 
 @property (nonatomic, strong) NSNumber *identifier;
 @property (nonatomic, strong) NSString *url;

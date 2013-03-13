@@ -9,7 +9,7 @@
 #import "TTUser.h"
 #import "TTRetweetedStatus.h"
 
-@interface TTTweet : NSObject
+@interface TTTweet : NSObject<XBMappingProvider>
 
 @property (nonatomic, strong) NSNumber *identifier;
 @property (nonatomic, strong) NSString *identifier_str;

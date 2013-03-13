@@ -1,18 +1,18 @@
 //
-//  WPPostCell.m
+//  WPSPostCell.m
 //  xebia-ios
 //
 //  Created by Alexis Kinsella on 07/25/12
 //  Copyright (c) 2012 Xebia France. All rights reserved.
 //
 
-#import "WPPostCell.h"
+#import "WPSPostCell.h"
 #import "SDImageCache.h"
 #import "WPPost.h"
 #import <QuartzCore/QuartzCore.h>
 #import "UIColor+XBAdditions.h"
 
-@implementation WPPostCell
+@implementation WPSPostCell
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];

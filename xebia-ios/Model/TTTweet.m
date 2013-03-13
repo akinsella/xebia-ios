@@ -8,6 +8,8 @@
 
 #import "TTTweet.h"
 #import "Date.h"
+#import "DCParserConfiguration.h"
+#import "DCKeyValueObjectMapping.h"
 
 @implementation TTTweet
 
@@ -25,6 +27,11 @@
             [NSURL URLWithString:self.user.profile_image_url];
 
     return ownerImageUrl;
+}
+
++ (DCKeyValueObjectMapping *)mappings {
+    DCParserConfiguration *config = [DCParserConfiguration configuration];
+    return [DCKeyValueObjectMapping mapperForClass: [self class] andConfiguration:config];
 }
 
 @end

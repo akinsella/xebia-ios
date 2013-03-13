@@ -8,7 +8,7 @@
 
 #import "GHOwner.h"
 
-@interface GHRepository : NSObject
+@interface GHRepository : NSObject<XBMappingProvider>
 
 @property (nonatomic, strong) NSNumber *identifier;
 

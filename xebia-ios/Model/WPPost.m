@@ -10,6 +10,8 @@
 #import "GravatarHelper.h"
 #import "NSDateFormatter+XBAdditions.h"
 #import "USArrayWrapper.h"
+#import "DCParserConfiguration.h"
+#import "DCObjectMapping.h"
 
 @implementation WPPost
 
@@ -30,19 +32,26 @@
 }
 
 - (NSString *)tagsFormatted {
-    NSArray *tagTitles = _array(self.tags).pluck(@"title").unwrap;
+    NSArray *tagTitles = _array(self.tags.allObjects).pluck(@"title").unwrap;
     NSString *tagsFormatted = [tagTitles componentsJoinedByString:@", "];
     return tagsFormatted;
 }
 
 - (NSString *)categoriesFormatted {
-    NSArray *categoryTitles = _array(self.categories).pluck(@"title").unwrap;
+    NSArray *categoryTitles = _array(self.categories.allObjects).pluck(@"title").unwrap;
     NSString *categoriesFormatted = [categoryTitles componentsJoinedByString:@", "];
     return categoriesFormatted;
 }
 
 - (NSURL *)imageUrl {
     return [GravatarHelper getGravatarURL: [NSString stringWithFormat:@"%@@xebia.fr", self.author.nickname]];
+}
++ (DCKeyValueObjectMapping *)mappings {
+    DCParserConfiguration *config = [DCParserConfiguration configuration];
+    [config addObjectMapping: [DCObjectMapping mapKeyPath:@"id" toAttribute:@"identifier" onClass:[self class]]];
+    [config addObjectMapping: [DCObjectMapping mapKeyPath:@"description" toAttribute:@"description_" onClass:[self class]]];
+
+    return [DCKeyValueObjectMapping mapperForClass: [self class] andConfiguration:config];
 }
 
 @end

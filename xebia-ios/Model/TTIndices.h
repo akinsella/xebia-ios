@@ -4,7 +4,9 @@
 // To change the template use AppCode | Preferences | File Templates.
 //
 
-@interface TTIndices : NSObject
+#import "XBMappingProvider.h"
+
+@interface TTIndices : NSObject<XBMappingProvider>
 
 @property (nonatomic, strong) NSNumber *start;
 @property (nonatomic, strong) NSNumber *end;

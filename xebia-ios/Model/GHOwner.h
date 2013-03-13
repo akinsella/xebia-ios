@@ -4,7 +4,9 @@
 // To change the template use AppCode | Preferences | File Templates.
 //
 
-@interface GHOwner : NSObject
+#import "XBMappingProvider.h"
+
+@interface GHOwner : NSObject<XBMappingProvider>
 
 @property (nonatomic, strong) NSNumber *identifier;
 @property (nonatomic, strong) NSString *login;

@@ -10,7 +10,7 @@
 #import "WPPost.h"
 #import "WPSPost.h"
 #import "WPPostTableViewController.h"
-#import "WPPostCell.h"
+#import "WPSPostCell.h"
 #import "SDImageCache.h"
 #import "SDWebImageManager.h"
 #import "UIImageView+WebCache.h"
@@ -45,6 +45,19 @@
 
     return self;
 }
+
+- (id)initWithCoder:(NSCoder *)coder withPostType:(POST_TYPE)pPostType identifier:(NSNumber *)pIdentifier {
+    self = [super initWithCoder:coder];
+    if (self) {
+        [self initInternalWithPostType:pPostType identifier:pIdentifier];
+    }
+
+    return self;
+}
+
+- (id)initWithCoder:(NSCoder *)aDecoder {
+}
+
 
 - (void)initInternalWithPostType:(POST_TYPE)pPostType identifier:(NSNumber *)pIdentifier {
     self.title = @"Posts";
@@ -81,7 +94,7 @@
 }
 
 - (Class)dataClass {
-    return [WPPost class];
+    return [WPSPost class];
 }
 
 - (NSString *)cellReuseIdentifier {
@@ -139,7 +152,7 @@
 
 - (void)configureCell:(UITableViewCell *)cell atIndex:(NSIndexPath *)indexPath {
 
-    WPPostCell *postCell = (WPPostCell *) cell;
+    WPSPostCell *postCell = (WPSPostCell *) cell;
 
     WPPost *post = [self objectAtIndex:(NSUInteger) indexPath.row];
     postCell.titleLabel.text = post.title;

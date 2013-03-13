@@ -14,6 +14,7 @@
 #import "AppDelegate.h"
 #import "UITableViewCell+VariableHeight.h"
 #import "XBArrayDataSource.h"
+#import "NSDateFormatter+XBAdditions.h"
 
 @interface XBTableViewController ()
 @property (nonatomic, strong) XBArrayDataSource *dataSource;
@@ -22,13 +23,27 @@
 
 @implementation XBTableViewController
 
-- (id)init {
+- (id)initWithStyle:(UITableViewStyle)style {
     self = [super init];
 
     if (self) {
+        [self initialize];
     }
 
     return self;
+}
+
+- (id)initWithCoder:(NSCoder *)aDecoder {
+    self = [super initWithCoder:aDecoder];
+    if (self) {
+        [self initialize];
+    }
+
+    return self;
+}
+
+- (void)initialize {
+    self.df = [NSDateFormatter initWithDateFormat:@"yyyy-MM-dd'T'HH:mm:ss.SSSZZZ"];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -85,14 +100,14 @@
             NSLog(@"jsonFetched: %@", jsonFetched);
 
             NSDictionary *json = @{
-                    @"lastUpdate": [self.df stringFromDate:[NSDate date]],
-                    @"data": jsonFetched
+                @"lastUpdate": [self.df stringFromDate:[NSDate date]],
+                @"data": jsonFetched
             };
 
             NSString *filePath = [NSHomeDirectory() stringByAppendingPathComponent:[self.delegate storageFileName]];
             [json writeToFile:filePath atomically:YES];
 
-            self.dataSource = [[XBArrayDataSource alloc] initWithJson:json ForType:[self.delegate dataClass]];
+            self.dataSource = [self buildDataSource:json];
 
             [self.tableView reloadData];
             if (callback) {
@@ -112,10 +127,13 @@
     [operation start];
 }
 
+- (XBArrayDataSource *)buildDataSource:(NSDictionary *)json {
+    return [[XBArrayDataSource alloc] initWithJson:json ForType:[self.delegate dataClass]];
+}
+
 - (id)objectAtIndex:(NSUInteger)index {
     return self.dataSource.array[index];
 }
-
 
 - (XBArrayDataSource *)fetchDataFromDB {
 //    NSManagedObjectContext *localContext = [NSManagedObjectContext MR_contextForCurrentThread];

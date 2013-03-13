@@ -7,7 +7,14 @@
 //
 
 #import "WPAttachment.h"
+#import "DCParserConfiguration.h"
 
 @implementation WPAttachment
+
++(DCKeyValueObjectMapping *)mappings {
+    DCParserConfiguration *config = [DCParserConfiguration configuration];
+
+    return [DCKeyValueObjectMapping mapperForClass: [self class]  andConfiguration:config];
+}
 
 @end

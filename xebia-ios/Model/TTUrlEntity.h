@@ -6,7 +6,7 @@
 
 #import "TTIndices.h"
 
-@interface TTUrlEntity : NSObject
+@interface TTUrlEntity : NSObject<XBMappingProvider>
 
 @property(nonatomic, strong) NSString *url;
 @property(nonatomic, strong) NSString *expanded_url;

@@ -7,8 +7,17 @@
 //
 
 #import "WPComment.h"
+#import "DCParserConfiguration.h"
+#import "DCObjectMapping.h"
 
 @implementation WPComment
 
++ (DCKeyValueObjectMapping *)mappings {
+    DCParserConfiguration *config = [DCParserConfiguration configuration];
+
+    [config addObjectMapping: [DCObjectMapping mapKeyPath:@"id" toAttribute:@"identifier" onClass:[self class]]];
+
+    return [DCKeyValueObjectMapping mapperForClass: [self class] andConfiguration:config];
+}
 
 @end

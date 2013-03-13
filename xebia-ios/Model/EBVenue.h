@@ -4,7 +4,9 @@
 // To change the template use AppCode | Preferences | File Templates.
 //
 
-@interface EBVenue : NSObject
+#import "XBMappingProvider.h"
+
+@interface EBVenue : NSObject<XBMappingProvider>
 
 @property (nonatomic, strong) NSNumber *identifier;
 @property (nonatomic, strong) NSString *city;

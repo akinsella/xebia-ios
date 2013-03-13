@@ -15,9 +15,8 @@
 @implementation WPRecentPostTableViewController
 
 - (id)initWithCoder:(NSCoder *)aDecoder {
-    self = [super initWithCoder:aDecoder];
+    self = [super initWithCoder:aDecoder withPostType:RECENT identifier:nil];
     if (self) {
-        [self initInternalWithPostType:RECENT identifier:nil];
     }
 
     return self;

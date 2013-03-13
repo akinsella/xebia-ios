@@ -8,13 +8,11 @@
 #import <Foundation/Foundation.h>
 
 
-@interface XBArrayDataSource : NSObject {
-    NSDictionary * _dataSource;
-    NSArray * _dataArray;
-    Class _typeClass;
-}
+@interface XBArrayDataSource : NSObject
 
-@property (nonatomic, strong, readonly) NSArray* array;
+- (NSArray *) array;
+
+- (id) data;
 
 - (id)initWithJson:(id)json ForType:(Class) typeClass;
 + (id)initWithJson:(id)json ForType:(Class) typeClass;

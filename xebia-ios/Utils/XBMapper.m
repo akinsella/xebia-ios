@@ -9,6 +9,7 @@
 #import "NSDateFormatter+XBAdditions.h"
 #import "DCKeyValueObjectMapping.h"
 #import "DCParserConfiguration.h"
+#import "XBMappingProvider.h"
 
 @implementation XBMapper
 
@@ -71,13 +72,28 @@
     return [NSDictionary dictionaryWithDictionary:dict];
 }
 
-+ (NSArray *)parseData:(NSArray*)objectArray intoObjectsOfType:(Class)objectClass {
-    DCParserConfiguration *config = [DCParserConfiguration configuration];
-    config.datePattern = @"dd/MM/yyyy";
++ (NSArray *)parseArray:(NSArray*)objectArray intoObjectsOfType:(Class)objectClass {
 
-    DCKeyValueObjectMapping *parser = [DCKeyValueObjectMapping mapperForClass: objectClass andConfiguration: config];
+    if (![objectClass conformsToProtocol:@protocol(XBMappingProvider)]) {
 
+        [NSException raise:NSInvalidArgumentException format:@"Class provided does not implement XBMappingProtocol"];
+    }
+
+    DCKeyValueObjectMapping *parser = [objectClass mappings];
     return [parser parseArray:objectArray];
+
+}
+
++ (NSObject *)parseObject:(NSDictionary*)objectDictionnary intoObjectsOfType:(Class)objectClass {
+
+    if (![objectClass conformsToProtocol:@protocol(XBMappingProvider)]) {
+
+        [NSException raise:NSInvalidArgumentException format:@"Class provided does not implement XBMappingProtocol"];
+    }
+
+    DCKeyValueObjectMapping *parser = [objectClass mappings];
+    return [parser parseDictionary:objectDictionnary];
+
 }
 
 @end

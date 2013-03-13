@@ -5,8 +5,9 @@
 //
 
 #import "TTIndices.h"
+#import "XBMappingProvider.h"
 
-@interface TTHashtagEntity : NSObject
+@interface TTHashtagEntity : NSObject<XBMappingProvider>
 
 @property(nonatomic, strong) NSString *text;
 @property(nonatomic, strong) TTIndices *indices;

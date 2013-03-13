@@ -5,7 +5,14 @@
 //
 
 #import "EBOrganizer.h"
+#import "DCParserConfiguration.h"
+#import "DCKeyValueObjectMapping.h"
 
 @implementation EBOrganizer
+
++ (DCKeyValueObjectMapping *)mappings {
+    DCParserConfiguration *config = [DCParserConfiguration configuration];
+    return [DCKeyValueObjectMapping mapperForClass: [self class] andConfiguration:config];
+}
 
 @end

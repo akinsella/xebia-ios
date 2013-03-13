@@ -6,7 +6,9 @@
 //  Copyright (c) 2012 Xebia France. All rights reserved.
 //
 
-@interface GHUser : NSObject
+#import "XBMappingProvider.h"
+
+@interface GHUser : NSObject<XBMappingProvider>
 
 @property (nonatomic, strong) NSNumber *identifier;
 

@@ -6,8 +6,15 @@
 
 
 #import "TTUserMentionEntity.h"
+#import "DCParserConfiguration.h"
+#import "DCKeyValueObjectMapping.h"
 
 
 @implementation TTUserMentionEntity
+
++ (DCKeyValueObjectMapping *)mappings {
+    DCParserConfiguration *config = [DCParserConfiguration configuration];
+    return [DCKeyValueObjectMapping mapperForClass: [self class] andConfiguration:config];
+}
 
 @end

@@ -7,11 +7,23 @@
 //
 
 #import "WPCategory.h"
+#import "DCKeyValueObjectMapping.h"
+#import "DCParserConfiguration.h"
+#import "DCObjectMapping.h"
 
 @implementation WPCategory
 
 - (NSInteger)postCount {
     return [self.post_count integerValue];
+}
+
++(DCKeyValueObjectMapping *)mappings {
+    DCParserConfiguration *config = [DCParserConfiguration configuration];
+
+    [config addObjectMapping: [DCObjectMapping mapKeyPath:@"id" toAttribute:@"identifier" onClass:[self class]]];
+    [config addObjectMapping: [DCObjectMapping mapKeyPath:@"description" toAttribute:@"description_" onClass:[self class]]];
+
+    return [DCKeyValueObjectMapping mapperForClass: [self class]  andConfiguration:config];
 }
 
 @end

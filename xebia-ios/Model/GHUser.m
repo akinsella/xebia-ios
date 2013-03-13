@@ -8,6 +8,8 @@
 
 #import "GHUser.h"
 #import "GravatarHelper.h"
+#import "DCParserConfiguration.h"
+#import "DCKeyValueObjectMapping.h"
 
 @implementation GHUser
 
@@ -24,6 +26,11 @@
     else {
         return [NSString stringWithFormat:@"%@ follower%@", self.followers, self.followers.intValue > 1 ? @"s" : @""];
     }
+}
+
++ (DCKeyValueObjectMapping *)mappings {
+    DCParserConfiguration *config = [DCParserConfiguration configuration];
+    return [DCKeyValueObjectMapping mapperForClass: [self class] andConfiguration:config];
 }
 
 @end

@@ -7,8 +7,16 @@
 //
 
 #import "WPSAuthor.h"
+#import "DCKeyValueObjectMapping.h"
+#import "DCParserConfiguration.h"
 
 @implementation WPSAuthor
+
++(DCKeyValueObjectMapping *)mappings {
+    DCParserConfiguration *config = [DCParserConfiguration configuration];
+
+    return [DCKeyValueObjectMapping mapperForClass: [self class]  andConfiguration:config];
+}
 
 @end
 

@@ -5,8 +5,9 @@
 //
 
 #import "TTUser.h"
+#import "XBMappingProvider.h"
 
-@interface TTRetweetedStatus : NSObject
+@interface TTRetweetedStatus : NSObject<XBMappingProvider>
 
 @property (nonatomic, strong) NSNumber *identifier;
 @property (nonatomic, strong) NSString *identifier_str;

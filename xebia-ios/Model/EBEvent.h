@@ -6,8 +6,9 @@
 
 #import "EBVenue.h"
 #import "EBOrganizer.h"
+#import "XBMappingProvider.h"
 
-@interface EBEvent : NSObject
+@interface EBEvent : NSObject<XBMappingProvider>
 
 @property (nonatomic, strong) NSNumber *identifier;
 @property (nonatomic, strong) NSString *type;

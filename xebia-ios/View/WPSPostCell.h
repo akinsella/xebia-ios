@@ -1,5 +1,5 @@
 //
-//  WPPostCell.h
+//  WPSPostCell.h
 //  xebia-ios
 //
 //  Created by Alexis Kinsella on 07/25/12
@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "WPPost.h"
 
-@interface WPPostCell : UITableViewCell
+@interface WPSPostCell : UITableViewCell
 
 @property (nonatomic, strong) IBOutlet UILabel *titleLabel;
 @property (nonatomic, strong) IBOutlet UILabel *commentLabel;

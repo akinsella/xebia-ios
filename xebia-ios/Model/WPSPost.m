@@ -10,6 +10,8 @@
 #import "GravatarHelper.h"
 #import "NSDateFormatter+XBAdditions.h"
 #import "USArrayWrapper.h"
+#import "DCParserConfiguration.h"
+#import "DCKeyValueObjectMapping.h"
 
 @implementation WPSPost
 
@@ -43,6 +45,12 @@
 
 - (NSURL *)imageUrl {
     return [GravatarHelper getGravatarURL: [NSString stringWithFormat:@"%@@xebia.fr", self.author.nickname]];
+}
+
++(DCKeyValueObjectMapping *)mappings {
+    DCParserConfiguration *config = [DCParserConfiguration configuration];
+
+    return [DCKeyValueObjectMapping mapperForClass: [self class]  andConfiguration:config];
 }
 
 @end

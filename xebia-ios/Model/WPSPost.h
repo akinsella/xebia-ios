@@ -7,8 +7,9 @@
 //
 
 #import "WPSAuthor.h"
+#import "XBMappingProvider.h"
 
-@interface  WPSPost : NSObject
+@interface  WPSPost : NSObject<XBMappingProvider>
 
 @property(nonatomic, strong) NSNumber *identifier;
 @property(nonatomic, strong) NSString *slug;
@@ -28,12 +29,5 @@
 @property(nonatomic, retain) WPSAuthor *author;
 @property(nonatomic, retain) NSSet *categories;
 @property(nonatomic, retain) NSSet *tags;
-
-typedef enum {
-    RECENT = 1,
-    TAG = 2,
-    CATEGORY = 3,
-    AUTHOR = 4
-} POST_TYPE;
 
 @end

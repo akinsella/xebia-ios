@@ -4,7 +4,9 @@
 // To change the template use AppCode | Preferences | File Templates.
 //
 
-@interface EBOrganizer : NSObject
+#import "XBMappingProvider.h"
+
+@interface EBOrganizer : NSObject<XBMappingProvider>
 
 @property (nonatomic, strong) NSNumber *identifier;
 @property (nonatomic, strong) NSString *url;

@@ -8,13 +8,10 @@
 #import <Foundation/Foundation.h>
 
 
-@interface XBObjectDataSource : NSObject {
-NSDictionary * _dataSource;
-NSArray * _dataObject;
-Class _typeClass;
-}
+@interface XBObjectDataSource : NSObject
 
-@property (nonatomic, strong, readonly) id object;
+-(id)data;
+-(id) object;
 
 - (id)initWithJson:(id)json ForType:(Class) typeClass;
 + (id)initWithJson:(id)json ForType:(Class) typeClass;

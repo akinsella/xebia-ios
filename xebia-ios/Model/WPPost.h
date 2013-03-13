@@ -8,7 +8,7 @@
 
 #import "WPAuthor.h"
 
-@interface  WPPost : NSObject
+@interface  WPPost : NSObject<XBMappingProvider>
 
 @property(nonatomic, strong) NSNumber *identifier;
 @property(nonatomic, strong) NSString *type;

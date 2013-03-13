@@ -6,8 +6,15 @@
 
 
 #import "TTHashtagEntity.h"
+#import "DCParserConfiguration.h"
+#import "DCKeyValueObjectMapping.h"
 
 
 @implementation TTHashtagEntity
+
++ (DCKeyValueObjectMapping *)mappings {
+    DCParserConfiguration *config = [DCParserConfiguration configuration];
+    return [DCKeyValueObjectMapping mapperForClass: [self class] andConfiguration:config];
+}
 
 @end

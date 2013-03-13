@@ -6,6 +6,8 @@
 
 #import "GHOwner.h"
 #import "GravatarHelper.h"
+#import "DCParserConfiguration.h"
+#import "DCKeyValueObjectMapping.h"
 
 @implementation GHOwner
 
@@ -14,6 +16,11 @@
     return self.gravatar_id != nil ?
             [GravatarHelper getGravatarURLWithGravatarId: self.gravatar_id] :
             [NSURL URLWithString: self.avatar_url];
+}
+
++ (DCKeyValueObjectMapping *)mappings {
+    DCParserConfiguration *config = [DCParserConfiguration configuration];
+    return [DCKeyValueObjectMapping mapperForClass: [self class] andConfiguration:config];
 }
 
 @end

@@ -6,7 +6,7 @@
 
 #import "TTIndices.h"
 
-@interface TTUserMentionEntity : NSObject
+@interface TTUserMentionEntity : NSObject<XBMappingProvider>
 
 @property(nonatomic, strong) NSNumber *identifier;
 @property (nonatomic, strong) NSString *identifier_str;

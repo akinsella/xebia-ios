@@ -11,10 +11,17 @@
 #import "NSDateFormatter+XBAdditions.h"
 
 @implementation XBObjectDataSource {
+    NSDictionary * _dataSource;
+    NSObject * _dataObject;
+    Class _typeClass;
     NSDateFormatter *_df;
 }
 
-- (NSArray *)data {
+- (NSObject *)object {
+    return _dataObject;
+}
+
+- (NSObject *)data {
     return _dataSource[@"data"];
 }
 
@@ -28,7 +35,7 @@
         _df = [NSDateFormatter initWithDateFormat:@"yyyy-MM-dd'T'HH:mm:ss.SSSZZZ"];
         _dataSource = json;
         _typeClass = typeClass;
-        _dataObject = [XBMapper parseData:self.data intoObjectsOfType:typeClass];
+        _dataObject = [XBMapper parseObject:self.data intoObjectsOfType:typeClass];
     }
 
     return self;

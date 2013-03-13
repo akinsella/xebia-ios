@@ -8,11 +8,18 @@
 
 #import "GHRepository.h"
 #import "GHOwner.h"
+#import "DCParserConfiguration.h"
+#import "DCKeyValueObjectMapping.h"
 
 @implementation GHRepository
 
 - (NSString *)description_ {
     return [NSString stringWithFormat:@"Language: %@ -  %@ Forks - %@ Watchers - %@ issues", self.language, self.forks, self.watchers, self.open_issues];
+}
+
++ (DCKeyValueObjectMapping *)mappings {
+    DCParserConfiguration *config = [DCParserConfiguration configuration];
+    return [DCKeyValueObjectMapping mapperForClass: [self class] andConfiguration:config];
 }
 
 @end

@@ -7,7 +7,15 @@
 //
 
 #import "WPSCategory.h"
+#import "DCParserConfiguration.h"
+#import "DCKeyValueObjectMapping.h"
 
 @implementation WPSCategory
+
++(DCKeyValueObjectMapping *)mappings {
+    DCParserConfiguration *config = [DCParserConfiguration configuration];
+
+    return [DCKeyValueObjectMapping mapperForClass: [self class]  andConfiguration:config];
+}
 
 @end
