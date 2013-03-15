@@ -9,11 +9,14 @@
 #import "WPSCategory.h"
 #import "DCParserConfiguration.h"
 #import "DCKeyValueObjectMapping.h"
+#import "DCObjectMapping.h"
 
 @implementation WPSCategory
 
 +(DCKeyValueObjectMapping *)mappings {
     DCParserConfiguration *config = [DCParserConfiguration configuration];
+
+    [config addObjectMapping: [DCObjectMapping mapKeyPath:@"id" toAttribute:@"identifier" onClass:[self class]]];
 
     return [DCKeyValueObjectMapping mapperForClass: [self class]  andConfiguration:config];
 }

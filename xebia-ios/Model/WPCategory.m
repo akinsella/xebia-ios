@@ -13,10 +13,6 @@
 
 @implementation WPCategory
 
-- (NSInteger)postCount {
-    return [self.post_count integerValue];
-}
-
 +(DCKeyValueObjectMapping *)mappings {
     DCParserConfiguration *config = [DCParserConfiguration configuration];
 

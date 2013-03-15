@@ -15,8 +15,6 @@
 @property (nonatomic, strong) NSString *title;
 @property (nonatomic, strong) NSString *description_;
 @property (nonatomic, strong) NSNumber *parent;
-@property (nonatomic, strong) NSNumber *post_count;
-
--(NSInteger)postCount;
+@property (nonatomic, strong) NSNumber *postCount;
 
 @end

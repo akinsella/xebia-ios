@@ -182,17 +182,10 @@
 
     [self fetchDataFromServerWithResourcePath:postUrl
         success:^(id JSON) {
-            WPPost *fullPost = [XBObjectDataSource initFromFileWithStorageFileName:JSON forType:[WPPost class]];
 
-            NSDictionary *dict = [XBMapper dictionaryWithPropertiesOfObject:fullPost];
-
-            NSDateFormatter *outputFormatter = [[NSDateFormatter alloc] init];
-            [outputFormatter setDateFormat:@"yyyy-MM-dd'T'HH:mm:ss.SSSZZZ"];
-
-            NSString* json = [dict JSONStringWithOptions:JKSerializeOptionNone serializeUnsupportedClassesUsingBlock:^id(id object) {
-                if([object isKindOfClass:[NSDate class]]) { return([outputFormatter stringFromDate:object]); }
-                return(nil);
-            } error:nil];
+            WPPost *fullPost = [XBMapper parseObject:JSON intoObjectsOfType:[WPPost class]];
+            NSString * json = [XBMapper objectToSerializedJson:fullPost
+                                                withDateFormat: @"yyyy-MM-dd'T'HH:mm:ss.SSSZZZ"];
 
             XBShareInfo* shareInfo = [XBShareInfo shareInfoWithUrl:post.url title:post.title];
 

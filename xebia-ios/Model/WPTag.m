@@ -20,7 +20,7 @@
 
 /*
 - (NSInteger)postCount {
-    return [self.post_count integerValue];
+    return [self.postCount integerValue];
 }
 */
 
@@ -31,6 +31,10 @@
     [config addObjectMapping: [DCObjectMapping mapKeyPath:@"description" toAttribute:@"description_" onClass:[self class]]];
 
     return [DCKeyValueObjectMapping mapperForClass: [self class]  andConfiguration:config];
+}
+
+-(NSString *)description {
+    return [NSString stringWithFormat:@"WPTag[id='%@', title='%@']", self.identifier, self.title];
 }
 
 @end

@@ -7,11 +7,27 @@
 #import <objc/runtime.h>
 #import "XBMapper.h"
 #import "NSDateFormatter+XBAdditions.h"
-#import "DCKeyValueObjectMapping.h"
-#import "DCParserConfiguration.h"
-#import "XBMappingProvider.h"
+#import "JSONKit.h"
 
 @implementation XBMapper
+
++ (NSString *)objectToSerializedJson:(id)obj {
+    return [self objectToSerializedJson: obj withDateFormat:@"yyyy-MM-dd'T'HH:mm:ss.SSSZZZ"];
+}
+
++ (NSString *)objectToSerializedJson:(id)obj withDateFormat:(NSString *)dateFormat {
+    NSDictionary * dict = [XBMapper dictionaryWithPropertiesOfObject:obj];
+
+    NSDateFormatter *outputFormatter = [[NSDateFormatter alloc] init];
+    [outputFormatter setDateFormat:dateFormat];
+
+    NSString* json = [dict JSONStringWithOptions:JKSerializeOptionNone serializeUnsupportedClassesUsingBlock:^id(id object) {
+        if([object isKindOfClass:[NSDate class]]) { return([outputFormatter stringFromDate:object]); }
+        return(nil);
+    } error:nil];
+
+    return json;
+}
 
 +(NSDictionary *) dictionaryWithPropertiesOfObject:(id)obj;
 {
@@ -84,7 +100,7 @@
 
 }
 
-+ (NSObject *)parseObject:(NSDictionary*)objectDictionnary intoObjectsOfType:(Class)objectClass {
++ (id)parseObject:(NSDictionary*)objectDictionnary intoObjectsOfType:(Class)objectClass {
 
     if (![objectClass conformsToProtocol:@protocol(XBMappingProvider)]) {
 

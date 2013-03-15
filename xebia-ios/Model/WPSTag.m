@@ -9,6 +9,7 @@
 #import "WPSTag.h"
 #import "DCParserConfiguration.h"
 #import "DCKeyValueObjectMapping.h"
+#import "DCObjectMapping.h"
 
 @implementation WPSTag
 
@@ -19,6 +20,8 @@
 
 +(DCKeyValueObjectMapping *)mappings {
     DCParserConfiguration *config = [DCParserConfiguration configuration];
+
+    [config addObjectMapping: [DCObjectMapping mapKeyPath:@"id" toAttribute:@"identifier" onClass:[self class]]];
 
     return [DCKeyValueObjectMapping mapperForClass: [self class]  andConfiguration:config];
 }
