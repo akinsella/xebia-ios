@@ -13,6 +13,10 @@
 #import "DCParserConfiguration.h"
 #import "DCKeyValueObjectMapping.h"
 #import "DCObjectMapping.h"
+#import "WPSTag.h"
+#import "DCArrayMapping.h"
+#import "WPSCategory.h"
+#import "DCParserConfiguration+XBAdditions.h"
 
 @implementation WPSPost
 
@@ -33,13 +37,13 @@
 }
 
 - (NSString *)tagsFormatted {
-    NSArray *tagTitles = _array(self.tags.allObjects).pluck(@"title").unwrap;
+    NSArray *tagTitles = _array(self.tags).pluck(@"title").unwrap;
     NSString *tagsFormatted = [tagTitles componentsJoinedByString:@", "];
     return tagsFormatted;
 }
 
 - (NSString *)categoriesFormatted {
-    NSArray *categoryTitles = _array(self.categories.allObjects).pluck(@"title").unwrap;
+    NSArray *categoryTitles = _array(self.categories).pluck(@"title").unwrap;
     NSString *categoriesFormatted = [categoryTitles componentsJoinedByString:@", "];
     return categoriesFormatted;
 }
@@ -48,13 +52,22 @@
     return [GravatarHelper getGravatarURL: [NSString stringWithFormat:@"%@@xebia.fr", self.author.nickname]];
 }
 
-+(DCKeyValueObjectMapping *)mappings {
++(DCParserConfiguration *)mappings {
     DCParserConfiguration *config = [DCParserConfiguration configuration];
+    config.datePattern = @"yyyy-MM-dd HH:mm:ss";
 
     [config addObjectMapping: [DCObjectMapping mapKeyPath:@"id" toAttribute:@"identifier" onClass:[self class]]];
     [config addObjectMapping: [DCObjectMapping mapKeyPath:@"description" toAttribute:@"description_" onClass:[self class]]];
 
-    return [DCKeyValueObjectMapping mapperForClass: [self class]  andConfiguration:config];
+    [config mergeConfig:[[WPSAuthor class] mappings]];
+
+    [config addArrayMapper: [DCArrayMapping mapperForClassElements: [self class] forAttribute:@"tags" onClass:[WPSTag class]]];
+    [config mergeConfig:[[WPSTag class] mappings]];
+
+    [config addArrayMapper: [DCArrayMapping mapperForClassElements: [self class] forAttribute:@"categories" onClass:[WPSCategory class]]];
+    [config mergeConfig:[[WPSCategory class] mappings]];
+
+    return config;
 }
 
 @end

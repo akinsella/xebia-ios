@@ -18,12 +18,12 @@
                                                withString:[[self.title substringToIndex:1] capitalizedString]];
 }
 
-+(DCKeyValueObjectMapping *)mappings {
++(DCParserConfiguration *)mappings {
     DCParserConfiguration *config = [DCParserConfiguration configuration];
 
     [config addObjectMapping: [DCObjectMapping mapKeyPath:@"id" toAttribute:@"identifier" onClass:[self class]]];
 
-    return [DCKeyValueObjectMapping mapperForClass: [self class]  andConfiguration:config];
+    return config;
 }
 
 @end

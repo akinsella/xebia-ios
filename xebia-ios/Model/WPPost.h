@@ -33,9 +33,9 @@
 -(NSURL *)imageUrl;
 
 @property(nonatomic, retain) WPAuthor *author;
-@property(nonatomic, retain) NSSet *categories;
-@property(nonatomic, retain) NSSet *tags;
-@property(nonatomic, retain) NSSet *comments;
+@property(nonatomic, retain) NSArray *categories;
+@property(nonatomic, retain) NSArray *tags;
+@property(nonatomic, retain) NSArray *comments;
 
 typedef enum {
     RECENT = 1,

@@ -16,9 +16,9 @@
     return [NSURL URLWithString:[self profile_image_url]];
 }
 
-+ (DCKeyValueObjectMapping *)mappings {
++ (DCParserConfiguration *)mappings {
     DCParserConfiguration *config = [DCParserConfiguration configuration];
-    return [DCKeyValueObjectMapping mapperForClass: [self class] andConfiguration:config];
+    return config;
 }
 
 @end

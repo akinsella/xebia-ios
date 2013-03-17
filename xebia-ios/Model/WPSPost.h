@@ -27,7 +27,7 @@
 -(NSURL *)imageUrl;
 
 @property(nonatomic, retain) WPSAuthor *author;
-@property(nonatomic, retain) NSSet *categories;
-@property(nonatomic, retain) NSSet *tags;
+@property(nonatomic, retain) NSArray *categories;
+@property(nonatomic, retain) NSArray *tags;
 
 @end

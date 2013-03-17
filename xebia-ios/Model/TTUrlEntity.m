@@ -12,9 +12,9 @@
 
 @implementation TTUrlEntity
 
-+ (DCKeyValueObjectMapping *)mappings {
++ (DCParserConfiguration *)mappings {
     DCParserConfiguration *config = [DCParserConfiguration configuration];
-    return [DCKeyValueObjectMapping mapperForClass: [self class] andConfiguration:config];
+    return config;
 }
 
 @end

@@ -5,11 +5,11 @@
 //
 
 
-#import "DCKeyValueObjectMapping.h";
+#import "DCParserConfiguration.h";
 
 @protocol XBMappingProvider <NSObject>
 
 @required
-+(DCKeyValueObjectMapping *)mappings;
++(DCParserConfiguration *)mappings;
 
 @end

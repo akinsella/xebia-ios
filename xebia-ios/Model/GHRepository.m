@@ -17,9 +17,9 @@
     return [NSString stringWithFormat:@"Language: %@ -  %@ Forks - %@ Watchers - %@ issues", self.language, self.forks, self.watchers, self.open_issues];
 }
 
-+ (DCKeyValueObjectMapping *)mappings {
++ (DCParserConfiguration *)mappings {
     DCParserConfiguration *config = [DCParserConfiguration configuration];
-    return [DCKeyValueObjectMapping mapperForClass: [self class] andConfiguration:config];
+    return config;
 }
 
 @end

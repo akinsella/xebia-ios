@@ -8,6 +8,7 @@
 #import "XBMapper.h"
 #import "NSDateFormatter+XBAdditions.h"
 #import "JSONKit.h"
+#import "DCKeyValueObjectMapping.h"
 
 @implementation XBMapper
 
@@ -95,7 +96,8 @@
         [NSException raise:NSInvalidArgumentException format:@"Class provided does not implement XBMappingProtocol"];
     }
 
-    DCKeyValueObjectMapping *parser = [objectClass mappings];
+    DCKeyValueObjectMapping *parser = [DCKeyValueObjectMapping mapperForClass: objectClass andConfiguration: [objectClass mappings]];
+
     return [parser parseArray:objectArray];
 
 }
@@ -107,7 +109,8 @@
         [NSException raise:NSInvalidArgumentException format:@"Class provided does not implement XBMappingProtocol"];
     }
 
-    DCKeyValueObjectMapping *parser = [objectClass mappings];
+    DCKeyValueObjectMapping *parser = [DCKeyValueObjectMapping mapperForClass: objectClass andConfiguration: [objectClass mappings]];
+
     return [parser parseDictionary:objectDictionnary];
 
 }

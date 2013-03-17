@@ -181,15 +181,14 @@
     NSString *postUrl = [NSString stringWithFormat:@"/api/wordpress/post/%@", post.identifier];
 
     [self fetchDataFromServerWithResourcePath:postUrl
-        success:^(id JSON) {
+        success:^(id fetchedJson) {
 
-            WPPost *fullPost = [XBMapper parseObject:JSON intoObjectsOfType:[WPPost class]];
-            NSString * json = [XBMapper objectToSerializedJson:fullPost
-                                                withDateFormat: @"yyyy-MM-dd'T'HH:mm:ss.SSSZZZ"];
+            WPPost *fetchedPost = [XBMapper parseObject:fetchedJson intoObjectsOfType:[WPPost class]];
+            NSString * json = [XBMapper objectToSerializedJson:fetchedPost withDateFormat:@"yyyy-MM-dd'T'HH:mm:ss.SSSZZZ"];
 
             XBShareInfo* shareInfo = [XBShareInfo shareInfoWithUrl:post.url title:post.title];
 
-            WPCategory *postCategory = (WPCategory *)[[post.categories allObjects] objectAtIndex:0];
+            WPCategory *postCategory = (WPCategory *)[post.categories objectAtIndex:0];
             [self.appDelegate.mainViewController openLocalURL:@"index"
                                                     withTitle:postCategory.title
                                                          json:json
