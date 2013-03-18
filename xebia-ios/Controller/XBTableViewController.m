@@ -15,6 +15,7 @@
 #import "UITableViewCell+VariableHeight.h"
 #import "XBArrayDataSource.h"
 #import "NSDateFormatter+XBAdditions.h"
+#import "JSONKit.h"
 
 @interface XBTableViewController ()
 @property (nonatomic, strong) XBArrayDataSource *dataSource;
@@ -85,8 +86,7 @@
 }
 
 - (NSTimeInterval)dataAgeFromFetchInfo {
-    NSDate *lastUpdate = self.dataSource.lastUpdate;
-    return self.dataSource.lastUpdate ? [lastUpdate timeIntervalSinceNow] : DBL_MAX;
+    return self.dataSource.lastUpdate ? [self.dataSource.lastUpdate timeIntervalSinceNow] : DBL_MAX;
 }
 
 - (void)fetchDataFromServer:(void (^)())callback {
@@ -105,7 +105,8 @@
             };
 
             NSString *filePath = [NSHomeDirectory() stringByAppendingPathComponent:[self.delegate storageFileName]];
-            [json writeToFile:filePath atomically:YES];
+            NSError *error;
+            [[json JSONString] writeToFile:filePath atomically:YES encoding:NSUTF8StringEncoding error: &error];
 
             self.dataSource = [self buildDataSource:json];
 

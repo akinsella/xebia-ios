@@ -39,7 +39,7 @@
 }
 
 - (NSDate *)lastUpdate {
-    return _dataSource[@"lastUpdate"];
+    return [_df dateFromString:_dataSource[@"lastUpdate"]];
 }
 
 - (id)initWithJson:(id)json ForType:(Class)typeClass {

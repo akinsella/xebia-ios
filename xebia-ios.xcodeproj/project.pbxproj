@@ -183,6 +183,7 @@
 		DB34D7A9F133C872A52B1B8A /* TTIndices.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34D16016A1C834B375AFF6 /* TTIndices.m */; };
 		DB34D8DFAAEFB3BFE9E99C64 /* WPSAuthor.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34D57937ED56D27C3C8480 /* WPSAuthor.m */; };
 		DB34D961D8EB1C8AC527AB60 /* NSError+XBAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34D8626C4FFDBBD0C7D3FE /* NSError+XBAdditions.m */; };
+		DB34D990755170DD5306F384 /* TTEntities.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34DAB3F730B8DFED1CE8E3 /* TTEntities.m */; };
 		DB34D995DA6CF61CCFDEB209 /* XBArrayDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34D163D20D7DA196A0104C /* XBArrayDataSource.m */; };
 		DB34DA26475934C39FFF4734 /* EBVenue.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34DAFC921F4EC44602113E /* EBVenue.m */; };
 		DB34DA6C928EA9F01F0F8A9F /* styles.bak in Resources */ = {isa = PBXBuildFile; fileRef = DB34DDDAC15A52FF78EF66F7 /* styles.bak */; };
@@ -426,6 +427,7 @@
 		DB34D1997FC5744942F321B9 /* XBObjectDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XBObjectDataSource.m; sourceTree = "<group>"; };
 		DB34D1B1F4224776A0A9FB5E /* EBEventTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EBEventTableViewController.h; sourceTree = "<group>"; };
 		DB34D1BA6AF0250C0B8B20CB /* XBObjectDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XBObjectDataSource.h; sourceTree = "<group>"; };
+		DB34D2169A3B5C9BDA4125A9 /* TTEntities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTEntities.h; sourceTree = "<group>"; };
 		DB34D335D9B0E6D83CD513E8 /* XBArrayDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XBArrayDataSource.h; sourceTree = "<group>"; };
 		DB34D35EA5BDEDE61A31D131 /* UIImageView+XBAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+XBAdditions.h"; sourceTree = "<group>"; };
 		DB34D42F8234AE6A25794DBC /* NSNumber+XBAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSNumber+XBAdditions.h"; sourceTree = "<group>"; };
@@ -453,6 +455,7 @@
 		DB34D98F60516B2AA418357A /* TTHashtagEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTHashtagEntity.h; sourceTree = "<group>"; };
 		DB34D9F47ADA9772B32A4EF4 /* EBVenue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EBVenue.h; sourceTree = "<group>"; };
 		DB34DA77559D8D43F58BFFD4 /* GHOwnerCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GHOwnerCell.m; sourceTree = "<group>"; };
+		DB34DAB3F730B8DFED1CE8E3 /* TTEntities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTEntities.m; sourceTree = "<group>"; };
 		DB34DAFC921F4EC44602113E /* EBVenue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EBVenue.m; sourceTree = "<group>"; };
 		DB34DB490E75A8DE23774368 /* NSNumber+XBAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSNumber+XBAdditions.m"; sourceTree = "<group>"; };
 		DB34DBAD150FF6D70A3F5407 /* DCParserConfiguration+XBAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "DCParserConfiguration+XBAdditions.m"; sourceTree = "<group>"; };
@@ -844,6 +847,8 @@
 				DB34D596ADECE930BB5A955B /* XBPaginatedArrayDataSource.h */,
 				DB34DC0D5E672F07A1B6F8B3 /* XBPaginatedArrayDataSource.m */,
 				DB34D6255621C9694EF55963 /* XBMappingProvider.h */,
+				DB34DAB3F730B8DFED1CE8E3 /* TTEntities.m */,
+				DB34D2169A3B5C9BDA4125A9 /* TTEntities.h */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1205,6 +1210,7 @@
 				DB34DD00430C0AB4231F3A55 /* XBPaginatedArrayDataSource.m in Sources */,
 				DB34DEB81CC1C924851398D6 /* XBPaginatedTableViewController.m in Sources */,
 				DB34D070AE3F75B0B2F67655 /* DCParserConfiguration+XBAdditions.m in Sources */,
+				DB34D990755170DD5306F384 /* TTEntities.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1309,7 +1315,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "1E9DD2A0-F7E4-4689-AA02-4822400EF93F";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "1E9DD2A0-F7E4-4689-AA02-4822400EF93F";
-				SDKROOT = iphoneos6.0;
+				SDKROOT = iphoneos6.1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;

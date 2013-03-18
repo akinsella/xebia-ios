@@ -172,5 +172,4 @@ static NSString* const DeviceTokenKey = @"DeviceToken";
 //    [MagicalRecord cleanUp];
 }
 
-
 @end

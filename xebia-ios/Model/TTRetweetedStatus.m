@@ -10,6 +10,7 @@
 #import "TTRetweetedStatus.h"
 #import "DCParserConfiguration.h"
 #import "DCKeyValueObjectMapping.h"
+#import "DCParserConfiguration+XBAdditions.h"
 
 
 @implementation TTRetweetedStatus
@@ -20,6 +21,11 @@
 
 + (DCParserConfiguration *)mappings {
     DCParserConfiguration *config = [DCParserConfiguration configuration];
+    config.datePattern = @"yyyy-MM-dd HH:mm:ss";
+
+    [config mergeConfig:[TTUser mappings]];
+    [config mergeConfig:[TTEntities mappings]];
+
     return config;
 }
 

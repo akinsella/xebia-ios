@@ -98,9 +98,9 @@
     tweetCell.dateLabel.text = tweet.dateFormatted;
     tweetCell.content = tweet.text;
     tweetCell.contentLabel.text = tweet.text;
-    tweetCell.hashtags = tweet.hashtags;
-    tweetCell.urls = tweet.urls;
-    tweetCell.user_mentions = tweet.user_mentions;
+    tweetCell.hashtags = tweet.entities.hashtags;
+    tweetCell.urls = tweet.entities.urls;
+    tweetCell.user_mentions = tweet.entities.user_mentions;
 }
 
 - (void)attributedLabel:(TTTAttributedLabel *)label didSelectLinkWithURL:(NSURL *)url {

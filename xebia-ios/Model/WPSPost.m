@@ -61,10 +61,10 @@
 
     [config mergeConfig:[[WPSAuthor class] mappings]];
 
-    [config addArrayMapper: [DCArrayMapping mapperForClassElements: [self class] forAttribute:@"tags" onClass:[WPSTag class]]];
+    [config addArrayMapper: [DCArrayMapping mapperForClassElements:[WPSTag class] forAttribute:@"tags" onClass:[self class]]];
     [config mergeConfig:[[WPSTag class] mappings]];
 
-    [config addArrayMapper: [DCArrayMapping mapperForClassElements: [self class] forAttribute:@"categories" onClass:[WPSCategory class]]];
+    [config addArrayMapper: [DCArrayMapping mapperForClassElements:[WPSCategory class] forAttribute:@"categories" onClass:[self class]]];
     [config mergeConfig:[[WPSCategory class] mappings]];
 
     return config;

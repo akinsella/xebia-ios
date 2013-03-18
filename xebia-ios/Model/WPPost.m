@@ -56,17 +56,16 @@
     config.datePattern = @"yyyy-MM-dd HH:mm:ss";
 
     [config addObjectMapping: [DCObjectMapping mapKeyPath:@"id" toAttribute:@"identifier" onClass:[self class]]];
-    [config addObjectMapping: [DCObjectMapping mapKeyPath:@"description" toAttribute:@"description_" onClass:[self class]]];
 
     [config mergeConfig:[[WPAuthor class] mappings]];
 
-    [config addArrayMapper: [DCArrayMapping mapperForClassElements: [self class] forAttribute:@"tags" onClass:[WPTag class]]];
+    [config addArrayMapper: [DCArrayMapping mapperForClassElements:[WPTag class] forAttribute:@"tags" onClass: [self class]]];
     [config mergeConfig:[[WPTag class] mappings]];
 
-    [config addArrayMapper: [DCArrayMapping mapperForClassElements: [self class] forAttribute:@"categories" onClass:[WPCategory class]]];
+    [config addArrayMapper: [DCArrayMapping mapperForClassElements:[WPCategory class] forAttribute:@"categories" onClass:[self class]]];
     [config mergeConfig:[[WPCategory class] mappings]];
 
-    [config addArrayMapper: [DCArrayMapping mapperForClassElements: [self class] forAttribute:@"comments" onClass:[WPComment class]]];
+    [config addArrayMapper: [DCArrayMapping mapperForClassElements:[WPComment class] forAttribute:@"comments" onClass:[self class]]];
     [config mergeConfig:[[WPComment class] mappings]];
 
     return config;

@@ -8,6 +8,7 @@
 
 #import "TTUser.h"
 #import "TTRetweetedStatus.h"
+#import "TTEntities.h"
 
 @interface TTTweet : NSObject<XBMappingProvider>
 
@@ -17,9 +18,7 @@
 @property (nonatomic, strong) TTUser *user;
 @property (nonatomic, strong) NSString *text;
 @property (nonatomic, strong) TTRetweetedStatus *retweeted_status;
-@property(nonatomic, strong) NSArray *hashtags;
-@property(nonatomic, strong) NSArray *urls;
-@property(nonatomic, strong) NSArray *user_mentions;
+@property (nonatomic, strong) TTEntities *entities;
 @property (nonatomic, assign) bool favorited;
 @property (nonatomic, assign) bool retweeted;
 @property (nonatomic, strong) NSNumber *retweet_count;

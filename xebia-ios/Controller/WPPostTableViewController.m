@@ -105,8 +105,12 @@
 }
 
 - (NSString *)storageFileName {
-    return [NSString stringWithFormat: @"wp-posts%@.json", [self getCurrentPostType]];
-    ;
+    if (_identifier) {
+        return [NSString stringWithFormat: @"wp-posts-%@-%@.json", [self getCurrentPostType], self.identifier];
+    }
+    else {
+        return [NSString stringWithFormat: @"wp-posts-%@.json", [self getCurrentPostType]];
+    }
 }
 
 - (NSString *)cellNibName {
