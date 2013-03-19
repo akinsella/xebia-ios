@@ -13,7 +13,6 @@
 #import "TTUrlEntity.h"
 #import "TTUserMentionEntity.h"
 
-
 @implementation TTEntities
 
 + (DCParserConfiguration *)mappings {
@@ -25,7 +24,7 @@
     [config addArrayMapper: [DCArrayMapping mapperForClassElements:[TTUrlEntity class] forAttribute:@"urls" onClass:[self class]]];
     [config mergeConfig:[[TTUrlEntity class] mappings]];
 
-    [config addArrayMapper: [DCArrayMapping mapperForClassElements:[TTUserMentionEntity class] forAttribute:@"user_mentions" onClass:[self class]]];
+    [config addArrayMapper: [DCArrayMapping mapperForClassElements: [TTUserMentionEntity class] forAttribute:@"user_mentions" onClass:[self class]]];
     [config mergeConfig:[[TTUserMentionEntity class] mappings]];
 
     return config;

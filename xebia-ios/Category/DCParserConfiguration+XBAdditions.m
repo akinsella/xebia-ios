@@ -16,7 +16,13 @@
 -(void) mergeConfig:(DCParserConfiguration *) parserConfiguration {
 
     for (DCObjectMapping * objectMapping in parserConfiguration.objectMappers) {
-        [self addObjectMapping:objectMapping];
+        DCArrayMapping * arrayMapping = [parserConfiguration arrayMapperForMapper:objectMapping];
+        if (arrayMapping) {
+            [self addArrayMapper:arrayMapping];
+        }
+        else{
+            [self addObjectMapping:objectMapping];
+        }
     }
 
     for (DCPropertyAggregator * propertyAggregator in parserConfiguration.aggregators) {

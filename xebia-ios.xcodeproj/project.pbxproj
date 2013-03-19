@@ -1342,6 +1342,7 @@
 		};
 		54C2DF1D15BDFAFC00CABB12 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = FFE479B60E604A7197B75249 /* Pods.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/xebia-ios.app/xebia-ios";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -1351,6 +1352,24 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "xebia-ios/xebia-ios-Prefix.pch";
 				INFOPLIST_FILE = "xebia-iosTests/xebia-iosTests-Info.plist";
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-all_load",
+					"-framework",
+					CoreGraphics,
+					"-framework",
+					MessageUI,
+					"-framework",
+					MobileCoreServices,
+					"-framework",
+					QuartzCore,
+					"-framework",
+					Security,
+					"-framework",
+					SystemConfiguration,
+					"-framework",
+					Twitter,
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = octest;
