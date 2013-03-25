@@ -7,13 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "AppDelegate.h"
+#import "XBAppDelegate.h"
 
 @interface UIViewController (XBAdditions)
 
 - (void) addRevealGesture;
 - (void) addMenuButton;
-- (AppDelegate *) appDelegate;
+- (XBAppDelegate *) appDelegate;
 -(void)toggleEdit:(id)sender;
 
 @end

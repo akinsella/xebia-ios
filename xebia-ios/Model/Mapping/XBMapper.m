@@ -1,16 +1,20 @@
 //
-// Created by akinsella on 19/12/12.
+// Created by akinsella on 18/03/13.
 //
 // To change the template use AppCode | Preferences | File Templates.
 //
 
-#import <objc/runtime.h>
+
 #import "XBMapper.h"
+
+#import <objc/runtime.h>
 #import "NSDateFormatter+XBAdditions.h"
 #import "JSONKit.h"
 #import "DCKeyValueObjectMapping.h"
+#import "LCMappingProvider.h"
 
 @implementation XBMapper
+
 
 + (NSString *)objectToSerializedJson:(id)obj {
     return [self objectToSerializedJson: obj withDateFormat:@"yyyy-MM-dd'T'HH:mm:ss.SSSZZZ"];
@@ -30,8 +34,11 @@
     return json;
 }
 
-+(NSDictionary *) dictionaryWithPropertiesOfObject:(id)obj;
-{
++(NSDictionary *) dictionaryWithPropertiesOfObject:(id)obj {
+    return  [XBMapper dictionaryWithPropertiesOfObject:obj withDateFormat:@"yyyy-MM-dd HH:mm:ss"];
+}
+
++(NSDictionary *) dictionaryWithPropertiesOfObject:(id)obj withDateFormat:(NSString *) dateFormat {
     NSMutableDictionary *dict = [NSMutableDictionary dictionary];
 
     unsigned count;
@@ -42,11 +49,12 @@
         id value = [obj valueForKey:key];
 
         if (value) {
-            if ([value isKindOfClass:NSManagedObject.class]) {
-                id subObj = [XBMapper dictionaryWithPropertiesOfObject:value];
-                [dict setObject:subObj forKey:key];
-            }
-            else if ([value isKindOfClass:NSArray.class]) {
+//            if ([value isKindOfClass:NSManagedObject.class]) {
+//                id subObj = [XBMapper dictionaryWithPropertiesOfObject:value];
+//                [dict setObject:subObj forKey:key];
+//            }
+//            else if ([value isKindOfClass:NSArray.class]) {
+            if ([value isKindOfClass:NSArray.class]) {
                 NSSet *array = (NSSet *)value;
                 NSMutableArray *entries = [NSMutableArray arrayWithCapacity:[array count]];
                 for (id entry in array) {
@@ -67,7 +75,7 @@
                 [dict setObject:entries forKey:key];
             }
             else if ([value isKindOfClass:NSDate.class]) {
-                [dict setObject:value forKey:[[NSDateFormatter initWithDateFormat:@"yyyy-MM-dd HH:mm:ss"] stringFromDate:value]];
+                [dict setObject:value forKey:[[NSDateFormatter initWithDateFormat:dateFormat] stringFromDate:value]];
             }
             else {
                 Class classObject = NSClassFromString([key capitalizedString]);
@@ -91,7 +99,7 @@
 
 + (NSArray *)parseArray:(NSArray*)objectArray intoObjectsOfType:(Class)objectClass {
 
-    if (![objectClass conformsToProtocol:@protocol(XBMappingProvider)]) {
+    if (![objectClass conformsToProtocol:@protocol(LCMappingProvider)]) {
 
         [NSException raise:NSInvalidArgumentException format:@"Class provided does not implement XBMappingProtocol"];
     }
@@ -104,7 +112,7 @@
 
 + (id)parseObject:(NSDictionary*)objectDictionnary intoObjectsOfType:(Class)objectClass {
 
-    if (![objectClass conformsToProtocol:@protocol(XBMappingProvider)]) {
+    if (![objectClass conformsToProtocol:@protocol(LCMappingProvider)]) {
 
         [NSException raise:NSInvalidArgumentException format:@"Class provided does not implement XBMappingProtocol"];
     }

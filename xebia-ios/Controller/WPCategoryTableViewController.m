@@ -13,7 +13,8 @@
 #import "UIViewController+XBAdditions.h"
 #import "XBMainViewController.h"
 #import "WPCategoryCell.h"
-#import "JSONKit.h"
+#import "XBHttpArrayDataSourceConfiguration.h"
+#import "NSDateFormatter+XBAdditions.h"
 
 @implementation WPCategoryTableViewController
 
@@ -25,14 +26,6 @@
     [super viewDidLoad];
 }
 
-- (int)maxDataAgeInSecondsBeforeServerFetch {
-    return 120;
-}
-
-- (Class)dataClass {
-    return [WPCategory class];
-}
-
 - (NSString *)cellReuseIdentifier {
     // Needs to be static
     static NSString *cellReuseIdentifier = @"WPCategory";
@@ -40,36 +33,27 @@
     return cellReuseIdentifier;
 }
 
-- (NSString *)storageFileName {
-    return @"wp-categories.json";
-}
-
 - (NSString *)cellNibName {
     return @"WPCategoryCell";
 }
 
-- (NSString *)resourcePath {
-    return @"/api/wordpress/categories";
-}
+- (XBHttpArrayDataSourceConfiguration *)configuration {
 
-//- (NSDictionary *)fetchDataFromDB {
-////    NSManagedObjectContext *localContext = [NSManagedObjectContext MR_contextForCurrentThread];
-////    return [[self dataClass] MR_findAllSortedBy:@"title" ascending:YES inContext:localContext];
-//
-//    NSString *filePath = [NSHomeDirectory() stringByAppendingPathComponent:@"wp-categories.json"];
-//    NSLog(@"WPAuthors Json path: %@", filePath);
-//
-//    NSString *fileContent = [NSString stringWithContentsOfFile:filePath encoding:NSUTF8StringEncoding error:nil];
-//    NSDictionary *json = [fileContent objectFromJSONString];
-//
-//    return json;
-//}
+    XBHttpArrayDataSourceConfiguration* configuration = [XBHttpArrayDataSourceConfiguration configuration];
+    configuration.resourcePath = @"/api/wordpress/categories";
+    configuration.storageFileName = @"wp-categories.json";
+    configuration.maxDataAgeInSecondsBeforeServerFetch = 120;
+    configuration.typeClass = [WPCategory class];
+    configuration.dateFormat = [NSDateFormatter initWithDateFormat:@"yyyy-MM-dd'T'HH:mm:ss.SSSZZZ"];
+
+    return configuration;
+}
 
 - (void)configureCell:(UITableViewCell *)cell atIndex:(NSIndexPath *)indexPath {
 
     WPCategoryCell *categoryCell = (WPCategoryCell *) cell;
 
-    WPCategory *category = [self objectAtIndex:(NSUInteger) indexPath.row];
+    WPCategory *category = self.dataSource[indexPath.row];
     categoryCell.titleLabel.text = category.title;
     [categoryCell setItemCount:[category.postCount intValue]];
 }
@@ -78,7 +62,7 @@
 
     [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
 
-    WPCategory *category = [self objectAtIndex:(NSUInteger) indexPath.row];
+    WPCategory *category = self.dataSource[indexPath.row];
     NSLog(@"Category selected: %@", category);
 
     WPPostTableViewController *postTableViewController = [[WPPostTableViewController alloc] initWithPostType:CATEGORY identifier:category.identifier];

@@ -13,7 +13,8 @@
 #import "GHOwnerCell.h"
 #import "AFNetworking.h"
 #import "UIImageView+WebCache.h"
-#import "JSONKit.h"
+#import "XBHttpArrayDataSourceConfiguration.h"
+#import "NSDateFormatter+XBAdditions.h"
 
 @interface GHOwnerTableViewController ()
 @property (nonatomic, strong) UIImage* defaultAvatarImage;
@@ -30,14 +31,6 @@
     [super viewDidLoad];
 }
 
-- (int)maxDataAgeInSecondsBeforeServerFetch {
-    return 120;
-}
-
-- (Class)dataClass {
-    return [GHOwner class];
-}
-
 - (NSString *)cellReuseIdentifier {
     // Needs to be static
     static NSString *cellReuseIdentifier = @"GHOwner";
@@ -45,36 +38,27 @@
     return cellReuseIdentifier;
 }
 
-- (NSString *)storageFileName {
-    return @"gh-owners.json";
-}
-
 - (NSString *)cellNibName {
     return @"GHOwnerCell";
 }
 
-- (NSString *)resourcePath {
-    return @"/api/github/owners";
-}
+- (XBHttpArrayDataSourceConfiguration *)configuration {
 
-//- (NSDictionary *)fetchDataFromDB {
-////    NSManagedObjectContext *localContext = [NSManagedObjectContext MR_contextForCurrentThread];
-////    return [[self dataClass] MR_findAllSortedBy:@"login" ascending:YES inContext:localContext];
-//
-//    NSString *filePath = [NSHomeDirectory() stringByAppendingPathComponent:@"gh-owners.json"];
-//    NSLog(@"GHOwners Json path: %@", filePath);
-//
-//    NSString *fileContent = [NSString stringWithContentsOfFile:filePath encoding:NSUTF8StringEncoding error:nil];
-//    NSDictionary *json = [fileContent objectFromJSONString];
-//
-//    return json;
-//}
+    XBHttpArrayDataSourceConfiguration* configuration = [XBHttpArrayDataSourceConfiguration configuration];
+    configuration.resourcePath = @"/api/github/owners";
+    configuration.storageFileName = @"gh-owners.json";
+    configuration.maxDataAgeInSecondsBeforeServerFetch = 120;
+    configuration.typeClass = [GHOwner class];
+    configuration.dateFormat = [NSDateFormatter initWithDateFormat:@"yyyy-MM-dd'T'HH:mm:ss.SSSZZZ"];
+
+    return configuration;
+}
 
 - (void)configureCell:(UITableViewCell *)cell atIndex:(NSIndexPath *)indexPath {
 
     GHOwnerCell * ownerCell = (GHOwnerCell *) cell;
 
-    GHOwner *owner = [self objectAtIndex:(NSUInteger) indexPath.row];
+    GHOwner *owner = self.dataSource[indexPath.row];
     ownerCell.titleLabel.text = owner.login;
     ownerCell.identifier = owner.identifier;
 

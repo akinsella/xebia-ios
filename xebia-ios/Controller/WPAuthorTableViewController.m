@@ -16,7 +16,8 @@
 #import "WPPostTableViewController.h"
 #import "UIViewController+XBAdditions.h"
 #import "XBMainViewController.h"
-#import "JSONKit.h"
+#import "XBHttpArrayDataSourceConfiguration.h"
+#import "NSDateFormatter+XBAdditions.h"
 
 @interface WPAuthorTableViewController ()
 @property (nonatomic, strong) UIImage* defaultAvatarImage;
@@ -34,14 +35,6 @@
     [super viewDidLoad];
 }
 
-- (int)maxDataAgeInSecondsBeforeServerFetch {
-    return 120;
-}
-
-- (Class)dataClass {
-    return [WPAuthor class];
-}
-
 - (NSString *)cellReuseIdentifier {
     // Needs to be static
     static NSString *cellReuseIdentifier = @"WPAuthor";
@@ -49,34 +42,27 @@
     return cellReuseIdentifier;
 }
 
-- (NSString *)storageFileName {
-    return @"wp-authors.json";
-}
-
 - (NSString *)cellNibName {
     return @"WPAuthorCell";
 }
 
-- (NSString *)resourcePath {
-    return @"/api/wordpress/authors";
-}
+- (XBHttpArrayDataSourceConfiguration *)configuration {
 
-//- (NSDictionary *)fetchDataFromDB {
-//
-//    NSString *filePath = [NSHomeDirectory() stringByAppendingPathComponent:@"wp-authors.json"];
-//    NSLog(@"WPAuthors Json path: %@", filePath);
-//
-//    NSString *fileContent = [NSString stringWithContentsOfFile:filePath encoding:NSUTF8StringEncoding error:nil];
-//    NSDictionary *json = [fileContent objectFromJSONString];
-//
-//    return json;
-//}
+    XBHttpArrayDataSourceConfiguration* configuration = [XBHttpArrayDataSourceConfiguration configuration];
+    configuration.resourcePath = @"/api/wordpress/authors";
+    configuration.storageFileName = @"wp-authors.json";
+    configuration.maxDataAgeInSecondsBeforeServerFetch = 120;
+    configuration.typeClass = [WPAuthor class];
+    configuration.dateFormat = [NSDateFormatter initWithDateFormat:@"yyyy-MM-dd'T'HH:mm:ss.SSSZZZ"];
+
+    return configuration;
+}
 
 - (void)configureCell:(UITableViewCell *)cell atIndex:(NSIndexPath *)indexPath {
 
     WPAuthorCell *authorCell = (WPAuthorCell *) cell;
 
-    WPAuthor *author = [self objectAtIndex:(NSUInteger) indexPath.row];
+    WPAuthor *author = self.dataSource[indexPath.row];
     authorCell.identifier = author.identifier;
     authorCell.titleLabel.text = author.name;
 
@@ -87,7 +73,7 @@
 
     [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
 
-    WPAuthor *author = [self objectAtIndex:(NSUInteger) indexPath.row];
+    WPAuthor *author = self.dataSource[indexPath.row];
     NSLog(@"Author selected: %@", author);
 
     WPPostTableViewController *postTableViewController = [[WPPostTableViewController alloc] initWithPostType:AUTHOR identifier:author.identifier];

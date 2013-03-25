@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 
 
-@interface Date : NSObject
+@interface XBDate : NSObject
 + (NSDate *)parseDate:(NSString *)dateStr withFormat:format;
 +(NSString *) formattedDateRelativeToNow:(NSDate *)date;
 @end

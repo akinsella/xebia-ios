@@ -15,7 +15,7 @@
 @class XBMainViewController;
 
 
-@interface AppDelegate : UIResponder <UIApplicationDelegate>
+@interface XBAppDelegate : UIResponder <UIApplicationDelegate>
 
 @property(nonatomic, retain) XBViewControllerManager *viewControllerManager;
 @property(nonatomic, retain) XBMainViewController *mainViewController;

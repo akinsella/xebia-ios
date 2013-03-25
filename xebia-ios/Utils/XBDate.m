@@ -5,10 +5,10 @@
 //  Created by Alexis Kinsella on 19/07/12.
 //  Copyright (c) 2012 Xebia France. All rights reserved.
 //
-#import "Date.h"
+#import "XBDate.h"
 
 
-@implementation Date
+@implementation XBDate
 
 + (NSDate *)parseDate:(NSString *)dateStr withFormat:format {
     NSDateFormatter *df = [[NSDateFormatter alloc] init];

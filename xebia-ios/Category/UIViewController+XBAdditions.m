@@ -57,8 +57,8 @@
 }
 
 
-- (AppDelegate *) appDelegate {
-    return (AppDelegate *) [[UIApplication sharedApplication] delegate];
+- (XBAppDelegate *) appDelegate {
+    return (XBAppDelegate *) [[UIApplication sharedApplication] delegate];
 }
 
 

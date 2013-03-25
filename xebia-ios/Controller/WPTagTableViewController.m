@@ -12,7 +12,8 @@
 #import "UIViewController+XBAdditions.h"
 #import "XBMainViewController.h"
 #import "WPTagCell.h"
-#import "JSONKit.h"
+#import "XBHttpArrayDataSourceConfiguration.h"
+#import "NSDateFormatter+XBAdditions.h"
 
 @implementation WPTagTableViewController
 
@@ -24,14 +25,6 @@
     [super viewDidLoad];
 }
 
-- (int)maxDataAgeInSecondsBeforeServerFetch {
-    return 120;
-}
-
-- (Class)dataClass {
-    return [WPTag class];
-}
-
 - (NSString *)cellReuseIdentifier {
     // Needs to be static
     static NSString *cellReuseIdentifier = @"WPTag" ;
@@ -39,45 +32,36 @@
     return cellReuseIdentifier;
 }
 
-- (NSString *)storageFileName {
-    return @"wp-tags.json";
-}
-
 - (NSString *)cellNibName {
     return @"WPTagCell";
 }
 
-- (NSString *)resourcePath {
-    return @"/api/wordpress/tags";
-}
-
-//- (NSDictionary *)fetchDataFromDB {
-////    NSManagedObjectContext *localContext = [NSManagedObjectContext MR_contextForCurrentThread];
-////    return [[self dataClass] MR_findAllSortedBy:@"title" ascending:YES inContext:localContext];
-//
-//    NSString *filePath = [NSHomeDirectory() stringByAppendingPathComponent:@"wp-tags.json"];
-//    NSLog(@"WPTags Json path: %@", filePath);
-//
-//    NSString *fileContent = [NSString stringWithContentsOfFile:filePath encoding:NSUTF8StringEncoding error:nil];
-//    NSDictionary *json = [fileContent objectFromJSONString];
-//
-//    return json;
-//
-//}
 
 - (void)configureCell:(UITableViewCell *)cell atIndex:(NSIndexPath *)indexPath {
 
     WPTagCell *tagCell = (WPTagCell *) cell;
 
-    WPTag *tag = [self objectAtIndex:(NSUInteger) indexPath.row];
+    WPTag *tag = self.dataSource[indexPath.row];
     tagCell.titleLabel.text = [tag capitalizedTitle];
     tagCell.itemCount = tag.postCount.intValue;
+}
+
+- (XBHttpArrayDataSourceConfiguration *)configuration {
+
+    XBHttpArrayDataSourceConfiguration* configuration = [XBHttpArrayDataSourceConfiguration configuration];
+    configuration.resourcePath = @"/api/wordpress/tags";
+    configuration.storageFileName = @"wp-tags.json";
+    configuration.maxDataAgeInSecondsBeforeServerFetch = 120;
+    configuration.typeClass = [WPTag class];
+    configuration.dateFormat = [NSDateFormatter initWithDateFormat:@"yyyy-MM-dd'T'HH:mm:ss.SSSZZZ"];
+
+    return configuration;
 }
 
 -(void)onSelectCell: (UITableViewCell *)cell forObject: (id) object withIndex: (NSIndexPath *)indexPath {
 
     [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
-    WPTag *tag = [self objectAtIndex:(NSUInteger) indexPath.row];
+    WPTag *tag = self.dataSource[indexPath.row];
     NSLog(@"Tag selected: %@", tag);
 
     WPPostTableViewController *postTableViewController = [[WPPostTableViewController alloc] initWithPostType:TAG identifier:tag.identifier];

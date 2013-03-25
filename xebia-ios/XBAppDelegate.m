@@ -6,7 +6,7 @@
 //  Copyright (c) 2012 Xebia France. All rights reserved.
 //
 
-#import "AppDelegate.h"
+#import "XBAppDelegate.h"
 #import "XBSharekitSupport.h"
 #import "ZUUIRevealController.h"
 #import "XBMainViewController.h"
@@ -18,7 +18,7 @@
 
 static NSString* const DeviceTokenKey = @"DeviceToken";
 
-@implementation AppDelegate {
+@implementation XBAppDelegate {
     XBViewControllerManager *_viewControllerManager;
     XBMainViewController *_mainViewController;
 }
@@ -136,7 +136,7 @@ static NSString* const DeviceTokenKey = @"DeviceToken";
 - (void)sendProviderDeviceToken:(NSString *)deviceToken {
     NSDictionary *jsonPayload = @{ @"udid": [self udid], @"token": deviceToken};
 
-    AFHTTPClient *client = [AFHTTPClient clientWithBaseURL:[NSURL URLWithString:[AppDelegate baseUrl]]];
+    AFHTTPClient *client = [AFHTTPClient clientWithBaseURL:[NSURL URLWithString:[XBAppDelegate baseUrl]]];
     NSURLRequest *urlRequest = [client requestWithMethod:@"POST" path:@"/api/notification/register" parameters:jsonPayload];
 
     AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:urlRequest

@@ -15,6 +15,8 @@
 #import "UIViewController+XBAdditions.h"
 #import "XBMainViewController.h"
 #import "JSONKit.h"
+#import "NSDateFormatter+XBAdditions.h"
+#import "XBHttpArrayDataSourceConfiguration.h"
 
 @interface EBEventTableViewController ()
 @property (nonatomic, strong) UIImage*defaultImage;
@@ -34,14 +36,6 @@
     [super viewDidLoad];
 }
 
-- (int)maxDataAgeInSecondsBeforeServerFetch {
-    return 120;
-}
-
-- (Class)dataClass {
-    return [EBEvent class];
-}
-
 - (NSString *)cellReuseIdentifier {
     // Needs to be static
     static NSString *cellReuseIdentifier = @"EBEvent";
@@ -49,37 +43,28 @@
     return cellReuseIdentifier;
 }
 
-- (NSString *)storageFileName {
-    return @"eb-events.json";
-}
-
 - (NSString *)cellNibName {
     return @"EBEventCell";
 }
 
-- (NSString *)resourcePath {
-    return @"/api/eventbrite/events";
-}
+- (XBHttpArrayDataSourceConfiguration *)configuration {
 
-//- (NSDictionary *)fetchDataFromDB {
-////    NSManagedObjectContext *localContext = [NSManagedObjectContext MR_contextForCurrentThread];
-////    return [[self dataClass] MR_findAllSortedBy:@"start_date" ascending:YES inContext:localContext];
-//
-//    NSString *filePath = [NSHomeDirectory() stringByAppendingPathComponent: self.storageFileName];
-//    NSLog(@"Event Json path: %@", filePath);
-//
-//    NSString *fileContent = [NSString stringWithContentsOfFile:filePath encoding:NSUTF8StringEncoding error:nil];
-//    NSDictionary *json = [fileContent objectFromJSONString];
-//
-//    return json;
-//}
+    XBHttpArrayDataSourceConfiguration* configuration = [XBHttpArrayDataSourceConfiguration configuration];
+    configuration.resourcePath = @"/api/eventbrite/events";
+    configuration.storageFileName = @"eb-events.json";
+    configuration.maxDataAgeInSecondsBeforeServerFetch = 120;
+    configuration.typeClass = [EBEvent class];
+    configuration.dateFormat = [NSDateFormatter initWithDateFormat:@"yyyy-MM-dd'T'HH:mm:ss.SSSZZZ"];
+
+    return configuration;
+}
 
 - (void)configureCell:(UITableViewCell *)cell atIndex:(NSIndexPath *)indexPath {
 
     EBEventCell *eventCell = (EBEventCell *) cell;
     [eventCell configure];
 
-    EBEvent *event = [self objectAtIndex:(NSUInteger) indexPath.row];
+    EBEvent *event = self.dataSource[indexPath.row];
     [eventCell.imageView setImage: self.defaultImage];
     eventCell.descriptionLabel.delegate = self;
     eventCell.identifier = event.identifier;

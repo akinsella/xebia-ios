@@ -6,7 +6,7 @@
 //  Copyright (c) 2012 Xebia France. All rights reserved.
 //
 
-#import "AppDelegate.h"
+#import "XBAppDelegate.h"
 
 int main(int argc, char *argv[])
 {
@@ -15,7 +15,7 @@ int main(int argc, char *argv[])
         int retVal = -1;
         
         @try {
-            retVal = UIApplicationMain(argc, argv, nil, NSStringFromClass([AppDelegate class]));
+            retVal = UIApplicationMain(argc, argv, nil, NSStringFromClass([XBAppDelegate class]));
         }
         @catch (NSException* exception) {
             NSLog(@"Uncaught exception: %@", exception.description);

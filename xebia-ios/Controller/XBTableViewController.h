@@ -6,37 +6,35 @@
 
 
 #import <Foundation/Foundation.h>
+#import "XBHttpArrayDataSource.h"
+#import "XBHttpArrayDataSourceConfiguration.h"
+#import "XBHttpClient.h"
+#import "XBConfigurationProvider.h"
 
 @protocol XBTableViewControllerDelegate<NSObject>
 
 @required
 
-- (int)maxDataAgeInSecondsBeforeServerFetch;
-
-- (Class)dataClass;
-
 - (NSString *)cellReuseIdentifier;
 
 - (NSString *)cellNibName;
 
-- (NSString *)resourcePath;
-
-//- (NSDictionary *)fetchDataFromDB;
-
 - (void)configureCell: (UITableViewCell *)cell atIndex:(NSIndexPath *)indexPath;
+
+-(XBHttpArrayDataSourceConfiguration *)configuration;
 
 @optional
 
 -(void)onSelectCell: (UITableViewCell *)cell forObject: (id) object withIndex: (NSIndexPath *)indexPath;
 
-- (NSString *)storageFileName;
-
 @end
 
-@interface XBTableViewController : UITableViewController<UITableViewDelegate, UITableViewDataSource>
+@interface XBTableViewController : UITableViewController<UITableViewDelegate, UITableViewDataSource> {
+    XBHttpArrayDataSource *_dataSource;
+}
 
 @property (nonatomic, strong) id<XBTableViewControllerDelegate> delegate;
-
-- (id)objectAtIndex:(NSUInteger)index;
+@property(nonatomic, strong, readonly) XBHttpArrayDataSource *dataSource;
+@property(nonatomic, strong, readonly) XBConfigurationProvider *configurationProvider;
 
 @end

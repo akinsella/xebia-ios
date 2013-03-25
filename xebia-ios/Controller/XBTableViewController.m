@@ -9,18 +9,9 @@
 #import "GHRepositoryTableViewController.h"
 #import "UIColor+XBAdditions.h"
 #import "SVPullToRefresh.h"
-#import "AFNetworking.h"
 #import "SVProgressHUD.h"
-#import "AppDelegate.h"
 #import "UITableViewCell+VariableHeight.h"
-#import "XBArrayDataSource.h"
-#import "NSDateFormatter+XBAdditions.h"
-#import "JSONKit.h"
 
-@interface XBTableViewController ()
-@property (nonatomic, strong) XBArrayDataSource *dataSource;
-@property (nonatomic, strong) NSDateFormatter *df;
-@end
 
 @implementation XBTableViewController
 
@@ -43,104 +34,19 @@
     return self;
 }
 
-- (void)initialize {
-    self.df = [NSDateFormatter initWithDateFormat:@"yyyy-MM-dd'T'HH:mm:ss.SSSZZZ"];
+-(void)initialize {
+   _dataSource = [XBHttpArrayDataSource dataSourceWithConfiguration:[self.delegate configuration]
+                                                         httpClient:self.configurationProvider.httpClient];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    [self loadDataWithForceReload:NO];
+    [_dataSource loadDataWithForceReload:NO];
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self configureTableView];
-}
-
-- (void)loadDataWithForceReload:(bool)force {
-    [self loadDataWithForceReload:force UsingBlock: nil];
-}
-
-- (void)loadDataWithForceReload:(bool)force UsingBlock:(void(^)(void))callback {
-
-    self.dataSource = [self fetchDataFromDB];
-
-    NSTimeInterval repositoryDataAge = [self dataAgeFromFetchInfo];
-    BOOL needUpdateFromServer = repositoryDataAge > [self.delegate maxDataAgeInSecondsBeforeServerFetch];
-
-    NSLog(@"Data age: %f seconds", repositoryDataAge);
-
-    if (needUpdateFromServer) {
-        NSLog(@"Data last update from server was %f seconds ago, forcing update from server", repositoryDataAge);
-    }
-
-    if (!needUpdateFromServer && !force && (self.dataSource && self.dataSource.array.count > 0) ) {
-        [self.tableView reloadData];
-        if (callback) {
-            callback();
-        }
-    }
-    else {
-        [self fetchDataFromServer:callback];
-    }
-}
-
-- (NSTimeInterval)dataAgeFromFetchInfo {
-    return self.dataSource.lastUpdate ? [self.dataSource.lastUpdate timeIntervalSinceNow] : DBL_MAX;
-}
-
-- (void)fetchDataFromServer:(void (^)())callback {
-    AFHTTPClient *client = [AFHTTPClient clientWithBaseURL:[NSURL URLWithString:[AppDelegate baseUrl]]];
-    NSURLRequest *urlRequest = [client requestWithMethod:@"GET" path:[self.delegate resourcePath] parameters:nil];
-
-    [SVProgressHUD showWithStatus:@"Fetching data" maskType:SVProgressHUDMaskTypeBlack];
-
-    AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:urlRequest
-        success:^(NSURLRequest *request, NSHTTPURLResponse *response, id jsonFetched) {
-            NSLog(@"jsonFetched: %@", jsonFetched);
-
-            NSDictionary *json = @{
-                @"lastUpdate": [self.df stringFromDate:[NSDate date]],
-                @"data": jsonFetched
-            };
-
-            NSString *filePath = [NSHomeDirectory() stringByAppendingPathComponent:[self.delegate storageFileName]];
-            NSError *error;
-            [[json JSONString] writeToFile:filePath atomically:YES encoding:NSUTF8StringEncoding error: &error];
-
-            self.dataSource = [self buildDataSource:json];
-
-            [self.tableView reloadData];
-            if (callback) {
-                callback();
-            }
-            [SVProgressHUD dismiss];
-        }
-        failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id jsonFetched) {
-            [SVProgressHUD showErrorWithStatus:@"Got some issue!"];
-            NSLog(@"Error: %@, jsonFetched: %@", error, jsonFetched);
-            if (callback) {
-                callback();
-            }
-        }
-    ];
-
-    [operation start];
-}
-
-- (XBArrayDataSource *)buildDataSource:(NSDictionary *)json {
-    return [[XBArrayDataSource alloc] initWithJson:json ForType:[self.delegate dataClass]];
-}
-
-- (id)objectAtIndex:(NSUInteger)index {
-    return self.dataSource.array[index];
-}
-
-- (XBArrayDataSource *)fetchDataFromDB {
-//    NSManagedObjectContext *localContext = [NSManagedObjectContext MR_contextForCurrentThread];
-//    return [[self dataClass] MR_findAllSortedBy:@"start_date" ascending:YES inContext:localContext];
-
-    return [XBArrayDataSource initFromFileWithStorageFileName:[self.delegate storageFileName] forType:self.delegate.dataClass];
 }
 
 
@@ -156,9 +62,18 @@
     self.tableView.pullToRefreshView.activityIndicatorViewStyle = UIActivityIndicatorViewStyleWhite;
 
     [self.tableView addPullToRefreshWithActionHandler:^{
-        [self loadDataWithForceReload:YES UsingBlock:^{
-            [self.tableView.pullToRefreshView stopAnimating];
-        }];
+        [SVProgressHUD showWithStatus:@"Fetching data" maskType:SVProgressHUDMaskTypeBlack];
+        [self.dataSource loadDataWithForceReload:YES
+            callback:^(){
+                if (self.dataSource.error) {
+                    [SVProgressHUD showErrorWithStatus:@"Got some issue!"];
+                }
+                else {
+                    [SVProgressHUD showSuccessWithStatus:@"Done!"];
+                }
+                [self.tableView.pullToRefreshView stopAnimating];
+            }
+        ];
     }];
 }
 
@@ -167,7 +82,7 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return self.dataSource.array.count;
+    return self.dataSource.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -197,7 +112,7 @@
     if ([self.delegate respondsToSelector:@selector(onSelectCell:forObject:withIndex:)]) {
         UITableViewCell *cell = [self tableView:tableView cellForRowAtIndexPath:indexPath];
 
-        [self.delegate onSelectCell:cell forObject:self.dataSource.array[(NSUInteger)indexPath.row] withIndex:indexPath];
+        [self.delegate onSelectCell:cell forObject:self.dataSource[(NSUInteger)indexPath.row] withIndex:indexPath];
     }
 }
 

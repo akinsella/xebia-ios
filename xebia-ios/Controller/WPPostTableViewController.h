@@ -10,9 +10,8 @@
 #import "XBTableViewController.h"
 #import "WPPost.h"
 #import "WPSPost.h"
-#import "XBPaginatedTableViewController.h"
 
-@interface WPPostTableViewController : XBPaginatedTableViewController<XBTableViewControllerDelegate>
+@interface WPPostTableViewController : XBTableViewController<XBTableViewControllerDelegate>
 
 - (id)initWithCoder:(NSCoder *)coder withPostType:(POST_TYPE)pPostType identifier:(NSNumber *)pIdentifier;
 

@@ -9,7 +9,8 @@
 #import "GHRepository.h"
 #import "GHRepositoryTableViewController.h"
 #import "GHRepositoryCell.h"
-#import "JSONKit.h"
+#import "XBHttpArrayDataSourceConfiguration.h"
+#import "NSDateFormatter+XBAdditions.h"
 
 @interface GHRepositoryTableViewController()
 @property (nonatomic, strong) UIImage* xebiaAvatarImage;
@@ -26,26 +27,6 @@
     [super viewDidLoad];
 }
 
-- (int)maxDataAgeInSecondsBeforeServerFetch {
-    return 120;
-}
-
-- (Class)dataClass {
-    return [GHRepository class];
-}
-
-//- (NSDictionary *)fetchDataFromDB {
-////    NSManagedObjectContext *localContext = [NSManagedObjectContext MR_contextForCurrentThread];
-////    return [[self dataClass] MR_findAllSortedBy:@"name" ascending:YES inContext:localContext];
-//
-//    NSString *filePath = [NSHomeDirectory() stringByAppendingPathComponent:@"gh-repositories.json"];
-//    NSLog(@"GHRepositories Json path: %@", filePath);
-//
-//    NSString *fileContent = [NSString stringWithContentsOfFile:filePath encoding:NSUTF8StringEncoding error:nil];
-//    NSDictionary *json = [fileContent objectFromJSONString];
-//
-//    return json;
-//}
 
 - (NSString *)cellReuseIdentifier {
     // Needs to be static
@@ -58,21 +39,25 @@
     return @"GHRepositoryCell";
 }
 
-- (NSString *)storageFileName {
-    return @"gh-repositories.json";
-}
-
-- (NSString *)resourcePath {
-    return @"/api/github/repositories";
-}
-
 - (UIImage *)defaultImage {
     return [UIImage imageNamed:@"xebia-avatar"];
 }
 
+- (XBHttpArrayDataSourceConfiguration *)configuration {
+
+    XBHttpArrayDataSourceConfiguration* configuration = [XBHttpArrayDataSourceConfiguration configuration];
+    configuration.resourcePath = @"/api/github/repositories";
+    configuration.storageFileName = @"gh-repositories.json";
+    configuration.maxDataAgeInSecondsBeforeServerFetch = 120;
+    configuration.typeClass = [GHRepository class];
+    configuration.dateFormat = [NSDateFormatter initWithDateFormat:@"yyyy-MM-dd'T'HH:mm:ss.SSSZZZ"];
+
+    return configuration;
+}
+
 - (void)configureCell: (UITableViewCell *)cell atIndex:(NSIndexPath *)indexPath {
     GHRepositoryCell *repositoryCell = (GHRepositoryCell *)cell;
-    GHRepository *repository = [self objectAtIndex:(NSUInteger) indexPath.row];
+    GHRepository *repository = self.dataSource[indexPath.row];
     repositoryCell.titleLabel.text = repository.name;
     repositoryCell.descriptionLabel.text = repository.description_;
     repositoryCell.identifier = repository.identifier;

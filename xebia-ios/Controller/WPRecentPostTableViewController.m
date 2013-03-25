@@ -17,10 +17,10 @@
 - (id)initWithCoder:(NSCoder *)aDecoder {
     self = [super initWithCoder:aDecoder withPostType:RECENT identifier:nil];
     if (self) {
+        //
     }
 
     return self;
 }
-
 
 @end

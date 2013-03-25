@@ -7,7 +7,7 @@
 //
 
 #import "TTTweet.h"
-#import "Date.h"
+#import "XBDate.h"
 #import "DCParserConfiguration.h"
 #import "DCKeyValueObjectMapping.h"
 #import "DCParserConfiguration+XBAdditions.h"
@@ -15,7 +15,7 @@
 @implementation TTTweet
 
 - (NSString *)dateFormatted {
-    return [Date formattedDateRelativeToNow: self.created_at];
+    return [XBDate formattedDateRelativeToNow:self.created_at];
 }
 
 - (NSString *)ownerScreenName {
