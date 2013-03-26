@@ -22,7 +22,7 @@
 @property (nonatomic, strong, readonly)NSString *resourceType;
 @property (nonatomic, strong, readonly)NSString *rootKeyPath;
 
-+ (id)dataSourceWithConfiguration:(XBBundleArrayDataSourceConfiguration *)configuration;
++ (XBBundleArrayDataSource *)dataSourceWithConfiguration:(XBBundleArrayDataSourceConfiguration *)configuration;
 - (id)initWithConfiguration:(XBBundleArrayDataSourceConfiguration *)configuration;
 
 @end

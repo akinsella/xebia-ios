@@ -11,7 +11,7 @@
 #import "NSDateFormatter+XBAdditions.h"
 #import "JSONKit.h"
 #import "DCKeyValueObjectMapping.h"
-#import "LCMappingProvider.h"
+#import "XBMappingProvider.h"
 
 @implementation XBMapper
 
@@ -99,7 +99,7 @@
 
 + (NSArray *)parseArray:(NSArray*)objectArray intoObjectsOfType:(Class)objectClass {
 
-    if (![objectClass conformsToProtocol:@protocol(LCMappingProvider)]) {
+    if (![objectClass conformsToProtocol:@protocol(XBMappingProvider)]) {
 
         [NSException raise:NSInvalidArgumentException format:@"Class provided does not implement XBMappingProtocol"];
     }
@@ -112,7 +112,7 @@
 
 + (id)parseObject:(NSDictionary*)objectDictionnary intoObjectsOfType:(Class)objectClass {
 
-    if (![objectClass conformsToProtocol:@protocol(LCMappingProvider)]) {
+    if (![objectClass conformsToProtocol:@protocol(XBMappingProvider)]) {
 
         [NSException raise:NSInvalidArgumentException format:@"Class provided does not implement XBMappingProtocol"];
     }

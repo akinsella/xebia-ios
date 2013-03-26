@@ -9,10 +9,11 @@
 #endif
 
 #ifdef __OBJC__
-    #define MR_SHORTHAND
     #import <UIKit/UIKit.h>
     #import <Foundation/Foundation.h>
     #import <CoreData/CoreData.h>
-//    #import "CoreData+MagicalRecord.h"
+    #import "TestFlight.h"
 
+//    #define NSLog TFLog
+    #define NSLog(__FORMAT__, ...) TFLog((@"%s [Line %d] " __FORMAT__), __PRETTY_FUNCTION__, __LINE__, ##__VA_ARGS__)
 #endif

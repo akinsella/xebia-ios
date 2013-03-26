@@ -1,22 +1,24 @@
 //
-// Created by akinsella on 25/03/13.
+// Created by akinsella on 26/03/13.
 //
 // To change the template use AppCode | Preferences | File Templates.
 //
 
 
-#import "XBCompositeHttpArrayDataSource.h"
+#import "XBArrayDataSource.h"
+#import "XBPagedCompositeArrayDataSource.h"
+#import "XBPagedArrayDataSource.h"
 
 
-@implementation XBCompositeHttpArrayDataSource
+@implementation XBPagedCompositeArrayDataSource
 
-+ (id)dataSourceWithFirstDataSource:(XBHttpArrayDataSource *)firstDataSource
-                   secondDataSource:(XBHttpArrayDataSource *)secondDataSource {
++ (XBPagedCompositeArrayDataSource *)dataSourceWithFirstDataSource:(NSObject<XBArrayDataSource> *)firstDataSource
+                   secondDataSource:(NSObject<XBPagedArrayDataSource> *)secondDataSource {
     return [[self alloc] initWithFirstDataSource:firstDataSource secondDataSource:secondDataSource];
 }
 
-- (id)initWithFirstDataSource:(XBHttpArrayDataSource *)firstDataSource
-             secondDataSource:(XBHttpArrayDataSource *)secondDataSource {
+- (id)initWithFirstDataSource:(NSObject<XBArrayDataSource> *)firstDataSource
+             secondDataSource:(NSObject<XBPagedArrayDataSource> *)secondDataSource {
     self = [super init];
     if (self) {
         self.firstDataSource = firstDataSource;
@@ -26,8 +28,8 @@
     return self;
 }
 
-- (id)objectAtIndex:(NSUInteger)index {
-    return self.secondDataSource[index];
+- (id)objectAtIndexedSubscript:(NSUInteger)idx {
+    return [_secondDataSource objectAtIndexedSubscript:idx];
 }
 
 - (NSUInteger)count {
@@ -42,10 +44,6 @@
     [self loadDataWithForceReload:force callback: nil];
 }
 
-- (id)objectAtIndexedSubscript:(NSUInteger)idx {
-    return [_secondDataSource objectAtIndexedSubscript:idx];
-}
-
 - (NSError *)error {
     return _firstDataSource.error ? _firstDataSource.error : _secondDataSource.error;
 }
@@ -57,14 +55,22 @@
 - (void)loadDataWithForceReload:(bool)force callback:(void(^)())callback {
     [_firstDataSource loadDataWithForceReload:force callback:^{
         if (_firstDataSource.error) {
-           if (callback) {
-               callback();
-           }
+            if (callback) {
+                callback();
+            }
         }
         else {
             [_secondDataSource loadDataWithForceReload:force callback:callback];
         }
     }];
+}
+
+- (void)loadNextPageWithCallback:(void (^)())callback {
+    [_secondDataSource loadNextPageWithCallback:callback];
+}
+
+- (Boolean)hasMorePages {
+    return [_secondDataSource hasMorePages];
 }
 
 @end

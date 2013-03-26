@@ -17,6 +17,7 @@
 #import "DCArrayMapping.h"
 #import "WPSCategory.h"
 #import "DCParserConfiguration+XBAdditions.h"
+#import "Underscore.h"
 
 @implementation WPSPost
 
@@ -37,13 +38,13 @@
 }
 
 - (NSString *)tagsFormatted {
-    NSArray *tagTitles = _array(self.tags).pluck(@"title").unwrap;
+    NSArray *tagTitles = Underscore.pluck(self.tags, @"title");
     NSString *tagsFormatted = [tagTitles componentsJoinedByString:@", "];
     return tagsFormatted;
 }
 
 - (NSString *)categoriesFormatted {
-    NSArray *categoryTitles = _array(self.categories).pluck(@"title").unwrap;
+    NSArray *categoryTitles = Underscore.pluck(self.categories, @"title");
     NSString *categoriesFormatted = [categoryTitles componentsJoinedByString:@", "];
     return categoriesFormatted;
 }

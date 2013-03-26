@@ -11,7 +11,7 @@
 
 
 + (XBBundleArrayDataSourceConfiguration *)configuration {
-    XBBundleArrayDataSourceConfiguration *configuration = [[XBBundleArrayDataSourceConfiguration alloc] init];
+    XBBundleArrayDataSourceConfiguration *configuration = [[self alloc] init];
 
     return configuration;
 }
@@ -21,7 +21,7 @@
                                                               typeClass:(Class)typeClass
                                                             rootKeyPath:(NSString *)rootKeyPath {
 
-    XBBundleArrayDataSourceConfiguration *configuration = [XBBundleArrayDataSourceConfiguration configuration];
+    XBBundleArrayDataSourceConfiguration *configuration = [self configuration];
 
     configuration.resourcePath = resourcePath;
     configuration.typeClass = typeClass;
@@ -35,7 +35,7 @@
                                                            resourceType:(NSString *)resourceType
                                                               typeClass:(Class)typeClass {
 
-    return [XBBundleArrayDataSourceConfiguration configurationWithResourcePath:resourcePath
+    return [self configurationWithResourcePath:resourcePath
                                                                   resourceType:resourceType
                                                                      typeClass:typeClass
                                                                    rootKeyPath:nil];

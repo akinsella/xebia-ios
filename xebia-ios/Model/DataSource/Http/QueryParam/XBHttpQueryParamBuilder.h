@@ -7,7 +7,7 @@
 
 #import <Foundation/Foundation.h>
 
-@protocol XBHttpHeaderBuilder <NSObject>
+@protocol XBHttpQueryParamBuilder <NSObject>
 
 @required
 -(NSDictionary *)build;

@@ -5,11 +5,11 @@
 //
 
 
-#import "XBBasicHttpHeaderBuilder.h"
+#import "XBBasicHttpQueryParamBuilder.h"
 
-@implementation XBBasicHttpHeaderBuilder
+@implementation XBBasicHttpQueryParamBuilder
 
-+ (id)builderWithDictionary:(NSDictionary *)dictionary {
++ (XBBasicHttpQueryParamBuilder *)builderWithDictionary:(NSDictionary *)dictionary {
     return [[self alloc] initWithDictionary:dictionary];
 }
 

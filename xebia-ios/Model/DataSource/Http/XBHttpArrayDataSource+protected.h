@@ -7,12 +7,14 @@
 
 #import <Foundation/Foundation.h>
 
-#import "LCHttpClient.h"
+#import "XBHttpClient.h"
 #import "XBHttpArrayDataSourceConfiguration.h"
 #import "XBHttpArrayDataSource.h"
 
 @interface XBHttpArrayDataSource (LCArrayDataSource_protected)
 
 - (void)loadArrayFromJson:(NSDictionary *)json;
+- (NSArray *)data;
+- (NSArray *)array;
 
 @end

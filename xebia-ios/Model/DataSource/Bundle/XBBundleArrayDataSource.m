@@ -15,7 +15,7 @@
 }
 
 - (id)objectAtIndexedSubscript:(NSUInteger)idx {
-    return [self objectAtIndex:idx];
+    return _dataArray[idx];
 }
 - (NSUInteger)count {
     return _dataArray.count;
@@ -29,8 +29,8 @@
     return _dataArray;
 }
 
-+ (id)dataSourceWithConfiguration:(XBBundleArrayDataSourceConfiguration *)configuration {
-    return [[XBBundleArrayDataSource alloc] initWithConfiguration:configuration];
++ (XBBundleArrayDataSource *)dataSourceWithConfiguration:(XBBundleArrayDataSourceConfiguration *)configuration {
+    return [[self alloc] initWithConfiguration:configuration];
 }
 
 - (id)initWithConfiguration:(XBBundleArrayDataSourceConfiguration *)configuration {
@@ -43,10 +43,6 @@
     }
 
     return self;
-}
-
-- (id)objectAtIndex:(NSUInteger)index {
-    return _dataArray[index];
 }
 
 - (void)loadData {

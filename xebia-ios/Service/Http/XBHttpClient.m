@@ -7,9 +7,6 @@
 
 #import "XBHttpClient.h"
 #import "AFNetworking.h"
-#import "LCAppDelegate.h"
-#import "LCConfigurationProvider.h"
-
 
 @implementation XBHttpClient {
     AFHTTPClient *_afHttpClient;

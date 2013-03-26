@@ -12,7 +12,7 @@
 @implementation XBHttpArrayDataSourceConfiguration
 
 + (XBHttpArrayDataSourceConfiguration *)configuration {
-    XBHttpArrayDataSourceConfiguration *configuration = [[XBHttpArrayDataSourceConfiguration alloc] init];
+    XBHttpArrayDataSourceConfiguration *configuration = [[self alloc] init];
     configuration.maxDataAgeInSecondsBeforeServerFetch = 120;
     configuration.dateFormat = [NSDateFormatter initWithDateFormat:@"yyyy-MM-dd'T'HH:mm:ss.SSSZZZ"];
 

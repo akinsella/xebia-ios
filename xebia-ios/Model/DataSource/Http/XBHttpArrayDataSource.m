@@ -8,7 +8,8 @@
 #import "XBHttpArrayDataSource+protected.h"
 #import "XBMapper.h"
 #import "JSONKit.h"
-#import "XBBasicHttpHeaderBuilder.h"
+#import "XBBasicHttpQueryParamBuilder.h"
+#import "XBCache.h"
 
 @implementation XBHttpArrayDataSource {
     NSDictionary *_dataSource;
@@ -16,7 +17,7 @@
 }
 
 - (id)objectAtIndexedSubscript:(NSUInteger)idx {
-    return [self objectAtIndex:idx];
+    return _dataArray[idx];
 }
 - (NSUInteger)count {
     return _dataArray.count;
@@ -34,13 +35,16 @@
     return _dataArray;
 }
 
+- (NSString *)storageFileName {
+    return [NSString stringWithFormat:@"%@", _storageFileName];
+}
 
 - (NSDate *)lastUpdate {
     return [self.dateFormat dateFromString:_dataSource[@"lastUpdate"]];
 }
 
-+ (id)dataSourceWithConfiguration:(XBHttpArrayDataSourceConfiguration *)configuration httpClient:(XBHttpClient *)httpClient {
-    return [[XBHttpArrayDataSource alloc] initWithConfiguration:configuration httpClient: httpClient];
++ (XBHttpArrayDataSource *)dataSourceWithConfiguration:(XBHttpArrayDataSourceConfiguration *)configuration httpClient:(XBHttpClient *)httpClient {
+    return [[self alloc] initWithConfiguration:configuration httpClient: httpClient];
 }
 
 - (id)initWithConfiguration:(XBHttpArrayDataSourceConfiguration *)configuration httpClient:(XBHttpClient *)httpClient {
@@ -53,14 +57,11 @@
         _resourcePath = configuration.resourcePath;
         _rootKeyPath = configuration.rootKeyPath;
         _httpClient = httpClient;
-        _httpHeaderBuilder = configuration.httpHeaderBuilder;
+        _httpQueryParamBuilder = configuration.httpQueryParamBuilder;
+        _cache = configuration.cache;
     }
 
     return self;
-}
-
-- (id)objectAtIndex:(NSUInteger)index {
-    return _dataArray[index];
 }
 
 - (void)loadData {
@@ -74,6 +75,7 @@
 - (void)loadDataWithForceReload:(bool)force callback:(void(^)())callback {
 
     _error = nil;
+
     [self fetchDataFromDB];
 
     NSTimeInterval repositoryDataAge = [self dataAgeFromFetchInfo];
@@ -91,7 +93,7 @@
         }
     }
     else {
-        [self fetchDataFromServerWitCallback: callback];
+        [self fetchDataFromServerWithCallback:callback];
     }
 }
 
@@ -100,50 +102,61 @@
 }
 
 - (void)fetchDataFromDB {
-    NSString *filePath = [NSHomeDirectory() stringByAppendingPathComponent:_storageFileName];
-    NSLog(@"Json cache file path: %@", filePath);
-
-    NSString *fileContent = [NSString stringWithContentsOfFile:filePath encoding:NSUTF8StringEncoding error:nil];
-    NSDictionary *json = [fileContent objectFromJSONString];
-
-    [self loadArrayFromJson:json];
+    if (_cache) {
+        @try {
+            NSError *error = nil;
+            NSString *cacheData = [_cache getForKey:[self storageFileName] error: &error];
+            if (cacheData) {
+                NSDictionary *json = [cacheData objectFromJSONString];
+                [self loadArrayFromJson:json];
+            }
+        }
+        @catch ( NSException *e ) {
+            NSLog( @"%@: %@", e.name, e.reason);
+            NSError *error = nil;
+            [_cache clearForKey:[self storageFileName] error:&error];
+        }
+    }
 }
 
-- (void)fetchDataFromServerWitCallback:(void (^)())callback {
+- (void)fetchDataFromServerWithCallback:(void (^)())callback {
+    [self fetchDataFromServerInternalWithCallback:callback];
+}
 
-    [_httpClient executeGetJsonRequestWithPath:_resourcePath parameters: [_httpHeaderBuilder build]
-        success:^(NSURLRequest *request, NSHTTPURLResponse *response, id jsonFetched) {
-            NSLog(@"jsonFetched: %@", jsonFetched);
+- (void)fetchDataFromServerInternalWithCallback:(void (^)())callback {
+    [_httpClient executeGetJsonRequestWithPath:_resourcePath parameters:[_httpQueryParamBuilder build]
+       success:^(NSURLRequest *request, NSHTTPURLResponse *response, id jsonFetched) {
+           NSLog(@"jsonFetched: %@", jsonFetched);
 
-            NSDictionary *json = @{
-                @"lastUpdate": [_dateFormat stringFromDate:[NSDate date]],
-                @"data": jsonFetched
-            };
+           NSDictionary *json = @{
+                   @"lastUpdate" : [_dateFormat stringFromDate:[NSDate date]],
+                   @"data" : _rootKeyPath ? [jsonFetched valueForKeyPath:_rootKeyPath] : jsonFetched
+           };
 
-            NSString *filePath = [NSHomeDirectory() stringByAppendingPathComponent:_storageFileName];
-            NSError *error;
-            [[json JSONString] writeToFile:filePath atomically:YES encoding:NSUTF8StringEncoding error: &error];
+           if (_cache) {
+               NSError *error;
+               [_cache setForKey:[self storageFileName] value:[json JSONString] error:&error];
+           }
 
-            [self loadArrayFromJson:json];
+           [self loadArrayFromJson:json];
 
-            if (callback) {
-                callback();
-            }
-        }
-        failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id jsonFetched) {
-            NSLog(@"Error: %@, jsonFetched: %@", error, jsonFetched);
-            _error = error;
-            if (callback) {
-                callback();
-            }
-        }
+           if (callback) {
+               callback();
+           }
+       }
+       failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id jsonFetched) {
+           NSLog(@"Error: %@, jsonFetched: %@", error, jsonFetched);
+           _error = error;
+           if (callback) {
+               callback();
+           }
+       }
     ];
 }
 
 - (void)loadArrayFromJson:(NSDictionary *)json {
     _dataSource = json;
-    NSArray *array = _rootKeyPath ? [self.data valueForKeyPath:_rootKeyPath] : self.data;
-    _dataArray = [XBMapper parseArray:array intoObjectsOfType:_typeClass];
+    _dataArray = [XBMapper parseArray:self.data intoObjectsOfType:_typeClass];
 }
 
 @end

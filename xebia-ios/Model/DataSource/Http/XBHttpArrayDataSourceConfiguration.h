@@ -6,7 +6,8 @@
 
 
 #import <Foundation/Foundation.h>
-#import "XBHttpHeaderBuilder.h"
+#import "XBHttpQueryParamBuilder.h"
+#import "XBCache.h"
 
 @interface XBHttpArrayDataSourceConfiguration : NSObject
 
@@ -16,7 +17,8 @@
 @property(nonatomic, assign) NSInteger maxDataAgeInSecondsBeforeServerFetch;
 @property(nonatomic, strong) NSString *resourcePath;
 @property(nonatomic, strong) NSString *rootKeyPath;
-@property(nonatomic, strong) NSObject<XBHttpHeaderBuilder> * httpHeaderBuilder;
+@property(nonatomic, strong) NSObject<XBHttpQueryParamBuilder> *httpQueryParamBuilder;
+@property(nonatomic, strong) NSObject<XBCache> *cache;
 
 + (XBHttpArrayDataSourceConfiguration *)configuration;
 
