@@ -11,7 +11,7 @@
 #import "XBHttpArrayDataSourceConfiguration.h"
 #import "XBHttpArrayDataSource.h"
 
-@interface XBHttpArrayDataSource (LCArrayDataSource_protected)
+@interface XBHttpArrayDataSource (XBHttpArrayDataSource_protected)
 
 - (void)loadArrayFromJson:(NSDictionary *)json;
 - (NSArray *)data;

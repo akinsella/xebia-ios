@@ -15,33 +15,33 @@
     return nil;
 }
 
-- (NSObject <XBPagedHttpQueryParamBuilder> *)httpPagedQueryParamBuilder {
-    return (NSObject <XBPagedHttpQueryParamBuilder> *)_httpQueryParamBuilder;
-}
-
-+ (id)dataSourceWithConfiguration:(XBHttpArrayDataSourceConfiguration *)configuration httpClient:(XBHttpClient *)httpClient {
++ (id)dataSourceWithConfiguration:(XBHttpArrayDataSourceConfiguration *)configuration
+                       httpClient:(XBHttpClient *)httpClient {
     return [[self alloc] initWithConfiguration:configuration httpClient: httpClient];
 }
 
-- (id)initWithConfiguration:(XBHttpArrayDataSourceConfiguration *)configuration httpClient:(XBHttpClient *)httpClient {
+- (id)initWithConfiguration:(XBHttpArrayDataSourceConfiguration *)configuration
+                 httpClient:(XBHttpClient *)httpClient {
 
-    if (![configuration.httpQueryParamBuilder conformsToProtocol:@protocol(XBPagedHttpQueryParamBuilder)]) {
-        [NSException raise:NSInvalidArgumentException format:@"httpQueryParamBuilder does not conform to XBPagedHttpQueryParamBuilder protocol"];
-    }
+//    if (!configuration.paginator) {
+//        [NSException raise:NSInvalidArgumentException format:@"configuration does not contain paginator"];
+//    }
+//
+//    if (configuration.cache) {
+//        [NSException raise:NSInvalidArgumentException format:@"XBPagedHttpArrayDataSource does not support cache"];
+//    }
 
-    if (configuration.cache) {
-        [NSException raise:NSInvalidArgumentException format:@"XBPagedHttpArrayDataSource does not support cache"];
-    }
+    _paginator = configuration.paginator;
 
     return [super initWithConfiguration:configuration httpClient:httpClient];
 }
 
 - (Boolean)hasMorePages {
-    return self.httpPagedQueryParamBuilder.hasMorePages;
+    return [_paginator hasMorePages];
 }
 
 - (void)loadNextPageWithCallback:(void (^)())callback {
-    if ([self.httpPagedQueryParamBuilder hasMorePages]) {
+    if ([self hasMorePages]) {
         [self fetchDataFromServerInternalWithCallback:callback merge:YES];
     }
     else if (callback) {
@@ -50,7 +50,7 @@
 }
 
 - (void)fetchDataFromServerWithCallback:(void (^)())callback {
-    [self.httpPagedQueryParamBuilder resetPageIncrement];
+    [_paginator resetPageIncrement];
     [self fetchDataFromServerInternalWithCallback:callback merge:NO];
 }
 
@@ -68,14 +68,8 @@
                };
            }
            else {
-               NSMutableArray * mergedArray = [[self data] mutableCopy];
+               json= [self mergeJsonFetched:jsonFetched];
 
-               [mergedArray addObjectsFromArray: (_rootKeyPath ? [jsonFetched valueForKeyPath:_rootKeyPath] : jsonFetched)];
-
-               json = @{
-                   @"lastUpdate": [_dateFormat stringFromDate:[NSDate date]],
-                   @"data": mergedArray
-               };
            }
            if (_cache) {
                NSError *error;
@@ -84,7 +78,7 @@
 
            [self loadArrayFromJson:json];
 
-           [self.httpPagedQueryParamBuilder incrementPage];
+           [_paginator incrementPage];
 
            if (callback) {
                callback();
@@ -98,6 +92,19 @@
            }
        }
     ];
+}
+
+- (NSDictionary *)mergeJsonFetched:(id)jsonFetched {
+    NSDictionary *json;
+    NSMutableArray * mergedArray = [[self data] mutableCopy];
+
+    [mergedArray addObjectsFromArray: (_rootKeyPath ? [jsonFetched valueForKeyPath:_rootKeyPath] : jsonFetched)];
+
+    json = @{
+                   @"lastUpdate": [_dateFormat stringFromDate:[NSDate date]],
+                   @"data": mergedArray
+               };
+    return json;
 }
 
 @end

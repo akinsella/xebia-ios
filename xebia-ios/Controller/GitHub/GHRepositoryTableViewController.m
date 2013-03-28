@@ -19,14 +19,12 @@
 @implementation GHRepositoryTableViewController
 
 - (void)viewDidLoad {
-
     self.delegate = self;
     self.title = @"Repositories";
     self.xebiaAvatarImage = [UIImage imageNamed:@"xebia-avatar"];
 
     [super viewDidLoad];
 }
-
 
 - (NSString *)cellReuseIdentifier {
     // Needs to be static

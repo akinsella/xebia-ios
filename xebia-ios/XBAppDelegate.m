@@ -8,34 +8,22 @@
 
 #import "XBAppDelegate.h"
 #import "XBSharekitSupport.h"
-#import "ZUUIRevealController.h"
-#import "XBMainViewController.h"
-//#import <PonyDebugger/PDDebugger.h>
 #import "SDUrlCache.h"
 #import "AFHTTPRequestOperationLogger.h"
 #import "AFNetworking.h"
-//#import "MagicalRecord+Setup.h"
 
 static NSString* const DeviceTokenKey = @"DeviceToken";
 
-@implementation XBAppDelegate {
-    XBViewControllerManager *_viewControllerManager;
-    XBMainViewController *_mainViewController;
-}
+@implementation XBAppDelegate
 
 @synthesize window = _window;
-
-@synthesize viewControllerManager = _viewControllerManager;
-@synthesize mainViewController = _mainViewController;
-
-+(NSString *)baseUrl {
-//    return @"http://dev.xebia.fr:9000";
-    return @"http://xebia-mobile-backend.cloudfoundry.com";
-}
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
 
     [self setupTestFlight];
+
+    XBConfiguration *configuration = [XBConfiguration configurationWithBaseUrl:@"http://xebia-mobile-backend.cloudfoundry.com"];
+    _configurationProvider = [XBConfigurationProvider configurationProviderWithConfiguration:configuration];
 
 /*
     NSString *storeFileName = [MagicalRecord defaultStoreName];
@@ -79,7 +67,7 @@ static NSString* const DeviceTokenKey = @"DeviceToken";
     
     [XBSharekitSupport configure];
 
-    _window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
 
     _viewControllerManager = [XBViewControllerManager sharedInstance];
     _mainViewController = [[XBMainViewController alloc] initWithViewControllerManager:_viewControllerManager];
@@ -120,10 +108,8 @@ static NSString* const DeviceTokenKey = @"DeviceToken";
     if (self.deviceToken != newToken || !self.registered) {
         [self sendProviderDeviceToken: newToken];
         self.deviceToken = newToken;
-        self.registered = YES;
+        _registered = YES;
     }
-    
-    
 }
 
 - (void)application:(UIApplication*)application didFailToRegisterForRemoteNotificationsWithError:(NSError*)error {
@@ -138,7 +124,7 @@ static NSString* const DeviceTokenKey = @"DeviceToken";
 - (void)sendProviderDeviceToken:(NSString *)deviceToken {
     NSDictionary *jsonPayload = @{ @"udid": [self udid], @"token": deviceToken};
 
-    AFHTTPClient *client = [AFHTTPClient clientWithBaseURL:[NSURL URLWithString:[XBAppDelegate baseUrl]]];
+    AFHTTPClient *client = [AFHTTPClient clientWithBaseURL:[NSURL URLWithString:[_configurationProvider baseUrl]]];
     NSURLRequest *urlRequest = [client requestWithMethod:@"POST" path:@"/api/notification/register" parameters:jsonPayload];
 
     AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:urlRequest

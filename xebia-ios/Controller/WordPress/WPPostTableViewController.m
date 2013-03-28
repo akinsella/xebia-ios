@@ -26,6 +26,7 @@
 #import "XBHttpArrayDataSourceConfiguration.h"
 #import "NSDateFormatter+XBAdditions.h"
 #import "XBConfigurationProvider.h"
+#import "XBWordpressArrayDataSource.h"
 
 @interface WPPostTableViewController ()
 @property (nonatomic, strong) NSMutableDictionary *postTypes;
@@ -73,6 +74,10 @@
     } mutableCopy];
 }
 
+-(void)initialize {
+    _dataSource = [XBWordpressArrayDataSource dataSourceWithConfiguration:[self.delegate configuration]
+                                                               httpClient:self.appDelegate.configurationProvider.httpClient];
+}
 
 - (void)viewDidLoad {
 

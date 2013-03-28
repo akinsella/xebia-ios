@@ -7,22 +7,16 @@
 //
 
 #import <UIKit/UIKit.h>
-
-
-#import "WPPost.h"
-
-@class XBViewControllerManager;
-@class XBMainViewController;
-
+#import "XBConfigurationProvider.h"
+#import "XBViewControllerManager.h"
+#import "XBMainViewController.h"
 
 @interface XBAppDelegate : UIResponder <UIApplicationDelegate>
 
-@property(nonatomic, retain) XBViewControllerManager *viewControllerManager;
-@property(nonatomic, retain) XBMainViewController *mainViewController;
-@property(nonatomic, assign) Boolean registered;
-@property(nonatomic, retain) NSString *deviceToken;
-
-+ (NSString *)baseUrl;
-
+@property(nonatomic, strong, readonly) XBViewControllerManager *viewControllerManager;
+@property(nonatomic, strong, readonly) XBMainViewController *mainViewController;
+@property(nonatomic, strong, readonly) NSString *deviceToken;
+@property(nonatomic, strong, readonly) XBConfigurationProvider *configurationProvider;
+@property(nonatomic, assign, readonly) Boolean registered;
 
 @end

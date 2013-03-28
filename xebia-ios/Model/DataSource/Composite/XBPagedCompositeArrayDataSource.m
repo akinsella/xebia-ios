@@ -6,71 +6,42 @@
 
 
 #import "XBArrayDataSource.h"
+#import "XBCompositeArrayDataSource.h"
 #import "XBPagedCompositeArrayDataSource.h"
 #import "XBPagedArrayDataSource.h"
+#import "XBCompositeArrayDataSource+protected.h"
 
 
 @implementation XBPagedCompositeArrayDataSource
 
-+ (XBPagedCompositeArrayDataSource *)dataSourceWithFirstDataSource:(NSObject<XBArrayDataSource> *)firstDataSource
-                   secondDataSource:(NSObject<XBPagedArrayDataSource> *)secondDataSource {
++ (id)dataSourceWithFirstDataSource:(NSObject<XBArrayDataSource> *)firstDataSource
+                   secondDataSource:(NSObject<XBArrayDataSource> *)secondDataSource {
     return [[self alloc] initWithFirstDataSource:firstDataSource secondDataSource:secondDataSource];
 }
 
 - (id)initWithFirstDataSource:(NSObject<XBArrayDataSource> *)firstDataSource
-             secondDataSource:(NSObject<XBPagedArrayDataSource> *)secondDataSource {
-    self = [super init];
-    if (self) {
-        self.firstDataSource = firstDataSource;
-        self.secondDataSource = secondDataSource;
+             secondDataSource:(NSObject<XBArrayDataSource> *)secondDataSource {
+
+    if (![secondDataSource conformsToProtocol:@protocol(XBPagedArrayDataSource)]) {
+        [NSException raise:NSInvalidArgumentException format:@"secondDataSource does not conform to XBPagedArrayDataSource protocol"];
     }
-
-    return self;
+    return [super initWithFirstDataSource:firstDataSource secondDataSource:secondDataSource];
 }
 
-- (id)objectAtIndexedSubscript:(NSUInteger)idx {
-    return [_secondDataSource objectAtIndexedSubscript:idx];
+-(NSObject<XBPagedArrayDataSource> *)pagedSecondDataSource {
+    return (NSObject<XBPagedArrayDataSource> *)[self secondDataSource];
 }
 
-- (NSUInteger)count {
-    return self.secondDataSource.count;
-}
-
-- (void)loadData {
-    [self loadDataWithForceReload:NO callback: nil];
-}
-
-- (void)loadDataWithForceReload:(BOOL)force {
-    [self loadDataWithForceReload:force callback: nil];
-}
-
-- (NSError *)error {
-    return _firstDataSource.error ? _firstDataSource.error : _secondDataSource.error;
-}
-
-- (NSArray *)array {
-    return _secondDataSource.array;
-}
-
-- (void)loadDataWithForceReload:(bool)force callback:(void(^)())callback {
-    [_firstDataSource loadDataWithForceReload:force callback:^{
-        if (_firstDataSource.error) {
-            if (callback) {
-                callback();
-            }
-        }
-        else {
-            [_secondDataSource loadDataWithForceReload:force callback:callback];
-        }
-    }];
+- (NSUInteger)totalCount {
+    return [self firstDataSource].count;
 }
 
 - (void)loadNextPageWithCallback:(void (^)())callback {
-    [_secondDataSource loadNextPageWithCallback:callback];
+    [[self pagedSecondDataSource] loadNextPageWithCallback:callback];
 }
 
 - (Boolean)hasMorePages {
-    return [_secondDataSource hasMorePages];
+    return [[self pagedSecondDataSource] hasMorePages];
 }
 
 @end

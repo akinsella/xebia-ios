@@ -8,18 +8,12 @@
 #import <Foundation/Foundation.h>
 #import "XBArrayDataSource.h"
 
-@interface XBCompositeArrayDataSource : NSObject<XBArrayDataSource> {
-    NSObject<XBArrayDataSource> *_firstDataSource;
-    NSObject<XBArrayDataSource> *_secondDataSource;
-}
-
-@property(nonatomic, strong) NSObject<XBArrayDataSource> *firstDataSource;
-@property(nonatomic, strong) NSObject<XBArrayDataSource> *secondDataSource;
+@interface XBCompositeArrayDataSource : NSObject<XBArrayDataSource>
 
 - (id)initWithFirstDataSource:(NSObject<XBArrayDataSource> *)firstDataSource
              secondDataSource:(NSObject<XBArrayDataSource> *)secondDataSource;
 
-+ (XBCompositeArrayDataSource *)dataSourceWithFirstDataSource:(NSObject<XBArrayDataSource> *)firstDataSource
++ (id)dataSourceWithFirstDataSource:(NSObject<XBArrayDataSource> *)firstDataSource
                    secondDataSource:(NSObject<XBArrayDataSource> *)secondDataSource;
 
 @end

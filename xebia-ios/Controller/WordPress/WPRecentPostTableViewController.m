@@ -7,6 +7,7 @@
 //
 
 #import "WPRecentPostTableViewController.h"
+#import "UIScrollView+SVInfiniteScrolling.h"
 
 @interface WPRecentPostTableViewController ()
 - (void)initInternalWithPostType:(POST_TYPE)postType identifier:(NSNumber *)identifier;
@@ -21,6 +22,19 @@
     }
 
     return self;
+}
+
+- (void)configureTableView {
+    [super configureTableView];
+    self.tableView.showsInfiniteScrolling = YES;
+
+    __weak typeof(self) weakSelf = self;
+    [self.tableView addInfiniteScrollingWithActionHandler:^{
+        [weakSelf loadNextPageWithCallback:^{
+            [weakSelf.tableView.infiniteScrollingView stopAnimating];
+            [weakSelf.tableView reloadData];
+        }];
+    }];
 }
 
 @end

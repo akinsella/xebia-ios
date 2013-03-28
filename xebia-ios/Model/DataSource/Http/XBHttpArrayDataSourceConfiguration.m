@@ -7,6 +7,7 @@
 
 #import "XBHttpArrayDataSourceConfiguration.h"
 #import "NSDateFormatter+XBAdditions.h"
+#import "XBPaginator.h"
 
 
 @implementation XBHttpArrayDataSourceConfiguration

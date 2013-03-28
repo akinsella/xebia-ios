@@ -1,5 +1,5 @@
 //
-//  GHRepositoryTableViewController.m
+//  XBTableViewController.m
 //  xebia-ios
 //
 //  Created by Alexis Kinsella on 25/07/12.
@@ -11,7 +11,8 @@
 #import "SVPullToRefresh.h"
 #import "SVProgressHUD.h"
 #import "UITableViewCell+VariableHeight.h"
-
+#import "UIViewController+XBAdditions.h"
+#import "XBConfigurationProvider.h"
 
 @implementation XBTableViewController
 
@@ -19,7 +20,7 @@
     self = [super initWithStyle:style];
 
     if (self) {
-        [self initialize];
+//
     }
 
     return self;
@@ -28,7 +29,7 @@
 - (id)initWithCoder:(NSCoder *)aDecoder {
     self = [super initWithCoder:aDecoder];
     if (self) {
-        [self initialize];
+//
     }
 
     return self;
@@ -36,19 +37,19 @@
 
 -(void)initialize {
    _dataSource = [XBHttpArrayDataSource dataSourceWithConfiguration:[self.delegate configuration]
-                                                         httpClient:self.configurationProvider.httpClient];
-}
-
-- (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
-    [_dataSource loadDataWithForceReload:NO];
+                                                         httpClient:self.appDelegate.configurationProvider.httpClient];
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self initialize];
     [self configureTableView];
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [self loadData];
+}
 
 - (void)configureTableView {
     self.tableView.backgroundColor = [UIColor colorWithPatternImageName:@"bg_home_pattern"];
@@ -61,20 +62,38 @@
     self.tableView.pullToRefreshView.textColor = [UIColor whiteColor];
     self.tableView.pullToRefreshView.activityIndicatorViewStyle = UIActivityIndicatorViewStyleWhite;
 
+    __weak typeof(self) weakSelf = self;
     [self.tableView addPullToRefreshWithActionHandler:^{
-        [SVProgressHUD showWithStatus:@"Fetching data" maskType:SVProgressHUDMaskTypeBlack];
-        [self.dataSource loadDataWithForceReload:YES
-            callback:^(){
-                if (self.dataSource.error) {
-                    [SVProgressHUD showErrorWithStatus:@"Got some issue!"];
-                }
-                else {
-                    [SVProgressHUD showSuccessWithStatus:@"Done!"];
-                }
-                [self.tableView.pullToRefreshView stopAnimating];
-            }
-        ];
+        [weakSelf loadDataWithForceReload:YES callback:^{
+            [weakSelf.tableView.pullToRefreshView stopAnimating];
+            [weakSelf.tableView reloadData];
+        }];
     }];
+}
+
+-(void)loadData {
+    [self loadDataWithForceReload:NO callback:^{
+        [self.tableView reloadData];
+    }];
+}
+
+-(void)loadDataWithForceReload:(Boolean)force callback:(void(^)())callback {
+    [SVProgressHUD showWithStatus:@"Fetching data" maskType:SVProgressHUDMaskTypeBlack];
+    [self.dataSource loadDataWithForceReload:force
+        callback:^(){
+            if (self.dataSource.error) {
+                [SVProgressHUD showErrorWithStatus:@"Got some issue!"];
+            }
+            else {
+                [SVProgressHUD showSuccessWithStatus:@"Done!"];
+            }
+
+            if (callback) {
+                callback();
+            }
+        }
+    ];
+
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {

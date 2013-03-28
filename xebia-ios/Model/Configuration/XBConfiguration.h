@@ -13,4 +13,10 @@
 @property(nonatomic, strong, readonly) NSString *baseUrl;
 
 + (id)initWithDictionary:(NSDictionary *)dictionary;
+
+- (id)initWithBaseUrl:(NSString *)baseUrl;
+
++ (id)configurationWithBaseUrl:(NSString *)baseUrl;
+
+
 @end

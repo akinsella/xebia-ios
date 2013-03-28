@@ -9,18 +9,14 @@
 #import "XBArrayDataSource.h"
 #import "XBPagedArrayDataSource.h"
 
-@interface XBPagedCompositeArrayDataSource : NSObject<XBPagedArrayDataSource> {
-    NSObject<XBArrayDataSource> *_firstDataSource;
-    NSObject<XBPagedArrayDataSource> *_secondDataSource;
-}
+@interface XBPagedCompositeArrayDataSource : XBCompositeArrayDataSource<XBPagedArrayDataSource>
 
-@property(nonatomic, strong) NSObject<XBArrayDataSource> *firstDataSource;
-@property(nonatomic, strong) NSObject<XBPagedArrayDataSource> *secondDataSource;
+- (NSObject <XBPagedArrayDataSource> *)pagedSecondDataSource;
 
-- (id)initWithFirstDataSource:(NSObject<XBArrayDataSource> *)firstDataSource
-             secondDataSource:(NSObject<XBPagedArrayDataSource> *)secondDataSource;
+- (NSUInteger)totalCount;
 
-+ (XBPagedCompositeArrayDataSource *)dataSourceWithFirstDataSource:(NSObject<XBArrayDataSource> *)firstDataSource
-                   secondDataSource:(NSObject<XBPagedArrayDataSource> *)secondDataSource;
+- (void)loadNextPageWithCallback:(void (^)())callback;
+
+- (Boolean)hasMorePages;
 
 @end

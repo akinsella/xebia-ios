@@ -52,7 +52,7 @@
 - (XBHttpArrayDataSourceConfiguration *)configuration {
 
     XBHttpArrayDataSourceConfiguration* configuration = [XBHttpArrayDataSourceConfiguration configuration];
-    configuration.resourcePath = @"/api/twitter/tweets";
+    configuration.resourcePath = @"/api/twitter/timeline";
     configuration.storageFileName = @"tt-tweets.json";
     configuration.maxDataAgeInSecondsBeforeServerFetch = 120;
     configuration.typeClass = [TTTweet class];

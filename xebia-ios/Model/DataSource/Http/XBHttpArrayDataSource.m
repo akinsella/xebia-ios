@@ -8,8 +8,6 @@
 #import "XBHttpArrayDataSource+protected.h"
 #import "XBMapper.h"
 #import "JSONKit.h"
-#import "XBBasicHttpQueryParamBuilder.h"
-#import "XBCache.h"
 
 @implementation XBHttpArrayDataSource {
     NSDictionary *_dataSource;
@@ -24,6 +22,10 @@
 }
 
 - (NSArray *)data {
+    return _dataSource[@"data"];
+}
+
+- (id)rawData {
     return _dataSource[@"data"];
 }
 

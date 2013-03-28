@@ -1,5 +1,5 @@
 //
-// Created by akinsella on 26/03/13.
+// Created by akinsella on 27/03/13.
 //
 // To change the template use AppCode | Preferences | File Templates.
 //
@@ -7,15 +7,13 @@
 
 #import <Foundation/Foundation.h>
 
-#import "XBHttpQueryParamBuilder.h"
-
-@protocol XBPagedHttpQueryParamBuilder<XBHttpQueryParamBuilder>
-
-@required
+@protocol XBPaginator <NSObject>
 
 - (NSUInteger)currentPage;
 
 - (NSUInteger)itemByPage;
+
+- (NSUInteger)totalItem;
 
 - (void)incrementPage;
 

@@ -6,20 +6,34 @@
 
 
 #import "XBCompositeArrayDataSource.h"
+#import "XBCompositeArrayDataSource+protected.h"
 
-@implementation XBCompositeArrayDataSource
+@implementation XBCompositeArrayDataSource {
+    NSObject<XBArrayDataSource> *_firstDataSource;
+    NSObject<XBArrayDataSource> *_secondDataSource;
+}
 
-+ (XBCompositeArrayDataSource *)dataSourceWithFirstDataSource:(NSObject<XBArrayDataSource> *)firstDataSource
++ (id)dataSourceWithFirstDataSource:(NSObject<XBArrayDataSource> *)firstDataSource
                    secondDataSource:(NSObject<XBArrayDataSource> *)secondDataSource {
     return [[self alloc] initWithFirstDataSource:firstDataSource secondDataSource:secondDataSource];
 }
+
+
+- (NSObject<XBArrayDataSource> *)firstDataSource {
+    return _firstDataSource;
+}
+
+- (NSObject<XBArrayDataSource> *)secondDataSource {
+    return _secondDataSource;
+}
+
 
 - (id)initWithFirstDataSource:(NSObject<XBArrayDataSource> *)firstDataSource
              secondDataSource:(NSObject<XBArrayDataSource> *)secondDataSource {
     self = [super init];
     if (self) {
-        self.firstDataSource = firstDataSource;
-        self.secondDataSource = secondDataSource;
+        _firstDataSource = firstDataSource;
+        _secondDataSource = secondDataSource;
     }
 
     return self;

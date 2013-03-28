@@ -8,6 +8,7 @@
 #import <Foundation/Foundation.h>
 #import "XBHttpQueryParamBuilder.h"
 #import "XBCache.h"
+#import "XBPaginator.h"
 
 @interface XBHttpArrayDataSourceConfiguration : NSObject
 
@@ -19,6 +20,7 @@
 @property(nonatomic, strong) NSString *rootKeyPath;
 @property(nonatomic, strong) NSObject<XBHttpQueryParamBuilder> *httpQueryParamBuilder;
 @property(nonatomic, strong) NSObject<XBCache> *cache;
+@property(nonatomic, strong) NSObject<XBPaginator> *paginator;
 
 + (XBHttpArrayDataSourceConfiguration *)configuration;
 

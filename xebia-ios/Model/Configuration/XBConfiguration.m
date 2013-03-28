@@ -8,12 +8,24 @@
 #import "XBConfiguration.h"
 
 
-@implementation XBConfiguration {
-    NSString *_baseUrl;
+@implementation XBConfiguration
+
+
++ (id)configurationWithBaseUrl:(NSString *)baseUrl {
+    return [[self alloc] initWithBaseUrl:baseUrl];
 }
 
 + (id)initWithDictionary:(NSDictionary *)dictionary {
     return [[XBConfiguration alloc] initWithDictionnary:dictionary];
+}
+
+- (id)initWithBaseUrl:(NSString *)baseUrl {
+    self = [super init];
+    if (self) {
+        _baseUrl = baseUrl;
+    }
+
+    return self;
 }
 
 -(id)initWithDictionnary:(NSDictionary *)dictionnary {
@@ -23,10 +35,6 @@
     }
 
     return self;
-}
-
--(NSString *)baseUrl {
-    return _baseUrl;
 }
 
 @end
