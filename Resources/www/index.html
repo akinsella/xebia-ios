@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html>
+   <head>
+       <title>Post</title>
+
+       <meta charset="UTF-8">
+
+       <meta name="viewport" content="initial-scale=1" />
+       <!--<meta name="viewport" content="initial-scale=1,user-scalable=no" />-->
+
+       <meta name="viewport" content="initial-scale=1" />
+       <meta name="format-detection" content="telephone=no">
+
+       <!-- <script src="javascript/lib/zepto/zepto-1.0-rc1.min.js"></script> -->
+       <script src="javascript/lib/jquery/jquery-1.7.1.js"></script>
+       <script src="javascript/lib/handlebars/handlebars-1.0.beta6.js"></script>
+       <script src="javascript/lib/underscore/underscore-1.3.1.min.js"></script>
+       <script src="javascript/lib/moment/moment-1.7.2.min.js"></script>
+       <script src="javascript/lib/prettify/prettify.js"></script>
+       <script src="javascript/lib/prettify/lang-css.js"></script>
+       <script src="javascript/lib/prettify/lang-scala.js"></script>
+       <script src="javascript/lib/prettify/lang-sql.js"></script>
+       <script src="javascript/md5.js"></script>
+
+       <link rel="stylesheet" href="css/styles.css">
+       <link rel="stylesheet" href="javascript/lib/prettify/twilight.css" />
+   </head>
+   <body>
+
+       <div id="post">
+           <div id="post-header"></div>
+           <div id="post-body"></div>
+       </div>
+
+       <script>
+
+           function isIOSBrowser() {
+               return navigator.userAgent.match(/(iPhone|iPod|iPad)/i);
+           }
+
+           function initLogging() {
+
+               if(isIOSBrowser()) {
+                   // Debug
+                   console = new Object();
+                   console.log = function(log) {
+                      executeObjcCall("ios-log://" + log);
+                   };
+
+                   console.debug = console.log;
+                   console.info = console.log;
+                   console.warn = console.log;
+                   console.error = console.log;
+               }
+           }
+
+           initLogging();
+
+           var jsonPost;
+
+           function onLoad(data) {
+               jsonPost = data;
+               applyTemplate('#post-header-template', '#post-header', {
+                   post: jsonPost,
+                   modified: moment(jsonPost.modified, "YYYY-MM-DD").format("DD/MM/YYYY")
+               });
+
+               applyTemplate('#post-body-template', '#post-body', {
+                   post: jsonPost,
+                   content: htmlDecode(jsonPost.content)
+               }, [prettifyImages]);
+
+               prettyPrint();
+
+               prettifyGravatar("post-author-image", jsonPost.author);
+           }
+
+           function applyTemplate(templateId, targetId, data, processors) {
+               var source = $(templateId).html();
+               var template = Handlebars.compile(source);
+               var html = template(data);
+
+               if (processors) {
+                   _(processors).each(function(processor) {
+                      html = processor(html);
+                   });
+               }
+
+               $(targetId).html(html);
+           }
+
+//           $(document).ready(function() {
+//               var json = {
+//                   "author": {
+//                       "description_": "",
+//                               "firstname": "Xebia",
+//                               "identifier": 12,
+//                               "lastname": "France",
+//                               "name": "Xebia France",
+//                               "nickname": "Xebia France",
+//                               "slug": "xebiafrance",
+//                               "url": "http://www.xebia.fr"
+//                   },
+//                   "categories": [
+//                       {
+//                           "description_": "",
+//                           "identifier": 3,
+//                           "parent": 0,
+//                           "postCount": 307,
+//                           "slug": "revue-de-presse",
+//                           "title": "Revue de presse"
+//                       }
+//                   ],
+//                           "commentCount": 0,
+//                           "commentStatus": "open",
+//                           "comments": [
+//
+//                   ],
+//                           "content": "&lt;p&gt;&lt;/p&gt;\r\n&lt;p&gt;&lt;img src=&quot;http://blog.xebia.fr/wp-content/uploads/2007/06/revuedepresse.png&quot; alt=&quot;Revue de Presse Xebia&quot; style=&quot;margin: 1em 1em 1em 1em; float: right;&quot; /&gt;&lt;br /&gt;\r\n  &lt;em&gt;La revue de presse hebdomadaire des écosystèmes Java/JEE proposée par Xebia.&lt;/em&gt;\r\n&lt;/p&gt;\r\n&lt;p&gt;\r\n&lt;/p&gt;\r\n&lt;div class=&quot;c2w-toc&quot;&gt;\r\n  &lt;ul&gt;\r\n    &lt;li class=&quot;c2w-toc-item c2w-toc-level3&quot;&gt;\r\n      &lt;div&gt;&lt;a class=&quot;c2w-toc-label c2w-toc-level3&quot; href=&quot;[permalink]#RevuedePresseXebia-Agilit%C3%A9&quot;&gt;Agilité&lt;/a&gt;&lt;/div&gt;\r\n      &lt;ul&gt;\r\n        &lt;li class=&quot;c2w-toc-item c2w-toc-level4&quot;&gt;\r\n          &lt;div&gt;&lt;a class=&quot;c2w-toc-label c2w-toc-level4&quot; href=&quot;[permalink]#RevuedePresseXebia-TheBattle%3APriorisationusingMoSCoWvsKanoAnalysis&quot;&gt;The Battle : Priorisation using MoSCoW vs Kano Analysis&lt;/a&gt; &lt;span class=&quot;c2w-toc-author&quot;&gt;(Par Couthaïer Farfra)&lt;/span&gt;&lt;/div&gt;\r\n        &lt;/li&gt;\r\n        &lt;li class=&quot;c2w-toc-item c2w-toc-level4&quot;&gt;\r\n          &lt;div&gt;&lt;a class=&quot;c2w-toc-label c2w-toc-level4&quot; href=&quot;[permalink]#RevuedePresseXebia-5raisonsdec%C3%A9l%C3%A9brerseserreursautravail&quot;&gt;5 raisons de célébrer ses erreurs au travail&lt;/a&gt; &lt;span class=&quot;c2w-toc-author&quot;&gt;(Par &lt;a href=&quot;http://blog.xebia.fr/author/crochas&quot; target=&quot;_blank&quot;&gt;Clément Rochas&lt;/a&gt;)&lt;/span&gt;&lt;/div&gt;\r\n        &lt;/li&gt;\r\n      &lt;/ul&gt;\r\n    &lt;/li&gt;\r\n    &lt;li class=&quot;c2w-toc-item c2w-toc-level3&quot;&gt;\r\n      &lt;div&gt;&lt;a class=&quot;c2w-toc-label c2w-toc-level3&quot; href=&quot;[permalink]#RevuedePresseXebia-Web&quot;&gt;Web&lt;/a&gt;&lt;/div&gt;\r\n      &lt;ul&gt;\r\n        &lt;li class=&quot;c2w-toc-item c2w-toc-level4&quot;&gt;\r\n          &lt;div&gt;&lt;a class=&quot;c2w-toc-label c2w-toc-level4&quot; href=&quot;[permalink]#RevuedePresseXebia-BrowserDiet&quot;&gt;Browser Diet&lt;/a&gt; &lt;span class=&quot;c2w-toc-author&quot;&gt;(Par &lt;a href=&quot;http://blog.xebia.fr/author/ygrenzinger&quot; target=&quot;_blank&quot;&gt;Yannick Grenzinger&lt;/a&gt;)&lt;/span&gt;&lt;/div&gt;\r\n        &lt;/li&gt;\r\n        &lt;li class=&quot;c2w-toc-item c2w-toc-level4&quot;&gt;\r\n          &lt;div&gt;&lt;a class=&quot;c2w-toc-label c2w-toc-level4&quot; href=&quot;[permalink]#RevuedePresseXebia-Afficherunepagemobileenmoinsd%27uneseconde&quot;&gt;Afficher une page mobile en moins d&amp;#39;une seconde&lt;/a&gt; &lt;span class=&quot;c2w-toc-author&quot;&gt;(Par &lt;a href=&quot;http://blog.xebia.fr/author/flegall&quot; target=&quot;_blank&quot;&gt;Florent Le Gall&lt;/a&gt;)&lt;/span&gt;&lt;/div&gt;\r\n        &lt;/li&gt;\r\n      &lt;/ul&gt;\r\n    &lt;/li&gt;\r\n    &lt;li class=&quot;c2w-toc-item c2w-toc-level3&quot;&gt;\r\n      &lt;div&gt;&lt;a class=&quot;c2w-toc-label c2w-toc-level3&quot; href=&quot;[permalink]#RevuedePresseXebia-Lecoindelatechnique&quot;&gt;Le coin de la technique&lt;/a&gt;&lt;/div&gt;\r\n      &lt;ul&gt;\r\n        &lt;li class=&quot;c2w-toc-item c2w-toc-level4&quot;&gt;\r\n          &lt;div&gt;&lt;a class=&quot;c2w-toc-label c2w-toc-level4&quot; href=&quot;[permalink]#RevuedePresseXebia-Lecoindelatechnique-Lesnouveaut%C3%A9sdeJPA2.1&quot;&gt;Les nouveautés de JPA 2.1&lt;/a&gt; &lt;span class=&quot;c2w-toc-author&quot;&gt;(Par Jean-Eudes Couignoux)&lt;/span&gt;&lt;/div&gt;\r\n        &lt;/li&gt;\r\n        &lt;li class=&quot;c2w-toc-item c2w-toc-level4&quot;&gt;\r\n          &lt;div&gt;&lt;a class=&quot;c2w-toc-label c2w-toc-level4&quot; href=&quot;[permalink]#RevuedePresseXebia-JavaMicrobenchmarkHarness&quot;&gt;Java Microbenchmark Harness&lt;/a&gt; &lt;span class=&quot;c2w-toc-author&quot;&gt;(Par &lt;a href=&quot;http://blog.xebia.fr/author/plaporte&quot; target=&quot;_blank&quot;&gt;Pierre Laporte&lt;/a&gt;)&lt;/span&gt;&lt;/div&gt;\r\n        &lt;/li&gt;\r\n        &lt;li class=&quot;c2w-toc-item c2w-toc-level4&quot;&gt;\r\n          &lt;div&gt;&lt;a class=&quot;c2w-toc-label c2w-toc-level4&quot; href=&quot;[permalink]#RevuedePresseXebia-Lingual%3AuneinterfaceSQLpourCascading&quot;&gt;Lingual : une interface SQL pour Cascading&lt;/a&gt; &lt;span class=&quot;c2w-toc-author&quot;&gt;(Par &lt;a href=&quot;http://blog.xebia.fr/author/bdechoux&quot; target=&quot;_blank&quot;&gt;Bertrand Dechoux&lt;/a&gt;)&lt;/span&gt;&lt;/div&gt;\r\n        &lt;/li&gt;\r\n      &lt;/ul&gt;\r\n    &lt;/li&gt;\r\n  &lt;/ul&gt;\r\n&lt;/div&gt;\r\n\r\n&lt;span id=&quot;more-13699&quot;&gt;&lt;/span&gt;\r\n\r\n&lt;h3 id=&quot;RevuedePresseXebia-Agilité&quot;&gt;Agilité&lt;/h3&gt;\r\n\r\n&lt;h4 id=&quot;RevuedePresseXebia-TheBattle:PriorisationusingMoSCoWvsKanoAnalysis&quot;&gt;The Battle : Priorisation using MoSCoW vs Kano Analysis&lt;/h4&gt;\r\n[author lastname=&quot;Farfra&quot; firstname=&quot;Coutha&amp;#239;er&quot;/]\r\n\r\n&lt;p&gt;Lors d'une récente formation j'ai eu à décrire le modèle Kano, outil parmi les pratiques Agiles d'aide à la priorisation des besoins et j'avoue être plus à l'aise avec la méthode MoSCoW (Must have ; Should have ; Could have ; Won't have), dont je trouve l'approche plus assimilable par des porteurs du besoin métier. &lt;/p&gt;\r\n&lt;p&gt;J'ai eu l'occasion d'échanger sur ce sujet avec Gilles Mantel (Coach Agile Xebia et membre de la FSUG) dont les explications du fonctionnement de Kano me sont alors parues très claires et pertinentes.&lt;/p&gt;\r\n&lt;p&gt;Aujourd'hui je vous propose de vous faire votre propre opinion, au travers de 2 vidéos, décrivant pour l'une la méthode MoSCoW (du site &lt;a href=&quot;http://www.agileacademy.com.au/agile&quot; rel=&quot;nofollow&quot;&gt;Agile Academy&lt;/a&gt;) et l'autre le modèle Kano.&lt;/p&gt;\r\n&lt;div&gt;\r\n  &lt;table&gt;\r\n    &lt;tbody&gt;\r\n      &lt;tr&gt;\r\n        &lt;td colspan=&quot;2&quot; style=&quot;text-align: center&quot;&gt;&lt;strong&gt;Battle MoSCoW vs Kano&lt;/strong&gt;&lt;/td&gt;\r\n      &lt;/tr&gt;\r\n      &lt;tr&gt;\r\n        &lt;th style=&quot;text-align: center;&quot;&gt;A ma gauche MoSCoW&lt;/th&gt;\r\n        &lt;th style=&quot;text-align: center;&quot;&gt;A ma droite Kano&lt;/th&gt;\r\n      &lt;/tr&gt;\r\n      &lt;tr&gt;\r\n        &lt;td&gt;[youtube width=&quot;360&quot; height=&quot;300&quot;]http://www.youtube.com/watch?v=QfZo9cxnQgY[/youtube]&lt;/td&gt;\r\n        &lt;td&gt;[youtube width=&quot;360&quot; height=&quot;300&quot;]http://www.youtube.com/watch?v=XtbcuLrWync[/youtube]&lt;/td&gt;\r\n      &lt;/tr&gt;\r\n    &lt;/tbody&gt;\r\n  &lt;/table&gt;\r\n&lt;/div&gt;\r\n&lt;p&gt;Bonne lecture et n'hésitez pas à me faire part de vos opinions sur le sujet!&lt;/p&gt;\r\n\r\n&lt;h4 id=&quot;RevuedePresseXebia-5raisonsdecélébrerseserreursautravail&quot;&gt;5 raisons de célébrer ses erreurs au travail&lt;/h4&gt;\r\n[author twitter=&quot;crochas&quot; username=&quot;crochas&quot; urls=&quot;http://github.com/crochas&quot; lastname=&quot;Rochas&quot; firstname=&quot;Cl&amp;#233;ment&quot;/]\r\n\r\n&lt;p&gt;Dans cet &lt;a href=&quot;http://positivesharing.com/2010/06/top-5-reasons-to-celebrate-mistakes-at-work/&quot; rel=&quot;nofollow&quot;&gt;article&lt;/a&gt; de 2010 mais toujours d'actualité, Alexander Kjerulf commence par citer Zappos, l'entreprise dont le nom était sur toutes les lèvres la semaine dernière au &lt;a href=&quot;http://www.scrumday.fr/&quot; rel=&quot;nofollow&quot;&gt;scrumday&lt;/a&gt; après la keynote de Robert Richman. Il donne ensuite 5 raisons de célébrer ses erreurs au travail!&lt;/p&gt;\r\n&lt;ol&gt;\r\n  &lt;li&gt;Quand vous célébrez vos erreurs, vous apprenez de ces dernières;&lt;/li&gt;\r\n  &lt;li&gt;Vous ne perdez plus votre temps à couvrir vos arrières;&lt;/li&gt;\r\n  &lt;li&gt;Quand les erreurs sont célébrées, vous renforcez votre créativité et votre innovation;&lt;/li&gt;\r\n  &lt;li&gt;Les failles ouvrent souvent de nouveaux horizons;&lt;/li&gt;\r\n  &lt;li&gt;Quand vous célébrez vos erreurs, vous en faites moins!&lt;/li&gt;\r\n&lt;/ol&gt;\r\n\r\n&lt;h3 id=&quot;RevuedePresseXebia-Web&quot;&gt;Web&lt;/h3&gt;\r\n\r\n&lt;h4 id=&quot;RevuedePresseXebia-BrowserDiet&quot;&gt;Browser Diet&lt;/h4&gt;\r\n[author twitter=&quot;ygrenzinger&quot; username=&quot;ygrenzinger&quot; lastname=&quot;Grenzinger&quot; firstname=&quot;Yannick&quot;/]\r\n\r\n&lt;p&gt;Un guide des performances front-end très complet et efficace qui va du javascript/jquery jusqu'aux sélecteurs CSS en passant par les stratégies de chargement de fichier et la compression des images:&lt;/p&gt;\r\n&lt;p&gt;&lt;a href=&quot;http://browserdiet.com/&quot; rel=&quot;nofollow&quot;&gt;http://browserdiet.com/&lt;/a&gt;&lt;/p&gt;\r\n\r\n&lt;h4 id=&quot;RevuedePresseXebia-Afficherunepagemobileenmoinsd&amp;#39;uneseconde&quot;&gt;Afficher une page mobile en moins d'une seconde&lt;/h4&gt;\r\n[author twitter=&quot;null&quot; username=&quot;flegall&quot; urls=&quot;http://github.com/flegall&quot; lastname=&quot;Le Gall&quot; firstname=&quot;Florent&quot;/]\r\n\r\n&lt;p&gt;Un talk très instructif donné par Ilya Grigorik (ingénieur chez Google).&lt;/p&gt;\r\n&lt;ul&gt;\r\n  &lt;li&gt;Pourquoi 1 seconde ? C'est le temps maximum qu'un utilisateur mobile passera à attendre le chargement d'une page sans penser à autre chose.&lt;/li&gt;\r\n  &lt;li&gt;Pourquoi est-ce difficile ? Les réseaux mobiles ont une latence beaucoup plus élevée que les réseaux filaires, afficher une page web nécessite très souvent plusieurs requêtes.&lt;/li&gt;\r\n  &lt;li&gt;\r\n    Comment y arriver ? &lt;br /&gt;\r\n    &lt;ul&gt;\r\n      &lt;li&gt;Une seule requête HTTP par page.&lt;/li&gt;\r\n      &lt;li&gt;Inliner le contenu essentiel à la page. &lt;/li&gt;\r\n      &lt;li&gt;Reporter le chargement du contenu non-essentiel dans d'autres requêtes HTTP.&lt;/li&gt;\r\n    &lt;/ul&gt;\r\n  &lt;/li&gt;\r\n&lt;/ul&gt;\r\n&lt;p&gt;Le talk en video :&lt;/p&gt;\r\n&lt;p&gt;[youtube]http://www.youtube.com/watch?v=Il4swGfTOSM[/youtube]&lt;/p&gt;\r\n&lt;p&gt;Les slides : &lt;a href=&quot;http://www.igvita.com/slides/2013/breaking-1s-mobile-barrier.pdf&quot; rel=&quot;nofollow&quot;&gt;http://www.igvita.com/slides/2013/breaking-1s-mobile-barrier.pdf&lt;/a&gt;&lt;/p&gt;\r\n\r\n&lt;h3 id=&quot;RevuedePresseXebia-Lecoindelatechnique&quot;&gt;Le coin de la technique&lt;/h3&gt;\r\n\r\n&lt;h4 id=&quot;RevuedePresseXebia-Lecoindelatechnique-LesnouveautésdeJPA2.1&quot;&gt;Les nouveautés de JPA 2.1&lt;/h4&gt;\r\n[author lastname=&quot;Couignoux&quot; firstname=&quot;Jean-Eudes&quot;/]\r\n\r\n&lt;p&gt;Pour les inconditionnels des ORM, Red Hat a récemment publié la version 4.3.0.Beta1 de son très populaire framework Hibernate. Cette version apporte le support de JPA 2.1 (spécification de JEE7 pour gérer la persistance des données), et nous donne donc l'occasion de faire un point sur les évolutions futures de la norme :&lt;/p&gt;\r\n&lt;ul&gt;\r\n  &lt;li&gt;le support des procédures stockées (plus de détails dans cet article : &lt;a href=&quot;http://relation.to/Bloggers/CallableStatementSupport&quot; rel=&quot;nofollow&quot;&gt;http://relation.to/Bloggers/CallableStatementSupport&lt;/a&gt;)&lt;/li&gt;\r\n  &lt;li&gt;la possibilité de générer des requêtes de mise en jour et de suppression de données via l'API criteria (UPDATE et DELETE)&lt;/li&gt;\r\n  &lt;li&gt;de nouveaux mots clefs dans la syntaxe JPQL : &lt;em&gt;FUNCTION&lt;/em&gt; pour utiliser directement les fonctions du SGBD, &lt;em&gt;ON&lt;/em&gt; pour définir des critères supplémentaires pour les jointures et &lt;em&gt;TREAT&lt;/em&gt; qui permet d'utiliser des propriétés d'une sous classe de l'entité pour une jointure ou une clause where.&lt;/li&gt;\r\n  &lt;li&gt;la possibilité d'injecter un entityManager en mode &amp;quot;UNSYNCHRONIZED&amp;quot;. Celui-ci n'appellera pas la méthode flush à moins d'avoir rejoint explicitement une transaction (entityManager.joinTransaction()). Ceci permet de modifier des entités sans que les modifications soit sauvegardées en base de données.&lt;/li&gt;\r\n&lt;/ul&gt;\r\n\r\n&lt;h4 id=&quot;RevuedePresseXebia-JavaMicrobenchmarkHarness&quot;&gt;Java Microbenchmark Harness&lt;/h4&gt;\r\n[author twitter=&quot;pingtimeout&quot; username=&quot;plaporte&quot; urls=&quot;http://www.pingtimeout.fr&quot; lastname=&quot;Laporte&quot; firstname=&quot;Pierre&quot;/]\r\n\r\n&lt;p&gt;Effectuer des tests de performance demande beaucoup de rigueur. Il en faut encore plus lorsqu'il s'agit de microbenchmarks, destinés à mesurer l'efficacité d'une méthode ou d'une classe.&lt;/p&gt;\r\n&lt;p&gt;Pour aider les testeurs à faire des tests probants et faire face à un grand nombre de microbenchmarks erronés sur internet, un framework de microbenchmark (&lt;a href=&quot;http://mail.openjdk.java.net/pipermail/code-tools-dev/2013-March/000004.html&quot; rel=&quot;nofollow&quot;&gt;Java Microbenchmark Harness&lt;/a&gt;) a été intégré aux outils livrés avec OpenJDK. Ce framework a d'ores et déjà été utilisé pour vérifier les performances de l'api java.util.concurrent (JSR-166) , l'inclusion de nouveaux langages dynamiques (JSR-292, InvokeDynamic) et plus récemment pour le projet Lambda (JDK 8).&lt;/p&gt;\r\n\r\n&lt;h4 id=&quot;RevuedePresseXebia-Lingual:uneinterfaceSQLpourCascading&quot;&gt;Lingual : une interface SQL pour Cascading&lt;/h4&gt;\r\n[author twitter=&quot;BertrandDechoux&quot; username=&quot;bdechoux&quot; urls=&quot;https://github.com/BertrandDechoux&quot; lastname=&quot;Dechoux&quot; firstname=&quot;Bertrand&quot;/]\r\n\r\n&lt;p&gt;&lt;a href=&quot;http://blog.xebia.fr/2012/09/14/les-dessous-de-cascalog-cascading/&quot; rel=&quot;nofollow&quot;&gt;Cascading&lt;/a&gt; fait partie des solutions telles que &lt;a href=&quot;http://pig.apache.org/&quot; rel=&quot;nofollow&quot;&gt;Pig&lt;/a&gt; ou &lt;a href=&quot;http://hive.apache.org/&quot; rel=&quot;nofollow&quot;&gt;Hive&lt;/a&gt; vous permettant de grandement réduire la complexité de conception et de maintenance de vos jobs MapReduce pour un cluster &lt;a href=&quot;http://hadoop.apache.org/&quot; rel=&quot;nofollow&quot;&gt;Hadoop&lt;/a&gt;. De nombreuses surcouches ont été créées afin de se détacher de la verbosité de java mais surtout afin de fournir des abstractions encore plus élevées. &lt;a href=&quot;http://blog.xebia.fr/2012/02/08/cascalog-ou-comment-ecrire-ses-mapreduces-de-facon-concise-6/&quot; rel=&quot;nofollow&quot;&gt;Cascalog&lt;/a&gt; (clojure) et &lt;a href=&quot;https://github.com/twitter/scalding&quot; rel=&quot;nofollow&quot;&gt;Scalding&lt;/a&gt; (scala) sont les deux exemples les plus connus. Le dernier de la famille, &lt;a href=&quot;http://www.cascading.org/lingual/&quot; rel=&quot;nofollow&quot;&gt;Lingual&lt;/a&gt;, vient de sortir finalement au grand jour. Il se distingue de ses ainés en proposant à ses utilisateurs un langage plus connu : le SQL. Il se place ainsi en concurrence directe avec Hive qui lui aussi propose de traiter les données par l'intermédiaire de requêtes formulées en (pseudo-)SQL. Affaire à suivre.&lt;/p&gt;",
+//                           "date": "2013-04-16 10:00:54",
+//                           "excerpt": "",
+//                           "identifier": 13699,
+//                           "modified": "2013-04-16 13:48:01",
+//                           "slug": "revue-de-presse-xebia-2013-16",
+//                           "status": "publish",
+//                           "tags": [
+//                       {
+//                           "description_": "",
+//                           "identifier": 1083,
+//                           "postCount": 4,
+//                           "slug": "cascading",
+//                           "title": "Cascading"
+//                       },
+//                       {
+//                           "description_": "",
+//                           "identifier": 192,
+//                           "postCount": 44,
+//                           "slug": "hadoop",
+//                           "title": "Hadoop"
+//                       },
+//                       {
+//                           "description_": "",
+//                           "identifier": 707,
+//                           "postCount": 2,
+//                           "slug": "jpa-2",
+//                           "title": "JPA 2"
+//                       },
+//                       {
+//                           "description_": "",
+//                           "identifier": 1234,
+//                           "postCount": 1,
+//                           "slug": "kano",
+//                           "title": "Kano"
+//                       },
+//                       {
+//                           "description_": "",
+//                           "identifier": 1236,
+//                           "postCount": 1,
+//                           "slug": "lingual",
+//                           "title": "Lingual"
+//                       },
+//                       {
+//                           "description_": "",
+//                           "identifier": 27,
+//                           "postCount": 194,
+//                           "slug": "methodes-agiles",
+//                           "title": "Méthodes agiles"
+//                       },
+//                       {
+//                           "description_": "",
+//                           "identifier": 1235,
+//                           "postCount": 1,
+//                           "slug": "microbenchmark",
+//                           "title": "Microbenchmark"
+//                       },
+//                       {
+//                           "description_": "",
+//                           "identifier": 265,
+//                           "postCount": 10,
+//                           "slug": "mobilite",
+//                           "title": "Mobilité"
+//                       },
+//                       {
+//                           "description_": "",
+//                           "identifier": 1233,
+//                           "postCount": 1,
+//                           "slug": "moscow",
+//                           "title": "MoSCoW"
+//                       },
+//                       {
+//                           "description_": "",
+//                           "identifier": 1057,
+//                           "postCount": 4,
+//                           "slug": "scrum-day",
+//                           "title": "Scrum Day"
+//                       }
+//                   ],
+//                           "title": "Revue de Presse Xebia",
+//                           "titlePlain": "Revue de Presse Xebia",
+//                           "type": "post",
+//                           "url": "http://blog.xebia.fr/2013/04/16/revue-de-presse-xebia-2013-16/"
+//               };
+//               onLoad(json);
+//           });
+       </script>
+
+       <script id="post-header-template" type="text/x-handlebars-template">
+
+           <div id="post-header-title">
+               <h1>{{post.title}}</h1>
+           </div>
+
+           <div id="post-header-body">
+               <div id="post-author-images-content">
+                   <ul id="post-author-images">
+                       <li data-id="{{post.id}}">
+                           <img id="post-author-image" src="image/avatar/xebia-avatar.png" />
+                       </li>
+                   </ul>
+               </div>
+               <div id="post-header-body-content">
+                   <h1>{{post.author.first_name}} {{post.author.last_name}}</h1>
+                   <h2>Publié le : <em>{{modified}}</em></h2>
+                   <h2>
+                       Tags : <em><ul id="post-tags" style="display: inline;">
+                           {{#each post.tags}}
+                           <li style="display: inline;"><a href="wordpress://tag/{{this.slug}}">{{this.title}}</a></li>
+                           {{/each}}
+                       </ul></em>
+                   </h2>
+               </div>
+           </div>
+
+       </script>
+
+       <script id="post-body-template" type="text/x-handlebars-template">
+           {{{content}}}
+       </script>
+
+       <script>
+           function prettifyCodeFragments(content) {
+
+               var languages = {
+                   'javascript': 'js',
+                   'java': 'java',
+                   'html': 'html',
+                   'scala': 'scala',
+                   'css': 'css',
+                   'sql': 'sql',
+                   'coffee': 'coffee',
+                   'coffeescript': 'coffee',
+                   'groovy': 'groovy',
+                   'shell': 'sh',
+                   'ruby': 'rb',
+                   'phyton': 'py',
+                   'dart': 'dart',
+                   'jruby': 'jruby',
+                   'clojure': 'cojure',
+                   'c': 'c',
+                   'cpp': 'cpp',
+                   'cs': 'cs',
+                   'objc': 'c',
+                   'obj-c': 'c',
+                   'erlang': 'erlang',
+                   'xml': 'xml',
+                   'xsl': 'xsl',
+                   'actionscript': 'js',
+                   'mxml': 'mxml'
+               };
+
+               _(languages).each(function (value, key) {
+
+                   var open = '<pre class="prettyprint linenums:1 gutter:false"><code class="lang-' + value + '" style="white-space: nowrap;">';
+                   var openWithGutter = '<pre class="prettyprint linenums gutter:true"><code class="lang-' + value + '" style="white-space: nowrap;">';
+                   var close = '</pre></code>';
+
+                   var openRegExp = new RegExp('\\[' + key + '\\]', 'g');
+                   var closeegExp = new RegExp('\\[\\/' + key + '\\]', 'g');
+
+                   content = content.replace(openRegExp, open).replace(closeegExp, close);
+
+                   openRegExp = new RegExp('\\[' + key + '\\ gutter=\\"false"\\]', 'g');
+                   closeegExp = new RegExp('\\[\\/' + key + '\\ gutter=\\"false\\"]', 'g');
+
+                   content = content.replace(openRegExp, open).replace(closeegExp, close);
+
+                   openRegExp = new RegExp('\\[' + key + '\\ gutter=\\"true"\\]', 'g');
+                   closeegExp = new RegExp('\\[\\/' + key + '\\ gutter=\\"true\\"]', 'g');
+
+                   content = content.replace(openRegExp, openWithGutter).replace(closeegExp, close);
+
+               });
+
+               return content;
+           }
+
+           function prettyLineReturns(html) {
+               html = html.replace("<br>", "<br />").replace("<br/>", "<br />");
+               html = html.replace(/(<br \/>)+/g, '<br />');
+               html = html.replace(/<p>\u00a0<\/p>/g, '');
+
+               return html;
+           }
+
+           if (typeof String.prototype.startsWith != 'function') {
+             // see below for better implementation!
+             String.prototype.startsWith = function (str){
+               return this.indexOf(str) == 0;
+             };
+           }
+
+           function prettifyImages(html) {
+               var htmlAsDom = $("<div/>");
+               htmlAsDom.html(html);
+
+               console.log("*** Count: " + $("img", htmlAsDom).length);
+
+               $("img", htmlAsDom).each(function() {
+                   var rawImage = $(this)[0];
+                   console.log("*** Raw Image: " + rawImage);
+                   var image = $(rawImage);
+
+                   if (isIOSBrowser()) {
+                       if (image.attr("src").startsWith("http") || image.attr("src").startsWith("https")) {
+                           console.log("Before: " + rawImage.outerHTML);
+                           var imageGUID = GUID();
+                           image.attr("data-guid", imageGUID);
+                           image.attr("data-src", "cid://img/" + imageGUID + "/" + encodeURIComponent(image.attr("src")));
+                           image.attr("src", "image/spacer.png");
+                           console.log("After: " + rawImage.outerHTML);
+                           executeObjcCall(image.attr("data-src"));
+                       }
+                   }
+
+                   var floatValue = image.css("float");
+//                   var windowWidth = $(window).width();
+                   if (floatValue == 'left' || floatValue == 'right') {
+                       image.css("max-width", "33%");
+                   }
+                   else {
+                       image.css("max-width", "90%");
+                   }
+                   image.removeAttr("vspace");
+                   image.css("margin", "10px");
+                   image.css("border", "none");
+                   image.css("padding", "0");
+               });
+
+               var html = htmlAsDom.html();
+
+               return html;
+           }
+
+           function prettifyGravatar(id, author) {
+               if(isIOSBrowser()) {
+                   var image = $($('img#' + id)[0]);
+
+                   var imageGUID = GUID();
+                   image.attr("data-guid", imageGUID);
+                   image.attr("data-src", "cid://gravatar/" + imageGUID + "/" + encodeURIComponent(author.email));
+                   image.attr("src", "image/spacer.png");
+
+                   executeObjcCall(image.attr("data-src"));
+               }
+
+//               if ("Xebia France" == author.nickname) {
+//                   return "image/avatar/xebia-avatar.png";
+//               }
+//
+//               var md5Hash = md5(author.nickname + '@xebia.fr', false, false);
+//               var prettifyGravatar = 'http://www.gravatar.com/avatar/' + md5Hash + '?s=' + (size || 80);
+//               console.log("Nickname: " + author.nickname);
+//               console.log("prettifyGravatar: " + prettifyGravatar);
+//               return prettifyGravatar;
+           }
+
+           function onResourceLoaded(id, src) {
+               console.log("Src: " + src + ", id: " + id);
+               console.log("image with path: 'img[data-guid='" + id + "']'");
+
+               var image = $("img[data-guid='" + id + "']");
+
+               console.log("image: " + image[0]);
+
+               var rawImage = image[0];
+
+               console.log("Image loaded before: " + rawImage.outerHTML);
+
+               image.attr("src", src);
+               console.log("Image loaded after: " + rawImage.outerHTML);
+           }
+
+           function executeObjcCall(statement) {
+               setTimeout(function() {
+                   var iframe = document.createElement("IFRAME");
+                   iframe.setAttribute("src", statement);
+                   document.documentElement.appendChild(iframe);
+                   iframe.parentNode.removeChild(iframe);
+                   iframe = null;
+               }, 0);
+           }
+
+           function GUID ()
+           {
+               var S4 = function ()
+               {
+                   return Math.floor(
+                           Math.random() * 0x10000 /* 65536 */
+                   ).toString(16);
+               };
+
+               var guid = (
+                       S4() + S4() + "-" +
+                               S4() + "-" +
+                               S4() + "-" +
+                               S4() + "-" +
+                               S4() + S4() + S4()
+                       );
+
+               return guid;
+           }
+
+           function htmlDecode(value) {
+               var html = $('<div/>').html(value).text();
+//                 html = html.replace(/\r\n|\r|\n/g, '');
+
+               html = prettifyCodeFragments(html);
+               html = prettyLineReturns(html);
+
+               return html;
+           }
+
+       </script>
+
+   </body>
+
+</html>

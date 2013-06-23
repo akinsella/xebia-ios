@@ -1,0 +1,17 @@
+//
+// Created by akinsella on 07/04/13.
+//
+// To change the template use AppCode | Preferences | File Templates.
+//
+
+
+#import <Foundation/Foundation.h>
+#import "XBTableViewController.h"
+
+@class XBMainViewController;
+@class PKRevealController;
+@class XBViewControllerManager;
+
+@interface XBMenuViewController : XBTableViewController<UITableViewDelegate, UITableViewDataSource, XBTableViewControllerDelegate>
+
+@end
