@@ -28,47 +28,52 @@
 
     if(dayDiff == 0) {
         NSDateFormatter *df2 = [[NSDateFormatter alloc] init];
-        [df2 setDateFormat:@"HH:mm"];
+        [df2 setDateFormat:NSLocalizedString(@"HH:mm", nil)];
         NSString *dateFormatted = [df2 stringFromDate:date];
 //        NSLog(@"Date formatted: %@", dateFormatted);
-        return [NSString stringWithFormat:@"Today, %@", dateFormatted];
+        return [NSString stringWithFormat:NSLocalizedString(@"Today, %@", nil), dateFormatted];
     }
     else if(dayDiff == -1) {
-        return @"Yesterday";
+        return NSLocalizedString(@"Yesterday", nil);
     }
     else if(dayDiff == -2) {
-        return @"Two days ago";
+        return NSLocalizedString(@"Two days ago", nil);
     }
     else if(dayDiff > -7 && dayDiff <= -2) {
-        return @"This week";
+        return NSLocalizedString(@"This week", nil);
     }
     else if(dayDiff > -14 && dayDiff <= -7) {
-        return @"Last week";
+        return NSLocalizedString(@"Last week", nil);
     }
     else if(dayDiff >= -30 && dayDiff <= -14) {
-        return @"This month";
+        return NSLocalizedString(@"This month", nil);
     }
     else if(dayDiff >= -60 && dayDiff <= -30) {
-        return @"Last month";
+        return NSLocalizedString(@"Last month", nil);
     }
     else if(dayDiff >= -90 && dayDiff <= -60) {
-        return @"Within last three months";
+        return NSLocalizedString(@"Within last three months", nil);
     }
     else if(dayDiff >= -180 && dayDiff <= -90) {
-        return @"Within last six months";
+        return NSLocalizedString(@"Within last six months", nil);
     }
     else if(dayDiff >= -365 && dayDiff <= -180) {
-        return @"Within this year";
+        return NSLocalizedString(@"Within this year", nil);
     }
     else if(dayDiff < -365) {
-        return @"A long time ago";
+        return NSLocalizedString(@"A long time ago", nil);
     }
     else {
         NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-        [dateFormatter setDateFormat:@"'yyyy'/'MM'/'dd', 'hh':'mm'"];
+        [dateFormatter setDateFormat:NSLocalizedString(@"yyyy'/'MM'/'dd', 'hh':'mm", nil)];
         return [dateFormatter stringFromDate:date];        
     }
 
 }
 
++ (NSString *)formatDateTime:(NSDate *)date {
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:NSLocalizedString(@"yyyy'/'MM'/'dd', 'hh':'mm", nil)];
+    return [dateFormatter stringFromDate:date];
+}
 @end

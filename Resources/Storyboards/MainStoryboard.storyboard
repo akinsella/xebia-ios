@@ -236,6 +236,156 @@
             </objects>
             <point key="canvasLocation" x="-2022" y="2323"/>
         </scene>
+        <!--Video Table View Controller - Videos-->
+        <scene sceneID="CCD-qM-qNX">
+            <objects>
+                <tableViewController storyboardIdentifier="videos" title="Videos" id="r5K-dp-z4l" customClass="VMVideoTableViewController" sceneMemberID="viewController">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="coC-lB-3xc">
+                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <connections>
+                            <outlet property="dataSource" destination="r5K-dp-z4l" id="sLF-Pz-lse"/>
+                            <outlet property="delegate" destination="r5K-dp-z4l" id="OEU-kx-0ao"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Videos" id="rw7-HA-Bo7"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="blackOpaque" prompted="NO"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="g5W-mt-AEC" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-3210" y="154"/>
+        </scene>
+        <!--Video Details View Controller - Video Détails-->
+        <scene sceneID="0hg-JV-tGh">
+            <objects>
+                <viewController storyboardIdentifier="videoDetails" id="Hhb-Gv-izD" customClass="VMVideoDetailsViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="SjP-kM-g1E">
+                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" id="AcS-FG-3ya">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="180"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.31372549019607843" green="0.31372549019607843" blue="0.31372549019607843" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
+                            <view contentMode="scaleToFill" id="8iV-0n-5gL">
+                                <rect key="frame" x="0.0" y="180" width="320" height="49"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Xebia-France" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="BGC-Fe-rke">
+                                        <rect key="frame" x="20" y="8" width="242" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="HD" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="IeZ-DJ-S4y">
+                                        <rect key="frame" x="270" y="14" width="42" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Le 18 mars 2013" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="DuQ-g7-kK3">
+                                        <rect key="frame" x="22" y="23" width="242" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="0.69019607839999997" green="0.69019607839999997" blue="0.69019607839999997" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
+                            <view contentMode="scaleToFill" id="wnV-gp-OQe">
+                                <rect key="frame" x="0.0" y="229" width="320" height="107"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" id="xUY-73-zOe">
+                                        <rect key="frame" x="107" y="0.0" width="107" height="107"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <subviews>
+                                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="gzt-KT-TsR">
+                                                <rect key="frame" x="0.0" y="0.0" width="107" height="87"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="32"/>
+                                                <color key="textColor" red="0.69019607839999997" green="0.69019607839999997" blue="0.69019607839999997" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Likes" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="65J-g6-bqr">
+                                                <rect key="frame" x="0.0" y="63" width="107" height="44"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
+                                    </view>
+                                    <view contentMode="scaleToFill" id="jx7-Tp-kiD">
+                                        <rect key="frame" x="0.0" y="0.0" width="107" height="107"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <subviews>
+                                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="613" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="d58-TZ-UWt">
+                                                <rect key="frame" x="0.0" y="0.0" width="107" height="87"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="32"/>
+                                                <color key="textColor" red="0.69019607839999997" green="0.69019607839999997" blue="0.69019607839999997" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Vues" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="uGJ-fb-yx9">
+                                                <rect key="frame" x="0.0" y="63" width="107" height="44"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
+                                    </view>
+                                    <view contentMode="scaleToFill" id="ct0-d1-3Xj">
+                                        <rect key="frame" x="213" y="0.0" width="107" height="107"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <subviews>
+                                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="8" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="sLi-GY-H7t">
+                                                <rect key="frame" x="0.0" y="0.0" width="107" height="87"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="32"/>
+                                                <color key="textColor" red="0.69019607839999997" green="0.69019607839999997" blue="0.69019607839999997" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Commentaires" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsLetterSpacingToFitWidth="YES" adjustsFontSizeToFit="NO" id="ibc-R3-dzN">
+                                                <rect key="frame" x="0.0" y="63" width="107" height="44"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" red="0.18823529411764706" green="0.18823529411764706" blue="0.18823529411764706" alpha="1" colorSpace="calibratedRGB"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Video Détails" id="hDW-YE-yFp"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="blackOpaque" prompted="NO"/>
+                    <connections>
+                        <outlet property="commentCount" destination="sLi-GY-H7t" id="ZXC-gb-S7s"/>
+                        <outlet property="date" destination="DuQ-g7-kK3" id="NuE-KU-07j"/>
+                        <outlet property="definition" destination="IeZ-DJ-S4y" id="9dC-8E-AYK"/>
+                        <outlet property="displayName" destination="BGC-Fe-rke" id="2sO-o5-Kwg"/>
+                        <outlet property="likeCount" destination="gzt-KT-TsR" id="KU0-Cs-AYP"/>
+                        <outlet property="playCount" destination="d58-TZ-UWt" id="G9d-Yk-uud"/>
+                        <outlet property="videoBackgroundView" destination="AcS-FG-3ya" id="0AU-LI-0xH"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="JUj-cI-96J" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2838" y="154"/>
+        </scene>
         <!--Twitter Table View Controller-->
         <scene sceneID="hs0-V0-Xbe">
             <objects>
@@ -333,6 +483,83 @@
         <image name="44-shoebox.png" width="24" height="22"/>
         <image name="homeview.png" width="245" height="114"/>
     </resources>
+    <classes>
+        <class className="EBEventTableViewController" superclassName="XBReloadableTableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/EBEventTableViewController.h"/>
+        </class>
+        <class className="GHMemberTableViewController" superclassName="XBReloadableTableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/GHMemberTableViewController.h"/>
+        </class>
+        <class className="GHRepositoryTableViewController" superclassName="XBReloadableTableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/GHRepositoryTableViewController.h"/>
+        </class>
+        <class className="GHTabBarController" superclassName="UITabBarController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/GHTabBarController.h"/>
+        </class>
+        <class className="TTTweetTableViewController" superclassName="XBReloadableTableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/TTTweetTableViewController.h"/>
+        </class>
+        <class className="UINavigationBar">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/UINavigationBar.h"/>
+            <relationships>
+                <relationship kind="action" name="back:"/>
+            </relationships>
+        </class>
+        <class className="VMVideoDetailsViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/VMVideoDetailsViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="commentCount" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="date" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="definition" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="displayName" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="likeCount" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="playCount" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="videoBackgroundView" candidateClass="UIView"/>
+            </relationships>
+        </class>
+        <class className="VMVideoTableViewController" superclassName="XBReloadableTableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/VMVideoTableViewController.h"/>
+        </class>
+        <class className="WPAuthorTableViewController" superclassName="XBReloadableTableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/WPAuthorTableViewController.h"/>
+        </class>
+        <class className="WPCategoryTableViewController" superclassName="XBReloadableTableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/WPCategoryTableViewController.h"/>
+        </class>
+        <class className="WPPostTableViewController" superclassName="XBInfiniteScrollTableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/WPPostTableViewController.h"/>
+        </class>
+        <class className="WPRecentPostTableViewController" superclassName="WPPostTableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/WPRecentPostTableViewController.h"/>
+        </class>
+        <class className="WPTabBarController" superclassName="UITabBarController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/WPTabBarController.h"/>
+        </class>
+        <class className="WPTagTableViewController" superclassName="XBReloadableTableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/WPTagTableViewController.h"/>
+        </class>
+        <class className="XBHomeController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/XBHomeController.h"/>
+        </class>
+        <class className="XBInfiniteScrollTableViewController" superclassName="XBReloadableTableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/XBInfiniteScrollTableViewController.h"/>
+        </class>
+        <class className="XBMenuViewController" superclassName="XBTableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/XBMenuViewController.h"/>
+        </class>
+        <class className="XBReloadableTableViewController" superclassName="XBTableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/XBReloadableTableViewController.h"/>
+        </class>
+        <class className="XBTableViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/XBTableViewController.h"/>
+        </class>
+        <class className="XBWebViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/XBWebViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="webView" candidateClass="UIWebView"/>
+            </relationships>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

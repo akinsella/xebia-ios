@@ -19,7 +19,6 @@
 
 @property (nonatomic, strong) NSNumber *identifier;
 @property (nonatomic, strong) NSString *content;
-@property (nonatomic, readonly, strong) UIImage *avatarImage;
 
 @property (nonatomic, strong) NSArray *hashtags;
 @property (nonatomic, strong) NSArray *urls;

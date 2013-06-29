@@ -1,0 +1,14 @@
+/* Created by Alexis Kinsella on 29/06/13. Copyright (c) 2013 Xebia. All rights reserved. */
+"HH:mm"="HH:mm"
+"Today, %@"="Today, %@";
+"Yesterday"="Yesterday";
+"Two days ago"="Two days ago";
+"This week"="This week";
+"Last week"="Last week";
+"This month"="This month";
+"Last month"="Last month";
+"Within last three months"="Within last three months";
+"Within last six months"="Within last six months";
+"Within this year"="Within this year";
+"A long time ago"="A long time ago";
+"yyyy'/'MM'/'dd', 'HH':'mm"="yyyy'/'MM'/'dd', 'HH':'mm";
