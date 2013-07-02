@@ -11,14 +11,12 @@
 #import <MediaPlayer/MediaPlayer.h>
 
 @class VMVideo;
-@class MPMoviePlayerController;
 
 @interface VMVideoDetailsViewController : UIViewController
 
-@property (strong) MPMoviePlayerController *moviePlayerController;
-@property (strong, nonatomic) IBOutlet UIView *videoBackgroundView;
 @property (strong, nonatomic) IBOutlet UILabel *playCount;
 @property (strong, nonatomic) IBOutlet UILabel *likeCount;
+@property (weak, nonatomic) IBOutlet UIImageView *videoImage;
 
 @property (strong, nonatomic) IBOutlet UILabel *commentCount;
 @property (strong, nonatomic) IBOutlet UILabel *displayName;
@@ -26,10 +24,6 @@
 @property (strong, nonatomic) IBOutlet UILabel *date;
 
 @property(nonatomic, strong)VMVideo *video;
-
-- (void)viewWillEnterForeground;
-- (void)playMovieFile:(NSURL *)movieFileURL;
-- (void)playMovieStream:(NSURL *)movieFileURL;
 
 @end
 

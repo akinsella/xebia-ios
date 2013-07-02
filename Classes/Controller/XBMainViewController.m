@@ -12,6 +12,7 @@
 #import "JSONKit.h"
 #import "XBMapper.h"
 #import "NSDateFormatter+XBAdditions.h"
+#import "XBRightMenuViewController.h"
 
 
 // Enum for row indices
@@ -49,9 +50,11 @@ enum {
     self.viewControllerManager = viewControllerManager;
     UIViewController *leftViewController = [self.viewControllerManager getOrCreateControllerWithIdentifier:leftViewControllerIdentifier];
     UIViewController *centralViewController = [self.viewControllerManager getOrCreateControllerWithIdentifier:centralViewControllerIdentifier];
+    UIViewController *rightViewController = [[XBRightMenuViewController alloc] init];
 
     self = [super initWithFrontViewController:centralViewController
                            leftViewController:leftViewController
+                          rightViewController:rightViewController
                                       options:revealControllerOptions];
 
     if (self) {

@@ -357,6 +357,10 @@
 		54A7484A177EFEB300B9A907 /* Wordings.strings in Resources */ = {isa = PBXBuildFile; fileRef = 54A74848177EFEB300B9A907 /* Wordings.strings */; };
 		54A7484E177F124B00B9A907 /* XBDate.m in Sources */ = {isa = PBXBuildFile; fileRef = 54A7484D177F124B00B9A907 /* XBDate.m */; };
 		54A7484F177F124B00B9A907 /* XBDate.m in Sources */ = {isa = PBXBuildFile; fileRef = 54A7484D177F124B00B9A907 /* XBDate.m */; };
+		54A7485117823C5E00B9A907 /* video_placeholder.png in Resources */ = {isa = PBXBuildFile; fileRef = 54A7485017823C5E00B9A907 /* video_placeholder.png */; };
+		54A74854178382FB00B9A907 /* videoPlayButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 54A74852178382FB00B9A907 /* videoPlayButton.png */; };
+		54A74855178382FB00B9A907 /* videoPlayButton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 54A74853178382FB00B9A907 /* videoPlayButton@2x.png */; };
+		54A748571783846100B9A907 /* video_placeholder@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 54A748561783846100B9A907 /* video_placeholder@2x.png */; };
 		54C2DEEB15BDFAFB00CABB12 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54C2DEEA15BDFAFB00CABB12 /* UIKit.framework */; };
 		54C2DEED15BDFAFB00CABB12 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54C2DEEC15BDFAFB00CABB12 /* Foundation.framework */; };
 		54C2DEEF15BDFAFB00CABB12 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54C2DEEE15BDFAFB00CABB12 /* CoreGraphics.framework */; };
@@ -378,6 +382,7 @@
 		DB34D1EC375F15EF181F17F5 /* VMThumbnail.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34D3ACE055F5BE09F95779 /* VMThumbnail.m */; };
 		DB34D1EE0348634DF1E15ECA /* XBMenuCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DB34DA4198F561241846CE47 /* XBMenuCell.xib */; };
 		DB34D21080831DADB108D55A /* GHUserCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DB34D4BA81EC4FD48384EA25 /* GHUserCell.xib */; };
+		DB34D217190540A658E8B52C /* XBRightMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34DF4AB3494EC276B736FA /* XBRightMenuViewController.m */; };
 		DB34D268AC837A22AA8D64EC /* WPCategoryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34D8B87DC73AA8DDDD46C8 /* WPCategoryCell.m */; };
 		DB34D2B5279E454E7717D0AC /* WPAuthorCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DB34D96E0DF6CCFCBDF91B05 /* WPAuthorCell.xib */; };
 		DB34D2CB7AB56E241AE841E2 /* VMVideoDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34D520761597BD4B8B7669 /* VMVideoDetailsViewController.m */; };
@@ -430,6 +435,7 @@
 		DB34DE741118B4A0C6E2A745 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB34D43948A4D9409E09F947 /* MessageUI.framework */; };
 		DB34DE9F2A0F614E60B93161 /* WPTagCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DB34DB0DD0A6B58C15D2461A /* WPTagCell.xib */; };
 		DB34DEB39061B9068EDA9981 /* GHRepositoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DB34D58EEEF2EB680C1431C4 /* GHRepositoryCell.xib */; };
+		DB34DEDEBDC910734D6E6BD2 /* XBRightMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34DF4AB3494EC276B736FA /* XBRightMenuViewController.m */; };
 		DB34DEE966E041CA4070DEE6 /* VMVideoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DB34DA18E861CE300585EC75 /* VMVideoCell.xib */; };
 		DB34DF2E9643CA685216363C /* GHMemberCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DB34D1F45D98157465DB787C /* GHMemberCell.xib */; };
 		DB34DF6C6006A6FB745FF1D5 /* GHUserCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34D970AE47ACD42EF7B352 /* GHUserCell.m */; };
@@ -829,6 +835,10 @@
 		54A74849177EFEB300B9A907 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Wordings.strings; sourceTree = "<group>"; };
 		54A7484B177EFEB800B9A907 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Wordings.strings; sourceTree = "<group>"; };
 		54A7484D177F124B00B9A907 /* XBDate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XBDate.m; sourceTree = "<group>"; };
+		54A7485017823C5E00B9A907 /* video_placeholder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = video_placeholder.png; sourceTree = "<group>"; };
+		54A74852178382FB00B9A907 /* videoPlayButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = videoPlayButton.png; sourceTree = "<group>"; };
+		54A74853178382FB00B9A907 /* videoPlayButton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "videoPlayButton@2x.png"; sourceTree = "<group>"; };
+		54A748561783846100B9A907 /* video_placeholder@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "video_placeholder@2x.png"; sourceTree = "<group>"; };
 		54C2DEE615BDFAFB00CABB12 /* xebia-ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "xebia-ios.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		54C2DEEA15BDFAFB00CABB12 /* UIKit.framework */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		54C2DEEC15BDFAFB00CABB12 /* Foundation.framework */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -851,6 +861,7 @@
 		DB34D43948A4D9409E09F947 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = ../../../../../Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.1.sdk/System/Library/Frameworks/MessageUI.framework; sourceTree = "<group>"; };
 		DB34D4BA81EC4FD48384EA25 /* GHUserCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GHUserCell.xib; sourceTree = "<group>"; };
 		DB34D4F8844121026514AB7C /* GHMemberCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GHMemberCell.h; sourceTree = "<group>"; };
+		DB34D506233D03D70749314A /* XBRightMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XBRightMenuViewController.h; sourceTree = "<group>"; };
 		DB34D520761597BD4B8B7669 /* VMVideoDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VMVideoDetailsViewController.m; sourceTree = "<group>"; };
 		DB34D537D08BAF71AF6EDC03 /* VMUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VMUser.h; sourceTree = "<group>"; };
 		DB34D56827878B25BB1F025D /* WPSPostCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WPSPostCell.m; sourceTree = "<group>"; };
@@ -890,6 +901,7 @@
 		DB34DE9F5EB259E9CB86E112 /* TTTweetCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTTweetCell.m; sourceTree = "<group>"; };
 		DB34DEEAA4079818595013B9 /* WPCategoryCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WPCategoryCell.xib; sourceTree = "<group>"; };
 		DB34DF3355B7AD5670668C47 /* GHRepositoryCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GHRepositoryCell.m; sourceTree = "<group>"; };
+		DB34DF4AB3494EC276B736FA /* XBRightMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XBRightMenuViewController.m; sourceTree = "<group>"; };
 		DB34DF603EC84E5DE3FCAD09 /* VMVideo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VMVideo.m; sourceTree = "<group>"; };
 		DB34DFF098560ECBEB2465D4 /* WPSPostCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WPSPostCell.h; sourceTree = "<group>"; };
 		EDB581D723EF4E5C808B5615 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -992,6 +1004,10 @@
 		5443EA221775BEC40000FFE8 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				54A748561783846100B9A907 /* video_placeholder@2x.png */,
+				54A74852178382FB00B9A907 /* videoPlayButton.png */,
+				54A74853178382FB00B9A907 /* videoPlayButton@2x.png */,
+				54A7485017823C5E00B9A907 /* video_placeholder.png */,
 				543C8F811777A7D20079675E /* vimeo.png */,
 				543C8F821777A7D20079675E /* vimeo@2x.png */,
 				544714B817764B61001F5153 /* TabBar.png */,
@@ -1754,6 +1770,8 @@
 			children = (
 				5443EE54177620B60000FFE8 /* XBMenuViewController.h */,
 				5443EE55177620B60000FFE8 /* XBMenuViewController.m */,
+				DB34DF4AB3494EC276B736FA /* XBRightMenuViewController.m */,
+				DB34D506233D03D70749314A /* XBRightMenuViewController.h */,
 			);
 			path = Menu;
 			sourceTree = "<group>";
@@ -2353,6 +2371,10 @@
 				543C8F831777A7D20079675E /* vimeo.png in Resources */,
 				543C8F841777A7D20079675E /* vimeo@2x.png in Resources */,
 				54A7484A177EFEB300B9A907 /* Wordings.strings in Resources */,
+				54A7485117823C5E00B9A907 /* video_placeholder.png in Resources */,
+				54A74854178382FB00B9A907 /* videoPlayButton.png in Resources */,
+				54A74855178382FB00B9A907 /* videoPlayButton@2x.png in Resources */,
+				54A748571783846100B9A907 /* video_placeholder@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2543,6 +2565,7 @@
 				DB34DBAFF3A584BAD3796E7E /* UIAlertView+XBAdditions.m in Sources */,
 				DB34D2CB7AB56E241AE841E2 /* VMVideoDetailsViewController.m in Sources */,
 				54A7484E177F124B00B9A907 /* XBDate.m in Sources */,
+				DB34DEDEBDC910734D6E6BD2 /* XBRightMenuViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2682,6 +2705,7 @@
 				DB34DA61C13EC06BBF7FEB23 /* UIAlertView+XBAdditions.m in Sources */,
 				DB34DDCEA4DCB55F4F0DABB2 /* VMVideoDetailsViewController.m in Sources */,
 				54A7484F177F124B00B9A907 /* XBDate.m in Sources */,
+				DB34D217190540A658E8B52C /* XBRightMenuViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
