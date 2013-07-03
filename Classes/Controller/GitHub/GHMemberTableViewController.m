@@ -30,7 +30,7 @@
     [self.appDelegate.tracker sendView:@"/github/member"];
 
     self.delegate = self;
-    self.title = @"Members";
+    self.title = NSLocalizedString(@"Members", nil);
     self.defaultAvatarImage = [UIImage imageNamed:@"github-gravatar-placeholder"];
 
     [super viewDidLoad];

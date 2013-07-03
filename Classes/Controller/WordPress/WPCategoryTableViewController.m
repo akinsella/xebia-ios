@@ -27,7 +27,7 @@
     [self.appDelegate.tracker sendView:@"/wordpress/category"];
 
     self.delegate = self;
-    self.title = @"Categories";
+    self.title = NSLocalizedString(@"Categories", nil);
 
     [super viewDidLoad];
 }

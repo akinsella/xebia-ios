@@ -15,7 +15,7 @@
 
     [super viewDidLoad];
     
-    self.title = @"Blog";
+    self.title = NSLocalizedString(@"Blog", nil);
 
     [self addMenuButton];
 }

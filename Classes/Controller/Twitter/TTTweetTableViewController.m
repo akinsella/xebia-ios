@@ -33,7 +33,7 @@
     [self.appDelegate.tracker sendView:@"/twitter/timeline"];
 
     self.delegate = self;
-    self.title = @"Tweets";
+    self.title = NSLocalizedString(@"Tweets", nil);
 
     self.defaultAvatarImage = [UIImage imageNamed:@"avatar_placeholder"];
     self.xebiaAvatarImage = [UIImage imageNamed:@"xebia-avatar"];

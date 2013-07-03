@@ -14,16 +14,6 @@
 #import "NSDateFormatter+XBAdditions.h"
 #import "XBRightMenuViewController.h"
 
-
-// Enum for row indices
-enum {
-    XBMenuHome = 0,
-    XBMenuWordpress,
-    XBMenuTwitter,
-    XBMenuGithub,
-    XBMenuEvent,
-};
-
 @interface XBMainViewController ()
 
 @property (nonatomic, strong) XBViewControllerManager *viewControllerManager;
@@ -108,21 +98,6 @@ enum {
     webViewController.title = title;
     
     [webViewController.webView loadRequest:[NSURLRequest requestWithURL: url]];
-}
-
--(void)revealViewControllerWithIdentifier:(NSString *)identifier {
-    if ([self currentViewIsViewControllerWithIdentifier: identifier]) {
-        [self.revealController resignPresentationModeEntirely:YES animated:YES completion:^(BOOL finished) { }];
-    }
-    else {
-        UIViewController * viewController = [self.viewControllerManager getOrCreateControllerWithIdentifier: identifier];
-
-        [self.revealController showViewController:viewController];
-    }
-}
-
--(BOOL)currentViewIsViewControllerWithIdentifier:(NSString *)identifier {
-    return ((UINavigationController *)self.revealController.frontViewController).topViewController == [self.viewControllerManager getOrCreateControllerWithIdentifier:identifier];
 }
 
 @end

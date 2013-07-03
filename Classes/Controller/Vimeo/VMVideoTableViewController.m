@@ -35,7 +35,7 @@
 
     self.delegate = self;
     self.tableView.rowHeight = 75;
-    self.title = @"Videos";
+    self.title = NSLocalizedString(@"Videos", nil);
 
     self.defaultAvatarImage = [UIImage imageNamed:@"avatar_placeholder"];
 

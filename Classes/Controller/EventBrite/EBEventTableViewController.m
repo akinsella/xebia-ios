@@ -29,7 +29,7 @@
     [self.appDelegate.tracker sendView:@"/eventbrite/event"];
 
     self.delegate = self;
-    self.title = @"Events";
+    self.title = NSLocalizedString(@"Events", nil);
     self.defaultImage = [UIImage imageNamed:@"eventbrite"];
 
     [self addMenuButton];

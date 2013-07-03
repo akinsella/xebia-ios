@@ -16,7 +16,7 @@
 
     [self.appDelegate.tracker sendView:@"/home"];
 
-    self.title = @"Home";
+    self.title = NSLocalizedString(@"Home", nil);
     self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"bg_home_pattern-light"]];
 
     [self addMenuButton];

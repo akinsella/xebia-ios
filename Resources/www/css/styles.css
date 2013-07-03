@@ -11,7 +11,7 @@ html {
       -webkit-text-size-adjust: none;
       font-size-adjust:none;
   */
-  font-family: 'HelveticaNeue';
+  font-family: 'HelveticaNeue', 'Helvetica', 'Arial', sans-serif;;
   font-size: 20px;
   color: #444;
 }
@@ -19,6 +19,11 @@ html {
 /* line 17, ../sass/styles.scss */
 body {
   background: #fff;
+}
+
+*:not(input,textarea) {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none; /* Disable selection/Copy of UIWebView */
 }
 
 /* line 21, ../sass/styles.scss */

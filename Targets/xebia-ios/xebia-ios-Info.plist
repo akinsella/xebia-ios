@@ -83,7 +83,8 @@
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
 	<key>XBBaseUrl</key>
-	<string>http://xebia-mobile-backend.helyx.org</string>
+    <string>http://localhost:8000</string>
+    <!--<string>http://xebia-mobile-backend.helyx.org</string>-->
 	<key>XBBlogFranceEmail</key>
 	<string>blog-france@xebia.com</string>
 </dict>

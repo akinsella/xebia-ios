@@ -246,6 +246,7 @@
 - (NSString*)sharersPlistName {
 	return @"SHKSharers.plist";
 }
+
 /*
  UI Configuration : Advanced
  ---------------------------
@@ -255,7 +256,7 @@
 
 // turn on to use placeholders in edit fields instead of labels to the left for input fields.
 - (NSNumber*)usePlaceholders {
-	return [NSNumber numberWithBool:false];
+	return [NSNumber numberWithBool:NO];
 }
 /*
  Advanced Configuration
@@ -275,11 +276,15 @@
 }
 
 - (NSNumber*)allowOffline {
-	return [NSNumber numberWithBool:true];
+	return [NSNumber numberWithBool:YES];
 }
 
 - (NSNumber*)allowAutoShare {
-	return [NSNumber numberWithBool:true];
+	return [NSNumber numberWithBool:YES];
+}
+
+-(NSNumber*)isUsingCocoaPods {
+    return [NSNumber numberWithBool:YES];
 }
 
 /*

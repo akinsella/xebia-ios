@@ -27,7 +27,7 @@
     [self.appDelegate.tracker sendView:@"/github/repository"];
 
     self.delegate = self;
-    self.title = @"Repositories";
+    self.title = NSLocalizedString(@"Repositories", nil);
     self.xebiaAvatarImage = [UIImage imageNamed:@"xebia-avatar"];
 
     [super viewDidLoad];

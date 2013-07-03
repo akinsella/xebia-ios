@@ -54,7 +54,7 @@
 }
 
 - (void)initInternalWithPostType:(POST_TYPE)pPostType identifier:(NSNumber *)pIdentifier {
-    self.title = @"Posts";
+    self.title = NSLocalizedString(@"Posts", nil);
     self.defaultPostImage = [UIImage imageNamed:@"avatar_placeholder"];
     self.xebiaPostImage = [UIImage imageNamed:@"xebia-avatar"];
 
@@ -105,7 +105,7 @@
 
     NSString *resourcePath = [[self currentPostType] isEqualToString:@"recent"] ?
             @"/api/wordpress/post/recent" :
-            [NSString stringWithFormat:@"/api/wordpress/post/%@/%@", [self currentPostType], self.identifier];
+            [NSString stringWithFormat:@"/api/wordpress/%@/%@", self.currentPostType, self.identifier];
 
     return resourcePath;
 }

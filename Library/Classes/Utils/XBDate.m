@@ -24,7 +24,7 @@
     [df setDateFormat:@"yyyy-MM-dd"];
     NSDate *midnight = [df dateFromString:[df stringFromDate:date]];
 
-    NSInteger dayDiff = (int)[midnight timeIntervalSinceNow] / (60*60*24);
+    NSInteger dayDiff = (int)[midnight timeIntervalSinceNow] / (60 * 60 * 24);
 
     if(dayDiff == 0) {
         NSDateFormatter *df2 = [[NSDateFormatter alloc] init];

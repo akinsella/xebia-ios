@@ -25,10 +25,11 @@
     [super viewDidLoad];
 
     self.jsonLoaded = NO;
-    
-    [self.webView setBackgroundColor:[UIColor colorWithHex:@"#141414"]];
+    [self.webView setBackgroundColor:[UIColor colorWithHex:@"#ffffff"]];
     [self.webView setOpaque:NO];
-    
+    [self disableUserInteractions];
+    [self cleanUpWebViewShadow];
+
     self.webView.delegate = self;
     
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction
@@ -36,10 +37,44 @@
                                                                                           action:@selector(uiBarShareButtonItemHanderAction)];
 }
 
+- (void)disableUserInteractions {
+    [self disableCopyPaste];
+    [self disableCallouts];
+    [self removeAllRanges];
+}
+
+- (void)cleanUpWebViewShadow {
+    for (UIView* subView in self.webView.subviews) {
+        if ([subView isKindOfClass:[UIScrollView class]]) {
+            for (UIView* shadowView in [subView subviews]) {
+                if ([shadowView isKindOfClass:[UIImageView class]]) {
+                    [shadowView setHidden:YES];
+                }
+            }
+        }
+    }
+}
+
+- (void)disableCopyPaste {
+    [self.webView stringByEvaluatingJavaScriptFromString:@"document.body.style.webkitUserSelect='none';"];
+}
+
+- (void)removeAllRanges {
+    [self.webView stringByEvaluatingJavaScriptFromString:@"window.getSelection().removeAllRanges();"];
+}
+
+- (void)disableCallouts {
+    // Disable user selection
+    [self.webView stringByEvaluatingJavaScriptFromString:@"document.documentElement.style.webkitUserSelect='none';"];
+    // Disable callout
+    [self.webView stringByEvaluatingJavaScriptFromString:@"document.documentElement.style.webkitTouchCallout='none';"];
+}
+
+
 - (void)uiBarShareButtonItemHanderAction {
 	// Create the item to share (in this example, a url)
 	NSURL *url = [NSURL URLWithString:self.shareInfo.url];
-	SHKItem *item = [SHKItem URL:url title:self.shareInfo.title];
+	SHKItem *item = [SHKItem URL:url title:self.shareInfo.title contentType: SHKURLContentTypeWebpage];
     
 	// Get the ShareKit action sheet
 	SHKActionSheet *actionSheet = [SHKActionSheet actionSheetForItem:item];

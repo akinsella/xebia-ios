@@ -24,7 +24,7 @@
     [self.appDelegate.tracker sendView:@"/wordpress/tag"];
 
     self.delegate = self;
-    self.title = @"Tags";
+    self.title = NSLocalizedString(@"Tags", nil);
 
     [super viewDidLoad];
 }
