@@ -24,7 +24,8 @@ enum {
     XBMenuTwitter,
     /*XBMenuGithub,*/
     XBMenuEvent,
-    XBMenuVimeo
+    XBMenuVimeo,
+    XBMenuXebiaEssentials
 };
 
 @interface XBMenuViewController()
@@ -61,6 +62,7 @@ enum {
            /* [NSNumber asString:XBMenuGithub]: @"tbGithub",*/
             [NSNumber asString:XBMenuEvent]: @"events",
             [NSNumber asString:XBMenuVimeo]: @"videos",
+            [NSNumber asString:XBMenuXebiaEssentials]: @"xebiaEssentials"
                             
     } mutableCopy];
 }
@@ -84,6 +86,7 @@ enum {
             /*@{ @"title": @"GitHub", @"imageName" :@"github"},*/
             @{ @"title": @"Events", @"imageName" :@"eventbrite-menu"},
             @{ @"title": @"Vimeo", @"imageName" :@"vimeo"},
+            @{ @"title": @"Xebia Essentials", @"imageName" :@"xebia-essentials"},
     ];
 
     return [XBArrayDataSource dataSourceWithArray:menuItems];

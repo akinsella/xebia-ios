@@ -15,7 +15,6 @@
 
 @implementation VMVideo
 
-
 + (DCParserConfiguration *)mappings {
     DCParserConfiguration *config = [DCParserConfiguration configuration];
     config.datePattern = @"yyyy-MM-dd HH:mm:ss";
