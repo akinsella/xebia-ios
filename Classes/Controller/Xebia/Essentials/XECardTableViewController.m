@@ -14,18 +14,22 @@
 #import "XBHttpJsonDataLoader.h"
 #import "XBJsonToArrayDataMapper.h"
 #import "XECardCell.h"
-#import "XEDeck.h"
 #import "XECard.h"
-#import "XECardFront.h"
-#import "XECardBack.h"
 #import "XECardDetailsViewController.h"
 
 @implementation XECardTableViewController
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    if (self.category) {
+        [self.appDelegate.tracker sendView:[NSString stringWithFormat: @"/essentials/category/%@", self.category.identifier]];
+    }
+    else {
+        [self.appDelegate.tracker sendView:@"/essentials/card"];
+    }
+}
 
 - (void)viewDidLoad {
-
-    [self.appDelegate.tracker sendView:@"/xebia/essentials/card"];
 
     self.delegate = self;
     self.title = NSLocalizedString(@"Cards", nil);
@@ -50,14 +54,13 @@
     XECardCell *cardCell = (XECardCell *) cell;
 
     XECard *card = self.dataSource[(NSUInteger) indexPath.row];
-    cardCell.titleLabel.text = card.front.para;
-    cardCell.descriptionLabel.text = card.back.para;
+    cardCell.titleLabel.text = card.title;
 }
 
 - (XBArrayDataSource *)buildDataSource {
     XBHttpClient *httpClient = [[XBPListConfigurationProvider provider] httpClient];
     XBBasicHttpQueryParamBuilder *httpQueryParamBuilder = [XBBasicHttpQueryParamBuilder builderWithDictionary:@{}];
-    XBHttpJsonDataLoader *dataLoader = [XBHttpJsonDataLoader dataLoaderWithHttpClient:httpClient httpQueryParamBuilder:httpQueryParamBuilder resourcePath:@"/api/card"];
+    XBHttpJsonDataLoader *dataLoader = [XBHttpJsonDataLoader dataLoaderWithHttpClient:httpClient httpQueryParamBuilder:httpQueryParamBuilder resourcePath:@"/api/essentials/card"];
     XBJsonToArrayDataMapper *dataMapper = [XBJsonToArrayDataMapper mapperWithRootKeyPath:@"cards" typeClass:[XECard class]];
     return [XBReloadableArrayDataSource dataSourceWithDataLoader:dataLoader dataMapper:dataMapper];
 }

@@ -7,14 +7,13 @@
 
 
 #import <Foundation/Foundation.h>
-
-@class XECard;
-
+#import "XECard.h"
+#import "DTAttributedLabel.h"
 
 @interface XECardDetailsViewController : UIViewController
 
 @property (strong, nonatomic) IBOutlet UILabel *titleLabel;
-@property (strong, nonatomic) IBOutlet UILabel *descriptionLabel;
+@property (strong, nonatomic) IBOutlet DTAttributedLabel *descriptionLabel;
 
 @property(nonatomic, strong)XECard *card;
 

@@ -13,6 +13,8 @@
 #import "VMVideo.h"
 #import "UIAlertView+XBAdditions.h"
 #import "VMThumbnail.h"
+#import "GAITracker.h"
+#import "UIViewController+XBAdditions.h"
 
 @implementation VMVideoDetailsViewController
 
@@ -26,8 +28,10 @@
 }
 
 - (void)viewWillAppear:(BOOL)animated {
-    [super viewDidLoad];
+    [super viewWillAppear:animated];
     if (self.video) {
+        [self.appDelegate.tracker sendView:[NSString stringWithFormat: @"/vimeo/video/%@", self.video.identifier]];
+
         VMThumbnail * thumbnail = self.video.thumbnails[2];
         XBLog(@"Image url: %@", thumbnail.url);
         [self.videoImage setImageWithURL:[NSURL URLWithString:thumbnail.url] placeholderImage:[UIImage imageNamed:@"video_placeholder.png"]

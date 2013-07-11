@@ -9,10 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "XBMappingProvider.h"
 
-@class XECardFront;
-@class XECardBack;
-
-@interface XECardCategory : NSObject<XBMappingProvider>
+@interface XECategory : NSObject<XBMappingProvider>
 
 @property (nonatomic, strong) NSString *identifier;
 @property (nonatomic, strong) NSString *label;

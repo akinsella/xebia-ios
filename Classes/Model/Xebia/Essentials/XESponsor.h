@@ -10,8 +10,7 @@
 #import "XBMappingProvider.h"
 
 
-@interface XECardBack : NSObject<XBMappingProvider>
+@interface XESponsor : NSObject<XBMappingProvider>
 
-@property(nonatomic, strong) NSString *para;
 
 @end

@@ -6,13 +6,12 @@
 //
 
 
-#import "XECardSponsor.h"
+#import <Foundation/Foundation.h>
+#import "XBMappingProvider.h"
 
 
-@implementation XECardSponsor
+@interface XETag : NSObject<XBMappingProvider>
 
-+ (DCParserConfiguration *)mappings {
-    return [DCParserConfiguration configuration];
-}
+@property(nonatomic, strong)NSString *identifier;
 
 @end

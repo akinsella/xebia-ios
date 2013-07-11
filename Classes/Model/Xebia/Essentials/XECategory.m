@@ -7,9 +7,9 @@
 
 
 #import <DCKeyValueObjectMapping/DCObjectMapping.h>
-#import "XECardCategory.h"
+#import "XECategory.h"
 
-@implementation XECardCategory
+@implementation XECategory
 
 + (DCParserConfiguration *)mappings {
     DCParserConfiguration *config = [DCParserConfiguration configuration];

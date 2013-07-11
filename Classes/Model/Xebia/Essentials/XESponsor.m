@@ -6,10 +6,10 @@
 //
 
 
-#import "XECardBack.h"
+#import "XESponsor.h"
 
 
-@implementation XECardBack
+@implementation XESponsor
 
 + (DCParserConfiguration *)mappings {
     return [DCParserConfiguration configuration];

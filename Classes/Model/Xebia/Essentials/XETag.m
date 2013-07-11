@@ -7,10 +7,10 @@
 
 
 #import <DCKeyValueObjectMapping/DCObjectMapping.h>
-#import "XECardTag.h"
+#import "XETag.h"
 
 
-@implementation XECardTag
+@implementation XETag
 
 + (DCParserConfiguration *)mappings {
     DCParserConfiguration *config = [DCParserConfiguration configuration];

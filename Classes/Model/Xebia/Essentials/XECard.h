@@ -9,18 +9,16 @@
 #import <Foundation/Foundation.h>
 #import "XBMappingProvider.h"
 
-@class XECardCategory;
-@class XECardFront;
-@class XECardBack;
+@class XECategory;
 
 @interface XECard : NSObject<XBMappingProvider>
 
 @property (nonatomic, strong) NSString *identifier;
 @property (nonatomic, strong) NSArray *tags;
 @property (nonatomic, strong) NSArray *sponsors;
-@property (nonatomic, strong) XECardCategory *category;
-@property (nonatomic, strong) XECardFront *front;
-@property (nonatomic, strong) XECardBack *back;
+@property (nonatomic, strong) XECategory *category;
+@property (nonatomic, strong) NSString *title;
+@property (nonatomic, strong) NSString *description_;
 @property (nonatomic, strong) NSURL *url;
 
 @end

@@ -8,8 +8,10 @@
 
 #import <Foundation/Foundation.h>
 #import "XBReloadableTableViewController.h"
-
+#import "XECategory.h"
 
 @interface XECardTableViewController : XBReloadableTableViewController<UITableViewDelegate, UITableViewDataSource, XBTableViewControllerDelegate>
+
+@property(nonatomic, strong) XECategory *category;
 
 @end

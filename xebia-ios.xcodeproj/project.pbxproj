@@ -330,8 +330,6 @@
 		544714C217764B61001F5153 /* TabBarItemSelectedImage.png in Resources */ = {isa = PBXBuildFile; fileRef = 544714BC17764B61001F5153 /* TabBarItemSelectedImage.png */; };
 		544714C317764B61001F5153 /* TabBarItemSelectedImage@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 544714BD17764B61001F5153 /* TabBarItemSelectedImage@2x.png */; };
 		544714C6177717D0001F5153 /* XBTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 544714C5177717D0001F5153 /* XBTableViewCell.m */; };
-		544714CB17771AA3001F5153 /* DTCustomColoredAccessory.m in Sources */ = {isa = PBXBuildFile; fileRef = 544714CA17771AA3001F5153 /* DTCustomColoredAccessory.m */; };
-		544714CC17771AA3001F5153 /* DTCustomColoredAccessory.m in Sources */ = {isa = PBXBuildFile; fileRef = 544714CA17771AA3001F5153 /* DTCustomColoredAccessory.m */; };
 		54A7483F177A480E00B9A907 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54A7483E177A480E00B9A907 /* MediaPlayer.framework */; };
 		54A7484A177EFEB300B9A907 /* Wordings.strings in Resources */ = {isa = PBXBuildFile; fileRef = 54A74848177EFEB300B9A907 /* Wordings.strings */; };
 		54A7484E177F124B00B9A907 /* XBDate.m in Sources */ = {isa = PBXBuildFile; fileRef = 54A7484D177F124B00B9A907 /* XBDate.m */; };
@@ -359,6 +357,7 @@
 		DB34D0BCF29D66E1F8CC2711 /* WPSPostCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34D56827878B25BB1F025D /* WPSPostCell.m */; };
 		DB34D0BF5EEBF427D15642F0 /* WPTagCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34D779566E6E53EC3D0C66 /* WPTagCell.m */; };
 		DB34D0D7C801AAAE68093A11 /* VMVideoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34D3E67D5221EE4730132B /* VMVideoCell.m */; };
+		DB34D11D675FDB9F5FDA5C29 /* XECategoryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34DF96C607241FFD2FD30D /* XECategoryCell.m */; };
 		DB34D1C08763AD2643298EEE /* XBMenuCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34D92EB516F92067A99CB9 /* XBMenuCell.m */; };
 		DB34D1DD12F4603A8CD5E2FD /* XECardTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34DAF58EBF524C851113DF /* XECardTableViewController.m */; };
 		DB34D1DEADC4E02B880126A6 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB34DE96DB0AD5C965696E37 /* MapKit.framework */; };
@@ -367,17 +366,14 @@
 		DB34D21080831DADB108D55A /* GHUserCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DB34D4BA81EC4FD48384EA25 /* GHUserCell.xib */; };
 		DB34D217190540A658E8B52C /* XBRightMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34DF4AB3494EC276B736FA /* XBRightMenuViewController.m */; };
 		DB34D2178AD0916DF2038F6C /* XECard.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34D91042354A075764148E /* XECard.m */; };
-		DB34D257FA427B168188038E /* XECardSponsor.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34D0A4CC294EC4C22FF6BD /* XECardSponsor.m */; };
+		DB34D257FA427B168188038E /* XESponsor.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34D0A4CC294EC4C22FF6BD /* XESponsor.m */; };
 		DB34D268AC837A22AA8D64EC /* WPCategoryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34D8B87DC73AA8DDDD46C8 /* WPCategoryCell.m */; };
 		DB34D2B5279E454E7717D0AC /* WPAuthorCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DB34D96E0DF6CCFCBDF91B05 /* WPAuthorCell.xib */; };
 		DB34D2CB7AB56E241AE841E2 /* VMVideoDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34D520761597BD4B8B7669 /* VMVideoDetailsViewController.m */; };
-		DB34D2D82DC68A352D7C9F54 /* XECardBack.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34DEECBC053DC56D944A44 /* XECardBack.m */; };
-		DB34D31825E25391DFD14B12 /* XECardFront.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34D94CAE851469232A6F21 /* XECardFront.m */; };
 		DB34D33C7147CFEE06AD99EF /* XEDeck.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34D7E7E92FDE99630ABD8E /* XEDeck.m */; };
-		DB34D39244A94D908DAEDD44 /* XECardFront.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34D94CAE851469232A6F21 /* XECardFront.m */; };
 		DB34D430F905731F33738F4E /* VMVideoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DB34DA18E861CE300585EC75 /* VMVideoCell.xib */; };
 		DB34D440722370A61803A372 /* WPCategoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DB34DEEAA4079818595013B9 /* WPCategoryCell.xib */; };
-		DB34D4578F76484EBBF9DE93 /* XECardSponsor.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34D0A4CC294EC4C22FF6BD /* XECardSponsor.m */; };
+		DB34D4578F76484EBBF9DE93 /* XESponsor.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34D0A4CC294EC4C22FF6BD /* XESponsor.m */; };
 		DB34D4800A69C506AAA049E1 /* WPAuthorCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DB34D96E0DF6CCFCBDF91B05 /* WPAuthorCell.xib */; };
 		DB34D4959DEAA547256DD43D /* GHRepositoryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34DF3355B7AD5670668C47 /* GHRepositoryCell.m */; };
 		DB34D4A4A6E4F5D1543A8999 /* XECardDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34D7B3A32230066DEF57A0 /* XECardDetailsViewController.m */; };
@@ -386,19 +382,21 @@
 		DB34D5144D350137E1CA9CA2 /* XECard.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34D91042354A075764148E /* XECard.m */; };
 		DB34D553F4CD970B72DD5ED9 /* VMVideoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34D3E67D5221EE4730132B /* VMVideoCell.m */; };
 		DB34D5B7F795E3F7B060ABC9 /* VMVideoTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34D7023381A681C697733B /* VMVideoTableViewController.m */; };
-		DB34D5E0DC911E182E1396ED /* XECardCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34DA3846C32ED52912827E /* XECardCategory.m */; };
-		DB34D64F8DA6E556170426BF /* XECardBack.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34DEECBC053DC56D944A44 /* XECardBack.m */; };
+		DB34D5E0DC911E182E1396ED /* XECategory.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34DA3846C32ED52912827E /* XECategory.m */; };
+		DB34D65BEB6CF10C52FC7BA8 /* XECategoryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34DF96C607241FFD2FD30D /* XECategoryCell.m */; };
 		DB34D6778E647334A012B2CE /* GHUserCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34D970AE47ACD42EF7B352 /* GHUserCell.m */; };
 		DB34D6C9C9F60B7D8BDAFCC0 /* VMUser.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34D13F306D5BF0C107DF63 /* VMUser.m */; };
 		DB34D6D9E20C081122D1FFDC /* WPCategoryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34D8B87DC73AA8DDDD46C8 /* WPCategoryCell.m */; };
 		DB34D6DB57FC5AB97DBFA2B0 /* VMUser.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34D13F306D5BF0C107DF63 /* VMUser.m */; };
+		DB34D7406AEB8D5A9B097B80 /* XECategoryTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34DB62A49155EA87926383 /* XECategoryTableViewController.m */; };
+		DB34D747BCEFE89289B3BC00 /* XECategoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DB34DBCA884FDF6E452B2C96 /* XECategoryCell.xib */; };
 		DB34D74CF00ACCCED7353C90 /* VMVideo.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34DF603EC84E5DE3FCAD09 /* VMVideo.m */; };
 		DB34D7996374697DE53CC594 /* GHMemberCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DB34D1F45D98157465DB787C /* GHMemberCell.xib */; };
-		DB34D7EE0FE712FFCF9BF08E /* XECardTag.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34DA8D8461A88D68351CEF /* XECardTag.m */; };
+		DB34D7EE0FE712FFCF9BF08E /* XETag.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34DA8D8461A88D68351CEF /* XETag.m */; };
 		DB34D80AFFDF2381C861F350 /* XECardDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34D7B3A32230066DEF57A0 /* XECardDetailsViewController.m */; };
 		DB34D82305C55FAB2822618C /* WPSPostCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DB34D9E3899F49AEEFBDF81D /* WPSPostCell.xib */; };
 		DB34D87A546891A1D3CE41D5 /* TTTweetCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34DE9F5EB259E9CB86E112 /* TTTweetCell.m */; };
-		DB34D89C142C8B7F7D0E7558 /* XECardCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34DA3846C32ED52912827E /* XECardCategory.m */; };
+		DB34D89C142C8B7F7D0E7558 /* XECategory.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34DA3846C32ED52912827E /* XECategory.m */; };
 		DB34D8A645E2E7469C52CDAD /* XECardCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DB34D815DF432CB4026A3863 /* XECardCell.xib */; };
 		DB34D8EC9D47F5119A3A9A5A /* VMVideo.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34DF603EC84E5DE3FCAD09 /* VMVideo.m */; };
 		DB34D8F47C750E6AC465BEFE /* EBEventCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34DB3AFCA127427FE3B210 /* EBEventCell.m */; };
@@ -410,8 +408,9 @@
 		DB34D9BA49D147E153448596 /* WPSPostCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DB34D9E3899F49AEEFBDF81D /* WPSPostCell.xib */; };
 		DB34DA0CB68D99DAD5ED9C6C /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB34D712058259EB7ABA14BD /* SystemConfiguration.framework */; };
 		DB34DA0FB5A19067F0EB0E56 /* WPAuthorCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34D78EBDB59559FF7AF9C6 /* WPAuthorCell.m */; };
-		DB34DA2196BBB030A68965CA /* XECardTag.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34DA8D8461A88D68351CEF /* XECardTag.m */; };
+		DB34DA2196BBB030A68965CA /* XETag.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34DA8D8461A88D68351CEF /* XETag.m */; };
 		DB34DA61C13EC06BBF7FEB23 /* UIAlertView+XBAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34DBFA7A7896251890FD3D /* UIAlertView+XBAdditions.m */; };
+		DB34DA8F67EFC27B0D01DDE8 /* XECategoryTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34DB62A49155EA87926383 /* XECategoryTableViewController.m */; };
 		DB34DAA8E70671F835EEA0E7 /* TTTweetCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34DE9F5EB259E9CB86E112 /* TTTweetCell.m */; };
 		DB34DAEFA05DFD5AE84E426B /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB34D86D5E8C02F41FEA568F /* CoreText.framework */; };
 		DB34DB3F2245AD345B421A39 /* GHRepositoryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34DF3355B7AD5670668C47 /* GHRepositoryCell.m */; };
@@ -424,6 +423,7 @@
 		DB34DC6925403FAE1C1D6ED1 /* WPSPostCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34D56827878B25BB1F025D /* WPSPostCell.m */; };
 		DB34DC77D3BA7D7572EBDFB7 /* GHMemberCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34D9DA2E2CC886AD559697 /* GHMemberCell.m */; };
 		DB34DCA31F2B13810B79BC4F /* XEDeck.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34D7E7E92FDE99630ABD8E /* XEDeck.m */; };
+		DB34DD15C8C97DBC3F6BCCF3 /* XECategoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DB34DBCA884FDF6E452B2C96 /* XECategoryCell.xib */; };
 		DB34DD15CEF7F28160123B79 /* XECardTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34DAF58EBF524C851113DF /* XECardTableViewController.m */; };
 		DB34DD1D0F863AA705B2F3A5 /* GHUserCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DB34D4BA81EC4FD48384EA25 /* GHUserCell.xib */; };
 		DB34DD26E03F1FC3A8C0F532 /* EBEventCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DB34DC7A2F8601F51BAB479D /* EBEventCell.xib */; };
@@ -808,8 +808,6 @@
 		544714BD17764B61001F5153 /* TabBarItemSelectedImage@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "TabBarItemSelectedImage@2x.png"; sourceTree = "<group>"; };
 		544714C4177717D0001F5153 /* XBTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XBTableViewCell.h; sourceTree = "<group>"; };
 		544714C5177717D0001F5153 /* XBTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XBTableViewCell.m; sourceTree = "<group>"; };
-		544714C917771AA3001F5153 /* DTCustomColoredAccessory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DTCustomColoredAccessory.h; sourceTree = "<group>"; };
-		544714CA17771AA3001F5153 /* DTCustomColoredAccessory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DTCustomColoredAccessory.m; sourceTree = "<group>"; };
 		54A7483E177A480E00B9A907 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
 		54A74840177CF28E00B9A907 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		54A74847177EFD9400B9A907 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -831,13 +829,12 @@
 		54C2DF0615BDFAFC00CABB12 /* xebia-iosTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "xebia-iosTests.octest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		54C2DF0715BDFAFC00CABB12 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		DB34D0154E9979E5D300E8BF /* EBEventCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EBEventCell.h; sourceTree = "<group>"; };
-		DB34D0A4CC294EC4C22FF6BD /* XECardSponsor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XECardSponsor.m; sourceTree = "<group>"; };
-		DB34D0BAA0A99FF54F4D0CCD /* XECardFront.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XECardFront.h; sourceTree = "<group>"; };
+		DB34D0A4CC294EC4C22FF6BD /* XESponsor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XESponsor.m; sourceTree = "<group>"; };
 		DB34D0C49C3A04F978CDA147 /* VMVideoTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VMVideoTableViewController.h; sourceTree = "<group>"; };
 		DB34D0C8C2F603FE088B4DD4 /* WPAuthorCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WPAuthorCell.h; sourceTree = "<group>"; };
 		DB34D13F306D5BF0C107DF63 /* VMUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VMUser.m; sourceTree = "<group>"; };
 		DB34D14B542638C01069450B /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = ../../../../../Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.1.sdk/System/Library/Frameworks/CFNetwork.framework; sourceTree = "<group>"; };
-		DB34D1AE3B63AB0AFAB322EE /* XECardTag.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XECardTag.h; sourceTree = "<group>"; };
+		DB34D1AE3B63AB0AFAB322EE /* XETag.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XETag.h; sourceTree = "<group>"; };
 		DB34D1BEFD3B2A376D88BF5D /* XEDeck.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XEDeck.h; sourceTree = "<group>"; };
 		DB34D1F45D98157465DB787C /* GHMemberCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GHMemberCell.xib; sourceTree = "<group>"; };
 		DB34D2236ADFB1F5325EE549 /* TTTweetCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTTweetCell.h; sourceTree = "<group>"; };
@@ -847,11 +844,12 @@
 		DB34D32DCBB00AEEE9E7268B /* XECardCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XECardCell.h; sourceTree = "<group>"; };
 		DB34D38E1091A726A5C60A60 /* XECardCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XECardCell.m; sourceTree = "<group>"; };
 		DB34D3ACE055F5BE09F95779 /* VMThumbnail.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VMThumbnail.m; sourceTree = "<group>"; };
+		DB34D3B294EB2C7536CFA836 /* XECategoryTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XECategoryTableViewController.h; sourceTree = "<group>"; };
 		DB34D3E67D5221EE4730132B /* VMVideoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VMVideoCell.m; sourceTree = "<group>"; };
 		DB34D43948A4D9409E09F947 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = ../../../../../Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.1.sdk/System/Library/Frameworks/MessageUI.framework; sourceTree = "<group>"; };
 		DB34D4BA81EC4FD48384EA25 /* GHUserCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GHUserCell.xib; sourceTree = "<group>"; };
 		DB34D4F8844121026514AB7C /* GHMemberCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GHMemberCell.h; sourceTree = "<group>"; };
-		DB34D4FA19A6DAA619A951F4 /* XECardSponsor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XECardSponsor.h; sourceTree = "<group>"; };
+		DB34D4FA19A6DAA619A951F4 /* XESponsor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XESponsor.h; sourceTree = "<group>"; };
 		DB34D506233D03D70749314A /* XBRightMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XBRightMenuViewController.h; sourceTree = "<group>"; };
 		DB34D520761597BD4B8B7669 /* VMVideoDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VMVideoDetailsViewController.m; sourceTree = "<group>"; };
 		DB34D537D08BAF71AF6EDC03 /* VMUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VMUser.h; sourceTree = "<group>"; };
@@ -859,6 +857,7 @@
 		DB34D57A30630BE85C419903 /* VMVideo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VMVideo.h; sourceTree = "<group>"; };
 		DB34D58EEEF2EB680C1431C4 /* GHRepositoryCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GHRepositoryCell.xib; sourceTree = "<group>"; };
 		DB34D5CB72485B6E20272C19 /* Twitter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Twitter.framework; path = ../../../../../Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.1.sdk/System/Library/Frameworks/Twitter.framework; sourceTree = "<group>"; };
+		DB34D67385B70DF3E8904BDD /* XECategoryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XECategoryCell.h; sourceTree = "<group>"; };
 		DB34D7023381A681C697733B /* VMVideoTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VMVideoTableViewController.m; sourceTree = "<group>"; };
 		DB34D705388B6EF1933EB1E3 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = ../../../../../Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.1.sdk/System/Library/Frameworks/CoreLocation.framework; sourceTree = "<group>"; };
 		DB34D712058259EB7ABA14BD /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = ../../../../../Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.1.sdk/System/Library/Frameworks/SystemConfiguration.framework; sourceTree = "<group>"; };
@@ -871,10 +870,8 @@
 		DB34D815DF432CB4026A3863 /* XECardCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = XECardCell.xib; sourceTree = "<group>"; };
 		DB34D86D5E8C02F41FEA568F /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = ../../../../../Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.1.sdk/System/Library/Frameworks/CoreText.framework; sourceTree = "<group>"; };
 		DB34D8B87DC73AA8DDDD46C8 /* WPCategoryCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WPCategoryCell.m; sourceTree = "<group>"; };
-		DB34D8F5EC1FFD857D11F4AA /* XECardBack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XECardBack.h; sourceTree = "<group>"; };
 		DB34D91042354A075764148E /* XECard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XECard.m; sourceTree = "<group>"; };
 		DB34D92EB516F92067A99CB9 /* XBMenuCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XBMenuCell.m; sourceTree = "<group>"; };
-		DB34D94CAE851469232A6F21 /* XECardFront.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XECardFront.m; sourceTree = "<group>"; };
 		DB34D96E0DF6CCFCBDF91B05 /* WPAuthorCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WPAuthorCell.xib; sourceTree = "<group>"; };
 		DB34D970AE47ACD42EF7B352 /* GHUserCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GHUserCell.m; sourceTree = "<group>"; };
 		DB34D979443629EB274C6B7C /* XECard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XECard.h; sourceTree = "<group>"; };
@@ -883,17 +880,19 @@
 		DB34DA18E861CE300585EC75 /* VMVideoCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VMVideoCell.xib; sourceTree = "<group>"; };
 		DB34DA21F8A3FD79A967EFEF /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = ../../../../../Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.1.sdk/System/Library/Frameworks/Accounts.framework; sourceTree = "<group>"; };
 		DB34DA2B2612E25FB53F9AD8 /* XBMenuCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XBMenuCell.h; sourceTree = "<group>"; };
-		DB34DA3846C32ED52912827E /* XECardCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XECardCategory.m; sourceTree = "<group>"; };
+		DB34DA3846C32ED52912827E /* XECategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XECategory.m; sourceTree = "<group>"; };
 		DB34DA4198F561241846CE47 /* XBMenuCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = XBMenuCell.xib; sourceTree = "<group>"; };
-		DB34DA8D8461A88D68351CEF /* XECardTag.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XECardTag.m; sourceTree = "<group>"; };
+		DB34DA8D8461A88D68351CEF /* XETag.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XETag.m; sourceTree = "<group>"; };
 		DB34DA93BE919BF05DE33959 /* TTTweetCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TTTweetCell.xib; sourceTree = "<group>"; };
-		DB34DAC67048D6AD8A2EDC10 /* XECardCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XECardCategory.h; sourceTree = "<group>"; };
+		DB34DAC67048D6AD8A2EDC10 /* XECategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XECategory.h; sourceTree = "<group>"; };
 		DB34DADE223E5899F8B6B00B /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = ../../../../../Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.1.sdk/System/Library/Frameworks/Security.framework; sourceTree = "<group>"; };
 		DB34DAF58EBF524C851113DF /* XECardTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XECardTableViewController.m; sourceTree = "<group>"; };
 		DB34DAF8C5416FD22A0CD181 /* WPPostCellPortrait.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WPPostCellPortrait.xib; sourceTree = "<group>"; };
 		DB34DB0DD0A6B58C15D2461A /* WPTagCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WPTagCell.xib; sourceTree = "<group>"; };
 		DB34DB0E0D3E354BA0E126F1 /* XECardDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XECardDetailsViewController.h; sourceTree = "<group>"; };
 		DB34DB3AFCA127427FE3B210 /* EBEventCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EBEventCell.m; sourceTree = "<group>"; };
+		DB34DB62A49155EA87926383 /* XECategoryTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XECategoryTableViewController.m; sourceTree = "<group>"; };
+		DB34DBCA884FDF6E452B2C96 /* XECategoryCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = XECategoryCell.xib; sourceTree = "<group>"; };
 		DB34DBF1B3FCCC4E6026372E /* README.md */ = {isa = PBXFileReference; lastKnownFileType = file.md; path = README.md; sourceTree = "<group>"; };
 		DB34DBFA7A7896251890FD3D /* UIAlertView+XBAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIAlertView+XBAdditions.m"; sourceTree = "<group>"; };
 		DB34DC7A2F8601F51BAB479D /* EBEventCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EBEventCell.xib; sourceTree = "<group>"; };
@@ -905,10 +904,10 @@
 		DB34DE96DB0AD5C965696E37 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = ../../../../../Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.1.sdk/System/Library/Frameworks/MapKit.framework; sourceTree = "<group>"; };
 		DB34DE9F5EB259E9CB86E112 /* TTTweetCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTTweetCell.m; sourceTree = "<group>"; };
 		DB34DEEAA4079818595013B9 /* WPCategoryCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WPCategoryCell.xib; sourceTree = "<group>"; };
-		DB34DEECBC053DC56D944A44 /* XECardBack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XECardBack.m; sourceTree = "<group>"; };
 		DB34DF3355B7AD5670668C47 /* GHRepositoryCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GHRepositoryCell.m; sourceTree = "<group>"; };
 		DB34DF4AB3494EC276B736FA /* XBRightMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XBRightMenuViewController.m; sourceTree = "<group>"; };
 		DB34DF603EC84E5DE3FCAD09 /* VMVideo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VMVideo.m; sourceTree = "<group>"; };
+		DB34DF96C607241FFD2FD30D /* XECategoryCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XECategoryCell.m; sourceTree = "<group>"; };
 		DB34DFF098560ECBEB2465D4 /* WPSPostCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WPSPostCell.h; sourceTree = "<group>"; };
 		EDB581D723EF4E5C808B5615 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		FFE479B60E604A7197B75249 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
@@ -1892,29 +1891,11 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		544714C717771AA3001F5153 /* ThirdParty */ = {
-			isa = PBXGroup;
-			children = (
-				544714C817771AA3001F5153 /* DTCustomColoredAccessory */,
-			);
-			path = ThirdParty;
-			sourceTree = "<group>";
-		};
-		544714C817771AA3001F5153 /* DTCustomColoredAccessory */ = {
-			isa = PBXGroup;
-			children = (
-				544714C917771AA3001F5153 /* DTCustomColoredAccessory.h */,
-				544714CA17771AA3001F5153 /* DTCustomColoredAccessory.m */,
-			);
-			path = DTCustomColoredAccessory;
-			sourceTree = "<group>";
-		};
 		54C2DEDB15BDFAFB00CABB12 = {
 			isa = PBXGroup;
 			children = (
 				5443EE2E177620B60000FFE8 /* Classes */,
 				5443EB451775BEDC0000FFE8 /* Library */,
-				544714C717771AA3001F5153 /* ThirdParty */,
 				5443EA1A1775BEC40000FFE8 /* Resources */,
 				5443EE2D1775BF5C0000FFE8 /* Tests */,
 				5443EA131775BEB40000FFE8 /* Targets */,
@@ -2018,6 +1999,9 @@
 				DB34D38E1091A726A5C60A60 /* XECardCell.m */,
 				DB34D32DCBB00AEEE9E7268B /* XECardCell.h */,
 				DB34D815DF432CB4026A3863 /* XECardCell.xib */,
+				DB34DF96C607241FFD2FD30D /* XECategoryCell.m */,
+				DB34D67385B70DF3E8904BDD /* XECategoryCell.h */,
+				DB34DBCA884FDF6E452B2C96 /* XECategoryCell.xib */,
 			);
 			path = Essentials;
 			sourceTree = "<group>";
@@ -2039,16 +2023,12 @@
 				DB34D979443629EB274C6B7C /* XECard.h */,
 				DB34D7E7E92FDE99630ABD8E /* XEDeck.m */,
 				DB34D1BEFD3B2A376D88BF5D /* XEDeck.h */,
-				DB34DA3846C32ED52912827E /* XECardCategory.m */,
-				DB34DAC67048D6AD8A2EDC10 /* XECardCategory.h */,
-				DB34D94CAE851469232A6F21 /* XECardFront.m */,
-				DB34D0BAA0A99FF54F4D0CCD /* XECardFront.h */,
-				DB34DEECBC053DC56D944A44 /* XECardBack.m */,
-				DB34D8F5EC1FFD857D11F4AA /* XECardBack.h */,
-				DB34D0A4CC294EC4C22FF6BD /* XECardSponsor.m */,
-				DB34D4FA19A6DAA619A951F4 /* XECardSponsor.h */,
-				DB34DA8D8461A88D68351CEF /* XECardTag.m */,
-				DB34D1AE3B63AB0AFAB322EE /* XECardTag.h */,
+				DB34DA3846C32ED52912827E /* XECategory.m */,
+				DB34DAC67048D6AD8A2EDC10 /* XECategory.h */,
+				DB34D0A4CC294EC4C22FF6BD /* XESponsor.m */,
+				DB34D4FA19A6DAA619A951F4 /* XESponsor.h */,
+				DB34DA8D8461A88D68351CEF /* XETag.m */,
+				DB34D1AE3B63AB0AFAB322EE /* XETag.h */,
 			);
 			path = Essentials;
 			sourceTree = "<group>";
@@ -2115,6 +2095,8 @@
 				DB34DAF58EBF524C851113DF /* XECardTableViewController.m */,
 				DB34DB0E0D3E354BA0E126F1 /* XECardDetailsViewController.h */,
 				DB34D7B3A32230066DEF57A0 /* XECardDetailsViewController.m */,
+				DB34DB62A49155EA87926383 /* XECategoryTableViewController.m */,
+				DB34D3B294EB2C7536CFA836 /* XECategoryTableViewController.h */,
 			);
 			path = Essentials;
 			sourceTree = "<group>";
@@ -2329,6 +2311,7 @@
 				54A7485C178CA96600B9A907 /* xebia-essentials.png in Resources */,
 				54A7485D178CA96600B9A907 /* xebia-essentials@2x.png in Resources */,
 				DB34D8A645E2E7469C52CDAD /* XECardCell.xib in Resources */,
+				DB34D747BCEFE89289B3BC00 /* XECategoryCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2353,6 +2336,7 @@
 				DB34D0AE0DA850ACF6EF4A6D /* XBMenuCell.xib in Resources */,
 				DB34DEE966E041CA4070DEE6 /* VMVideoCell.xib in Resources */,
 				DB34D909B7ACD77C8180E150 /* XECardCell.xib in Resources */,
+				DB34DD15C8C97DBC3F6BCCF3 /* XECategoryCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2490,7 +2474,6 @@
 				5443EF83177620B70000FFE8 /* XBAppDelegate.m in Sources */,
 				5443EF85177620B70000FFE8 /* XBConstants.m in Sources */,
 				544714C6177717D0001F5153 /* XBTableViewCell.m in Sources */,
-				544714CB17771AA3001F5153 /* DTCustomColoredAccessory.m in Sources */,
 				DB34D8EC9D47F5119A3A9A5A /* VMVideo.m in Sources */,
 				DB34DBF07E81C671E3565960 /* VMVideoTableViewController.m in Sources */,
 				DB34DE6E44DE47AE3934A6BC /* EBEventCell.m in Sources */,
@@ -2514,12 +2497,12 @@
 				DB34DC2CBEE1AE2DF89E752D /* XECardCell.m in Sources */,
 				DB34D5144D350137E1CA9CA2 /* XECard.m in Sources */,
 				DB34D33C7147CFEE06AD99EF /* XEDeck.m in Sources */,
-				DB34D89C142C8B7F7D0E7558 /* XECardCategory.m in Sources */,
-				DB34D39244A94D908DAEDD44 /* XECardFront.m in Sources */,
-				DB34D2D82DC68A352D7C9F54 /* XECardBack.m in Sources */,
-				DB34D257FA427B168188038E /* XECardSponsor.m in Sources */,
-				DB34DA2196BBB030A68965CA /* XECardTag.m in Sources */,
+				DB34D89C142C8B7F7D0E7558 /* XECategory.m in Sources */,
+				DB34D257FA427B168188038E /* XESponsor.m in Sources */,
+				DB34DA2196BBB030A68965CA /* XETag.m in Sources */,
 				DB34D4A4A6E4F5D1543A8999 /* XECardDetailsViewController.m in Sources */,
+				DB34D7406AEB8D5A9B097B80 /* XECategoryTableViewController.m in Sources */,
+				DB34D11D675FDB9F5FDA5C29 /* XECategoryCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2640,7 +2623,6 @@
 				5443EF7E177620B70000FFE8 /* XBLoadingView.m in Sources */,
 				5443EF84177620B70000FFE8 /* XBAppDelegate.m in Sources */,
 				5443EF86177620B70000FFE8 /* XBConstants.m in Sources */,
-				544714CC17771AA3001F5153 /* DTCustomColoredAccessory.m in Sources */,
 				DB34D74CF00ACCCED7353C90 /* VMVideo.m in Sources */,
 				DB34D5B7F795E3F7B060ABC9 /* VMVideoTableViewController.m in Sources */,
 				DB34D8F47C750E6AC465BEFE /* EBEventCell.m in Sources */,
@@ -2664,12 +2646,12 @@
 				DB34D91FB6D8F2B7DF8E7437 /* XECardCell.m in Sources */,
 				DB34D2178AD0916DF2038F6C /* XECard.m in Sources */,
 				DB34DCA31F2B13810B79BC4F /* XEDeck.m in Sources */,
-				DB34D5E0DC911E182E1396ED /* XECardCategory.m in Sources */,
-				DB34D31825E25391DFD14B12 /* XECardFront.m in Sources */,
-				DB34D64F8DA6E556170426BF /* XECardBack.m in Sources */,
-				DB34D4578F76484EBBF9DE93 /* XECardSponsor.m in Sources */,
-				DB34D7EE0FE712FFCF9BF08E /* XECardTag.m in Sources */,
+				DB34D5E0DC911E182E1396ED /* XECategory.m in Sources */,
+				DB34D4578F76484EBBF9DE93 /* XESponsor.m in Sources */,
+				DB34D7EE0FE712FFCF9BF08E /* XETag.m in Sources */,
 				DB34D80AFFDF2381C861F350 /* XECardDetailsViewController.m in Sources */,
+				DB34DA8F67EFC27B0D01DDE8 /* XECategoryTableViewController.m in Sources */,
+				DB34D65BEB6CF10C52FC7BA8 /* XECategoryCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -9,12 +9,10 @@
 #import <DCKeyValueObjectMapping/DCObjectMapping.h>
 #import <DCKeyValueObjectMapping/DCArrayMapping.h>
 #import "XECard.h"
-#import "XECardCategory.h"
-#import "XECardFront.h"
-#import "XECardBack.h"
+#import "XECategory.h"
 #import "DCParserConfiguration+XBAdditions.h"
-#import "XECardSponsor.h"
-#import "XECardTag.h"
+#import "XESponsor.h"
+#import "XETag.h"
 
 
 @implementation XECard
@@ -23,16 +21,16 @@
     DCParserConfiguration *config = [DCParserConfiguration configuration];
 
     [config addObjectMapping: [DCObjectMapping mapKeyPath:@"id" toAttribute:@"identifier" onClass:[self class]]];
+    
+    [config addObjectMapping: [DCObjectMapping mapKeyPath:@"description" toAttribute:@"description_" onClass:[self class]]];
+    
+    [config mergeConfig:[XECategory mappings]];
 
-    [config mergeConfig:[XECardCategory mappings]];
-    [config mergeConfig:[XECardFront mappings]];
-    [config mergeConfig:[XECardBack mappings]];
+    [config addArrayMapper: [DCArrayMapping mapperForClassElements:[XESponsor class] forAttribute:@"sponsors" onClass:[self class]]];
+    [config mergeConfig:[[XESponsor class] mappings]];
 
-    [config addArrayMapper: [DCArrayMapping mapperForClassElements:[XECardSponsor class] forAttribute:@"sponsors" onClass:[self class]]];
-    [config mergeConfig:[[XECardSponsor class] mappings]];
-
-    [config addArrayMapper: [DCArrayMapping mapperForClassElements:[XECardTag class] forAttribute:@"tags" onClass:[self class]]];
-    [config mergeConfig:[[XECardTag class] mappings]];
+    [config addArrayMapper: [DCArrayMapping mapperForClassElements:[XETag class] forAttribute:@"tags" onClass:[self class]]];
+    [config mergeConfig:[[XETag class] mappings]];
 
     return config;
 }

@@ -62,7 +62,7 @@ enum {
            /* [NSNumber asString:XBMenuGithub]: @"tbGithub",*/
             [NSNumber asString:XBMenuEvent]: @"events",
             [NSNumber asString:XBMenuVimeo]: @"videos",
-            [NSNumber asString:XBMenuXebiaEssentials]: @"xebiaEssentials"
+            [NSNumber asString:XBMenuXebiaEssentials]: @"cardCategories"
                             
     } mutableCopy];
 }
