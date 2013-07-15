@@ -8,12 +8,13 @@
 
 #import <UIKit/UIKit.h>
 #import "XBTableViewCell.h"
+#import "WPTag.h"
 
 @interface WPTagCell : XBTableViewCell
 
 @property (nonatomic, strong) IBOutlet UILabel *titleLabel;
 @property (nonatomic, strong) IBOutlet UILabel *bottomDetailLabel;
 
-@property (nonatomic, assign) NSInteger itemCount;
+- (void)updateWithTag:(WPTag *)tag;
 
 @end

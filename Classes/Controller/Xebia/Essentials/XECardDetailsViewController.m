@@ -11,6 +11,10 @@
 #import "UIViewController+XBAdditions.h"
 #import "DTCoreText.h"
 
+@interface XECardDetailsViewController ()
+@property(nonatomic, strong)XECard *card;
+@end
+
 @implementation XECardDetailsViewController
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -20,21 +24,17 @@
     }
 }
 
--(void)setCard:(XECard *)card {
-    _card = card;
+- (void)updateWithCard:(XECard *)card {
+    self.card = card;
     self.title = card.title;
 
-}
-
-- (void)updateView {
     NSData *data = [self.card.description dataUsingEncoding:NSUTF8StringEncoding];
 
     NSAttributedString *attributedString = [[NSAttributedString alloc] initWithHTMLData:data
                                                                documentAttributes:NULL];
 
     self.titleLabel.text = self.card.title;
-    [self.descriptionLabel setAttributedString:attributedString];
-
+    self.descriptionLabel.attributedString = attributedString;
 }
 
 @end

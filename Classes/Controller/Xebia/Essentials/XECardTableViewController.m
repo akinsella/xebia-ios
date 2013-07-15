@@ -54,7 +54,7 @@
     XECardCell *cardCell = (XECardCell *) cell;
 
     XECard *card = self.dataSource[(NSUInteger) indexPath.row];
-    cardCell.titleLabel.text = card.title;
+    [cardCell updateWithCard: card];
 }
 
 - (XBArrayDataSource *)buildDataSource {
@@ -72,7 +72,7 @@
     NSLog(@"Card selected: %@", card);
 
     XECardDetailsViewController *cardDetailsViewController = (XECardDetailsViewController *) [[self appDelegate].viewControllerManager getOrCreateControllerWithIdentifier:@"cardDetails"];
-    cardDetailsViewController.card = card;
+    [cardDetailsViewController updateWithCard: card];
     [self.navigationController pushViewController:cardDetailsViewController animated:YES];
 }
 

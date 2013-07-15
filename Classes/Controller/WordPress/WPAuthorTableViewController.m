@@ -23,10 +23,6 @@
 #import "XBJsonToArrayDataMapper.h"
 #import "GAITracker.h"
 
-@interface WPAuthorTableViewController ()
-@property (nonatomic, strong) UIImage* defaultAvatarImage;
-@end
-
 @implementation WPAuthorTableViewController
 
 - (void)viewDidLoad {
@@ -36,7 +32,6 @@
     self.delegate = self;
     self.tableView.rowHeight = 60;
     self.title = NSLocalizedString(@"Authors", nil);
-    self.defaultAvatarImage = [UIImage imageNamed:@"avatar_placeholder"];
 
     [super viewDidLoad];
 }
@@ -66,10 +61,8 @@
     WPAuthorCell *authorCell = (WPAuthorCell *) cell;
 
     WPAuthor *author = self.dataSource[(NSUInteger) indexPath.row];
-    authorCell.identifier = author.identifier;
-    authorCell.titleLabel.text = author.name;
 
-    [authorCell.imageView setImageWithURL:[author avatarImageUrl] placeholderImage:self.defaultAvatarImage];
+    [authorCell updateWithAuthor: author];
 }
 
 -(void)onSelectCell: (UITableViewCell *)cell forObject: (id) object withIndex: (NSIndexPath *)indexPath {

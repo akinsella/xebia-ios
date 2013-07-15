@@ -23,8 +23,9 @@
 @property (strong, nonatomic) IBOutlet UILabel *definition;
 @property (strong, nonatomic) IBOutlet UILabel *date;
 
-@property(nonatomic, strong)VMVideo *video;
+@property(nonatomic, strong, readonly)VMVideo *video;
 
+- (void)updateWithVideo:(VMVideo *)video;
 @end
 
 

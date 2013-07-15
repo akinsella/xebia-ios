@@ -7,6 +7,8 @@
 
 #import <Foundation/Foundation.h>
 
+@class WPPost;
+
 @interface UITableViewCell (VariableHeight)
 
 - (CGFloat)heightForCell;

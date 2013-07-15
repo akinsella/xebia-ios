@@ -7,7 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "XBAppDelegate.h"
 
 @interface XBTableViewCell : UITableViewCell
+
+- (void)configure;
+
+- (XBAppDelegate *)appDelegate;
 
 @end

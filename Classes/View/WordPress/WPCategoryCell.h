@@ -8,12 +8,13 @@
 
 #import <UIKit/UIKit.h>
 #import "XBTableViewCell.h"
+#import "WPCategory.h"
 
 @interface WPCategoryCell : XBTableViewCell
 
 @property (nonatomic, strong) IBOutlet UILabel *titleLabel;
 @property (nonatomic, strong) IBOutlet UILabel *bottomDetailLabel;
+@property(nonatomic, strong, readonly) WPCategory *category;
 
-@property (nonatomic, assign) NSInteger itemCount;
-
+- (void)updateWithCategory:(WPCategory *)category;
 @end

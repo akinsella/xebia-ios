@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "GHRepositoryCell.h"
 #import "XBTableViewCell.h"
+#import "GHRepository.h"
 
 @interface GHRepositoryCell : XBTableViewCell
 
@@ -20,4 +21,5 @@
 
 - (CGFloat)heightForCell;
 
+- (void)updateWithRepository:(GHRepository *)repository defaultImage:(UIImage *)image;
 @end

@@ -13,15 +13,14 @@
 
 static CGFloat const MAX_CELL_HEIGHT = 240.0;
 
-@interface EBEventCell : XBTableViewCell
+@interface EBEventCell : XBTableViewCell<TTTAttributedLabelDelegate>
 
 @property (nonatomic, strong) IBOutlet UILabel *titleLabel;
 @property (nonatomic, strong) IBOutlet TTTAttributedLabel *descriptionLabel;
+@property(nonatomic, strong, readonly) EBEvent *event;
 
-@property (nonatomic, strong) NSNumber *identifier;
-@property (nonatomic, readonly, strong) UIImage *avatarImage;
-
-- (void)configure;
 - (CGFloat)heightForCell;
+
+- (void)updateWithEvent:(EBEvent *)event;
 
 @end

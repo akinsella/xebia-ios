@@ -8,19 +8,26 @@
 
 #import "WPTagCell.h"
 #import "UIColor+XBAdditions.h"
+#import "WPTag.h"
 #import <QuartzCore/QuartzCore.h>
+
+@interface WPTagCell()
+
+@property(nonatomic, strong) WPTag *tag_;
+@end
 
 @implementation WPTagCell
 
-- (void)setItemCount:(NSInteger)itemCount {
-    _itemCount = itemCount;
-    [self updateBottomDetailLabel];
-}
+- (void)updateWithTag:(WPTag *)tag {
+    self.tag_ = tag;
+    
+    self.titleLabel.text = [tag capitalizedTitle];
+    NSInteger itemCount = tag.postCount.intValue;
 
-- (void)updateBottomDetailLabel {
-    self.bottomDetailLabel.text = [NSString stringWithFormat: 
-                                   self.itemCount > 1 ? @"%d posts" : @"%d post", 
-                                   self.itemCount];
+    self.bottomDetailLabel.text = [NSString stringWithFormat:
+            itemCount > 1 ? @"%d posts" : @"%d post",
+            itemCount
+    ];
 }
 
 @end

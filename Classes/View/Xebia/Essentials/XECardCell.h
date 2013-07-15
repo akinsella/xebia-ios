@@ -8,14 +8,19 @@
 
 #import <Foundation/Foundation.h>
 #import "XBTableViewCell.h"
+#import "XEAbstractCell.h"
+
+@class XECard;
 
 
-@interface XECardCell : XBTableViewCell
+@interface XECardCell : XEAbstractCell
 
 @property (nonatomic, strong) IBOutlet UILabel *titleLabel;
 
 @property (nonatomic, strong) NSNumber *identifier;
 
-- (void)configure;
+@property(nonatomic, strong) XECard *card;
+
+- (void)updateWithCard:(XECard *)card;
 
 @end

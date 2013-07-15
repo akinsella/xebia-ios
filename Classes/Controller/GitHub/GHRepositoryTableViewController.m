@@ -16,10 +16,6 @@
 #import "GAITracker.h"
 #import "UIViewController+XBAdditions.h"
 
-@interface GHRepositoryTableViewController()
-@property (nonatomic, strong) UIImage* xebiaAvatarImage;
-@end
-
 @implementation GHRepositoryTableViewController
 
 - (void)viewDidLoad {
@@ -28,7 +24,6 @@
 
     self.delegate = self;
     self.title = NSLocalizedString(@"Repositories", nil);
-    self.xebiaAvatarImage = [UIImage imageNamed:@"xebia-avatar"];
 
     [super viewDidLoad];
 }
@@ -59,10 +54,8 @@
 - (void)configureCell: (UITableViewCell *)cell atIndex:(NSIndexPath *)indexPath {
     GHRepositoryCell *repositoryCell = (GHRepositoryCell *)cell;
     GHRepository *repository = self.dataSource[indexPath.row];
-    repositoryCell.titleLabel.text = repository.name;
-    repositoryCell.descriptionLabel.text = repository.description_;
-    repositoryCell.identifier = repository.identifier;
-    [repositoryCell.imageView setImage:self.defaultImage];
-}
+
+    [repositoryCell updateWithRepository: repository defaultImage: self.defaultImage];
+ }
 
 @end

@@ -14,6 +14,8 @@
 
 @property (nonatomic, strong) IBOutlet UILabel *titleLabel;
 
-@property (nonatomic, strong) NSNumber *identifier;
+@property(nonatomic, strong, readonly) WPAuthor *author;
+
+- (void)updateWithAuthor:(WPAuthor *)author;
 
 @end

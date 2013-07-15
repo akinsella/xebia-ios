@@ -12,11 +12,12 @@
 
 @interface WPSPostCell : XBTableViewCell
 
-@property (nonatomic, strong) NSNumber *identifier;
-
 @property (nonatomic, strong) IBOutlet UILabel *titleLabel;
 @property (nonatomic, strong) IBOutlet UILabel *dateLabel;
 @property (nonatomic, strong) IBOutlet UILabel *categoriesLabel;
 @property (nonatomic, strong) IBOutlet UILabel *authorLabel;
+@property(nonatomic, strong, readonly) WPPost *post;
+
+- (void)updateWithPost:(WPPost *)post;
 
 @end

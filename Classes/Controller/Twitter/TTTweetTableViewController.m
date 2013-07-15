@@ -21,11 +21,6 @@
 #import "XBJsonToArrayDataMapper.h"
 #import "GAITracker.h"
 
-@interface TTTweetTableViewController ()
-@property (nonatomic, strong) UIImage* defaultAvatarImage;
-@property (nonatomic, strong) UIImage* xebiaAvatarImage;
-@end
-
 @implementation TTTweetTableViewController
 
 - (void)viewDidLoad {
@@ -34,9 +29,6 @@
 
     self.delegate = self;
     self.title = NSLocalizedString(@"Tweets", nil);
-
-    self.defaultAvatarImage = [UIImage imageNamed:@"avatar_placeholder"];
-    self.xebiaAvatarImage = [UIImage imageNamed:@"xebia-avatar"];
 
     [self addMenuButton];
 
@@ -65,31 +57,10 @@
 - (void)configureCell:(UITableViewCell *)cell atIndex:(NSIndexPath *)indexPath {
 
     TTTweetCell *tweetCell = (TTTweetCell *) cell;
-    [tweetCell configure];
 
     TTTweet *tweet = self.dataSource[(NSUInteger) indexPath.row];
 
-    tweetCell.contentLabel.delegate = self;
-    if ([tweet.ownerScreenName isEqualToString:@"XebiaFr"]) {
-        tweetCell.imageView.image = self.xebiaAvatarImage;
-    }
-    else {
-        [tweetCell.imageView setImageWithURL:tweet.ownerImageUrl placeholderImage:self.defaultAvatarImage];
-    }
-
-    tweetCell.authorNameLabel.text = tweet.ownerScreenName;
-    tweetCell.identifier = tweet.identifier;
-    tweetCell.dateLabel.text = tweet.dateFormatted;
-    tweetCell.content = tweet.text;
-    tweetCell.contentLabel.text = tweet.text;
-    tweetCell.hashtags = tweet.entities.hashtags;
-    tweetCell.urls = tweet.entities.urls;
-    tweetCell.user_mentions = tweet.entities.user_mentions;
-}
-
-- (void)attributedLabel:(TTTAttributedLabel *)label didSelectLinkWithURL:(NSURL *)url {
-    NSLog(@"Url requested: %@", url);
-    [self.appDelegate.mainViewController openURL:url withTitle:@"Twitter"];
+    [tweetCell updateWithTweet: tweet];
 }
 
 -(void)onSelectCell: (UITableViewCell *)cell forObject: (id) object withIndex: (NSIndexPath *)indexPath {

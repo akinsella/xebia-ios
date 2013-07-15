@@ -17,8 +17,9 @@
     self.imageView.layer.masksToBounds = YES;
 }
 
-- (void)configure {
-
+- (void)updateWithCategory:(XECategory *)category {
+    self.category = category;
+    self.titleLabel.text = category.label;
 }
 
 @end

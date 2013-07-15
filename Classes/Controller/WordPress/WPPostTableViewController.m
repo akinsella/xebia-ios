@@ -23,11 +23,10 @@
 #import "XBPListConfigurationProvider.h"
 #import "XBLogging.h"
 #import "GAITracker.h"
+#import "UITableViewCell+VariableHeight.h"
 
 @interface WPPostTableViewController ()
 @property (nonatomic, strong) NSMutableDictionary *postTypes;
-@property (nonatomic, strong) UIImage *defaultPostImage;
-@property (nonatomic, strong) UIImage *xebiaPostImage;
 @property(nonatomic, assign) POST_TYPE postType;
 @property(nonatomic, copy) NSNumber *identifier;
 @end
@@ -55,8 +54,6 @@
 
 - (void)initInternalWithPostType:(POST_TYPE)pPostType identifier:(NSNumber *)pIdentifier {
     self.title = NSLocalizedString(@"Posts", nil);
-    self.defaultPostImage = [UIImage imageNamed:@"avatar_placeholder"];
-    self.xebiaPostImage = [UIImage imageNamed:@"xebia-avatar"];
 
     self.postType = pPostType;
     self.identifier = pIdentifier;
@@ -119,19 +116,8 @@
     WPSPostCell *postCell = (WPSPostCell *) cell;
 
     WPPost *post = self.dataSource[(NSUInteger) indexPath.row];
-    
-    postCell.titleLabel.text = post.title;
-    postCell.dateLabel.text = post.dateFormatted;
-    postCell.categoriesLabel.text = post.categoriesFormatted;
-    postCell.authorLabel.text = post.authorFormatted;
-    postCell.identifier = post.identifier;
 
-    if (![post.author.slug isEqualToString:@"xebiafrance"]) {
-        [postCell.imageView setImageWithURL: [post imageUrl] placeholderImage:self.defaultPostImage];
-    }
-    else {
-        postCell.imageView.image = self.xebiaPostImage;
-    }
+    [postCell updateWithPost: post];
 }
 
 -(void)onSelectCell: (UITableViewCell *)cell forObject: (id) object withIndex: (NSIndexPath *)indexPath {

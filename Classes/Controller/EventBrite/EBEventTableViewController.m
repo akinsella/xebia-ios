@@ -18,10 +18,6 @@
 #import "XBPListConfigurationProvider.h"
 #import "GAITracker.h"
 
-@interface EBEventTableViewController ()
-@property (nonatomic, strong) UIImage*defaultImage;
-@end
-
 @implementation EBEventTableViewController
 
 - (void)viewDidLoad {
@@ -30,7 +26,6 @@
 
     self.delegate = self;
     self.title = NSLocalizedString(@"Events", nil);
-    self.defaultImage = [UIImage imageNamed:@"eventbrite"];
 
     [self addMenuButton];
 
@@ -59,28 +54,10 @@
 - (void)configureCell:(UITableViewCell *)cell atIndex:(NSIndexPath *)indexPath {
 
     EBEventCell *eventCell = (EBEventCell *) cell;
-    [eventCell configure];
 
     EBEvent *event = self.dataSource[(NSUInteger) indexPath.row];
-    [eventCell.imageView setImage: self.defaultImage];
-    eventCell.descriptionLabel.delegate = self;
-    eventCell.identifier = event.identifier;
-    eventCell.titleLabel.text = event.title;
 
-    NSString *description = event.description_plain_text;
-
-    description = [description stringByReplacingOccurrencesOfString:@"\r\n" withString:@""];
-
-    if ([event.description_plain_text length] > 128) {
-        description = [NSString stringWithFormat:@"%@ ...",  [description substringToIndex:128]];
-    }
-
-    eventCell.descriptionLabel.text = description;
-}
-
-- (void)attributedLabel:(TTTAttributedLabel *)label didSelectLinkWithURL:(NSURL *)url {
-    NSLog(@"Url requested: %@", url);
-    [self.appDelegate.mainViewController openURL:url withTitle:@"EventBrite"];
+    [eventCell updateWithEvent: event];
 }
 
 @end

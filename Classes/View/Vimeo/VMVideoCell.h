@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "XBTableViewCell.h"
+#import "VMVideo.h"
 
 @interface VMVideoCell : XBTableViewCell
 
@@ -15,8 +16,8 @@
 @property (nonatomic, strong) IBOutlet UILabel *descriptionLabel;
 @property (nonatomic, strong) IBOutlet UILabel *dateLabel;
 
-@property (nonatomic, strong) NSNumber *identifier;
+@property(nonatomic, strong, readonly) VMVideo *video;
 
-- (void)configure;
+- (void)updateWithVideo:(VMVideo *)video;
 
 @end

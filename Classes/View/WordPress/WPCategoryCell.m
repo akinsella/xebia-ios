@@ -8,14 +8,16 @@
 
 #import "WPCategoryCell.h"
 #import "UIColor+XBAdditions.h"
+#import "WPCategory.h"
 #import <QuartzCore/QuartzCore.h>
 
-@implementation WPCategoryCell
+@interface WPCategoryCell()
 
-- (void)setItemCount:(NSInteger)itemCount {
-    _itemCount = itemCount;
-    [self updateBottomDetailLabel];
-}
+@property(nonatomic, strong) WPCategory *category;
+
+@end
+
+@implementation WPCategoryCell
 
 - (void)layoutSubviews {
     [super layoutSubviews];
@@ -24,10 +26,16 @@
     self.layer.rasterizationScale = [[UIScreen mainScreen] scale];
 }
 
-- (void)updateBottomDetailLabel {
-    self.bottomDetailLabel.text = [NSString stringWithFormat: 
-                                   self.itemCount > 1 ? @"%d posts" : @"%d post", 
-                                   self.itemCount];
+- (void)updateWithCategory:(WPCategory *)category {
+    
+    self.category = category;
+    
+    self.titleLabel.text = category.title;
+    self.bottomDetailLabel.text = [NSString stringWithFormat:
+            category.postCount.intValue > 1 ? @"%d posts" : @"%d post",
+            category.postCount
+    ];
+
 }
 
 @end

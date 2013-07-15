@@ -21,8 +21,12 @@
 #import "XBLogging.h"
 #import "XBConstants.h"
 #import "DCIntrospect.h"
+#import "Appirater.h"
 
 static NSString *const kTrackingId = @"UA-40651647-1";
+
+//TODO: Need to change AppID
+static NSString *const kAppId = @"1234567890";
 
 static NSString* const DeviceTokenKey = @"DeviceToken";
 
@@ -63,12 +67,29 @@ static NSString* const DeviceTokenKey = @"DeviceToken";
     [self initIntrospect];
 
     [self registerForRemoteNotification];
+    
+    [self initApplicationRating];
 
     return YES;
 }
 
 -(id<GAITracker>)tracker {
     return GAI.sharedInstance.defaultTracker;
+}
+
+- (void)initApplicationRating {
+    [Appirater setAppId:kAppId];
+    [Appirater setDaysUntilPrompt:1];
+    [Appirater setUsesUntilPrompt:10];
+    [Appirater setSignificantEventsUntilPrompt:-1];
+    [Appirater setTimeBeforeReminding:2];
+    
+#if TARGET_IPHONE_SIMULATOR || defined(DEBUG)
+    [Appirater setDebug:YES];
+#else
+    [Appirater setDebug:NO];
+#endif
+
 }
 
 - (void)initIntrospect {

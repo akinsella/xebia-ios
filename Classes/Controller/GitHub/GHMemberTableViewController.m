@@ -8,20 +8,13 @@
 
 #import "GHMember.h"
 #import "GHMemberTableViewController.h"
-#import "SDImageCache.h"
-#import "SDWebImageManager.h"
 #import "GHMemberCell.h"
-#import "AFNetworking.h"
 #import "XBPListConfigurationProvider.h"
 #import "XBBasicHttpQueryParamBuilder.h"
 #import "XBHttpJsonDataLoader.h"
 #import "XBJsonToArrayDataMapper.h"
 #import "GAITracker.h"
 #import "UIViewController+XBAdditions.h"
-
-@interface GHMemberTableViewController ()
-@property (nonatomic, strong) UIImage* defaultAvatarImage;
-@end
 
 @implementation GHMemberTableViewController
 
@@ -31,7 +24,6 @@
 
     self.delegate = self;
     self.title = NSLocalizedString(@"Members", nil);
-    self.defaultAvatarImage = [UIImage imageNamed:@"github-gravatar-placeholder"];
 
     [super viewDidLoad];
 }
@@ -60,10 +52,8 @@
     GHMemberCell *memberCell = (GHMemberCell *) cell;
 
     GHMember *owner = self.dataSource[indexPath.row];
-    memberCell.titleLabel.text = owner.login;
-    memberCell.identifier = owner.identifier;
 
-    [memberCell.imageView setImageWithURL:[owner avatarImageUrl] placeholderImage:self.defaultAvatarImage];
+    [memberCell updateWithMember: owner];
 }
 
 @end

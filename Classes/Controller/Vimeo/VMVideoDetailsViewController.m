@@ -16,16 +16,13 @@
 #import "GAITracker.h"
 #import "UIViewController+XBAdditions.h"
 
+@interface VMVideoDetailsViewController()
+
+@property(nonatomic, strong)VMVideo *video;
+
+@end
+
 @implementation VMVideoDetailsViewController
-
--(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
-
-    UITouch *touch = touches.anyObject;
-
-    if (touch.view == self.videoImage) {
-        [self videoImageTapped];
-    }
-}
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
@@ -43,6 +40,16 @@
                                  }];
     }
 }
+
+-(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
+
+    UITouch *touch = touches.anyObject;
+
+    if (touch.view == self.videoImage) {
+        [self videoImageTapped];
+    }
+}
+
 -(UIImage *) generateWatermarkForImage:(UIImage *) mainImg {
     UIImage *backgroundImage = mainImg;
     UIImage *watermarkImage = [UIImage imageNamed:@"videoPlayButton.png"];
@@ -65,7 +72,6 @@
                                   quality:YTVimeoVideoQualityMedium
                                   success:^(NSURL *videoURL) {
                                       NSLog(@"Video URL: %@", [videoURL absoluteString]);
-                                      [self updateView];
                                       [self playMovieStream:videoURL];
                                   }
                                   failure:^(NSError *error) {
@@ -80,14 +86,12 @@
     ];
 }
 
--(void)setVideo:(VMVideo *)video {
-    _video = video;
+- (void)updateWithVideo:(VMVideo *)video {
+
+    self.video = video;
     self.title = video.title;
     self.videoImage.image = [UIImage imageNamed:@"video_placeholder.png"];
 
-}
-
-- (void)updateView {
     self.displayName.text = self.video.owner.displayName;
     self.date.text = [self.video dateTimeFormatted];
     self.playCount.text = [NSString stringWithFormat: @"%@", self.video.playCount];

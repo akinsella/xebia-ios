@@ -8,11 +8,13 @@
 
 #import <Foundation/Foundation.h>
 #import "XBTableViewCell.h"
+#import "XECategory.h"
+#import "XEAbstractCell.h"
 
-@interface XECategoryCell : XBTableViewCell
+@interface XECategoryCell : XEAbstractCell
 
+@property (nonatomic, strong) XECategory *category;
 @property (nonatomic, strong) IBOutlet UILabel *titleLabel;
 
-- (void)configure;
-
+- (void)updateWithCategory:(XECategory *)category;
 @end

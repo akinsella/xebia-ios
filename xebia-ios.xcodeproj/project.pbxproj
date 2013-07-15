@@ -341,6 +341,7 @@
 		54A7485917849E0F00B9A907 /* www in Resources */ = {isa = PBXBuildFile; fileRef = 54A7485817849E0F00B9A907 /* www */; };
 		54A7485C178CA96600B9A907 /* xebia-essentials.png in Resources */ = {isa = PBXBuildFile; fileRef = 54A7485A178CA96600B9A907 /* xebia-essentials.png */; };
 		54A7485D178CA96600B9A907 /* xebia-essentials@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 54A7485B178CA96600B9A907 /* xebia-essentials@2x.png */; };
+		54C1A7031794992400C33738 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54C1A7021794992400C33738 /* StoreKit.framework */; };
 		54C2DEEB15BDFAFB00CABB12 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54C2DEEA15BDFAFB00CABB12 /* UIKit.framework */; };
 		54C2DEED15BDFAFB00CABB12 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54C2DEEC15BDFAFB00CABB12 /* Foundation.framework */; };
 		54C2DEEF15BDFAFB00CABB12 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54C2DEEE15BDFAFB00CABB12 /* CoreGraphics.framework */; };
@@ -368,6 +369,7 @@
 		DB34D2178AD0916DF2038F6C /* XECard.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34D91042354A075764148E /* XECard.m */; };
 		DB34D257FA427B168188038E /* XESponsor.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34D0A4CC294EC4C22FF6BD /* XESponsor.m */; };
 		DB34D268AC837A22AA8D64EC /* WPCategoryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34D8B87DC73AA8DDDD46C8 /* WPCategoryCell.m */; };
+		DB34D2B250CECFC309FED9BD /* XEAbstractCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34DF039C3A138FECC6CB3B /* XEAbstractCell.m */; };
 		DB34D2B5279E454E7717D0AC /* WPAuthorCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DB34D96E0DF6CCFCBDF91B05 /* WPAuthorCell.xib */; };
 		DB34D2CB7AB56E241AE841E2 /* VMVideoDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34D520761597BD4B8B7669 /* VMVideoDetailsViewController.m */; };
 		DB34D33C7147CFEE06AD99EF /* XEDeck.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34D7E7E92FDE99630ABD8E /* XEDeck.m */; };
@@ -432,6 +434,7 @@
 		DB34DDA38AE0BEB35134605A /* WPAuthorCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34D78EBDB59559FF7AF9C6 /* WPAuthorCell.m */; };
 		DB34DDB92CB08EB004BE2DA9 /* TTTweetCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DB34DA93BE919BF05DE33959 /* TTTweetCell.xib */; };
 		DB34DDBF4DE1F968488BF69C /* WPTagCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DB34DB0DD0A6B58C15D2461A /* WPTagCell.xib */; };
+		DB34DDCCC18673992276D339 /* XEAbstractCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34DF039C3A138FECC6CB3B /* XEAbstractCell.m */; };
 		DB34DDCE25DFE6515495AA45 /* XBMenuCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34D92EB516F92067A99CB9 /* XBMenuCell.m */; };
 		DB34DDCEA4DCB55F4F0DABB2 /* VMVideoDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34D520761597BD4B8B7669 /* VMVideoDetailsViewController.m */; };
 		DB34DE5FFE92DC6FF69467BC /* Twitter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB34D5CB72485B6E20272C19 /* Twitter.framework */; };
@@ -821,6 +824,8 @@
 		54A7485817849E0F00B9A907 /* www */ = {isa = PBXFileReference; lastKnownFileType = folder; path = www; sourceTree = "<group>"; };
 		54A7485A178CA96600B9A907 /* xebia-essentials.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "xebia-essentials.png"; sourceTree = "<group>"; };
 		54A7485B178CA96600B9A907 /* xebia-essentials@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "xebia-essentials@2x.png"; sourceTree = "<group>"; };
+		54C1A7021794992400C33738 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		54C1A7041794992B00C33738 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		54C2DEE615BDFAFB00CABB12 /* xebia-ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "xebia-ios.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		54C2DEEA15BDFAFB00CABB12 /* UIKit.framework */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		54C2DEEC15BDFAFB00CABB12 /* Foundation.framework */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -900,10 +905,12 @@
 		DB34DD4E1507AF2BCB62C8A7 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = ../../../../../Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.1.sdk/System/Library/Frameworks/Social.framework; sourceTree = "<group>"; };
 		DB34DD635BB876A4193AAB19 /* VMVideoDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VMVideoDetailsViewController.h; sourceTree = "<group>"; };
 		DB34DDADB26F4995CF298E0B /* GHRepositoryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GHRepositoryCell.h; sourceTree = "<group>"; };
+		DB34DDF6CFA86B21B8E0891F /* XEAbstractCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XEAbstractCell.h; sourceTree = "<group>"; };
 		DB34DE645E387135F7469A74 /* XECardTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XECardTableViewController.h; sourceTree = "<group>"; };
 		DB34DE96DB0AD5C965696E37 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = ../../../../../Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.1.sdk/System/Library/Frameworks/MapKit.framework; sourceTree = "<group>"; };
 		DB34DE9F5EB259E9CB86E112 /* TTTweetCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTTweetCell.m; sourceTree = "<group>"; };
 		DB34DEEAA4079818595013B9 /* WPCategoryCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WPCategoryCell.xib; sourceTree = "<group>"; };
+		DB34DF039C3A138FECC6CB3B /* XEAbstractCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XEAbstractCell.m; sourceTree = "<group>"; };
 		DB34DF3355B7AD5670668C47 /* GHRepositoryCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GHRepositoryCell.m; sourceTree = "<group>"; };
 		DB34DF4AB3494EC276B736FA /* XBRightMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XBRightMenuViewController.m; sourceTree = "<group>"; };
 		DB34DF603EC84E5DE3FCAD09 /* VMVideo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VMVideo.m; sourceTree = "<group>"; };
@@ -918,6 +925,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				54C1A7031794992400C33738 /* StoreKit.framework in Frameworks */,
 				54A7483F177A480E00B9A907 /* MediaPlayer.framework in Frameworks */,
 				54C2DEF115BDFAFB00CABB12 /* CoreData.framework in Frameworks */,
 				54C2DEEB15BDFAFB00CABB12 /* UIKit.framework in Frameworks */,
@@ -1894,6 +1902,8 @@
 		54C2DEDB15BDFAFB00CABB12 = {
 			isa = PBXGroup;
 			children = (
+				54C1A7041794992B00C33738 /* CFNetwork.framework */,
+				54C1A7021794992400C33738 /* StoreKit.framework */,
 				5443EE2E177620B60000FFE8 /* Classes */,
 				5443EB451775BEDC0000FFE8 /* Library */,
 				5443EA1A1775BEC40000FFE8 /* Resources */,
@@ -2002,6 +2012,8 @@
 				DB34DF96C607241FFD2FD30D /* XECategoryCell.m */,
 				DB34D67385B70DF3E8904BDD /* XECategoryCell.h */,
 				DB34DBCA884FDF6E452B2C96 /* XECategoryCell.xib */,
+				DB34DF039C3A138FECC6CB3B /* XEAbstractCell.m */,
+				DB34DDF6CFA86B21B8E0891F /* XEAbstractCell.h */,
 			);
 			path = Essentials;
 			sourceTree = "<group>";
@@ -2503,6 +2515,7 @@
 				DB34D4A4A6E4F5D1543A8999 /* XECardDetailsViewController.m in Sources */,
 				DB34D7406AEB8D5A9B097B80 /* XECategoryTableViewController.m in Sources */,
 				DB34D11D675FDB9F5FDA5C29 /* XECategoryCell.m in Sources */,
+				DB34DDCCC18673992276D339 /* XEAbstractCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2652,6 +2665,7 @@
 				DB34D80AFFDF2381C861F350 /* XECardDetailsViewController.m in Sources */,
 				DB34DA8F67EFC27B0D01DDE8 /* XECategoryTableViewController.m in Sources */,
 				DB34D65BEB6CF10C52FC7BA8 /* XECategoryCell.m in Sources */,
+				DB34D2B250CECFC309FED9BD /* XEAbstractCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

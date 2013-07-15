@@ -15,6 +15,8 @@
 @property (strong, nonatomic) IBOutlet UILabel *titleLabel;
 @property (strong, nonatomic) IBOutlet DTAttributedLabel *descriptionLabel;
 
-@property(nonatomic, strong)XECard *card;
+@property(nonatomic, strong, readonly)XECard *card;
+
+- (void)updateWithCard:(XECard *)card;
 
 @end

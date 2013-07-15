@@ -10,15 +10,48 @@
 #import "SDImageCache.h"
 #import "WPPost.h"
 #import <QuartzCore/QuartzCore.h>
+#import <SDWebImage/UIImageView+WebCache.h>
 #import "UIColor+XBAdditions.h"
 
+@interface WPSPostCell ()
+@property (nonatomic, strong) UIImage *defaultPostImage;
+@property (nonatomic, strong) UIImage *xebiaPostImage;
+@property(nonatomic, strong) WPPost *post;
+@end
+
 @implementation WPSPostCell
+
+- (void)configure {
+
+    [super configure];
+
+    self.defaultPostImage = [UIImage imageNamed:@"avatar_placeholder"];
+    self.xebiaPostImage = [UIImage imageNamed:@"xebia-avatar"];
+}
 
 - (void)layoutSubviews {
     [super layoutSubviews];
     self.imageView.frame = CGRectMake(9,16,44,44);
     self.imageView.layer.masksToBounds = YES;
     self.imageView.layer.cornerRadius = 3.0;
+}
+
+- (void)updateWithPost:(WPPost *)post {
+
+    self.post = post;
+    
+    self.titleLabel.text = post.title;
+    self.dateLabel.text = post.dateFormatted;
+    self.categoriesLabel.text = post.categoriesFormatted;
+    self.authorLabel.text = post.authorFormatted;
+
+    if (![post.author.slug isEqualToString:@"xebiafrance"]) {
+        [self.imageView setImageWithURL: [post imageUrl] placeholderImage:self.defaultPostImage];
+    }
+    else {
+        self.imageView.image = self.xebiaPostImage;
+    }
+
 }
 
 @end

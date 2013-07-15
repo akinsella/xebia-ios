@@ -46,7 +46,7 @@
     XECategoryCell *categoryCell = (XECategoryCell *) cell;
 
     XECategory *category = self.dataSource[(NSUInteger) indexPath.row];
-    categoryCell.titleLabel.text = category.label;
+    [categoryCell updateWithCategory:category];
 }
 
 - (XBArrayDataSource *)buildDataSource {

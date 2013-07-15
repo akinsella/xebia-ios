@@ -11,6 +11,7 @@
 #import "XBTableViewCell.h"
 #import "DTCustomColoredAccessory.h"
 #import "UIColor+XBAdditions.h"
+#import "XBAppDelegate.h"
 
 @interface XBTableViewCell()
 
@@ -27,8 +28,7 @@
 {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
-        [self initAccessoryView];
-        [self initBackgroundView];
+        [self configure];
     }
 
     return self;
@@ -37,11 +37,19 @@
 - (id)initWithCoder:(NSCoder *)coder {
     self = [super initWithCoder:coder];
     if (self) {
-        [self initAccessoryView];
-        [self initBackgroundView];
+        [self configure];
     }
 
     return self;
+}
+
+- (void)configure {
+    [self initAccessoryView];
+    [self initBackgroundView];
+}
+
+- (XBAppDelegate *) appDelegate {
+    return (XBAppDelegate *) [[UIApplication sharedApplication] delegate];
 }
 
 -(UIColor *)accessoryViewColor {

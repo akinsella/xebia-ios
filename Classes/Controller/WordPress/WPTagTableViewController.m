@@ -46,8 +46,8 @@
     WPTagCell *tagCell = (WPTagCell *) cell;
 
     WPTag *tag = self.dataSource[(NSUInteger) indexPath.row];
-    tagCell.titleLabel.text = [tag capitalizedTitle];
-    tagCell.itemCount = tag.postCount.intValue;
+
+    [tagCell updateWithTag: tag];
 }
 
 - (XBArrayDataSource *)buildDataSource {

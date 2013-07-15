@@ -7,9 +7,10 @@
 
 
 #import "XECardCell.h"
-#import <QuartzCore/QuartzCore.h>
+#import "XECard.h"
+#import "XECategory.h"
 #import "UIColor+XBAdditions.h"
-#import "XBConstants.h"
+#import <QuartzCore/QuartzCore.h>
 
 @implementation XECardCell
 
@@ -19,8 +20,13 @@
     self.imageView.layer.masksToBounds = YES;
 }
 
-- (void)configure {
+- (void)updateWithCard:(XECard *)card {
+    self.card = card;
+    self.titleLabel.text = card.title;
+}
 
+- (XECategory *)category {
+    return self.card.category;
 }
 
 @end
