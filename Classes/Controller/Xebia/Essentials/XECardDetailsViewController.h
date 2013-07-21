@@ -7,15 +7,26 @@
 
 
 #import <Foundation/Foundation.h>
+#import <DTCoreText/DTLazyImageView.h>
+#import <DTCoreText/DTAttributedTextContentView.h>
 #import "XECard.h"
-#import "DTAttributedLabel.h"
+#import "DTAttributedTextView.h"
 
-@interface XECardDetailsViewController : UIViewController
+@interface XECardDetailsViewController : UIViewController<UIScrollViewDelegate>
 
 @property (strong, nonatomic) IBOutlet UILabel *titleLabel;
-@property (strong, nonatomic) IBOutlet DTAttributedLabel *descriptionLabel;
+
+@property (weak, nonatomic) IBOutlet UIView *titleBackgroundView;
+
+@property (weak, nonatomic) IBOutlet UIView *descriptionBackgroundView;
+
+@property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
+
+@property (weak, nonatomic) IBOutlet UIPageControl *pageControl;
 
 @property(nonatomic, strong, readonly)XECard *card;
+
+- (IBAction)changePage:(id)sender;
 
 - (void)updateWithCard:(XECard *)card;
 

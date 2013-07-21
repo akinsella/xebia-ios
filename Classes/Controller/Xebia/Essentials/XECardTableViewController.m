@@ -17,14 +17,24 @@
 #import "XECard.h"
 #import "XECardDetailsViewController.h"
 
+@interface XBTableViewController()
+-(void)initialize;
+@end
+
+@interface XECardTableViewController()
+@property(nonatomic, strong) XECategory *category;
+@end
+
 @implementation XECardTableViewController
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     if (self.category) {
+        self.title = self.category.label;
         [self.appDelegate.tracker sendView:[NSString stringWithFormat: @"/essentials/category/%@", self.category.identifier]];
     }
     else {
+        self.title = NSLocalizedString(@"Cards", nil);
         [self.appDelegate.tracker sendView:@"/essentials/card"];
     }
 }
@@ -32,7 +42,6 @@
 - (void)viewDidLoad {
 
     self.delegate = self;
-    self.title = NSLocalizedString(@"Cards", nil);
 
     [super viewDidLoad];
 }
@@ -60,7 +69,9 @@
 - (XBArrayDataSource *)buildDataSource {
     XBHttpClient *httpClient = [[XBPListConfigurationProvider provider] httpClient];
     XBBasicHttpQueryParamBuilder *httpQueryParamBuilder = [XBBasicHttpQueryParamBuilder builderWithDictionary:@{}];
-    XBHttpJsonDataLoader *dataLoader = [XBHttpJsonDataLoader dataLoaderWithHttpClient:httpClient httpQueryParamBuilder:httpQueryParamBuilder resourcePath:@"/api/essentials/card"];
+
+    NSString * path = self.category ? [NSString stringWithFormat:@"/api/essentials/category/%@", self.category.identifier] : @"/api/essentials/card";
+    XBHttpJsonDataLoader *dataLoader = [XBHttpJsonDataLoader dataLoaderWithHttpClient:httpClient httpQueryParamBuilder:httpQueryParamBuilder resourcePath: path];
     XBJsonToArrayDataMapper *dataMapper = [XBJsonToArrayDataMapper mapperWithRootKeyPath:@"cards" typeClass:[XECard class]];
     return [XBReloadableArrayDataSource dataSourceWithDataLoader:dataLoader dataMapper:dataMapper];
 }
@@ -74,6 +85,11 @@
     XECardDetailsViewController *cardDetailsViewController = (XECardDetailsViewController *) [[self appDelegate].viewControllerManager getOrCreateControllerWithIdentifier:@"cardDetails"];
     [cardDetailsViewController updateWithCard: card];
     [self.navigationController pushViewController:cardDetailsViewController animated:YES];
+}
+
+- (void)updateWithCategory:(XECategory *)category {
+    self.category = category;
+    [self initialize];
 }
 
 @end

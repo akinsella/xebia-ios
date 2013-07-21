@@ -12,6 +12,7 @@
 
 @interface XECardTableViewController : XBReloadableTableViewController<UITableViewDelegate, UITableViewDataSource, XBTableViewControllerDelegate>
 
-@property(nonatomic, strong) XECategory *category;
+@property(nonatomic, strong, readonly) XECategory *category;
 
+- (void)updateWithCategory:(XECategory *)category;
 @end

@@ -13,6 +13,7 @@
 #import "DCParserConfiguration+XBAdditions.h"
 #import "XESponsor.h"
 #import "XETag.h"
+#import "XEULink.h"
 
 
 @implementation XECard
@@ -31,6 +32,9 @@
 
     [config addArrayMapper: [DCArrayMapping mapperForClassElements:[XETag class] forAttribute:@"tags" onClass:[self class]]];
     [config mergeConfig:[[XETag class] mappings]];
+
+    [config addArrayMapper: [DCArrayMapping mapperForClassElements:[XEULink class] forAttribute:@"ulinks" onClass:[self class]]];
+    [config mergeConfig:[[XEULink class] mappings]];
 
     return config;
 }

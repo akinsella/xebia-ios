@@ -24,7 +24,7 @@
     [self.appDelegate.tracker sendView:@"/essentials/category"];
 
     self.delegate = self;
-    self.title = NSLocalizedString(@"Card categories", nil);
+    self.title = NSLocalizedString(@"Categories", nil);
 
     [super viewDidLoad];
 }
@@ -64,7 +64,7 @@
     NSLog(@"Category selected: %@", category);
 
     XECardTableViewController *cardCategoryViewController = (XECardTableViewController *) [self.appDelegate.viewControllerManager getOrCreateControllerWithIdentifier:@"cards"];
-    cardCategoryViewController.category = category;
+    [cardCategoryViewController updateWithCategory: category];
     [self.navigationController pushViewController:cardCategoryViewController animated:YES];
 }
 
