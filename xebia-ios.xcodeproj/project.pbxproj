@@ -363,12 +363,14 @@
 		DB34D083C9EDF348B8417033 /* XEULink.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34DB5D367DAA7DDB9AF238 /* XEULink.m */; };
 		DB34D0A65457AD12B3088503 /* GHRepositoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DB34D58EEEF2EB680C1431C4 /* GHRepositoryCell.xib */; };
 		DB34D0AE0DA850ACF6EF4A6D /* XBMenuCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DB34DA4198F561241846CE47 /* XBMenuCell.xib */; };
+		DB34D0B92E9DCDA668262294 /* XECardDetailsFullContentPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34DC8AFBE645EBAA9E1C24 /* XECardDetailsFullContentPageViewController.m */; };
 		DB34D0BCF29D66E1F8CC2711 /* WPSPostCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34D56827878B25BB1F025D /* WPSPostCell.m */; };
 		DB34D0BF5EEBF427D15642F0 /* WPTagCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34D779566E6E53EC3D0C66 /* WPTagCell.m */; };
 		DB34D0D7C801AAAE68093A11 /* VMVideoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34D3E67D5221EE4730132B /* VMVideoCell.m */; };
 		DB34D11CBDFC38E379BC4F99 /* XECardDetailsDescriptionPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34D8E80432307FE0039425 /* XECardDetailsDescriptionPageViewController.m */; };
 		DB34D11D675FDB9F5FDA5C29 /* XECategoryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34DF96C607241FFD2FD30D /* XECategoryCell.m */; };
 		DB34D1C08763AD2643298EEE /* XBMenuCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34D92EB516F92067A99CB9 /* XBMenuCell.m */; };
+		DB34D1C7C688A012694E0BBB /* XECardDetailsFullContentPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34DC8AFBE645EBAA9E1C24 /* XECardDetailsFullContentPageViewController.m */; };
 		DB34D1DD12F4603A8CD5E2FD /* XECardTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34DAF58EBF524C851113DF /* XECardTableViewController.m */; };
 		DB34D1DEADC4E02B880126A6 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB34DE96DB0AD5C965696E37 /* MapKit.framework */; };
 		DB34D1EC375F15EF181F17F5 /* VMThumbnail.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34D3ACE055F5BE09F95779 /* VMThumbnail.m */; };
@@ -885,6 +887,7 @@
 		DB34D58EEEF2EB680C1431C4 /* GHRepositoryCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GHRepositoryCell.xib; sourceTree = "<group>"; };
 		DB34D5CB72485B6E20272C19 /* Twitter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Twitter.framework; path = ../../../../../Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.1.sdk/System/Library/Frameworks/Twitter.framework; sourceTree = "<group>"; };
 		DB34D67385B70DF3E8904BDD /* XECategoryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XECategoryCell.h; sourceTree = "<group>"; };
+		DB34D6AE1C72C018934BC21B /* XECardDetailsFullContentPageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XECardDetailsFullContentPageViewController.h; sourceTree = "<group>"; };
 		DB34D6E39C27611413839ED2 /* XECardDetailsQRCodePageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XECardDetailsQRCodePageViewController.m; sourceTree = "<group>"; };
 		DB34D7023381A681C697733B /* VMVideoTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VMVideoTableViewController.m; sourceTree = "<group>"; };
 		DB34D705388B6EF1933EB1E3 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = ../../../../../Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.1.sdk/System/Library/Frameworks/CoreLocation.framework; sourceTree = "<group>"; };
@@ -927,6 +930,7 @@
 		DB34DBF1B3FCCC4E6026372E /* README.md */ = {isa = PBXFileReference; lastKnownFileType = file.md; path = README.md; sourceTree = "<group>"; };
 		DB34DBFA7A7896251890FD3D /* UIAlertView+XBAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIAlertView+XBAdditions.m"; sourceTree = "<group>"; };
 		DB34DC7A2F8601F51BAB479D /* EBEventCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EBEventCell.xib; sourceTree = "<group>"; };
+		DB34DC8AFBE645EBAA9E1C24 /* XECardDetailsFullContentPageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XECardDetailsFullContentPageViewController.m; sourceTree = "<group>"; };
 		DB34DCE9E629F0249A32FAE9 /* UIAlertView+XBAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIAlertView+XBAdditions.h"; sourceTree = "<group>"; };
 		DB34DD4E1507AF2BCB62C8A7 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = ../../../../../Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.1.sdk/System/Library/Frameworks/Social.framework; sourceTree = "<group>"; };
 		DB34DD635BB876A4193AAB19 /* VMVideoDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VMVideoDetailsViewController.h; sourceTree = "<group>"; };
@@ -2157,6 +2161,8 @@
 				DB34DDECF2862F269D7527EF /* XECardDetailsDescriptionPageViewController.h */,
 				DB34DF0EC54E9E1EECE42ED4 /* XECardDetailsPageViewController.m */,
 				DB34D433E7A98268FA0ECBF0 /* XECardDetailsPageViewController.h */,
+				DB34DC8AFBE645EBAA9E1C24 /* XECardDetailsFullContentPageViewController.m */,
+				DB34D6AE1C72C018934BC21B /* XECardDetailsFullContentPageViewController.h */,
 			);
 			path = Essentials;
 			sourceTree = "<group>";
@@ -2570,6 +2576,7 @@
 				DB34DFD09DA3F421FFF714A1 /* XECardDetailsQRCodePageViewController.m in Sources */,
 				DB34D11CBDFC38E379BC4F99 /* XECardDetailsDescriptionPageViewController.m in Sources */,
 				DB34D5DBC72AF1D315F28DE1 /* XECardDetailsPageViewController.m in Sources */,
+				DB34D0B92E9DCDA668262294 /* XECardDetailsFullContentPageViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2724,6 +2731,7 @@
 				DB34D25EE9C73E8E1540F320 /* XECardDetailsQRCodePageViewController.m in Sources */,
 				DB34D865D482043EBB31A623 /* XECardDetailsDescriptionPageViewController.m in Sources */,
 				DB34DF48C933A3D0822B7DCC /* XECardDetailsPageViewController.m in Sources */,
+				DB34D1C7C688A012694E0BBB /* XECardDetailsFullContentPageViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -14,13 +14,14 @@
 #import "UIColor+XBAdditions.h"
 #import "XECardDetailsQRCodePageViewController.h"
 #import "XECardDetailsDescriptionPageViewController.h"
+#import "XECardDetailsFullContentPageViewController.h"
 
-#define kNumberOfPages 2
+#define kNumberOfPages 3
 
 @interface XECardDetailsViewController ()
 @property(nonatomic, strong)XECard *card;
 @property(nonatomic, assign)BOOL pageControlUsed;
-@property(nonatomic, strong)NSArray * pageViewControllers;
+@property(nonatomic, strong)NSArray *pageViewControllers;
 @end
 
 @implementation XECardDetailsViewController
@@ -38,7 +39,8 @@
 - (void)configure {
     self.pageViewControllers = @[
             [[XECardDetailsDescriptionPageViewController alloc] init],
-            [[XECardDetailsQRCodePageViewController alloc] init]
+            [[XECardDetailsQRCodePageViewController alloc] init],
+            [[XECardDetailsFullContentPageViewController alloc] init]
     ];
 }
 

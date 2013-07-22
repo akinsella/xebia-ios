@@ -37,9 +37,13 @@
                                        error:&error];
         if (result) {
             CGImageRef image = [[ZXImage imageWithMatrix:result] cgimage];
-            self.qrCodeImage.imageView.image = [[UIImage alloc] initWithCGImage:image];
+            UIImage *buttonImage = [[UIImage alloc] initWithCGImage:image];
+
+            [self.qrCodeImage setImage:buttonImage forState:UIControlStateNormal];
+            [self.qrCodeImage setImage:buttonImage forState:UIControlStateHighlighted];
+            [self.qrCodeImage setImage:buttonImage forState:UIControlStateSelected];
         } else {
-            NSString* errorMessage = [error localizedDescription];
+            NSLog(@"Error: %@", [error localizedDescription]);
         }
     }
 }
