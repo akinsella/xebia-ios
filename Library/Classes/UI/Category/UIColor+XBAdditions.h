@@ -12,6 +12,10 @@
 
 @interface UIColor (XBAdditions)
 
+- (UIColor *)lighterColorWithRatio:(CGFloat)ratio;
+
+- (UIColor *)darkerColorWithRatio:(CGFloat)ratio;
+
 + (UIColor*)colorWithPatternImageName:(NSString *)imageName;
 
 // wrapper for [UIColor colorWithRed:green:blue:alpha:]

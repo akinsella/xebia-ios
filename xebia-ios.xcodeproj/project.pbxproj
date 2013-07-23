@@ -363,14 +363,11 @@
 		DB34D083C9EDF348B8417033 /* XEULink.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34DB5D367DAA7DDB9AF238 /* XEULink.m */; };
 		DB34D0A65457AD12B3088503 /* GHRepositoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DB34D58EEEF2EB680C1431C4 /* GHRepositoryCell.xib */; };
 		DB34D0AE0DA850ACF6EF4A6D /* XBMenuCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DB34DA4198F561241846CE47 /* XBMenuCell.xib */; };
-		DB34D0B92E9DCDA668262294 /* XECardDetailsFullContentPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34DC8AFBE645EBAA9E1C24 /* XECardDetailsFullContentPageViewController.m */; };
 		DB34D0BCF29D66E1F8CC2711 /* WPSPostCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34D56827878B25BB1F025D /* WPSPostCell.m */; };
 		DB34D0BF5EEBF427D15642F0 /* WPTagCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34D779566E6E53EC3D0C66 /* WPTagCell.m */; };
 		DB34D0D7C801AAAE68093A11 /* VMVideoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34D3E67D5221EE4730132B /* VMVideoCell.m */; };
-		DB34D11CBDFC38E379BC4F99 /* XECardDetailsDescriptionPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34D8E80432307FE0039425 /* XECardDetailsDescriptionPageViewController.m */; };
 		DB34D11D675FDB9F5FDA5C29 /* XECategoryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34DF96C607241FFD2FD30D /* XECategoryCell.m */; };
 		DB34D1C08763AD2643298EEE /* XBMenuCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34D92EB516F92067A99CB9 /* XBMenuCell.m */; };
-		DB34D1C7C688A012694E0BBB /* XECardDetailsFullContentPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34DC8AFBE645EBAA9E1C24 /* XECardDetailsFullContentPageViewController.m */; };
 		DB34D1DD12F4603A8CD5E2FD /* XECardTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34DAF58EBF524C851113DF /* XECardTableViewController.m */; };
 		DB34D1DEADC4E02B880126A6 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB34DE96DB0AD5C965696E37 /* MapKit.framework */; };
 		DB34D1EC375F15EF181F17F5 /* VMThumbnail.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34D3ACE055F5BE09F95779 /* VMThumbnail.m */; };
@@ -379,8 +376,8 @@
 		DB34D217190540A658E8B52C /* XBRightMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34DF4AB3494EC276B736FA /* XBRightMenuViewController.m */; };
 		DB34D2178AD0916DF2038F6C /* XECard.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34D91042354A075764148E /* XECard.m */; };
 		DB34D257FA427B168188038E /* XESponsor.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34D0A4CC294EC4C22FF6BD /* XESponsor.m */; };
-		DB34D25EE9C73E8E1540F320 /* XECardDetailsQRCodePageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34D6E39C27611413839ED2 /* XECardDetailsQRCodePageViewController.m */; };
 		DB34D268AC837A22AA8D64EC /* WPCategoryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34D8B87DC73AA8DDDD46C8 /* WPCategoryCell.m */; };
+		DB34D28F18D62C9777EEA42C /* XECardDetailsQRCodeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34D1F306256770AF900772 /* XECardDetailsQRCodeViewController.m */; };
 		DB34D2B250CECFC309FED9BD /* XEAbstractCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34DF039C3A138FECC6CB3B /* XEAbstractCell.m */; };
 		DB34D2B5279E454E7717D0AC /* WPAuthorCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DB34D96E0DF6CCFCBDF91B05 /* WPAuthorCell.xib */; };
 		DB34D2CB7AB56E241AE841E2 /* VMVideoDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34D520761597BD4B8B7669 /* VMVideoDetailsViewController.m */; };
@@ -411,7 +408,6 @@
 		DB34D7EE0FE712FFCF9BF08E /* XETag.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34DA8D8461A88D68351CEF /* XETag.m */; };
 		DB34D80AFFDF2381C861F350 /* XECardDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34D7B3A32230066DEF57A0 /* XECardDetailsViewController.m */; };
 		DB34D82305C55FAB2822618C /* WPSPostCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DB34D9E3899F49AEEFBDF81D /* WPSPostCell.xib */; };
-		DB34D865D482043EBB31A623 /* XECardDetailsDescriptionPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34D8E80432307FE0039425 /* XECardDetailsDescriptionPageViewController.m */; };
 		DB34D87A546891A1D3CE41D5 /* TTTweetCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34DE9F5EB259E9CB86E112 /* TTTweetCell.m */; };
 		DB34D89C142C8B7F7D0E7558 /* XECategory.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34DA3846C32ED52912827E /* XECategory.m */; };
 		DB34D8A645E2E7469C52CDAD /* XECardCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DB34D815DF432CB4026A3863 /* XECardCell.xib */; };
@@ -452,6 +448,7 @@
 		DB34DDCCC18673992276D339 /* XEAbstractCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34DF039C3A138FECC6CB3B /* XEAbstractCell.m */; };
 		DB34DDCE25DFE6515495AA45 /* XBMenuCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34D92EB516F92067A99CB9 /* XBMenuCell.m */; };
 		DB34DDCEA4DCB55F4F0DABB2 /* VMVideoDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34D520761597BD4B8B7669 /* VMVideoDetailsViewController.m */; };
+		DB34DE1D52FD0E372B11A775 /* XECardDetailsQRCodeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34D1F306256770AF900772 /* XECardDetailsQRCodeViewController.m */; };
 		DB34DE5FFE92DC6FF69467BC /* Twitter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB34D5CB72485B6E20272C19 /* Twitter.framework */; };
 		DB34DE6E44DE47AE3934A6BC /* EBEventCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34DB3AFCA127427FE3B210 /* EBEventCell.m */; };
 		DB34DE741118B4A0C6E2A745 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB34D43948A4D9409E09F947 /* MessageUI.framework */; };
@@ -462,7 +459,6 @@
 		DB34DF2E9643CA685216363C /* GHMemberCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DB34D1F45D98157465DB787C /* GHMemberCell.xib */; };
 		DB34DF48C933A3D0822B7DCC /* XECardDetailsPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34DF0EC54E9E1EECE42ED4 /* XECardDetailsPageViewController.m */; };
 		DB34DF6C6006A6FB745FF1D5 /* GHUserCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34D970AE47ACD42EF7B352 /* GHUserCell.m */; };
-		DB34DFD09DA3F421FFF714A1 /* XECardDetailsQRCodePageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34D6E39C27611413839ED2 /* XECardDetailsQRCodePageViewController.m */; };
 		DB34DFE0E8D3977255720EBF /* WPPostCellPortrait.xib in Resources */ = {isa = PBXBuildFile; fileRef = DB34DAF8C5416FD22A0CD181 /* WPPostCellPortrait.xib */; };
 /* End PBXBuildFile section */
 
@@ -864,6 +860,7 @@
 		DB34D14B542638C01069450B /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = ../../../../../Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.1.sdk/System/Library/Frameworks/CFNetwork.framework; sourceTree = "<group>"; };
 		DB34D1AE3B63AB0AFAB322EE /* XETag.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XETag.h; sourceTree = "<group>"; };
 		DB34D1BEFD3B2A376D88BF5D /* XEDeck.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XEDeck.h; sourceTree = "<group>"; };
+		DB34D1F306256770AF900772 /* XECardDetailsQRCodeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XECardDetailsQRCodeViewController.m; sourceTree = "<group>"; };
 		DB34D1F45D98157465DB787C /* GHMemberCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GHMemberCell.xib; sourceTree = "<group>"; };
 		DB34D2236ADFB1F5325EE549 /* TTTweetCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTTweetCell.h; sourceTree = "<group>"; };
 		DB34D2290A197B1970EB3090 /* WPTagCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WPTagCell.h; sourceTree = "<group>"; };
@@ -887,8 +884,6 @@
 		DB34D58EEEF2EB680C1431C4 /* GHRepositoryCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GHRepositoryCell.xib; sourceTree = "<group>"; };
 		DB34D5CB72485B6E20272C19 /* Twitter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Twitter.framework; path = ../../../../../Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.1.sdk/System/Library/Frameworks/Twitter.framework; sourceTree = "<group>"; };
 		DB34D67385B70DF3E8904BDD /* XECategoryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XECategoryCell.h; sourceTree = "<group>"; };
-		DB34D6AE1C72C018934BC21B /* XECardDetailsFullContentPageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XECardDetailsFullContentPageViewController.h; sourceTree = "<group>"; };
-		DB34D6E39C27611413839ED2 /* XECardDetailsQRCodePageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XECardDetailsQRCodePageViewController.m; sourceTree = "<group>"; };
 		DB34D7023381A681C697733B /* VMVideoTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VMVideoTableViewController.m; sourceTree = "<group>"; };
 		DB34D705388B6EF1933EB1E3 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = ../../../../../Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.1.sdk/System/Library/Frameworks/CoreLocation.framework; sourceTree = "<group>"; };
 		DB34D712058259EB7ABA14BD /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = ../../../../../Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.1.sdk/System/Library/Frameworks/SystemConfiguration.framework; sourceTree = "<group>"; };
@@ -901,7 +896,6 @@
 		DB34D815DF432CB4026A3863 /* XECardCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = XECardCell.xib; sourceTree = "<group>"; };
 		DB34D86D5E8C02F41FEA568F /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = ../../../../../Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.1.sdk/System/Library/Frameworks/CoreText.framework; sourceTree = "<group>"; };
 		DB34D8B87DC73AA8DDDD46C8 /* WPCategoryCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WPCategoryCell.m; sourceTree = "<group>"; };
-		DB34D8E80432307FE0039425 /* XECardDetailsDescriptionPageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XECardDetailsDescriptionPageViewController.m; sourceTree = "<group>"; };
 		DB34D91042354A075764148E /* XECard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XECard.m; sourceTree = "<group>"; };
 		DB34D92EB516F92067A99CB9 /* XBMenuCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XBMenuCell.m; sourceTree = "<group>"; };
 		DB34D96E0DF6CCFCBDF91B05 /* WPAuthorCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WPAuthorCell.xib; sourceTree = "<group>"; };
@@ -930,17 +924,15 @@
 		DB34DBF1B3FCCC4E6026372E /* README.md */ = {isa = PBXFileReference; lastKnownFileType = file.md; path = README.md; sourceTree = "<group>"; };
 		DB34DBFA7A7896251890FD3D /* UIAlertView+XBAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIAlertView+XBAdditions.m"; sourceTree = "<group>"; };
 		DB34DC7A2F8601F51BAB479D /* EBEventCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EBEventCell.xib; sourceTree = "<group>"; };
-		DB34DC8AFBE645EBAA9E1C24 /* XECardDetailsFullContentPageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XECardDetailsFullContentPageViewController.m; sourceTree = "<group>"; };
 		DB34DCE9E629F0249A32FAE9 /* UIAlertView+XBAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIAlertView+XBAdditions.h"; sourceTree = "<group>"; };
 		DB34DD4E1507AF2BCB62C8A7 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = ../../../../../Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.1.sdk/System/Library/Frameworks/Social.framework; sourceTree = "<group>"; };
 		DB34DD635BB876A4193AAB19 /* VMVideoDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VMVideoDetailsViewController.h; sourceTree = "<group>"; };
 		DB34DDADB26F4995CF298E0B /* GHRepositoryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GHRepositoryCell.h; sourceTree = "<group>"; };
-		DB34DDD8503B41765841F3F5 /* XECardDetailsQRCodePageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XECardDetailsQRCodePageViewController.h; sourceTree = "<group>"; };
-		DB34DDECF2862F269D7527EF /* XECardDetailsDescriptionPageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XECardDetailsDescriptionPageViewController.h; sourceTree = "<group>"; };
 		DB34DDF6CFA86B21B8E0891F /* XEAbstractCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XEAbstractCell.h; sourceTree = "<group>"; };
 		DB34DE645E387135F7469A74 /* XECardTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XECardTableViewController.h; sourceTree = "<group>"; };
 		DB34DE96DB0AD5C965696E37 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = ../../../../../Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.1.sdk/System/Library/Frameworks/MapKit.framework; sourceTree = "<group>"; };
 		DB34DE9F5EB259E9CB86E112 /* TTTweetCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTTweetCell.m; sourceTree = "<group>"; };
+		DB34DEB42EF35F517DB01FE8 /* XECardDetailsQRCodeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XECardDetailsQRCodeViewController.h; sourceTree = "<group>"; };
 		DB34DEEAA4079818595013B9 /* WPCategoryCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WPCategoryCell.xib; sourceTree = "<group>"; };
 		DB34DF039C3A138FECC6CB3B /* XEAbstractCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XEAbstractCell.m; sourceTree = "<group>"; };
 		DB34DF0EC54E9E1EECE42ED4 /* XECardDetailsPageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XECardDetailsPageViewController.m; sourceTree = "<group>"; };
@@ -2155,14 +2147,10 @@
 				DB34D7B3A32230066DEF57A0 /* XECardDetailsViewController.m */,
 				DB34DB62A49155EA87926383 /* XECategoryTableViewController.m */,
 				DB34D3B294EB2C7536CFA836 /* XECategoryTableViewController.h */,
-				DB34D6E39C27611413839ED2 /* XECardDetailsQRCodePageViewController.m */,
-				DB34DDD8503B41765841F3F5 /* XECardDetailsQRCodePageViewController.h */,
-				DB34D8E80432307FE0039425 /* XECardDetailsDescriptionPageViewController.m */,
-				DB34DDECF2862F269D7527EF /* XECardDetailsDescriptionPageViewController.h */,
 				DB34DF0EC54E9E1EECE42ED4 /* XECardDetailsPageViewController.m */,
 				DB34D433E7A98268FA0ECBF0 /* XECardDetailsPageViewController.h */,
-				DB34DC8AFBE645EBAA9E1C24 /* XECardDetailsFullContentPageViewController.m */,
-				DB34D6AE1C72C018934BC21B /* XECardDetailsFullContentPageViewController.h */,
+				DB34DEB42EF35F517DB01FE8 /* XECardDetailsQRCodeViewController.h */,
+				DB34D1F306256770AF900772 /* XECardDetailsQRCodeViewController.m */,
 			);
 			path = Essentials;
 			sourceTree = "<group>";
@@ -2573,10 +2561,8 @@
 				DB34D11D675FDB9F5FDA5C29 /* XECategoryCell.m in Sources */,
 				DB34DDCCC18673992276D339 /* XEAbstractCell.m in Sources */,
 				DB34D42FD499E06D305AAAE0 /* XEULink.m in Sources */,
-				DB34DFD09DA3F421FFF714A1 /* XECardDetailsQRCodePageViewController.m in Sources */,
-				DB34D11CBDFC38E379BC4F99 /* XECardDetailsDescriptionPageViewController.m in Sources */,
 				DB34D5DBC72AF1D315F28DE1 /* XECardDetailsPageViewController.m in Sources */,
-				DB34D0B92E9DCDA668262294 /* XECardDetailsFullContentPageViewController.m in Sources */,
+				DB34DE1D52FD0E372B11A775 /* XECardDetailsQRCodeViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2728,10 +2714,8 @@
 				DB34D65BEB6CF10C52FC7BA8 /* XECategoryCell.m in Sources */,
 				DB34D2B250CECFC309FED9BD /* XEAbstractCell.m in Sources */,
 				DB34D083C9EDF348B8417033 /* XEULink.m in Sources */,
-				DB34D25EE9C73E8E1540F320 /* XECardDetailsQRCodePageViewController.m in Sources */,
-				DB34D865D482043EBB31A623 /* XECardDetailsDescriptionPageViewController.m in Sources */,
 				DB34DF48C933A3D0822B7DCC /* XECardDetailsPageViewController.m in Sources */,
-				DB34D1C7C688A012694E0BBB /* XECardDetailsFullContentPageViewController.m in Sources */,
+				DB34D28F18D62C9777EEA42C /* XECardDetailsQRCodeViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

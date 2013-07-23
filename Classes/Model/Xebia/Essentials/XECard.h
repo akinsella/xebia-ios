@@ -19,9 +19,10 @@
 @property (nonatomic, strong) XECategory *category;
 @property (nonatomic, strong) NSString *title;
 @property (nonatomic, strong) NSString *note;
-@property (nonatomic, strong) NSString *description_;
+@property (nonatomic, strong) NSString *excerpt;
 @property (nonatomic, strong) NSString *fullContent;
 @property (nonatomic, strong) NSURL *url;
 @property (nonatomic, strong) NSArray *ulink;
 
+- (NSString *)identifierFormatted;
 @end

@@ -5,57 +5,26 @@
 // To change the template use AppCode | Preferences | File Templates.
 //
 
-
-#import <Underscore.m/Underscore.h>
 #import "XECardDetailsViewController.h"
 #import "GAITracker.h"
 #import "UIViewController+XBAdditions.h"
 #import "XECategory.h"
-#import "UIColor+XBAdditions.h"
-#import "XECardDetailsQRCodePageViewController.h"
-#import "XECardDetailsDescriptionPageViewController.h"
-#import "XECardDetailsFullContentPageViewController.h"
-
-#define kNumberOfPages 3
+#import "XECardDetailsPageViewController.h"
 
 @interface XECardDetailsViewController ()
-@property(nonatomic, strong)XECard *card;
+@property(nonatomic, strong) NSArray *cards;
+@property(nonatomic, assign) NSUInteger initialIndex;
 @property(nonatomic, assign)BOOL pageControlUsed;
-@property(nonatomic, strong)NSArray *pageViewControllers;
+@property(nonatomic, strong)NSMutableArray *pageViewControllers;
 @end
 
 @implementation XECardDetailsViewController
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
 
-- (id)initWithCoder:(NSCoder *)coder {
-    self = [super initWithCoder:coder];
-    if (self) {
-        [self configure];
-    }
-
-    return self;
-}
-
-- (void)configure {
-    self.pageViewControllers = @[
-            [[XECardDetailsDescriptionPageViewController alloc] init],
-            [[XECardDetailsQRCodePageViewController alloc] init],
-            [[XECardDetailsFullContentPageViewController alloc] init]
-    ];
-}
-
-- (void)viewDidLoad {
-    [super viewDidLoad];
-
-    Underscore.arrayEach(self.pageViewControllers, ^(XECardDetailsPageViewController * pageViewController) {
-        [self.scrollView addSubview:pageViewController.view];
-    });
-
-    self.titleLabel.backgroundColor = [UIColor clearColor];
-
-    // a page is the width of the scroll view
     self.scrollView.pagingEnabled = YES;
-    self.scrollView.contentSize = CGSizeMake(self.scrollView.frame.size.width * kNumberOfPages, self.scrollView.frame.size.height);
+    self.scrollView.contentSize = CGSizeMake(self.scrollView.frame.size.width * self.cards.count, self.scrollView.frame.size.height);
     self.scrollView.showsHorizontalScrollIndicator = NO;
     self.scrollView.showsVerticalScrollIndicator = NO;
     self.scrollView.scrollsToTop = NO;
@@ -63,48 +32,56 @@
     self.scrollView.alwaysBounceHorizontal = NO;
     self.scrollView.alwaysBounceVertical = NO;
     self.scrollView.bounces = NO;
-    self.pageControl.numberOfPages = kNumberOfPages;
-    self.pageControl.currentPage = 0;
-}
 
-- (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
-    if (self.card) {
-        [self.appDelegate.tracker sendView:[NSString stringWithFormat: @"/essentials/category/%@", self.card.identifier]];
-        self.title = self.card.category.label;
+    XECard *card = self.cards[self.initialIndex];
+    [self.appDelegate.tracker sendView:[NSString stringWithFormat: @"/essentials/category/%@", card.category.identifier]];
+    self.title = card.category.label;
 
-
-        self.titleBackgroundView.backgroundColor = [UIColor colorWithHex:self.card.category.color];
-        self.descriptionBackgroundView.backgroundColor = [UIColor colorWithHex:self.card.category.backgroundColor];
-
-        self.titleLabel.text = self.card.title;
-
-
-        __block int pageIndex = 0;
-        Underscore.arrayEach(self.pageViewControllers, ^(XECardDetailsPageViewController * pageViewController) {
-            CGRect pageFrame = self.scrollView.frame;
-            pageFrame.origin.x = pageFrame.size.width * pageIndex;
-            pageFrame.origin.y = 0;
-
-            pageViewController.view.frame = pageFrame;
-            pageIndex++;
-        });
+    self.pageViewControllers = [[NSMutableArray alloc] init];
+    for (int i = 0 ; i < self.cards.count ; i++) {
+        [self.pageViewControllers addObject:[NSNull null]];
     }
 
-    self.scrollView.contentOffset = CGPointMake(0.0, 0.0);
-    self.pageControl.currentPage = 0;
+    self.pageControl.numberOfPages = self.cards.count;
+    self.pageControl.currentPage = (NSInteger) self.initialIndex;
+    self.scrollView.contentOffset = CGPointMake(self.scrollView.frame.size.width * self.initialIndex, 0.0);
 
-    Underscore.arrayEach(self.pageViewControllers, ^(XECardDetailsPageViewController * pageViewController) {
-        [pageViewController viewWillAppear:animated];
-    });
+    [self loadScrollViewWithPage:self.initialIndex];
+    [self loadScrollViewWithPage:self.initialIndex - 1];
+    [self loadScrollViewWithPage:self.initialIndex + 1];
 }
 
-- (void)updateWithCard:(XECard *)card {
-    self.card = card;
 
-    Underscore.arrayEach(self.pageViewControllers, ^(XECardDetailsPageViewController * pageViewController) {
-        [pageViewController updateWithCard:card];
-    });
+- (void)loadScrollViewWithPage:(NSUInteger)page
+{
+    if (page < 0) {
+        return;
+    }
+    if (page >= self.cards.count) {
+        return;
+    }
+
+    // replace the placeholder if necessary
+    XECardDetailsPageViewController *pageViewController = self.pageViewControllers[page];
+    if (pageViewController == (id)[NSNull null])
+    {
+        pageViewController = [[XECardDetailsPageViewController alloc] initWithCard:self.cards[page]];
+        [self.pageViewControllers replaceObjectAtIndex:page withObject:pageViewController];
+    }
+
+    // add the controller's view to the scroll view
+    if (pageViewController.view.superview == nil) {
+        CGRect frame = self.scrollView.frame;
+        frame.origin.x = frame.size.width * page;
+        frame.origin.y = 0;
+        pageViewController.view.frame = frame;
+        [self.scrollView addSubview:pageViewController.view];
+    }
+}
+
+- (void)updateWithCards:(NSArray *)cards andIndex:(NSUInteger)index {
+    self.cards = cards;
+    self.initialIndex = (NSUInteger) index;
 }
 
 - (void)scrollViewDidScroll:(UIScrollView *)sender
@@ -120,8 +97,15 @@
 
     // Switch the indicator when more than 50% of the previous/next page is visible
     CGFloat pageWidth = self.scrollView.frame.size.width;
-    int page = (int)floor((self.scrollView.contentOffset.x - pageWidth / 2) / pageWidth) + 1;
+    NSUInteger page = (NSUInteger) (floor((self.scrollView.contentOffset.x - pageWidth / 2) / pageWidth) + 1);
     self.pageControl.currentPage = page;
+
+    // load the visible page and the page on either side of it (to avoid flashes when the user starts scrolling)
+    [self loadScrollViewWithPage:page - 1];
+    [self loadScrollViewWithPage:page];
+    [self loadScrollViewWithPage:page + 1];
+
+    // A possible optimization would be to unload the views+controllers which are no longer visible
 }
 
 // At the begin of scroll dragging, reset the boolean used when scrolls originate from the UIPageControl
@@ -138,7 +122,12 @@
 
 - (IBAction)changePage:(id)sender
 {
-    int page = self.pageControl.currentPage;
+    NSUInteger page = (NSUInteger) self.pageControl.currentPage;
+
+    // load the visible page and the page on either side of it (to avoid flashes when the user starts scrolling)
+    [self loadScrollViewWithPage:page - 1];
+    [self loadScrollViewWithPage:page];
+    [self loadScrollViewWithPage:page + 1];
 
     // update the scroll view to the appropriate page
     CGRect frame = self.scrollView.frame;
@@ -149,6 +138,5 @@
     // Set the boolean used when scrolls originate from the UIPageControl. See scrollViewDidScroll: above.
     self.pageControlUsed = YES;
 }
-
 
 @end

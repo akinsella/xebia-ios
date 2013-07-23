@@ -14,6 +14,7 @@
 #import "XESponsor.h"
 #import "XETag.h"
 #import "XEULink.h"
+#import "Underscore.h"
 
 
 @implementation XECard
@@ -23,7 +24,7 @@
 
     [config addObjectMapping: [DCObjectMapping mapKeyPath:@"id" toAttribute:@"identifier" onClass:[self class]]];
     
-    [config addObjectMapping: [DCObjectMapping mapKeyPath:@"description" toAttribute:@"description_" onClass:[self class]]];
+    [config addObjectMapping: [DCObjectMapping mapKeyPath:@"description" toAttribute:@"excerpt" onClass:[self class]]];
     
     [config mergeConfig:[XECategory mappings]];
 
@@ -39,4 +40,13 @@
     return config;
 }
 
+- (NSString *)identifierFormatted {
+    NSArray *components = [self.identifier componentsSeparatedByString:@"-"];
+    NSArray *capitalizedComponents = Underscore.array(components).map(^NSString *(NSString * component) {
+        return [component stringByReplacingCharactersInRange:NSMakeRange(0,1)
+                                                 withString:[[component  substringToIndex:1] capitalizedString]];
+    }).unwrap;
+
+    return [capitalizedComponents componentsJoinedByString:@" "];
+}
 @end

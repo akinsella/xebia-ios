@@ -16,6 +16,7 @@
 #import "XECardCell.h"
 #import "XECard.h"
 #import "XECardDetailsViewController.h"
+#import "XBArrayDataSource+protected.h"
 
 @interface XBTableViewController()
 -(void)initialize;
@@ -82,8 +83,10 @@
     XECard *card = self.dataSource[(NSUInteger) indexPath.row];
     NSLog(@"Card selected: %@", card);
 
-    XECardDetailsViewController *cardDetailsViewController = (XECardDetailsViewController *) [[self appDelegate].viewControllerManager getOrCreateControllerWithIdentifier:@"cardDetails"];
-    [cardDetailsViewController updateWithCard: card];
+
+    UIStoryboard *sb = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
+    XECardDetailsViewController *cardDetailsViewController = (XECardDetailsViewController *)[sb instantiateViewControllerWithIdentifier:@"cardDetails"];
+    [cardDetailsViewController updateWithCards:self.dataSource.array andIndex:(NSUInteger) indexPath.row];
     [self.navigationController pushViewController:cardDetailsViewController animated:YES];
 }
 

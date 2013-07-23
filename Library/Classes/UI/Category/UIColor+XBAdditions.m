@@ -10,6 +10,28 @@
 
 @implementation UIColor (XBAdditions)
 
+- (UIColor *)lighterColorWithRatio:(CGFloat)ratio
+{
+    float r, g, b, a;
+    if ([self getRed:&r green:&g blue:&b alpha:&a])
+        return [UIColor colorWithRed:MIN(r + ratio, 1.0)
+                               green:MIN(g + ratio, 1.0)
+                                blue:MIN(b + ratio, 1.0)
+                               alpha:a];
+    return nil;
+}
+
+- (UIColor *)darkerColorWithRatio:(CGFloat)ratio
+{
+    float r, g, b, a;
+    if ([self getRed:&r green:&g blue:&b alpha:&a])
+        return [UIColor colorWithRed:MAX(r - ratio, 0.0)
+                               green:MAX(g - ratio, 0.0)
+                                blue:MAX(b - ratio, 0.0)
+                               alpha:a];
+    return nil;
+}
+
 + (UIColor*)colorWithPatternImageName:(NSString *)imageName {
     
     UIColor* color = [UIColor colorWithPatternImage:[UIImage imageNamed:imageName]];

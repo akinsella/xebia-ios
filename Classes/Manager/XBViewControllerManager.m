@@ -32,9 +32,10 @@
 }
 
 - (UIViewController *)getOrCreateControllerWithIdentifier:(NSString *)identifier {
-    UIViewController *vc = [self.viewControllers objectForKey:identifier];
+    UIViewController *vc = self.viewControllers[identifier];
     if (!vc) {
         vc = [self instantiateViewControllerWithIdentifier:identifier];
+        self.viewControllers[identifier] = vc;
     }
 
     return vc;
@@ -43,8 +44,6 @@
 -(UIViewController *)instantiateViewControllerWithIdentifier: (NSString *)identifier {
     UIStoryboard *sb = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
     UIViewController *vc = [sb instantiateViewControllerWithIdentifier:identifier];
-
-    [self.viewControllers setValue:vc forKey:identifier];
 
     return vc;
 }

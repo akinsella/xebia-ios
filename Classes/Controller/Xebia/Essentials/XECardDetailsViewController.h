@@ -14,20 +14,14 @@
 
 @interface XECardDetailsViewController : UIViewController<UIScrollViewDelegate>
 
-@property (strong, nonatomic) IBOutlet UILabel *titleLabel;
-
-@property (weak, nonatomic) IBOutlet UIView *titleBackgroundView;
-
-@property (weak, nonatomic) IBOutlet UIView *descriptionBackgroundView;
+@property(nonatomic, strong, readonly) NSArray *cards;
 
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 
 @property (weak, nonatomic) IBOutlet UIPageControl *pageControl;
 
-@property(nonatomic, strong, readonly)XECard *card;
-
 - (IBAction)changePage:(id)sender;
 
-- (void)updateWithCard:(XECard *)card;
+- (void)updateWithCards:(NSArray *)cards andIndex:(NSUInteger)index;
 
 @end
