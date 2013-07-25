@@ -20,7 +20,6 @@
 @property(nonatomic, strong) NSNumber *commentCount;
 
 -(NSString *)description_;
--(NSString *)dateFormatted;
 -(NSString *)authorFormatted;
 -(NSString *)tagsFormatted;
 -(NSString *)categoriesFormatted;

@@ -27,7 +27,4 @@
 @property (nonatomic, strong) VMUser *owner;
 @property (nonatomic, strong) NSArray *thumbnails;
 
-- (NSString *)dateFromNow;
-
-- (NSString *)dateTimeFormatted;
 @end

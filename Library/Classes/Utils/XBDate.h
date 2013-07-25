@@ -10,9 +10,8 @@
 
 
 @interface XBDate : NSObject
-+ (NSDate *)parseDate:(NSString *)dateStr withFormat:format;
-+(NSString *) formattedDateRelativeToNow:(NSDate *)date;
 
-+ (NSString *)formatDateTime:(NSDate *)date;
++ (NSDate *)parseDate:(NSString *)dateStr withFormat:format;
+
 @end
 

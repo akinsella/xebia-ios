@@ -16,6 +16,7 @@
 #import "TTUserMentionEntity.h"
 #import "XBConstants.h"
 #import "XBMainViewController.h"
+#import "NSDate+XBAdditions.h"
 
 @interface TTTweetCell ()
 
@@ -100,7 +101,9 @@
     }
 
     self.authorNameLabel.text = tweet.ownerScreenName;
-    self.dateLabel.text = tweet.dateFormatted;
+    self.dateLabel.text = [tweet.created_at isToday] ?
+            [NSString stringWithFormat:NSLocalizedString(@"A %@", nil), [tweet.created_at formatTime]] :
+            [NSString stringWithFormat:NSLocalizedString(@"Le %@", nil), [tweet.created_at formatDayMonth]];
     self.contentLabel.text = tweet.text;
 }
 

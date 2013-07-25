@@ -11,12 +11,9 @@
 #import "DCParserConfiguration.h"
 #import "DCKeyValueObjectMapping.h"
 #import "DCParserConfiguration+XBAdditions.h"
+#import "NSDate+XBAdditions.h"
 
 @implementation TTTweet
-
-- (NSString *)dateFormatted {
-    return [XBDate formattedDateRelativeToNow:self.created_at];
-}
 
 - (NSString *)ownerScreenName {
     return self.retweeted_status ? self.retweeted_status.user.screen_name : self.user.screen_name;

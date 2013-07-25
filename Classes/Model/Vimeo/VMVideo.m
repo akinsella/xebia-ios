@@ -29,12 +29,4 @@
     return config;
 }
 
-- (NSString *)dateFromNow {
-    return [XBDate formattedDateRelativeToNow:self.uploadDate];
-}
-
-- (NSString *)dateTimeFormatted {
-    return [XBDate formatDateTime:self.uploadDate];
-}
-
 @end

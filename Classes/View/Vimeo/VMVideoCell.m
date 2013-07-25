@@ -11,8 +11,9 @@
 #import <SDWebImage/UIImageView+WebCache.h>
 #import "UIColor+XBAdditions.h"
 #import "XBConstants.h"
-#import "VMVideo.h"
 #import "VMThumbnail.h"
+#import "NSDate+XBAdditions.h"
+
 
 @interface VMVideoCell ()
 @property(nonatomic, strong) VMVideo *video;
@@ -46,9 +47,8 @@
     [self.imageView setImageWithURL:thumbnailUrl placeholderImage:self.defaultAvatarImage];
 
     self.titleLabel.text = video.title;
-    self.dateLabel.text = video.dateFromNow;
+    self.dateLabel.text = [NSString stringWithFormat:NSLocalizedString(@"Le %@", nil), [video.uploadDate formatDate]];
     self.descriptionLabel.text = [NSString stringWithFormat:@"%@%@ lecture(s) - %@ like(s) - %@ commentaire(s)", video.isHd ? @"HD | ": @"", video.playCount, video.likeCount, video.commentCount];
-
 }
 
 @end

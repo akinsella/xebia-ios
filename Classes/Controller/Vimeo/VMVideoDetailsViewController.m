@@ -15,6 +15,7 @@
 #import "VMThumbnail.h"
 #import "GAITracker.h"
 #import "UIViewController+XBAdditions.h"
+#import "NSDate+XBAdditions.h"
 
 @interface VMVideoDetailsViewController()
 
@@ -93,7 +94,7 @@
     self.videoImage.image = [UIImage imageNamed:@"video_placeholder.png"];
 
     self.displayName.text = self.video.owner.displayName;
-    self.date.text = [self.video dateTimeFormatted];
+    self.date.text = [self.video.uploadDate formatDateTime];
     self.playCount.text = [NSString stringWithFormat: @"%@", self.video.playCount];
     self.likeCount.text = [NSString stringWithFormat: @"%@", self.video.likeCount];
     self.commentCount.text = [NSString stringWithFormat: @"%@", self.video.commentCount];

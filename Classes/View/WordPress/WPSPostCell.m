@@ -12,6 +12,7 @@
 #import <QuartzCore/QuartzCore.h>
 #import <SDWebImage/UIImageView+WebCache.h>
 #import "UIColor+XBAdditions.h"
+#import "NSDate+XBAdditions.h"
 
 @interface WPSPostCell ()
 @property (nonatomic, strong) UIImage *defaultPostImage;
@@ -41,7 +42,7 @@
     self.post = post;
     
     self.titleLabel.text = post.title;
-    self.dateLabel.text = post.dateFormatted;
+    self.dateLabel.text = [NSString stringWithFormat:NSLocalizedString(@"Le %@", nil), [post.date formatDate]];
     self.categoriesLabel.text = post.categoriesFormatted;
     self.authorLabel.text = post.authorFormatted;
 

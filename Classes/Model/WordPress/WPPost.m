@@ -28,10 +28,6 @@
 //    return [NSString stringWithFormat:@"%@ ...", [self.excerpt substringWithRange:rangeOfComposedCharacterSequences] ];
 }
 
-- (NSString *)dateFormatted {
-    return [NSString stringWithFormat:@"%@", [[NSDateFormatter initWithDateFormat: @"'Le 'dd'/'MM'/'yyyy', à 'HH':'mm"] stringFromDate:self.date]];
-}
-
 - (NSString *)authorFormatted {
     NSString *authorFormatted = [NSString stringWithFormat:@"%@", self.author.name ? self.author.name : self.author.nickname];
     return authorFormatted;

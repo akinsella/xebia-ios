@@ -26,6 +26,8 @@
     self.delegate = self;
     self.title = NSLocalizedString(@"Categories", nil);
 
+    [self addMenuButton];
+
     [super viewDidLoad];
 }
 

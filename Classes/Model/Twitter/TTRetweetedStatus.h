@@ -20,6 +20,5 @@
 @property (nonatomic, assign) bool retweeted;
 @property (nonatomic, strong) NSNumber *retweet_count;
 
-- (NSString *)dateFormatted;
 
 @end

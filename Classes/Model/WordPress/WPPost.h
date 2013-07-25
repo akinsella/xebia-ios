@@ -25,7 +25,6 @@
 @property(nonatomic, strong) NSString *commentStatus;
 
 -(NSString *)description_;
--(NSString *)dateFormatted;
 -(NSString *)authorFormatted;
 -(NSString *)tagsFormatted;
 -(NSString *)categoriesFormatted;

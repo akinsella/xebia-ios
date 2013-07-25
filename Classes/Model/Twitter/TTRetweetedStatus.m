@@ -11,13 +11,10 @@
 #import "DCParserConfiguration.h"
 #import "DCKeyValueObjectMapping.h"
 #import "DCParserConfiguration+XBAdditions.h"
+#import "NSDate+XBAdditions.h"
 
 
 @implementation TTRetweetedStatus
-
-- (NSString *)dateFormatted {
-    return [XBDate formattedDateRelativeToNow:self.created_at];
-}
 
 + (DCParserConfiguration *)mappings {
     DCParserConfiguration *config = [DCParserConfiguration configuration];

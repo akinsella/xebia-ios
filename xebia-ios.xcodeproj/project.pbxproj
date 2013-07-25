@@ -397,6 +397,7 @@
 		DB34D5DBC72AF1D315F28DE1 /* XECardDetailsPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34DF0EC54E9E1EECE42ED4 /* XECardDetailsPageViewController.m */; };
 		DB34D5E0DC911E182E1396ED /* XECategory.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34DA3846C32ED52912827E /* XECategory.m */; };
 		DB34D65BEB6CF10C52FC7BA8 /* XECategoryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34DF96C607241FFD2FD30D /* XECategoryCell.m */; };
+		DB34D66E4CF559E6404DBF3C /* NSDate+XBAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34D5EBA1F3E1109B672E44 /* NSDate+XBAdditions.m */; };
 		DB34D6778E647334A012B2CE /* GHUserCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34D970AE47ACD42EF7B352 /* GHUserCell.m */; };
 		DB34D6C9C9F60B7D8BDAFCC0 /* VMUser.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34D13F306D5BF0C107DF63 /* VMUser.m */; };
 		DB34D6D9E20C081122D1FFDC /* WPCategoryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34D8B87DC73AA8DDDD46C8 /* WPCategoryCell.m */; };
@@ -452,6 +453,7 @@
 		DB34DE5FFE92DC6FF69467BC /* Twitter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB34D5CB72485B6E20272C19 /* Twitter.framework */; };
 		DB34DE6E44DE47AE3934A6BC /* EBEventCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34DB3AFCA127427FE3B210 /* EBEventCell.m */; };
 		DB34DE741118B4A0C6E2A745 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB34D43948A4D9409E09F947 /* MessageUI.framework */; };
+		DB34DE8D02F9F663AA9D6E6B /* NSDate+XBAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34D5EBA1F3E1109B672E44 /* NSDate+XBAdditions.m */; };
 		DB34DE9F2A0F614E60B93161 /* WPTagCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DB34DB0DD0A6B58C15D2461A /* WPTagCell.xib */; };
 		DB34DEB39061B9068EDA9981 /* GHRepositoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DB34D58EEEF2EB680C1431C4 /* GHRepositoryCell.xib */; };
 		DB34DEDEBDC910734D6E6BD2 /* XBRightMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34DF4AB3494EC276B736FA /* XBRightMenuViewController.m */; };
@@ -883,6 +885,7 @@
 		DB34D57A30630BE85C419903 /* VMVideo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VMVideo.h; sourceTree = "<group>"; };
 		DB34D58EEEF2EB680C1431C4 /* GHRepositoryCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GHRepositoryCell.xib; sourceTree = "<group>"; };
 		DB34D5CB72485B6E20272C19 /* Twitter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Twitter.framework; path = ../../../../../Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.1.sdk/System/Library/Frameworks/Twitter.framework; sourceTree = "<group>"; };
+		DB34D5EBA1F3E1109B672E44 /* NSDate+XBAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+XBAdditions.m"; sourceTree = "<group>"; };
 		DB34D67385B70DF3E8904BDD /* XECategoryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XECategoryCell.h; sourceTree = "<group>"; };
 		DB34D7023381A681C697733B /* VMVideoTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VMVideoTableViewController.m; sourceTree = "<group>"; };
 		DB34D705388B6EF1933EB1E3 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = ../../../../../Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.1.sdk/System/Library/Frameworks/CoreLocation.framework; sourceTree = "<group>"; };
@@ -918,6 +921,7 @@
 		DB34DB0DD0A6B58C15D2461A /* WPTagCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WPTagCell.xib; sourceTree = "<group>"; };
 		DB34DB0E0D3E354BA0E126F1 /* XECardDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XECardDetailsViewController.h; sourceTree = "<group>"; };
 		DB34DB3AFCA127427FE3B210 /* EBEventCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EBEventCell.m; sourceTree = "<group>"; };
+		DB34DB54173CA32DBCFA5377 /* NSDate+XBAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+XBAdditions.h"; sourceTree = "<group>"; };
 		DB34DB5D367DAA7DDB9AF238 /* XEULink.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XEULink.m; sourceTree = "<group>"; };
 		DB34DB62A49155EA87926383 /* XECategoryTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XECategoryTableViewController.m; sourceTree = "<group>"; };
 		DB34DBCA884FDF6E452B2C96 /* XECategoryCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = XECategoryCell.xib; sourceTree = "<group>"; };
@@ -1236,6 +1240,8 @@
 				5443EB5E1775BEEC0000FFE8 /* NSString+XBAdditions.m */,
 				5443EB5F1775BEEC0000FFE8 /* NSURL+XBAdditions.h */,
 				5443EB601775BEEC0000FFE8 /* NSURL+XBAdditions.m */,
+				DB34D5EBA1F3E1109B672E44 /* NSDate+XBAdditions.m */,
+				DB34DB54173CA32DBCFA5377 /* NSDate+XBAdditions.h */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -2563,6 +2569,7 @@
 				DB34D42FD499E06D305AAAE0 /* XEULink.m in Sources */,
 				DB34D5DBC72AF1D315F28DE1 /* XECardDetailsPageViewController.m in Sources */,
 				DB34DE1D52FD0E372B11A775 /* XECardDetailsQRCodeViewController.m in Sources */,
+				DB34DE8D02F9F663AA9D6E6B /* NSDate+XBAdditions.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2716,6 +2723,7 @@
 				DB34D083C9EDF348B8417033 /* XEULink.m in Sources */,
 				DB34DF48C933A3D0822B7DCC /* XECardDetailsPageViewController.m in Sources */,
 				DB34D28F18D62C9777EEA42C /* XECardDetailsQRCodeViewController.m in Sources */,
+				DB34D66E4CF559E6404DBF3C /* NSDate+XBAdditions.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
