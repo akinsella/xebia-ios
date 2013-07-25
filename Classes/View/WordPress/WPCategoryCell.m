@@ -32,7 +32,7 @@
     
     self.titleLabel.text = category.title;
     self.bottomDetailLabel.text = [NSString stringWithFormat:
-            category.postCount.intValue > 1 ? @"%d posts" : @"%d post",
+            category.postCount.intValue > 1 ? @"%@ posts" : @"%@ post",
             category.postCount
     ];
 

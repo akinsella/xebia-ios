@@ -25,8 +25,6 @@
                         viewControllerManager:(XBViewControllerManager *)viewControllerManager
                       revealControllerOptions:(NSDictionary *)revealControllerOptions;
 
--(void)revealViewControllerWithIdentifier:(NSString *)identifier;
-
 - (void)revealViewController:(UIViewController *)controller;
 
 -(void)openURL:(NSURL *)url withTitle:(NSString *)title;
