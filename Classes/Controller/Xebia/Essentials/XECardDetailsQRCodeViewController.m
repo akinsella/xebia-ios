@@ -6,6 +6,7 @@
 //
 
 
+#import <ZXingObjC/ZXEncodeHints.h>
 #import "XECardDetailsQRCodeViewController.h"
 #import "ZXMultiFormatWriter.h"
 #import "ZXImage.h"
@@ -39,10 +40,13 @@
 
     NSError* error = nil;
     ZXMultiFormatWriter* writer = [ZXMultiFormatWriter writer];
+    ZXEncodeHints *hints = [[ZXEncodeHints alloc] init];
+    hints.margin = @1;
     ZXBitMatrix* result = [writer encode:[self.card.url absoluteString]
                                   format:kBarcodeFormatQRCode
                                    width:248
                                   height:248
+                                   hints:hints
                                    error:&error];
     if (result) {
         CGImageRef imageRef = [[ZXImage imageWithMatrix:result] cgimage];

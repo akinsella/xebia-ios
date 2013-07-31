@@ -16,6 +16,7 @@
 #import "NSAttributedString+HTML.h"
 #import "XECategory.h"
 #import "XECardDetailsQRCodeViewController.h"
+#import "ZXEncodeHints.h"
 
 @interface XECardDetailsPageViewController()
 @property(nonatomic, strong)XECard *card;
@@ -88,10 +89,13 @@
 -(void)createQRCodeImage {
     NSError* error = nil;
     ZXMultiFormatWriter* writer = [ZXMultiFormatWriter writer];
+    ZXEncodeHints *hints = [[ZXEncodeHints alloc] init];
+    hints.margin = @1;
     ZXBitMatrix* result = [writer encode:[self.card.url absoluteString]
                                   format:kBarcodeFormatQRCode
-                                   width:58
-                                  height:58
+                                   width:248
+                                  height:248
+                                   hints:hints
                                    error:&error];
     if (result) {
         CGImageRef imageRef = [[ZXImage imageWithMatrix:result] cgimage];
@@ -136,24 +140,26 @@
 {
     if (gesture.state == UIGestureRecognizerStateRecognized)
     {
-        CGPoint location = [gesture locationInView:self.contentTextView];
-        NSUInteger tappedIndex = (NSUInteger)[self.contentTextView closestCursorIndexToPoint:location];
+//        CGPoint location = [gesture locationInView:self.contentTextView];
+//        NSUInteger tappedIndex = (NSUInteger)[self.contentTextView closestCursorIndexToPoint:location];
+//
+//        NSString *plainText = [self.contentTextView.attributedString string];
+//        NSString *tappedChar = [plainText substringWithRange:NSMakeRange(tappedIndex, 1)];
+//
+//        __block NSRange wordRange = NSMakeRange(0, 0);
+//
+//        [plainText enumerateSubstringsInRange:NSMakeRange(0, [plainText length]) options:NSStringEnumerationByWords usingBlock:^(NSString *substring, NSRange substringRange, NSRange enclosingRange, BOOL *stop) {
+//            if (NSLocationInRange(tappedIndex, enclosingRange))
+//            {
+//                *stop = YES;
+//                wordRange = substringRange;
+//            }
+//        }];
+//
+//        NSString *word = [plainText substringWithRange:wordRange];
+//        NSLog(@"%d: '%@' word: '%@'", tappedIndex, tappedChar, word);
 
-        NSString *plainText = [self.contentTextView.attributedString string];
-        NSString *tappedChar = [plainText substringWithRange:NSMakeRange(tappedIndex, 1)];
-
-        __block NSRange wordRange = NSMakeRange(0, 0);
-
-        [plainText enumerateSubstringsInRange:NSMakeRange(0, [plainText length]) options:NSStringEnumerationByWords usingBlock:^(NSString *substring, NSRange substringRange, NSRange enclosingRange, BOOL *stop) {
-            if (NSLocationInRange(tappedIndex, enclosingRange))
-            {
-                *stop = YES;
-                wordRange = substringRange;
-            }
-        }];
-
-        NSString *word = [plainText substringWithRange:wordRange];
-        NSLog(@"%d: '%@' word: '%@'", tappedIndex, tappedChar, word);
+        [self toggleContent];
     }
 }
 

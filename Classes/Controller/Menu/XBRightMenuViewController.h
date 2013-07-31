@@ -7,8 +7,12 @@
 
 
 #import <Foundation/Foundation.h>
+#import "XBTableViewController.h"
 
+@class XBMainViewController;
+@class PKRevealController;
+@class XBViewControllerManager;
 
-@interface XBRightMenuViewController : UIViewController
+@interface XBRightMenuViewController : XBTableViewController<UITableViewDelegate, UITableViewDataSource, XBTableViewControllerDelegate>
 
 @end

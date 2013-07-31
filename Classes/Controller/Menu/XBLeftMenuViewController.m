@@ -5,16 +5,17 @@
 //
 
 
-#import "XBMenuViewController.h"
+#import "XBLeftMenuViewController.h"
 #import "XBMainViewController.h"
 #import "NSNumber+XBAdditions.h"
 #import "UIImageView+XBAdditions.h"
 #import "JSONKit.h"
-#import "XBMenuCell.h"
+#import "XBLeftMenuCell.h"
 #import "PKRevealController.h"
 #import "XBAppDelegate.h"
 #import "UIViewController+XBAdditions.h"
 #import "GAITracker.h"
+#import "UIColor+XBAdditions.h"
 
 
 // Enum for row indices
@@ -24,15 +25,14 @@ enum {
     XBMenuTwitter,
     /*XBMenuGithub,*/
     XBMenuEvent,
-    XBMenuVimeo,
-    XBMenuXebiaEssentials
+    XBMenuVimeo
 };
 
-@interface XBMenuViewController()
+@interface XBLeftMenuViewController ()
 @property (nonatomic, strong) NSMutableDictionary *viewIdentifiers;
 @end
 
-@implementation XBMenuViewController
+@implementation XBLeftMenuViewController
 
 
 - (id)initWithCoder:(NSCoder *)aDecoder {
@@ -45,9 +45,20 @@ enum {
 
 - (void)viewDidLoad {
 
-    [self.appDelegate.tracker sendView:@"/menu"];
+    [self.appDelegate.tracker sendView:@"/leftMenu"];
 
     self.delegate = self;
+
+
+    UIButton *menuButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    menuButton.frame = CGRectMake(0, 0, 22, 22);
+    [menuButton setBackgroundImage:[UIImage imageNamed:@"menu-button.png"] forState:UIControlStateNormal];
+    [menuButton addTarget:self action:@selector(revealToggle) forControlEvents:UIControlEventTouchUpInside];
+
+
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:menuButton];
+    self.navigationController.navigationBar.tintColor = [UIColor colorWithHex:@"#81247A" alpha:1.0];
+
     [self initViewIdentifiers];
     [self configureTableView];
 
@@ -61,21 +72,20 @@ enum {
             [NSNumber asString:XBMenuTwitter]: @"tweets",
            /* [NSNumber asString:XBMenuGithub]: @"tbGithub",*/
             [NSNumber asString:XBMenuEvent]: @"events",
-            [NSNumber asString:XBMenuVimeo]: @"videos",
-            [NSNumber asString:XBMenuXebiaEssentials]: @"cardCategories"
+            [NSNumber asString:XBMenuVimeo]: @"videos"
                             
     } mutableCopy];
 }
 
 - (NSString *)cellReuseIdentifier {
     // Needs to be static
-    static NSString *cellReuseIdentifier = @"XBMenu";
+    static NSString *cellReuseIdentifier = @"XLeftBMenu";
 
     return cellReuseIdentifier;
 }
 
 - (NSString *)cellNibName {
-    return @"XBMenuCell";
+    return @"XBLeftMenuCell";
 }
 
 - (XBArrayDataSource *)buildDataSource {
@@ -85,8 +95,7 @@ enum {
             @{ @"title": @"Tweets", @"imageName" :@"twitter"},
             /*@{ @"title": @"GitHub", @"imageName" :@"github"},*/
             @{ @"title": @"Events", @"imageName" :@"eventbrite-menu"},
-            @{ @"title": @"Vimeo", @"imageName" :@"vimeo"},
-            @{ @"title": @"Xebia Essentials", @"imageName" :@"xebia-essentials"},
+            @{ @"title": @"Vimeo", @"imageName" :@"vimeo"}
     ];
 
     return [XBArrayDataSource dataSourceWithArray:menuItems];
@@ -103,7 +112,7 @@ enum {
 
 - (void)configureCell:(UITableViewCell *)cell atIndex:(NSIndexPath *)indexPath {
 
-    XBMenuCell *menuCell = (XBMenuCell *)cell;
+    XBLeftMenuCell *menuCell = (XBLeftMenuCell *)cell;
 
     NSDictionary *item = self.dataSource[(NSUInteger) indexPath.row];
 

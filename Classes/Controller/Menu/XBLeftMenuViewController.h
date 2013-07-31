@@ -12,6 +12,6 @@
 @class PKRevealController;
 @class XBViewControllerManager;
 
-@interface XBMenuViewController : XBTableViewController<UITableViewDelegate, UITableViewDataSource, XBTableViewControllerDelegate>
+@interface XBLeftMenuViewController : XBTableViewController<UITableViewDelegate, UITableViewDataSource, XBTableViewControllerDelegate>
 
 @end

@@ -14,4 +14,8 @@
     return [[NSNumber numberWithInteger:value] description];
 }
 
+- (NSString *)asString {
+    return [self description];
+}
+
 @end

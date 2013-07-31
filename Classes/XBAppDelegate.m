@@ -13,7 +13,7 @@
 #import "AFNetworking.h"
 #import "SDURLCache.h"
 #import "XBPListConfigurationProvider.h"
-#import "XBMenuViewController.h"
+#import "XBLeftMenuViewController.h"
 #import "GAITracker.h"
 #import "GAI.h"
 #import "SecureUDID.h"
@@ -120,11 +120,12 @@ static NSString* const DeviceTokenKey = @"DeviceToken";
     NSDictionary *revealControllerOptions = @{
             PKRevealControllerAllowsOverdrawKey : @YES,
             PKRevealControllerDisablesFrontViewInteractionKey : @YES,
-            PKRevealControllerRecognizesPanningOnFrontViewKey : @NO
+            PKRevealControllerRecognizesPanningOnFrontViewKey : @YES
     };
 
     self.mainViewController = [XBMainViewController controllerWithCentralViewControllerIdentifier:@"centralNavigationController"
-                                                                     leftViewControllerIdentifier:@"leftNavigationController"
+                                                                     leftViewControllerIdentifier:@"leftMenuNavigationController"
+                                                                    rightViewControllerIdentifier:@"rightMenuNavigationController"
                                                                             viewControllerManager:self.viewControllerManager
                                                                           revealControllerOptions:revealControllerOptions];
 

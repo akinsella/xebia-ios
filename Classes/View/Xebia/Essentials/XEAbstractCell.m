@@ -43,7 +43,6 @@
     [self setNeedsDisplay];
 }
 
-
 - (UIColor *)leftBorderColor {
     if (self.category) {
         return [UIColor colorWithHex:self.category.color];

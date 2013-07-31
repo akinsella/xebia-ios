@@ -17,4 +17,5 @@
 @property (nonatomic, strong) IBOutlet UILabel *titleLabel;
 
 - (void)updateWithCategory:(XECategory *)category;
+
 @end

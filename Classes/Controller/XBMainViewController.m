@@ -24,23 +24,27 @@
 
 + (id)controllerWithCentralViewControllerIdentifier:(NSString *)centralViewControllerIdentifier
                        leftViewControllerIdentifier:(NSString *)leftViewControllerIdentifier
+                      rightViewControllerIdentifier:(NSString *)rightViewControllerIdentfier
                               viewControllerManager:(XBViewControllerManager *)viewControllerManager
                             revealControllerOptions:(NSDictionary *)revealControllerOptions {
     return [[self alloc] initWithCentralViewControllerIdentifier:centralViewControllerIdentifier
                                     leftViewControllerIdentifier:leftViewControllerIdentifier
+                                   rightViewControllerIdentifier: rightViewControllerIdentfier
                                            viewControllerManager:viewControllerManager
                                          revealControllerOptions:revealControllerOptions];
 }
 
 - (id)initWithCentralViewControllerIdentifier:(NSString *)centralViewControllerIdentifier
                  leftViewControllerIdentifier:(NSString *)leftViewControllerIdentifier
+                rightViewControllerIdentifier:(NSString *)rightViewControllerIdentifier
                         viewControllerManager:(XBViewControllerManager *)viewControllerManager
                       revealControllerOptions:(NSDictionary *)revealControllerOptions {
 
     self.viewControllerManager = viewControllerManager;
     UIViewController *leftViewController = [self.viewControllerManager getOrCreateControllerWithIdentifier:leftViewControllerIdentifier];
     UIViewController *centralViewController = [self.viewControllerManager getOrCreateControllerWithIdentifier:centralViewControllerIdentifier];
-    UIViewController *rightViewController = [[XBRightMenuViewController alloc] init];
+    UIViewController *rightViewController = [self.viewControllerManager getOrCreateControllerWithIdentifier:rightViewControllerIdentifier];
+
 
     self = [super initWithFrontViewController:centralViewController
                            leftViewController:leftViewController

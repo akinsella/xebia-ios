@@ -1,5 +1,5 @@
 //
-//  XBMenuCell.h
+//  XBLeftMenuCell.h
 //  xebia-ios
 //
 //  Created by Alexis Kinsella on 26/07/12.
@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "XBTableViewCell.h"
 
-@interface XBMenuCell : UITableViewCell
+@interface XBLeftMenuCell : XBTableViewCell
 
 @property (nonatomic, strong) IBOutlet UILabel *titleLabel;
 

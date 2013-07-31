@@ -1,17 +1,24 @@
 //
-//  XBMenuCell.m
+//  XBLeftMenuCell.m
 //  xebia-ios
 //
 //  Created by Alexis Kinsella on 26/07/12.
 //  Copyright (c) 2012 Xebia France. All rights reserved.
 //
 
-#import "XBMenuCell.h"
+#import <QuartzCore/QuartzCore.h>
+#import "XBLeftMenuCell.h"
 
-@implementation XBMenuCell
+@implementation XBLeftMenuCell
 
 - (void)layoutSubviews {
     [super layoutSubviews];
+    self.imageView.frame = CGRectMake(10,10,22,22);
+    self.imageView.layer.masksToBounds = YES;
+    self.imageView.layer.cornerRadius = 3.0;
+
+    self.layer.shouldRasterize = YES;
+    self.layer.rasterizationScale = [[UIScreen mainScreen] scale];
 
     [self.textLabel setFont:[UIFont fontWithName:@"HelveticaNeue-Bold" size:17.0]];
     [self.textLabel setTextColor: [UIColor whiteColor]];

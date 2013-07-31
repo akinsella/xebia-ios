@@ -17,11 +17,13 @@
 
 + (id)controllerWithCentralViewControllerIdentifier:(NSString *)centralViewControllerIdentifier
                        leftViewControllerIdentifier:(NSString *)leftViewControllerIdentifier
+                      rightViewControllerIdentifier:(NSString *)rightViewControllerIdentifier
                               viewControllerManager:(XBViewControllerManager *)viewControllerManager
                             revealControllerOptions:(NSDictionary *)revealControllerOptions;
 
 - (id)initWithCentralViewControllerIdentifier:(NSString *)centralViewControllerIdentifier
                  leftViewControllerIdentifier:(NSString *)leftViewControllerIdentifier
+                rightViewControllerIdentifier:(NSString *)rightViewControllerIdentifier
                         viewControllerManager:(XBViewControllerManager *)viewControllerManager
                       revealControllerOptions:(NSDictionary *)revealControllerOptions;
 

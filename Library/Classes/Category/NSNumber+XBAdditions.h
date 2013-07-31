@@ -11,4 +11,5 @@
 
 + (NSString *)asString:(NSInteger)value;
 
+- (NSString *)asString;
 @end
