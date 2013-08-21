@@ -8,6 +8,8 @@
 
 #import "WPAuthor.h"
 
+#import "WPPostContentStructuredElement.h"
+
 @interface WPPost : NSObject<XBMappingProvider>
 
 @property(nonatomic, strong) NSNumber *identifier;
@@ -23,14 +25,18 @@
 @property(nonatomic, strong) NSDate *modified;
 @property(nonatomic, strong) NSNumber *commentCount;
 @property(nonatomic, strong) NSString *commentStatus;
+@property(nonatomic, strong) NSArray *structuredContent;
 
 -(NSString *)description_;
 -(NSString *)authorFormatted;
 -(NSString *)tagsFormatted;
 -(NSString *)categoriesFormatted;
+
+- (WPAuthor *)primaryAuthor;
+
 -(NSURL *)imageUrl;
 
-@property(nonatomic, retain) WPAuthor *author;
+@property(nonatomic, retain) NSArray *authors;
 @property(nonatomic, retain) NSArray *categories;
 @property(nonatomic, retain) NSArray *tags;
 @property(nonatomic, retain) NSArray *comments;

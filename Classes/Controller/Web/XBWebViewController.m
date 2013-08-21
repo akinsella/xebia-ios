@@ -37,6 +37,11 @@
                                                                                           action:@selector(uiBarShareButtonItemHanderAction)];
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    self.navigationController.navigationBarHidden = NO;
+}
+
 - (void)disableUserInteractions {
     [self disableCopyPaste];
     [self disableCallouts];
@@ -69,7 +74,6 @@
     // Disable callout
     [self.webView stringByEvaluatingJavaScriptFromString:@"document.documentElement.style.webkitTouchCallout='none';"];
 }
-
 
 - (void)uiBarShareButtonItemHanderAction {
 	// Create the item to share (in this example, a url)

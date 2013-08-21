@@ -34,6 +34,8 @@
     self.title = NSLocalizedString(@"Authors", nil);
 
     [super viewDidLoad];
+
+    [self addMenuButton];
 }
 
 - (NSString *)cellReuseIdentifier {
@@ -73,7 +75,7 @@
     NSLog(@"Author selected: %@", author);
 
     WPPostTableViewController *postTableViewController = [[WPPostTableViewController alloc] initWithPostType:AUTHOR identifier:author.identifier];
-    [self.appDelegate.mainViewController revealViewController:postTableViewController];
+    [self.navigationController pushViewController:postTableViewController animated:YES];
 }
 
 @end

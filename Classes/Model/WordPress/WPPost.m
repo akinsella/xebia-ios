@@ -18,6 +18,7 @@
 #import "DCParserConfiguration+XBAdditions.h"
 #import "WPComment.h"
 #import "Underscore.h"
+#import "WPPostContentStructuredElement.h"
 
 @implementation WPPost
 
@@ -29,7 +30,7 @@
 }
 
 - (NSString *)authorFormatted {
-    NSString *authorFormatted = [NSString stringWithFormat:@"%@", self.author.name ? self.author.name : self.author.nickname];
+    NSString *authorFormatted = [NSString stringWithFormat:@"%@", self.primaryAuthor.name ? self.primaryAuthor.name : self.primaryAuthor.nickname];
     return authorFormatted;
 }
 
@@ -45,25 +46,34 @@
     return categoriesFormatted;
 }
 
-- (NSURL *)imageUrl {
-    return [GravatarHelper getGravatarURL: [NSString stringWithFormat:@"%@@xebia.fr", self.author.nickname]];
+-(WPAuthor *)primaryAuthor {
+    return self.authors[0];
 }
+
+- (NSURL *)imageUrl {
+    return [GravatarHelper getGravatarURL: [NSString stringWithFormat:@"%@@xebia.fr", self.primaryAuthor.nickname]];
+}
+
 + (DCParserConfiguration *)mappings {
     DCParserConfiguration *config = [DCParserConfiguration configuration];
     config.datePattern = @"yyyy-MM-dd HH:mm:ss";
 
     [config addObjectMapping: [DCObjectMapping mapKeyPath:@"id" toAttribute:@"identifier" onClass:[self class]]];
 
-    [config mergeConfig:[[WPAuthor class] mappings]];
-
     [config addArrayMapper: [DCArrayMapping mapperForClassElements:[WPTag class] forAttribute:@"tags" onClass: [self class]]];
     [config mergeConfig:[[WPTag class] mappings]];
+
+    [config addArrayMapper: [DCArrayMapping mapperForClassElements:[WPAuthor class] forAttribute:@"authors" onClass: [self class]]];
+    [config mergeConfig:[[WPAuthor class] mappings]];
 
     [config addArrayMapper: [DCArrayMapping mapperForClassElements:[WPCategory class] forAttribute:@"categories" onClass:[self class]]];
     [config mergeConfig:[[WPCategory class] mappings]];
 
     [config addArrayMapper: [DCArrayMapping mapperForClassElements:[WPComment class] forAttribute:@"comments" onClass:[self class]]];
     [config mergeConfig:[[WPComment class] mappings]];
+
+    [config addArrayMapper: [DCArrayMapping mapperForClassElements:[WPPostContentStructuredElement class] forAttribute:@"structuredContent" onClass: [self class]]];
+    [config mergeConfig:[[WPPostContentStructuredElement class] mappings]];
 
     return config;
 }

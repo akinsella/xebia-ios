@@ -24,6 +24,7 @@ typedef BOOL (^XBPredicateBlock)(id obj);
 - (NSUInteger)count;
 
 - (void)filter:(XBPredicateBlock)filterPredicate;
+- (void)clearFilter;
 
 - (void)sort:(NSComparator)sortComparator;
 

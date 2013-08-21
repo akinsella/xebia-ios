@@ -10,7 +10,7 @@
 #import "XECard.h"
 #import "DTAttributedTextView.h"
 
-@interface XECardDetailsPageViewController : UIViewController<DTAttributedTextContentViewDelegate>
+@interface XECardDetailsPageViewController : UIViewController<UIActionSheetDelegate, DTAttributedTextContentViewDelegate>
 
 @property(nonatomic, strong, readonly)XECard *card;
 @property(nonatomic, strong) IBOutlet UIButton *qrCodeImage;

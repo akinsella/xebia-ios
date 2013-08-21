@@ -25,7 +25,7 @@
 -(NSString *)categoriesFormatted;
 -(NSURL *)imageUrl;
 
-@property(nonatomic, retain) WPSAuthor *author;
+@property(nonatomic, retain) NSArray *authors;
 @property(nonatomic, retain) NSArray *categories;
 @property(nonatomic, retain) NSArray *tags;
 

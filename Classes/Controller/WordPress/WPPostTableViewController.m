@@ -24,6 +24,9 @@
 #import "XBLogging.h"
 #import "GAITracker.h"
 #import "UITableViewCell+VariableHeight.h"
+#import "WPPostDetailsViewControllerBack.h"
+#import "SHKItem.h"
+#import "WPPostDetailsViewController.h"
 
 @interface WPPostTableViewController ()
 @property (nonatomic, strong) NSMutableDictionary *postTypes;
@@ -85,6 +88,8 @@
     self.tableView.rowHeight = 64;
 
     [super viewDidLoad];
+
+    [self addMenuButton];
 }
 
 - (NSString *)currentPostType {
@@ -129,19 +134,11 @@
     NSString *postUrl = [NSString stringWithFormat:@"/api/wordpress/post/%@", post.identifier];
 
     [self fetchDataFromSourceWithResourcePath:postUrl success:^(id fetchedJson) {
-        WPPost *fetchedPost = [XBMapper parseObject:fetchedJson intoObjectsOfType:[WPPost class]];
-        NSString *json = [XBMapper objectToSerializedJson:fetchedPost withDateFormat:@"yyyy-MM-dd'T'HH:mm:ss.SSSZZZ"];
+        WPPost *fetchedPost = [XBMapper parseObject:fetchedJson[@"post"] intoObjectsOfType:[WPPost class]];
 
-        NSLog(@"Json post: %@", json);
-
-        XBShareInfo *shareInfo = [XBShareInfo shareInfoWithUrl:post.url title:post.title];
-
-          WPCategory *postCategory = (WPCategory *) [post.categories objectAtIndex:0];
-          [self.appDelegate.mainViewController openLocalURL:@"index"
-                                                  withTitle:postCategory.title
-                                                       json:json
-                                                  shareInfo:shareInfo];
-      }
+        WPPostDetailsViewController *postDetailsViewController = [[WPPostDetailsViewController alloc] initWithPost:fetchedPost];
+        [self.navigationController pushViewController:postDetailsViewController animated:true];
+    }
       failure:^(NSError *error) {
           NSLog(@"Fetch post with id: '%@' failure: %@", post.identifier, error);
       }

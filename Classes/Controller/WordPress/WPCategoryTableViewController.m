@@ -30,6 +30,8 @@
     self.title = NSLocalizedString(@"Categories", nil);
 
     [super viewDidLoad];
+
+    [self addMenuButton];
 }
 
 - (NSString *)cellReuseIdentifier {
@@ -68,7 +70,7 @@
     NSLog(@"Category selected: %@", category);
 
     WPPostTableViewController *postTableViewController = [[WPPostTableViewController alloc] initWithPostType:CATEGORY identifier:category.identifier];
-    [self.appDelegate.mainViewController revealViewController:postTableViewController];
+    [self.navigationController pushViewController:postTableViewController animated:YES];
 }
 
 @end

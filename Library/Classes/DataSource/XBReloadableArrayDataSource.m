@@ -40,11 +40,18 @@
 - (void)loadDataWithCallback:(void (^)())callback {
     [self.dataLoader loadDataWithSuccess:^(id data) {
         [self processSuccessWithRawData:data];
+
+        if (self.delegate && [self.delegate respondsToSelector:@selector(onDataLoaded:)]) {
+            [self.delegate onDataLoaded: data];
+        }
         if (callback) {
             callback();
         }
     } failure:^(NSError *error) {
         self.error = error;
+        if (self.delegate && [self.delegate respondsToSelector:@selector(onError:)]) {
+            [self.delegate onError:error];
+        }
         if (callback) {
             callback();
         }

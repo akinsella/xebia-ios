@@ -7,8 +7,6 @@
 //
 
 #import "XBViewControllerManager.h"
-#import "UINavigationController+XBAdditions.h"
-#import "XBWebViewController.h"
 
 @interface XBViewControllerManager ()
 

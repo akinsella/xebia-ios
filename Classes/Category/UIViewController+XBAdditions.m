@@ -9,16 +9,15 @@
 #import "UIViewController+XBAdditions.h"
 #import "UINavigationBar+XBAdditions.h"
 #import "UIColor+XBAdditions.h"
+#import "XBLogging.h"
 
 @implementation UIViewController (XBAdditions)
 
 - (XBAppDelegate *) appDelegate {
-    return (XBAppDelegate *) [[UIApplication sharedApplication] delegate];
+    return (XBAppDelegate *) UIApplication.sharedApplication.delegate;
 }
 
 - (void) addMenuButton {
-    NSLog(@"Button: self.navigationController.parentViewController: %@", self.navigationController.parentViewController);
-
     UIButton *menuButton = [UIButton buttonWithType:UIButtonTypeCustom];
     menuButton.frame = CGRectMake(0, 0, 22, 22);
     [menuButton setBackgroundImage:[UIImage imageNamed:@"menu-button.png"] forState:UIControlStateNormal];
@@ -30,11 +29,11 @@
 }
 
 - (void)revealToggle {
-    if (self.navigationController.revealController.state == PKRevealControllerFocusesLeftViewController) {
-        [self.navigationController.revealController showViewController: self.navigationController.revealController.frontViewController];
+    if (self.appDelegate.mainViewController.state == PKRevealControllerFocusesLeftViewController) {
+        [self.appDelegate.mainViewController showViewController: self.appDelegate.mainViewController.frontViewController];
     }
     else {
-        [self.navigationController.revealController showViewController:self.navigationController.revealController.leftViewController];
+        [self.appDelegate.mainViewController showViewController:self.appDelegate.mainViewController.leftViewController];
     }
 }
 

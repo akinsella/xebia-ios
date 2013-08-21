@@ -4,6 +4,23 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="2083"/>
     </dependencies>
     <scenes>
+        <!--Navigation Controller - Recents-->
+        <scene sceneID="GzI-XG-wvD">
+            <objects>
+                <navigationController definesPresentationContext="YES" id="U8V-M2-KCh" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Recents" image="34-coffee.png" id="UcW-YI-PKR"/>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="blackTranslucent"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="JWb-Rb-gIr">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="QRD-tQ-xJx" kind="relationship" relationship="rootViewController" id="rb0-TS-kpq"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="C0x-VZ-i5p" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2020" y="-2504"/>
+        </scene>
         <!--Recent Post Table View Controller - Recent Posts-->
         <scene sceneID="dJt-4S-0fc">
             <objects>
@@ -17,25 +34,46 @@
                             <outlet property="delegate" destination="QRD-tQ-xJx" id="A4a-lw-VuR"/>
                         </connections>
                     </tableView>
-                    <tabBarItem key="tabBarItem" title="Recent" image="34-coffee.png" id="svu-yB-sPr"/>
+                    <tabBarItem key="tabBarItem" title="Recents" image="34-coffee.png" id="svu-yB-sPr"/>
                     <navigationItem key="navigationItem" title="Recent Posts" id="sbv-lM-AGs"/>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="blackTranslucent"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="blackOpaque" prompted="NO"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="abB-rE-jRD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2017" y="-2471"/>
+            <point key="canvasLocation" x="-1478" y="-2504"/>
         </scene>
         <!--Tag Table View Controller - Tags-->
         <scene sceneID="11">
             <objects>
                 <viewController storyboardIdentifier="tags" title="Tags" id="2" customClass="WPTagTableViewController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="qva-9W-wtL">
+                        <rect key="frame" x="0.0" y="64" width="320" height="367"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <searchBar key="tableHeaderView" contentMode="redraw" barStyle="blackOpaque" id="WOt-fn-ntY">
+                            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            <textInputTraits key="textInputTraits"/>
+                        </searchBar>
+                    </tableView>
                     <tabBarItem key="tabBarItem" title="Tags" image="15-tags.png" id="7lg-Ws-daY"/>
-                    <navigationItem key="navigationItem" title="Tags" id="DxH-MZ-HDT"/>
+                    <navigationItem key="navigationItem" title="Tags" id="DxH-MZ-HDT">
+                        <barButtonItem key="rightBarButtonItem" systemItem="search" id="aRv-5q-3SG">
+                            <connections>
+                                <action selector="goToSearch:" destination="2" id="aNb-Dm-MKD"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="blackOpaque" prompted="NO"/>
+                    <connections>
+                        <outlet property="searchBar" destination="WOt-fn-ntY" id="nJv-kv-SCj"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="10" sceneMemberID="firstResponder"/>
+                <searchDisplayController id="Ugj-FH-9gD"/>
             </objects>
-            <point key="canvasLocation" x="-2017" y="-1850"/>
+            <point key="canvasLocation" x="-1478" y="-457"/>
         </scene>
         <!--Post Table View Controller - Posts-->
         <scene sceneID="vxA-EQ-xQk">
@@ -54,7 +92,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Hj-EB-cYa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1478" y="-1168"/>
+            <point key="canvasLocation" x="-1020" y="-1192"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="owv-6G-Soi">
@@ -105,10 +143,10 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>
                     <connections>
-                        <segue destination="QRD-tQ-xJx" kind="relationship" relationship="viewControllers" id="8yr-AX-vz0"/>
-                        <segue destination="JYX-cc-v04" kind="relationship" relationship="viewControllers" id="Ckt-H2-MNZ"/>
-                        <segue destination="SUX-yb-Q4Z" kind="relationship" relationship="viewControllers" id="br9-NG-at6"/>
-                        <segue destination="2" kind="relationship" relationship="viewControllers" id="YXf-EU-EYB"/>
+                        <segue destination="U8V-M2-KCh" kind="relationship" relationship="viewControllers" id="1tu-K7-om9"/>
+                        <segue destination="doq-Zg-qHm" kind="relationship" relationship="viewControllers" id="h6Z-gJ-jKC"/>
+                        <segue destination="Il0-sw-ow9" kind="relationship" relationship="viewControllers" id="b44-3I-pBN"/>
+                        <segue destination="zyJ-XO-HEK" kind="relationship" relationship="viewControllers" id="dCG-jQ-ohj"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5DC-9O-Mv7" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -336,7 +374,7 @@
                                 <color key="backgroundColor" red="0.68376358699999995" green="0.37501364739999998" blue="5.2110169409999999e-05" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
                             <view contentMode="scaleToFill" id="iuJ-qY-JE7" customClass="DTAttributedTextView">
-                                <rect key="frame" x="10" y="83" width="300" height="218"/>
+                                <rect key="frame" x="0.0" y="75" width="320" height="234"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" red="0.68376358695652173" green="0.37501364738465653" blue="5.2110169412799525e-05" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
@@ -434,6 +472,102 @@
             </objects>
             <point key="canvasLocation" x="-2033" y="995"/>
         </scene>
+        <!--Post Details View Controller-->
+        <scene sceneID="ndc-wG-MSq">
+            <objects>
+                <viewController storyboardIdentifier="postDetails" id="lcl-kc-1Vl" customClass="WPPostDetailsViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="VD9-RH-8Rk">
+                        <rect key="frame" x="0.0" y="20" width="320" height="460"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" id="CVM-YK-mtZ">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="56"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Se lancer dans le Lean Startup avec le Lean Canvas (part 1)" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="4Mw-DX-p9s">
+                                        <rect key="frame" x="16" y="6" width="288" height="44"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                        <color key="textColor" red="0.18823529410000001" green="0.18823529410000001" blue="0.18823529410000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                            </view>
+                            <view contentMode="scaleToFill" id="dO8-ZC-A37">
+                                <rect key="frame" x="0.0" y="56" width="320" height="40"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="3 heures" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="gUk-4t-Flc">
+                                        <rect key="frame" x="153" y="1" width="67" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                        <color key="textColor" red="0.69019607839999997" green="0.69019607839999997" blue="0.69019607839999997" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Alexis Kinsella" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="T6R-uQ-Sfx">
+                                        <rect key="frame" x="61" y="0.0" width="88" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Agile" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Kez-Rl-IXh">
+                                        <rect key="frame" x="61" y="17" width="33" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                        <color key="textColor" red="0.68376358699999995" green="0.37501364739999998" blue="5.2110169409999999e-05" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Lean, MVP, Lean Startup" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="56m-fz-RVc">
+                                        <rect key="frame" x="99" y="17" width="206" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                        <color key="textColor" red="0.69019607839999997" green="0.69019607839999997" blue="0.69019607839999997" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="avatar-sample.jpg" id="XHq-gM-tsU">
+                                        <rect key="frame" x="13" y="0.0" width="40" height="40"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                            </view>
+                            <view contentMode="scaleToFill" id="D4T-6F-1PF">
+                                <rect key="frame" x="0.0" y="96" width="320" height="14"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" id="cmu-0T-bSW">
+                                        <rect key="frame" x="20" y="10" width="280" height="1"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" red="0.50199558423913038" green="0.50199558423913038" blue="0.50199558423913038" alpha="1" colorSpace="calibratedRGB"/>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                            </view>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="bFX-83-Cew">
+                                <rect key="frame" x="0.0" y="109" width="320" height="351"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="separatorColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="authorImageView" destination="XHq-gM-tsU" id="e82-Gz-Z7p"/>
+                        <outlet property="authorLabel" destination="T6R-uQ-Sfx" id="nw6-2M-PEM"/>
+                        <outlet property="categoryLabel" destination="Kez-Rl-IXh" id="INr-eG-vOJ"/>
+                        <outlet property="contentTableView" destination="bFX-83-Cew" id="ME2-VU-OB9"/>
+                        <outlet property="dateLabel" destination="gUk-4t-Flc" id="htZ-Og-sg6"/>
+                        <outlet property="tagsLabel" destination="56m-fz-RVc" id="M8r-eK-vTF"/>
+                        <outlet property="titleLabel" destination="4Mw-DX-p9s" id="OiI-xI-39O"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="l3R-qB-V4A" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1478" y="876"/>
+        </scene>
         <!--Github User Controller-->
         <scene sceneID="bYc-JS-vyV">
             <objects>
@@ -453,7 +587,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LMY-En-C8j" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2017" y="1690"/>
+            <point key="canvasLocation" x="-2022" y="1691"/>
         </scene>
         <!--Event Table View Controller - Events-->
         <scene sceneID="b6u-1j-PkA">
@@ -493,7 +627,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="g5W-mt-AEC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-3130" y="-78"/>
+            <point key="canvasLocation" x="-4801" y="-2526"/>
         </scene>
         <!--Video Details View Controller - Video Détails-->
         <scene sceneID="0hg-JV-tGh">
@@ -622,7 +756,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JUj-cI-96J" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2758" y="-78"/>
+            <point key="canvasLocation" x="-4429" y="-2526"/>
         </scene>
         <!--Twitter Table View Controller-->
         <scene sceneID="hs0-V0-Xbe">
@@ -644,6 +778,25 @@
             </objects>
             <point key="canvasLocation" x="-2017" y="265"/>
         </scene>
+        <!--Navigation Controller - Tags-->
+        <scene sceneID="40o-4u-7vv">
+            <objects>
+                <navigationController definesPresentationContext="YES" id="zyJ-XO-HEK" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Tags" image="15-tags.png" id="EuH-vu-gTW"/>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="blackTranslucent"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="blackOpaque" prompted="NO"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="blackOpaque" id="d9g-7E-Eu5">
+                        <rect key="frame" x="0.0" y="-44" width="0.0" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="2" kind="relationship" relationship="rootViewController" id="c7F-ZI-ZnM"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="oJe-jX-fBa" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2022" y="-457"/>
+        </scene>
         <!--Category Table View Controller - Categories-->
         <scene sceneID="IWO-Ag-9mP">
             <objects>
@@ -663,7 +816,45 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GBE-jb-gW5" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2017" y="-1168"/>
+            <point key="canvasLocation" x="-1489" y="-1192"/>
+        </scene>
+        <!--Navigation Controller - Categories-->
+        <scene sceneID="VMB-B5-pRg">
+            <objects>
+                <navigationController definesPresentationContext="YES" id="Il0-sw-ow9" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Categories" image="44-shoebox.png" id="pym-UM-SwS"/>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="blackTranslucent"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="blackOpaque" prompted="NO"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="blackOpaque" id="Zym-aw-3P9">
+                        <rect key="frame" x="0.0" y="-44" width="0.0" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="SUX-yb-Q4Z" kind="relationship" relationship="rootViewController" id="suS-ok-Ez6"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="SK9-Yd-3Ak" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2022" y="-1192"/>
+        </scene>
+        <!--Navigation Controller - Auteurs-->
+        <scene sceneID="BVg-Hi-quW">
+            <objects>
+                <navigationController definesPresentationContext="YES" id="doq-Zg-qHm" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Auteurs" image="112-group.png" id="bZK-hs-ekz"/>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="blackTranslucent"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="blackOpaque" prompted="NO"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="blackOpaque" id="RSL-yU-FuO">
+                        <rect key="frame" x="0.0" y="-44" width="0.0" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="JYX-cc-v04" kind="relationship" relationship="rootViewController" id="kG9-Ns-GAF"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9ne-Ze-j6g" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2020" y="-1857"/>
         </scene>
         <!--Author Table View Controller - Authors-->
         <scene sceneID="iO1-hm-EY5">
@@ -678,13 +869,13 @@
                             <outlet property="delegate" destination="JYX-cc-v04" id="WyD-Ag-aXt"/>
                         </connections>
                     </tableView>
-                    <tabBarItem key="tabBarItem" title="Authors" image="112-group.png" id="pN9-j9-fz1"/>
+                    <tabBarItem key="tabBarItem" title="Auteurs" image="112-group.png" id="pN9-j9-fz1"/>
                     <navigationItem key="navigationItem" title="Authors" id="02C-YL-AVM"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="blackOpaque" prompted="NO"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="j2i-bh-h4y" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2017" y="-452"/>
+            <point key="canvasLocation" x="-1478" y="-1857"/>
         </scene>
         <!--Web View Controller - Web-->
         <scene sceneID="ZNz-mZ-g1I">
@@ -710,7 +901,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SYh-qT-ZlI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1478" y="76"/>
+            <point key="canvasLocation" x="-1478" y="265"/>
         </scene>
     </scenes>
     <resources>
@@ -719,6 +910,7 @@
         <image name="34-coffee.png" width="24" height="26"/>
         <image name="40-inbox.png" width="24" height="24"/>
         <image name="44-shoebox.png" width="24" height="22"/>
+        <image name="avatar-sample.jpg" width="40" height="40"/>
         <image name="homeview.png" width="245" height="114"/>
         <image name="video_placeholder.png" width="320" height="180"/>
         <image name="xebia-essentials-sample-barcode.png" width="248" height="248"/>
@@ -773,6 +965,18 @@
         <class className="WPCategoryTableViewController" superclassName="XBReloadableTableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/WPCategoryTableViewController.h"/>
         </class>
+        <class className="WPPostDetailsViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/WPPostDetailsViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="authorImageView" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="authorLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="categoryLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="contentTableView" candidateClass="UITableView"/>
+                <relationship kind="outlet" name="dateLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="tagsLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="titleLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
         <class className="WPPostTableViewController" superclassName="XBInfiniteScrollTableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/WPPostTableViewController.h"/>
         </class>
@@ -784,6 +988,10 @@
         </class>
         <class className="WPTagTableViewController" superclassName="XBReloadableTableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/WPTagTableViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="goToSearch:"/>
+                <relationship kind="outlet" name="searchBar" candidateClass="UISearchBar"/>
+            </relationships>
         </class>
         <class className="XBHomeController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/XBHomeController.h"/>

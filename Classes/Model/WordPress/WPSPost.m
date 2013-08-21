@@ -29,7 +29,7 @@
 }
 
 - (NSString *)authorFormatted {
-    NSString *authorFormatted = [NSString stringWithFormat:@"%@", self.author.name ? self.author.name : self.author.nickname];
+    NSString *authorFormatted = [NSString stringWithFormat:@"%@", self.primaryAuthor.name ? self.primaryAuthor.name : self.primaryAuthor.nickname];
     return authorFormatted;
 }
 
@@ -45,8 +45,12 @@
     return categoriesFormatted;
 }
 
+-(WPSAuthor *)primaryAuthor {
+    return self.authors[0];
+}
+
 - (NSURL *)imageUrl {
-    return [GravatarHelper getGravatarURL: [NSString stringWithFormat:@"%@@xebia.fr", self.author.nickname]];
+    return [GravatarHelper getGravatarURL: [NSString stringWithFormat:@"%@@xebia.fr", self.primaryAuthor.nickname]];
 }
 
 +(DCParserConfiguration *)mappings {
@@ -56,6 +60,7 @@
     [config addObjectMapping: [DCObjectMapping mapKeyPath:@"id" toAttribute:@"identifier" onClass:[self class]]];
     [config addObjectMapping: [DCObjectMapping mapKeyPath:@"description" toAttribute:@"description_" onClass:[self class]]];
 
+    [config addArrayMapper: [DCArrayMapping mapperForClassElements:[WPSAuthor class] forAttribute:@"authors" onClass:[self class]]];
     [config mergeConfig:[[WPSAuthor class] mappings]];
 
     [config addArrayMapper: [DCArrayMapping mapperForClassElements:[WPSTag class] forAttribute:@"tags" onClass:[self class]]];

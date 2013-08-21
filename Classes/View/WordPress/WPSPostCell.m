@@ -46,7 +46,7 @@
     self.categoriesLabel.text = post.categoriesFormatted;
     self.authorLabel.text = post.authorFormatted;
 
-    if (![post.author.slug isEqualToString:@"xebiafrance"]) {
+    if (![post.primaryAuthor.slug isEqualToString:@"xebiafrance"]) {
         [self.imageView setImageWithURL: [post imageUrl] placeholderImage:self.defaultPostImage];
     }
     else {

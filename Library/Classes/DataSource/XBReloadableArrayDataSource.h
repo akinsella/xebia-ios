@@ -10,12 +10,22 @@
 #import "XBDataLoader.h"
 #import "XBDataMapper.h"
 
+@protocol XBReloadableArrayDataSourceDelegate<NSObject>
+
+@optional
+
+-(void)onDataLoaded:(id)data;
+-(void)onError:(NSError *)error;
+
+@end
+
 @interface XBReloadableArrayDataSource : XBArrayDataSource
 
 @property (nonatomic, strong, readonly)NSError *error;
 @property (nonatomic, strong, readonly)id rawData;
 @property (nonatomic, strong, readonly)NSObject<XBDataLoader> *dataLoader;
 @property (nonatomic, strong, readonly)NSObject<XBDataMapper> *dataMapper;
+@property (nonatomic, weak)id<XBReloadableArrayDataSourceDelegate>delegate;
 
 - (id)initWithDataLoader:(NSObject <XBDataLoader> *)dataLoader dataMapper:(NSObject <XBDataMapper> *)dataMapper;
 

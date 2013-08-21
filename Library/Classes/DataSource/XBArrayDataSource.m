@@ -6,6 +6,7 @@
 
 
 #import "XBArrayDataSource.h"
+#import "XBLogging.h"
 
 @interface XBArrayDataSource()
 @property(nonatomic, strong)NSArray *array;
@@ -63,6 +64,10 @@
     self.filterPredicate = filterPredicate;
     [self filterData];
 }
+- (void)clearFilter {
+    self.filterPredicate = nil;
+    [self filterData];
+}
 
 - (void)sort:(NSComparator)sortComparator {
     self.sortComparator = sortComparator;
@@ -70,23 +75,40 @@
 }
 
 - (void)filterData {
-    NSMutableArray *result = [NSMutableArray arrayWithCapacity:self.array.count];
+    NSDate *start = [NSDate date];
 
-    for (id item in _array) {
-        if (!self.filterPredicate || self.filterPredicate(item) ? item : nil) {
-            [result addObject:item];
+    if (!self.filterPredicate) {
+        self.filteredSortedArray = [_array copy];
+    }
+    else {
+        NSMutableArray *result = [NSMutableArray arrayWithCapacity:self.array.count];
+
+        for (id item in _array) {
+            if (self.filterPredicate(item) ? item : nil) {
+                [result addObject:item];
+            }
         }
+
+        self.filteredSortedArray = [result copy];
     }
 
-    self.filteredSortedArray = [result copy];
+    NSDate *stop = [NSDate date];
+    NSTimeInterval duration = [stop timeIntervalSinceDate:start];
+    XBLogDebug(@"Filter duration: %fms", duration);
 
     [self sortData];
 }
 
 - (void)sortData {
+    NSDate *start = [NSDate date];
+
     if (self.sortComparator) {
         self.filteredSortedArray = [self.filteredSortedArray sortedArrayUsingComparator:self.sortComparator];
     }
+
+    NSDate *stop = [NSDate date];
+    NSTimeInterval duration = [stop timeIntervalSinceDate:start];
+    XBLogDebug(@"Sort duration: %fms", duration);
 }
 
 @end
