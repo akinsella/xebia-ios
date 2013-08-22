@@ -20,8 +20,15 @@
 
 static NSString *kParagraphCellReuseIdentifier = @"paragraphCell";
 static NSString *kDefaultCellReuseIdentifier = @"defaultCell";
+static NSString *kHeaderCellReuseIdentifier = @"headerCell";
 
 NSString *kParagraphType = @"P";
+NSString *kHeader1Type = @"H1";
+NSString *kHeader2Type = @"H2";
+NSString *kHeader3Type = @"H3";
+NSString *kHeader4Type = @"H4";
+NSString *kHeader5Type = @"H5";
+NSString *kHeader6Type = @"H6";
 
 @interface WPPostDetailsViewController ()
 @property(nonatomic, strong)WPPost *post;
@@ -88,7 +95,7 @@ NSString *kParagraphType = @"P";
 
     [self.contentTableView registerNib:[UINib nibWithNibName:@"WPPostContentDefaultElementCell" bundle:nil] forCellReuseIdentifier:@"defaultCell"];
     [self.contentTableView registerNib:[UINib nibWithNibName:@"WPPostContentParagraphElementCell" bundle:nil] forCellReuseIdentifier:@"paragraphCell"];
-
+    [self.contentTableView registerNib:[UINib nibWithNibName:@"WPPostContentHeaderElementCell" bundle:nil] forCellReuseIdentifier:@"headerCell"];
 }
 
 
@@ -171,6 +178,16 @@ NSString *kParagraphType = @"P";
     WPAbstractPostContentStructuredElementCell *cell;
     if ([structuredContentElement.type isEqualToString:kParagraphType]) {
         cell = [self.contentTableView dequeueReusableCellWithIdentifier:kParagraphCellReuseIdentifier];
+    }
+    else if (
+            [structuredContentElement.type isEqualToString:kHeader1Type] ||
+            [structuredContentElement.type isEqualToString:kHeader2Type] ||
+            [structuredContentElement.type isEqualToString:kHeader3Type] ||
+            [structuredContentElement.type isEqualToString:kHeader4Type] ||
+            [structuredContentElement.type isEqualToString:kHeader5Type] ||
+            [structuredContentElement.type isEqualToString:kHeader6Type]
+            ) {
+        cell = [self.contentTableView dequeueReusableCellWithIdentifier:kHeaderCellReuseIdentifier];
     }
     else {
         cell = [self.contentTableView dequeueReusableCellWithIdentifier:kDefaultCellReuseIdentifier];
