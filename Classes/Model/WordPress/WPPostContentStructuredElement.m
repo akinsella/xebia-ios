@@ -27,4 +27,13 @@
     return config;
 }
 
+- (id)objectForKeyedSubscript:(NSString *)key {
+
+    for (WPPostContentStructuredElementAttribute * attribute in self.attributes) {
+        if ([attribute.key isEqualToString: key]) {
+            return attribute.value;
+        }
+    }
+    return @"";
+}
 @end

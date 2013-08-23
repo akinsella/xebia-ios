@@ -19,10 +19,16 @@
 #import "WPAbstractPostContentStructuredElementCell.h"
 
 static NSString *kParagraphCellReuseIdentifier = @"paragraphCell";
+static NSString *kImageCellReuseIdentifier = @"imageCell";
 static NSString *kDefaultCellReuseIdentifier = @"defaultCell";
 static NSString *kHeaderCellReuseIdentifier = @"headerCell";
+static NSString *kCodeCellReuseIdentifier = @"codeCell";
 
 NSString *kParagraphType = @"P";
+NSString *kUlType = @"UL";
+NSString *kOlType = @"OL";
+NSString *kCodeType = @"CODE";
+NSString *kImageType = @"IMG";
 NSString *kHeader1Type = @"H1";
 NSString *kHeader2Type = @"H2";
 NSString *kHeader3Type = @"H3";
@@ -96,6 +102,8 @@ NSString *kHeader6Type = @"H6";
     [self.contentTableView registerNib:[UINib nibWithNibName:@"WPPostContentDefaultElementCell" bundle:nil] forCellReuseIdentifier:@"defaultCell"];
     [self.contentTableView registerNib:[UINib nibWithNibName:@"WPPostContentParagraphElementCell" bundle:nil] forCellReuseIdentifier:@"paragraphCell"];
     [self.contentTableView registerNib:[UINib nibWithNibName:@"WPPostContentHeaderElementCell" bundle:nil] forCellReuseIdentifier:@"headerCell"];
+    [self.contentTableView registerNib:[UINib nibWithNibName:@"WPPostContentCodeElementCell" bundle:nil] forCellReuseIdentifier:@"codeCell"];
+    [self.contentTableView registerNib:[UINib nibWithNibName:@"WPPostContentImageElementCell" bundle:nil] forCellReuseIdentifier:@"imageCell"];
 }
 
 
@@ -176,18 +184,28 @@ NSString *kHeader6Type = @"H6";
     WPPostContentStructuredElement * structuredContentElement = self.post.structuredContent[indexPath.row];
 
     WPAbstractPostContentStructuredElementCell *cell;
-    if ([structuredContentElement.type isEqualToString:kParagraphType]) {
+    if (
+            [structuredContentElement.type isEqualToString:kParagraphType] ||
+            [structuredContentElement.type isEqualToString:kUlType] ||
+            [structuredContentElement.type isEqualToString:kOlType]
+            ) {
         cell = [self.contentTableView dequeueReusableCellWithIdentifier:kParagraphCellReuseIdentifier];
     }
     else if (
             [structuredContentElement.type isEqualToString:kHeader1Type] ||
-            [structuredContentElement.type isEqualToString:kHeader2Type] ||
-            [structuredContentElement.type isEqualToString:kHeader3Type] ||
-            [structuredContentElement.type isEqualToString:kHeader4Type] ||
-            [structuredContentElement.type isEqualToString:kHeader5Type] ||
-            [structuredContentElement.type isEqualToString:kHeader6Type]
+                    [structuredContentElement.type isEqualToString:kHeader2Type] ||
+                    [structuredContentElement.type isEqualToString:kHeader3Type] ||
+                    [structuredContentElement.type isEqualToString:kHeader4Type] ||
+                    [structuredContentElement.type isEqualToString:kHeader5Type] ||
+                    [structuredContentElement.type isEqualToString:kHeader6Type]
             ) {
         cell = [self.contentTableView dequeueReusableCellWithIdentifier:kHeaderCellReuseIdentifier];
+    }
+    else if ( [structuredContentElement.type isEqualToString:kCodeType] ) {
+        cell = [self.contentTableView dequeueReusableCellWithIdentifier:kCodeCellReuseIdentifier];
+    }
+    else if ( [structuredContentElement.type isEqualToString:kImageType] ) {
+        cell = [self.contentTableView dequeueReusableCellWithIdentifier:kImageCellReuseIdentifier];
     }
     else {
         cell = [self.contentTableView dequeueReusableCellWithIdentifier:kDefaultCellReuseIdentifier];
@@ -200,7 +218,7 @@ NSString *kHeader6Type = @"H6";
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [self tableView:tableView cellForRowAtIndexPath:indexPath];
-    return [cell heightForCell];
+    return [cell heightForCell: tableView];
 }
 
 

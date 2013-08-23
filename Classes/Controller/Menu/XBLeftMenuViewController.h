@@ -14,4 +14,6 @@
 
 @interface XBLeftMenuViewController : XBTableViewController<UITableViewDelegate, UITableViewDataSource, XBTableViewControllerDelegate>
 
+- (void)revealViewControllerWithIdentifier:(NSString *)identifier;
+
 @end

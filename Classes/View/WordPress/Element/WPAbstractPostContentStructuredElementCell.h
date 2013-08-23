@@ -8,15 +8,11 @@
 
 #import <Foundation/Foundation.h>
 #import "WPPostContentStructuredElement.h"
-#import "XBTableViewCell.h"
+#import "WPPostContentStructuredElementCellDelegate.h"
 
 
-@interface WPAbstractPostContentStructuredElementCell : XBTableViewCell
+@interface WPAbstractPostContentStructuredElementCell : UITableViewCell <WPPostContentStructuredElementCellDelegate>
 
 @property (nonatomic, strong, readonly)WPPostContentStructuredElement *element;
-
--(void)updateWithWPPostContentElement:(WPPostContentStructuredElement *)element;
-
--(CGFloat)heightForCell;
 
 @end

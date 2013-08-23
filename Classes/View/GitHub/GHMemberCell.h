@@ -15,7 +15,7 @@
 @property (nonatomic, strong) IBOutlet UILabel *descriptionLabel;
 @property(nonatomic, strong, readonly) GHMember *member;
 
-- (CGFloat)heightForCell;
+- (CGFloat)heightForCell: (UITableView *)tableView;
 
 - (void)updateWithMember:(GHMember *)member;
 

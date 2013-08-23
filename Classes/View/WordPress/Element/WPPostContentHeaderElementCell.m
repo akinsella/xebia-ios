@@ -9,15 +9,23 @@
 #import "WPPostContentHeaderElementCell.h"
 #import "UIColor+XBAdditions.h"
 
+static const int kMarginWidth = 5;
+static const int kMarginHeight = 5;
 
 @implementation WPPostContentHeaderElementCell
-
 
 - (void)updateWithWPPostContentElement:(WPPostContentStructuredElement *)element {
     [super updateWithWPPostContentElement:element];
 
-    self.headerLabel.font = [UIFont fontWithName:@"@Helvetica-Bold" size:10 + [self headerIndex]];
-    self.headerLabel.textColor = [UIColor colorWithHex:@"#4F2642"];
+    self.headerLabel.font = [UIFont fontWithName:@"@Helvetica-Bold" size: 11 + ( 6 * 2 - [self headerIndex] * 2)];
+    self.headerLabel.textColor = [UIColor colorWithHex:@"#2c3e50"];
+    self.headerLabel.text = [self.element.text uppercaseString];
+    self.headerLabel.frame = CGRectMake(
+            [self headerIndent],
+            0,
+            self.frame.size.width - ([self headerIndent] * 2),
+            self.frame.size.height
+    );
 }
 
 - (NSUInteger)headerIndex {
@@ -42,6 +50,14 @@
     else {
         return 0;
     }
+}
+
+- (NSUInteger)headerIndent {
+    return ([self headerIndex] - 1) * kMarginWidth;
+}
+
+- (CGFloat)heightForCell:(UITableView *)tableView {
+    return [self.headerLabel sizeThatFits:CGSizeMake(self.frame.size.width - ([self headerIndent] * 2), CGFLOAT_MAX)].height + kMarginHeight * 2;
 }
 
 @end

@@ -79,7 +79,7 @@
     }
 }
 
-- (CGFloat)heightForCell {
+- (CGFloat)heightForCell: (UITableView *)tableView {
     CGRect bounds = [UIScreen getScreenBoundsForCurrentOrientation];
     CGSize size = [self.contentLabel sizeThatFits:CGSizeMake(bounds.size.width - CELL_BORDER_WIDTH, CGFLOAT_MAX)];
     NSLog(@"t: %@ w: %f, h: %f", self.contentLabel.text, size.width, size.height);

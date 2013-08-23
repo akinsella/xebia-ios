@@ -78,7 +78,7 @@
 
     UITableViewCell *cell = [self tableView:tableView cellForRowAtIndexPath:indexPath];
 
-    return [cell respondsToSelector:@selector(heightForCell)] ? [cell heightForCell] : self.tableView.rowHeight;
+    return [cell respondsToSelector:@selector(heightForCell:)] ? [cell heightForCell: tableView] : self.tableView.rowHeight;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {

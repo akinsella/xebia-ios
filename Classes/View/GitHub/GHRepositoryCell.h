@@ -19,7 +19,7 @@
 @property (nonatomic, strong) NSNumber *identifier;
 @property (nonatomic, readonly, strong) UIImage *avatarImage;
 
-- (CGFloat)heightForCell;
+- (CGFloat)heightForCell: (UITableView *)tableView;
 
 - (void)updateWithRepository:(GHRepository *)repository defaultImage:(UIImage *)image;
 @end

@@ -19,7 +19,7 @@ static CGFloat const MAX_CELL_HEIGHT = 240.0;
 @property (nonatomic, strong) IBOutlet TTTAttributedLabel *descriptionLabel;
 @property(nonatomic, strong, readonly) EBEvent *event;
 
-- (CGFloat)heightForCell;
+- (CGFloat)heightForCell:(UITableView *)tableView;
 
 - (void)updateWithEvent:(EBEvent *)event;
 

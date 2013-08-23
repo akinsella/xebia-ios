@@ -70,6 +70,11 @@ static NSString* const DeviceTokenKey = @"DeviceToken";
     
     [self initApplicationRating];
 
+#if DEBUG
+    XBLeftMenuViewController *leftMenuViewController = (XBLeftMenuViewController *) [(UINavigationController *)self.mainViewController.leftViewController topViewController];
+    [leftMenuViewController revealViewControllerWithIdentifier:@"tbBlog"];
+#endif
+
     return YES;
 }
 
@@ -188,7 +193,7 @@ static NSString* const DeviceTokenKey = @"DeviceToken";
     } forState:UIControlStateHighlighted];*/
 
 //    [[UITableView appearance] setBackgroundColor:[UIColor colorWithHex:@"#F2F5E3"]];
-    [[UITableView appearance] setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"paper_fibers.png"]]];
+//    [[UITableView appearance] setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"paper_fibers.png"]]];
     [[UIToolbar appearance] setTintColor:[UIColor colorWithHex:@"#BCBFB5"]];
 }
 

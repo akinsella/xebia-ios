@@ -11,6 +11,6 @@
 
 @interface UITableViewCell (VariableHeight)
 
-- (CGFloat)heightForCell;
+- (CGFloat)heightForCell: (UITableView *)tableView;
 
 @end

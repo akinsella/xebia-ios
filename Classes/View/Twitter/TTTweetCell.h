@@ -18,7 +18,7 @@
 @property (nonatomic, strong) IBOutlet UILabel *dateLabel;
 @property(nonatomic, strong, readonly) TTTweet *tweet;
 
-- (CGFloat)heightForCell;
+- (CGFloat)heightForCell: (UITableView *)tableView;
 
 - (void)updateWithTweet:(TTTweet *)tweet;
 

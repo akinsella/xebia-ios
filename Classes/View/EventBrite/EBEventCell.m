@@ -56,7 +56,7 @@
     self.layer.rasterizationScale = [[UIScreen mainScreen] scale];
 }
 
-- (CGFloat)heightForCell {
+- (CGFloat)heightForCell:(UITableView *)tableView {
     CGRect bounds = [UIScreen getScreenBoundsForCurrentOrientation];
     CGSize size = [self.descriptionLabel sizeThatFits:CGSizeMake(bounds.size.width - CELL_BORDER_WIDTH, CGFLOAT_MAX)];
     CGFloat computedHeight = MAX(CELL_BASE_HEIGHT + size.height, CELL_MIN_HEIGHT);

@@ -9,7 +9,11 @@
 #import <Foundation/Foundation.h>
 #import "WPPostContentStructuredElement.h"
 #import "WPAbstractPostContentStructuredElementCell.h"
+#import "WPPostContentStructuredElementCellDelegate.h"
+#import "DTAttributedTextCell.h"
 
-@interface WPPostContentParagraphElementCell : WPAbstractPostContentStructuredElementCell
+@interface WPPostContentParagraphElementCell : DTAttributedTextCell<WPPostContentStructuredElementCellDelegate>
+
+@property (nonatomic, strong, readonly)WPPostContentStructuredElement *element;
 
 @end
