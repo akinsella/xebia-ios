@@ -12,7 +12,7 @@
 @class PKRevealController;
 @class XBViewControllerManager;
 
-@interface XBLeftMenuViewController : XBTableViewController<UITableViewDelegate, UITableViewDataSource, XBTableViewControllerDelegate>
+@interface XBLeftMenuViewController : XBTableViewController <UITableViewDelegate, UITableViewDataSource, XBTableViewControllerDelegate>
 
 - (void)revealViewControllerWithIdentifier:(NSString *)identifier;
 

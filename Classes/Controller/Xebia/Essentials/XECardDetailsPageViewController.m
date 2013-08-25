@@ -62,7 +62,9 @@
 
     self.stripeView.backgroundColor = [self.descriptionBackgroundView.backgroundColor darkerColorWithRatio:0.1];
 
-    [self createQRCodeImage];
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        [self createQRCodeImage];
+    });
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -72,7 +74,7 @@
 
 - (void)configureContentView {
 
-    [DTCoreTextLayoutFrame setShouldDrawDebugFrames:YES];
+    [DTCoreTextLayoutFrame setShouldDrawDebugFrames: NO];
 
     self.contentTextView.attributedString = [self attributedStringForHTML:self.card.excerpt];
 
@@ -91,7 +93,6 @@
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTap:)];
     [self.contentTextView addGestureRecognizer:tap];
 }
-
 
 #pragma mark Custom Views on Text
 

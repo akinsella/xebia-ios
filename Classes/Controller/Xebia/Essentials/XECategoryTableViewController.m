@@ -31,6 +31,11 @@
     [super viewDidLoad];
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    self.navigationController.navigationBarHidden = NO;
+}
+
 - (NSString *)cellReuseIdentifier {
     // Needs to be static
     static NSString *cellReuseIdentifier = @"XECategory" ;
@@ -41,7 +46,6 @@
 - (NSString *)cellNibName {
     return @"XECategoryCell";
 }
-
 
 - (void)configureCell:(UITableViewCell *)cell atIndex:(NSIndexPath *)indexPath {
 

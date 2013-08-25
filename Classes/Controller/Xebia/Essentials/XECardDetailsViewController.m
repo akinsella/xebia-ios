@@ -20,18 +20,9 @@
 
 @implementation XECardDetailsViewController
 
-- (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
 
-    self.scrollView.pagingEnabled = YES;
-    self.scrollView.contentSize = CGSizeMake(self.scrollView.frame.size.width * self.cards.count, self.scrollView.frame.size.height);
-    self.scrollView.showsHorizontalScrollIndicator = NO;
-    self.scrollView.showsVerticalScrollIndicator = NO;
-    self.scrollView.scrollsToTop = NO;
-    self.scrollView.delegate = self;
-    self.scrollView.alwaysBounceHorizontal = NO;
-    self.scrollView.alwaysBounceVertical = NO;
-    self.scrollView.bounces = NO;
+- (void)viewDidLoad {
+    [super viewDidLoad];
 
     XECard *card = self.cards[self.initialIndex];
     [self.appDelegate.tracker sendView:[NSString stringWithFormat: @"/essentials/category/%@", card.category.identifier]];
@@ -42,15 +33,38 @@
         [self.pageViewControllers addObject:[NSNull null]];
     }
 
+    self.scrollView.pagingEnabled = YES;
+    self.scrollView.showsHorizontalScrollIndicator = NO;
+    self.scrollView.showsVerticalScrollIndicator = NO;
+    self.scrollView.scrollsToTop = NO;
+    self.scrollView.delegate = self;
+    self.scrollView.alwaysBounceHorizontal = NO;
+    self.scrollView.alwaysBounceVertical = NO;
+    self.scrollView.bounces = NO;
+    self.scrollView.contentSize = CGSizeMake(self.scrollView.frame.size.width * self.cards.count, self.scrollView.frame.size.height);
+    self.scrollView.contentOffset = CGPointMake(self.scrollView.frame.size.width * self.initialIndex, 0.0);
+
     self.pageControl.numberOfPages = self.cards.count;
     self.pageControl.currentPage = (NSInteger) self.initialIndex;
-    self.scrollView.contentOffset = CGPointMake(self.scrollView.frame.size.width * self.initialIndex, 0.0);
 
     [self loadScrollViewWithPage:self.initialIndex];
     [self loadScrollViewWithPage:self.initialIndex - 1];
     [self loadScrollViewWithPage:self.initialIndex + 1];
+
 }
 
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+
+    self.navigationController.navigationBarHidden = NO;
+
+    self.scrollView.contentSize = CGSizeMake(self.scrollView.frame.size.width * self.cards.count, self.scrollView.frame.size.height);
+}
+
+- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation {
+    return NO;
+}
 
 - (void)loadScrollViewWithPage:(NSUInteger)page
 {

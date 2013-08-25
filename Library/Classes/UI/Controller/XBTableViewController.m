@@ -12,7 +12,7 @@
 #import "XBArrayDataSource.h"
 #import "XBTableViewController.h"
 
-@interface XBTableViewController()
+@interface XBTableViewController ()
 
 @property(nonatomic, strong)XBArrayDataSource *dataSource;
 

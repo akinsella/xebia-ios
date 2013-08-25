@@ -18,7 +18,7 @@
 #import "XECardDetailsViewController.h"
 #import "XBArrayDataSource+protected.h"
 
-@interface XBTableViewController()
+@interface UITableViewController ()
 -(void)initialize;
 @end
 
@@ -38,6 +38,8 @@
         self.title = NSLocalizedString(@"Cards", nil);
         [self.appDelegate.tracker sendView:@"/essentials/card"];
     }
+
+    self.navigationController.navigationBarHidden = NO;
 }
 
 - (void)viewDidLoad {
@@ -58,6 +60,9 @@
     return @"XECardCell";
 }
 
+- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation {
+    return NO;
+}
 
 - (void)configureCell:(UITableViewCell *)cell atIndex:(NSIndexPath *)indexPath {
 

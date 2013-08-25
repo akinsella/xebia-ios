@@ -57,6 +57,8 @@
     else {
         NSLog(@"Error: %@", [error localizedDescription]);
     }
+
+    self.navigationController.navigationBarHidden = NO;
 }
 
 - (void)updateWithCard:(XECard *)card {
