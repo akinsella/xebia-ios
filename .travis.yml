@@ -1,4 +1,4 @@
 language: objective-c
 
-script: xctool -workspace xebia-ios.xcworkspace -scheme "xebia-ios" clean build test -sdk iphonesimulator -arch i386
+script: Travis-CI/script.sh
 
