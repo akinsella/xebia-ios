@@ -1,4 +1,4 @@
 xebia-ios
 =========
 
-[![Build Status](http://travis-ci.org/akinsella/xebia-ios.png)](http://travis-ci.org/akinsella/xebia-ios)
+[![Build Status](https://api.travis-ci.org/akinsella/xebia-ios.png)](https://travis-ci.org/akinsella/xebia-ios)
