@@ -9,9 +9,12 @@
 #import <QuartzCore/QuartzCore.h>
 #import <DTCoreText/DTHTMLElement.h>
 #import <DTCoreText/DTHTMLAttributedStringBuilder.h>
+#import <DTCoreText/DTCSSStylesheet.h>
 #import "WPPostContentParagraphElementCell.h"
 #import "XBAppDelegate.h"
 #import "UIColor+XBAdditions.h"
+
+#define kDefaultFontFamily @"Cabin"
 
 @interface WPPostContentParagraphElementCell()
 
@@ -65,10 +68,17 @@
     else {
         self.attributedString = [self attributedStringForHTML: self.element.text];
     }
+
+    CTFontRef font = CTFontCreateWithName(CFSTR("Cabin"), 20, NULL);
+    NSLog(@"%@", font);
 }
 
 - (NSAttributedString *)attributedStringForHTML:(NSString *)html
 {
+    NSString *cssFilePath = [[NSBundle bundleForClass:self.class] pathForResource: @"Styles" ofType:@"css"];
+    NSString *cssContent = [NSString stringWithContentsOfFile: cssFilePath encoding: NSUTF8StringEncoding error:nil];
+    DTCSSStylesheet *stylesheet = [[DTCSSStylesheet alloc] initWithStyleBlock: cssContent];
+    
     // Load HTML data
     NSData *data = [html dataUsingEncoding:NSUTF8StringEncoding];
 
@@ -76,9 +86,10 @@
 
     NSDictionary *options = @{
             DTMaxImageSize: [NSValue valueWithCGSize:maxImageSize],
-            DTDefaultFontFamily: @"Helvetica Neue",
-            DTDefaultFontSize: @13.0,
-            DTDefaultTextColor: [UIColor colorWithHex:@"#34495e"],
+            DTDefaultStyleSheet: stylesheet,
+            DTDefaultFontFamily: kDefaultFontFamily,
+            DTDefaultFontSize: @12.0,
+            DTDefaultTextColor: [UIColor colorWithHex:@"#333333"],
             DTDefaultLinkColor: @"#9b59b6",
             DTDefaultLinkHighlightColor: @"#e74c3c",
             DTWillFlushBlockCallBack: ^(DTHTMLElement *element) {
@@ -91,9 +102,7 @@
                                                                                                         options: options
                                                                                              documentAttributes: nil];
 
-    NSAttributedString *attributedString = [attributedStringBuilder generatedAttributedString];
-
-    return attributedString;
+    return [attributedStringBuilder generatedAttributedString];
 }
 
 -(CGFloat)heightForCell:(UITableView *)tableView {

@@ -66,7 +66,7 @@
 
     if (!cell) {
         // fix for rdar://11549999 (registerNib… fails on iOS 5 if VoiceOver is enabled)
-        cell = [[[NSBundle mainBundle] loadNibNamed:[self.delegate cellNibName] owner:self options:nil] objectAtIndex:0];
+        cell = [[[NSBundle bundleForClass:self.class] loadNibNamed:[self.delegate cellNibName] owner:self options:nil] objectAtIndex:0];
     }
 
     [self.delegate configureCell:cell atIndex:indexPath];

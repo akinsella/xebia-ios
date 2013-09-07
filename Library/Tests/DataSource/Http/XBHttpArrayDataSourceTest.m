@@ -4,7 +4,7 @@
 // To change the template use AppCode | Preferences | File Templates.
 //
 
-#import "GHUnit.h"
+#import <SenTestingKit/SenTestingKit.h>
 #import "XBInfiniteScrollArrayDataSource.h"
 #import "WPAuthor.h"
 #import "XBHttpJsonDataLoader.h"
@@ -13,15 +13,15 @@
 #import "XBTestUtils.h"
 #import "Underscore.h"
 #import "XBArrayDataSource+protected.h"
+#import <SenTestingKitAsync/SenTestingKitAsync.h>
 
 #define kNetworkTimeout 30.0f
 
-@interface XBHttpArrayDataSourceTest : GHAsyncTestCase @end
+@interface XBHttpArrayDataSourceTest : SenTestCase @end
 
 @implementation XBHttpArrayDataSourceTest
 
 - (void)testFetchDataResult {
-    [self prepare];
 
     id httpClient = [XBTestUtils fakeHttpClientWithSuccessCallbackWithData:[XBTestUtils getAuthorsAsJson]];
 
@@ -34,24 +34,24 @@
                                                                                          dataMapper:dataMapper];
 
     [dataSource loadDataWithCallback:^() {
-        [self notify:kGHUnitWaitStatusSuccess forSelector:@selector(testFetchDataResult)];
+        STSuccess();
     }];
 
-    [self waitForStatus:kGHUnitWaitStatusSuccess timeout:kNetworkTimeout];
+    STFailAfter(kNetworkTimeout, @"Expected response before timeout");
 
-    GHAssertNil(dataSource.error, [NSString stringWithFormat:@"Error[code: '%li', domain: '%@'", (long) dataSource.error.code, dataSource.error.domain]);
-    GHAssertEquals(dataSource.count, [@70 unsignedIntegerValue], nil);
+    STAssertNil(dataSource.error, [NSString stringWithFormat:@"Error[code: '%ld', domain: '%@'", (long) dataSource.error.code, dataSource.error.domain]);
+    STAssertEquals(dataSource.count, 70U, nil);
 
     WPAuthor *author = [XBTestUtils findAuthorInArray:dataSource.array ById:50];
 
-    GHAssertEquals([author.identifier intValue], 50, nil);
-    GHAssertEqualStrings(author.slug, @"akinsella", nil);
-    GHAssertEqualStrings(author.name, @"Alexis Kinsella", nil);
-    GHAssertEqualStrings(author.first_name, @"Alexis", nil);
-    GHAssertEqualStrings(author.last_name, @"Kinsella", nil);
-    GHAssertEqualStrings(author.nickname, @"akinsella", nil);
-    GHAssertEqualStrings(author.url, @"http://www.xebia.fr", nil);
-    GHAssertEqualStrings(author.description_, @"", nil);
+    STAssertEquals([author.identifier unsignedIntegerValue], 50U, nil);
+    STAssertEqualObjects(author.slug, @"akinsella", nil);
+    STAssertEqualObjects(author.name, @"Alexis Kinsella", nil);
+    STAssertEqualObjects(author.firstname, @"Alexis", nil);
+    STAssertEqualObjects(author.lastname, @"Kinsella", nil);
+    STAssertEqualObjects(author.nickname, @"akinsella", nil);
+    STAssertEqualObjects(author.url, @"http://www.xebia.fr", nil);
+    STAssertEqualObjects(author.description_, @"", nil);
 }
 
 @end

@@ -37,7 +37,7 @@
 }
 
 -(NSString *)mainBundlePListValueForEmail:(NSString *)email {
-    NSBundle *bundle = [NSBundle mainBundle];
+    NSBundle *bundle = [NSBundle bundleForClass:self.class];
     NSDictionary *dictionary = [bundle infoDictionary];
     return dictionary[email];
 }

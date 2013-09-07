@@ -6,15 +6,15 @@
 //
 
 
-#import "GHUnit.h"
+#import <SenTestingKit/SenTestingKit.h>
 #import "NSIndexSet+XBAdditions.h"
 
-@interface NSIndexSetTest : GHTestCase
+@interface NSIndexSetTest : SenTestCase
 @end
 
 @implementation NSIndexSetTest
 
--(void)shouldConvertIndexSetToString {
+-(void)testShouldConvertIndexSetToString {
     NSMutableIndexSet * indexSet = [NSMutableIndexSet indexSet];
     [indexSet addIndex:23];
     [indexSet addIndex:34];
@@ -22,15 +22,15 @@
 
     NSString *result = [indexSet joinByString:@","];
 
-    GHAssertEqualStrings(result, @"23,34,45", nil);
+    STAssertEqualObjects(result, @"23,34,45", nil);
 }
 
--(void)shouldConvertIndexSetWithOneValueToString {
+-(void)testShouldConvertIndexSetWithOneValueToString {
     NSMutableIndexSet * indexSet = [NSMutableIndexSet indexSetWithIndex:23];
 
     NSString *result = [indexSet joinByString:@","];
 
-    GHAssertEqualStrings(result, @"23", nil);
+    STAssertEqualObjects(result, @"23", nil);
 }
 
 @end

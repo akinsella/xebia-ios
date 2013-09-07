@@ -17,14 +17,15 @@ static const int kMarginHeight = 5;
 - (void)updateWithWPPostContentElement:(WPPostContentStructuredElement *)element {
     [super updateWithWPPostContentElement:element];
 
-    self.headerLabel.font = [UIFont fontWithName:@"@Helvetica-Bold" size: 11 + ( 6 * 2 - [self headerIndex] * 2)];
-    self.headerLabel.textColor = [UIColor colorWithHex:@"#2c3e50"];
+    self.headerLabel.font = [UIFont fontWithName:@"Cabin" size: 11 + ( 6 * 2 - [self headerIndex] * 2)];
+    self.headerLabel.textColor = [UIColor colorWithHex:@"#333333"];
     self.headerLabel.text = [self.element.text uppercaseString];
+    CGSize headerLabelSize = [self sizeThatFits];
     self.headerLabel.frame = CGRectMake(
             [self headerIndent],
             0,
-            self.frame.size.width - ([self headerIndent] * 2),
-            self.frame.size.height
+            headerLabelSize.width,
+            headerLabelSize.height
     );
 }
 
@@ -57,7 +58,11 @@ static const int kMarginHeight = 5;
 }
 
 - (CGFloat)heightForCell:(UITableView *)tableView {
-    return [self.headerLabel sizeThatFits:CGSizeMake(self.frame.size.width - ([self headerIndent] * 2), CGFLOAT_MAX)].height + kMarginHeight * 2;
+    return [self sizeThatFits].height + 2 * kMarginHeight;
+}
+
+- (CGSize)sizeThatFits {
+    return [self.headerLabel sizeThatFits:CGSizeMake(self.frame.size.width - ([self headerIndent]), CGFLOAT_MAX)];
 }
 
 @end

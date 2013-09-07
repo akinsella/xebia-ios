@@ -6,10 +6,10 @@
 
 
 #import "XBDictionaryDataMerger.h"
-#import "GHUnit.h"
+#import <SenTestingKit/SenTestingKit.h>
 #import "XBBundleJsonDataLoader.h"
 
-@interface XBDictionaryDataMergerTest : GHTestCase @end
+@interface XBDictionaryDataMergerTest : SenTestCase @end
 
 @implementation XBDictionaryDataMergerTest
 
@@ -29,7 +29,7 @@
     NSDictionary * result = [dataMerger mergeDataFromSource:dataSrc toDest:dataDest];
 
     NSArray *authors = result[@"authors"];
-    GHAssertEquals(authors.count, [@60 unsignedIntegerValue], nil);
+    STAssertEquals(authors.count, 60U, nil);
 }
 
 @end

@@ -29,13 +29,13 @@
 
 + (id)getAuthorsAsJsonWithPage:(NSUInteger)page {
     NSString *filename = [NSString stringWithFormat:@"wp-author-index-p%ld", page];
-    NSString *file = [[NSBundle mainBundle] pathForResource:filename ofType:@"json"];
+    NSString *file = [[NSBundle bundleForClass:self.class] pathForResource:filename ofType:@"json"];
     NSString *jsonLoaded = [NSString stringWithContentsOfFile:file encoding:NSUTF8StringEncoding error:nil];
     return [jsonLoaded objectFromJSONString];
 }
 
 +(NSDictionary *)getAuthorsAsJson {
-    NSString *file = [[NSBundle mainBundle] pathForResource:@"wp-author-index" ofType:@"json"];
+    NSString *file = [[NSBundle bundleForClass:self.class] pathForResource:@"wp-author-index" ofType:@"json"];
     NSString *jsonLoaded = [NSString stringWithContentsOfFile:file encoding:NSUTF8StringEncoding error:nil];
     return [jsonLoaded objectFromJSONString];
 }

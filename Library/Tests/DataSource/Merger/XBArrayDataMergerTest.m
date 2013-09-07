@@ -6,10 +6,10 @@
 
 
 #import "XBArrayDataMerger.h"
-#import "GHUnit.h"
+#import <SenTestingKit/SenTestingKit.h>
 #import "XBBundleJsonDataLoader.h"
 
-@interface XBArrayDataMergerTest : GHTestCase @end
+@interface XBArrayDataMergerTest : SenTestCase @end
 
 @implementation XBArrayDataMergerTest
 
@@ -28,7 +28,7 @@
 
     NSArray * authors = [dataMerger mergeDataFromSource:dataSrc toDest:dataDest];
 
-    GHAssertEquals(authors.count, [@60 unsignedIntegerValue], nil);
+    STAssertEquals(authors.count, 60U, nil);
 }
 
 @end

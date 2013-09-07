@@ -5,11 +5,12 @@
 //
 
 
-#import "GHUnit.h"
+#import <SenTestingKit/SenTestingKit.h>
+#import <SenTestingKitAsync/SenTestingKitAsync.h>
 
 #define kNetworkTimeout 30.0f
 
-@interface XBPagedCompositeArrayDataSourceTest : GHAsyncTestCase @end
+@interface XBPagedCompositeArrayDataSourceTest : SenTestCase @end
 
 @implementation XBPagedCompositeArrayDataSourceTest
 

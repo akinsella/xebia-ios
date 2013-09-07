@@ -41,7 +41,7 @@
     NSError* error = nil;
     ZXMultiFormatWriter* writer = [ZXMultiFormatWriter writer];
     ZXEncodeHints *hints = [[ZXEncodeHints alloc] init];
-    hints.margin = @1;
+    hints.margin = @2;
     ZXBitMatrix* result = [writer encode:[self.card.url absoluteString]
                                   format:kBarcodeFormatQRCode
                                    width:248

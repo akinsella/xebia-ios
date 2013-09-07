@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5438726117DA885B00750791 /* xebia-iosTests-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5438726017DA885B00750791 /* xebia-iosTests-Info.plist */; };
+		5438726917DA8DFA00750791 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54A74840177CF28E00B9A907 /* AVFoundation.framework */; };
+		5438726A17DA8E0800750791 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54A7483E177A480E00B9A907 /* MediaPlayer.framework */; };
+		5438726B17DA8E2000750791 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54C2DEEE15BDFAFB00CABB12 /* CoreGraphics.framework */; };
 		543C8F831777A7D20079675E /* vimeo.png in Resources */ = {isa = PBXBuildFile; fileRef = 543C8F811777A7D20079675E /* vimeo.png */; };
 		543C8F841777A7D20079675E /* vimeo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 543C8F821777A7D20079675E /* vimeo@2x.png */; };
 		5443EABE1775BEC50000FFE8 /* Lobster.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5443EA1C1775BEC40000FFE8 /* Lobster.ttf */; };
@@ -178,7 +182,6 @@
 		5443ECBA1775BEF30000FFE8 /* NSIndexSetTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 5443EC971775BEF30000FFE8 /* NSIndexSetTest.m */; };
 		5443ECBB1775BEF30000FFE8 /* NSStringTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 5443EC981775BEF30000FFE8 /* NSStringTest.m */; };
 		5443ECBC1775BEF30000FFE8 /* XBBundleArrayDataSourceTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 5443EC9B1775BEF30000FFE8 /* XBBundleArrayDataSourceTest.m */; };
-		5443ECBD1775BEF30000FFE8 /* XBPagedCompositeArrayDataSourceTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 5443EC9D1775BEF30000FFE8 /* XBPagedCompositeArrayDataSourceTest.m */; };
 		5443ECBE1775BEF30000FFE8 /* XBBasicHttpQueryParamBuilderTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 5443ECA01775BEF30000FFE8 /* XBBasicHttpQueryParamBuilderTest.m */; };
 		5443ECBF1775BEF30000FFE8 /* XBHttpArrayDataSourceTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 5443ECA11775BEF30000FFE8 /* XBHttpArrayDataSourceTest.m */; };
 		5443ECC01775BEF30000FFE8 /* XBBundleJsonDataLoaderTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 5443ECA31775BEF30000FFE8 /* XBBundleJsonDataLoaderTest.m */; };
@@ -190,55 +193,33 @@
 		5443ECC61775BEF30000FFE8 /* XBDictionaryDataMergerTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 5443ECAB1775BEF30000FFE8 /* XBDictionaryDataMergerTest.m */; };
 		5443ECC71775BEF30000FFE8 /* XBArrayDataSourceTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 5443ECAC1775BEF30000FFE8 /* XBArrayDataSourceTest.m */; };
 		5443ECC81775BEF30000FFE8 /* XBInfiniteScrollArrayDataSourceTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 5443ECAD1775BEF30000FFE8 /* XBInfiniteScrollArrayDataSourceTest.m */; };
-		5443ECC91775BEF30000FFE8 /* WPAuthor.m in Sources */ = {isa = PBXBuildFile; fileRef = 5443ECB11775BEF30000FFE8 /* WPAuthor.m */; };
 		5443ECCA1775BEF30000FFE8 /* wp-author-index-p1.json in Resources */ = {isa = PBXBuildFile; fileRef = 5443ECB41775BEF30000FFE8 /* wp-author-index-p1.json */; };
 		5443ECCB1775BEF30000FFE8 /* wp-author-index-p2.json in Resources */ = {isa = PBXBuildFile; fileRef = 5443ECB51775BEF30000FFE8 /* wp-author-index-p2.json */; };
 		5443ECCC1775BEF30000FFE8 /* wp-author-index-p3.json in Resources */ = {isa = PBXBuildFile; fileRef = 5443ECB61775BEF30000FFE8 /* wp-author-index-p3.json */; };
 		5443ECCD1775BEF30000FFE8 /* wp-author-index.json in Resources */ = {isa = PBXBuildFile; fileRef = 5443ECB71775BEF30000FFE8 /* wp-author-index.json */; };
 		5443ECCE1775BEF30000FFE8 /* XBTestUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 5443ECB91775BEF30000FFE8 /* XBTestUtils.m */; };
 		5443EEE3177620B70000FFE8 /* libGoogleAnalytics.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5443EE35177620B60000FFE8 /* libGoogleAnalytics.a */; };
-		5443EEE4177620B70000FFE8 /* libGoogleAnalytics.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5443EE35177620B60000FFE8 /* libGoogleAnalytics.a */; };
 		5443EEE6177620B70000FFE8 /* libGoogleAnalytics_debug.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5443EE36177620B60000FFE8 /* libGoogleAnalytics_debug.a */; };
 		5443EEE7177620B70000FFE8 /* UINavigationBar+XBAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 5443EE39177620B60000FFE8 /* UINavigationBar+XBAdditions.m */; };
-		5443EEE8177620B70000FFE8 /* UINavigationBar+XBAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 5443EE39177620B60000FFE8 /* UINavigationBar+XBAdditions.m */; };
 		5443EEEB177620B70000FFE8 /* UIScreen+XBAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 5443EE3D177620B60000FFE8 /* UIScreen+XBAdditions.m */; };
-		5443EEEC177620B70000FFE8 /* UIScreen+XBAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 5443EE3D177620B60000FFE8 /* UIScreen+XBAdditions.m */; };
 		5443EEED177620B70000FFE8 /* UIViewController+XBAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 5443EE3F177620B60000FFE8 /* UIViewController+XBAdditions.m */; };
-		5443EEEE177620B70000FFE8 /* UIViewController+XBAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 5443EE3F177620B60000FFE8 /* UIViewController+XBAdditions.m */; };
 		5443EEEF177620B70000FFE8 /* XBConfigurationProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 5443EE42177620B60000FFE8 /* XBConfigurationProvider.m */; };
-		5443EEF0177620B70000FFE8 /* XBConfigurationProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 5443EE42177620B60000FFE8 /* XBConfigurationProvider.m */; };
 		5443EEF1177620B70000FFE8 /* XBPListConfigurationProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 5443EE44177620B60000FFE8 /* XBPListConfigurationProvider.m */; };
-		5443EEF2177620B70000FFE8 /* XBPListConfigurationProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 5443EE44177620B60000FFE8 /* XBPListConfigurationProvider.m */; };
 		5443EEF3177620B70000FFE8 /* EBEventTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5443EE48177620B60000FFE8 /* EBEventTableViewController.m */; };
-		5443EEF4177620B70000FFE8 /* EBEventTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5443EE48177620B60000FFE8 /* EBEventTableViewController.m */; };
 		5443EEF5177620B70000FFE8 /* GHMemberTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5443EE4B177620B60000FFE8 /* GHMemberTableViewController.m */; };
-		5443EEF6177620B70000FFE8 /* GHMemberTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5443EE4B177620B60000FFE8 /* GHMemberTableViewController.m */; };
 		5443EEF7177620B70000FFE8 /* GHRepositoryTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5443EE4D177620B60000FFE8 /* GHRepositoryTableViewController.m */; };
-		5443EEF8177620B70000FFE8 /* GHRepositoryTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5443EE4D177620B60000FFE8 /* GHRepositoryTableViewController.m */; };
 		5443EEF9177620B70000FFE8 /* GHTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5443EE4F177620B60000FFE8 /* GHTabBarController.m */; };
-		5443EEFA177620B70000FFE8 /* GHTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5443EE4F177620B60000FFE8 /* GHTabBarController.m */; };
 		5443EEFB177620B70000FFE8 /* XBHomeController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5443EE52177620B60000FFE8 /* XBHomeController.m */; };
-		5443EEFC177620B70000FFE8 /* XBHomeController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5443EE52177620B60000FFE8 /* XBHomeController.m */; };
 		5443EEFD177620B70000FFE8 /* XBLeftMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5443EE55177620B60000FFE8 /* XBLeftMenuViewController.m */; };
-		5443EEFE177620B70000FFE8 /* XBLeftMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5443EE55177620B60000FFE8 /* XBLeftMenuViewController.m */; };
 		5443EEFF177620B70000FFE8 /* TTTweetTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5443EE58177620B60000FFE8 /* TTTweetTableViewController.m */; };
-		5443EF00177620B70000FFE8 /* TTTweetTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5443EE58177620B60000FFE8 /* TTTweetTableViewController.m */; };
 		5443EF01177620B70000FFE8 /* XBWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5443EE5B177620B70000FFE8 /* XBWebViewController.m */; };
-		5443EF02177620B70000FFE8 /* XBWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5443EE5B177620B70000FFE8 /* XBWebViewController.m */; };
 		5443EF03177620B70000FFE8 /* WPAuthorTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5443EE5E177620B70000FFE8 /* WPAuthorTableViewController.m */; };
-		5443EF04177620B70000FFE8 /* WPAuthorTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5443EE5E177620B70000FFE8 /* WPAuthorTableViewController.m */; };
 		5443EF05177620B70000FFE8 /* WPCategoryTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5443EE60177620B70000FFE8 /* WPCategoryTableViewController.m */; };
-		5443EF06177620B70000FFE8 /* WPCategoryTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5443EE60177620B70000FFE8 /* WPCategoryTableViewController.m */; };
 		5443EF07177620B70000FFE8 /* WPPostTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5443EE62177620B70000FFE8 /* WPPostTableViewController.m */; };
-		5443EF08177620B70000FFE8 /* WPPostTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5443EE62177620B70000FFE8 /* WPPostTableViewController.m */; };
 		5443EF09177620B70000FFE8 /* WPRecentPostTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5443EE64177620B70000FFE8 /* WPRecentPostTableViewController.m */; };
-		5443EF0A177620B70000FFE8 /* WPRecentPostTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5443EE64177620B70000FFE8 /* WPRecentPostTableViewController.m */; };
 		5443EF0B177620B70000FFE8 /* WPTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5443EE66177620B70000FFE8 /* WPTabBarController.m */; };
-		5443EF0C177620B70000FFE8 /* WPTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5443EE66177620B70000FFE8 /* WPTabBarController.m */; };
 		5443EF0D177620B70000FFE8 /* WPTagTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5443EE68177620B70000FFE8 /* WPTagTableViewController.m */; };
-		5443EF0E177620B70000FFE8 /* WPTagTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5443EE68177620B70000FFE8 /* WPTagTableViewController.m */; };
 		5443EF0F177620B70000FFE8 /* XBMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5443EE6A177620B70000FFE8 /* XBMainViewController.m */; };
-		5443EF10177620B70000FFE8 /* XBMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5443EE6A177620B70000FFE8 /* XBMainViewController.m */; };
 		5443EF11177620B70000FFE8 /* WPDataMerger.m in Sources */ = {isa = PBXBuildFile; fileRef = 5443EE6E177620B70000FFE8 /* WPDataMerger.m */; };
 		5443EF12177620B70000FFE8 /* WPDataMerger.m in Sources */ = {isa = PBXBuildFile; fileRef = 5443EE6E177620B70000FFE8 /* WPDataMerger.m */; };
 		5443EF13177620B70000FFE8 /* WPDataPager.m in Sources */ = {isa = PBXBuildFile; fileRef = 5443EE70177620B70000FFE8 /* WPDataPager.m */; };
@@ -246,9 +227,7 @@
 		5443EF15177620B70000FFE8 /* XBWordpressArrayDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 5443EE72177620B70000FFE8 /* XBWordpressArrayDataSource.m */; };
 		5443EF16177620B70000FFE8 /* XBWordpressArrayDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 5443EE72177620B70000FFE8 /* XBWordpressArrayDataSource.m */; };
 		5443EF17177620B70000FFE8 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5443EE73177620B70000FFE8 /* main.m */; };
-		5443EF18177620B70000FFE8 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5443EE73177620B70000FFE8 /* main.m */; };
 		5443EF19177620B70000FFE8 /* XBViewControllerManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 5443EE76177620B70000FFE8 /* XBViewControllerManager.m */; };
-		5443EF1A177620B70000FFE8 /* XBViewControllerManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 5443EE76177620B70000FFE8 /* XBViewControllerManager.m */; };
 		5443EF1B177620B70000FFE8 /* EBEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = 5443EE7A177620B70000FFE8 /* EBEvent.m */; };
 		5443EF1C177620B70000FFE8 /* EBEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = 5443EE7A177620B70000FFE8 /* EBEvent.m */; };
 		5443EF1D177620B70000FFE8 /* EBOrganizer.m in Sources */ = {isa = PBXBuildFile; fileRef = 5443EE7C177620B70000FFE8 /* EBOrganizer.m */; };
@@ -302,17 +281,13 @@
 		5443EF4D177620B70000FFE8 /* GravatarHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 5443EEB2177620B70000FFE8 /* GravatarHelper.m */; };
 		5443EF4E177620B70000FFE8 /* GravatarHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 5443EEB2177620B70000FFE8 /* GravatarHelper.m */; };
 		5443EF4F177620B70000FFE8 /* XBSharekitSupport.m in Sources */ = {isa = PBXBuildFile; fileRef = 5443EEB5177620B70000FFE8 /* XBSharekitSupport.m */; };
-		5443EF50177620B70000FFE8 /* XBSharekitSupport.m in Sources */ = {isa = PBXBuildFile; fileRef = 5443EEB5177620B70000FFE8 /* XBSharekitSupport.m */; };
 		5443EF51177620B70000FFE8 /* XBSHKConfigurator.m in Sources */ = {isa = PBXBuildFile; fileRef = 5443EEB7177620B70000FFE8 /* XBSHKConfigurator.m */; };
-		5443EF52177620B70000FFE8 /* XBSHKConfigurator.m in Sources */ = {isa = PBXBuildFile; fileRef = 5443EEB7177620B70000FFE8 /* XBSHKConfigurator.m */; };
 		5443EF53177620B70000FFE8 /* XBHttpUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 5443EEBA177620B70000FFE8 /* XBHttpUtils.m */; };
 		5443EF54177620B70000FFE8 /* XBHttpUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 5443EEBA177620B70000FFE8 /* XBHttpUtils.m */; };
 		5443EF55177620B70000FFE8 /* XBUDID.m in Sources */ = {isa = PBXBuildFile; fileRef = 5443EEBC177620B70000FFE8 /* XBUDID.m */; };
 		5443EF56177620B70000FFE8 /* XBUDID.m in Sources */ = {isa = PBXBuildFile; fileRef = 5443EEBC177620B70000FFE8 /* XBUDID.m */; };
 		5443EF7D177620B70000FFE8 /* XBLoadingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5443EEDB177620B70000FFE8 /* XBLoadingView.m */; };
-		5443EF7E177620B70000FFE8 /* XBLoadingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5443EEDB177620B70000FFE8 /* XBLoadingView.m */; };
 		5443EF83177620B70000FFE8 /* XBAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5443EEE0177620B70000FFE8 /* XBAppDelegate.m */; };
-		5443EF84177620B70000FFE8 /* XBAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5443EEE0177620B70000FFE8 /* XBAppDelegate.m */; };
 		5443EF85177620B70000FFE8 /* XBConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 5443EEE2177620B70000FFE8 /* XBConstants.m */; };
 		5443EF86177620B70000FFE8 /* XBConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 5443EEE2177620B70000FFE8 /* XBConstants.m */; };
 		5443EF98177627110000FFE8 /* ios-icon-114.png in Resources */ = {isa = PBXBuildFile; fileRef = 5443EF97177627110000FFE8 /* ios-icon-114.png */; };
@@ -328,15 +303,9 @@
 		544714C6177717D0001F5153 /* XBTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 544714C5177717D0001F5153 /* XBTableViewCell.m */; };
 		5493E740179C20BC009C0D2B /* xebia-essentials-sample-barcode.png in Resources */ = {isa = PBXBuildFile; fileRef = 5493E73E179C20BC009C0D2B /* xebia-essentials-sample-barcode.png */; };
 		5493E741179C20BC009C0D2B /* xebia-essentials-sample-barcode@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5493E73F179C20BC009C0D2B /* xebia-essentials-sample-barcode@2x.png */; };
-		5493E743179C71C8009C0D2B /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5493E742179C71C8009C0D2B /* CoreMedia.framework */; };
-		5493E745179C71D4009C0D2B /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5493E744179C71D4009C0D2B /* CoreVideo.framework */; };
-		5493E747179C71DF009C0D2B /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5493E746179C71DF009C0D2B /* ImageIO.framework */; };
-		5493E749179C71F2009C0D2B /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5493E748179C71F2009C0D2B /* QuartzCore.framework */; };
 		5493E74A179C7200009C0D2B /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54A74840177CF28E00B9A907 /* AVFoundation.framework */; };
 		5493E74D17A2F09C009C0D2B /* xebia-essentials-card.png in Resources */ = {isa = PBXBuildFile; fileRef = 5493E74B17A2F09C009C0D2B /* xebia-essentials-card.png */; };
 		5493E74E17A2F09C009C0D2B /* xebia-essentials-card@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5493E74C17A2F09C009C0D2B /* xebia-essentials-card@2x.png */; };
-		5493E75217A2FEA0009C0D2B /* XBRightMenuCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5493E75017A2FEA0009C0D2B /* XBRightMenuCell.m */; };
-		5493E75317A2FEA0009C0D2B /* XBRightMenuCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5493E75117A2FEA0009C0D2B /* XBRightMenuCell.xib */; };
 		5493E75A17B283D4009C0D2B /* avatar-sample.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 5493E75817B283D4009C0D2B /* avatar-sample.jpg */; };
 		5493E75B17B283D4009C0D2B /* avatar-sample@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 5493E75917B283D4009C0D2B /* avatar-sample@2x.jpg */; };
 		54A7483F177A480E00B9A907 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54A7483E177A480E00B9A907 /* MediaPlayer.framework */; };
@@ -351,69 +320,77 @@
 		54A7485C178CA96600B9A907 /* xebia-essentials.png in Resources */ = {isa = PBXBuildFile; fileRef = 54A7485A178CA96600B9A907 /* xebia-essentials.png */; };
 		54A7485D178CA96600B9A907 /* xebia-essentials@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 54A7485B178CA96600B9A907 /* xebia-essentials@2x.png */; };
 		54AB456317C5651F00606F7F /* WPPostContentDefaultElementCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 54AB456117C5651F00606F7F /* WPPostContentDefaultElementCell.xib */; };
-		54AB456417C5651F00606F7F /* WPPostContentDefaultElementCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 54AB456117C5651F00606F7F /* WPPostContentDefaultElementCell.xib */; };
 		54AB456517C5651F00606F7F /* WPPostContentParagraphElementCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 54AB456217C5651F00606F7F /* WPPostContentParagraphElementCell.xib */; };
-		54AB456617C5651F00606F7F /* WPPostContentParagraphElementCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 54AB456217C5651F00606F7F /* WPPostContentParagraphElementCell.xib */; };
 		54B6B49317C80B9F00C9C835 /* WPPostContentCodeElementCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 54B6B49217C80B9F00C9C835 /* WPPostContentCodeElementCell.xib */; };
 		54B6B49617C8137100C9C835 /* image-placeholder.png in Resources */ = {isa = PBXBuildFile; fileRef = 54B6B49417C8137100C9C835 /* image-placeholder.png */; };
 		54B6B49717C8137100C9C835 /* image-placeholder@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 54B6B49517C8137100C9C835 /* image-placeholder@2x.png */; };
-		54C1A7031794992400C33738 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54C1A7021794992400C33738 /* StoreKit.framework */; };
+		54B6B4AA17CA5D6E00C9C835 /* Cabin-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 54B6B49817CA5D6E00C9C835 /* Cabin-Bold.ttf */; };
+		54B6B4AB17CA5D6E00C9C835 /* Cabin-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 54B6B49917CA5D6E00C9C835 /* Cabin-BoldItalic.ttf */; };
+		54B6B4AC17CA5D6E00C9C835 /* Cabin-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 54B6B49A17CA5D6E00C9C835 /* Cabin-Italic.ttf */; };
+		54B6B4AD17CA5D6E00C9C835 /* Cabin-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 54B6B49B17CA5D6E00C9C835 /* Cabin-Medium.ttf */; };
+		54B6B4AE17CA5D6E00C9C835 /* Cabin-MediumItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 54B6B49C17CA5D6E00C9C835 /* Cabin-MediumItalic.ttf */; };
+		54B6B4AF17CA5D6E00C9C835 /* Cabin-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 54B6B49D17CA5D6E00C9C835 /* Cabin-Regular.ttf */; };
+		54B6B4B017CA5D6E00C9C835 /* Cabin-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 54B6B49E17CA5D6E00C9C835 /* Cabin-SemiBold.ttf */; };
+		54B6B4B117CA5D6E00C9C835 /* Cabin-SemiBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 54B6B49F17CA5D6E00C9C835 /* Cabin-SemiBoldItalic.ttf */; };
+		54B6B4B217CA5D6E00C9C835 /* Lato-Bla.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 54B6B4A017CA5D6E00C9C835 /* Lato-Bla.ttf */; };
+		54B6B4B317CA5D6E00C9C835 /* Lato-BlaIta.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 54B6B4A117CA5D6E00C9C835 /* Lato-BlaIta.ttf */; };
+		54B6B4B417CA5D6E00C9C835 /* Lato-Bol.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 54B6B4A217CA5D6E00C9C835 /* Lato-Bol.ttf */; };
+		54B6B4B517CA5D6E00C9C835 /* Lato-BolIta.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 54B6B4A317CA5D6E00C9C835 /* Lato-BolIta.ttf */; };
+		54B6B4B617CA5D6E00C9C835 /* Lato-Hai.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 54B6B4A417CA5D6E00C9C835 /* Lato-Hai.ttf */; };
+		54B6B4B717CA5D6E00C9C835 /* Lato-HaiIta.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 54B6B4A517CA5D6E00C9C835 /* Lato-HaiIta.ttf */; };
+		54B6B4B817CA5D6E00C9C835 /* Lato-Lig.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 54B6B4A617CA5D6E00C9C835 /* Lato-Lig.ttf */; };
+		54B6B4B917CA5D6E00C9C835 /* Lato-LigIta.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 54B6B4A717CA5D6E00C9C835 /* Lato-LigIta.ttf */; };
+		54B6B4BA17CA5D6E00C9C835 /* Lato-Reg.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 54B6B4A817CA5D6E00C9C835 /* Lato-Reg.ttf */; };
+		54B6B4BB17CA5D6E00C9C835 /* Lato-RegIta.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 54B6B4A917CA5D6E00C9C835 /* Lato-RegIta.ttf */; };
 		54C2DEEB15BDFAFB00CABB12 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54C2DEEA15BDFAFB00CABB12 /* UIKit.framework */; };
 		54C2DEED15BDFAFB00CABB12 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54C2DEEC15BDFAFB00CABB12 /* Foundation.framework */; };
 		54C2DEEF15BDFAFB00CABB12 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54C2DEEE15BDFAFB00CABB12 /* CoreGraphics.framework */; };
 		54C2DEF115BDFAFB00CABB12 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54C2DEF015BDFAFB00CABB12 /* CoreData.framework */; };
-		54C2DF0815BDFAFC00CABB12 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54C2DF0715BDFAFC00CABB12 /* SenTestingKit.framework */; };
 		54C2DF0915BDFAFC00CABB12 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54C2DEEA15BDFAFB00CABB12 /* UIKit.framework */; };
 		54C2DF0A15BDFAFC00CABB12 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54C2DEEC15BDFAFB00CABB12 /* Foundation.framework */; };
 		54C2DF0B15BDFAFC00CABB12 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54C2DEF015BDFAFB00CABB12 /* CoreData.framework */; };
+		54C4312117DB2D69008913E5 /* libPods-xebia-iosTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 54C4312017DB2D69008913E5 /* libPods-xebia-iosTests.a */; };
+		54C4312617DB5274008913E5 /* XBRightMenuCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 54C4312417DB5274008913E5 /* XBRightMenuCell.m */; };
+		54C4312717DB5274008913E5 /* XBRightMenuCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 54C4312517DB5274008913E5 /* XBRightMenuCell.xib */; };
 		B56E64C3C14D4A618E4C1641 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EDB581D723EF4E5C808B5615 /* libPods.a */; };
 		DB34D029B20AB2CC024B5447 /* WPAbstractPostContentStructuredElementCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34D181FB864A5B5B0CCA4E /* WPAbstractPostContentStructuredElementCell.m */; };
 		DB34D040BF7E24A9D7EEF4C7 /* VMThumbnail.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34D3ACE055F5BE09F95779 /* VMThumbnail.m */; };
 		DB34D065E5EB4E434B6F3D37 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB34DD4E1507AF2BCB62C8A7 /* Social.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		DB34D083C9EDF348B8417033 /* XEULink.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34DB5D367DAA7DDB9AF238 /* XEULink.m */; };
-		DB34D0A65457AD12B3088503 /* GHRepositoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DB34D58EEEF2EB680C1431C4 /* GHRepositoryCell.xib */; };
-		DB34D0AE0DA850ACF6EF4A6D /* XBLeftMenuCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DB34DA4198F561241846CE47 /* XBLeftMenuCell.xib */; };
-		DB34D0BCF29D66E1F8CC2711 /* WPSPostCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34D56827878B25BB1F025D /* WPSPostCell.m */; };
 		DB34D0BF5EEBF427D15642F0 /* WPTagCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34D779566E6E53EC3D0C66 /* WPTagCell.m */; };
 		DB34D0D7C801AAAE68093A11 /* VMVideoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34D3E67D5221EE4730132B /* VMVideoCell.m */; };
 		DB34D0DDE29D4831C20E685E /* blackorchid@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DB34D84C6C3D075D0CD99496 /* blackorchid@2x.png */; };
 		DB34D11D675FDB9F5FDA5C29 /* XECategoryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34DF96C607241FFD2FD30D /* XECategoryCell.m */; };
+		DB34D11E8CC0D57A2B27EAD2 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB34D2014253F0EE1EB4FBC5 /* ImageIO.framework */; };
 		DB34D19D3D19B1F160EA25A7 /* WPPostContentParagraphElementCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34D0D9CEEE5E95E15C73A2 /* WPPostContentParagraphElementCell.m */; };
 		DB34D1C08763AD2643298EEE /* XBLeftMenuCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34D92EB516F92067A99CB9 /* XBLeftMenuCell.m */; };
 		DB34D1DD12F4603A8CD5E2FD /* XECardTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34DAF58EBF524C851113DF /* XECardTableViewController.m */; };
 		DB34D1DEADC4E02B880126A6 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB34DE96DB0AD5C965696E37 /* MapKit.framework */; };
 		DB34D1EC375F15EF181F17F5 /* VMThumbnail.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34D3ACE055F5BE09F95779 /* VMThumbnail.m */; };
 		DB34D1EE0348634DF1E15ECA /* XBLeftMenuCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DB34DA4198F561241846CE47 /* XBLeftMenuCell.xib */; };
+		DB34D1F5746C1A99D77D2192 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB34DF58131095156D022417 /* CoreMedia.framework */; };
 		DB34D21080831DADB108D55A /* GHUserCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DB34D4BA81EC4FD48384EA25 /* GHUserCell.xib */; };
 		DB34D215C71F3DB57539F85B /* WPPostDetailsViewControllerBack.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34DE7FFA823C71A48D2CE0 /* WPPostDetailsViewControllerBack.m */; };
-		DB34D217190540A658E8B52C /* XBRightMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34DF4AB3494EC276B736FA /* XBRightMenuViewController.m */; };
 		DB34D2178AD0916DF2038F6C /* XECard.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34D91042354A075764148E /* XECard.m */; };
 		DB34D257FA427B168188038E /* XESponsor.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34D0A4CC294EC4C22FF6BD /* XESponsor.m */; };
-		DB34D268AC837A22AA8D64EC /* WPCategoryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34D8B87DC73AA8DDDD46C8 /* WPCategoryCell.m */; };
-		DB34D28F18D62C9777EEA42C /* XECardDetailsQRCodeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34D1F306256770AF900772 /* XECardDetailsQRCodeViewController.m */; };
-		DB34D2B250CECFC309FED9BD /* XEAbstractCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34DF039C3A138FECC6CB3B /* XEAbstractCell.m */; };
 		DB34D2B5279E454E7717D0AC /* WPAuthorCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DB34D96E0DF6CCFCBDF91B05 /* WPAuthorCell.xib */; };
 		DB34D2CB7AB56E241AE841E2 /* VMVideoDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34D520761597BD4B8B7669 /* VMVideoDetailsViewController.m */; };
 		DB34D33C7147CFEE06AD99EF /* XEDeck.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34D7E7E92FDE99630ABD8E /* XEDeck.m */; };
-		DB34D3857D1BA4C5C4C4CB56 /* WPPostContentDefaultElementCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34DE42A6FDB3DDA749CA6C /* WPPostContentDefaultElementCell.m */; };
+		DB34D40BDAAE82CD6E751B94 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB34D4D95E1188A7AD47E551 /* StoreKit.framework */; };
 		DB34D42FD499E06D305AAAE0 /* XEULink.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34DB5D367DAA7DDB9AF238 /* XEULink.m */; };
 		DB34D430F905731F33738F4E /* VMVideoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DB34DA18E861CE300585EC75 /* VMVideoCell.xib */; };
 		DB34D440722370A61803A372 /* WPCategoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DB34DEEAA4079818595013B9 /* WPCategoryCell.xib */; };
 		DB34D4578F76484EBBF9DE93 /* XESponsor.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34D0A4CC294EC4C22FF6BD /* XESponsor.m */; };
-		DB34D4800A69C506AAA049E1 /* WPAuthorCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DB34D96E0DF6CCFCBDF91B05 /* WPAuthorCell.xib */; };
-		DB34D4959DEAA547256DD43D /* GHRepositoryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34DF3355B7AD5670668C47 /* GHRepositoryCell.m */; };
 		DB34D4A4A6E4F5D1543A8999 /* XECardDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34D7B3A32230066DEF57A0 /* XECardDetailsViewController.m */; };
-		DB34D4AAC10C390433AE4B96 /* GHMemberCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34D9DA2E2CC886AD559697 /* GHMemberCell.m */; };
 		DB34D4E13F43F301BC033F90 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB34D705388B6EF1933EB1E3 /* CoreLocation.framework */; };
 		DB34D50E705A9B3CEAF84583 /* WPPostContentImageElementCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DB34D7921EDB6872C8B3221F /* WPPostContentImageElementCell.xib */; };
 		DB34D5144D350137E1CA9CA2 /* XECard.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34D91042354A075764148E /* XECard.m */; };
-		DB34D553F4CD970B72DD5ED9 /* VMVideoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34D3E67D5221EE4730132B /* VMVideoCell.m */; };
+		DB34D577DC768DBB5F7E51AF /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB34D0F8B07C89387C2F9E3F /* QuartzCore.framework */; };
+		DB34D5951441E41E8530C803 /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB34DF04C907FB61BA2D66B5 /* CoreVideo.framework */; };
 		DB34D59DC2A685CF7592F814 /* WPPostContentImageElementCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34D0D1C8743CE91AD2A20A /* WPPostContentImageElementCell.m */; };
-		DB34D5B7F795E3F7B060ABC9 /* VMVideoTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34D7023381A681C697733B /* VMVideoTableViewController.m */; };
 		DB34D5DBC72AF1D315F28DE1 /* XECardDetailsPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34DF0EC54E9E1EECE42ED4 /* XECardDetailsPageViewController.m */; };
 		DB34D5E0DC911E182E1396ED /* XECategory.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34DA3846C32ED52912827E /* XECategory.m */; };
 		DB34D6057AAC049489CC6FDB /* WPPostDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34D224B60927694681348F /* WPPostDetailsViewController.m */; };
-		DB34D65BEB6CF10C52FC7BA8 /* XECategoryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34DF96C607241FFD2FD30D /* XECategoryCell.m */; };
 		DB34D66E4CF559E6404DBF3C /* NSDate+XBAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34D5EBA1F3E1109B672E44 /* NSDate+XBAdditions.m */; };
 		DB34D6772D8F9B5AD6C3DB76 /* WPPostContentStructuredElement.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34DF440D740A4ADAF7B0B2 /* WPPostContentStructuredElement.m */; };
 		DB34D6778E647334A012B2CE /* GHUserCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34D970AE47ACD42EF7B352 /* GHUserCell.m */; };
@@ -424,88 +401,51 @@
 		DB34D747BCEFE89289B3BC00 /* XECategoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DB34DBCA884FDF6E452B2C96 /* XECategoryCell.xib */; };
 		DB34D74CF00ACCCED7353C90 /* VMVideo.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34DF603EC84E5DE3FCAD09 /* VMVideo.m */; };
 		DB34D7996374697DE53CC594 /* GHMemberCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DB34D1F45D98157465DB787C /* GHMemberCell.xib */; };
+		DB34D7BFFFAFC975D2C19476 /* Styles.css in Resources */ = {isa = PBXBuildFile; fileRef = DB34D8A999304D432FA4F05D /* Styles.css */; };
 		DB34D7ED000E892BFDA50F9B /* xebia-ios.entitlements in Resources */ = {isa = PBXBuildFile; fileRef = DB34DF1B888D2DCFC1C32603 /* xebia-ios.entitlements */; };
 		DB34D7EE0FE712FFCF9BF08E /* XETag.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34DA8D8461A88D68351CEF /* XETag.m */; };
-		DB34D80AFFDF2381C861F350 /* XECardDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34D7B3A32230066DEF57A0 /* XECardDetailsViewController.m */; };
 		DB34D80DC3A883F6780EC05C /* WPPostContentStructuredElement.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34DF440D740A4ADAF7B0B2 /* WPPostContentStructuredElement.m */; };
 		DB34D81180C80CA12FDF0C6D /* WPPostContentHeaderElementCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DB34DFF64CA2F3C1F7B00CA6 /* WPPostContentHeaderElementCell.xib */; };
-		DB34D82305C55FAB2822618C /* WPSPostCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DB34D9E3899F49AEEFBDF81D /* WPSPostCell.xib */; };
 		DB34D84AD043A864E101AA42 /* WPPostContentCodeElementCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34DF40B8B46F470EF4E6E1 /* WPPostContentCodeElementCell.m */; };
-		DB34D87A546891A1D3CE41D5 /* TTTweetCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34DE9F5EB259E9CB86E112 /* TTTweetCell.m */; };
 		DB34D89C142C8B7F7D0E7558 /* XECategory.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34DA3846C32ED52912827E /* XECategory.m */; };
 		DB34D89DB04BB9FA5059B985 /* WPPostContentStructuredElementAttribute.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34D73F9AB47FAF1F9B13F0 /* WPPostContentStructuredElementAttribute.m */; };
 		DB34D8A645E2E7469C52CDAD /* XECardCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DB34D815DF432CB4026A3863 /* XECardCell.xib */; };
 		DB34D8EC9D47F5119A3A9A5A /* VMVideo.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34DF603EC84E5DE3FCAD09 /* VMVideo.m */; };
-		DB34D8F47C750E6AC465BEFE /* EBEventCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34DB3AFCA127427FE3B210 /* EBEventCell.m */; };
-		DB34D8FCC3116E6CE2FAF220 /* WPCategoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DB34DEEAA4079818595013B9 /* WPCategoryCell.xib */; };
-		DB34D909B7ACD77C8180E150 /* XECardCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DB34D815DF432CB4026A3863 /* XECardCell.xib */; };
-		DB34D91FB6D8F2B7DF8E7437 /* XECardCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34D38E1091A726A5C60A60 /* XECardCell.m */; };
-		DB34D967947ECEBDE05128CC /* TTTweetCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DB34DA93BE919BF05DE33959 /* TTTweetCell.xib */; };
 		DB34D98E9DDB220C53C13531 /* EBEventCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DB34DC7A2F8601F51BAB479D /* EBEventCell.xib */; };
 		DB34D9BA49D147E153448596 /* WPSPostCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DB34D9E3899F49AEEFBDF81D /* WPSPostCell.xib */; };
-		DB34D9BC50705771B8675BCF /* WPPostContentParagraphElementCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34D0D9CEEE5E95E15C73A2 /* WPPostContentParagraphElementCell.m */; };
 		DB34D9E18FB1E8C7066F9773 /* WPPostContentHeaderElementCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34DF5BC7398D84535C6622 /* WPPostContentHeaderElementCell.m */; };
-		DB34D9FCAD8E7694D7D1DF4C /* WPPostDetailsViewControllerBack.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34DE7FFA823C71A48D2CE0 /* WPPostDetailsViewControllerBack.m */; };
 		DB34DA0CB68D99DAD5ED9C6C /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB34D712058259EB7ABA14BD /* SystemConfiguration.framework */; };
 		DB34DA0FB5A19067F0EB0E56 /* WPAuthorCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34D78EBDB59559FF7AF9C6 /* WPAuthorCell.m */; };
 		DB34DA2196BBB030A68965CA /* XETag.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34DA8D8461A88D68351CEF /* XETag.m */; };
-		DB34DA58299DB142E5C7EE89 /* WPPostDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34D224B60927694681348F /* WPPostDetailsViewController.m */; };
-		DB34DA61C13EC06BBF7FEB23 /* UIAlertView+XBAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34DBFA7A7896251890FD3D /* UIAlertView+XBAdditions.m */; };
-		DB34DA8F67EFC27B0D01DDE8 /* XECategoryTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34DB62A49155EA87926383 /* XECategoryTableViewController.m */; };
 		DB34DAA8E70671F835EEA0E7 /* TTTweetCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34DE9F5EB259E9CB86E112 /* TTTweetCell.m */; };
 		DB34DAEFA05DFD5AE84E426B /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB34D86D5E8C02F41FEA568F /* CoreText.framework */; };
 		DB34DB3F2245AD345B421A39 /* GHRepositoryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34DF3355B7AD5670668C47 /* GHRepositoryCell.m */; };
 		DB34DB9B24183178EE137070 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB34DADE223E5899F8B6B00B /* Security.framework */; };
 		DB34DBAFF3A584BAD3796E7E /* UIAlertView+XBAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34DBFA7A7896251890FD3D /* UIAlertView+XBAdditions.m */; };
-		DB34DBB19B45F7AD4668AEC5 /* WPAbstractPostContentStructuredElementCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34D181FB864A5B5B0CCA4E /* WPAbstractPostContentStructuredElementCell.m */; };
 		DB34DBF07E81C671E3565960 /* VMVideoTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34D7023381A681C697733B /* VMVideoTableViewController.m */; };
-		DB34DC06331986A8C48DC3CD /* WPTagCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34D779566E6E53EC3D0C66 /* WPTagCell.m */; };
 		DB34DC23E6F931D2A1B01F6F /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB34DA21F8A3FD79A967EFEF /* Accounts.framework */; };
 		DB34DC2CBEE1AE2DF89E752D /* XECardCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34D38E1091A726A5C60A60 /* XECardCell.m */; };
-		DB34DC4B3B5C06B9E107FFF7 /* WPPostContentHeaderElementCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DB34DFF64CA2F3C1F7B00CA6 /* WPPostContentHeaderElementCell.xib */; };
 		DB34DC66BA9AA3305990CAEA /* WPPostContentDefaultElementCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34DE42A6FDB3DDA749CA6C /* WPPostContentDefaultElementCell.m */; };
 		DB34DC6925403FAE1C1D6ED1 /* WPSPostCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34D56827878B25BB1F025D /* WPSPostCell.m */; };
 		DB34DC77D3BA7D7572EBDFB7 /* GHMemberCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34D9DA2E2CC886AD559697 /* GHMemberCell.m */; };
 		DB34DCA31F2B13810B79BC4F /* XEDeck.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34D7E7E92FDE99630ABD8E /* XEDeck.m */; };
-		DB34DD15C8C97DBC3F6BCCF3 /* XECategoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DB34DBCA884FDF6E452B2C96 /* XECategoryCell.xib */; };
-		DB34DD15CEF7F28160123B79 /* XECardTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34DAF58EBF524C851113DF /* XECardTableViewController.m */; };
-		DB34DD1D0F863AA705B2F3A5 /* GHUserCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DB34D4BA81EC4FD48384EA25 /* GHUserCell.xib */; };
-		DB34DD26E03F1FC3A8C0F532 /* EBEventCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DB34DC7A2F8601F51BAB479D /* EBEventCell.xib */; };
-		DB34DD2EDA9AFF17FDDA49B7 /* WPPostCellPortrait.xib in Resources */ = {isa = PBXBuildFile; fileRef = DB34DAF8C5416FD22A0CD181 /* WPPostCellPortrait.xib */; };
 		DB34DD42DBD4F01CE77D2061 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB34D14B542638C01069450B /* CFNetwork.framework */; };
-		DB34DDA38AE0BEB35134605A /* WPAuthorCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34D78EBDB59559FF7AF9C6 /* WPAuthorCell.m */; };
 		DB34DDB92CB08EB004BE2DA9 /* TTTweetCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DB34DA93BE919BF05DE33959 /* TTTweetCell.xib */; };
 		DB34DDBF4DE1F968488BF69C /* WPTagCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DB34DB0DD0A6B58C15D2461A /* WPTagCell.xib */; };
 		DB34DDCCC18673992276D339 /* XEAbstractCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34DF039C3A138FECC6CB3B /* XEAbstractCell.m */; };
-		DB34DDCE25DFE6515495AA45 /* XBLeftMenuCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34D92EB516F92067A99CB9 /* XBLeftMenuCell.m */; };
-		DB34DDCEA4DCB55F4F0DABB2 /* VMVideoDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34D520761597BD4B8B7669 /* VMVideoDetailsViewController.m */; };
 		DB34DDD4D0DA9F8F129D1DEA /* WPPostContentStructuredElementAttribute.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34D73F9AB47FAF1F9B13F0 /* WPPostContentStructuredElementAttribute.m */; };
 		DB34DE1D52FD0E372B11A775 /* XECardDetailsQRCodeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34D1F306256770AF900772 /* XECardDetailsQRCodeViewController.m */; };
 		DB34DE5FFE92DC6FF69467BC /* Twitter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB34D5CB72485B6E20272C19 /* Twitter.framework */; };
 		DB34DE6E44DE47AE3934A6BC /* EBEventCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34DB3AFCA127427FE3B210 /* EBEventCell.m */; };
 		DB34DE741118B4A0C6E2A745 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB34D43948A4D9409E09F947 /* MessageUI.framework */; };
 		DB34DE8D02F9F663AA9D6E6B /* NSDate+XBAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34D5EBA1F3E1109B672E44 /* NSDate+XBAdditions.m */; };
-		DB34DE9F2A0F614E60B93161 /* WPTagCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DB34DB0DD0A6B58C15D2461A /* WPTagCell.xib */; };
 		DB34DEB39061B9068EDA9981 /* GHRepositoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DB34D58EEEF2EB680C1431C4 /* GHRepositoryCell.xib */; };
 		DB34DEDEBDC910734D6E6BD2 /* XBRightMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34DF4AB3494EC276B736FA /* XBRightMenuViewController.m */; };
-		DB34DEE966E041CA4070DEE6 /* VMVideoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DB34DA18E861CE300585EC75 /* VMVideoCell.xib */; };
-		DB34DF2E9643CA685216363C /* GHMemberCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DB34D1F45D98157465DB787C /* GHMemberCell.xib */; };
-		DB34DF48C933A3D0822B7DCC /* XECardDetailsPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34DF0EC54E9E1EECE42ED4 /* XECardDetailsPageViewController.m */; };
-		DB34DF6C6006A6FB745FF1D5 /* GHUserCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34D970AE47ACD42EF7B352 /* GHUserCell.m */; };
 		DB34DFE0E8D3977255720EBF /* WPPostCellPortrait.xib in Resources */ = {isa = PBXBuildFile; fileRef = DB34DAF8C5416FD22A0CD181 /* WPPostCellPortrait.xib */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXContainerItemProxy section */
-		54C2DF0C15BDFAFC00CABB12 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 54C2DEDD15BDFAFB00CABB12 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 54C2DEE515BDFAFB00CABB12;
-			remoteInfo = "xebia-ios";
-		};
-/* End PBXContainerItemProxy section */
-
 /* Begin PBXFileReference section */
+		5438726017DA885B00750791 /* xebia-iosTests-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "xebia-iosTests-Info.plist"; sourceTree = "<group>"; };
 		543C8F811777A7D20079675E /* vimeo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = vimeo.png; sourceTree = "<group>"; };
 		543C8F821777A7D20079675E /* vimeo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "vimeo@2x.png"; sourceTree = "<group>"; };
 		5443EA1C1775BEC40000FFE8 /* Lobster.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Lobster.ttf; sourceTree = "<group>"; };
@@ -705,8 +645,6 @@
 		5443ECAB1775BEF30000FFE8 /* XBDictionaryDataMergerTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XBDictionaryDataMergerTest.m; sourceTree = "<group>"; };
 		5443ECAC1775BEF30000FFE8 /* XBArrayDataSourceTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XBArrayDataSourceTest.m; sourceTree = "<group>"; };
 		5443ECAD1775BEF30000FFE8 /* XBInfiniteScrollArrayDataSourceTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XBInfiniteScrollArrayDataSourceTest.m; sourceTree = "<group>"; };
-		5443ECB01775BEF30000FFE8 /* WPAuthor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WPAuthor.h; sourceTree = "<group>"; };
-		5443ECB11775BEF30000FFE8 /* WPAuthor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WPAuthor.m; sourceTree = "<group>"; };
 		5443ECB41775BEF30000FFE8 /* wp-author-index-p1.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "wp-author-index-p1.json"; sourceTree = "<group>"; };
 		5443ECB51775BEF30000FFE8 /* wp-author-index-p2.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "wp-author-index-p2.json"; sourceTree = "<group>"; };
 		5443ECB61775BEF30000FFE8 /* wp-author-index-p3.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "wp-author-index-p3.json"; sourceTree = "<group>"; };
@@ -853,15 +791,8 @@
 		544714C5177717D0001F5153 /* XBTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XBTableViewCell.m; sourceTree = "<group>"; };
 		5493E73E179C20BC009C0D2B /* xebia-essentials-sample-barcode.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "xebia-essentials-sample-barcode.png"; sourceTree = "<group>"; };
 		5493E73F179C20BC009C0D2B /* xebia-essentials-sample-barcode@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "xebia-essentials-sample-barcode@2x.png"; sourceTree = "<group>"; };
-		5493E742179C71C8009C0D2B /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
-		5493E744179C71D4009C0D2B /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = System/Library/Frameworks/CoreVideo.framework; sourceTree = SDKROOT; };
-		5493E746179C71DF009C0D2B /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
-		5493E748179C71F2009C0D2B /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		5493E74B17A2F09C009C0D2B /* xebia-essentials-card.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "xebia-essentials-card.png"; sourceTree = "<group>"; };
 		5493E74C17A2F09C009C0D2B /* xebia-essentials-card@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "xebia-essentials-card@2x.png"; sourceTree = "<group>"; };
-		5493E74F17A2FEA0009C0D2B /* XBRightMenuCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XBRightMenuCell.h; sourceTree = SOURCE_ROOT; };
-		5493E75017A2FEA0009C0D2B /* XBRightMenuCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XBRightMenuCell.m; sourceTree = SOURCE_ROOT; };
-		5493E75117A2FEA0009C0D2B /* XBRightMenuCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XBRightMenuCell.xib; sourceTree = SOURCE_ROOT; };
 		5493E75817B283D4009C0D2B /* avatar-sample.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "avatar-sample.jpg"; sourceTree = "<group>"; };
 		5493E75917B283D4009C0D2B /* avatar-sample@2x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "avatar-sample@2x.jpg"; sourceTree = "<group>"; };
 		54A7483E177A480E00B9A907 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
@@ -882,8 +813,24 @@
 		54B6B49217C80B9F00C9C835 /* WPPostContentCodeElementCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WPPostContentCodeElementCell.xib; sourceTree = "<group>"; };
 		54B6B49417C8137100C9C835 /* image-placeholder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "image-placeholder.png"; sourceTree = "<group>"; };
 		54B6B49517C8137100C9C835 /* image-placeholder@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "image-placeholder@2x.png"; sourceTree = "<group>"; };
-		54C1A7021794992400C33738 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
-		54C1A7041794992B00C33738 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		54B6B49817CA5D6E00C9C835 /* Cabin-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file.ttf; path = "Cabin-Bold.ttf"; sourceTree = "<group>"; };
+		54B6B49917CA5D6E00C9C835 /* Cabin-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file.ttf; path = "Cabin-BoldItalic.ttf"; sourceTree = "<group>"; };
+		54B6B49A17CA5D6E00C9C835 /* Cabin-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file.ttf; path = "Cabin-Italic.ttf"; sourceTree = "<group>"; };
+		54B6B49B17CA5D6E00C9C835 /* Cabin-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file.ttf; path = "Cabin-Medium.ttf"; sourceTree = "<group>"; };
+		54B6B49C17CA5D6E00C9C835 /* Cabin-MediumItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file.ttf; path = "Cabin-MediumItalic.ttf"; sourceTree = "<group>"; };
+		54B6B49D17CA5D6E00C9C835 /* Cabin-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file.ttf; path = "Cabin-Regular.ttf"; sourceTree = "<group>"; };
+		54B6B49E17CA5D6E00C9C835 /* Cabin-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file.ttf; path = "Cabin-SemiBold.ttf"; sourceTree = "<group>"; };
+		54B6B49F17CA5D6E00C9C835 /* Cabin-SemiBoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file.ttf; path = "Cabin-SemiBoldItalic.ttf"; sourceTree = "<group>"; };
+		54B6B4A017CA5D6E00C9C835 /* Lato-Bla.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Bla.ttf"; sourceTree = "<group>"; };
+		54B6B4A117CA5D6E00C9C835 /* Lato-BlaIta.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-BlaIta.ttf"; sourceTree = "<group>"; };
+		54B6B4A217CA5D6E00C9C835 /* Lato-Bol.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Bol.ttf"; sourceTree = "<group>"; };
+		54B6B4A317CA5D6E00C9C835 /* Lato-BolIta.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-BolIta.ttf"; sourceTree = "<group>"; };
+		54B6B4A417CA5D6E00C9C835 /* Lato-Hai.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Hai.ttf"; sourceTree = "<group>"; };
+		54B6B4A517CA5D6E00C9C835 /* Lato-HaiIta.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-HaiIta.ttf"; sourceTree = "<group>"; };
+		54B6B4A617CA5D6E00C9C835 /* Lato-Lig.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Lig.ttf"; sourceTree = "<group>"; };
+		54B6B4A717CA5D6E00C9C835 /* Lato-LigIta.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-LigIta.ttf"; sourceTree = "<group>"; };
+		54B6B4A817CA5D6E00C9C835 /* Lato-Reg.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Reg.ttf"; sourceTree = "<group>"; };
+		54B6B4A917CA5D6E00C9C835 /* Lato-RegIta.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-RegIta.ttf"; sourceTree = "<group>"; };
 		54C2DEE615BDFAFB00CABB12 /* xebia-ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "xebia-ios.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		54C2DEEA15BDFAFB00CABB12 /* UIKit.framework */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		54C2DEEC15BDFAFB00CABB12 /* Foundation.framework */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -891,12 +838,19 @@
 		54C2DEF015BDFAFB00CABB12 /* CoreData.framework */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		54C2DF0615BDFAFC00CABB12 /* xebia-iosTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "xebia-iosTests.octest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		54C2DF0715BDFAFC00CABB12 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
+		54C4312017DB2D69008913E5 /* libPods-xebia-iosTests.a */ = {isa = PBXFileReference; lastKnownFileType = file; name = "libPods-xebia-iosTests.a"; path = "Pods/build/Release-iphoneos/libPods-xebia-iosTests.a"; sourceTree = "<group>"; };
+		54C4312317DB5274008913E5 /* XBRightMenuCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XBRightMenuCell.h; sourceTree = "<group>"; };
+		54C4312417DB5274008913E5 /* XBRightMenuCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XBRightMenuCell.m; sourceTree = "<group>"; };
+		54C4312517DB5274008913E5 /* XBRightMenuCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XBRightMenuCell.xib; sourceTree = "<group>"; };
+		7F10867E9D3E438A857D3C6D /* libPods-xebia-iosTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-xebia-iosTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		8CF994BE351A4432BFAA51FC /* Pods-xebia-iosTests.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-xebia-iosTests.xcconfig"; path = "Pods/Pods-xebia-iosTests.xcconfig"; sourceTree = "<group>"; };
 		DB34D0154E9979E5D300E8BF /* EBEventCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EBEventCell.h; sourceTree = "<group>"; };
 		DB34D0A4CC294EC4C22FF6BD /* XESponsor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XESponsor.m; sourceTree = "<group>"; };
 		DB34D0C49C3A04F978CDA147 /* VMVideoTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VMVideoTableViewController.h; sourceTree = "<group>"; };
 		DB34D0C8C2F603FE088B4DD4 /* WPAuthorCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WPAuthorCell.h; sourceTree = "<group>"; };
 		DB34D0D1C8743CE91AD2A20A /* WPPostContentImageElementCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WPPostContentImageElementCell.m; sourceTree = "<group>"; };
 		DB34D0D9CEEE5E95E15C73A2 /* WPPostContentParagraphElementCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WPPostContentParagraphElementCell.m; sourceTree = "<group>"; };
+		DB34D0F8B07C89387C2F9E3F /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = ../../../../../Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.1.sdk/System/Library/Frameworks/QuartzCore.framework; sourceTree = "<group>"; };
 		DB34D13F306D5BF0C107DF63 /* VMUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VMUser.m; sourceTree = "<group>"; };
 		DB34D14B542638C01069450B /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = ../../../../../Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.1.sdk/System/Library/Frameworks/CFNetwork.framework; sourceTree = "<group>"; };
 		DB34D181FB864A5B5B0CCA4E /* WPAbstractPostContentStructuredElementCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WPAbstractPostContentStructuredElementCell.m; sourceTree = "<group>"; };
@@ -904,6 +858,7 @@
 		DB34D1BEFD3B2A376D88BF5D /* XEDeck.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XEDeck.h; sourceTree = "<group>"; };
 		DB34D1F306256770AF900772 /* XECardDetailsQRCodeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XECardDetailsQRCodeViewController.m; sourceTree = "<group>"; };
 		DB34D1F45D98157465DB787C /* GHMemberCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GHMemberCell.xib; sourceTree = "<group>"; };
+		DB34D2014253F0EE1EB4FBC5 /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = ../../../../../Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.1.sdk/System/Library/Frameworks/ImageIO.framework; sourceTree = "<group>"; };
 		DB34D2236ADFB1F5325EE549 /* TTTweetCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTTweetCell.h; sourceTree = "<group>"; };
 		DB34D224B60927694681348F /* WPPostDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WPPostDetailsViewController.m; sourceTree = "<group>"; };
 		DB34D2290A197B1970EB3090 /* WPTagCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WPTagCell.h; sourceTree = "<group>"; };
@@ -918,6 +873,7 @@
 		DB34D436823829E734F76969 /* WPPostContentParagraphElementCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WPPostContentParagraphElementCell.h; sourceTree = "<group>"; };
 		DB34D43948A4D9409E09F947 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = ../../../../../Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.1.sdk/System/Library/Frameworks/MessageUI.framework; sourceTree = "<group>"; };
 		DB34D4BA81EC4FD48384EA25 /* GHUserCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GHUserCell.xib; sourceTree = "<group>"; };
+		DB34D4D95E1188A7AD47E551 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = ../../../../../Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.1.sdk/System/Library/Frameworks/StoreKit.framework; sourceTree = "<group>"; };
 		DB34D4E5579AD7C7B4A4BDA4 /* WPPostContentHeaderElementCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WPPostContentHeaderElementCell.h; sourceTree = "<group>"; };
 		DB34D4F8844121026514AB7C /* GHMemberCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GHMemberCell.h; sourceTree = "<group>"; };
 		DB34D4FA19A6DAA619A951F4 /* XESponsor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XESponsor.h; sourceTree = "<group>"; };
@@ -930,6 +886,7 @@
 		DB34D5CB72485B6E20272C19 /* Twitter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Twitter.framework; path = ../../../../../Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.1.sdk/System/Library/Frameworks/Twitter.framework; sourceTree = "<group>"; };
 		DB34D5EBA1F3E1109B672E44 /* NSDate+XBAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+XBAdditions.m"; sourceTree = "<group>"; };
 		DB34D67385B70DF3E8904BDD /* XECategoryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XECategoryCell.h; sourceTree = "<group>"; };
+		DB34D6A14FD8715A8781B607 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = ../../../../../Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.1.sdk/System/Library/Frameworks/CFNetwork.framework; sourceTree = "<group>"; };
 		DB34D7023381A681C697733B /* VMVideoTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VMVideoTableViewController.m; sourceTree = "<group>"; };
 		DB34D705388B6EF1933EB1E3 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = ../../../../../Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.1.sdk/System/Library/Frameworks/CoreLocation.framework; sourceTree = "<group>"; };
 		DB34D712058259EB7ABA14BD /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = ../../../../../Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.1.sdk/System/Library/Frameworks/SystemConfiguration.framework; sourceTree = "<group>"; };
@@ -946,6 +903,7 @@
 		DB34D815DF432CB4026A3863 /* XECardCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = XECardCell.xib; sourceTree = "<group>"; };
 		DB34D84C6C3D075D0CD99496 /* blackorchid@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "blackorchid@2x.png"; sourceTree = "<group>"; };
 		DB34D86D5E8C02F41FEA568F /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = ../../../../../Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.1.sdk/System/Library/Frameworks/CoreText.framework; sourceTree = "<group>"; };
+		DB34D8A999304D432FA4F05D /* Styles.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = Styles.css; sourceTree = "<group>"; };
 		DB34D8B87DC73AA8DDDD46C8 /* WPCategoryCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WPCategoryCell.m; sourceTree = "<group>"; };
 		DB34D9017AEFD6E96A4BDABB /* WPPostDetailsViewControllerBack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WPPostDetailsViewControllerBack.h; sourceTree = "<group>"; };
 		DB34D91042354A075764148E /* XECard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XECard.m; sourceTree = "<group>"; };
@@ -997,12 +955,14 @@
 		DB34DEEAA4079818595013B9 /* WPCategoryCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WPCategoryCell.xib; sourceTree = "<group>"; };
 		DB34DF000D85B0D102847897 /* WPPostContentStructuredElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WPPostContentStructuredElement.h; sourceTree = "<group>"; };
 		DB34DF039C3A138FECC6CB3B /* XEAbstractCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XEAbstractCell.m; sourceTree = "<group>"; };
+		DB34DF04C907FB61BA2D66B5 /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = ../../../../../Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.1.sdk/System/Library/Frameworks/CoreVideo.framework; sourceTree = "<group>"; };
 		DB34DF0EC54E9E1EECE42ED4 /* XECardDetailsPageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XECardDetailsPageViewController.m; sourceTree = "<group>"; };
 		DB34DF1B888D2DCFC1C32603 /* xebia-ios.entitlements */ = {isa = PBXFileReference; lastKnownFileType = file.entitlements; path = "xebia-ios.entitlements"; sourceTree = "<group>"; };
 		DB34DF3355B7AD5670668C47 /* GHRepositoryCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GHRepositoryCell.m; sourceTree = "<group>"; };
 		DB34DF40B8B46F470EF4E6E1 /* WPPostContentCodeElementCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WPPostContentCodeElementCell.m; sourceTree = "<group>"; };
 		DB34DF440D740A4ADAF7B0B2 /* WPPostContentStructuredElement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WPPostContentStructuredElement.m; sourceTree = "<group>"; };
 		DB34DF4AB3494EC276B736FA /* XBRightMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XBRightMenuViewController.m; sourceTree = "<group>"; };
+		DB34DF58131095156D022417 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = ../../../../../Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.1.sdk/System/Library/Frameworks/CoreMedia.framework; sourceTree = "<group>"; };
 		DB34DF5BC7398D84535C6622 /* WPPostContentHeaderElementCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WPPostContentHeaderElementCell.m; sourceTree = "<group>"; };
 		DB34DF603EC84E5DE3FCAD09 /* VMVideo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VMVideo.m; sourceTree = "<group>"; };
 		DB34DF96C607241FFD2FD30D /* XECategoryCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XECategoryCell.m; sourceTree = "<group>"; };
@@ -1019,11 +979,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				5493E74A179C7200009C0D2B /* AVFoundation.framework in Frameworks */,
-				5493E749179C71F2009C0D2B /* QuartzCore.framework in Frameworks */,
-				5493E747179C71DF009C0D2B /* ImageIO.framework in Frameworks */,
-				5493E745179C71D4009C0D2B /* CoreVideo.framework in Frameworks */,
-				5493E743179C71C8009C0D2B /* CoreMedia.framework in Frameworks */,
-				54C1A7031794992400C33738 /* StoreKit.framework in Frameworks */,
 				54A7483F177A480E00B9A907 /* MediaPlayer.framework in Frameworks */,
 				54C2DEF115BDFAFB00CABB12 /* CoreData.framework in Frameworks */,
 				54C2DEEB15BDFAFB00CABB12 /* UIKit.framework in Frameworks */,
@@ -1041,6 +996,11 @@
 				DB34D1DEADC4E02B880126A6 /* MapKit.framework in Frameworks */,
 				DB34D065E5EB4E434B6F3D37 /* Social.framework in Frameworks */,
 				5443EEE3177620B70000FFE8 /* libGoogleAnalytics.a in Frameworks */,
+				DB34D5951441E41E8530C803 /* CoreVideo.framework in Frameworks */,
+				DB34D1F5746C1A99D77D2192 /* CoreMedia.framework in Frameworks */,
+				DB34D577DC768DBB5F7E51AF /* QuartzCore.framework in Frameworks */,
+				DB34D40BDAAE82CD6E751B94 /* StoreKit.framework in Frameworks */,
+				DB34D11E8CC0D57A2B27EAD2 /* ImageIO.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1048,11 +1008,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				54C2DF0815BDFAFC00CABB12 /* SenTestingKit.framework in Frameworks */,
+				5438726917DA8DFA00750791 /* AVFoundation.framework in Frameworks */,
+				5438726A17DA8E0800750791 /* MediaPlayer.framework in Frameworks */,
+				54C2DF0B15BDFAFC00CABB12 /* CoreData.framework in Frameworks */,
 				54C2DF0915BDFAFC00CABB12 /* UIKit.framework in Frameworks */,
 				54C2DF0A15BDFAFC00CABB12 /* Foundation.framework in Frameworks */,
-				54C2DF0B15BDFAFC00CABB12 /* CoreData.framework in Frameworks */,
-				5443EEE4177620B70000FFE8 /* libGoogleAnalytics.a in Frameworks */,
+				5438726B17DA8E2000750791 /* CoreGraphics.framework in Frameworks */,
+				54C4312117DB2D69008913E5 /* libPods-xebia-iosTests.a in Frameworks */,
 				5443EEE6177620B70000FFE8 /* libGoogleAnalytics_debug.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1060,6 +1022,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5438725F17DA885B00750791 /* xebia-iosTests */ = {
+			isa = PBXGroup;
+			children = (
+				5438726017DA885B00750791 /* xebia-iosTests-Info.plist */,
+			);
+			name = "xebia-iosTests";
+			path = "Targets/xebia-iosTests";
+			sourceTree = SOURCE_ROOT;
+		};
 		5443EA1A1775BEC40000FFE8 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
@@ -1070,6 +1041,7 @@
 				5443EA751775BEC40000FFE8 /* Splashscreens */,
 				5443EA7D1775BEC40000FFE8 /* Storyboards */,
 				54A7485817849E0F00B9A907 /* www */,
+				DB34D715D5FC7BFDE658AF19 /* Stylesheets */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -1077,6 +1049,24 @@
 		5443EA1B1775BEC40000FFE8 /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
+				54B6B49817CA5D6E00C9C835 /* Cabin-Bold.ttf */,
+				54B6B49917CA5D6E00C9C835 /* Cabin-BoldItalic.ttf */,
+				54B6B49A17CA5D6E00C9C835 /* Cabin-Italic.ttf */,
+				54B6B49B17CA5D6E00C9C835 /* Cabin-Medium.ttf */,
+				54B6B49C17CA5D6E00C9C835 /* Cabin-MediumItalic.ttf */,
+				54B6B49D17CA5D6E00C9C835 /* Cabin-Regular.ttf */,
+				54B6B49E17CA5D6E00C9C835 /* Cabin-SemiBold.ttf */,
+				54B6B49F17CA5D6E00C9C835 /* Cabin-SemiBoldItalic.ttf */,
+				54B6B4A017CA5D6E00C9C835 /* Lato-Bla.ttf */,
+				54B6B4A117CA5D6E00C9C835 /* Lato-BlaIta.ttf */,
+				54B6B4A217CA5D6E00C9C835 /* Lato-Bol.ttf */,
+				54B6B4A317CA5D6E00C9C835 /* Lato-BolIta.ttf */,
+				54B6B4A417CA5D6E00C9C835 /* Lato-Hai.ttf */,
+				54B6B4A517CA5D6E00C9C835 /* Lato-HaiIta.ttf */,
+				54B6B4A617CA5D6E00C9C835 /* Lato-Lig.ttf */,
+				54B6B4A717CA5D6E00C9C835 /* Lato-LigIta.ttf */,
+				54B6B4A817CA5D6E00C9C835 /* Lato-Reg.ttf */,
+				54B6B4A917CA5D6E00C9C835 /* Lato-RegIta.ttf */,
 				5443EA1C1775BEC40000FFE8 /* Lobster.ttf */,
 			);
 			path = Fonts;
@@ -1492,7 +1482,6 @@
 			children = (
 				5443EC961775BEF30000FFE8 /* Category */,
 				5443EC991775BEF30000FFE8 /* DataSource */,
-				5443ECAE1775BEF30000FFE8 /* Model */,
 				5443ECB21775BEF30000FFE8 /* Resources */,
 				5443ECB81775BEF30000FFE8 /* XBTestUtils.h */,
 				5443ECB91775BEF30000FFE8 /* XBTestUtils.m */,
@@ -1584,23 +1573,6 @@
 				5443ECAB1775BEF30000FFE8 /* XBDictionaryDataMergerTest.m */,
 			);
 			path = Merger;
-			sourceTree = "<group>";
-		};
-		5443ECAE1775BEF30000FFE8 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				5443ECAF1775BEF30000FFE8 /* WordPress */,
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		5443ECAF1775BEF30000FFE8 /* WordPress */ = {
-			isa = PBXGroup;
-			children = (
-				5443ECB01775BEF30000FFE8 /* WPAuthor.h */,
-				5443ECB11775BEF30000FFE8 /* WPAuthor.m */,
-			);
-			path = WordPress;
 			sourceTree = "<group>";
 		};
 		5443ECB21775BEF30000FFE8 /* Resources */ = {
@@ -1997,12 +1969,7 @@
 		54C2DEDB15BDFAFB00CABB12 = {
 			isa = PBXGroup;
 			children = (
-				5493E748179C71F2009C0D2B /* QuartzCore.framework */,
-				5493E746179C71DF009C0D2B /* ImageIO.framework */,
-				5493E744179C71D4009C0D2B /* CoreVideo.framework */,
-				5493E742179C71C8009C0D2B /* CoreMedia.framework */,
-				54C1A7041794992B00C33738 /* CFNetwork.framework */,
-				54C1A7021794992400C33738 /* StoreKit.framework */,
+				54C4312017DB2D69008913E5 /* libPods-xebia-iosTests.a */,
 				5443EE2E177620B60000FFE8 /* Classes */,
 				5443EB451775BEDC0000FFE8 /* Library */,
 				5443EA1A1775BEC40000FFE8 /* Resources */,
@@ -2016,6 +1983,7 @@
 				5443EF99177627160000FFE8 /* ios-icon-72.png */,
 				5443EF97177627110000FFE8 /* ios-icon-114.png */,
 				5443EF9B177627250000FFE8 /* ios-icon-144.png */,
+				8CF994BE351A4432BFAA51FC /* Pods-xebia-iosTests.xcconfig */,
 			);
 			sourceTree = "<group>";
 		};
@@ -2049,6 +2017,13 @@
 				DB34DADE223E5899F8B6B00B /* Security.framework */,
 				DB34DE96DB0AD5C965696E37 /* MapKit.framework */,
 				DB34DD4E1507AF2BCB62C8A7 /* Social.framework */,
+				DB34DF04C907FB61BA2D66B5 /* CoreVideo.framework */,
+				DB34DF58131095156D022417 /* CoreMedia.framework */,
+				DB34D0F8B07C89387C2F9E3F /* QuartzCore.framework */,
+				DB34D4D95E1188A7AD47E551 /* StoreKit.framework */,
+				DB34D2014253F0EE1EB4FBC5 /* ImageIO.framework */,
+				DB34D6A14FD8715A8781B607 /* CFNetwork.framework */,
+				7F10867E9D3E438A857D3C6D /* libPods-xebia-iosTests.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -2129,12 +2104,12 @@
 		DB34D65A858A5BE4109085C9 /* Menu */ = {
 			isa = PBXGroup;
 			children = (
-				5493E74F17A2FEA0009C0D2B /* XBRightMenuCell.h */,
-				5493E75017A2FEA0009C0D2B /* XBRightMenuCell.m */,
-				5493E75117A2FEA0009C0D2B /* XBRightMenuCell.xib */,
 				DB34DA4198F561241846CE47 /* XBLeftMenuCell.xib */,
 				DB34DA2B2612E25FB53F9AD8 /* XBLeftMenuCell.h */,
 				DB34D92EB516F92067A99CB9 /* XBLeftMenuCell.m */,
+				54C4312317DB5274008913E5 /* XBRightMenuCell.h */,
+				54C4312417DB5274008913E5 /* XBRightMenuCell.m */,
+				54C4312517DB5274008913E5 /* XBRightMenuCell.xib */,
 			);
 			path = Menu;
 			sourceTree = "<group>";
@@ -2156,6 +2131,14 @@
 				DB34D9BF9C5E49B79F976827 /* XEULink.h */,
 			);
 			path = Essentials;
+			sourceTree = "<group>";
+		};
+		DB34D715D5FC7BFDE658AF19 /* Stylesheets */ = {
+			isa = PBXGroup;
+			children = (
+				DB34D8A999304D432FA4F05D /* Styles.css */,
+			);
+			path = Stylesheets;
 			sourceTree = "<group>";
 		};
 		DB34D794BE33E63DA572810F /* Xebia */ = {
@@ -2207,6 +2190,7 @@
 				DB34D7DB27DFAA549ACA24FC /* xebia-ios-Info.plist */,
 				DB34DFB3378D901394CCA123 /* xebia-ios-Prefix.pch */,
 				DB34DF1B888D2DCFC1C32603 /* xebia-ios.entitlements */,
+				5438725F17DA885B00750791 /* xebia-iosTests */,
 			);
 			name = "xebia-ios";
 			path = "Targets/xebia-ios";
@@ -2301,15 +2285,16 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 54C2DF1C15BDFAFC00CABB12 /* Build configuration list for PBXNativeTarget "xebia-iosTests" */;
 			buildPhases = (
+				BE5A72F9935547BC8C472848 /* Check Pods Manifest.lock */,
 				54C2DF0115BDFAFC00CABB12 /* Sources */,
 				54C2DF0215BDFAFC00CABB12 /* Frameworks */,
 				54C2DF0315BDFAFC00CABB12 /* Resources */,
-				54C2DF0415BDFAFC00CABB12 /* ShellScript */,
+				54C4312217DB4BAB008913E5 /* Run Tests */,
+				CEC0379E3D364C579D729E29 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				54C2DF0D15BDFAFC00CABB12 /* PBXTargetDependency */,
 			);
 			name = "xebia-iosTests";
 			productName = "xebia-iosTests";
@@ -2479,7 +2464,6 @@
 				5493E741179C20BC009C0D2B /* xebia-essentials-sample-barcode@2x.png in Resources */,
 				5493E74D17A2F09C009C0D2B /* xebia-essentials-card.png in Resources */,
 				5493E74E17A2F09C009C0D2B /* xebia-essentials-card@2x.png in Resources */,
-				5493E75317A2FEA0009C0D2B /* XBRightMenuCell.xib in Resources */,
 				5493E75A17B283D4009C0D2B /* avatar-sample.jpg in Resources */,
 				5493E75B17B283D4009C0D2B /* avatar-sample@2x.jpg in Resources */,
 				54AB456317C5651F00606F7F /* WPPostContentDefaultElementCell.xib in Resources */,
@@ -2491,6 +2475,26 @@
 				DB34D50E705A9B3CEAF84583 /* WPPostContentImageElementCell.xib in Resources */,
 				54B6B49617C8137100C9C835 /* image-placeholder.png in Resources */,
 				54B6B49717C8137100C9C835 /* image-placeholder@2x.png in Resources */,
+				54B6B4AA17CA5D6E00C9C835 /* Cabin-Bold.ttf in Resources */,
+				54B6B4AB17CA5D6E00C9C835 /* Cabin-BoldItalic.ttf in Resources */,
+				54B6B4AC17CA5D6E00C9C835 /* Cabin-Italic.ttf in Resources */,
+				54B6B4AD17CA5D6E00C9C835 /* Cabin-Medium.ttf in Resources */,
+				54B6B4AE17CA5D6E00C9C835 /* Cabin-MediumItalic.ttf in Resources */,
+				54B6B4AF17CA5D6E00C9C835 /* Cabin-Regular.ttf in Resources */,
+				54B6B4B017CA5D6E00C9C835 /* Cabin-SemiBold.ttf in Resources */,
+				54B6B4B117CA5D6E00C9C835 /* Cabin-SemiBoldItalic.ttf in Resources */,
+				54B6B4B217CA5D6E00C9C835 /* Lato-Bla.ttf in Resources */,
+				54B6B4B317CA5D6E00C9C835 /* Lato-BlaIta.ttf in Resources */,
+				54B6B4B417CA5D6E00C9C835 /* Lato-Bol.ttf in Resources */,
+				54B6B4B517CA5D6E00C9C835 /* Lato-BolIta.ttf in Resources */,
+				54B6B4B617CA5D6E00C9C835 /* Lato-Hai.ttf in Resources */,
+				54B6B4B717CA5D6E00C9C835 /* Lato-HaiIta.ttf in Resources */,
+				54B6B4B817CA5D6E00C9C835 /* Lato-Lig.ttf in Resources */,
+				54B6B4B917CA5D6E00C9C835 /* Lato-LigIta.ttf in Resources */,
+				54B6B4BA17CA5D6E00C9C835 /* Lato-Reg.ttf in Resources */,
+				54B6B4BB17CA5D6E00C9C835 /* Lato-RegIta.ttf in Resources */,
+				DB34D7BFFFAFC975D2C19476 /* Styles.css in Resources */,
+				54C4312717DB5274008913E5 /* XBRightMenuCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2502,41 +2506,26 @@
 				5443ECCB1775BEF30000FFE8 /* wp-author-index-p2.json in Resources */,
 				5443ECCC1775BEF30000FFE8 /* wp-author-index-p3.json in Resources */,
 				5443ECCD1775BEF30000FFE8 /* wp-author-index.json in Resources */,
-				DB34DD26E03F1FC3A8C0F532 /* EBEventCell.xib in Resources */,
-				DB34DD1D0F863AA705B2F3A5 /* GHUserCell.xib in Resources */,
-				DB34D0A65457AD12B3088503 /* GHRepositoryCell.xib in Resources */,
-				DB34DF2E9643CA685216363C /* GHMemberCell.xib in Resources */,
-				DB34D967947ECEBDE05128CC /* TTTweetCell.xib in Resources */,
-				DB34DE9F2A0F614E60B93161 /* WPTagCell.xib in Resources */,
-				DB34DD2EDA9AFF17FDDA49B7 /* WPPostCellPortrait.xib in Resources */,
-				DB34D4800A69C506AAA049E1 /* WPAuthorCell.xib in Resources */,
-				DB34D82305C55FAB2822618C /* WPSPostCell.xib in Resources */,
-				DB34D8FCC3116E6CE2FAF220 /* WPCategoryCell.xib in Resources */,
-				DB34D0AE0DA850ACF6EF4A6D /* XBLeftMenuCell.xib in Resources */,
-				DB34DEE966E041CA4070DEE6 /* VMVideoCell.xib in Resources */,
-				DB34D909B7ACD77C8180E150 /* XECardCell.xib in Resources */,
-				DB34DD15C8C97DBC3F6BCCF3 /* XECategoryCell.xib in Resources */,
-				54AB456417C5651F00606F7F /* WPPostContentDefaultElementCell.xib in Resources */,
-				54AB456617C5651F00606F7F /* WPPostContentParagraphElementCell.xib in Resources */,
-				DB34DC4B3B5C06B9E107FFF7 /* WPPostContentHeaderElementCell.xib in Resources */,
+				5438726117DA885B00750791 /* xebia-iosTests-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		54C2DF0415BDFAFC00CABB12 /* ShellScript */ = {
+		54C4312217DB4BAB008913E5 /* Run Tests */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
+			name = "Run Tests";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"";
 		};
 		A7C921BBAF794D17A84F91E1 /* Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -2551,6 +2540,36 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
+		};
+		BE5A72F9935547BC8C472848 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		CEC0379E3D364C579D729E29 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-xebia-iosTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -2689,7 +2708,6 @@
 				DB34D5DBC72AF1D315F28DE1 /* XECardDetailsPageViewController.m in Sources */,
 				DB34DE1D52FD0E372B11A775 /* XECardDetailsQRCodeViewController.m in Sources */,
 				DB34DE8D02F9F663AA9D6E6B /* NSDate+XBAdditions.m in Sources */,
-				5493E75217A2FEA0009C0D2B /* XBRightMenuCell.m in Sources */,
 				DB34D215C71F3DB57539F85B /* WPPostDetailsViewControllerBack.m in Sources */,
 				DB34D6057AAC049489CC6FDB /* WPPostDetailsViewController.m in Sources */,
 				DB34D80DC3A883F6780EC05C /* WPPostContentStructuredElement.m in Sources */,
@@ -2700,6 +2718,7 @@
 				DB34D9E18FB1E8C7066F9773 /* WPPostContentHeaderElementCell.m in Sources */,
 				DB34D84AD043A864E101AA42 /* WPPostContentCodeElementCell.m in Sources */,
 				DB34D59DC2A685CF7592F814 /* WPPostContentImageElementCell.m in Sources */,
+				54C4312617DB5274008913E5 /* XBRightMenuCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2747,7 +2766,6 @@
 				5443ECBA1775BEF30000FFE8 /* NSIndexSetTest.m in Sources */,
 				5443ECBB1775BEF30000FFE8 /* NSStringTest.m in Sources */,
 				5443ECBC1775BEF30000FFE8 /* XBBundleArrayDataSourceTest.m in Sources */,
-				5443ECBD1775BEF30000FFE8 /* XBPagedCompositeArrayDataSourceTest.m in Sources */,
 				5443ECBE1775BEF30000FFE8 /* XBBasicHttpQueryParamBuilderTest.m in Sources */,
 				5443ECBF1775BEF30000FFE8 /* XBHttpArrayDataSourceTest.m in Sources */,
 				5443ECC01775BEF30000FFE8 /* XBBundleJsonDataLoaderTest.m in Sources */,
@@ -2759,33 +2777,10 @@
 				5443ECC61775BEF30000FFE8 /* XBDictionaryDataMergerTest.m in Sources */,
 				5443ECC71775BEF30000FFE8 /* XBArrayDataSourceTest.m in Sources */,
 				5443ECC81775BEF30000FFE8 /* XBInfiniteScrollArrayDataSourceTest.m in Sources */,
-				5443ECC91775BEF30000FFE8 /* WPAuthor.m in Sources */,
 				5443ECCE1775BEF30000FFE8 /* XBTestUtils.m in Sources */,
-				5443EEE8177620B70000FFE8 /* UINavigationBar+XBAdditions.m in Sources */,
-				5443EEEC177620B70000FFE8 /* UIScreen+XBAdditions.m in Sources */,
-				5443EEEE177620B70000FFE8 /* UIViewController+XBAdditions.m in Sources */,
-				5443EEF0177620B70000FFE8 /* XBConfigurationProvider.m in Sources */,
-				5443EEF2177620B70000FFE8 /* XBPListConfigurationProvider.m in Sources */,
-				5443EEF4177620B70000FFE8 /* EBEventTableViewController.m in Sources */,
-				5443EEF6177620B70000FFE8 /* GHMemberTableViewController.m in Sources */,
-				5443EEF8177620B70000FFE8 /* GHRepositoryTableViewController.m in Sources */,
-				5443EEFA177620B70000FFE8 /* GHTabBarController.m in Sources */,
-				5443EEFC177620B70000FFE8 /* XBHomeController.m in Sources */,
-				5443EEFE177620B70000FFE8 /* XBLeftMenuViewController.m in Sources */,
-				5443EF00177620B70000FFE8 /* TTTweetTableViewController.m in Sources */,
-				5443EF02177620B70000FFE8 /* XBWebViewController.m in Sources */,
-				5443EF04177620B70000FFE8 /* WPAuthorTableViewController.m in Sources */,
-				5443EF06177620B70000FFE8 /* WPCategoryTableViewController.m in Sources */,
-				5443EF08177620B70000FFE8 /* WPPostTableViewController.m in Sources */,
-				5443EF0A177620B70000FFE8 /* WPRecentPostTableViewController.m in Sources */,
-				5443EF0C177620B70000FFE8 /* WPTabBarController.m in Sources */,
-				5443EF0E177620B70000FFE8 /* WPTagTableViewController.m in Sources */,
-				5443EF10177620B70000FFE8 /* XBMainViewController.m in Sources */,
 				5443EF12177620B70000FFE8 /* WPDataMerger.m in Sources */,
 				5443EF14177620B70000FFE8 /* WPDataPager.m in Sources */,
 				5443EF16177620B70000FFE8 /* XBWordpressArrayDataSource.m in Sources */,
-				5443EF18177620B70000FFE8 /* main.m in Sources */,
-				5443EF1A177620B70000FFE8 /* XBViewControllerManager.m in Sources */,
 				5443EF1C177620B70000FFE8 /* EBEvent.m in Sources */,
 				5443EF1E177620B70000FFE8 /* EBOrganizer.m in Sources */,
 				5443EF20177620B70000FFE8 /* EBVenue.m in Sources */,
@@ -2812,66 +2807,26 @@
 				5443EF4A177620B70000FFE8 /* WPSTag.m in Sources */,
 				5443EF4C177620B70000FFE8 /* WPTag.m in Sources */,
 				5443EF4E177620B70000FFE8 /* GravatarHelper.m in Sources */,
-				5443EF50177620B70000FFE8 /* XBSharekitSupport.m in Sources */,
-				5443EF52177620B70000FFE8 /* XBSHKConfigurator.m in Sources */,
 				5443EF54177620B70000FFE8 /* XBHttpUtils.m in Sources */,
 				5443EF56177620B70000FFE8 /* XBUDID.m in Sources */,
-				5443EF7E177620B70000FFE8 /* XBLoadingView.m in Sources */,
-				5443EF84177620B70000FFE8 /* XBAppDelegate.m in Sources */,
 				5443EF86177620B70000FFE8 /* XBConstants.m in Sources */,
 				DB34D74CF00ACCCED7353C90 /* VMVideo.m in Sources */,
-				DB34D5B7F795E3F7B060ABC9 /* VMVideoTableViewController.m in Sources */,
-				DB34D8F47C750E6AC465BEFE /* EBEventCell.m in Sources */,
-				DB34D4959DEAA547256DD43D /* GHRepositoryCell.m in Sources */,
-				DB34D4AAC10C390433AE4B96 /* GHMemberCell.m in Sources */,
-				DB34DF6C6006A6FB745FF1D5 /* GHUserCell.m in Sources */,
-				DB34D87A546891A1D3CE41D5 /* TTTweetCell.m in Sources */,
-				DB34DDA38AE0BEB35134605A /* WPAuthorCell.m in Sources */,
-				DB34DC06331986A8C48DC3CD /* WPTagCell.m in Sources */,
-				DB34D0BCF29D66E1F8CC2711 /* WPSPostCell.m in Sources */,
-				DB34D268AC837A22AA8D64EC /* WPCategoryCell.m in Sources */,
-				DB34D553F4CD970B72DD5ED9 /* VMVideoCell.m in Sources */,
-				DB34DDCE25DFE6515495AA45 /* XBLeftMenuCell.m in Sources */,
 				DB34D6DB57FC5AB97DBFA2B0 /* VMUser.m in Sources */,
 				DB34D040BF7E24A9D7EEF4C7 /* VMThumbnail.m in Sources */,
-				DB34DA61C13EC06BBF7FEB23 /* UIAlertView+XBAdditions.m in Sources */,
-				DB34DDCEA4DCB55F4F0DABB2 /* VMVideoDetailsViewController.m in Sources */,
 				54A7484F177F124B00B9A907 /* XBDate.m in Sources */,
-				DB34D217190540A658E8B52C /* XBRightMenuViewController.m in Sources */,
-				DB34DD15CEF7F28160123B79 /* XECardTableViewController.m in Sources */,
-				DB34D91FB6D8F2B7DF8E7437 /* XECardCell.m in Sources */,
 				DB34D2178AD0916DF2038F6C /* XECard.m in Sources */,
 				DB34DCA31F2B13810B79BC4F /* XEDeck.m in Sources */,
 				DB34D5E0DC911E182E1396ED /* XECategory.m in Sources */,
 				DB34D4578F76484EBBF9DE93 /* XESponsor.m in Sources */,
 				DB34D7EE0FE712FFCF9BF08E /* XETag.m in Sources */,
-				DB34D80AFFDF2381C861F350 /* XECardDetailsViewController.m in Sources */,
-				DB34DA8F67EFC27B0D01DDE8 /* XECategoryTableViewController.m in Sources */,
-				DB34D65BEB6CF10C52FC7BA8 /* XECategoryCell.m in Sources */,
-				DB34D2B250CECFC309FED9BD /* XEAbstractCell.m in Sources */,
 				DB34D083C9EDF348B8417033 /* XEULink.m in Sources */,
-				DB34DF48C933A3D0822B7DCC /* XECardDetailsPageViewController.m in Sources */,
-				DB34D28F18D62C9777EEA42C /* XECardDetailsQRCodeViewController.m in Sources */,
 				DB34D66E4CF559E6404DBF3C /* NSDate+XBAdditions.m in Sources */,
-				DB34D9FCAD8E7694D7D1DF4C /* WPPostDetailsViewControllerBack.m in Sources */,
-				DB34DA58299DB142E5C7EE89 /* WPPostDetailsViewController.m in Sources */,
 				DB34D6772D8F9B5AD6C3DB76 /* WPPostContentStructuredElement.m in Sources */,
 				DB34D89DB04BB9FA5059B985 /* WPPostContentStructuredElementAttribute.m in Sources */,
-				DB34D9BC50705771B8675BCF /* WPPostContentParagraphElementCell.m in Sources */,
-				DB34D3857D1BA4C5C4C4CB56 /* WPPostContentDefaultElementCell.m in Sources */,
-				DB34DBB19B45F7AD4668AEC5 /* WPAbstractPostContentStructuredElementCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		54C2DF0D15BDFAFC00CABB12 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 54C2DEE515BDFAFB00CABB12 /* xebia-ios */;
-			targetProxy = 54C2DF0C15BDFAFC00CABB12 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		5443EA731775BEC40000FFE8 /* InfoPlist.strings */ = {
@@ -2963,14 +2918,11 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				LIBRARY_SEARCH_PATHS = (
 					"\"$(PODS_ROOT)/TestFlightSDK\"",
-					"\"${PROJECT_DIR}/Analytics\"/**",
 					"\"$(SRCROOT)/Classes/Analytics\"",
 				);
-				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "918BCE03-40B8-45FA-BB19-4450DE857029";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "918BCE03-40B8-45FA-BB19-4450DE857029";
-				SDKROOT = iphoneos;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -2988,35 +2940,34 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				LIBRARY_SEARCH_PATHS = (
 					"\"$(PODS_ROOT)/TestFlightSDK\"",
-					"\"${PROJECT_DIR}/Analytics\"/**",
 					"\"$(SRCROOT)/Classes/Analytics\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "918BCE03-40B8-45FA-BB19-4450DE857029";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "918BCE03-40B8-45FA-BB19-4450DE857029";
-				SDKROOT = iphoneos;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
 		};
 		54C2DF1D15BDFAFC00CABB12 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = FFE479B60E604A7197B75249 /* Pods.xcconfig */;
+			baseConfigurationReference = 8CF994BE351A4432BFAA51FC /* Pods-xebia-iosTests.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/xebia-ios.app/xebia-ios";
 				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "xebia-ios/xebia-ios-Prefix.pch";
-				INFOPLIST_FILE = "xebia-iosTests/xebia-iosTests-Info.plist";
+				GCC_PREFIX_HEADER = "Targets/xebia-ios/xebia-ios-Prefix.pch";
+				INFOPLIST_FILE = "$(SRCROOT)/Targets/xebia-iosTests/xebia-iosTests-Info.plist";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)/xebia-ios/Classes/Analytics\"",
 					"\"$(SRCROOT)/Classes/Analytics\"",
 				);
 				OTHER_LDFLAGS = (
+					"$(inherited)",
 					"-ObjC",
 					"-all_load",
 					"-framework",
@@ -3042,18 +2993,19 @@
 		};
 		54C2DF1E15BDFAFC00CABB12 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8CF994BE351A4432BFAA51FC /* Pods-xebia-iosTests.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/xebia-ios.app/xebia-ios";
 				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "xebia-ios/xebia-ios-Prefix.pch";
-				INFOPLIST_FILE = "xebia-iosTests/xebia-iosTests-Info.plist";
+				GCC_PREFIX_HEADER = "Targets/xebia-ios/xebia-ios-Prefix.pch";
+				INFOPLIST_FILE = "$(SRCROOT)/Targets/xebia-iosTests/xebia-iosTests-Info.plist";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)/xebia-ios/Classes/Analytics\"",
 					"\"$(SRCROOT)/Classes/Analytics\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";

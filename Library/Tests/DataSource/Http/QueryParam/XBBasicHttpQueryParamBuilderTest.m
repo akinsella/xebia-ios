@@ -6,9 +6,9 @@
 
 
 #import "XBBasicHttpQueryParamBuilder.h"
-#import "GHUnit.h"
+#import <SenTestingKit/SenTestingKit.h>
 
-@interface XBBasicHttpQueryParamBuilderTest : GHTestCase @end
+@interface XBBasicHttpQueryParamBuilderTest : SenTestCase @end
 
 @implementation XBBasicHttpQueryParamBuilderTest
 
@@ -21,9 +21,9 @@
 
     NSDictionary *dictionary = [httpQueryParamBuilder build];
 
-    GHAssertEqualStrings(dictionary[@"slug"], @"ios", nil);
-    GHAssertEquals([dictionary[@"count"] intValue], 20, nil);
-    GHAssertEquals([dictionary[@"page"] intValue], 10, nil);
+    STAssertEqualObjects(dictionary[@"slug"], @"ios", nil);
+    STAssertEquals([dictionary[@"count"] unsignedIntegerValue], 20U, nil);
+    STAssertEquals([dictionary[@"page"] unsignedIntegerValue], 10U, nil);
 }
 
 @end

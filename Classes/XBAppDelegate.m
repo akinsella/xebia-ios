@@ -16,7 +16,6 @@
 #import "XBLeftMenuViewController.h"
 #import "GAITracker.h"
 #import "GAI.h"
-#import "SecureUDID.h"
 #import "XBUDID.h"
 #import "XBLogging.h"
 #import "XBConstants.h"
@@ -30,6 +29,7 @@ static NSString *const kAppId = @"1234567890";
 
 static NSString* const DeviceTokenKey = @"DeviceToken";
 
+
 @interface XBAppDelegate()
 
 @property(nonatomic, strong) XBViewControllerManager *viewControllerManager;
@@ -42,9 +42,17 @@ static NSString* const DeviceTokenKey = @"DeviceToken";
 
 @implementation XBAppDelegate
 
-@synthesize window = _window;
-
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+
+    if (NSClassFromString(@"SenTestCase") != nil) {
+        return YES;
+    }
+    else {
+        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
+        UIViewController *initViewController = [storyboard instantiateViewControllerWithIdentifier:@"centralNavigationController"];
+        self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+        [self.window setRootViewController: initViewController];
+    }
 
     self.configurationProvider = [XBPListConfigurationProvider provider];
 
@@ -67,7 +75,7 @@ static NSString* const DeviceTokenKey = @"DeviceToken";
     [self initIntrospect];
 
     [self registerForRemoteNotification];
-    
+
     [self initApplicationRating];
 
 #if DEBUG
@@ -75,6 +83,8 @@ static NSString* const DeviceTokenKey = @"DeviceToken";
     [leftMenuViewController revealViewControllerWithIdentifier:@"tbBlog"];
 #endif
 
+    [self.window makeKeyAndVisible];
+    
     return YES;
 }
 

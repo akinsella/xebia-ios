@@ -7,22 +7,21 @@
 
 #import "XBCacheableDataLoader.h"
 #import "XBHttpJsonDataLoader.h"
-#import "GHUnit.h"
+#import <SenTestingKit/SenTestingKit.h>
 #import "XBTestUtils.h"
 #import "XBFileSystemCacheSupport.h"
 #import "XBHttpDataLoaderCacheKeyBuilder.h"
+#import <SenTestingKitAsync/SenTestingKitAsync.h>
 
 #define kNetworkTimeout 30.0f
 
 
-@interface XBCacheableDataLoaderTest : GHAsyncTestCase @end
+@interface XBCacheableDataLoaderTest : SenTestCase @end
 
 @implementation XBCacheableDataLoaderTest
 
 
 - (void)testFetchDataResult {
-    [self prepare];
-
     id httpClient = [XBTestUtils fakeHttpClientWithSuccessCallbackWithData:[XBTestUtils getAuthorsAsJson]];
 
     XBHttpJsonDataLoader *httpJsonDataLoader = [XBHttpJsonDataLoader dataLoaderWithHttpClient:httpClient
@@ -42,23 +41,23 @@
 
     [dataLoader loadDataWithSuccess:^(NSDictionary *data) {
         responseData = data;
-        [self notify:kGHUnitWaitStatusSuccess forSelector:@selector(testFetchDataResult)];
+        STSuccess();
     } failure:^(NSError *error) {
         responseError = error;
-        [self notify:kGHUnitWaitStatusSuccess forSelector:@selector(testFetchDataResult)];
+        STSuccess();
     }];
 
-    [self waitForStatus:kGHUnitWaitStatusSuccess timeout:kNetworkTimeout];
+    STFailAfter(kNetworkTimeout, @"Expected response before timeout");
 
-    GHAssertNil(responseError, [NSString stringWithFormat:@"Error[code: '%li', domain: '%@'", (long)responseError.code, responseError.domain]);
+    STAssertNil(responseError, [NSString stringWithFormat:@"Error[code: '%ld', domain: '%@'", (long)responseError.code, responseError.domain]);
 
     NSString *status = responseData[@"status"];
     NSNumber *count = responseData[@"count"];
     NSArray *authors = responseData[@"authors"];
 
-    GHAssertEqualStrings(status, @"ok", nil);
-    GHAssertEquals([count intValue], 70, nil);
-    GHAssertEquals(authors.count, [@70 unsignedIntegerValue], nil);
+    STAssertEqualObjects(status, @"ok", nil);
+    STAssertEquals([count unsignedIntegerValue], 70U, nil);
+    STAssertEquals(authors.count, 70U, nil);
 }
 
 

@@ -53,11 +53,25 @@
 	<key>UIAppFonts</key>
 	<array>
 		<string>Lobster.ttf</string>
+		<string>Cabin-Bold.ttf</string>
+		<string>Cabin-BoldItalic.ttf</string>
+		<string>Cabin-Italic.ttf</string>
+		<string>Cabin-Medium.ttf</string>
+		<string>Cabin-MediumItalic.ttf</string>
+		<string>Cabin-Regular.ttf</string>
+		<string>Cabin-SemiBold.ttf</string>
+		<string>Cabin-SemiBoldItalic.ttf</string>
+		<string>Lato-Bla.ttf</string>
+		<string>Lato-BlaIta.ttf</string>
+		<string>Lato-Bol.ttf</string>
+		<string>Lato-BolIta.ttf</string>
+		<string>Lato-Hai.ttf</string>
+		<string>Lato-HaiIta.ttf</string>
+		<string>Lato-Lig.ttf</string>
+		<string>Lato-LigIta.ttf</string>
+		<string>Lato-Reg.ttf</string>
+		<string>Lato-RegIta.ttf</string>
 	</array>
-	<key>UIMainStoryboardFile</key>
-	<string>MainStoryboard</string>
-	<key>UIMainStoryboardFile~ipad</key>
-	<string>MainStoryboard</string>
 	<key>UIPrerenderedIcon</key>
 	<true/>
 	<key>UIRequiredDeviceCapabilities</key>

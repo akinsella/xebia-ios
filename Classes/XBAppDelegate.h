@@ -21,5 +21,6 @@
 @property(nonatomic, strong, readonly) XBConfigurationProvider *configurationProvider;
 @property(nonatomic, assign, readonly) Boolean registered;
 @property(nonatomic, strong, readonly) id<GAITracker> tracker;
+@property(nonatomic, strong) UIWindow *window;
 
 @end

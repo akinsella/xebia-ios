@@ -35,7 +35,7 @@
 }
 
 - (void)loadDataWithSuccess:(void (^)(id))success failure:(void (^)(NSError *))failure {
-    NSBundle *mainBundle = [NSBundle mainBundle];
+    NSBundle *mainBundle = [NSBundle bundleForClass:self.class];
     NSString *file = [mainBundle pathForResource:self.resourcePath ofType:self.resourceType];
     NSError *error;
     NSString *jsonLoaded = [NSString stringWithContentsOfFile:file encoding:NSUTF8StringEncoding error:&error];

@@ -6,11 +6,11 @@
 
 
 #import "XBJsonToArrayDataMapper.h"
-#import "GHUnit.h"
+#import <SenTestingKit/SenTestingKit.h>
 #import "WPAuthor.h"
 #import "XBTestUtils.h"
 
-@interface XBJsonToArrayDataMapperTest : GHTestCase @end
+@interface XBJsonToArrayDataMapperTest : SenTestCase @end
 
 @implementation XBJsonToArrayDataMapperTest
 
@@ -18,7 +18,7 @@
     XBJsonToArrayDataMapper *dataMapper = [XBJsonToArrayDataMapper mapperWithRootKeyPath:@"authors" typeClass:[WPAuthor class]];
     NSArray *wpAuthors = [dataMapper mapData:[XBTestUtils getAuthorsAsJson]];
 
-    GHAssertEquals(wpAuthors.count, [@70U unsignedLongValue], nil);
+    STAssertEquals(wpAuthors.count, 70U, nil);
 }
 
 - (void)testValues {
@@ -27,14 +27,14 @@
 
     WPAuthor *wpAuthor = [XBTestUtils findAuthorInArray:authors ById:50];
 
-    GHAssertEquals([wpAuthor.identifier intValue], 50, nil);
-    GHAssertEqualStrings(wpAuthor.slug, @"akinsella", nil);
-    GHAssertEqualStrings(wpAuthor.name, @"Alexis Kinsella", nil);
-    GHAssertEqualStrings(wpAuthor.first_name, @"Alexis", nil);
-    GHAssertEqualStrings(wpAuthor.last_name, @"Kinsella", nil);
-    GHAssertEqualStrings(wpAuthor.nickname, @"akinsella", nil);
-    GHAssertEqualStrings(wpAuthor.url, @"http://www.xebia.fr", nil);
-    GHAssertEqualStrings(wpAuthor.description_, @"", nil);
+    STAssertEquals([wpAuthor.identifier unsignedIntegerValue], 50U, nil);
+    STAssertEqualObjects(wpAuthor.slug, @"akinsella", nil);
+    STAssertEqualObjects(wpAuthor.name, @"Alexis Kinsella", nil);
+    STAssertEqualObjects(wpAuthor.firstname, @"Alexis", nil);
+    STAssertEqualObjects(wpAuthor.lastname, @"Kinsella", nil);
+    STAssertEqualObjects(wpAuthor.nickname, @"akinsella", nil);
+    STAssertEqualObjects(wpAuthor.url, @"http://www.xebia.fr", nil);
+    STAssertEqualObjects(wpAuthor.description_, @"", nil);
 }
 
 @end

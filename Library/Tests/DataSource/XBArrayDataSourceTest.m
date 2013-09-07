@@ -5,7 +5,7 @@
 //
 
 
-#import "GHUnit.h"
+#import <SenTestingKit/SenTestingKit.h>
 #import "XBInfiniteScrollArrayDataSource.h"
 #import "WPAuthor.h"
 #import "XBHttpClient.h"
@@ -13,7 +13,7 @@
 #import "XBJsonToArrayDataMapper.h"
 
 
-@interface XBArrayDataSourceTest : GHTestCase @end
+@interface XBArrayDataSourceTest : SenTestCase @end
 
 @implementation XBArrayDataSourceTest
 
@@ -38,7 +38,7 @@ NSComparator reverseStringComparator = ^NSComparisonResult(NSString *str1, NSStr
     NSArray *array = @[@"item1", @"item2", @"item3"];
 
     XBArrayDataSource *dataSource = [XBArrayDataSource dataSourceWithArray:array];
-    GHAssertEquals(dataSource.count, [@3U unsignedLongValue], nil);
+    STAssertEquals(dataSource.count, 3U, nil);
 }
 
 - (void)testObjectSubScripting {
@@ -46,9 +46,9 @@ NSComparator reverseStringComparator = ^NSComparisonResult(NSString *str1, NSStr
     NSArray *array = @[@"item1", @"item2", @"item3"];
 
     XBArrayDataSource *dataSource = [XBArrayDataSource dataSourceWithArray:array];
-    GHAssertEqualStrings(dataSource[0], @"item1", nil);
-    GHAssertEqualStrings(dataSource[1], @"item2", nil);
-    GHAssertEqualStrings(dataSource[2], @"item3", nil);
+    STAssertEqualObjects(dataSource[0], @"item1", nil);
+    STAssertEqualObjects(dataSource[1], @"item2", nil);
+    STAssertEqualObjects(dataSource[2], @"item3", nil);
 }
 
 - (void)testFilter {
@@ -57,10 +57,10 @@ NSComparator reverseStringComparator = ^NSComparisonResult(NSString *str1, NSStr
 
     XBArrayDataSource *dataSource = [XBArrayDataSource dataSourceWithArray:array];
     [dataSource filter:itemFilterPredicate];
-    GHAssertEquals(dataSource.count, [@3U unsignedLongValue], nil);
-    GHAssertEqualStrings(dataSource[0], @"item1", nil);
-    GHAssertEqualStrings(dataSource[1], @"item2", nil);
-    GHAssertEqualStrings(dataSource[2], @"item3", nil);
+    STAssertEquals(dataSource.count, 3U, nil);
+    STAssertEqualObjects(dataSource[0], @"item1", nil);
+    STAssertEqualObjects(dataSource[1], @"item2", nil);
+    STAssertEqualObjects(dataSource[2], @"item3", nil);
 }
 
 - (void)testSort {
@@ -69,12 +69,12 @@ NSComparator reverseStringComparator = ^NSComparisonResult(NSString *str1, NSStr
 
     XBArrayDataSource *dataSource = [XBArrayDataSource dataSourceWithArray:array];
     [dataSource sort:stringComparator];
-    GHAssertEquals(dataSource.count, [@5U unsignedLongValue], nil);
-    GHAssertEqualStrings(dataSource[0], @"item1", nil);
-    GHAssertEqualStrings(dataSource[1], @"item2", nil);
-    GHAssertEqualStrings(dataSource[2], @"item3", nil);
-    GHAssertEqualStrings(dataSource[3], @"test1", nil);
-    GHAssertEqualStrings(dataSource[4], @"test2", nil);
+    STAssertEquals(dataSource.count, 5U, nil);
+    STAssertEqualObjects(dataSource[0], @"item1", nil);
+    STAssertEqualObjects(dataSource[1], @"item2", nil);
+    STAssertEqualObjects(dataSource[2], @"item3", nil);
+    STAssertEqualObjects(dataSource[3], @"test1", nil);
+    STAssertEqualObjects(dataSource[4], @"test2", nil);
 }
 
 - (void)testFilterAndSort {
@@ -83,15 +83,15 @@ NSComparator reverseStringComparator = ^NSComparisonResult(NSString *str1, NSStr
     XBArrayDataSource *dataSource = [XBArrayDataSource dataSourceWithArray:array];
     [dataSource filter:itemFilterPredicate];
 
-    GHAssertEquals(dataSource.count, [@2U unsignedLongValue], nil);
-    GHAssertEqualStrings(dataSource[0], @"item2", nil);
-    GHAssertEqualStrings(dataSource[1], @"item1", nil);
+    STAssertEquals(dataSource.count, 2U, nil);
+    STAssertEqualObjects(dataSource[0], @"item2", nil);
+    STAssertEqualObjects(dataSource[1], @"item1", nil);
 
     [dataSource sort:stringComparator];
 
-    GHAssertEquals(dataSource.count, [@2U unsignedLongValue], nil);
-    GHAssertEqualStrings(dataSource[0], @"item1", nil);
-    GHAssertEqualStrings(dataSource[1], @"item2", nil);
+    STAssertEquals(dataSource.count, 2U, nil);
+    STAssertEqualObjects(dataSource[0], @"item1", nil);
+    STAssertEqualObjects(dataSource[1], @"item2", nil);
 }
 
 - (void)testFilterTwoTimes {
@@ -100,16 +100,16 @@ NSComparator reverseStringComparator = ^NSComparisonResult(NSString *str1, NSStr
     XBArrayDataSource *dataSource = [XBArrayDataSource dataSourceWithArray:array];
     [dataSource filter:itemFilterPredicate];
 
-    GHAssertEquals(dataSource.count, [@3U unsignedLongValue], nil);
-    GHAssertEqualStrings(dataSource[0], @"item2", nil);
-    GHAssertEqualStrings(dataSource[1], @"item3", nil);
-    GHAssertEqualStrings(dataSource[2], @"item1", nil);
+    STAssertEquals(dataSource.count, 3U, nil);
+    STAssertEqualObjects(dataSource[0], @"item2", nil);
+    STAssertEqualObjects(dataSource[1], @"item3", nil);
+    STAssertEqualObjects(dataSource[2], @"item1", nil);
 
     [dataSource filter:testFilterPredicate];
 
-    GHAssertEquals(dataSource.count, [@2U unsignedLongValue], nil);
-    GHAssertEqualStrings(dataSource[0], @"test2", nil);
-    GHAssertEqualStrings(dataSource[1], @"test1", nil);
+    STAssertEquals(dataSource.count, 2U, nil);
+    STAssertEqualObjects(dataSource[0], @"test2", nil);
+    STAssertEqualObjects(dataSource[1], @"test1", nil);
 }
 
 
@@ -119,21 +119,21 @@ NSComparator reverseStringComparator = ^NSComparisonResult(NSString *str1, NSStr
     XBArrayDataSource *dataSource = [XBArrayDataSource dataSourceWithArray:array];
     [dataSource sort:stringComparator];
 
-    GHAssertEquals(dataSource.count, [@5U unsignedLongValue], nil);
-    GHAssertEqualStrings(dataSource[0], @"item1", nil);
-    GHAssertEqualStrings(dataSource[1], @"item2", nil);
-    GHAssertEqualStrings(dataSource[2], @"item3", nil);
-    GHAssertEqualStrings(dataSource[3], @"test1", nil);
-    GHAssertEqualStrings(dataSource[4], @"test2", nil);
+    STAssertEquals(dataSource.count, 5U, nil);
+    STAssertEqualObjects(dataSource[0], @"item1", nil);
+    STAssertEqualObjects(dataSource[1], @"item2", nil);
+    STAssertEqualObjects(dataSource[2], @"item3", nil);
+    STAssertEqualObjects(dataSource[3], @"test1", nil);
+    STAssertEqualObjects(dataSource[4], @"test2", nil);
 
     [dataSource sort:reverseStringComparator];
 
-    GHAssertEquals(dataSource.count, [@5U unsignedLongValue], nil);
-    GHAssertEqualStrings(dataSource[0], @"test2", nil);
-    GHAssertEqualStrings(dataSource[1], @"test1", nil);
-    GHAssertEqualStrings(dataSource[2], @"item3", nil);
-    GHAssertEqualStrings(dataSource[3], @"item2", nil);
-    GHAssertEqualStrings(dataSource[4], @"item1", nil);
+    STAssertEquals(dataSource.count, 5U, nil);
+    STAssertEqualObjects(dataSource[0], @"test2", nil);
+    STAssertEqualObjects(dataSource[1], @"test1", nil);
+    STAssertEqualObjects(dataSource[2], @"item3", nil);
+    STAssertEqualObjects(dataSource[3], @"item2", nil);
+    STAssertEqualObjects(dataSource[4], @"item1", nil);
 
 }
 
@@ -144,9 +144,9 @@ NSComparator reverseStringComparator = ^NSComparisonResult(NSString *str1, NSStr
                                                            filterPredicate:itemFilterPredicate
                                                             sortComparator:stringComparator];
 
-    GHAssertEquals(dataSource.count, [@2U unsignedLongValue], nil);
-    GHAssertEqualStrings(dataSource[0], @"item1", nil);
-    GHAssertEqualStrings(dataSource[1], @"item2", nil);
+    STAssertEquals(dataSource.count, 2U, nil);
+    STAssertEqualObjects(dataSource[0], @"item1", nil);
+    STAssertEqualObjects(dataSource[1], @"item2", nil);
 }
 
 @end

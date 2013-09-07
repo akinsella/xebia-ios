@@ -14,7 +14,7 @@
 }
 
 - (id)init {
-    NSBundle *bundle = [NSBundle mainBundle];
+    NSBundle *bundle = [NSBundle bundleForClass:self.class];
     NSDictionary *dictionary = [bundle infoDictionary];
     self = [super initWithDictionnary:dictionary];
     if (self) {

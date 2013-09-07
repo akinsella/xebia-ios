@@ -18,7 +18,7 @@
 - (void)updateWithWPPostContentElement:(WPPostContentStructuredElement *)element {
     [super updateWithWPPostContentElement: element];
 
-    NSString* path = [[NSBundle mainBundle] pathForResource: @"index" ofType: @"html" inDirectory: @"www"];
+    NSString* path = [[NSBundle bundleForClass:self.class] pathForResource: @"index" ofType: @"html" inDirectory: @"www"];
 
     NSString* content = [NSString stringWithContentsOfFile:path
                                                   encoding:NSUTF8StringEncoding

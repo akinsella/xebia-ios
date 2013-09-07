@@ -5,13 +5,13 @@
 //
 
 
-#import "GHUnit.h"
+#import <SenTestingKit/SenTestingKit.h>
 #import "XBTestUtils.h"
 #import "XBHttpJsonDataLoader.h"
 #import "XBHttpDataLoaderCacheKeyBuilder.h"
 #import "XBBasicHttpQueryParamBuilder.h"
 
-@interface XBHttpDataLoaderCacheKeyBuilderTest : GHTestCase @end
+@interface XBHttpDataLoaderCacheKeyBuilderTest : SenTestCase @end
 
 @implementation XBHttpDataLoaderCacheKeyBuilderTest
 
@@ -27,7 +27,7 @@
 
     NSString *result = [cacheKeyBuilder buildWithData:dataLoader];
 
-    GHAssertEqualStrings(result, @"http://blog.xebia.fr/wp-json-api/get_author_index/", nil);
+    STAssertEqualObjects(result, @"http://blog.xebia.fr/wp-json-api/get_author_index/", nil);
 }
 
 -(void)testWithQueryParams {
@@ -49,7 +49,7 @@
 
     NSString *result = [cacheKeyBuilder buildWithData:dataLoader];
 
-    GHAssertEqualStrings(result, @"http://blog.xebia.fr/wp-json-api/get_author_index/?count=20&page=10&slug=ios", nil);
+    STAssertEqualObjects(result, @"http://blog.xebia.fr/wp-json-api/get_author_index/?count=20&page=10&slug=ios", nil);
 }
 
 @end

@@ -8,17 +8,17 @@
 
 
 #import "XBBundleJsonDataLoader.h"
-#import "GHUnit.h"
+#import <SenTestingKit/SenTestingKit.h>
 #import "XBTestUtils.h"
+#import <SenTestingKitAsync/SenTestingKitAsync.h>
 
 #define kNetworkTimeout 30.0f
 
-@interface XBBundleJsonDataLoaderTest : GHAsyncTestCase @end
+@interface XBBundleJsonDataLoaderTest : SenTestCase @end
 
 @implementation XBBundleJsonDataLoaderTest
 
 - (void)testFetchDataResult {
-    [self prepare];
 
     XBBundleJsonDataLoader *dataLoader = [XBBundleJsonDataLoader dataLoaderWithResourcePath:@"wp-author-index" resourceType:@"json"];
 
@@ -27,23 +27,23 @@
 
     [dataLoader loadDataWithSuccess:^(NSDictionary * data) {
         responseData = data;
-        [self notify:kGHUnitWaitStatusSuccess forSelector:@selector(testFetchDataResult)];
+        STSuccess();
     } failure:^(NSError *error) {
         responseError = error;
-        [self notify:kGHUnitWaitStatusSuccess forSelector:@selector(testFetchDataResult)];
+        STSuccess();
     }];
 
-    [self waitForStatus:kGHUnitWaitStatusSuccess timeout:kNetworkTimeout];
+    STFailAfter(kNetworkTimeout, @"Expected response before timeout");
 
-    GHAssertNil(responseError, [NSString stringWithFormat:@"Error[code: '%li', domain: '%@'", (long)responseError.code, responseError.domain]);
+    STAssertNil(responseError, [NSString stringWithFormat:@"Error[code: '%ld', domain: '%@'", (long)responseError.code, responseError.domain]);
 
     NSString *status = responseData[@"status"];
     NSNumber *count = responseData[@"count"];
     NSArray *authors = responseData[@"authors"];
 
-    GHAssertEqualStrings(status, @"ok", nil);
-    GHAssertEquals([count intValue], 70, nil);
-    GHAssertEquals(authors.count, [@70 unsignedIntegerValue], nil);
+    STAssertEqualObjects(status, @"ok", nil);
+    STAssertEquals([count unsignedIntegerValue], 70U, nil);
+    STAssertEquals(authors.count, 70U, nil);
 }
 
 

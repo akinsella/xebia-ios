@@ -9,9 +9,9 @@
 #import "NSString+XBAdditions.h"
 
 #import <Foundation/Foundation.h>
-#import "GHUnit.h"
+#import <SenTestingKit/SenTestingKit.h>
 
-@interface NSStringTest : GHTestCase @end
+@interface NSStringTest : SenTestCase @end
 
 
 @implementation NSStringTest
@@ -19,17 +19,17 @@
 -(void)testShouldConvertStringToIndexSet {
     NSIndexSet * indexSet = [@"23,34,45" asIndexSet];
 
-    GHAssertEquals([indexSet count], (NSUInteger)3, nil);
-    GHAssertEquals([indexSet firstIndex], (NSUInteger)23, nil);
-    GHAssertEquals([indexSet indexGreaterThanIndex:23], (NSUInteger)34, nil);
-    GHAssertEquals([indexSet lastIndex], (NSUInteger)45, nil);
+    STAssertEquals([indexSet count], 3U, nil);
+    STAssertEquals([indexSet firstIndex], 23U, nil);
+    STAssertEquals([indexSet indexGreaterThanIndex:23], 34U, nil);
+    STAssertEquals([indexSet lastIndex], 45U, nil);
 }
 
 -(void)testShouldConvertStringToOneValueIndexSet {
     NSIndexSet * indexSet = [@"23" asIndexSet];
 
-    GHAssertEquals([indexSet count], (NSUInteger)1, nil);
-    GHAssertEquals([indexSet firstIndex], (NSUInteger)23, nil);
+    STAssertEquals([indexSet count], 1U, nil);
+    STAssertEquals([indexSet firstIndex], 23U, nil);
 }
 
 @end

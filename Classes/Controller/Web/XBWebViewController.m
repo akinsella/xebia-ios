@@ -165,7 +165,7 @@
 }
 
 - (NSString *)gravatarPlaceholder {
-    return [[NSBundle mainBundle] pathForResource:@"avatar_placeholder" ofType:@"png"];
+    return [[NSBundle bundleForClass:self.class] pathForResource:@"avatar_placeholder" ofType:@"png"];
 }
 
 - (void)processLogRequest:(NSString *)requestString {

@@ -88,7 +88,7 @@
      webViewController.shareInfo = shareInfo;
      webViewController.json = json;
 
-     NSString *htmlFile = [[NSBundle mainBundle] pathForResource:htmlFileRef ofType:@"html" inDirectory:@"www"];
+     NSString *htmlFile = [[NSBundle bundleForClass:self.class] pathForResource:htmlFileRef ofType:@"html" inDirectory:@"www"];
      NSURL *htmlDocumentUrl = [NSURL fileURLWithPath:htmlFile];
      [self revealViewController: webViewController];
 
