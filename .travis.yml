@@ -10,6 +10,9 @@ after_success:
 script: Scripts/build.sh
 env: 
   global: 
+  - APPNAME="xebia-ios"
+  - 'DEVELOPER_NAME="iPhone Developer: Alexis Kinsella (46N4T2UZ32)"'
+  - PROFILE_UUID=PROVISIONING_PROFILE_UUID
   - secure: O3dLGr0GfUICUEqWxroepijtTX9O/mhkAZew0rGFBNEDOVBfIk958TCqt/kZP8GV/XndkX9yuOEAR/1+Liw4aGQ5uzP3nwPD4pVse41uNLjkdae+ldgm0g+des5u94tLKqDSmuIANDJGh0qdeJx8QtcwhpPl2i8tTLKqlgadmvE=
   - secure: cC8bGOtZ0kNbxHKJfqeWpLcgXpG/FbPB0JM9qdGY77HgUeM95YUk3QOfjagE27UBxGyem9JZ/TEaD2wzwmnxYCIAFTxp4XAPAPD/2xjlBh1EV8UTWDwmdzBa4biG5wVRdDUuAIMMZwHMH5VnG775w5wuA0gaTVsXAmMFUxEIheA=
   - secure: VtFd/HsLyDt1x/985MokRmPtdpjE+POhlhxGjSVAAg//VZUz+wz/GvtEcMQOsyI8O06+YAd8B2yRlPJDmcReO/S7E1Fh4ShqAp0oYHzlYHXHfcd/rK7DzzmIyrusrzHKMJo+yaD25+lUbkc196eoTW38SOmAwVCdlFr8jnMy96Q=
