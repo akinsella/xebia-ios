@@ -2523,7 +2523,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "# Run the unit tests in this test bundle.\n#\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n${PROJECT_DIR}/Scripts/run_tests.rb";
+			shellScript = "# Run the unit tests in this test bundle.\n#\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\necho \"=== About to run tests\"\n${PROJECT_DIR}/Scripts/run_tests.rb";
 		};
 		A7C921BBAF794D17A84F91E1 /* Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;

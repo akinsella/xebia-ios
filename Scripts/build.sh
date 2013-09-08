@@ -26,12 +26,12 @@ XCODEBUILD_SETTINGS="TEST_AFTER_BUILD=YES"
 
 echo "=== Building for tests ..."
 START_TIME=$SECONDS
-xcodebuild -workspace xebia-ios.xcworkspace -scheme "xebia-ios" -sdk iphonesimulator -configuration Release clean build TEST_AFTER_BUILD=YES SL_RUN_UNIT_TESTS=YES | grep -E "===|warn|error" | grep -v "ibtool"
+xcodebuild -workspace xebia-ios.xcworkspace -scheme "xebia-iosTests" -sdk iphonesimulator -configuration Debug clean build OBJROOT="$PWD/build" SYMROOT="$PWD/build" TEST_AFTER_BUILD=YES SL_RUN_UNIT_TESTS=YES | grep -E "===|warn|error" | grep -v "ibtool"
 ELAPSED_TIME=$(($SECONDS - $START_TIME))
 echo "=== Build for release took: $(($ELAPSED_TIME/60)) min $(($ELAPSED_TIME%60)) sec" 
 echo "=== Building for release ..."
 START_TIME=$SECONDS
-xcodebuild -workspace xebia-ios.xcworkspace -scheme "xebia-ios" -sdk iphoneos -configuration Release clean build | grep -E "===|warn|error" | grep -v "ibtool"
+xcodebuild -workspace xebia-ios.xcworkspace -scheme "xebia-ios" -sdk iphoneos -configuration Release clean build OBJROOT="$PWD/build" SYMROOT="$PWD/build" | grep -E "===|warn|error" | grep -v "ibtool"
 ELAPSED_TIME=$(($SECONDS - $START_TIME))
 echo "=== Build for release took: $(($ELAPSED_TIME/60)) min $(($ELAPSED_TIME%60)) sec" 
 echo "=== Build script done"
