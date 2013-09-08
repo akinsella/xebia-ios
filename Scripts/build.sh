@@ -19,7 +19,7 @@ fi
 
 # Extra build settings to pass to xcodebuild.
 XCODEBUILD_SETTINGS="TEST_AFTER_BUILD=YES"
-PROVISIONING_PROFILE="`pwd`/Scritps/Profiles/$PROFILE_UUID.mobileprovision"
+PROVISIONING_PROFILE="`pwd`/Scripts/Profiles/$PROFILE_UUID.mobileprovision"
 
 echo "=== PROVISIONING_PROFILE: $PROVISIONING_PROFILE"
 echo "=== CODE_SIGN_IDENTITY: $DEVELOPER_NAME"
