@@ -2909,7 +2909,6 @@
 			buildSettings = {
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Alexis Kinsella (46N4T2UZ32)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Alexis Kinsella (46N4T2UZ32)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Targets/xebia-ios/xebia-ios-Prefix.pch";
 				INFOPLIST_FILE = "$(SRCROOT)/Targets/xebia-ios/xebia-ios-Info.plist";
@@ -2919,8 +2918,7 @@
 					"\"$(SRCROOT)/Classes/Analytics\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "918BCE03-40B8-45FA-BB19-4450DE857029";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "918BCE03-40B8-45FA-BB19-4450DE857029";
+				PROVISIONING_PROFILE = "E326D2CF-B8FE-4410-B9CC-CF569D60C47D";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -2931,7 +2929,6 @@
 			buildSettings = {
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Alexis Kinsella (46N4T2UZ32)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Alexis Kinsella (46N4T2UZ32)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Targets/xebia-ios/xebia-ios-Prefix.pch";
 				INFOPLIST_FILE = "$(SRCROOT)/Targets/xebia-ios/xebia-ios-Info.plist";
@@ -2941,8 +2938,7 @@
 					"\"$(SRCROOT)/Classes/Analytics\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "918BCE03-40B8-45FA-BB19-4450DE857029";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "918BCE03-40B8-45FA-BB19-4450DE857029";
+				PROVISIONING_PROFILE = "E326D2CF-B8FE-4410-B9CC-CF569D60C47D";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
