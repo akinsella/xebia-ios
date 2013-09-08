@@ -18,7 +18,9 @@ if ENV['SL_RUN_UNIT_TESTS'] then
     passed = system("#{launcher_path} launch \"#{app_test_host}\" #{environment_args} --unit-testing --args -SenTest All #{test_bundle_path}")
 
 	puts "=== Return code: #{passed}"
-    exit(1) if !passed
+    if !passed then
+        File.open("tests_failed", "w") {}
+        exit(1)
 else
     puts "=== SL_RUN_UNIT_TESTS not set - Did not run unit tests!"
 end
