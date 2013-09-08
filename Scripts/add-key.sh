@@ -1,16 +1,16 @@
 #!/bin/bash
 
-echo "Add Key script ..."
-echo "Keychain creation"
+echo "=== Add Key script ..."
+echo "=== Keychain creation"
 security create-keychain -p travis ios-build.keychain
-echo "Apple cert import"
+echo "=== Apple cert import"
 security import ./Scripts/Certs/apple.cer -k ~/Library/Keychains/ios-build.keychain -T /usr/bin/codesign
-echo "Dev cert import"
+echo "=== Dev cert import"
 security import ./Scripts/Certs/dev.cer -k ~/Library/Keychains/ios-build.keychain -T /usr/bin/codesign
-echo "Dev key import"
+echo "=== Dev key import"
 security import ./Scripts/Certs/dev.p12 -k ~/Library/Keychains/ios-build.keychain -P $KEY_PASSWORD -T /usr/bin/codesign
-echo "Provisioning profiles folder creation"
+echo "=== Provisioning profiles folder creation"
 mkdir -p ~/Library/MobileDevice/Provisioning\ Profiles
-echo "Copying Provisioning profiles"
+echo "=== Copying Provisioning profiles"
 cp ./Scripts/Profiles/* ~/Library/MobileDevice/Provisioning\ Profiles/
-echo "Add Key script done"
+echo "=== Add Key script done"
