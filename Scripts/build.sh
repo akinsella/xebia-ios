@@ -23,6 +23,6 @@ XCODEBUILD_SETTINGS="TEST_AFTER_BUILD=YES"
 ##
 
 echo "*** Building..."
-xcodebuild -workspace xebia-ios.xcworkspace -scheme "xebia-ios" -sdk iphonesimulator -configuration Debug clean build TEST_AFTER_BUILD=YES SL_RUN_UNIT_TESTS=YES > /dev/null
+xcodebuild -workspace xebia-ios.xcworkspace -scheme "xebia-ios" -sdk iphonesimulator -configuration Debug clean build TEST_AFTER_BUILD=YES SL_RUN_UNIT_TESTS=YES | grep "." | awk '{print substr ($0, 0, 196)}'
 
 echo "*** Build done"
