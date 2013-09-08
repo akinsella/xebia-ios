@@ -24,3 +24,5 @@ XCODEBUILD_SETTINGS="TEST_AFTER_BUILD=YES"
 
 echo "*** Building..."
 xcodebuild -workspace xebia-ios.xcworkspace -scheme "xebia-ios" -sdk iphonesimulator -configuration Debug clean build TEST_AFTER_BUILD=YES SL_RUN_UNIT_TESTS=YES > /dev/null
+
+echo "*** Build done"
