@@ -38,7 +38,7 @@ XCODEBUILD_SETTINGS="TEST_AFTER_BUILD=YES"
 
 echo "=== Building for Release ..."
 START_TIME=$SECONDS
-xcodebuild -workspace xebia-ios.xcworkspace -scheme "xebia-ios" -sdk iphoneos -configuration Release clean build OBJROOT="$PWD/build" SYMROOT="$PWD/build"
+xcodebuild -workspace xebia-ios.xcworkspace -scheme "xebia-ios" -sdk iphoneos -configuration Release clean build OBJROOT="$PWD/build" SYMROOT="$PWD/build" | awk '{print substr($0,0,120)'
 ELAPSED_TIME=$(($SECONDS - $START_TIME))
 echo "=== Build for release took: $(($ELAPSED_TIME/60)) min $(($ELAPSED_TIME%60)) sec" 
 
