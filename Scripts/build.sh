@@ -24,7 +24,10 @@ echo "=== PROVISIONING_PROFILE: $PROFILE_UUID"
 echo "=== CODE_SIGN_IDENTITY: $DEVELOPER_NAME"
 
 
-rm tests_failed
+if [ -f "tests_failed" ]
+then
+	rm tests_failed
+fi
 
 ##
 ## Build Process
