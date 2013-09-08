@@ -1,7 +1,6 @@
 #!/bin/bash
 
 export PATH="`pwd`/bin:$PATH"
-echo "PATH: $PATH"
 
 cd "$(dirname "$0")/.."
 SCRIPT_DIR=Scripts
@@ -24,4 +23,4 @@ XCODEBUILD_SETTINGS="TEST_AFTER_BUILD=YES"
 ##
 
 echo "*** Building..."
-xcodebuild -workspace xebia-ios.xcworkspace -scheme "xebia-iosTests" -sdk iphonesimulator -configuration Debug clean build TEST_AFTER_BUILD=YES SL_RUN_UNIT_TESTS=YES
+xcodebuild -workspace xebia-ios.xcworkspace -scheme "xebia-ios" -sdk iphonesimulator -configuration Debug clean build TEST_AFTER_BUILD=YES SL_RUN_UNIT_TESTS=YES
