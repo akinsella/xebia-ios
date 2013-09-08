@@ -1,3 +1,5 @@
+---
 language: objective-c
 gemfile: Gemfile
-
+before_script: Scripts/before.sh
+script: Scripts/build.sh
