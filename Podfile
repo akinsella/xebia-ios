@@ -1,4 +1,4 @@
-platform :ios, '5.0'
+platform :ios, '6.0'
 pod 'JSONKit',      		 		'1.5pre'
 pod 'Reachability', 		 		'3.0.0'
 pod 'SDWebImage',					'2.6'

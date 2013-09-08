@@ -301,6 +301,21 @@
 		544714C217764B61001F5153 /* TabBarItemSelectedImage.png in Resources */ = {isa = PBXBuildFile; fileRef = 544714BC17764B61001F5153 /* TabBarItemSelectedImage.png */; };
 		544714C317764B61001F5153 /* TabBarItemSelectedImage@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 544714BD17764B61001F5153 /* TabBarItemSelectedImage@2x.png */; };
 		544714C6177717D0001F5153 /* XBTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 544714C5177717D0001F5153 /* XBTableViewCell.m */; };
+		5485015B17DCBB0A002216C4 /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB34D86D5E8C02F41FEA568F /* CoreText.framework */; };
+		5485015C17DCBB0A002216C4 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB34D14B542638C01069450B /* CFNetwork.framework */; };
+		5485015D17DCBB0A002216C4 /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB34DA21F8A3FD79A967EFEF /* Accounts.framework */; };
+		5485015E17DCBB0A002216C4 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB34D705388B6EF1933EB1E3 /* CoreLocation.framework */; };
+		5485015F17DCBB0A002216C4 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB34D712058259EB7ABA14BD /* SystemConfiguration.framework */; };
+		5485016017DCBB0A002216C4 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB34D43948A4D9409E09F947 /* MessageUI.framework */; };
+		5485016117DCBB0A002216C4 /* Twitter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB34D5CB72485B6E20272C19 /* Twitter.framework */; };
+		5485016217DCBB0A002216C4 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB34DADE223E5899F8B6B00B /* Security.framework */; };
+		5485016317DCBB0A002216C4 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB34DE96DB0AD5C965696E37 /* MapKit.framework */; };
+		5485016417DCBB0A002216C4 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB34DD4E1507AF2BCB62C8A7 /* Social.framework */; };
+		5485016517DCBB0A002216C4 /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB34DF04C907FB61BA2D66B5 /* CoreVideo.framework */; };
+		5485016617DCBB0A002216C4 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB34DF58131095156D022417 /* CoreMedia.framework */; };
+		5485016717DCBB0A002216C4 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB34D0F8B07C89387C2F9E3F /* QuartzCore.framework */; };
+		5485016817DCBB0A002216C4 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB34D4D95E1188A7AD47E551 /* StoreKit.framework */; };
+		5485016917DCBB0A002216C4 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB34D2014253F0EE1EB4FBC5 /* ImageIO.framework */; };
 		5493E740179C20BC009C0D2B /* xebia-essentials-sample-barcode.png in Resources */ = {isa = PBXBuildFile; fileRef = 5493E73E179C20BC009C0D2B /* xebia-essentials-sample-barcode.png */; };
 		5493E741179C20BC009C0D2B /* xebia-essentials-sample-barcode@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5493E73F179C20BC009C0D2B /* xebia-essentials-sample-barcode@2x.png */; };
 		5493E74A179C7200009C0D2B /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54A74840177CF28E00B9A907 /* AVFoundation.framework */; };
@@ -885,7 +900,6 @@
 		DB34D5CB72485B6E20272C19 /* Twitter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Twitter.framework; path = ../../../../../Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.1.sdk/System/Library/Frameworks/Twitter.framework; sourceTree = "<group>"; };
 		DB34D5EBA1F3E1109B672E44 /* NSDate+XBAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+XBAdditions.m"; sourceTree = "<group>"; };
 		DB34D67385B70DF3E8904BDD /* XECategoryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XECategoryCell.h; sourceTree = "<group>"; };
-		DB34D6A14FD8715A8781B607 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = ../../../../../Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.1.sdk/System/Library/Frameworks/CFNetwork.framework; sourceTree = "<group>"; };
 		DB34D7023381A681C697733B /* VMVideoTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VMVideoTableViewController.m; sourceTree = "<group>"; };
 		DB34D705388B6EF1933EB1E3 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = ../../../../../Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.1.sdk/System/Library/Frameworks/CoreLocation.framework; sourceTree = "<group>"; };
 		DB34D712058259EB7ABA14BD /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = ../../../../../Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.1.sdk/System/Library/Frameworks/SystemConfiguration.framework; sourceTree = "<group>"; };
@@ -1013,6 +1027,21 @@
 				54C2DF0915BDFAFC00CABB12 /* UIKit.framework in Frameworks */,
 				54C2DF0A15BDFAFC00CABB12 /* Foundation.framework in Frameworks */,
 				5438726B17DA8E2000750791 /* CoreGraphics.framework in Frameworks */,
+				5485015B17DCBB0A002216C4 /* CoreText.framework in Frameworks */,
+				5485015C17DCBB0A002216C4 /* CFNetwork.framework in Frameworks */,
+				5485015D17DCBB0A002216C4 /* Accounts.framework in Frameworks */,
+				5485015E17DCBB0A002216C4 /* CoreLocation.framework in Frameworks */,
+				5485015F17DCBB0A002216C4 /* SystemConfiguration.framework in Frameworks */,
+				5485016017DCBB0A002216C4 /* MessageUI.framework in Frameworks */,
+				5485016117DCBB0A002216C4 /* Twitter.framework in Frameworks */,
+				5485016217DCBB0A002216C4 /* Security.framework in Frameworks */,
+				5485016317DCBB0A002216C4 /* MapKit.framework in Frameworks */,
+				5485016417DCBB0A002216C4 /* Social.framework in Frameworks */,
+				5485016517DCBB0A002216C4 /* CoreVideo.framework in Frameworks */,
+				5485016617DCBB0A002216C4 /* CoreMedia.framework in Frameworks */,
+				5485016717DCBB0A002216C4 /* QuartzCore.framework in Frameworks */,
+				5485016817DCBB0A002216C4 /* StoreKit.framework in Frameworks */,
+				5485016917DCBB0A002216C4 /* ImageIO.framework in Frameworks */,
 				5443EEE6177620B70000FFE8 /* libGoogleAnalytics_debug.a in Frameworks */,
 				E3C1ED277795426F8D7FCB8E /* libPods-xebia-iosTests.a in Frameworks */,
 			);
@@ -2020,7 +2049,6 @@
 				DB34D0F8B07C89387C2F9E3F /* QuartzCore.framework */,
 				DB34D4D95E1188A7AD47E551 /* StoreKit.framework */,
 				DB34D2014253F0EE1EB4FBC5 /* ImageIO.framework */,
-				DB34D6A14FD8715A8781B607 /* CFNetwork.framework */,
 				066FCD792FD04E9C87C35E33 /* libPods-xebia-iosTests.a */,
 			);
 			name = Frameworks;
@@ -2912,7 +2940,6 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Targets/xebia-ios/xebia-ios-Prefix.pch";
 				INFOPLIST_FILE = "$(SRCROOT)/Targets/xebia-ios/xebia-ios-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				LIBRARY_SEARCH_PATHS = (
 					"\"$(PODS_ROOT)/TestFlightSDK\"",
 					"\"$(SRCROOT)/Classes/Analytics\"",
@@ -2932,7 +2959,6 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Targets/xebia-ios/xebia-ios-Prefix.pch";
 				INFOPLIST_FILE = "$(SRCROOT)/Targets/xebia-ios/xebia-ios-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				LIBRARY_SEARCH_PATHS = (
 					"\"$(PODS_ROOT)/TestFlightSDK\"",
 					"\"$(SRCROOT)/Classes/Analytics\"",
@@ -2952,6 +2978,7 @@
 					"$(inherited)",
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+					"\"$(SYSTEM_APPS_DIR)/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.1.sdk/System/Library/Frameworks\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Targets/xebia-ios/xebia-ios-Prefix.pch";
@@ -2994,6 +3021,7 @@
 					"$(inherited)",
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+					"\"$(SYSTEM_APPS_DIR)/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.1.sdk/System/Library/Frameworks\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Targets/xebia-ios/xebia-ios-Prefix.pch";
