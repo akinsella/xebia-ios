@@ -21,6 +21,7 @@ if ENV['SL_RUN_UNIT_TESTS'] then
     if !passed then
         File.open("tests_failed", "w") {}
         exit(1)
+    end
 else
     puts "=== SL_RUN_UNIT_TESTS not set - Did not run unit tests!"
 end
