@@ -19,7 +19,6 @@ fi
 
 # Extra build settings to pass to xcodebuild.
 XCODEBUILD_SETTINGS="TEST_AFTER_BUILD=YES"
-PROVISIONING_PROFILE="`pwd`/Scripts/Profiles/$PROFILE_UUID.mobileprovision"
 
 echo "=== PROVISIONING_PROFILE: $PROVISIONING_PROFILE"
 echo "=== CODE_SIGN_IDENTITY: $DEVELOPER_NAME"
@@ -51,7 +50,7 @@ fi
 
 echo "=== Building for Release ..."
 START_TIME=$SECONDS
-xcodebuild -workspace xebia-ios.xcworkspace -scheme "xebia-ios" -sdk iphoneos -configuration Release clean build OBJROOT="$PWD/build" SYMROOT="$PWD/build" CODE_SIGN_IDENTITY="${DEVELOPER_NAME}" PROVISIONING_PROFILE="${PROVISIONING_PROFILE}" | awk '{print substr($0,0,220)}'
+xcodebuild -workspace xebia-ios.xcworkspace -scheme "xebia-ios" -sdk iphoneos -configuration Release clean build OBJROOT="$PWD/build" SYMROOT="$PWD/build" CODE_SIGN_IDENTITY="${DEVELOPER_NAME}" PROVISIONING_PROFILE="${PROFILE_UUID}" | awk '{print substr($0,0,220)}'
 ELAPSED_TIME=$(($SECONDS - $START_TIME))
 echo "=== Build for release took: $(($ELAPSED_TIME/60)) min $(($ELAPSED_TIME%60)) sec" 
 

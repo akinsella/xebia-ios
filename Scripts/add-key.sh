@@ -9,8 +9,8 @@ echo "=== Dev cert import"
 security import ./Scripts/Certs/dev.cer -k ~/Library/Keychains/ios-build.keychain -T /usr/bin/codesign
 echo "=== Dev key import"
 security import ./Scripts/Certs/dev.p12 -k ~/Library/Keychains/ios-build.keychain -P $KEY_PASSWORD -T /usr/bin/codesign
-#echo "=== Provisioning profiles folder creation"
-#mkdir -p ~/Library/MobileDevice/Provisioning\ Profiles
-#echo "=== Copying Provisioning profiles"
-#cp ./Scripts/Profiles/* ~/Library/MobileDevice/Provisioning\ Profiles/
+echo "=== Provisioning profiles folder creation"
+mkdir -p ~/Library/MobileDevice/Provisioning\ Profiles
+echo "=== Copying Provisioning profiles"
+cp ./Scripts/Profiles/* ~/Library/MobileDevice/Provisioning\ Profiles/
 echo "=== Add Key script done"
