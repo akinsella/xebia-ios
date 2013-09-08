@@ -1,4 +1,7 @@
 #!/bin/sh
+
+echo "TestFlight script ..."
+
 if [[ "$TRAVIS_PULL_REQUEST" != "false" ]]; then
   echo "This is a pull request. No deployment will be done."
   exit 0
@@ -33,3 +36,5 @@ curl http://testflightapp.com/api/builds.json \
   -F team_token="$TEAM_TOKEN" \
   -F distribution_lists='Internal' \
   -F notes="$RELEASE_NOTES" -v
+
+echo "TestFlight script done"
