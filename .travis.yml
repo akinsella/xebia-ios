@@ -1,5 +1,15 @@
----
 language: objective-c
 gemfile: Gemfile
-before_script: Scripts/before.sh
+before_script: 
+- Scripts/before.sh
+- Scripts/add-key.sh
+after_script: 
+- Scripts/remove-key.sh
+after_success: 
+- Scripts/testflight.sh
 script: Scripts/build.sh
+env: 
+  global: 
+  - secure: O3dLGr0GfUICUEqWxroepijtTX9O/mhkAZew0rGFBNEDOVBfIk958TCqt/kZP8GV/XndkX9yuOEAR/1+Liw4aGQ5uzP3nwPD4pVse41uNLjkdae+ldgm0g+des5u94tLKqDSmuIANDJGh0qdeJx8QtcwhpPl2i8tTLKqlgadmvE=
+  - secure: cC8bGOtZ0kNbxHKJfqeWpLcgXpG/FbPB0JM9qdGY77HgUeM95YUk3QOfjagE27UBxGyem9JZ/TEaD2wzwmnxYCIAFTxp4XAPAPD/2xjlBh1EV8UTWDwmdzBa4biG5wVRdDUuAIMMZwHMH5VnG775w5wuA0gaTVsXAmMFUxEIheA=
+  - secure: VtFd/HsLyDt1x/985MokRmPtdpjE+POhlhxGjSVAAg//VZUz+wz/GvtEcMQOsyI8O06+YAd8B2yRlPJDmcReO/S7E1Fh4ShqAp0oYHzlYHXHfcd/rK7DzzmIyrusrzHKMJo+yaD25+lUbkc196eoTW38SOmAwVCdlFr8jnMy96Q=

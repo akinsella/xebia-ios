@@ -27,8 +27,9 @@ static NSString *const kTrackingId = @"UA-40651647-1";
 //TODO: Need to change AppID
 static NSString *const kAppId = @"1234567890";
 
-static NSString* const DeviceTokenKey = @"DeviceToken";
+static NSString *const DeviceTokenKey = @"DeviceToken";
 
+static NSString *const TestFlightAppToken = @"29d6c018-4fa4-4a64-ae00-b4da847ee725";
 
 @interface XBAppDelegate()
 
@@ -361,7 +362,7 @@ void SignalHandler(int sig) {
 //#ifdef DEBUG
 //    [TestFlight setDeviceIdentifier:[[UIDevice currentDevice] uniqueIdentifier]];
 //#endif
-    [TestFlight takeOff:@"5cb5c652-2faa-4ae1-9441-db0444a83612"];
+    [TestFlight takeOff: TestFlightAppToken];
 
 }
 
