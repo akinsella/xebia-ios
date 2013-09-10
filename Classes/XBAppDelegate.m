@@ -29,7 +29,7 @@ static NSString *const kAppId = @"1234567890";
 
 static NSString *const DeviceTokenKey = @"DeviceToken";
 
-static NSString *const TestFlightAppToken = @"29d6c018-4fa4-4a64-ae00-b4da847ee725";
+static NSString *const TestFlightAppToken = @"856b817d-b51c-44a3-9a24-ddcabfda8a0c";
 
 @interface XBAppDelegate()
 

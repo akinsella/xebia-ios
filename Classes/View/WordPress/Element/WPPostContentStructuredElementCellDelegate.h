@@ -19,4 +19,5 @@
 -(void)updateWithWPPostContentElement:(WPPostContentStructuredElement *)element;
 
 -(CGFloat)heightForCell: (UITableView *)tableView;
+
 @end
