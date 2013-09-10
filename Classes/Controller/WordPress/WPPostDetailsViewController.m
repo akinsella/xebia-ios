@@ -17,12 +17,15 @@
 #import "NSDate+XBAdditions.h"
 #import "UITableViewCell+VariableHeight.h"
 #import "WPAbstractPostContentStructuredElementCell.h"
+#import "WPPostContentTitleCell.h"
 
 static NSString *kParagraphCellReuseIdentifier = @"paragraphCell";
 static NSString *kImageCellReuseIdentifier = @"imageCell";
 static NSString *kDefaultCellReuseIdentifier = @"defaultCell";
 static NSString *kHeaderCellReuseIdentifier = @"headerCell";
 static NSString *kCodeCellReuseIdentifier = @"codeCell";
+
+static NSString *kTitleCellReuseIdentifier = @"titleCell";
 
 NSString *kParagraphType = @"P";
 NSString *kUlType = @"UL";
@@ -104,6 +107,7 @@ NSString *kHeader6Type = @"H6";
     [self.contentTableView registerNib:[UINib nibWithNibName:@"WPPostContentHeaderElementCell" bundle:nil] forCellReuseIdentifier:@"headerCell"];
     [self.contentTableView registerNib:[UINib nibWithNibName:@"WPPostContentCodeElementCell" bundle:nil] forCellReuseIdentifier:@"codeCell"];
     [self.contentTableView registerNib:[UINib nibWithNibName:@"WPPostContentImageElementCell" bundle:nil] forCellReuseIdentifier:@"imageCell"];
+    [self.contentTableView registerNib:[UINib nibWithNibName:@"WPPostContentTitleCell" bundle:nil] forCellReuseIdentifier:@"titleCell"];
 }
 
 
@@ -164,10 +168,8 @@ NSString *kHeader6Type = @"H6";
 //    return button;
 //}
 
-- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
-{
-    if (buttonIndex != actionSheet.cancelButtonIndex)
-    {
+- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
+    if (buttonIndex != actionSheet.cancelButtonIndex) {
         [[UIApplication sharedApplication] openURL:[self.lastActionLink absoluteURL]];
     }
 }
@@ -177,42 +179,52 @@ NSString *kHeader6Type = @"H6";
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return self.post.structuredContent.count;
+    return self.post.structuredContent.count + 1;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    WPPostContentStructuredElement * structuredContentElement = self.post.structuredContent[indexPath.row];
-
-    WPAbstractPostContentStructuredElementCell *cell;
-    if (
+    UITableViewCell *cell;
+    if (indexPath.row == 0) {
+        WPPostContentTitleCell* titleCell = [self.contentTableView dequeueReusableCellWithIdentifier:kTitleCellReuseIdentifier];
+        [titleCell updateWithWPPost: self.post];
+        cell = titleCell;
+    }
+    else {
+        WPAbstractPostContentStructuredElementCell* seCell;
+        WPPostContentStructuredElement * structuredContentElement = self.post.structuredContent[indexPath.row - 1];
+        
+        if (
             [structuredContentElement.type isEqualToString:kParagraphType] ||
             [structuredContentElement.type isEqualToString:kUlType] ||
             [structuredContentElement.type isEqualToString:kOlType]
             ) {
-        cell = [self.contentTableView dequeueReusableCellWithIdentifier:kParagraphCellReuseIdentifier];
+            seCell = [self.contentTableView dequeueReusableCellWithIdentifier:kParagraphCellReuseIdentifier];
+        }
+        else if (
+                 [structuredContentElement.type isEqualToString:kHeader1Type] ||
+                 [structuredContentElement.type isEqualToString:kHeader2Type] ||
+                 [structuredContentElement.type isEqualToString:kHeader3Type] ||
+                 [structuredContentElement.type isEqualToString:kHeader4Type] ||
+                 [structuredContentElement.type isEqualToString:kHeader5Type] ||
+                 [structuredContentElement.type isEqualToString:kHeader6Type]
+                 ) {
+            seCell = [self.contentTableView dequeueReusableCellWithIdentifier:kHeaderCellReuseIdentifier];
+        }
+        else if ( [structuredContentElement.type isEqualToString:kCodeType] ) {
+            seCell = [self.contentTableView dequeueReusableCellWithIdentifier:kCodeCellReuseIdentifier];
+        }
+        else if ( [structuredContentElement.type isEqualToString:kImageType] ) {
+            seCell = [self.contentTableView dequeueReusableCellWithIdentifier:kImageCellReuseIdentifier];
+        }
+        else {
+            seCell = [self.contentTableView dequeueReusableCellWithIdentifier:kDefaultCellReuseIdentifier];
+        }
+        
+        [seCell updateWithWPPostContentElement: structuredContentElement];
+        
+        cell = seCell;
     }
-    else if (
-            [structuredContentElement.type isEqualToString:kHeader1Type] ||
-                    [structuredContentElement.type isEqualToString:kHeader2Type] ||
-                    [structuredContentElement.type isEqualToString:kHeader3Type] ||
-                    [structuredContentElement.type isEqualToString:kHeader4Type] ||
-                    [structuredContentElement.type isEqualToString:kHeader5Type] ||
-                    [structuredContentElement.type isEqualToString:kHeader6Type]
-            ) {
-        cell = [self.contentTableView dequeueReusableCellWithIdentifier:kHeaderCellReuseIdentifier];
-    }
-    else if ( [structuredContentElement.type isEqualToString:kCodeType] ) {
-        cell = [self.contentTableView dequeueReusableCellWithIdentifier:kCodeCellReuseIdentifier];
-    }
-    else if ( [structuredContentElement.type isEqualToString:kImageType] ) {
-        cell = [self.contentTableView dequeueReusableCellWithIdentifier:kImageCellReuseIdentifier];
-    }
-    else {
-        cell = [self.contentTableView dequeueReusableCellWithIdentifier:kDefaultCellReuseIdentifier];
-    }
-
-    [cell updateWithWPPostContentElement: structuredContentElement];
-
+    
     return cell;
 }
 

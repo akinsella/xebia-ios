@@ -17,7 +17,6 @@
 #import "GAITracker.h"
 #import "GAI.h"
 #import "XBUDID.h"
-#import "XBLogging.h"
 #import "XBConstants.h"
 #import "DCIntrospect.h"
 #import "Appirater.h"

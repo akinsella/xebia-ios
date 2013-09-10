@@ -62,15 +62,14 @@
 -(void)updateWithWPPostContentElement:(WPPostContentStructuredElement *)element {
     self.element = element;
     if ( [self.element.type isEqualToString: @"UL"] || [self.element.type isEqualToString:@"OL"] ) {
-        NSString *html = [NSString stringWithFormat: @"<%@>%@</%@>", element.type, element.text, element.type];
+        NSString *html = [NSString stringWithFormat: @"<%@ style=\"padding: 20px;\">%@</%@>", element.type, element.text, element.type];
         self.attributedString = [self attributedStringForHTML: html];
     }
     else {
-        self.attributedString = [self attributedStringForHTML: self.element.text];
+        NSString *html = [NSString stringWithFormat: @"<%@ style=\"padding: 20px;text-align: justify;\">%@</%@>", @"div", element.text, @"div"];
+        self.attributedString = [self attributedStringForHTML: html];
     }
 
-    CTFontRef font = CTFontCreateWithName(CFSTR("Cabin"), 20, NULL);
-    NSLog(@"%@", font);
 }
 
 - (NSAttributedString *)attributedStringForHTML:(NSString *)html
@@ -88,7 +87,7 @@
             DTMaxImageSize: [NSValue valueWithCGSize:maxImageSize],
             DTDefaultStyleSheet: stylesheet,
             DTDefaultFontFamily: kDefaultFontFamily,
-            DTDefaultFontSize: @12.0,
+            DTDefaultFontSize: @13.0,
             DTDefaultTextColor: [UIColor colorWithHex:@"#333333"],
             DTDefaultLinkColor: @"#9b59b6",
             DTDefaultLinkHighlightColor: @"#e74c3c",

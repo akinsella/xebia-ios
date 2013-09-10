@@ -8,10 +8,13 @@
 
 #import "NSDate+XBAdditions.h"
 
+#define kDefaultLocale @"fr_FR"
+
 @implementation NSDate (XBAdditions)
 
 - (BOOL)isToday {
     NSDateFormatter *df = [[NSDateFormatter alloc] init];
+    [df setLocale:[[NSLocale alloc] initWithLocaleIdentifier:kDefaultLocale]];
     [df setDateFormat:@"yyyy-MM-dd"];
     NSDate *midnight = [df dateFromString:[df stringFromDate:self]];
 
@@ -22,6 +25,7 @@
 
 - (NSString *)formatDateRelativeToNow {
     NSDateFormatter *df = [[NSDateFormatter alloc] init];
+    [df setLocale:[[NSLocale alloc] initWithLocaleIdentifier:kDefaultLocale]];
     [df setDateFormat:@"yyyy-MM-dd"];
     NSDate *midnight = [df dateFromString:[df stringFromDate:self]];
 
@@ -29,6 +33,7 @@
 
     if(dayDiff == 0) {
         NSDateFormatter *df2 = [[NSDateFormatter alloc] init];
+        [df2 setLocale:[[NSLocale alloc] initWithLocaleIdentifier:kDefaultLocale]];
         [df2 setDateFormat:NSLocalizedString(@"HH:mm", nil)];
         NSString *dateFormatted = [df2 stringFromDate:self];
 //        NSLog(@"Date formatted: %@", dateFormatted);
@@ -66,7 +71,8 @@
     }
     else {
         NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-        [dateFormatter setDateFormat:NSLocalizedString(@"yyyy'/'MM'/'dd', 'HH':'mm", nil)];
+        [dateFormatter setLocale:[[NSLocale alloc] initWithLocaleIdentifier:kDefaultLocale]];
+        [dateFormatter setDateFormat:NSLocalizedString(@"yyyy'/'MM'/'dd', 'HH'h'mm", nil)];
         return [dateFormatter stringFromDate:self];
     }
 
@@ -74,31 +80,42 @@
 
 - (NSString *)formatDateTime {
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-    [dateFormatter setDateFormat:NSLocalizedString(@"yyyy'/'MM'/'dd', 'HH':'mm", nil)];
+    [dateFormatter setLocale:[[NSLocale alloc] initWithLocaleIdentifier:kDefaultLocale]];
+    [dateFormatter setDateFormat:NSLocalizedString(@"yyyy'/'MM'/'dd', 'HH'h'mm", nil)];
     return [dateFormatter stringFromDate:self];
 }
 
 - (NSString *)formatDate {
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setLocale:[[NSLocale alloc] initWithLocaleIdentifier:kDefaultLocale]];
     [dateFormatter setDateFormat:NSLocalizedString(@"dd'/'MM'/'yyyy", nil)];
     return [dateFormatter stringFromDate:self];
 }
 
 - (NSString *)formatDayMonth {
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setLocale:[[NSLocale alloc] initWithLocaleIdentifier:kDefaultLocale]];
     [dateFormatter setDateFormat:NSLocalizedString(@"dd'/'MM", nil)];
     return [dateFormatter stringFromDate:self];
 }
 
 - (NSString *)formatTime {
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-    [dateFormatter setDateFormat:NSLocalizedString(@"HH':'mm", nil)];
+    [dateFormatter setLocale:[[NSLocale alloc] initWithLocaleIdentifier:kDefaultLocale]];
+    [dateFormatter setDateFormat:NSLocalizedString(@"HH'h'mm", nil)];
     return [dateFormatter stringFromDate:self];
 }
 
+- (NSString *)formatDayLongMonth {
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setLocale:[[NSLocale alloc] initWithLocaleIdentifier:kDefaultLocale]];
+    [dateFormatter setDateFormat:NSLocalizedString(@"dd MMMMM", nil)];
+    return [dateFormatter stringFromDate:self];
+}
 
 - (NSString *)formatDateOrTime {
     NSDateFormatter *dmnf = [[NSDateFormatter alloc] init];
+    [dmnf setLocale:[[NSLocale alloc] initWithLocaleIdentifier:kDefaultLocale]];
     [dmnf setDateFormat:@"yyyy-MM-dd"];
     NSDate *midnight = [dmnf dateFromString:[dmnf stringFromDate:self]];
 
@@ -106,15 +123,16 @@
 
     if(dayDiff == 0) {
         NSDateFormatter *tf = [[NSDateFormatter alloc] init];
-        [tf setDateFormat:NSLocalizedString(@"HH:mm", nil)];
+        [tf setLocale:[[NSLocale alloc] initWithLocaleIdentifier:kDefaultLocale]];
+        [tf setDateFormat:NSLocalizedString(@"HH'h'mm", nil)];
         return [tf stringFromDate:self];
     }
     else {
         NSDateFormatter *df = [[NSDateFormatter alloc] init];
+        [df setLocale:[[NSLocale alloc] initWithLocaleIdentifier:kDefaultLocale]];
         [df setDateFormat:NSLocalizedString(@"dd'/'MM", nil)];
         return [df stringFromDate:self];
     }
-
 }
 
 @end

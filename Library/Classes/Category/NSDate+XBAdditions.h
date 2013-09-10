@@ -20,6 +20,8 @@
 
 - (NSString *)formatDateOrTime;
 
+- (NSString *)formatDayLongMonth;
+
 - (BOOL)isToday;
 
 - (NSString *)formatDateRelativeToNow;
