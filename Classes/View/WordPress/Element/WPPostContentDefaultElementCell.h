@@ -12,4 +12,6 @@
 
 @interface WPPostContentDefaultElementCell : WPAbstractPostContentStructuredElementCell
 
+@property(weak, nonatomic)IBOutlet UILabel *typeLabel;
+
 @end

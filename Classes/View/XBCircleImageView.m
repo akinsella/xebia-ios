@@ -29,6 +29,11 @@
     [self setNeedsDisplay];
 }
 
+- (void)setDefaultImage:(UIImage *)defaultImage {
+    _defaultImage = defaultImage;
+    [self setNeedsDisplay];
+}
+
 - (void)setOffset:(CGFloat) offset {
     _offset = offset;
     [self setNeedsDisplay];
@@ -38,11 +43,9 @@
 // An empty implementation adversely affects performance during animation.
 - (void)drawRect:(CGRect)rect {
     //Drawing the background image.
-
-    [self.backgroundImage drawInRect : self.bounds];
+    [self.backgroundImage drawInRect: self.bounds];
 
     //Drawing the user image in rounded shape.
-
     CGContextRef context = UIGraphicsGetCurrentContext();
 
     CGContextSaveGState( context );
@@ -62,6 +65,9 @@
 
     if (self.image) {
         [self.image drawInRect : CGRectMake(clipRect.origin.x, clipRect.origin.y, clipRect.size.width, clipRect.size.height)];
+    }
+    else {
+        [self.defaultImage drawInRect : CGRectMake(clipRect.origin.x, clipRect.origin.y, clipRect.size.width, clipRect.size.height)];
     }
 
     CGContextRestoreGState(context);

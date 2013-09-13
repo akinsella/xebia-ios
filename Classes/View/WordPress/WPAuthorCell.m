@@ -24,23 +24,35 @@
     self.defaultAvatarImage = [UIImage imageNamed:@"avatar_placeholder"];
 }
 
-
 - (void)layoutSubviews {
     [super layoutSubviews];
-    self.imageView.frame = CGRectMake(8,8,44,44);
-    self.imageView.layer.masksToBounds = YES;
-    self.imageView.layer.cornerRadius = 3.0;
-    
+
     self.layer.shouldRasterize = YES;
     self.layer.rasterizationScale = [[UIScreen mainScreen] scale];
+
+    XBLog("Default - %@", self.avatarImageView.image);
+    self.avatarImageView.offset = 2;
+    self.avatarImageView.backgroundColor = [UIColor clearColor];
+    self.avatarImageView.backgroundImage = [UIImage imageNamed:@"dp_holder_large.png"];
+    self.avatarImageView.defaultImage = self.defaultAvatarImage;
 }
 
 - (void)updateWithAuthor:(WPAuthor *)author {
     self.author = author;
     self.titleLabel.text = author.name;
 
-    [self.imageView setImageWithURL:[author avatarImageUrl] placeholderImage:self.defaultAvatarImage];
-
+    XBLog(@"Avatar image url: %@", author.avatarImageUrl);
+    [[SDWebImageManager sharedManager] downloadWithURL:author.avatarImageUrl
+                                              delegate:self
+                                               options:kNilOptions
+                     success:^(UIImage *image) {
+                         XBLog("Success - %@ for: %@", image, author.nickname);
+                         self.avatarImageView.image = image;
+                     }
+                     failure:^(NSError *error) {
+                         XBLog("Error - %@ for: %@", error, author.nickname);
+                         self.avatarImageView.image = self.defaultAvatarImage;
+                     }];
 }
 
 @end

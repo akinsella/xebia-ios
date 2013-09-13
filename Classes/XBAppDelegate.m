@@ -179,16 +179,27 @@ static NSString *const TestFlightAppToken = @"856b817d-b51c-44a3-9a24-ddcabfda8a
     
     [[UITabBar appearance] setBackgroundImage:[UIImage imageNamed:@"TabBar.png"]];
     [[UITabBar appearance] setSelectionIndicatorImage:[UIImage imageNamed:@"TabBarItemSelectedImage.png"]];
-    
-    [[UITabBarItem appearance] setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:
-                                                       [UIColor colorWithWhite:0.5 alpha:1], UITextAttributeTextColor,
-                                                       [UIColor blackColor], UITextAttributeTextShadowColor, nil]
-                                             forState:UIControlStateNormal];
-    [[UITabBarItem appearance] setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:
-                                                       [UIColor colorWithWhite:0.85 alpha:1], UITextAttributeTextColor,
-                                                       [UIColor blackColor], UITextAttributeTextShadowColor, nil]
-                                             forState:UIControlStateSelected];
-    
+
+    [[UITabBar appearance] setSelectedImageTintColor:[UIColor colorWithHex:@"#5c0f4f"]];
+
+    [[UITabBarItem appearance] setTitleTextAttributes: @{
+            UITextAttributeTextColor: [UIColor colorWithHex:@"#888888"],
+            UITextAttributeTextShadowColor: [UIColor blackColor]
+    } forState:UIControlStateNormal];
+
+    [[UITabBarItem appearance] setTitleTextAttributes:@{
+            UITextAttributeTextColor: [UIColor colorWithHex:@"#b96905"],
+            UITextAttributeTextShadowColor: [UIColor blackColor]
+    } forState:UIControlStateSelected];
+
+    // Change the appearance of back button
+    UIImage *backButtonImage = [[UIImage imageNamed:@"left-arrow.png"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 16, 0, 0)];
+    [[UIBarButtonItem appearance] setBackButtonBackgroundImage:backButtonImage forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
+
+    // Change the appearance of other navigation button
+    UIImage *barButtonImage = [[UIImage imageNamed:@"button.png"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 6, 0, 6)];
+    [[UIBarButtonItem appearance] setBackgroundImage: barButtonImage forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
+
 /*    [[UIBarButtonItem appearance] setTitleTextAttributes:@{
             UITextAttributeTextColor: [UIColor colorWithHex:@"#5E6059"],
 //            UITextAttributeTextShadowColor: [UIColor colorWithHex:@"#661C04"],

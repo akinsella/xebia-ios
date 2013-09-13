@@ -10,7 +10,6 @@
 #import "WPPostContentTitleCell.h"
 #import <SDWebImage/UIImageView+WebCache.h>
 #import "NSDate+XBAdditions.h"
-#import "UIColor+XBAdditions.h"
 #import "XBCircleImageView.h"
 
 @interface WPPostContentTitleCell()
@@ -59,9 +58,9 @@
     self.layer.rasterizationScale = [[UIScreen mainScreen] scale];
     self.accessoryType = UITableViewCellAccessoryNone;
 
-    self.avatarImageView.backgroundColor = [UIColor whiteColor];
-    self.avatarImageView.image = self.defaultAvatarImage;
-    self.avatarImageView.offset = 1;
+    self.avatarImageView.backgroundColor = [UIColor clearColor];
+    self.avatarImageView.defaultImage = self.defaultAvatarImage;
+    self.avatarImageView.offset = 2;
     self.avatarImageView.backgroundImage = [UIImage imageNamed:@"dp_holder_large.png"];
 }
 
@@ -72,12 +71,10 @@
     self.tagLabel.text = post.tagsFormatted;
     self.categoryLabel.text = post.categoriesFormatted;
     self.titleLabel.text = post.titlePlain;
-    self.authorLabel.text = [NSString stringWithFormat: @"Par %@", [author.name uppercaseString]];
-    self.dateLabel.text = [NSString stringWithFormat: @"Le %@", [post.date formatDayLongMonth]];
+    self.authorLabel.text = [NSString stringWithFormat: NSLocalizedString(@"Par %@", nil), [author.name uppercaseString]];
+    self.dateLabel.text = [NSString stringWithFormat: NSLocalizedString(@"Le %@", nil), [post.date formatDayLongMonth]];
 
-    SDWebImageManager *manager = [SDWebImageManager sharedManager];
-
-    [manager downloadWithURL:author.avatarImageUrl delegate:self options:kNilOptions
+    [[SDWebImageManager sharedManager] downloadWithURL:author.avatarImageUrl delegate:self options:kNilOptions
             success:^(UIImage *image) {
                 self.avatarImageView.image = image;
             }

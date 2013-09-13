@@ -32,9 +32,11 @@
 
 - (void)layoutSubviews {
     [super layoutSubviews];
-    self.imageView.frame = CGRectMake(9,16,44,44);
-    self.imageView.layer.masksToBounds = YES;
-    self.imageView.layer.cornerRadius = 3.0;
+    
+    self.avatarImageView.offset = 2;
+    self.avatarImageView.backgroundColor = [UIColor clearColor];
+    self.avatarImageView.backgroundImage = [UIImage imageNamed:@"dp_holder_large.png"];
+    self.avatarImageView.defaultImage = self.defaultPostImage;
 }
 
 - (void)updateWithPost:(WPPost *)post {
@@ -47,10 +49,18 @@
     self.authorLabel.text = post.authorFormatted;
 
     if (![post.primaryAuthor.slug isEqualToString:@"xebiafrance"]) {
-        [self.imageView setImageWithURL: [post imageUrl] placeholderImage:self.defaultPostImage];
+        [[SDWebImageManager sharedManager] downloadWithURL:post.imageUrl
+                                                  delegate:self
+                                                   options:kNilOptions
+                                                   success:^(UIImage *image) {
+                                                       self.avatarImageView.image = image;
+                                                   }
+                                                   failure:^(NSError *error) {
+                                                       self.avatarImageView.image = self.defaultPostImage;
+                                                   }];
     }
     else {
-        self.imageView.image = self.xebiaPostImage;
+        self.avatarImageView.image = self.xebiaPostImage;
     }
 
 }

@@ -109,7 +109,7 @@
 - (NSString *)formatDayLongMonth {
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     [dateFormatter setLocale:[[NSLocale alloc] initWithLocaleIdentifier:kDefaultLocale]];
-    [dateFormatter setDateFormat:NSLocalizedString(@"dd MMMMM", nil)];
+    [dateFormatter setDateFormat:NSLocalizedString(@"dd MMMM", nil)];
     return [dateFormatter stringFromDate:self];
 }
 

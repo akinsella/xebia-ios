@@ -16,4 +16,6 @@
 
 +(UIImage *)scale:(UIImage *)image toSize:(CGSize)size;
 
+- withColor:(UIColor *)color;
+
 @end

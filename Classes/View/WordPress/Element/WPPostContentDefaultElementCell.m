@@ -8,7 +8,16 @@
 
 #import "WPPostContentDefaultElementCell.h"
 
-
 @implementation WPPostContentDefaultElementCell
+
+- (void)updateWithWPPostContentElement:(WPPostContentStructuredElement *)element {
+    [super updateWithWPPostContentElement:element];
+
+    self.typeLabel = self.element.type;
+}
+
+- (CGFloat)heightForCell:(UITableView *)tableView {
+    return self.imageView.image.size.height + 2 * 10;
+}
 
 @end

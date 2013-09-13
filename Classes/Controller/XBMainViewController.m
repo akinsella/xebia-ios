@@ -13,6 +13,7 @@
 #import "XBMapper.h"
 #import "NSDateFormatter+XBAdditions.h"
 #import "XBRightMenuViewController.h"
+#import "UIViewController+XBAdditions.h"
 
 @interface XBMainViewController ()
 
@@ -97,7 +98,7 @@
 
 -(void)openURL:(NSURL *)url withTitle:(NSString *)title {
     XBWebViewController *webViewController = (XBWebViewController *)[self.viewControllerManager getOrCreateControllerWithIdentifier: @"webview"];
-    UINavigationController *frontViewController = (UINavigationController *) self.revealController.frontViewController;
+    UINavigationController *frontViewController = (UINavigationController *) self.appDelegate.mainViewController.frontViewController;
     [frontViewController pushViewController:webViewController animated:true];
     webViewController.title = title;
     

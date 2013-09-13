@@ -8,6 +8,7 @@
 
 #import "GHTabBarController.h"
 #import "UIViewController+XBAdditions.h"
+#import "UIColor+XBAdditions.h"
 
 @implementation GHTabBarController
 
@@ -18,6 +19,13 @@
     self.title = @"Github";
 
     [self addMenuButton];
+
+    [self.tabBar setSelectedImageTintColor:[UIColor colorWithHex:@"#888888"]];
+
+    for (UITabBarItem *tabBarItem in self.tabBar.items) {
+        [tabBarItem setFinishedSelectedImage: tabBarItem.image
+                 withFinishedUnselectedImage: tabBarItem.image];
+    }
 }
 
 - (void)viewWillAppear:(BOOL)animated {

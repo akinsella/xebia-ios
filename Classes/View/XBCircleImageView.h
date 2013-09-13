@@ -12,6 +12,7 @@
 
 @property(nonatomic, strong)UIImage *backgroundImage;
 @property(nonatomic, assign)CGFloat offset;
+@property(nonatomic, strong)UIImage *defaultImage;
 @property(nonatomic, strong)UIImage *image;
 
 @end

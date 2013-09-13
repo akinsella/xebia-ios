@@ -13,7 +13,7 @@
 #import "XBInfiniteScrollTableViewController.h"
 #import "XBReloadableTableViewController.h"
 
-@interface WPPostTableViewController : XBInfiniteScrollTableViewController<XBTableViewControllerDelegate>
+@interface WPPostTableViewController : XBReloadableTableViewController<XBTableViewControllerDelegate>
 
 - (id)initWithCoder:(NSCoder *)coder withPostType:(POST_TYPE)pPostType identifier:(NSNumber *)pIdentifier;
 

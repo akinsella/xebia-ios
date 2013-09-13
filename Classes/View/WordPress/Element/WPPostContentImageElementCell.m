@@ -11,7 +11,6 @@
 
 @implementation WPPostContentImageElementCell
 
-
 - (void)updateWithWPPostContentElement:(WPPostContentStructuredElement *)element {
     [super updateWithWPPostContentElement:element];
     __weak typeof(self) weakSelf = self;

@@ -9,12 +9,14 @@
 #import <UIKit/UIKit.h>
 #import "WPAuthor.h"
 #import "XBTableViewCell.h"
+#import "XBCircleImageView.h"
 
 @interface WPAuthorCell : XBTableViewCell
 
-@property (nonatomic, strong) IBOutlet UILabel *titleLabel;
+@property (nonatomic, weak) IBOutlet UILabel *titleLabel;
+@property (nonatomic, weak) IBOutlet XBCircleImageView *avatarImageView;
 
-@property(nonatomic, strong, readonly) WPAuthor *author;
+@property (nonatomic, strong, readonly) WPAuthor *author;
 
 - (void)updateWithAuthor:(WPAuthor *)author;
 
