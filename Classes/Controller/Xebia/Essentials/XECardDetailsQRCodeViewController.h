@@ -14,6 +14,8 @@
 
 @property(nonatomic, strong, readonly) XECard *card;
 
+@property (weak, nonatomic) IBOutlet UIView *qrCodeParentView;
+
 @property(nonatomic, strong)IBOutlet UIImageView *qrCodeImageView;
 @property(nonatomic, strong)IBOutlet UILabel *identifierTitle;
 
