@@ -803,7 +803,6 @@
                             <constraint firstItem="8iV-0n-5gL" firstAttribute="trailing" secondItem="SjP-kM-g1E" secondAttribute="trailing" type="user" id="d08-TL-gBL"/>
                             <constraint firstItem="wnV-gp-OQe" firstAttribute="trailing" secondItem="SjP-kM-g1E" secondAttribute="trailing" type="user" id="jNb-jO-J5c"/>
                             <constraint firstItem="wnV-gp-OQe" firstAttribute="top" secondItem="8iV-0n-5gL" secondAttribute="bottom" type="user" id="lX4-v4-lPB"/>
-                            <constraint firstAttribute="bottom" secondItem="wnV-gp-OQe" secondAttribute="bottom" constant="80" type="user" id="xVr-tU-SqH"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Video Détails" id="hDW-YE-yFp"/>
