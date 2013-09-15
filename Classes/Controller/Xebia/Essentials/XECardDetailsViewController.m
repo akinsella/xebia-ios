@@ -16,6 +16,7 @@
 @property(nonatomic, assign) NSUInteger initialIndex;
 @property(nonatomic, assign)BOOL pageControlUsed;
 @property(nonatomic, strong)NSMutableArray *pageViewControllers;
+@property(nonatomic, strong)UIView *containerView;
 @end
 
 @implementation XECardDetailsViewController
@@ -41,16 +42,17 @@
     self.scrollView.alwaysBounceHorizontal = NO;
     self.scrollView.alwaysBounceVertical = NO;
     self.scrollView.bounces = NO;
-    self.scrollView.contentSize = CGSizeMake(self.scrollView.frame.size.width * self.cards.count, self.scrollView.frame.size.height);
-    self.scrollView.contentOffset = CGPointMake(self.scrollView.frame.size.width * self.initialIndex, 0.0);
-
+    self.scrollView.translatesAutoresizingMaskIntoConstraints = NO;
+    [self.view addConstraints:
+     [NSLayoutConstraint constraintsWithVisualFormat:@"H:|[sv]|"
+                                             options:0 metrics:nil
+                                               views:@{@"sv":self.scrollView}]];
+    [self.view addConstraints:
+     [NSLayoutConstraint constraintsWithVisualFormat:@"V:|[sv]|"
+                                             options:0 metrics:nil
+                                               views:@{@"sv":self.scrollView}]];
     self.pageControl.numberOfPages = self.cards.count;
     self.pageControl.currentPage = (NSInteger) self.initialIndex;
-
-    [self loadScrollViewWithPage:self.initialIndex];
-    [self loadScrollViewWithPage:self.initialIndex - 1];
-    [self loadScrollViewWithPage:self.initialIndex + 1];
-
 }
 
 
@@ -58,8 +60,21 @@
     [super viewWillAppear:animated];
 
     self.navigationController.navigationBarHidden = NO;
+}
 
+-(void)viewDidLayoutSubviews {
+    [super viewDidLayoutSubviews];
+    
     self.scrollView.contentSize = CGSizeMake(self.scrollView.frame.size.width * self.cards.count, self.scrollView.frame.size.height);
+    self.scrollView.contentOffset = CGPointMake(self.scrollView.frame.size.width * self.initialIndex, 0.0);
+    
+    self.containerView = [[UIView alloc]initWithFrame:CGRectMake(0.0, 0.0, self.scrollView.frame.size.width * self.cards.count, self.scrollView.frame.size.height)];
+    [self.scrollView addSubview:self.containerView];
+    
+    [self loadScrollViewWithPage:self.initialIndex];
+    [self loadScrollViewWithPage:self.initialIndex - 1];
+    [self loadScrollViewWithPage:self.initialIndex + 1];
+    [self.view layoutSubviews];
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation {
@@ -89,7 +104,7 @@
         frame.origin.x = frame.size.width * page;
         frame.origin.y = 0;
         pageViewController.view.frame = frame;
-        [self.scrollView addSubview:pageViewController.view];
+        [self.containerView addSubview:pageViewController.view];
     }
 }
 

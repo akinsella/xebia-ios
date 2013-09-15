@@ -38,7 +38,7 @@
 
     self.identifierTitle.text = self.card.identifierFormatted;
     
-    [self layoutSubViews];
+//    [self layoutSubViews];
     
     NSError* error = nil;
     ZXMultiFormatWriter* writer = [ZXMultiFormatWriter writer];
@@ -63,18 +63,18 @@
     self.navigationController.navigationBarHidden = NO;
 }
 
-- (void)willAnimateRotationToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration {
-    [self layoutSubViews];
-}
+//- (void)willAnimateRotationToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration {
+//    [self layoutSubViews];
+//}
 
--(void) layoutSubViews {
-    self.qrCodeParentView.frame = CGRectMake(
-            (self.view.frame.size.width - self.qrCodeParentView.frame.size.width) / 2,
-            (self.view.frame.size.height - self.qrCodeParentView.frame.size.height) / 2,
-            self.qrCodeParentView.frame.size.width,
-            self.qrCodeParentView.frame.size.height
-    );
-}
+//-(void) layoutSubViews {
+//    self.qrCodeParentView.frame = CGRectMake(
+//            (self.view.frame.size.width - self.qrCodeParentView.frame.size.width) / 2,
+//            (self.view.frame.size.height - self.qrCodeParentView.frame.size.height) / 2,
+//            self.qrCodeParentView.frame.size.width,
+//            self.qrCodeParentView.frame.size.height
+//    );
+//}
 
 - (void)updateWithCard:(XECard *)card {
     self.card = card;

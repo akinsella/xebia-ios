@@ -128,8 +128,7 @@
 
 - (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
 {
-    if (buttonIndex != actionSheet.cancelButtonIndex)
-    {
+    if (buttonIndex != actionSheet.cancelButtonIndex) {
         [[UIApplication sharedApplication] openURL:[self.lastActionLink absoluteURL]];
     }
 }

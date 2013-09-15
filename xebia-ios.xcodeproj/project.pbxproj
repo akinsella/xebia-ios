@@ -2306,8 +2306,8 @@
 				DB34D7B3A32230066DEF57A0 /* XECardDetailsViewController.m */,
 				DB34DB62A49155EA87926383 /* XECategoryTableViewController.m */,
 				DB34D3B294EB2C7536CFA836 /* XECategoryTableViewController.h */,
-				DB34DF0EC54E9E1EECE42ED4 /* XECardDetailsPageViewController.m */,
 				DB34D433E7A98268FA0ECBF0 /* XECardDetailsPageViewController.h */,
+				DB34DF0EC54E9E1EECE42ED4 /* XECardDetailsPageViewController.m */,
 				DB34DEB42EF35F517DB01FE8 /* XECardDetailsQRCodeViewController.h */,
 				DB34D1F306256770AF900772 /* XECardDetailsQRCodeViewController.m */,
 			);
