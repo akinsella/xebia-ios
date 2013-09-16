@@ -80,8 +80,8 @@ static NSString *const TestFlightAppToken = @"856b817d-b51c-44a3-9a24-ddcabfda8a
 
 #if DEBUG
     XBLeftMenuViewController *leftMenuViewController = (XBLeftMenuViewController *) [(UINavigationController *)self.mainViewController.leftViewController topViewController];
-//    [leftMenuViewController revealViewControllerWithIdentifier:@"tbBlog"];
-    [leftMenuViewController revealViewControllerWithIdentifier:@"videos"];
+    [leftMenuViewController revealViewControllerWithIdentifier:@"tbBlog"];
+//    [leftMenuViewController revealViewControllerWithIdentifier:@"videos"];
 #endif
 
     [self.window makeKeyAndVisible];

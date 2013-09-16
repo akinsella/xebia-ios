@@ -111,7 +111,6 @@ NSString *kHeader6Type = @"H6";
 }
 
 
-
 //
 //- (void)configureContentView {
 //

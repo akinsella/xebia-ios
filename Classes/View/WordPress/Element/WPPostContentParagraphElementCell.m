@@ -16,6 +16,9 @@
 
 #define kDefaultFontFamily @"Cabin"
 
+static const CGFloat kMarginWidth = 25.0;
+static const CGFloat kMarginHeight = 25.0;
+
 @interface WPPostContentParagraphElementCell()
 
 @property (nonatomic, strong) WPPostContentStructuredElement *element;
@@ -81,7 +84,7 @@
     // Load HTML data
     NSData *data = [html dataUsingEncoding:NSUTF8StringEncoding];
 
-    CGSize maxImageSize = CGSizeMake(self.bounds.size.width - 20.0, self.bounds.size.height - 20.0);
+    CGSize maxImageSize = CGSizeMake(self.bounds.size.width - kMarginWidth * 2, self.bounds.size.height - kMarginHeight * 2);
 
     NSDictionary *options = @{
             DTMaxImageSize: [NSValue valueWithCGSize:maxImageSize],

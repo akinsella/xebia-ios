@@ -9,17 +9,22 @@
 #import "WPPostContentHeaderElementCell.h"
 #import "UIColor+XBAdditions.h"
 
-static const int kMarginWidth = 5;
-static const int kMarginHeight = 5;
+static const CGFloat kMarginWidth = 25.0;
+static const CGFloat kMarginHeight = 25.0;
 
 @implementation WPPostContentHeaderElementCell
 
 - (void)updateWithWPPostContentElement:(WPPostContentStructuredElement *)element {
     [super updateWithWPPostContentElement:element];
 
-    self.headerLabel.font = [UIFont fontWithName:@"Cabin" size: 11 + ( 6 * 2 - [self headerIndex] * 2)];
-    self.headerLabel.textColor = [UIColor colorWithHex:@"#333333"];
+    self.headerLabel.font = [UIFont fontWithName:@"Cabin" size: 11 + ( 6 * 2 - self.headerIndex * 2)];
+    self.headerLabel.textColor = [UIColor colorWithHex:@"#8b6ba3"];
     self.headerLabel.text = [self.element.text uppercaseString];
+//    self.backgroundColor = self.headerIndex > 3 ? [UIColor redColor]: [UIColor blueColor];
+}
+
+- (void)layoutSubviews {
+    [super layoutSubviews];
     CGSize headerLabelSize = [self sizeThatFits];
     self.headerLabel.frame = CGRectMake(
             [self headerIndent],
@@ -53,8 +58,9 @@ static const int kMarginHeight = 5;
     }
 }
 
-- (NSUInteger)headerIndent {
-    return ([self headerIndex] - 1) * kMarginWidth;
+- (CGFloat)headerIndent {
+    //([self headerIndex] - 1) * kMarginWidth;
+    return kMarginWidth;
 }
 
 - (CGFloat)heightForCell:(UITableView *)tableView {
@@ -62,7 +68,7 @@ static const int kMarginHeight = 5;
 }
 
 - (CGSize)sizeThatFits {
-    return [self.headerLabel sizeThatFits:CGSizeMake(self.frame.size.width - ([self headerIndent]), CGFLOAT_MAX)];
+    return [self.headerLabel sizeThatFits:CGSizeMake(self.frame.size.width - (self.headerIndent), CGFLOAT_MAX)];
 }
 
 @end
