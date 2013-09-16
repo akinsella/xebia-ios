@@ -25,6 +25,22 @@
 
 @implementation VMVideoDetailsViewController
 
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    NSLayoutConstraint *constraint = [NSLayoutConstraint
+                                      constraintWithItem:self.videoImage
+                                      attribute:NSLayoutAttributeHeight
+                                      relatedBy:NSLayoutRelationEqual
+                                      toItem:self.videoImage
+                                      attribute:NSLayoutAttributeWidth
+                                      multiplier:199.0/320.0
+                                      constant:0];
+    constraint.priority = 1000;
+	// Do any additional setup after loading the view, typically from a nib.
+    [self.videoImage.superview addConstraint:constraint];
+
+}
+
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     if (self.video) {
