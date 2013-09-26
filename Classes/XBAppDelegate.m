@@ -20,6 +20,7 @@
 #import "XBConstants.h"
 #import "DCIntrospect.h"
 #import "Appirater.h"
+#import <NewRelicAgent/NewRelicAgent.h>
 
 static NSString *const kTrackingId = @"UA-40651647-1";
 
@@ -29,6 +30,8 @@ static NSString *const kAppId = @"1234567890";
 static NSString *const DeviceTokenKey = @"DeviceToken";
 
 static NSString *const TestFlightAppToken = @"856b817d-b51c-44a3-9a24-ddcabfda8a0c";
+
+static NSString *const NewRelicApiKey = @"AA2a83288c6a4104ccf6cb9d48101ae3aba20325cc";
 
 @interface XBAppDelegate()
 
@@ -60,6 +63,7 @@ static NSString *const TestFlightAppToken = @"856b817d-b51c-44a3-9a24-ddcabfda8a
 
     [self initAnalytics];
     [self initTestFlight];
+    [self initNewRelic];
     [self initURLCache];
     [self initAppearance];
     [self initRemoteDebugger];
@@ -87,6 +91,10 @@ static NSString *const TestFlightAppToken = @"856b817d-b51c-44a3-9a24-ddcabfda8a
     [self.window makeKeyAndVisible];
     
     return YES;
+}
+
+- (void)initNewRelic {
+    [NewRelicAgent startWithApplicationToken: NewRelicApiKey];
 }
 
 -(id<GAITracker>)tracker {

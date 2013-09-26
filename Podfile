@@ -22,10 +22,11 @@ pod 'YTVimeoExtractor',				'0.0.3'
 pod 'DCIntrospect',					'0.0.2'
 #pod 'MMMarkdown',					'0.2.3'
 pod 'DTCoreText',					'1.6.6'
-pod 'DTFoundation',                 '1.5.2'
+pod 'DTFoundation',                 '1.5.3'
 pod 'Appirater',					'1.0.5'
 pod 'ZXingObjC',					:git => 'https://github.com/akinsella/ZXingObjC'
 pod 'MJPopupViewController',        '0.4'
+pod 'NewRelicAgent',				'1.376'
 
 target :"xebia-iosTests", :exclusive => true do
     pod 'SenTestingKitAsync',		'~> 1.0'
