@@ -14,17 +14,17 @@
 		<dict>
 			<key>CFBundleIconFiles</key>
 			<array>
-				<string>Resources/Splashscreens/Default.png</string>
-				<string>Resources/Splashscreens/Default@2x.png</string>
-				<string>Resources/Splashscreens/Default-Landscape@2x~ipad.png</string>
-				<string>Resources/Splashscreens/Default-Landscape~ipad.png</string>
-				<string>Resources/Splashscreens/Default-Portrait~ipad.png</string>
-				<string>Resources/Splashscreens/Default-Portrait@2x~ipad.png</string>
-				<string>Resources/Splashscreens/Default-Portrait@2x~ipad.png</string>
-				<string>Resources/Splashscreens/Default-Portrait@2x~ipad.png</string>
-				<string>Resources/Splashscreens/Default-Portrait~ipad.png</string>
-				<string>Resources/Splashscreens/Default-Portrait~ipad.png</string>
-				<string>Resources/Splashscreens/Default-Portrait@2x~ipad.png</string>
+				<string>Default.png</string>
+				<string>Default@2x.png</string>
+				<string>Default-Landscape@2x~ipad.png</string>
+				<string>Default-Landscape~ipad.png</string>
+				<string>Default-Portrait~ipad.png</string>
+				<string>Default-Portrait@2x~ipad.png</string>
+				<string>Default-Portrait@2x~ipad.png</string>
+				<string>Default-Portrait@2x~ipad.png</string>
+				<string>Default-Portrait~ipad.png</string>
+				<string>Default-Portrait~ipad.png</string>
+				<string>Default-Portrait@2x~ipad.png</string>
 				<string>ios-icon-57.png</string>
 				<string>ios-icon-114.png</string>
 				<string>ios-icon-72.png</string>

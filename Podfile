@@ -24,7 +24,7 @@ pod 'DCIntrospect',					'0.0.2'
 pod 'DTCoreText',					'1.6.6'
 pod 'DTFoundation',                 '1.5.3'
 pod 'Appirater',					'1.0.5'
-pod 'ZXingObjC',					:git => 'https://github.com/akinsella/ZXingObjC'
+pod 'ZXingObjC',					'2.2.0'
 pod 'MJPopupViewController',        '0.4'
 pod 'NewRelicAgent',				'1.376'
 
