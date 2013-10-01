@@ -53,6 +53,9 @@
                                                views:@{@"sv":self.scrollView}]];
     self.pageControl.numberOfPages = self.cards.count;
     self.pageControl.currentPage = (NSInteger) self.initialIndex;
+
+    self.containerView = [[UIView alloc]initWithFrame:CGRectMake(0.0, 0.0, self.scrollView.frame.size.width * self.cards.count, self.scrollView.frame.size.height)];
+    [self.scrollView addSubview:self.containerView];
 }
 
 
@@ -67,10 +70,9 @@
     
     self.scrollView.contentSize = CGSizeMake(self.scrollView.frame.size.width * self.cards.count, self.scrollView.frame.size.height);
     self.scrollView.contentOffset = CGPointMake(self.scrollView.frame.size.width * self.initialIndex, 0.0);
-    
-    self.containerView = [[UIView alloc]initWithFrame:CGRectMake(0.0, 0.0, self.scrollView.frame.size.width * self.cards.count, self.scrollView.frame.size.height)];
-    [self.scrollView addSubview:self.containerView];
-    
+
+    self.containerView.frame = CGRectMake(0.0, 0.0, self.scrollView.frame.size.width * self.cards.count, self.scrollView.frame.size.height);
+
     [self loadScrollViewWithPage:self.initialIndex];
     [self loadScrollViewWithPage:self.initialIndex - 1];
     [self loadScrollViewWithPage:self.initialIndex + 1];
@@ -98,12 +100,13 @@
         [self.pageViewControllers replaceObjectAtIndex:page withObject:pageViewController];
     }
 
+    CGRect frame = self.scrollView.frame;
+    frame.origin.x = frame.size.width * page;
+    frame.origin.y = 0;
+    pageViewController.view.frame = frame;
+
     // add the controller's view to the scroll view
     if (pageViewController.view.superview == nil) {
-        CGRect frame = self.scrollView.frame;
-        frame.origin.x = frame.size.width * page;
-        frame.origin.y = 0;
-        pageViewController.view.frame = frame;
         [self.containerView addSubview:pageViewController.view];
     }
 }

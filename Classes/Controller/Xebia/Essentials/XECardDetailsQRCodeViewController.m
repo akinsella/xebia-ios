@@ -28,8 +28,10 @@
     [self.qrCodeImageView addGestureRecognizer:singleTap];
 }
 
--(void)handleSingleTap:(UITapGestureRecognizer *)sender{
-    [self.appDelegate.mainViewController dismissViewControllerAnimated:YES completion:^{}];
+-(void)handleSingleTap:(UITapGestureRecognizer *)gestureRecognizer {
+    if(gestureRecognizer.state == UIGestureRecognizerStateRecognized) {
+        [self.appDelegate.mainViewController dismissViewControllerAnimated:YES completion:^{}];
+    }
 }
 
 -(void)viewWillAppear:(BOOL)animated {

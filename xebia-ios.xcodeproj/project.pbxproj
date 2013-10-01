@@ -673,8 +673,6 @@
 		5443ECB81775BEF30000FFE8 /* XBTestUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XBTestUtils.h; sourceTree = "<group>"; };
 		5443ECB91775BEF30000FFE8 /* XBTestUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XBTestUtils.m; sourceTree = "<group>"; };
 		5443EE291775BF300000FFE8 /* Podfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		5443EE2B1775BF300000FFE8 /* RunIPhoneSecurityd.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = RunIPhoneSecurityd.sh; sourceTree = "<group>"; };
-		5443EE2C1775BF300000FFE8 /* RunTests.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = RunTests.sh; sourceTree = "<group>"; };
 		5443EE30177620B60000FFE8 /* GAI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAI.h; sourceTree = "<group>"; };
 		5443EE31177620B60000FFE8 /* GAITrackedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAITrackedViewController.h; sourceTree = "<group>"; };
 		5443EE32177620B60000FFE8 /* GAITracker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAITracker.h; sourceTree = "<group>"; };
@@ -1646,8 +1644,6 @@
 			isa = PBXGroup;
 			children = (
 				5443EE291775BF300000FFE8 /* Podfile */,
-				5443EE2B1775BF300000FFE8 /* RunIPhoneSecurityd.sh */,
-				5443EE2C1775BF300000FFE8 /* RunTests.sh */,
 				DB34DBF1B3FCCC4E6026372E /* README.md */,
 			);
 			name = Other;

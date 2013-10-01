@@ -321,10 +321,6 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IUa-6W-A0e" userLabel="Title View">
                                 <subviews>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="If something is too complex to understand, it must be wrong" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="252" translatesAutoresizingMaskIntoConstraints="NO" id="xs2-N5-4uj">
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="252" id="5vj-M0-Mcb"/>
-                                            <constraint firstAttribute="height" constant="51" type="user" id="e0h-f1-I8I"/>
-                                        </constraints>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
@@ -347,10 +343,12 @@
                                 <constraints>
                                     <constraint firstItem="xs2-N5-4uj" firstAttribute="top" secondItem="IUa-6W-A0e" secondAttribute="top" constant="12" type="user" id="AqZ-gl-pWo"/>
                                     <constraint firstAttribute="trailing" secondItem="ged-bl-tqx" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="NVh-pd-bpW"/>
-                                    <constraint firstAttribute="height" constant="75" type="user" id="Yyg-P6-4Nc"/>
+                                    <constraint firstAttribute="bottom" secondItem="xs2-N5-4uj" secondAttribute="bottom" constant="12" type="user" id="Wb1-Ep-d2j"/>
                                     <constraint firstItem="xs2-N5-4uj" firstAttribute="centerY" secondItem="IUa-6W-A0e" secondAttribute="centerY" type="user" id="ca8-z8-eBv"/>
-                                    <constraint firstItem="xs2-N5-4uj" firstAttribute="leading" secondItem="IUa-6W-A0e" secondAttribute="leading" constant="11" id="mGX-5b-IyL"/>
+                                    <constraint firstAttribute="trailing" secondItem="xs2-N5-4uj" secondAttribute="trailing" constant="57" type="user" id="itl-M3-GAL"/>
+                                    <constraint firstItem="xs2-N5-4uj" firstAttribute="leading" secondItem="IUa-6W-A0e" secondAttribute="leading" constant="11" type="user" id="mGX-5b-IyL"/>
                                     <constraint firstItem="ged-bl-tqx" firstAttribute="top" secondItem="IUa-6W-A0e" secondAttribute="top" constant="29" id="pse-fd-5he"/>
+                                    <constraint firstAttribute="height" constant="75" type="user" id="tM0-Sp-AOP"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="09Y-Yu-NxE">
@@ -382,7 +380,6 @@
                                     </label>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Poutsma Principle" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hVY-xa-1zm">
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="222" id="Evz-Vf-Q1G"/>
                                             <constraint firstAttribute="height" constant="21" id="bAY-R6-pEz"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
@@ -392,13 +389,15 @@
                                 </subviews>
                                 <color key="backgroundColor" red="0.68376358699999995" green="0.37501364739999998" blue="5.2110169409999999e-05" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="OEK-LL-4ho" secondAttribute="trailing" constant="86" type="user" id="BDm-NS-kau"/>
+                                    <constraint firstAttribute="trailing" secondItem="hVY-xa-1zm" secondAttribute="trailing" constant="86" type="user" id="HE1-85-X6e"/>
                                     <constraint firstItem="hVY-xa-1zm" firstAttribute="top" secondItem="bpZ-VO-4Ny" secondAttribute="top" type="default" id="HpC-Gp-Ft6"/>
                                     <constraint firstItem="OEK-LL-4ho" firstAttribute="centerY" secondItem="09Y-Yu-NxE" secondAttribute="centerY" type="default" id="Hu8-9x-YtR"/>
                                     <constraint firstAttribute="height" constant="73" type="user" id="TDE-HR-kvP"/>
-                                    <constraint firstItem="hVY-xa-1zm" firstAttribute="leading" secondItem="09Y-Yu-NxE" secondAttribute="leading" constant="12" id="V0n-b7-M7L"/>
+                                    <constraint firstItem="hVY-xa-1zm" firstAttribute="leading" secondItem="09Y-Yu-NxE" secondAttribute="leading" constant="12" type="user" id="V0n-b7-M7L"/>
                                     <constraint firstItem="OEK-LL-4ho" firstAttribute="leading" secondItem="hVY-xa-1zm" secondAttribute="leading" type="default" id="YHj-hL-q9U"/>
                                     <constraint firstAttribute="trailing" secondItem="bpZ-VO-4Ny" secondAttribute="trailing" constant="15" id="bp3-ld-gux"/>
-                                    <constraint firstItem="OEK-LL-4ho" firstAttribute="trailing" secondItem="hVY-xa-1zm" secondAttribute="trailing" type="default" id="wzY-XN-ZpU"/>
+                                    <constraint firstItem="OEK-LL-4ho" firstAttribute="trailing" secondItem="hVY-xa-1zm" secondAttribute="trailing" type="user" id="wzY-XN-ZpU"/>
                                     <constraint firstItem="hVY-xa-1zm" firstAttribute="top" secondItem="09Y-Yu-NxE" secondAttribute="top" constant="8" id="xpV-Y6-446"/>
                                 </constraints>
                             </view>
@@ -409,15 +408,16 @@
                         <color key="backgroundColor" red="0.85098039219999999" green="0.47450980390000003" blue="0.0078431372550000003" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="IUa-6W-A0e" firstAttribute="top" secondItem="ptC-lj-DXJ" secondAttribute="top" type="user" id="2If-9K-L8J"/>
-                            <constraint firstItem="IUa-6W-A0e" firstAttribute="leading" secondItem="ptC-lj-DXJ" secondAttribute="leading" type="default" id="3cd-Za-gjg"/>
-                            <constraint firstItem="iuJ-qY-JE7" firstAttribute="top" secondItem="ptC-lj-DXJ" secondAttribute="top" constant="75" id="5cN-M1-qyQ"/>
-                            <constraint firstItem="09Y-Yu-NxE" firstAttribute="leading" secondItem="ptC-lj-DXJ" secondAttribute="leading" type="default" id="Hfc-TJ-kYz"/>
-                            <constraint firstItem="iuJ-qY-JE7" firstAttribute="trailing" secondItem="ptC-lj-DXJ" secondAttribute="trailing" type="default" id="IGG-ND-cYS"/>
-                            <constraint firstItem="iuJ-qY-JE7" firstAttribute="leading" secondItem="ptC-lj-DXJ" secondAttribute="leading" type="default" id="LCO-c8-8p8"/>
+                            <constraint firstItem="IUa-6W-A0e" firstAttribute="leading" secondItem="ptC-lj-DXJ" secondAttribute="leading" type="user" id="2NY-NL-gBi"/>
+                            <constraint firstItem="iuJ-qY-JE7" firstAttribute="top" secondItem="ptC-lj-DXJ" secondAttribute="top" constant="75" type="user" id="5cN-M1-qyQ"/>
+                            <constraint firstItem="iuJ-qY-JE7" firstAttribute="leading" secondItem="ptC-lj-DXJ" secondAttribute="leading" type="user" id="CSo-U0-L1S"/>
+                            <constraint firstItem="09Y-Yu-NxE" firstAttribute="leading" secondItem="ptC-lj-DXJ" secondAttribute="leading" type="user" id="Hfc-TJ-kYz"/>
+                            <constraint firstItem="09Y-Yu-NxE" firstAttribute="trailing" secondItem="ptC-lj-DXJ" secondAttribute="trailing" type="user" id="Hg3-Az-zA9"/>
+                            <constraint firstItem="iuJ-qY-JE7" firstAttribute="trailing" secondItem="ptC-lj-DXJ" secondAttribute="trailing" type="user" id="IGG-ND-cYS"/>
+                            <constraint firstItem="IUa-6W-A0e" firstAttribute="trailing" secondItem="ptC-lj-DXJ" secondAttribute="trailing" type="user" id="Ua3-JD-EJX"/>
                             <constraint firstAttribute="bottom" secondItem="09Y-Yu-NxE" secondAttribute="bottom" constant="34" type="user" id="X7c-o5-LLd"/>
-                            <constraint firstAttribute="bottom" secondItem="iuJ-qY-JE7" secondAttribute="bottom" constant="107" id="gtr-Eq-0bo"/>
-                            <constraint firstItem="09Y-Yu-NxE" firstAttribute="trailing" secondItem="ptC-lj-DXJ" secondAttribute="trailing" type="default" id="h9v-ER-QLQ"/>
-                            <constraint firstItem="IUa-6W-A0e" firstAttribute="trailing" secondItem="ptC-lj-DXJ" secondAttribute="trailing" type="default" id="rQg-kk-Mx2"/>
+                            <constraint firstAttribute="bottom" secondItem="iuJ-qY-JE7" secondAttribute="bottom" constant="107" type="user" id="gtr-Eq-0bo"/>
+                            <constraint firstItem="iuJ-qY-JE7" firstAttribute="trailing" secondItem="ptC-lj-DXJ" secondAttribute="trailing" type="user" id="uoL-2f-8Ii"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Xebia Essentials" id="Mfi-jy-oPz"/>
@@ -981,6 +981,146 @@
         <image name="video_placeholder.png" width="320" height="180"/>
         <image name="xebia-essentials-sample-barcode.png" width="248" height="248"/>
     </resources>
+    <classes>
+        <class className="DTAttributedTextView" superclassName="UIScrollView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/DTAttributedTextView.h"/>
+            <relationships>
+                <relationship kind="outlet" name="backgroundView" candidateClass="UIView"/>
+                <relationship kind="outlet" name="textDelegate"/>
+            </relationships>
+        </class>
+        <class className="EBEventTableViewController" superclassName="XBReloadableTableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/EBEventTableViewController.h"/>
+        </class>
+        <class className="GHMemberTableViewController" superclassName="XBReloadableTableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/GHMemberTableViewController.h"/>
+        </class>
+        <class className="GHRepositoryTableViewController" superclassName="XBReloadableTableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/GHRepositoryTableViewController.h"/>
+        </class>
+        <class className="GHTabBarController" superclassName="UITabBarController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/GHTabBarController.h"/>
+        </class>
+        <class className="NSLayoutConstraint" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
+        </class>
+        <class className="TTTweetTableViewController" superclassName="XBReloadableTableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/TTTweetTableViewController.h"/>
+        </class>
+        <class className="UINavigationBar">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/UINavigationBar.h"/>
+            <relationships>
+                <relationship kind="action" name="back:"/>
+            </relationships>
+        </class>
+        <class className="VMVideoDetailsViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/VMVideoDetailsViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="commentCount" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="date" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="definition" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="displayName" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="likeCount" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="playCount" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="videoImage" candidateClass="UIImageView"/>
+            </relationships>
+        </class>
+        <class className="VMVideoTableViewController" superclassName="XBReloadableTableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/VMVideoTableViewController.h"/>
+        </class>
+        <class className="WPAuthorTableViewController" superclassName="XBReloadableTableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/WPAuthorTableViewController.h"/>
+        </class>
+        <class className="WPCategoryTableViewController" superclassName="XBReloadableTableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/WPCategoryTableViewController.h"/>
+        </class>
+        <class className="WPPostDetailsViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/WPPostDetailsViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="authorImageView" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="authorLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="categoryLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="contentTableView" candidateClass="UITableView"/>
+                <relationship kind="outlet" name="dateLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="tagsLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="titleLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="WPPostTableViewController" superclassName="XBReloadableTableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/WPPostTableViewController.h"/>
+        </class>
+        <class className="WPRecentPostTableViewController" superclassName="WPPostTableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/WPRecentPostTableViewController.h"/>
+        </class>
+        <class className="WPTabBarController" superclassName="UITabBarController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/WPTabBarController.h"/>
+        </class>
+        <class className="WPTagTableViewController" superclassName="XBReloadableTableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/WPTagTableViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="goToSearch:"/>
+                <relationship kind="outlet" name="searchBar" candidateClass="UISearchBar"/>
+            </relationships>
+        </class>
+        <class className="XBHomeController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/XBHomeController.h"/>
+        </class>
+        <class className="XBLeftMenuViewController" superclassName="XBTableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/XBLeftMenuViewController.h"/>
+        </class>
+        <class className="XBReloadableTableViewController" superclassName="XBTableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/XBReloadableTableViewController.h"/>
+        </class>
+        <class className="XBRightMenuViewController" superclassName="XBTableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/XBRightMenuViewController.h"/>
+        </class>
+        <class className="XBTableViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/XBTableViewController.h"/>
+        </class>
+        <class className="XBWebViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/XBWebViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="webView" candidateClass="UIWebView"/>
+            </relationships>
+        </class>
+        <class className="XECardDetailsPageViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/XECardDetailsPageViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="infoTapped:"/>
+                <relationship kind="action" name="qrCodeTapped:"/>
+                <relationship kind="outlet" name="categoryLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="contentTextView" candidateClass="DTAttributedTextView"/>
+                <relationship kind="outlet" name="descriptionBackgroundView" candidateClass="UIView"/>
+                <relationship kind="outlet" name="identifierLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="qrCodeImage" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="stripeView" candidateClass="UIView"/>
+                <relationship kind="outlet" name="titleBackgroundView" candidateClass="UIView"/>
+                <relationship kind="outlet" name="titleLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="XECardDetailsQRCodeViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/XECardDetailsQRCodeViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="identifierTitle" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="qrCodeImageView" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="qrCodeParentView" candidateClass="UIView"/>
+            </relationships>
+        </class>
+        <class className="XECardDetailsViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/XECardDetailsViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="changePage:"/>
+                <relationship kind="outlet" name="pageControl" candidateClass="UIPageControl"/>
+                <relationship kind="outlet" name="scrollView" candidateClass="UIScrollView"/>
+            </relationships>
+        </class>
+        <class className="XECardTableViewController" superclassName="XBReloadableTableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/XECardTableViewController.h"/>
+        </class>
+        <class className="XECategoryTableViewController" superclassName="XBReloadableTableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/XECategoryTableViewController.h"/>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
