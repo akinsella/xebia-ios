@@ -15,4 +15,7 @@
 
 - (XBAppDelegate *)appDelegate;
 
+- (UIColor *)accessoryViewColor;
+
+- (UIColor *)accessoryViewHighlightedColor;
 @end

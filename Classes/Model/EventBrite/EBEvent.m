@@ -17,4 +17,8 @@
     return config;
 }
 
+- (BOOL)isCompleted {
+    return [self.status isEqualToString: @"Completed"];
+}
+
 @end

@@ -38,7 +38,11 @@
 }
 
 - (NSString *)baseUrl {
+#if DEBUG
+    return @"http://dev.xebia.fr:8000";
+#else
     return self.dictionary[kXBBaseUrl];
+#endif
 }
 
 @end

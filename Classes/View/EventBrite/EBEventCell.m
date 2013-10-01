@@ -12,6 +12,7 @@
 #import "XBConstants.h"
 #import "UIScreen+XBAdditions.h"
 #import "XBMainViewController.h"
+#import "DTCustomColoredAccessory.h"
 
 @interface EBEventCell ()
 @property (nonatomic, strong) UIImage*defaultImage;
@@ -78,8 +79,14 @@
         description = [NSString stringWithFormat:@"%@ ...",  [description substringToIndex:128]];
     }
 
-    self.descriptionLabel.text = description;
+    if (event.isCompleted) {
+        self.titleLabel.textColor = [[UIColor colorWithHex:@"#fafafa"] darkerColorWithRatio:0.5];
+        self.descriptionLabel.textColor = [[UIColor colorWithHex:@"#fafafa"] darkerColorWithRatio:0.5];
+        ((DTCustomColoredAccessory *)self.accessoryView).accessoryColor = [self.accessoryViewColor darkerColorWithRatio:0.5];
+        ((DTCustomColoredAccessory *)self.accessoryView).highlightedColor = [self.accessoryViewHighlightedColor darkerColorWithRatio:0.5];
+    }
 
+    self.descriptionLabel.text = description;
 }
 
 - (void)attributedLabel:(TTTAttributedLabel *)label didSelectLinkWithURL:(NSURL *)url {

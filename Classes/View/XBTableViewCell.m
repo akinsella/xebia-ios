@@ -53,11 +53,11 @@
 }
 
 -(UIColor *)accessoryViewColor {
-    return [UIColor lightGrayColor];
+    return [UIColor colorWithHex:@"#fafafa"];
 }
 
 -(UIColor *)accessoryViewHighlightedColor {
-    return [UIColor whiteColor];
+    return [UIColor colorWithHex:@"#ffffff"];
 }
 
 -(void)initAccessoryView {

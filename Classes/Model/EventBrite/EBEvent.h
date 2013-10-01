@@ -27,4 +27,6 @@
 @property (nonatomic, strong) EBVenue *venue;
 @property (nonatomic, strong) EBOrganizer *organizer;
 
+- (BOOL)isCompleted;
+
 @end
