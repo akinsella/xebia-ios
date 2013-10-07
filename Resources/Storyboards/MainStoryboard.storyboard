@@ -732,12 +732,10 @@
                                         </subviews>
                                         <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <constraints>
-                                            <constraint firstAttribute="centerX" secondItem="gzt-KT-TsR" secondAttribute="centerX" type="user" id="0sp-Oz-ZWa"/>
-                                            <constraint firstAttribute="centerX" secondItem="65J-g6-bqr" secondAttribute="centerX" type="user" id="1DY-2p-gxZ"/>
-                                            <constraint firstItem="gzt-KT-TsR" firstAttribute="leading" secondItem="xUY-73-zOe" secondAttribute="leading" type="user" id="9Js-XT-a4P"/>
-                                            <constraint firstItem="65J-g6-bqr" firstAttribute="trailing" secondItem="xUY-73-zOe" secondAttribute="trailing" type="user" id="Xbu-EP-dvi"/>
+                                            <constraint firstItem="gzt-KT-TsR" firstAttribute="trailing" secondItem="xUY-73-zOe" secondAttribute="trailing" type="default" id="3Dn-yd-ZS3"/>
+                                            <constraint firstItem="gzt-KT-TsR" firstAttribute="leading" secondItem="xUY-73-zOe" secondAttribute="leading" type="default" id="8Ry-mt-fEI"/>
+                                            <constraint firstItem="65J-g6-bqr" firstAttribute="trailing" secondItem="xUY-73-zOe" secondAttribute="trailing" type="default" id="Rf5-Ea-jId"/>
                                             <constraint firstItem="65J-g6-bqr" firstAttribute="leading" secondItem="xUY-73-zOe" secondAttribute="leading" type="user" id="br3-oa-LMh"/>
-                                            <constraint firstItem="gzt-KT-TsR" firstAttribute="trailing" secondItem="xUY-73-zOe" secondAttribute="trailing" type="user" id="gVd-UM-uQg"/>
                                             <constraint firstAttribute="centerY" secondItem="gzt-KT-TsR" secondAttribute="centerY" type="user" id="hNs-Np-Ggo"/>
                                             <constraint firstItem="65J-g6-bqr" firstAttribute="bottom" secondItem="xUY-73-zOe" secondAttribute="bottom" type="user" id="heQ-35-Qj6"/>
                                         </constraints>
@@ -776,19 +774,19 @@
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstItem="xUY-73-zOe" firstAttribute="centerX" secondItem="wnV-gp-OQe" secondAttribute="centerX" type="user" id="5Op-r6-Zag"/>
                                     <constraint firstItem="jx7-Tp-kiD" firstAttribute="top" secondItem="wnV-gp-OQe" secondAttribute="top" type="user" id="5mJ-BM-04g"/>
-                                    <constraint firstItem="xUY-73-zOe" firstAttribute="width" secondItem="jx7-Tp-kiD" secondAttribute="width" type="user" id="5tr-J2-HFw"/>
-                                    <constraint firstItem="ct0-d1-3Xj" firstAttribute="leading" secondItem="xUY-73-zOe" secondAttribute="trailing" type="user" id="8Co-Hk-keu"/>
                                     <constraint firstItem="ct0-d1-3Xj" firstAttribute="trailing" secondItem="wnV-gp-OQe" secondAttribute="trailing" type="default" id="Cl2-RJ-SX7"/>
                                     <constraint firstItem="jx7-Tp-kiD" firstAttribute="bottom" secondItem="wnV-gp-OQe" secondAttribute="bottom" type="user" id="H0I-Co-Fow"/>
                                     <constraint firstItem="ct0-d1-3Xj" firstAttribute="bottom" secondItem="wnV-gp-OQe" secondAttribute="bottom" type="user" id="MQT-Mf-qfr"/>
+                                    <constraint firstItem="xUY-73-zOe" firstAttribute="centerX" secondItem="wnV-gp-OQe" secondAttribute="centerX" type="default" id="RmZ-rK-aNS"/>
                                     <constraint firstAttribute="height" constant="88" type="user" id="TH0-KU-Wh1"/>
+                                    <constraint firstItem="xUY-73-zOe" firstAttribute="leading" secondItem="wnV-gp-OQe" secondAttribute="leading" constant="107" id="dgP-Xp-tM0"/>
                                     <constraint firstItem="xUY-73-zOe" firstAttribute="top" secondItem="wnV-gp-OQe" secondAttribute="top" type="user" id="eYE-Rg-ryn"/>
+                                    <constraint firstItem="ct0-d1-3Xj" firstAttribute="leading" secondItem="wnV-gp-OQe" secondAttribute="leading" constant="213" id="eZB-Uc-O4L"/>
                                     <constraint firstItem="xUY-73-zOe" firstAttribute="bottom" secondItem="wnV-gp-OQe" secondAttribute="bottom" type="user" id="iNb-cz-jaC"/>
-                                    <constraint firstItem="xUY-73-zOe" firstAttribute="width" secondItem="ct0-d1-3Xj" secondAttribute="width" type="user" id="l5R-Yj-kTd"/>
                                     <constraint firstItem="jx7-Tp-kiD" firstAttribute="leading" secondItem="wnV-gp-OQe" secondAttribute="leading" type="default" id="mjA-KV-mRw"/>
                                     <constraint firstItem="ct0-d1-3Xj" firstAttribute="top" secondItem="wnV-gp-OQe" secondAttribute="top" type="user" id="nXI-Li-axz"/>
+                                    <constraint firstAttribute="trailing" secondItem="jx7-Tp-kiD" secondAttribute="trailing" constant="214" id="pQa-5v-fzF"/>
                                 </constraints>
                             </view>
                         </subviews>

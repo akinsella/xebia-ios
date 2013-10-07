@@ -3019,6 +3019,8 @@
 					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
 					"\"$(SYSTEM_APPS_DIR)/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.1.sdk/System/Library/Frameworks\"",
 				);
+				GCC_GENERATE_TEST_COVERAGE_FILES = YES;
+				GCC_INSTRUMENT_PROGRAM_FLOW_ARCS = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Targets/xebia-ios/xebia-ios-Prefix.pch";
 				INFOPLIST_FILE = "$(SRCROOT)/Targets/xebia-iosTests/xebia-iosTests-Info.plist";
@@ -3062,6 +3064,8 @@
 					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
 					"\"$(SYSTEM_APPS_DIR)/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.1.sdk/System/Library/Frameworks\"",
 				);
+				GCC_GENERATE_TEST_COVERAGE_FILES = YES;
+				GCC_INSTRUMENT_PROGRAM_FLOW_ARCS = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Targets/xebia-ios/xebia-ios-Prefix.pch";
 				INFOPLIST_FILE = "$(SRCROOT)/Targets/xebia-iosTests/xebia-iosTests-Info.plist";

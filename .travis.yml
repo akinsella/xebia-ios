@@ -3,10 +3,12 @@ gemfile: Gemfile
 before_script: 
 - Scripts/before.sh
 - Scripts/add-key.sh
+- sudo easy_install cpp-coveralls
 after_script: 
 - Scripts/remove-key.sh
 after_success: 
 - Scripts/testflight.sh
+- ./Scripts/coveralls.rb --extension m --exclude-folder Artwork --exclude-folder bin --exclude-folder build --exclude-folder output --exclude-folder Pods --exclude-folder Resources --exclude-folder Scripts --exclude-folder Targets --exclude-folder Tests
 script: Scripts/build.sh
 env: 
   global: 
