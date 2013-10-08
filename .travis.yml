@@ -9,7 +9,7 @@ after_script:
 - Scripts/remove-key.sh
 after_success: 
 - Scripts/testflight.sh
-- ./Scripts/coveralls.rb --extension m --exclude-folder Artwork --exclude-folder bin --exclude-folder build --exclude-folder output --exclude-folder Pods --exclude-folder Resources --exclude-folder Scripts --exclude-folder Targets --exclude-folder Tests
+- ./Scripts/coveralls.rb --extension m --exclude-folder Artwork --exclude-folder bin --exclude-folder build --exclude-folder output --exclude-folder Pods --exclude-folder Resources --exclude-folder Scripts --exclude-folder Targets --exclude-folder Tests --exclude-folder Library/Tests
 script: Scripts/build.sh
 env: 
   global: 
