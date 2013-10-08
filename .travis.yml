@@ -4,6 +4,7 @@ before_script:
 - Scripts/before.sh
 - Scripts/add-key.sh
 - sudo easy_install cpp-coveralls
+- dufo easy_install PyYAML
 after_script: 
 - Scripts/remove-key.sh
 after_success: 
