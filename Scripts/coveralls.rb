@@ -46,7 +46,7 @@ end
 
 # the folders
 workingDir = Dir.getwd
-derivedDataDir = "#{Etc.getpwuid.dir}/Library/Developer/Xcode/DerivedData/"
+derivedDataDir = "build"
 outputDir = workingDir + "/gcov"
 
 # create gcov output folder
