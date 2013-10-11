@@ -65,11 +65,11 @@ static const CGFloat kMarginHeight = 25.0;
 -(void)updateWithWPPostContentElement:(WPPostContentStructuredElement *)element {
     self.element = element;
     if ( [self.element.type isEqualToString: @"UL"] || [self.element.type isEqualToString:@"OL"] ) {
-        NSString *html = [NSString stringWithFormat: @"<%@ style=\"padding: 20px;\">%@</%@>", element.type, element.text, element.type];
+        NSString *html = [NSString stringWithFormat: @"<%@ style=\"padding: 0px 20px;\">%@</%@>", element.type, element.text, element.type];
         self.attributedString = [self attributedStringForHTML: html];
     }
     else {
-        NSString *html = [NSString stringWithFormat: @"<%@ style=\"padding: 20px;text-align: justify;\">%@</%@>", @"div", element.text, @"div"];
+        NSString *html = [NSString stringWithFormat: @"<%@ style=\"padding: 0px 20px;text-align: justify;\">%@</%@>", @"div", element.text, @"div"];
         self.attributedString = [self attributedStringForHTML: html];
     }
 

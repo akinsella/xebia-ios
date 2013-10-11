@@ -57,7 +57,7 @@
 									<int key="NSColorSpace">1</int>
 									<bytes key="NSRGB">MC42OTAxOTYwNzg0IDAuNjkwMTk2MDc4NCAwLjY5MDE5NjA3ODQAA</bytes>
 								</object>
-								<object class="NSColor" key="IBUIHighlightedColor" id="323460871">
+								<object class="NSColor" key="IBUIHighlightedColor">
 									<int key="NSColorSpace">3</int>
 									<bytes key="NSWhite">MQA</bytes>
 								</object>
@@ -79,7 +79,6 @@
 								<string key="NSFrame">{{110, 19}, {201, 21}}</string>
 								<reference key="NSSuperview" ref="840849820"/>
 								<reference key="NSWindow"/>
-								<reference key="NSNextKeyView"/>
 								<string key="NSReuseIdentifierKey">_NS:9</string>
 								<bool key="IBUIOpaque">NO</bool>
 								<bool key="IBUIClipsSubviews">YES</bool>
@@ -91,7 +90,10 @@
 									<int key="NSColorSpace">1</int>
 									<bytes key="NSRGB">MC43NDUwOTgwMzkyIDAuNzQ1MDk4MDM5MiAwLjc0NTA5ODAzOTIAA</bytes>
 								</object>
-								<reference key="IBUIHighlightedColor" ref="323460871"/>
+								<object class="NSColor" key="IBUIHighlightedColor" id="504573715">
+									<int key="NSColorSpace">3</int>
+									<bytes key="NSWhite">MCAwAA</bytes>
+								</object>
 								<int key="IBUIBaselineAdjustment">0</int>
 								<int key="IBUITextAlignment">2</int>
 								<object class="IBUIFontDescription" key="IBUIFontDescription">
@@ -111,10 +113,7 @@
 						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="894365236"/>
 						<string key="NSReuseIdentifierKey">_NS:11</string>
-						<object class="NSColor" key="IBUIBackgroundColor">
-							<int key="NSColorSpace">3</int>
-							<bytes key="NSWhite">MCAwAA</bytes>
-						</object>
+						<reference key="IBUIBackgroundColor" ref="504573715"/>
 						<bool key="IBUIOpaque">NO</bool>
 						<bool key="IBUIClipsSubviews">YES</bool>
 						<int key="IBUIContentMode">4</int>
@@ -129,7 +128,7 @@
 				<string key="NSReuseIdentifierKey">_NS:9</string>
 				<object class="NSColor" key="IBUIBackgroundColor">
 					<int key="NSColorSpace">1</int>
-					<bytes key="NSRGB">MSAxIDEAA</bytes>
+					<bytes key="NSRGB">MC42NTA5ODAzOTIyIDAuMjIzNTI5NDExOCAwLjA3MDU4ODIzNTI5AA</bytes>
 				</object>
 				<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 				<int key="IBUISelectionStyle">0</int>

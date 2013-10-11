@@ -84,8 +84,8 @@ static NSString *const NewRelicApiKey = @"AA2a83288c6a4104ccf6cb9d48101ae3aba203
 
 #if DEBUG
     XBLeftMenuViewController *leftMenuViewController = (XBLeftMenuViewController *) [(UINavigationController *)self.mainViewController.leftViewController topViewController];
-    [leftMenuViewController revealViewControllerWithIdentifier:@"events"];
-//    [leftMenuViewController revealViewControllerWithIdentifier:@"tbBlog"];
+//    [leftMenuViewController revealViewControllerWithIdentifier:@"events"];
+    [leftMenuViewController revealViewControllerWithIdentifier:@"tbBlog"];
 //    [leftMenuViewController revealViewControllerWithIdentifier:@"videos"];
 #endif
 
