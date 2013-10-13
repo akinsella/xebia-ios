@@ -10,13 +10,13 @@
 #import <DTCoreText/DTHTMLElement.h>
 #import <DTCoreText/DTHTMLAttributedStringBuilder.h>
 #import <DTCoreText/DTAttributedTextView.h>
+#import <Underscore.m/Underscore.h>
 #import "WPPostDetailsViewController.h"
 #import "XBShareInfo.h"
 #import "SHKItem.h"
 #import "SHKActionSheet.h"
 #import "NSDate+XBAdditions.h"
 #import "UITableViewCell+VariableHeight.h"
-#import "WPAbstractPostContentStructuredElementCell.h"
 #import "WPPostContentTitleCell.h"
 
 static NSString *kParagraphCellReuseIdentifier = @"paragraphCell";
@@ -42,6 +42,7 @@ NSString *kHeader6Type = @"H6";
 @interface WPPostDetailsViewController ()
 @property(nonatomic, strong)WPPost *post;
 @property (nonatomic, strong) NSURL *lastActionLink;
+@property (nonatomic, strong) NSMutableDictionary *heightImageCache;
 @end
 
 @implementation WPPostDetailsViewController
@@ -53,6 +54,7 @@ NSString *kHeader6Type = @"H6";
 
     if (self) {
         self.post = post;
+        self.heightImageCache = [NSMutableDictionary dictionary];
     }
     return self;
 }
@@ -214,6 +216,8 @@ NSString *kHeader6Type = @"H6";
         }
         else if ( [structuredContentElement.type isEqualToString:kImageType] ) {
             seCell = [self.contentTableView dequeueReusableCellWithIdentifier:kImageCellReuseIdentifier];
+            ((WPPostContentImageElementCell *)seCell).delegate = self;
+            ((WPPostContentImageElementCell *)seCell).heightImageCache = self.heightImageCache;
         }
         else {
             seCell = [self.contentTableView dequeueReusableCellWithIdentifier:kDefaultCellReuseIdentifier];
@@ -231,6 +235,17 @@ NSString *kHeader6Type = @"H6";
     UITableViewCell *cell = [self tableView:tableView cellForRowAtIndexPath:indexPath];
     return [cell heightForCell: tableView];
 }
+
+- (void)reloadCellForElement:(WPPostContentStructuredElement *)element {
+
+    NSUInteger indexOfElement = Underscore.indexOf(self.post.structuredContent, element);
+    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:indexOfElement inSection:0];
+
+    [self.contentTableView beginUpdates];
+    [self.contentTableView reloadRowsAtIndexPaths: @[indexPath] withRowAnimation:UITableViewRowAnimationNone];
+    [self.contentTableView endUpdates];
+}
+
 
 
 //
