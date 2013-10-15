@@ -7,12 +7,15 @@
 
 
 #import "WPPostContentCodeElementCell.h"
+#import "NSString+XBAdditions.h"
+#import "NSString+HTML.h"
 
 
 @implementation WPPostContentCodeElementCell
 
-- (void)configure {
+-(void)layoutSubviews {
     self.webView.delegate = self;
+    [super layoutSubviews];
 }
 
 - (void)updateWithWPPostContentElement:(WPPostContentStructuredElement *)element {
@@ -24,25 +27,45 @@
                                                   encoding:NSUTF8StringEncoding
                                                      error:NULL];
 
-    content = [NSString stringWithFormat:content, @"java", element.text];
+    NSString *eltText = [element.text stringByAddingHTMLEntities];
+    content = [NSString stringWithFormat:content, element[@"language"], eltText];
     [self.webView loadHTMLString:content baseURL:nil];
 }
 
 - (void)webViewDidFinishLoad:(UIWebView *)webView {
-    CGRect frame = webView.frame;
-    frame.size.height = 1;
-    webView.frame = frame;
-    CGSize fittingSize = [webView sizeThatFits: CGSizeZero];
-    frame.size = fittingSize;
-    webView.frame = frame;
+    CGSize fittingSize = [webView sizeThatFits:CGSizeMake(self.frame.size.width - 30 - 20, 300)];
+    webView.frame = CGRectMake(30, 10, self.frame.size.width - 30 - 20, fittingSize.height);
+    NSLog(@"webview frame size %f", webView.frame.size.height);
 
-    NSLog(@"webview frame size %f",webView.frame.size.height);
-    [webView setOpaque:NO];
+    [webView setOpaque: NO];
     [webView setBackgroundColor:[UIColor whiteColor]];
+
+    NSString *eltText = [self.element.text stringByAddingHTMLEntities];
+    NSString *textMd5 = [eltText md5];
+
+    if (!self.heightWebViewCache[textMd5]) {
+        NSNumber *height = @(webView.frame.size.height);
+        self.heightWebViewCache[textMd5] = height;
+        [self.delegate reloadCellForElement:self.element];
+    }
+
 }
 
 - (CGFloat)heightForCell:(UITableView *)tableView {
-    return self.webView != nil ? self.webView.frame.size.height : 64;
+
+    NSString *eltText = [self.element.text stringByAddingHTMLEntities];
+    NSString *textMd5 = [eltText md5];
+    NSNumber *height = self.heightWebViewCache[textMd5];
+
+    if (height) {
+        return [height integerValue] + 2 * 10;
+    }
+    else if (self.webView) {
+        return self.webView.frame.size.height + 2 * 10;
+    }
+    else {
+        return 64 + 2 * 10;
+    }
 }
 
 @end

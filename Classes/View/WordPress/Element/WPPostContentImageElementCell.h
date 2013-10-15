@@ -9,15 +9,9 @@
 #import <Foundation/Foundation.h>
 #import "WPAbstractPostContentStructuredElementCell.h"
 
-@protocol WPPostContentImageElementCellDelegate
-
--(void) reloadCellForElement:(WPPostContentStructuredElement *)element;
-
-@end
-
 @interface WPPostContentImageElementCell : WPAbstractPostContentStructuredElementCell
 
-@property (nonatomic, weak)id<WPPostContentImageElementCellDelegate> delegate;
+@property (nonatomic, weak)id<WPPostContentElementCellDelegate> delegate;
 @property (nonatomic, strong) IBOutlet UIImageView *imageView;
 @property (nonatomic, weak) NSMutableDictionary *heightImageCache;
 

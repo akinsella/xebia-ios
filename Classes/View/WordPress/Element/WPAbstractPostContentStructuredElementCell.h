@@ -10,6 +10,11 @@
 #import "WPPostContentStructuredElement.h"
 #import "WPPostContentStructuredElementCellDelegate.h"
 
+@protocol WPPostContentElementCellDelegate
+
+-(void) reloadCellForElement:(WPPostContentStructuredElement *)element;
+
+@end
 
 @interface WPAbstractPostContentStructuredElementCell : UITableViewCell <WPPostContentStructuredElementCellDelegate>
 

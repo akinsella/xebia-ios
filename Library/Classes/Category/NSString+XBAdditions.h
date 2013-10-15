@@ -16,4 +16,6 @@
 
 -(NSURL *) url;
 
+- (NSString *)md5;
+
 @end

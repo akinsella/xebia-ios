@@ -18,6 +18,7 @@
 #import "NSDate+XBAdditions.h"
 #import "UITableViewCell+VariableHeight.h"
 #import "WPPostContentTitleCell.h"
+#import "WPPostContentCodeElementCell.h"
 
 static NSString *kParagraphCellReuseIdentifier = @"paragraphCell";
 static NSString *kImageCellReuseIdentifier = @"imageCell";
@@ -43,6 +44,7 @@ NSString *kHeader6Type = @"H6";
 @property(nonatomic, strong)WPPost *post;
 @property (nonatomic, strong) NSURL *lastActionLink;
 @property (nonatomic, strong) NSMutableDictionary *heightImageCache;
+@property (nonatomic, strong) NSMutableDictionary *heightWebViewCache;
 @end
 
 @implementation WPPostDetailsViewController
@@ -55,6 +57,7 @@ NSString *kHeader6Type = @"H6";
     if (self) {
         self.post = post;
         self.heightImageCache = [NSMutableDictionary dictionary];
+        self.heightWebViewCache = [NSMutableDictionary dictionary];
     }
     return self;
 }
@@ -111,7 +114,6 @@ NSString *kHeader6Type = @"H6";
     [self.contentTableView registerNib:[UINib nibWithNibName:@"WPPostContentImageElementCell" bundle:nil] forCellReuseIdentifier:@"imageCell"];
     [self.contentTableView registerNib:[UINib nibWithNibName:@"WPPostContentTitleCell" bundle:nil] forCellReuseIdentifier:@"titleCell"];
 }
-
 
 //
 //- (void)configureContentView {
@@ -213,6 +215,8 @@ NSString *kHeader6Type = @"H6";
         }
         else if ( [structuredContentElement.type isEqualToString:kCodeType] ) {
             seCell = [self.contentTableView dequeueReusableCellWithIdentifier:kCodeCellReuseIdentifier];
+            ((WPPostContentCodeElementCell *)seCell).delegate = self;
+            ((WPPostContentCodeElementCell *)seCell).heightWebViewCache = self.heightWebViewCache;
         }
         else if ( [structuredContentElement.type isEqualToString:kImageType] ) {
             seCell = [self.contentTableView dequeueReusableCellWithIdentifier:kImageCellReuseIdentifier];

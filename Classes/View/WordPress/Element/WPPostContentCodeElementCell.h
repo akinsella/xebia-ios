@@ -12,6 +12,8 @@
 
 @interface WPPostContentCodeElementCell : WPAbstractPostContentStructuredElementCell<UIWebViewDelegate>
 
+@property (nonatomic, weak)id<WPPostContentElementCellDelegate> delegate;
 @property (nonatomic, strong) IBOutlet UIWebView *webView;
+@property (nonatomic, weak) NSMutableDictionary *heightWebViewCache;
 
 @end

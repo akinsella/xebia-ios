@@ -16,7 +16,7 @@
 @class DTAttributedTextView;
 @protocol DTAttributedTextContentViewDelegate;
 
-@interface WPPostDetailsViewController : UIViewController<UIActionSheetDelegate, DTAttributedTextContentViewDelegate, UITableViewDelegate, UITableViewDataSource, WPPostContentImageElementCellDelegate>
+@interface WPPostDetailsViewController : UIViewController<UIActionSheetDelegate, DTAttributedTextContentViewDelegate, UITableViewDelegate, UITableViewDataSource, WPPostContentElementCellDelegate>
 
 @property(nonatomic, strong, readonly)WPPost *post;
 
