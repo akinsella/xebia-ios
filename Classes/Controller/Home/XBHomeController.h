@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface XBHomeController : UIViewController
+@interface XBHomeController : UIViewController<UICollectionViewDataSource, UICollectionViewDelegate>
+
+@property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 
 @end

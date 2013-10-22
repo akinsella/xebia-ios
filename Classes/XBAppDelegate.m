@@ -50,12 +50,12 @@ static NSString *const NewRelicApiKey = @"AA2a83288c6a4104ccf6cb9d48101ae3aba203
     if (NSClassFromString(@"SenTestCase") != nil) {
         return YES;
     }
-    else {
-        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
-        UIViewController *initViewController = [storyboard instantiateViewControllerWithIdentifier:@"centralNavigationController"];
-        self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-        [self.window setRootViewController: initViewController];
-    }
+
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
+    UIViewController *initViewController = [storyboard instantiateViewControllerWithIdentifier:@"centralNavigationController"];
+    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    [self.window setRootViewController: initViewController];
+
 
     self.configurationProvider = [XBPListConfigurationProvider provider];
 
@@ -84,8 +84,9 @@ static NSString *const NewRelicApiKey = @"AA2a83288c6a4104ccf6cb9d48101ae3aba203
 
 #if DEBUG
     XBLeftMenuViewController *leftMenuViewController = (XBLeftMenuViewController *) [(UINavigationController *)self.mainViewController.leftViewController topViewController];
+    [leftMenuViewController revealViewControllerWithIdentifier:@"home"];
 //    [leftMenuViewController revealViewControllerWithIdentifier:@"events"];
-    [leftMenuViewController revealViewControllerWithIdentifier:@"tbBlog"];
+//    [leftMenuViewController revealViewControllerWithIdentifier:@"tbBlog"];
 //    [leftMenuViewController revealViewControllerWithIdentifier:@"videos"];
 #endif
 

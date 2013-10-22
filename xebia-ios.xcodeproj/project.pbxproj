@@ -327,6 +327,8 @@
 		5493E74E17A2F09C009C0D2B /* xebia-essentials-card@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5493E74C17A2F09C009C0D2B /* xebia-essentials-card@2x.png */; };
 		5493E75A17B283D4009C0D2B /* avatar-sample.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 5493E75817B283D4009C0D2B /* avatar-sample.jpg */; };
 		5493E75B17B283D4009C0D2B /* avatar-sample@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 5493E75917B283D4009C0D2B /* avatar-sample@2x.jpg */; };
+		54997A26181722C600F40273 /* emblem.png in Resources */ = {isa = PBXBuildFile; fileRef = 54997A24181722C600F40273 /* emblem.png */; };
+		54997A27181722C600F40273 /* emblem@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 54997A25181722C600F40273 /* emblem@2x.png */; };
 		54A7483F177A480E00B9A907 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54A7483E177A480E00B9A907 /* MediaPlayer.framework */; };
 		54A7484A177EFEB300B9A907 /* Wordings.strings in Resources */ = {isa = PBXBuildFile; fileRef = 54A74848177EFEB300B9A907 /* Wordings.strings */; };
 		54A7484E177F124B00B9A907 /* XBDate.m in Sources */ = {isa = PBXBuildFile; fileRef = 54A7484D177F124B00B9A907 /* XBDate.m */; };
@@ -388,6 +390,7 @@
 		DB34D0DDE29D4831C20E685E /* blackorchid@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DB34D84C6C3D075D0CD99496 /* blackorchid@2x.png */; };
 		DB34D11D675FDB9F5FDA5C29 /* XECategoryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34DF96C607241FFD2FD30D /* XECategoryCell.m */; };
 		DB34D11E8CC0D57A2B27EAD2 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB34D2014253F0EE1EB4FBC5 /* ImageIO.framework */; };
+		DB34D17607B02877A6E49D8A /* XBNewsEmblemView.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34DD7A247E95422CD79DBE /* XBNewsEmblemView.m */; };
 		DB34D19D3D19B1F160EA25A7 /* WPPostContentParagraphElementCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34D0D9CEEE5E95E15C73A2 /* WPPostContentParagraphElementCell.m */; };
 		DB34D1C08763AD2643298EEE /* XBLeftMenuCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34D92EB516F92067A99CB9 /* XBLeftMenuCell.m */; };
 		DB34D1DD12F4603A8CD5E2FD /* XECardTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34DAF58EBF524C851113DF /* XECardTableViewController.m */; };
@@ -398,6 +401,7 @@
 		DB34D21080831DADB108D55A /* GHUserCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DB34D4BA81EC4FD48384EA25 /* GHUserCell.xib */; };
 		DB34D2178AD0916DF2038F6C /* XECard.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34D91042354A075764148E /* XECard.m */; };
 		DB34D257FA427B168188038E /* XESponsor.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34D0A4CC294EC4C22FF6BD /* XESponsor.m */; };
+		DB34D29F1B19CF6A08AA8B2A /* BHAlbum.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34DDFBC1E27E551D52CF25 /* BHAlbum.m */; };
 		DB34D2B5279E454E7717D0AC /* WPAuthorCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DB34D96E0DF6CCFCBDF91B05 /* WPAuthorCell.xib */; };
 		DB34D2CB7AB56E241AE841E2 /* VMVideoDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34D520761597BD4B8B7669 /* VMVideoDetailsViewController.m */; };
 		DB34D33C7147CFEE06AD99EF /* XEDeck.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34D7E7E92FDE99630ABD8E /* XEDeck.m */; };
@@ -430,6 +434,7 @@
 		DB34D7996374697DE53CC594 /* GHMemberCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DB34D1F45D98157465DB787C /* GHMemberCell.xib */; };
 		DB34D7BFFFAFC975D2C19476 /* Styles.css in Resources */ = {isa = PBXBuildFile; fileRef = DB34D8A999304D432FA4F05D /* Styles.css */; };
 		DB34D7ED000E892BFDA50F9B /* xebia-ios.entitlements in Resources */ = {isa = PBXBuildFile; fileRef = DB34DF1B888D2DCFC1C32603 /* xebia-ios.entitlements */; };
+		DB34D7EDBCF82DA1252AA5CF /* XBNewsViewLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34DB7141DA3E2A76C2B8A9 /* XBNewsViewLayout.m */; };
 		DB34D7EE0FE712FFCF9BF08E /* XETag.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34DA8D8461A88D68351CEF /* XETag.m */; };
 		DB34D80DC3A883F6780EC05C /* WPPostContentStructuredElement.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34DF440D740A4ADAF7B0B2 /* WPPostContentStructuredElement.m */; };
 		DB34D81180C80CA12FDF0C6D /* WPPostContentHeaderElementCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DB34DFF64CA2F3C1F7B00CA6 /* WPPostContentHeaderElementCell.xib */; };
@@ -456,6 +461,8 @@
 		DB34DC6925403FAE1C1D6ED1 /* WPSPostCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34D56827878B25BB1F025D /* WPSPostCell.m */; };
 		DB34DC77D3BA7D7572EBDFB7 /* GHMemberCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34D9DA2E2CC886AD559697 /* GHMemberCell.m */; };
 		DB34DCA31F2B13810B79BC4F /* XEDeck.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34D7E7E92FDE99630ABD8E /* XEDeck.m */; };
+		DB34DCC53FC46406B961512D /* BHPhoto.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34D48D591B384BD33EBF5C /* BHPhoto.m */; };
+		DB34DCFB5CB4B7AAFC982493 /* XBNewsTitleReusableView.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34DFF79E2308EBD69E27F1 /* XBNewsTitleReusableView.m */; };
 		DB34DD42DBD4F01CE77D2061 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB34D14B542638C01069450B /* CFNetwork.framework */; };
 		DB34DDB92CB08EB004BE2DA9 /* TTTweetCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DB34DA93BE919BF05DE33959 /* TTTweetCell.xib */; };
 		DB34DDBF4DE1F968488BF69C /* WPTagCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DB34DB0DD0A6B58C15D2461A /* WPTagCell.xib */; };
@@ -468,6 +475,7 @@
 		DB34DE8D02F9F663AA9D6E6B /* NSDate+XBAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34D5EBA1F3E1109B672E44 /* NSDate+XBAdditions.m */; };
 		DB34DEB39061B9068EDA9981 /* GHRepositoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DB34D58EEEF2EB680C1431C4 /* GHRepositoryCell.xib */; };
 		DB34DEDEBDC910734D6E6BD2 /* XBRightMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34DF4AB3494EC276B736FA /* XBRightMenuViewController.m */; };
+		DB34DFBA1E889164B9B81413 /* XBNewsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34DAB6A3B79C276160F5EC /* XBNewsCell.m */; };
 		DB34DFE0E8D3977255720EBF /* WPPostCellPortrait.xib in Resources */ = {isa = PBXBuildFile; fileRef = DB34DAF8C5416FD22A0CD181 /* WPPostCellPortrait.xib */; };
 		E3C1ED277795426F8D7FCB8E /* libPods-xebia-iosTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 066FCD792FD04E9C87C35E33 /* libPods-xebia-iosTests.a */; };
 /* End PBXBuildFile section */
@@ -828,6 +836,8 @@
 		5493E74C17A2F09C009C0D2B /* xebia-essentials-card@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "xebia-essentials-card@2x.png"; sourceTree = "<group>"; };
 		5493E75817B283D4009C0D2B /* avatar-sample.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "avatar-sample.jpg"; sourceTree = "<group>"; };
 		5493E75917B283D4009C0D2B /* avatar-sample@2x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "avatar-sample@2x.jpg"; sourceTree = "<group>"; };
+		54997A24181722C600F40273 /* emblem.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = emblem.png; sourceTree = "<group>"; };
+		54997A25181722C600F40273 /* emblem@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "emblem@2x.png"; sourceTree = "<group>"; };
 		54A7483E177A480E00B9A907 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
 		54A74840177CF28E00B9A907 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		54A74847177EFD9400B9A907 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -883,6 +893,7 @@
 		54C6C7FD17F4E5520070BCD1 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		8CF994BE351A4432BFAA51FC /* Pods-xebia-iosTests.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-xebia-iosTests.xcconfig"; path = "Pods/Pods-xebia-iosTests.xcconfig"; sourceTree = "<group>"; };
 		DB34D0154E9979E5D300E8BF /* EBEventCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EBEventCell.h; sourceTree = "<group>"; };
+		DB34D016C860604E8179EA20 /* BHPhoto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BHPhoto.h; sourceTree = "<group>"; };
 		DB34D0A4CC294EC4C22FF6BD /* XESponsor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XESponsor.m; sourceTree = "<group>"; };
 		DB34D0C49C3A04F978CDA147 /* VMVideoTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VMVideoTableViewController.h; sourceTree = "<group>"; };
 		DB34D0C8C2F603FE088B4DD4 /* WPAuthorCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WPAuthorCell.h; sourceTree = "<group>"; };
@@ -892,6 +903,7 @@
 		DB34D13F306D5BF0C107DF63 /* VMUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VMUser.m; sourceTree = "<group>"; };
 		DB34D14B542638C01069450B /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = ../../../../../Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.1.sdk/System/Library/Frameworks/CFNetwork.framework; sourceTree = "<group>"; };
 		DB34D181FB864A5B5B0CCA4E /* WPAbstractPostContentStructuredElementCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WPAbstractPostContentStructuredElementCell.m; sourceTree = "<group>"; };
+		DB34D18F53BF82F481FB49A3 /* BHAlbum.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BHAlbum.h; sourceTree = "<group>"; };
 		DB34D1AE3B63AB0AFAB322EE /* XETag.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XETag.h; sourceTree = "<group>"; };
 		DB34D1BEFD3B2A376D88BF5D /* XEDeck.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XEDeck.h; sourceTree = "<group>"; };
 		DB34D1F306256770AF900772 /* XECardDetailsQRCodeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XECardDetailsQRCodeViewController.m; sourceTree = "<group>"; };
@@ -902,15 +914,19 @@
 		DB34D2290A197B1970EB3090 /* WPTagCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WPTagCell.h; sourceTree = "<group>"; };
 		DB34D254DFC068453CDD0A91 /* VMVideoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VMVideoCell.h; sourceTree = "<group>"; };
 		DB34D28263830287183F067D /* WPCategoryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WPCategoryCell.h; sourceTree = "<group>"; };
+		DB34D2B2229F71B9BB3C2DC1 /* XBNewsTitleReusableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XBNewsTitleReusableView.h; sourceTree = "<group>"; };
 		DB34D30BF4B977E5BC6067DD /* button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button.png; sourceTree = "<group>"; };
 		DB34D32DCBB00AEEE9E7268B /* XECardCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XECardCell.h; sourceTree = "<group>"; };
+		DB34D389C9C35C52CE6172CA /* XBNewsViewLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XBNewsViewLayout.h; sourceTree = "<group>"; };
 		DB34D38E1091A726A5C60A60 /* XECardCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XECardCell.m; sourceTree = "<group>"; };
 		DB34D3ACE055F5BE09F95779 /* VMThumbnail.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VMThumbnail.m; sourceTree = "<group>"; };
 		DB34D3B294EB2C7536CFA836 /* XECategoryTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XECategoryTableViewController.h; sourceTree = "<group>"; };
 		DB34D3E67D5221EE4730132B /* VMVideoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VMVideoCell.m; sourceTree = "<group>"; };
+		DB34D4305CB29857E2135633 /* XBNewsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XBNewsCell.h; sourceTree = "<group>"; };
 		DB34D433E7A98268FA0ECBF0 /* XECardDetailsPageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XECardDetailsPageViewController.h; sourceTree = "<group>"; };
 		DB34D436823829E734F76969 /* WPPostContentParagraphElementCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WPPostContentParagraphElementCell.h; sourceTree = "<group>"; };
 		DB34D43948A4D9409E09F947 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = ../../../../../Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.1.sdk/System/Library/Frameworks/MessageUI.framework; sourceTree = "<group>"; };
+		DB34D48D591B384BD33EBF5C /* BHPhoto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BHPhoto.m; sourceTree = "<group>"; };
 		DB34D4BA81EC4FD48384EA25 /* GHUserCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GHUserCell.xib; sourceTree = "<group>"; };
 		DB34D4D95E1188A7AD47E551 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = ../../../../../Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.1.sdk/System/Library/Frameworks/StoreKit.framework; sourceTree = "<group>"; };
 		DB34D4E5579AD7C7B4A4BDA4 /* WPPostContentHeaderElementCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WPPostContentHeaderElementCell.h; sourceTree = "<group>"; };
@@ -929,6 +945,7 @@
 		DB34D7023381A681C697733B /* VMVideoTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VMVideoTableViewController.m; sourceTree = "<group>"; };
 		DB34D705388B6EF1933EB1E3 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = ../../../../../Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.1.sdk/System/Library/Frameworks/CoreLocation.framework; sourceTree = "<group>"; };
 		DB34D712058259EB7ABA14BD /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = ../../../../../Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.1.sdk/System/Library/Frameworks/SystemConfiguration.framework; sourceTree = "<group>"; };
+		DB34D736C35D0FBD358FD9F5 /* XBNewsEmblemView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XBNewsEmblemView.h; sourceTree = "<group>"; };
 		DB34D73D18F676FE6A11CE63 /* VMThumbnail.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VMThumbnail.h; sourceTree = "<group>"; };
 		DB34D73F9AB47FAF1F9B13F0 /* WPPostContentStructuredElementAttribute.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WPPostContentStructuredElementAttribute.m; sourceTree = "<group>"; };
 		DB34D779566E6E53EC3D0C66 /* WPTagCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WPTagCell.m; sourceTree = "<group>"; };
@@ -964,6 +981,7 @@
 		DB34DA5B447F923BC81A43CF /* WPPostContentStructuredElementCellDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WPPostContentStructuredElementCellDelegate.h; sourceTree = "<group>"; };
 		DB34DA8D8461A88D68351CEF /* XETag.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XETag.m; sourceTree = "<group>"; };
 		DB34DA93BE919BF05DE33959 /* TTTweetCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TTTweetCell.xib; sourceTree = "<group>"; };
+		DB34DAB6A3B79C276160F5EC /* XBNewsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XBNewsCell.m; sourceTree = "<group>"; };
 		DB34DAC67048D6AD8A2EDC10 /* XECategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XECategory.h; sourceTree = "<group>"; };
 		DB34DADE223E5899F8B6B00B /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = ../../../../../Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.1.sdk/System/Library/Frameworks/Security.framework; sourceTree = "<group>"; };
 		DB34DAF58EBF524C851113DF /* XECardTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XECardTableViewController.m; sourceTree = "<group>"; };
@@ -974,6 +992,7 @@
 		DB34DB54173CA32DBCFA5377 /* NSDate+XBAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+XBAdditions.h"; sourceTree = "<group>"; };
 		DB34DB5D367DAA7DDB9AF238 /* XEULink.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XEULink.m; sourceTree = "<group>"; };
 		DB34DB62A49155EA87926383 /* XECategoryTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XECategoryTableViewController.m; sourceTree = "<group>"; };
+		DB34DB7141DA3E2A76C2B8A9 /* XBNewsViewLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XBNewsViewLayout.m; sourceTree = "<group>"; };
 		DB34DBCA884FDF6E452B2C96 /* XECategoryCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = XECategoryCell.xib; sourceTree = "<group>"; };
 		DB34DBF1B3FCCC4E6026372E /* README.md */ = {isa = PBXFileReference; lastKnownFileType = file.md; path = README.md; sourceTree = "<group>"; };
 		DB34DBFA7A7896251890FD3D /* UIAlertView+XBAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIAlertView+XBAdditions.m"; sourceTree = "<group>"; };
@@ -982,8 +1001,10 @@
 		DB34DCE9E629F0249A32FAE9 /* UIAlertView+XBAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIAlertView+XBAdditions.h"; sourceTree = "<group>"; };
 		DB34DD4E1507AF2BCB62C8A7 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = ../../../../../Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.1.sdk/System/Library/Frameworks/Social.framework; sourceTree = "<group>"; };
 		DB34DD635BB876A4193AAB19 /* VMVideoDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VMVideoDetailsViewController.h; sourceTree = "<group>"; };
+		DB34DD7A247E95422CD79DBE /* XBNewsEmblemView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XBNewsEmblemView.m; sourceTree = "<group>"; };
 		DB34DDADB26F4995CF298E0B /* GHRepositoryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GHRepositoryCell.h; sourceTree = "<group>"; };
 		DB34DDF6CFA86B21B8E0891F /* XEAbstractCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XEAbstractCell.h; sourceTree = "<group>"; };
+		DB34DDFBC1E27E551D52CF25 /* BHAlbum.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BHAlbum.m; sourceTree = "<group>"; };
 		DB34DE42A6FDB3DDA749CA6C /* WPPostContentDefaultElementCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WPPostContentDefaultElementCell.m; sourceTree = "<group>"; };
 		DB34DE645E387135F7469A74 /* XECardTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XECardTableViewController.h; sourceTree = "<group>"; };
 		DB34DE81E6F3D331FE105FE2 /* NSData+XBAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+XBAdditions.h"; sourceTree = "<group>"; };
@@ -1008,6 +1029,7 @@
 		DB34DFB3378D901394CCA123 /* xebia-ios-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "xebia-ios-Prefix.pch"; sourceTree = "<group>"; };
 		DB34DFF098560ECBEB2465D4 /* WPSPostCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WPSPostCell.h; sourceTree = "<group>"; };
 		DB34DFF64CA2F3C1F7B00CA6 /* WPPostContentHeaderElementCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WPPostContentHeaderElementCell.xib; sourceTree = "<group>"; };
+		DB34DFF79E2308EBD69E27F1 /* XBNewsTitleReusableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XBNewsTitleReusableView.m; sourceTree = "<group>"; };
 		EDB581D723EF4E5C808B5615 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		FFE479B60E604A7197B75249 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
@@ -1139,6 +1161,8 @@
 		5443EA221775BEC40000FFE8 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				54997A24181722C600F40273 /* emblem.png */,
+				54997A25181722C600F40273 /* emblem@2x.png */,
 				5485017E17E3A650002216C4 /* button.png */,
 				5485017F17E3A650002216C4 /* button@2x.png */,
 				5485017A17E2686A002216C4 /* left-arrow.png */,
@@ -2011,6 +2035,7 @@
 				544714C5177717D0001F5153 /* XBTableViewCell.m */,
 				5485017717DFD8E2002216C4 /* XBCircleImageView.h */,
 				5485017817DFD8E3002216C4 /* XBCircleImageView.m */,
+				DB34D1D94FC5ACF3E5193F0E /* Home */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -2117,6 +2142,25 @@
 				DB34DB008D30244781FE61D8 /* xebia-ios */,
 			);
 			name = Targets;
+			sourceTree = "<group>";
+		};
+		DB34D1D94FC5ACF3E5193F0E /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				DB34DAB6A3B79C276160F5EC /* XBNewsCell.m */,
+				DB34D4305CB29857E2135633 /* XBNewsCell.h */,
+				DB34DB7141DA3E2A76C2B8A9 /* XBNewsViewLayout.m */,
+				DB34D389C9C35C52CE6172CA /* XBNewsViewLayout.h */,
+				DB34DDFBC1E27E551D52CF25 /* BHAlbum.m */,
+				DB34D18F53BF82F481FB49A3 /* BHAlbum.h */,
+				DB34D48D591B384BD33EBF5C /* BHPhoto.m */,
+				DB34D016C860604E8179EA20 /* BHPhoto.h */,
+				DB34DFF79E2308EBD69E27F1 /* XBNewsTitleReusableView.m */,
+				DB34D2B2229F71B9BB3C2DC1 /* XBNewsTitleReusableView.h */,
+				DB34DD7A247E95422CD79DBE /* XBNewsEmblemView.m */,
+				DB34D736C35D0FBD358FD9F5 /* XBNewsEmblemView.h */,
+			);
+			path = Home;
 			sourceTree = "<group>";
 		};
 		DB34D315BE90CADA26F8C0E5 /* Vimeo */ = {
@@ -2561,6 +2605,8 @@
 				54C6C80217F4E5520070BCD1 /* Default-Portrait~ipad.png in Resources */,
 				54C6C80317F4E5520070BCD1 /* Default.png in Resources */,
 				54C6C80417F4E5520070BCD1 /* Default@2x.png in Resources */,
+				54997A26181722C600F40273 /* emblem.png in Resources */,
+				54997A27181722C600F40273 /* emblem@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2788,6 +2834,12 @@
 				54C4312617DB5274008913E5 /* XBRightMenuCell.m in Sources */,
 				5485016C17DFB89B002216C4 /* WPPostContentTitleCell.m in Sources */,
 				5485017917DFD8E3002216C4 /* XBCircleImageView.m in Sources */,
+				DB34DFBA1E889164B9B81413 /* XBNewsCell.m in Sources */,
+				DB34D7EDBCF82DA1252AA5CF /* XBNewsViewLayout.m in Sources */,
+				DB34D29F1B19CF6A08AA8B2A /* BHAlbum.m in Sources */,
+				DB34DCC53FC46406B961512D /* BHPhoto.m in Sources */,
+				DB34DCFB5CB4B7AAFC982493 /* XBNewsTitleReusableView.m in Sources */,
+				DB34D17607B02877A6E49D8A /* XBNewsEmblemView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
