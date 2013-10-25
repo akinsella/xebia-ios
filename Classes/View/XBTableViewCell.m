@@ -46,6 +46,7 @@
 - (void)configure {
     [self initAccessoryView];
     [self initBackgroundView];
+    self.backgroundColor = [UIColor clearColor];
 }
 
 - (XBAppDelegate *) appDelegate {
@@ -88,6 +89,7 @@
 
     //Create background view
     self.backgroundView = [[UIView alloc] init];
+    self.backgroundView.backgroundColor = [UIColor clearColor];
     self.backgroundView.contentMode = UIViewContentModeTop;
     self.backgroundView.autoresizingMask = autoResizingMask;
 

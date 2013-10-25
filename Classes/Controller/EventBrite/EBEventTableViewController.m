@@ -27,6 +27,7 @@
     self.delegate = self;
     self.title = NSLocalizedString(@"Events", nil);
 
+    [self customizeNavigationBarAppearance];
     [self addMenuButton];
 
     [super viewDidLoad];

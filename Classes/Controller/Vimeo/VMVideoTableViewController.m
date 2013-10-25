@@ -32,6 +32,7 @@
     self.tableView.rowHeight = 75;
     self.title = NSLocalizedString(@"Videos", nil);
 
+    [self customizeNavigationBarAppearance];
     [self addMenuButton];
 
     [super viewDidLoad];

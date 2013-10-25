@@ -8,34 +8,36 @@
 
 #import <QuartzCore/QuartzCore.h>
 #import "XBNewsCell.h"
+#import "XBConstants.h"
+#import "UIColor+XBAdditions.h"
+#import "UIImageView+AFNetworking.h"
 
 @interface XBNewsCell ()
 
+@property (nonatomic, strong, readwrite) UIImage *defaultImage;
 @property (nonatomic, strong, readwrite) UIImageView *imageView;
+@property (nonatomic, strong) XBNews *news;
 
 @end
 @implementation XBNewsCell
 
-- (id)initWithFrame:(CGRect)frame
-{
-    self = [super initWithFrame:frame];
-    if (self) {
-        self.backgroundColor = [UIColor colorWithWhite:0.85f alpha:1.0f];
+- (void)configure {
 
-        self.layer.borderColor = [UIColor whiteColor].CGColor;
-        self.layer.borderWidth = 3.0f;
-        self.layer.shadowColor = [UIColor blackColor].CGColor;
-        self.layer.shadowRadius = 3.0f;
-        self.layer.shadowOffset = CGSizeMake(0.0f, 2.0f);
-        self.layer.shadowOpacity = 0.5f;
+    [super configure];
 
-        self.imageView = [[UIImageView alloc] initWithFrame:self.bounds];
-        self.imageView.contentMode = UIViewContentModeScaleAspectFill;
-        self.imageView.clipsToBounds = YES;
+    self.defaultImage = [UIImage imageNamed:@"avatar_placeholder"];
 
-        [self.contentView addSubview:self.imageView];
-    }
-    return self;
+    self.accessoryType = UITableViewCellAccessoryNone;
+    
+}
+
+- (void)layoutSubviews {
+    [super layoutSubviews];
+    self.imageView.frame = CGRectMake(0, 0, self.frame.size.width, 137);
+    self.imageView.layer.masksToBounds = YES;
+
+    self.layer.shouldRasterize = YES;
+    self.layer.rasterizationScale = [[UIScreen mainScreen] scale];
 }
 
 - (void)prepareForReuse
@@ -43,6 +45,19 @@
     [super prepareForReuse];
 
     self.imageView.image = nil;
+    self.titleLabel.text = nil;
+}
+
+- (void)updateWithNews:(XBNews *)news {
+    self.news = news;
+    self.titleLabel.text = news.title;
+
+    self.titleView.backgroundColor = [UIColor colorWithHex:@"#000000" alpha:0.25];
+
+    if (news.targetUrl) {
+        NSURL *url = [[NSURL alloc] initWithString:news.targetUrl];
+        [self.imageView setImageWithURL: url placeholderImage:self.defaultImage];
+    }
 }
 
 @end

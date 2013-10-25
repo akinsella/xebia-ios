@@ -14,7 +14,9 @@
 
 - (UIImage*)imageScaledToSize:(CGSize)size;
 
-+(UIImage *)scale:(UIImage *)image toSize:(CGSize)size;
++ (UIImage *)imageWithImage:(UIImage *)image scaledToSize:(CGSize)size;
+
+- (UIImage *)resizeImageToSize:(CGSize)targetSize;
 
 - withColor:(UIColor *)color;
 

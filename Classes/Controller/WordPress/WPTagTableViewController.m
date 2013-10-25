@@ -105,9 +105,11 @@
 - (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar {
     [self.dataSource clearFilter];
 }
+
 -(IBAction)goToSearch:(id)sender {
     // If you're worried that your users might not catch on to the fact that a search bar is available if they scroll to reveal it, a search icon will help them
     // If you don't hide your search bar in your app, don’t include this, as it would be redundant
     [self.searchBar becomeFirstResponder];
 }
+
 @end

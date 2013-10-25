@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="11G63b" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="EcE-bF-5J2">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="4514" systemVersion="13A603" targetRuntime="iOS.CocoaTouch" variant="6xAndEarlier" propertyAccessControl="none" useAutolayout="YES" initialViewController="EcE-bF-5J2">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="2083"/>
+        <deployment defaultVersion="1536" identifier="iOS"/>
+        <development version="4600" identifier="xcode"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3746"/>
     </dependencies>
     <scenes>
         <!--Navigation Controller - Recents-->
@@ -37,7 +39,7 @@
                     <tabBarItem key="tabBarItem" title="Recents" image="34-coffee.png" id="svu-yB-sPr"/>
                     <navigationItem key="navigationItem" title="Recent Posts" id="sbv-lM-AGs"/>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="blackTranslucent"/>
-                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="blackOpaque" prompted="NO"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black" prompted="NO"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="abB-rE-jRD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -51,7 +53,7 @@
                         <rect key="frame" x="0.0" y="64" width="320" height="367"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <searchBar key="tableHeaderView" contentMode="redraw" barStyle="blackOpaque" id="WOt-fn-ntY">
+                        <searchBar key="tableHeaderView" contentMode="redraw" barStyle="black" id="WOt-fn-ntY">
                             <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                             <textInputTraits key="textInputTraits"/>
@@ -65,7 +67,7 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
-                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="blackOpaque" prompted="NO"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black" prompted="NO"/>
                     <connections>
                         <outlet property="searchBar" destination="WOt-fn-ntY" id="nJv-kv-SCj"/>
                     </connections>
@@ -99,8 +101,8 @@
             <objects>
                 <navigationController storyboardIdentifier="leftMenuNavigationController" definesPresentationContext="YES" id="EcE-bF-5J2" sceneMemberID="viewController">
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="blackTranslucent"/>
-                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="blackOpaque" prompted="NO"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="blackOpaque" id="gd5-l8-yrC">
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black" prompted="NO"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" id="gd5-l8-yrC">
                         <rect key="frame" x="0.0" y="-44" width="0.0" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -126,7 +128,7 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Xebia" id="IFp-Oo-ybw"/>
-                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="blackOpaque" prompted="NO"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black" prompted="NO"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="z3n-7O-F7P" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -157,19 +159,30 @@
         <scene sceneID="eCl-Mx-SJ4">
             <objects>
                 <navigationController storyboardIdentifier="centralNavigationController" definesPresentationContext="YES" id="AUp-3a-TFe" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="r5d-nH-hdS"/>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="blackTranslucent"/>
-                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="blackOpaque" prompted="NO"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="blackOpaque" id="EYG-Ae-SXz">
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black" prompted="NO"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" id="EYG-Ae-SXz">
                         <rect key="frame" x="0.0" y="-44" width="0.0" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="040-yt-iWb" kind="relationship" relationship="rootViewController" id="x3y-ji-iZU"/>
+                        <segue destination="pom-YC-2IM" kind="relationship" relationship="rootViewController" id="OWE-M8-CWV"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2mg-2v-wdL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-4801" y="844"/>
+        </scene>
+        <!--Home Controller - Home-->
+        <scene sceneID="Xgk-nk-MCO">
+            <objects>
+                <tableViewController storyboardIdentifier="home" id="pom-YC-2IM" customClass="XBHomeController" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" title="Home" id="88e-vK-cQs"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ia8-ty-h6M" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-4305" y="854"/>
         </scene>
         <!--Right Menu View Controller - Agile Tools-->
         <scene sceneID="9Cn-sX-dB6">
@@ -181,6 +194,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </tableView>
                     <navigationItem key="navigationItem" title="Agile Tools" id="exd-FO-ZV2"/>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="REE-3f-Z7z" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -191,11 +205,15 @@
             <objects>
                 <navigationController storyboardIdentifier="rightMenuNavigationController" definesPresentationContext="YES" id="7Pp-3y-Rt5" sceneMemberID="viewController">
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="blackTranslucent"/>
-                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="blackOpaque" prompted="NO"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="blackOpaque" id="1hj-dX-Osz">
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black" prompted="NO"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" id="1hj-dX-Osz">
                         <rect key="frame" x="0.0" y="-44" width="0.0" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
+                    <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="GK4-g4-pYJ">
+                        <rect key="frame" x="0.0" y="416" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </toolbar>
                     <connections>
                         <segue destination="i6q-Dn-g4s" kind="relationship" relationship="rootViewController" id="eeZ-Zt-M2V"/>
                     </connections>
@@ -203,47 +221,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IO5-qX-wZC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-4801" y="1434"/>
-        </scene>
-        <!--Home Controller - Home-->
-        <scene sceneID="Tje-CE-REG">
-            <objects>
-                <viewController storyboardIdentifier="home" title="Home" id="040-yt-iWb" customClass="XBHomeController" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="j7e-AS-CoQ">
-                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <subviews>
-                            <collectionView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="rdR-He-7KD">
-                                <collectionViewLayout key="collectionViewLayout" id="nRJ-nm-d17" customClass="XBNewsViewLayout"/>
-                                <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="ja0-Nt-vMW">
-                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        </view>
-                                    </collectionViewCell>
-                                </cells>
-                            </collectionView>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="rdR-He-7KD" firstAttribute="top" secondItem="j7e-AS-CoQ" secondAttribute="top" type="default" id="7Rf-hc-0pz"/>
-                            <constraint firstItem="rdR-He-7KD" firstAttribute="trailing" secondItem="j7e-AS-CoQ" secondAttribute="trailing" type="default" id="S6i-4D-Xu1"/>
-                            <constraint firstItem="rdR-He-7KD" firstAttribute="bottom" secondItem="j7e-AS-CoQ" secondAttribute="bottom" type="default" id="ec7-PD-kwb"/>
-                            <constraint firstItem="rdR-He-7KD" firstAttribute="leading" secondItem="j7e-AS-CoQ" secondAttribute="leading" type="default" id="v3c-N6-XdW"/>
-                        </constraints>
-                    </view>
-                    <navigationItem key="navigationItem" id="0Su-IZ-uVG"/>
-                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="blackTranslucent"/>
-                    <connections>
-                        <outlet property="collectionView" destination="rdR-He-7KD" id="akA-AR-Q8J"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="oCo-2c-b5Y" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-4305" y="844"/>
         </scene>
         <!--Github Tab Bar Controller-->
         <scene sceneID="h6C-4Q-oi2">
@@ -278,7 +255,7 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Xebia Essentials" id="WA0-9b-hg1"/>
-                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="blackOpaque" prompted="NO"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black" prompted="NO"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OEE-cV-YZR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -292,8 +269,11 @@
                         <rect key="frame" x="0.0" y="64" width="320" height="416"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uyI-v4-zye"/>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uyI-v4-zye">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="416"/>
+                            </scrollView>
                             <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="2" translatesAutoresizingMaskIntoConstraints="NO" id="lIL-lv-ErN">
+                                <rect key="frame" x="0.0" y="381" width="320" height="36"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="36" type="user" id="ote-6b-Rld"/>
                                 </constraints>
@@ -314,7 +294,7 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Xebia Card" id="MWX-eL-zIS"/>
-                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="blackOpaque" prompted="NO"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black" prompted="NO"/>
                     <connections>
                         <outlet property="pageControl" destination="lIL-lv-ErN" id="YLW-TL-Wqz"/>
                         <outlet property="scrollView" destination="uyI-v4-zye" id="MAc-Aw-fLL"/>
@@ -335,8 +315,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IUa-6W-A0e" userLabel="Title View">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="75"/>
                                 <subviews>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="If something is too complex to understand, it must be wrong" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="252" translatesAutoresizingMaskIntoConstraints="NO" id="xs2-N5-4uj">
+                                        <rect key="frame" x="11" y="12" width="252" height="51"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="252" id="5vj-M0-Mcb"/>
                                             <constraint firstAttribute="height" constant="51" type="user" id="e0h-f1-I8I"/>
@@ -346,6 +328,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="infoLight" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ged-bl-tqx">
+                                        <rect key="frame" x="282" y="28" width="18" height="19"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                         <state key="normal">
                                             <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -370,8 +353,10 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="09Y-Yu-NxE">
+                                <rect key="frame" x="0.0" y="309" width="320" height="73"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bpZ-VO-4Ny">
+                                        <rect key="frame" x="247" y="8" width="58" height="58"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="58" id="4KL-9c-mxp"/>
                                             <constraint firstAttribute="width" constant="58" id="hzN-yB-nRq"/>
@@ -389,6 +374,7 @@
                                         </connections>
                                     </button>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Mindset" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OEK-LL-4ho">
+                                        <rect key="frame" x="12" y="26" width="222" height="21"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="21" id="Uta-5D-J7H"/>
                                         </constraints>
@@ -397,6 +383,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Poutsma Principle" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hVY-xa-1zm">
+                                        <rect key="frame" x="12" y="8" width="222" height="21"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="222" id="Evz-Vf-Q1G"/>
                                             <constraint firstAttribute="height" constant="21" id="bAY-R6-pEz"/>
@@ -419,6 +406,7 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iuJ-qY-JE7" customClass="DTAttributedTextView">
+                                <rect key="frame" x="0.0" y="75" width="320" height="234"/>
                                 <color key="backgroundColor" red="0.68376358695652173" green="0.37501364738465653" blue="5.2110169412799525e-05" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
                         </subviews>
@@ -437,7 +425,7 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Xebia Essentials" id="Mfi-jy-oPz"/>
-                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="blackOpaque" prompted="NO"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black" prompted="NO"/>
                     <connections>
                         <outlet property="categoryLabel" destination="OEK-LL-4ho" id="gzE-rg-jdO"/>
                         <outlet property="contentTextView" destination="iuJ-qY-JE7" id="irS-sL-Cak"/>
@@ -462,8 +450,10 @@
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IP0-yv-xIC">
+                                <rect key="frame" x="31" y="65" width="258" height="286"/>
                                 <subviews>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Poutsma Principle" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nrE-yF-c2h">
+                                        <rect key="frame" x="5" y="255" width="248" height="21"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="21" id="pRb-DM-dhF"/>
                                         </constraints>
@@ -472,6 +462,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="xebia-essentials-sample-barcode.png" translatesAutoresizingMaskIntoConstraints="NO" id="aiR-cz-KQo">
+                                        <rect key="frame" x="5" y="5" width="248" height="248"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="248" type="user" id="Ndf-SF-bqf"/>
                                             <constraint firstAttribute="width" constant="248" type="user" id="Xew-5t-j1K"/>
@@ -496,7 +487,7 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Xebia Essentials" id="ITw-Zh-ZfO"/>
-                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="blackOpaque" prompted="NO"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black" prompted="NO"/>
                     <connections>
                         <outlet property="identifierTitle" destination="nrE-yF-c2h" id="M0r-Y7-6wH"/>
                         <outlet property="qrCodeImageView" destination="aiR-cz-KQo" id="Q0j-6b-NLS"/>
@@ -521,7 +512,7 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Card Categories" id="49o-Li-bef"/>
-                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="blackOpaque" prompted="NO"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black" prompted="NO"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="p6a-mF-LHc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -542,7 +533,7 @@
                     </tableView>
                     <tabBarItem key="tabBarItem" title="Repositories" image="40-inbox.png" id="seG-TM-oau"/>
                     <navigationItem key="navigationItem" title="Repositories" id="BJM-Dw-b0R"/>
-                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="blackOpaque" prompted="NO"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black" prompted="NO"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QMV-nb-P0a" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -557,9 +548,11 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CVM-YK-mtZ">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="101"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="bFX-83-Cew">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="460"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="separatorColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             </tableView>
@@ -599,7 +592,7 @@
                     </tableView>
                     <tabBarItem key="tabBarItem" title="Members" image="112-group.png" id="Cuw-JW-FYh"/>
                     <navigationItem key="navigationItem" title="Members" id="4nM-Xb-2ks"/>
-                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="blackOpaque" prompted="NO"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black" prompted="NO"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LMY-En-C8j" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -619,7 +612,7 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Events" id="pEv-qz-Thz"/>
-                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="blackOpaque" prompted="NO"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black" prompted="NO"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dFt-gE-gUG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -639,7 +632,7 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Videos" id="rw7-HA-Bo7"/>
-                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="blackOpaque" prompted="NO"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black" prompted="NO"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="g5W-mt-AEC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -654,18 +647,22 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView contentMode="scaleToFill" image="video_placeholder.png" translatesAutoresizingMaskIntoConstraints="NO" id="jz8-7g-YcJ">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="199"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="199" id="x95-pr-jhd"/>
                                 </constraints>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8iV-0n-5gL" userLabel="Video primary informations">
+                                <rect key="frame" x="0.0" y="199" width="320" height="49"/>
                                 <subviews>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Xebia-France" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BGC-Fe-rke">
+                                        <rect key="frame" x="20" y="8" width="242" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="HD" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IeZ-DJ-S4y">
+                                        <rect key="frame" x="270" y="14" width="42" height="21"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="42" type="user" id="gJ5-KQ-6g5"/>
                                         </constraints>
@@ -674,6 +671,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Le 18 mars 2013" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DuQ-g7-kK3">
+                                        <rect key="frame" x="20" y="23" width="242" height="21"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="21" id="R2N-OG-zox"/>
                                         </constraints>
@@ -699,15 +697,19 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wnV-gp-OQe" userLabel="Video secondary informations">
+                                <rect key="frame" x="0.0" y="248" width="320" height="88"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jx7-Tp-kiD" userLabel="View count view">
+                                        <rect key="frame" x="0.0" y="0.0" width="106" height="88"/>
                                         <subviews>
                                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="613" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d58-TZ-UWt" userLabel="View count label">
+                                                <rect key="frame" x="0.0" y="0.0" width="106" height="88"/>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="32"/>
                                                 <color key="textColor" red="0.69019607839999997" green="0.69019607839999997" blue="0.69019607839999997" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Vues" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uGJ-fb-yx9" userLabel="View description label">
+                                                <rect key="frame" x="0.0" y="44" width="106" height="44"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="44" type="user" id="frn-eG-1iT"/>
                                                 </constraints>
@@ -728,8 +730,10 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xUY-73-zOe" userLabel="Like count view">
+                                        <rect key="frame" x="107" y="0.0" width="106" height="88"/>
                                         <subviews>
                                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gzt-KT-TsR" userLabel="Like count label">
+                                                <rect key="frame" x="0.0" y="11" width="106" height="67"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="67" id="hAT-Sh-swO"/>
                                                 </constraints>
@@ -738,6 +742,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Likes" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="65J-g6-bqr" userLabel="Like description label">
+                                                <rect key="frame" x="0.0" y="44" width="106" height="44"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="44" type="user" id="OHH-xK-Mo8"/>
                                                 </constraints>
@@ -757,8 +762,10 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ct0-d1-3Xj" userLabel="Comment count view">
+                                        <rect key="frame" x="213" y="0.0" width="107" height="88"/>
                                         <subviews>
                                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="8" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sLi-GY-H7t" userLabel="Comment count label">
+                                                <rect key="frame" x="0.0" y="11" width="107" height="67"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="67" id="ukv-94-O5g"/>
                                                 </constraints>
@@ -767,6 +774,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Commentaires" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsLetterSpacingToFitWidth="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ibc-R3-dzN" userLabel="Comment description label">
+                                                <rect key="frame" x="0.0" y="44" width="107" height="44"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="44" type="user" id="PuU-Ag-NmR"/>
                                                 </constraints>
@@ -820,7 +828,7 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Video Détails" id="hDW-YE-yFp"/>
-                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="blackOpaque" prompted="NO"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black" prompted="NO"/>
                     <connections>
                         <outlet property="commentCount" destination="sLi-GY-H7t" id="ZXC-gb-S7s"/>
                         <outlet property="date" destination="DuQ-g7-kK3" id="NuE-KU-07j"/>
@@ -849,7 +857,7 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Tweets" id="FCs-Vp-PGa"/>
-                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="blackOpaque" prompted="NO"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black" prompted="NO"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AGS-wI-e8Q" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -861,8 +869,8 @@
                 <navigationController definesPresentationContext="YES" id="zyJ-XO-HEK" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Tags" image="15-tags.png" id="EuH-vu-gTW"/>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="blackTranslucent"/>
-                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="blackOpaque" prompted="NO"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="blackOpaque" id="d9g-7E-Eu5">
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black" prompted="NO"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" id="d9g-7E-Eu5">
                         <rect key="frame" x="0.0" y="-44" width="0.0" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -889,7 +897,7 @@
                     </tableView>
                     <tabBarItem key="tabBarItem" title="Categories" image="44-shoebox.png" id="8NF-si-mfB"/>
                     <navigationItem key="navigationItem" title="Categories" id="m4N-Fb-2EW"/>
-                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="blackOpaque" prompted="NO"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black" prompted="NO"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GBE-jb-gW5" sceneMemberID="firstResponder"/>
             </objects>
@@ -901,8 +909,8 @@
                 <navigationController definesPresentationContext="YES" id="Il0-sw-ow9" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Categories" image="44-shoebox.png" id="pym-UM-SwS"/>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="blackTranslucent"/>
-                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="blackOpaque" prompted="NO"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="blackOpaque" id="Zym-aw-3P9">
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black" prompted="NO"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" id="Zym-aw-3P9">
                         <rect key="frame" x="0.0" y="-44" width="0.0" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -920,8 +928,8 @@
                 <navigationController definesPresentationContext="YES" id="doq-Zg-qHm" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Auteurs" image="112-group.png" id="bZK-hs-ekz"/>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="blackTranslucent"/>
-                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="blackOpaque" prompted="NO"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="blackOpaque" id="RSL-yU-FuO">
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black" prompted="NO"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" id="RSL-yU-FuO">
                         <rect key="frame" x="0.0" y="-44" width="0.0" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -948,7 +956,7 @@
                     </tableView>
                     <tabBarItem key="tabBarItem" title="Auteurs" image="112-group.png" id="pN9-j9-fz1"/>
                     <navigationItem key="navigationItem" title="Authors" id="02C-YL-AVM"/>
-                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="blackOpaque" prompted="NO"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black" prompted="NO"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="j2i-bh-h4y" sceneMemberID="firstResponder"/>
             </objects>
@@ -963,6 +971,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Z90-rI-n31">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="416"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             </webView>
                         </subviews>
@@ -975,7 +984,7 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Web" id="wOD-jp-fQD"/>
-                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="blackOpaque" prompted="NO"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black" prompted="NO"/>
                     <connections>
                         <outlet property="webView" destination="Z90-rI-n31" id="NCb-St-Ee0"/>
                     </connections>

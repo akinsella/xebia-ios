@@ -31,6 +31,7 @@
 
     [super viewDidLoad];
 
+    [self customizeNavigationBarAppearance];
     [self addMenuButton];
 }
 

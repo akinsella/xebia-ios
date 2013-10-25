@@ -14,4 +14,5 @@
 - (void) addMenuButton;
 - (XBAppDelegate *) appDelegate;
 
+- (void)customizeNavigationBarAppearance;
 @end

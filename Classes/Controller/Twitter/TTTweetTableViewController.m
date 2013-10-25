@@ -30,6 +30,7 @@
     self.delegate = self;
     self.title = NSLocalizedString(@"Tweets", nil);
 
+    [self customizeNavigationBarAppearance];
     [self addMenuButton];
 
     [super viewDidLoad];

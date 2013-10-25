@@ -49,12 +49,21 @@
 
 - (void)layoutSubviews {
     [super layoutSubviews];
-    self.imageView.frame = CGRectMake(
-            (self.frame.size.width - MIN(self.frame.size.width, self.imageView.image.size.width)) / 2,
+
+    CGFloat maxImageWidth =  MIN(self.frame.size.width - 2 * 10, self.imageView.image.size.width);
+    CGFloat imageWidthRatio = maxImageWidth / maxImageWidth;
+    CGFloat imageWidthHeightRatio = self.imageView.image.size.width / self.imageView.image.size.width;
+
+    CGRect imageFrame = CGRectMake(
+            (self.frame.size.width - maxImageWidth - 10 * 2) / 2,
             10,
-            self.imageView.image.size.width,
-            self.imageView.image.size.height
+            maxImageWidth,
+            maxImageWidth * imageWidthRatio / imageWidthHeightRatio
     );
+
+    if (self.imageView.image.size.width + 2 * 10 > self.frame.size.width) {
+        self.imageView.frame = imageFrame;
+    }
     self.frame = CGRectMake(
             self.frame.origin.x,
             self.frame.origin.y,

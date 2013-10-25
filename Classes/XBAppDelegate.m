@@ -20,7 +20,9 @@
 #import "XBConstants.h"
 #import "DCIntrospect.h"
 #import "Appirater.h"
+#import "UINavigationBar+XBAdditions.h"
 #import <NewRelicAgent/NewRelicAgent.h>
+
 
 static NSString *const kTrackingId = @"UA-40651647-1";
 
@@ -49,6 +51,10 @@ static NSString *const NewRelicApiKey = @"AA2a83288c6a4104ccf6cb9d48101ae3aba203
 
     if (NSClassFromString(@"SenTestCase") != nil) {
         return YES;
+    }
+
+    if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0")) {
+        [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleBlackTranslucent;
     }
 
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
@@ -91,7 +97,8 @@ static NSString *const NewRelicApiKey = @"AA2a83288c6a4104ccf6cb9d48101ae3aba203
 #endif
 
     [self.window makeKeyAndVisible];
-    
+
+//    self.window.backgroundColor = [UIColor redColor];
     return YES;
 }
 
@@ -172,15 +179,30 @@ static NSString *const NewRelicApiKey = @"AA2a83288c6a4104ccf6cb9d48101ae3aba203
 
 -(void)initAppearance {
 
-    [[UINavigationBar appearance] setBackgroundImage:[UIImage imageNamed:@"navbar-portrait.png"] forBarMetrics:UIBarMetricsDefault];
-    if (IS_IPHONE_5) {
-        [[UINavigationBar appearance] setBackgroundImage:[UIImage imageNamed:@"navbar-landscape.png"] forBarMetrics:UIBarMetricsLandscapePhone];
+
+    if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0")) {
+        [[UINavigationBar appearance] setBackgroundImage:[UIImage imageNamed:@"navbar-portrait-2.png"] forBarMetrics:UIBarMetricsDefault];
+        if (IS_IPHONE_5) {
+            [[UINavigationBar appearance] setBackgroundImage:[UIImage imageNamed:@"navbar-landscape-iphone5-2.png"] forBarMetrics:UIBarMetricsLandscapePhone];
+        }
+        else {
+            [[UINavigationBar appearance] setBackgroundImage:[UIImage imageNamed:@"navbar-landscape-2.png"] forBarMetrics:UIBarMetricsLandscapePhone];
+        }
+        [[UINavigationBar appearance] setTintColor:[UIColor colorWithHex: @"#BCBFB5"]];
     }
     else {
-        [[UINavigationBar appearance] setBackgroundImage:[UIImage imageNamed:@"navbar-landscape-iphone5.png"] forBarMetrics:UIBarMetricsLandscapePhone];
+        [[UINavigationBar appearance] setBackgroundImage:[UIImage imageNamed:@"navbar-portrait.png"] forBarMetrics:UIBarMetricsDefault];
+        if (IS_IPHONE_5) {
+            [[UINavigationBar appearance] setBackgroundImage:[UIImage imageNamed:@"navbar-landscape-iphone5.png"] forBarMetrics:UIBarMetricsLandscapePhone];
+        }
+        else {
+            [[UINavigationBar appearance] setBackgroundImage:[UIImage imageNamed:@"navbar-landscape.png"] forBarMetrics:UIBarMetricsLandscapePhone];
+        }
+        [[UINavigationBar appearance] setTintColor:[UIColor colorWithHex: @"#BCBFB5"]];
     }
 
-    [[UINavigationBar appearance] setTintColor:[UIColor colorWithHex: @"#BCBFB5"]];
+//    [[UINavigationBar appearance] setBackgroundColor:[UIColor purpleColor]];
+//    [[UINavigationBar appearance] setTintColor:[UIColor purpleColor]];
     [[UINavigationBar appearance] setTitleTextAttributes: @{
             UITextAttributeTextColor: [UIColor colorWithHex:@"#FFFFFF"],
             UITextAttributeTextShadowColor: [UIColor colorWithHex:@"#661C04"],
@@ -207,9 +229,24 @@ static NSString *const NewRelicApiKey = @"AA2a83288c6a4104ccf6cb9d48101ae3aba203
     UIImage *backButtonImage = [[UIImage imageNamed:@"left-arrow.png"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 16, 0, 0)];
     [[UIBarButtonItem appearance] setBackButtonBackgroundImage:backButtonImage forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
 
+    if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0")) {
+        [[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
+        [[UINavigationBar appearance] setBackIndicatorTransitionMaskImage:backButtonImage];
+        [[UINavigationBar appearance] setBackIndicatorTransitionMaskImage:backButtonImage];
+    }
+
     // Change the appearance of other navigation button
     UIImage *barButtonImage = [[UIImage imageNamed:@"button.png"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 6, 0, 6)];
     [[UIBarButtonItem appearance] setBackgroundImage: barButtonImage forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
+
+    [[UIBarButtonItem appearance] setTitleTextAttributes: @{
+            UITextAttributeTextColor: [UIColor whiteColor],
+            UITextAttributeFont: [UIFont boldSystemFontOfSize:16.0f],
+            UITextAttributeTextShadowColor: [UIColor darkGrayColor],
+            UITextAttributeTextShadowOffset: [NSValue valueWithCGSize:CGSizeMake(0.0, -1.0)]
+    } forState:UIControlStateNormal];
+
+
 
 /*    [[UIBarButtonItem appearance] setTitleTextAttributes:@{
             UITextAttributeTextColor: [UIColor colorWithHex:@"#5E6059"],

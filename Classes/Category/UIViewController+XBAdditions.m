@@ -7,14 +7,28 @@
 //
 
 #import "UIViewController+XBAdditions.h"
-#import "UINavigationBar+XBAdditions.h"
 #import "UIColor+XBAdditions.h"
-#import "XBLogging.h"
+#import "XBConstants.h"
 
 @implementation UIViewController (XBAdditions)
 
 - (XBAppDelegate *) appDelegate {
     return (XBAppDelegate *) UIApplication.sharedApplication.delegate;
+}
+
+-(void)viewDidLayoutSubviews {
+    if ([self respondsToSelector:@selector(edgesForExtendedLayout)]) {
+        self.edgesForExtendedLayout = UIRectEdgeNone;
+    }
+}
+
+- (void)customizeNavigationBarAppearance {
+    if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0")) {
+        self.navigationController.navigationBar.translucent = NO;
+    }
+    else {
+        self.navigationController.navigationBar.translucent = YES;
+    }
 }
 
 - (void) addMenuButton {

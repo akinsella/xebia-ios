@@ -7,9 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "XBTableViewController.h"
+#import "XBReloadableTableViewController.h"
 
-@interface XBHomeController : UIViewController<UICollectionViewDataSource, UICollectionViewDelegate>
+@interface XBHomeController : XBReloadableTableViewController<UITableViewDelegate, UITableViewDataSource, XBTableViewControllerDelegate>
 
-@property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
+
 
 @end

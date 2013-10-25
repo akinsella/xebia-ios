@@ -18,6 +18,7 @@
     
     self.title = @"Github";
 
+    [self customizeNavigationBarAppearance];
     [self addMenuButton];
 
     [self.tabBar setSelectedImageTintColor:[UIColor colorWithHex:@"#888888"]];

@@ -7,10 +7,17 @@
 
 
 #import <Foundation/Foundation.h>
+#import "XBNews.h"
+#import "XBTableViewCell.h"
 
+@interface XBNewsCell : XBTableViewCell
 
-@interface XBNewsCell : UICollectionViewCell
+@property (nonatomic, strong, readonly) IBOutlet UIImageView *imageView;
 
-@property (nonatomic, strong, readonly) UIImageView *imageView;
+@property (weak, nonatomic) IBOutlet UIView *titleView;
+
+@property (nonatomic, strong) IBOutlet UILabel *titleLabel;
+
+- (void)updateWithNews:(XBNews *)news;
 
 @end
