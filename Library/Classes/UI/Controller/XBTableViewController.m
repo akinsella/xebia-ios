@@ -61,17 +61,19 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    NSString *cellNibName = [self.delegate cellNibNameAtIndexPath:indexPath];
+    NSString *cellNibName = [self.delegate tableView:tableView cellNibNameAtIndexPath:indexPath];
+    NSString *reuseIdentifier = [self.delegate tableView:tableView cellReuseIdentifierAtIndexPath:indexPath];
     if (![self.nibNames containsObject: cellNibName]) {
-        [self.tableView registerNib: [UINib nibWithNibName:cellNibName bundle:nil] forCellReuseIdentifier:[self.delegate cellReuseIdentifierAtIndexPath:indexPath ]];
+        UINib *nib = [UINib nibWithNibName:cellNibName bundle:nil];
+        [tableView registerNib:nib forCellReuseIdentifier:reuseIdentifier];
         [self.nibNames addObject: cellNibName];
     }
 
-    UITableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:[self.delegate cellReuseIdentifierAtIndexPath:indexPath ]];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier: reuseIdentifier];
 
     if (!cell) {
         // fix for rdar://11549999 (registerNib… fails on iOS 5 if VoiceOver is enabled)
-        cell = [[[NSBundle bundleForClass:self.class] loadNibNamed:[self.delegate cellNibNameAtIndexPath:indexPath ] owner:self options:nil] objectAtIndex:0];
+        cell = [[NSBundle bundleForClass:self.class] loadNibNamed:cellNibName owner:self options:nil][0];
     }
 
     [self.delegate configureCell:cell atIndex:indexPath];

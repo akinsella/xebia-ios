@@ -44,17 +44,18 @@ NSString *kOtherType = @"other";
     self.title = NSLocalizedString(@"Home", nil);
     self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"bg_home_pattern-light"]];
 
+    self.delegate = self;
     [self customizeNavigationBarAppearance];
     [self addMenuButton];
 
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
 
     self.cellNibNames = @{
-            kWordpressType: @"XBNewsWordpressElementCell",
-            kEventBriteType: @"XBNewsEventBriteElementCell",
-            kVimeoType: @"XBNewsVimeoElementCell",
-            kTwitterType: @"XBNewsTwitterElementCell",
-            kOtherType: @"XBNewsOtherElementCell",
+            kWordpressType: @"XBNewsWordpressCell",
+            kEventBriteType: @"XBNewsEventBriteCell",
+            kVimeoType: @"XBNewsVimeoCell",
+            kTwitterType: @"XBNewsTwitterCell",
+            kOtherType: @"XBNewsOtherCell",
     };
 
     self.cellReuseIdentifiers = @{
@@ -81,14 +82,14 @@ NSString *kOtherType = @"other";
     return [XBReloadableArrayDataSource dataSourceWithDataLoader:dataLoader dataMapper:dataMapper];
 }
 
-- (NSString *)cellReuseIdentifierAtIndexPath:(NSIndexPath *)indexPath {
+- (NSString *)tableView:(UITableView *)tableView cellReuseIdentifierAtIndexPath:(NSIndexPath *)indexPath {
 
     XBNews *news = self.dataSource[(NSUInteger) indexPath.row];
 
     return self.cellNibNames[news.type];
 }
 
-- (NSString *)cellNibNameAtIndexPath:(NSIndexPath *)indexPath {
+- (NSString *)tableView:(UITableView *)tableView cellNibNameAtIndexPath:(NSIndexPath *)indexPath {
 
     XBNews *news = self.dataSource[(NSUInteger) indexPath.row];
 
@@ -110,33 +111,6 @@ NSString *kOtherType = @"other";
 
     XBNews *news = self.dataSource[(NSUInteger) indexPath.row];
     NSLog(@"News selected: %@", news);
-}
-
-
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-
-    XBNews *news = self.dataSource[(NSUInteger) indexPath.row];
-
-    XBAbstractNewsCell *newsCell;
-    if ([news.type isEqualToString: kWordpressType]) {
-        newsCell = [self.tableView dequeueReusableCellWithIdentifier: kWordpressCellReuseIdentifier];
-    }
-    else if ([news.type isEqualToString: kTwitterType]) {
-        newsCell = [self.tableView dequeueReusableCellWithIdentifier: kTwitterCellReuseIdentifier];
-    }
-    else if ([news.type isEqualToString: kEventBriteType]) {
-        newsCell = [self.tableView dequeueReusableCellWithIdentifier: kEventBriteCellReuseIdentifier];
-    }
-    else if ([news.type isEqualToString: kVimeoType]) {
-        news = [self.tableView dequeueReusableCellWithIdentifier: kVimeoCellReuseIdentifier];
-    }
-    else {
-        news = [self.tableView dequeueReusableCellWithIdentifier: kOtherCellReuseIdentifier];
-    }
-
-    [newsCell updateWithNews: news];
-
-    return newsCell;
 }
 
 @end

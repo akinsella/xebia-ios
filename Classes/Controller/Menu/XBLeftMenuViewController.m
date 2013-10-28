@@ -74,14 +74,14 @@ enum {
     } mutableCopy];
 }
 
-- (NSString *)cellReuseIdentifierAtIndexPath:(NSIndexPath *)indexPath {
+- (NSString *)tableView:(UITableView *)tableView cellReuseIdentifierAtIndexPath:(NSIndexPath *)indexPath {
     // Needs to be static
     static NSString *cellReuseIdentifier = @"XLeftBMenu";
 
     return cellReuseIdentifier;
 }
 
-- (NSString *)cellNibNameAtIndexPath:(NSIndexPath *)indexPath {
+- (NSString *)tableView:(UITableView *)tableView cellNibNameAtIndexPath:(NSIndexPath *)indexPath {
     return @"XBLeftMenuCell";
 }
 

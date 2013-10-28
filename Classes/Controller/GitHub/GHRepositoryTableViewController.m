@@ -28,14 +28,14 @@
     [super viewDidLoad];
 }
 
-- (NSString *)cellReuseIdentifierAtIndexPath:(NSIndexPath *)indexPath {
+- (NSString *)tableView:(UITableView *)tableView cellReuseIdentifierAtIndexPath:(NSIndexPath *)indexPath {
     // Needs to be static
     static NSString *const cellReuseIdentifier = @"GHRepository";
 
     return cellReuseIdentifier;
 }
 
-- (NSString *)cellNibNameAtIndexPath:(NSIndexPath *)indexPath {
+- (NSString *)tableView:(UITableView *)tableView cellNibNameAtIndexPath:(NSIndexPath *)indexPath {
     return @"GHRepositoryCell";
 }
 

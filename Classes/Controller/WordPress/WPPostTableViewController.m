@@ -88,7 +88,7 @@
     return [self.postTypes valueForKey:[[NSNumber numberWithInt:self.postType] description]];
 }
 
-- (NSString *)cellReuseIdentifierAtIndexPath:(NSIndexPath *)indexPath {
+- (NSString *)tableView:(UITableView *)tableView cellReuseIdentifierAtIndexPath:(NSIndexPath *)indexPath {
     // Needs to be static
     static NSString *cellReuseIdentifier = @"WPSPost";
 
@@ -104,7 +104,7 @@
     return resourcePath;
 }
 
-- (NSString *)cellNibNameAtIndexPath:(NSIndexPath *)indexPath {
+- (NSString *)tableView:(UITableView *)tableView cellNibNameAtIndexPath:(NSIndexPath *)indexPath {
     return @"WPSPostCell";
 }
 
