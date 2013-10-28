@@ -13,9 +13,9 @@
 
 @required
 
-- (NSString *)cellReuseIdentifier;
+- (NSString *)cellReuseIdentifierAtIndexPath:(NSIndexPath *)indexPath;
 
-- (NSString *)cellNibName;
+- (NSString *)cellNibNameAtIndexPath:(NSIndexPath *)indexPath;
 
 - (void)configureCell: (UITableViewCell *)cell atIndex:(NSIndexPath *)indexPath;
 

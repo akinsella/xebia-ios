@@ -52,14 +52,14 @@ enum {
     } mutableCopy];
 }
 
-- (NSString *)cellReuseIdentifier {
+- (NSString *)cellReuseIdentifierAtIndexPath:(NSIndexPath *)indexPath {
     // Needs to be static
     static NSString *cellReuseIdentifier = @"XBRightMenu";
     
     return cellReuseIdentifier;
 }
 
-- (NSString *)cellNibName {
+- (NSString *)cellNibNameAtIndexPath:(NSIndexPath *)indexPath {
     return @"XBRightMenuCell";
 }
 

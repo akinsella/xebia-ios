@@ -12,6 +12,4 @@
 
 @interface XBHomeController : XBReloadableTableViewController<UITableViewDelegate, UITableViewDataSource, XBTableViewControllerDelegate>
 
-
-
 @end

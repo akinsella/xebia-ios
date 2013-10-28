@@ -178,7 +178,19 @@
         <scene sceneID="Xgk-nk-MCO">
             <objects>
                 <tableViewController storyboardIdentifier="home" id="pom-YC-2IM" customClass="XBHomeController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="9NJ-mu-lQe">
+                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <connections>
+                            <outlet property="dataSource" destination="pom-YC-2IM" id="ye0-Mt-iKV"/>
+                            <outlet property="delegate" destination="pom-YC-2IM" id="IXC-4N-7VV"/>
+                        </connections>
+                    </tableView>
                     <navigationItem key="navigationItem" title="Home" id="88e-vK-cQs"/>
+                    <connections>
+                        <outlet property="tableView" destination="9NJ-mu-lQe" id="YJE-Jv-G5u"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ia8-ty-h6M" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

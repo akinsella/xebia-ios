@@ -19,5 +19,7 @@
 @property (nonatomic, strong) NSDate *publicationDate;
 @property (nonatomic, strong) NSString *targetUrl;
 @property (nonatomic, strong) NSString *title;
+@property (nonatomic, strong) NSString *type;
+@property (nonatomic, strong) NSString *typeId;
 
 @end

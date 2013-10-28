@@ -5,27 +5,21 @@
 // To change the template use AppCode | Preferences | File Templates.
 //
 
-
-#import <QuartzCore/QuartzCore.h>
-#import "XBNewsCell.h"
-#import "XBConstants.h"
+#import <SDWebImage/UIImageView+WebCache.h>
+#import "XBAbstractNewsCell.h"
 #import "UIColor+XBAdditions.h"
-#import "UIImageView+AFNetworking.h"
 
-@interface XBNewsCell ()
+@interface XBAbstractNewsCell ()
 
-@property (nonatomic, strong, readwrite) UIImage *defaultImage;
 @property (nonatomic, strong, readwrite) UIImageView *imageView;
 @property (nonatomic, strong) XBNews *news;
 
 @end
-@implementation XBNewsCell
+@implementation XBAbstractNewsCell
 
 - (void)configure {
 
     [super configure];
-
-    self.defaultImage = [UIImage imageNamed:@"avatar_placeholder"];
 
     self.accessoryType = UITableViewCellAccessoryNone;
     
@@ -52,12 +46,8 @@
     self.news = news;
     self.titleLabel.text = news.title;
 
-    self.titleView.backgroundColor = [UIColor colorWithHex:@"#000000" alpha:0.25];
-
-    if (news.targetUrl) {
-        NSURL *url = [[NSURL alloc] initWithString:news.targetUrl];
-        [self.imageView setImageWithURL: url placeholderImage:self.defaultImage];
-    }
+    self.titleView.backgroundColor = [UIColor colorWithHex:@"#000000" alpha:0.50];
+    self.titleLabel.textColor = [UIColor colorWithHex: @"#FFFFFF"];
 }
 
 @end

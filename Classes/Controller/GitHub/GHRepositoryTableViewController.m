@@ -28,14 +28,14 @@
     [super viewDidLoad];
 }
 
-- (NSString *)cellReuseIdentifier {
+- (NSString *)cellReuseIdentifierAtIndexPath:(NSIndexPath *)indexPath {
     // Needs to be static
     static NSString *const cellReuseIdentifier = @"GHRepository";
 
     return cellReuseIdentifier;
 }
 
-- (NSString *)cellNibName {
+- (NSString *)cellNibNameAtIndexPath:(NSIndexPath *)indexPath {
     return @"GHRepositoryCell";
 }
 

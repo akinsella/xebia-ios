@@ -15,6 +15,7 @@
 @interface XBTableViewController ()
 
 @property(nonatomic, strong)XBArrayDataSource *dataSource;
+@property(nonatomic, strong)NSMutableArray *nibNames;
 
 @end
 
@@ -34,6 +35,7 @@
 }
 
 - (void)viewDidLoad {
+    self.nibNames = [@[] mutableCopy];
     [super viewDidLoad];
     [self initialize];
     [self configureTableView];
@@ -48,8 +50,6 @@
     self.tableView.backgroundColor = [UIColor colorWithPatternImageName:@"bg_home_pattern"];
 //    self.tableView.backgroundColor = [UIColor colorWithHex:@"#191919" alpha:1.0];
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-
-    [self.tableView registerNib:[UINib nibWithNibName:[self.delegate cellNibName] bundle:nil] forCellReuseIdentifier:[self.delegate cellReuseIdentifier]];
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -61,12 +61,17 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    NSString *cellNibName = [self.delegate cellNibNameAtIndexPath:indexPath];
+    if (![self.nibNames containsObject: cellNibName]) {
+        [self.tableView registerNib: [UINib nibWithNibName:cellNibName bundle:nil] forCellReuseIdentifier:[self.delegate cellReuseIdentifierAtIndexPath:indexPath ]];
+        [self.nibNames addObject: cellNibName];
+    }
 
-    UITableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:[self.delegate cellReuseIdentifier]];
+    UITableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:[self.delegate cellReuseIdentifierAtIndexPath:indexPath ]];
 
     if (!cell) {
         // fix for rdar://11549999 (registerNib… fails on iOS 5 if VoiceOver is enabled)
-        cell = [[[NSBundle bundleForClass:self.class] loadNibNamed:[self.delegate cellNibName] owner:self options:nil] objectAtIndex:0];
+        cell = [[[NSBundle bundleForClass:self.class] loadNibNamed:[self.delegate cellNibNameAtIndexPath:indexPath ] owner:self options:nil] objectAtIndex:0];
     }
 
     [self.delegate configureCell:cell atIndex:indexPath];

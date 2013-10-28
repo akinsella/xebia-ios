@@ -41,14 +41,14 @@
     self.navigationController.navigationBarHidden = NO;
 }
 
-- (NSString *)cellReuseIdentifier {
+- (NSString *)cellReuseIdentifierAtIndexPath:(NSIndexPath *)indexPath {
     // Needs to be static
     static NSString *cellReuseIdentifier = @"TTTweet";
 
     return cellReuseIdentifier;
 }
 
-- (NSString *)cellNibName {
+- (NSString *)cellNibNameAtIndexPath:(NSIndexPath *)indexPath {
     return @"TTTweetCell";
 }
 

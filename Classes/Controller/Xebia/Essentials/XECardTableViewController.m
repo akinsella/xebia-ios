@@ -49,14 +49,14 @@
     [super viewDidLoad];
 }
 
-- (NSString *)cellReuseIdentifier {
+- (NSString *)cellReuseIdentifierAtIndexPath:(NSIndexPath *)indexPath {
     // Needs to be static
     static NSString *cellReuseIdentifier = @"XECard" ;
 
     return cellReuseIdentifier;
 }
 
-- (NSString *)cellNibName {
+- (NSString *)cellNibNameAtIndexPath:(NSIndexPath *)indexPath {
     return @"XECardCell";
 }
 

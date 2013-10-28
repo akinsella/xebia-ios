@@ -26,9 +26,6 @@
     if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0")) {
         self.navigationController.navigationBar.translucent = NO;
     }
-    else {
-        self.navigationController.navigationBar.translucent = YES;
-    }
 }
 
 - (void) addMenuButton {
