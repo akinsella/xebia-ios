@@ -14,6 +14,7 @@
 #import "XBHttpJsonDataLoader.h"
 #import "XBJsonToArrayDataMapper.h"
 #import "XBNewsWordpressCell.h"
+#import "UIColor+XBAdditions.h"
 
 static NSString *kWordpressCellReuseIdentifier = @"XBNewsWordpress";
 static NSString *kVimeoCellReuseIdentifier = @"XBNewsVimeo";
@@ -42,13 +43,12 @@ NSString *kOtherType = @"other";
     [self.appDelegate.tracker sendView:@"/home"];
 
     self.title = NSLocalizedString(@"Home", nil);
-    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"bg_home_pattern-light"]];
+    self.view.backgroundColor = [UIColor colorWithHex:@"#E0E0E0"];
 
     self.delegate = self;
+    self.tableView.rowHeight = 136;
     [self customizeNavigationBarAppearance];
     [self addMenuButton];
-
-    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
 
     self.cellNibNames = @{
             kWordpressType: @"XBNewsWordpressCell",
@@ -60,7 +60,7 @@ NSString *kOtherType = @"other";
 
     self.cellReuseIdentifiers = @{
             kWordpressType: kWordpressCellReuseIdentifier,
-            kEventBriteType: kTwitterCellReuseIdentifier,
+            kEventBriteType: kEventBriteCellReuseIdentifier,
             kVimeoType: kVimeoCellReuseIdentifier,
             kTwitterType: kTwitterCellReuseIdentifier,
             kOtherType: kOtherCellReuseIdentifier,
@@ -68,6 +68,14 @@ NSString *kOtherType = @"other";
 
     [super viewDidLoad];
 }
+
+- (void)configureTableView {
+    [super configureTableView];
+
+    self.tableView.backgroundColor = [UIColor colorWithHex:@"#E0E0E0"];
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+}
+
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
@@ -86,14 +94,14 @@ NSString *kOtherType = @"other";
 
     XBNews *news = self.dataSource[(NSUInteger) indexPath.row];
 
-    return self.cellNibNames[news.type];
+    return self.cellReuseIdentifiers[news.type];
 }
 
 - (NSString *)tableView:(UITableView *)tableView cellNibNameAtIndexPath:(NSIndexPath *)indexPath {
 
     XBNews *news = self.dataSource[(NSUInteger) indexPath.row];
 
-    return self.cellReuseIdentifiers[news.type];
+    return self.cellNibNames[news.type];
 }
 
 - (void)configureCell:(UITableViewCell *)cell atIndex:(NSIndexPath *)indexPath {

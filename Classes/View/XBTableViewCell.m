@@ -11,7 +11,6 @@
 #import "XBTableViewCell.h"
 #import "DTCustomColoredAccessory.h"
 #import "UIColor+XBAdditions.h"
-#import "XBAppDelegate.h"
 
 @interface XBTableViewCell()
 
@@ -57,6 +56,22 @@
     return [UIColor colorWithHex:@"#fafafa"];
 }
 
+-(UIColor *)accessoryViewBackgroundColor {
+    return [UIColor clearColor];
+}
+
+-(BOOL)showSeparatorLine {
+    return YES;
+}
+
+-(BOOL)customizeSelectedBackgroundView {
+    return YES;
+}
+
+-(BOOL)customizeBackgroundView {
+    return YES;
+}
+
 -(UIColor *)accessoryViewHighlightedColor {
     return [UIColor colorWithHex:@"#ffffff"];
 }
@@ -65,7 +80,7 @@
     DTCustomColoredAccessory *accessory = [DTCustomColoredAccessory accessoryWithColor:[self accessoryViewColor]];
     accessory.highlightedColor = [self accessoryViewHighlightedColor];
 //    [accessory addTarget:self action:@selector(accessoryButtonTapped:withEvent:)  forControlEvents:UIControlEventTouchUpInside];
-    accessory.backgroundColor = [UIColor clearColor];
+    accessory.backgroundColor = [self accessoryViewBackgroundColor];
     self.accessoryView = accessory;
 }
 
@@ -88,26 +103,32 @@
 
 
     //Create background view
-    self.backgroundView = [[UIView alloc] init];
-    self.backgroundView.backgroundColor = [UIColor clearColor];
-    self.backgroundView.contentMode = UIViewContentModeTop;
-    self.backgroundView.autoresizingMask = autoResizingMask;
+    if (self.customizeBackgroundView) {
+        self.backgroundView = [[UIView alloc] init];
+        self.backgroundView.backgroundColor = [UIColor clearColor];
+        self.backgroundView.contentMode = UIViewContentModeTop;
+        self.backgroundView.autoresizingMask = autoResizingMask;
 
-    self.shapeLayer = [self createBottomLineShapeLayout];
-
-    [self.backgroundView.layer insertSublayer:self.shapeLayer atIndex:0];
+        if (self.showSeparatorLine) {
+            self.shapeLayer = [self createBottomLineShapeLayout];
+            [self.backgroundView.layer insertSublayer:self.shapeLayer atIndex:0];
+        }
+    }
 
     //Create selected background view
-    self.selectedBackgroundView = [[UIView alloc] init];
-    self.selectedBackgroundView.contentMode = UIViewContentModeTop;
-    self.selectedBackgroundView.autoresizingMask = autoResizingMask;
+    if (self.customizeSelectedBackgroundView) {
+        self.selectedBackgroundView = [[UIView alloc] init];
+        self.selectedBackgroundView.contentMode = UIViewContentModeTop;
+        self.selectedBackgroundView.autoresizingMask = autoResizingMask;
 
-    self.selectedGradientLayer = [self createGradientLayer];
-    [self.selectedBackgroundView.layer insertSublayer:self.selectedGradientLayer atIndex:0];
+        self.selectedGradientLayer = [self createGradientLayer];
+        [self.selectedBackgroundView.layer insertSublayer:self.selectedGradientLayer atIndex:0];
 
-    self.selectedShapeLayer = [self createBottomLineShapeLayout];
-    [self.selectedBackgroundView.layer insertSublayer:self.selectedShapeLayer atIndex:1];
-
+        if (self.showSeparatorLine) {
+            self.selectedShapeLayer = [self createBottomLineShapeLayout];
+            [self.selectedBackgroundView.layer insertSublayer:self.selectedShapeLayer atIndex:1];
+        }
+    }
 }
 
 -(void)layoutSubviews {
@@ -116,13 +137,17 @@
     self.layer.shouldRasterize = YES;
     self.layer.rasterizationScale = [[UIScreen mainScreen] scale];
 
-    [self updateLayoutForLayer:self.shapeLayer];
-    [self updatePathForShapeLayer: self.shapeLayer selected: NO];
+    if (self.customizeBackgroundView) {
+        [self updateLayoutForLayer:self.shapeLayer];
+        [self updatePathForShapeLayer: self.shapeLayer selected: NO];
+    }
 
-    [self updateLayoutForLayer:self.selectedShapeLayer];
-    [self updatePathForShapeLayer: self.selectedShapeLayer selected: YES];
+    if (self.customizeSelectedBackgroundView) {
+        [self updateLayoutForLayer:self.selectedShapeLayer];
+        [self updatePathForShapeLayer: self.selectedShapeLayer selected: YES];
 
-    [self updateLayoutForLayer:self.selectedGradientLayer];
+        [self updateLayoutForLayer:self.selectedGradientLayer];
+    }
 }
 
 -(void)updateLayoutForLayer:(CALayer *)shapeLayer {

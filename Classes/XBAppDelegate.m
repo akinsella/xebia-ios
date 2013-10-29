@@ -20,7 +20,6 @@
 #import "XBConstants.h"
 #import "DCIntrospect.h"
 #import "Appirater.h"
-#import "UINavigationBar+XBAdditions.h"
 #import <NewRelicAgent/NewRelicAgent.h>
 
 

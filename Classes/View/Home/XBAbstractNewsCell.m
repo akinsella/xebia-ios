@@ -20,15 +20,37 @@
 - (void)configure {
 
     [super configure];
-
     self.accessoryType = UITableViewCellAccessoryNone;
-    
+}
+
+- (UIColor *)accessoryViewColor {
+    return [UIColor darkGrayColor];
+}
+
+- (UIColor *)accessoryViewHighlightedColor {
+    return [UIColor darkGrayColor];
+}
+
+-(UIColor *)accessoryViewBackgroundColor {
+    return [UIColor whiteColor];
+}
+
+-(BOOL)showSeparatorLine {
+    return NO;
+}
+
+-(BOOL)customizeSelectedBackgroundView {
+    return NO;
+}
+
+-(BOOL)customizeBackgroundView {
+    return NO;
 }
 
 - (void)layoutSubviews {
     [super layoutSubviews];
-    self.imageView.frame = CGRectMake(0, 0, self.frame.size.width, 137);
-    self.imageView.layer.masksToBounds = YES;
+//    self.imageView.frame = CGRectMake(0, 0, self.frame.size.width, 137);
+//    self.imageView.layer.masksToBounds = YES;
 
     self.layer.shouldRasterize = YES;
     self.layer.rasterizationScale = [[UIScreen mainScreen] scale];
@@ -38,7 +60,6 @@
 {
     [super prepareForReuse];
 
-    self.imageView.image = nil;
     self.titleLabel.text = nil;
 }
 
@@ -46,8 +67,8 @@
     self.news = news;
     self.titleLabel.text = news.title;
 
-    self.titleView.backgroundColor = [UIColor colorWithHex:@"#000000" alpha:0.50];
-    self.titleLabel.textColor = [UIColor colorWithHex: @"#FFFFFF"];
+//    self.titleView.backgroundColor = [UIColor colorWithHex:@"#000000" alpha:0.50];
+//    self.titleLabel.textColor = [UIColor colorWithHex: @"#FFFFFF"];
 }
 
 @end

@@ -76,7 +76,7 @@ enum {
 
 - (NSString *)tableView:(UITableView *)tableView cellReuseIdentifierAtIndexPath:(NSIndexPath *)indexPath {
     // Needs to be static
-    static NSString *cellReuseIdentifier = @"XLeftBMenu";
+    static NSString *cellReuseIdentifier = @"XBLeftMenu";
 
     return cellReuseIdentifier;
 }

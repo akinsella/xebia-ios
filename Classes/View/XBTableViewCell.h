@@ -18,4 +18,13 @@
 - (UIColor *)accessoryViewColor;
 
 - (UIColor *)accessoryViewHighlightedColor;
+
+-(UIColor *)accessoryViewBackgroundColor;
+
+-(BOOL)showSeparatorLine;
+
+-(BOOL)customizeSelectedBackgroundView;
+
+-(BOOL)customizeBackgroundView;
+
 @end
