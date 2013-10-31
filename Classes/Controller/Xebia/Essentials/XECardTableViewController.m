@@ -76,7 +76,7 @@
     XBHttpClient *httpClient = [[XBPListConfigurationProvider provider] httpClient];
     XBBasicHttpQueryParamBuilder *httpQueryParamBuilder = [XBBasicHttpQueryParamBuilder builderWithDictionary:@{}];
 
-    NSString * path = self.category ? [NSString stringWithFormat:@"/api/essentials/category/%@", self.category.identifier] : @"/api/essentials/card";
+    NSString * path = self.category ? [NSString stringWithFormat:@"/api/essentials/categories/%@", self.category.identifier] : @"/api/essentials/cards";
     XBHttpJsonDataLoader *dataLoader = [XBHttpJsonDataLoader dataLoaderWithHttpClient:httpClient httpQueryParamBuilder:httpQueryParamBuilder resourcePath: path];
     XBJsonToArrayDataMapper *dataMapper = [XBJsonToArrayDataMapper mapperWithRootKeyPath:@"cards" typeClass:[XECard class]];
     return [XBReloadableArrayDataSource dataSourceWithDataLoader:dataLoader dataMapper:dataMapper];

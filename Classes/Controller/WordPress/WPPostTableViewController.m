@@ -54,9 +54,9 @@
 
     self.postTypes = [@{
         [NSNumber asString:RECENT]: @"recent",
-        [NSNumber asString:AUTHOR]: @"author",
-        [NSNumber asString:TAG]: @"tag",
-        [NSNumber asString:CATEGORY]: @"category"
+        [NSNumber asString:AUTHOR]: @"authors",
+        [NSNumber asString:TAG]: @"tags",
+        [NSNumber asString:CATEGORY]: @"categories"
     } mutableCopy];
 }
 
@@ -72,7 +72,7 @@
 
 - (void)viewDidLoad {
 
-    [self.appDelegate.tracker sendView:[NSString stringWithFormat:@"/wordpress/posts/%@", self.currentPostType]];
+    [self.appDelegate.tracker sendView:[NSString stringWithFormat:@"/wordpress/%@", [self.currentPostType isEqualToString:@"recent"] ? @"posts/recent" : self.currentPostType]];
 
     self.delegate = self;
     self.title = @"Posts";
@@ -97,8 +97,8 @@
 
 - (NSString *)resourcePath {
 
-    NSString *resourcePath = [[self currentPostType] isEqualToString:@"recent"] ?
-            @"/api/wordpress/post/recent" :
+    NSString *resourcePath = [self.currentPostType isEqualToString:@"recent"] ?
+            @"/api/wordpress/posts/recent" :
             [NSString stringWithFormat:@"/api/wordpress/%@/%@", self.currentPostType, self.identifier];
 
     return resourcePath;
@@ -123,7 +123,7 @@
     WPSPost *post = self.dataSource[(NSUInteger) indexPath.row];
     NSLog(@"Post selected: %@", post);
 
-    NSString *postUrl = [NSString stringWithFormat:@"/api/wordpress/post/%@", post.identifier];
+    NSString *postUrl = [NSString stringWithFormat:@"/api/wordpress/posts/%@", post.identifier];
 
     [self fetchDataFromSourceWithResourcePath:postUrl success:^(id fetchedJson) {
         WPPost *fetchedPost = [XBMapper parseObject:fetchedJson[@"post"] intoObjectsOfType:[WPPost class]];
