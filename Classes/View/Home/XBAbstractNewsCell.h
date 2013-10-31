@@ -18,6 +18,10 @@
 
 @property (nonatomic, strong) IBOutlet UILabel *titleLabel;
 
+@property (nonatomic, strong) IBOutlet UILabel *authorLabel;
+
+@property (nonatomic, strong) IBOutlet UILabel *dateLabel;
+
 - (void)updateWithNews:(XBNews *)news;
 
 @end

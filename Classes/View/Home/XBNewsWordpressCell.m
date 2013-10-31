@@ -8,6 +8,7 @@
 
 #import <SDWebImage/UIImageView+WebCache.h>
 #import "XBNewsWordpressCell.h"
+#import "NSDate+XBAdditions.h"
 
 @interface XBNewsWordpressCell ()
 
@@ -16,6 +17,12 @@
 @end
 
 @implementation XBNewsWordpressCell
+
+- (void)layoutSubviews {
+    [super layoutSubviews];
+    self.imageView.frame = CGRectMake(10, 3, 130, 130);
+    self.imageView.layer.masksToBounds = YES;
+}
 
 - (void)updateWithNews:(XBNews *)news {
     [super updateWithNews:news];
@@ -26,7 +33,7 @@
                        placeholderImage: self.placeholderImage
                                 options: kNilOptions
                                 success: ^(UIImage *image) {
-                                    CGRect cropRect = CGRectMake(0, 0, weakSelf.frame.size.width, weakSelf.frame.size.height);
+                                    CGRect cropRect = CGRectMake(0, 0, 130, 130);
                                     CGImageRef croppedImageRef = CGImageCreateWithImageInRect(image.CGImage, cropRect);
 
                                     UIImage *croppedImage = [UIImage imageWithCGImage:croppedImageRef];

@@ -95,7 +95,7 @@
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
 	<key>XBBaseUrl</key>
-	<string>http://dev.xebia.fr:8000</string>
+	<string>http://xebia-mobile-backend.helyx.org</string>
 	<key>XBBlogFranceEmail</key>
 	<string>blog-france@xebia.com</string>
 </dict>

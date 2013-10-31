@@ -7,7 +7,6 @@
 
 #import <SDWebImage/UIImageView+WebCache.h>
 #import "XBAbstractNewsCell.h"
-#import "UIColor+XBAdditions.h"
 
 @interface XBAbstractNewsCell ()
 
@@ -66,6 +65,9 @@
 - (void)updateWithNews:(XBNews *)news {
     self.news = news;
     self.titleLabel.text = news.title;
+    self.authorLabel.text = [NSString stringWithFormat:@"%@ %@", NSLocalizedString(@"Par", nil), news.author];
+    NSString *date = [news.publicationDate description];
+    self.dateLabel.text = [NSString stringWithFormat:@"%@", date];
 
 //    self.titleView.backgroundColor = [UIColor colorWithHex:@"#000000" alpha:0.50];
 //    self.titleLabel.textColor = [UIColor colorWithHex: @"#FFFFFF"];

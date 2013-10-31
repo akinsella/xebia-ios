@@ -21,5 +21,6 @@
 @property (nonatomic, strong) NSString *title;
 @property (nonatomic, strong) NSString *type;
 @property (nonatomic, strong) NSString *typeId;
+@property (nonatomic, strong) NSString *author;
 
 @end
