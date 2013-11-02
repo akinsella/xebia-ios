@@ -18,4 +18,6 @@
 
 - (NSString *)md5;
 
+- (NSString *)stripLeadingSlash;
+
 @end

@@ -98,8 +98,8 @@
 - (NSString *)resourcePath {
 
     NSString *resourcePath = [self.currentPostType isEqualToString:@"recent"] ?
-            @"/api/wordpress/posts/recent" :
-            [NSString stringWithFormat:@"/api/wordpress/%@/%@", self.currentPostType, self.identifier];
+            @"/wordpress/posts/recent" :
+            [NSString stringWithFormat:@"/wordpress/%@/%@", self.currentPostType, self.identifier];
 
     return resourcePath;
 }
@@ -123,7 +123,7 @@
     WPSPost *post = self.dataSource[(NSUInteger) indexPath.row];
     NSLog(@"Post selected: %@", post);
 
-    NSString *postUrl = [NSString stringWithFormat:@"/api/wordpress/posts/%@", post.identifier];
+    NSString *postUrl = [NSString stringWithFormat:@"/wordpress/posts/%@", post.identifier];
 
     [self fetchDataFromSourceWithResourcePath:postUrl success:^(id fetchedJson) {
         WPPost *fetchedPost = [XBMapper parseObject:fetchedJson[@"post"] intoObjectsOfType:[WPPost class]];

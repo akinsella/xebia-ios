@@ -6,6 +6,7 @@
 
 
 #import "XBHttpJsonDataLoader.h"
+#import "NSString+XBAdditions.h"
 
 @interface XBHttpJsonDataLoader()
 @property (nonatomic, strong)NSString *resourcePath;
@@ -28,7 +29,7 @@
     if (self) {
         self.httpClient = httpClient;
         self.httpQueryParamBuilder = httpQueryParamBuilder;
-        self.resourcePath = resourcePath;
+        self.resourcePath = [resourcePath stripLeadingSlash];
     }
 
     return self;

@@ -44,4 +44,12 @@
     ];
 }
 
+- (NSString *)stripLeadingSlash {
+    if (self.length == 0) {
+        return self;
+    }
+    return [self substringFromIndex:1];
+}
+
+
 @end

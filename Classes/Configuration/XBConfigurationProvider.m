@@ -20,7 +20,7 @@
 @implementation XBConfigurationProvider
 
 + (id)configurationProviderWithBaseUrl:(NSString *)baseUrl {
-    return [XBConfigurationProvider configurationWithDictionnary:@{kXBBaseUrl: baseUrl }];
+    return [XBConfigurationProvider configurationWithDictionnary:@{ kXBBaseUrl: baseUrl }];
 }
 
 +(id)configurationWithDictionnary:(NSDictionary *)dictionary {
