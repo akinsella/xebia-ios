@@ -42,17 +42,23 @@
     self.titleLabel.text = author.name;
 
     XBLog(@"Avatar image url: %@", author.avatarImageUrl);
+
     [[SDWebImageManager sharedManager] downloadWithURL:author.avatarImageUrl
-                                              delegate:self
                                                options:kNilOptions
-                     success:^(UIImage *image) {
-                         XBLog("Success - %@ for: %@", image, author.nickname);
-                         self.avatarImageView.image = image;
-                     }
-                     failure:^(NSError *error) {
-                         XBLog("Error - %@ for: %@", error, author.nickname);
-                         self.avatarImageView.image = self.defaultAvatarImage;
-                     }];
+                                              progress:^(NSUInteger receivedSize, long long int expectedSize) {
+
+                                              }
+                                             completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, BOOL finished) {
+                                                 if (error || !image) {
+                                                     XBLog("Error - %@ for: %@", error, author.nickname);
+                                                     self.avatarImageView.image = self.defaultAvatarImage;
+                                                 }
+                                                 else {
+                                                     XBLog("Success - %@ for: %@", image, author.nickname);
+                                                     self.avatarImageView.image = image;
+                                                 }
+                                             }];
+
 }
 
 @end

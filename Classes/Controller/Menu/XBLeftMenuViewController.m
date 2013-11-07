@@ -22,7 +22,8 @@ enum {
     XBMenuTwitter,
     /*XBMenuGithub,*/
     XBMenuEvent,
-    XBMenuVimeo
+    XBMenuVimeo,
+    XBMenuParameters
 };
 
 @interface XBLeftMenuViewController ()
@@ -49,17 +50,20 @@ enum {
 
     UIButton *menuButton = [UIButton buttonWithType:UIButtonTypeCustom];
     menuButton.frame = CGRectMake(0, 0, 22, 22);
-    [menuButton setBackgroundImage:[UIImage imageNamed:@"menu-button.png"] forState:UIControlStateNormal];
-    [menuButton addTarget:self action:@selector(revealToggle) forControlEvents:UIControlEventTouchUpInside];
+    [menuButton setBackgroundImage:[UIImage imageNamed:@"19-gear"] forState:UIControlStateNormal];
+    [menuButton addTarget:self action:@selector(revealPreferences) forControlEvents:UIControlEventTouchUpInside];
 
-
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:menuButton];
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:menuButton];
     self.navigationController.navigationBar.tintColor = [UIColor colorWithHex:@"#81247A" alpha:1.0];
 
     [self initViewIdentifiers];
     [self configureTableView];
 
     [super viewDidLoad];
+}
+
+-(void)revealPreferences {
+    [self.appDelegate.mainViewController revealViewControllerWithIdentifier:@"preferences"];
 }
 
 - (void)initViewIdentifiers {

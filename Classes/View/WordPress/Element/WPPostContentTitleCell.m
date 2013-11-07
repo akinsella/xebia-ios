@@ -74,13 +74,20 @@
     self.authorLabel.text = [NSString stringWithFormat: NSLocalizedString(@"Par %@", nil), [author.name uppercaseString]];
     self.dateLabel.text = [NSString stringWithFormat: NSLocalizedString(@"Le %@", nil), [post.date formatDayLongMonth]];
 
-    [[SDWebImageManager sharedManager] downloadWithURL:author.avatarImageUrl delegate:self options:kNilOptions
-            success:^(UIImage *image) {
-                self.avatarImageView.image = image;
-            }
-            failure:^(NSError *error) {
-                self.avatarImageView.image = self.defaultAvatarImage;
-            }];
+    [[SDWebImageManager sharedManager] downloadWithURL:author.avatarImageUrl
+                                               options:kNilOptions
+                                              progress:^(NSUInteger receivedSize, long long int expectedSize) {
+
+                                              }
+                                             completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, BOOL finished) {
+                                                 if (error || !image) {
+                                                     self.avatarImageView.image = self.defaultAvatarImage;
+                                                 }
+                                                 else {
+                                                     self.avatarImageView.image = image;
+                                                 }
+                                             }];
+
 }
 
 - (CGFloat)heightForCell:(UITableView *)tableView {

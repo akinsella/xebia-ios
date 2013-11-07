@@ -29,22 +29,24 @@
 
     if (news.imageUrl) {
         __weak typeof(self) weakSelf = self;
+
         [self.imageView setImageWithURL: [[NSURL alloc] initWithString:news.imageUrl]
                        placeholderImage: self.placeholderImage
-                                options: kNilOptions
-                                success: ^(UIImage *image) {
-                                    CGRect cropRect = CGRectMake(0, 0, 130, 130);
-                                    CGImageRef croppedImageRef = CGImageCreateWithImageInRect(image.CGImage, cropRect);
+                              completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType) {
+                                  if (error || !image) {
+                                      XBLog(@"Error: %@", error);
+                                  }
+                                  else {
+                                      CGRect cropRect = CGRectMake(0, 0, 130, 130);
+                                      CGImageRef croppedImageRef = CGImageCreateWithImageInRect(image.CGImage, cropRect);
 
-                                    UIImage *croppedImage = [UIImage imageWithCGImage:croppedImageRef];
-                                    CGImageRelease(croppedImageRef);
+                                      UIImage *croppedImage = [UIImage imageWithCGImage:croppedImageRef];
+                                      CGImageRelease(croppedImageRef);
 
-                                    weakSelf.imageView.image = croppedImage;
-                                }
-                                failure: ^(NSError *error) {
-                                    [weakSelf layoutSubviews];
-                                }
-        ];
+                                      weakSelf.imageView.image = croppedImage;
+                                  }
+                                  [weakSelf layoutSubviews];
+                              }];
     }
 }
 

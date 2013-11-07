@@ -31,20 +31,22 @@
 
     NSString *imageSrc = self.element[@"src"];
 
+
     [self.imageView setImageWithURL:[NSURL URLWithString:imageSrc]
                    placeholderImage: self.placeholderImage
-                            options:kNilOptions
-                            success:^(UIImage *image) {
-                                if (!weakSelf.heightImageCache[imageSrc]) {
-                                    weakSelf.heightImageCache[imageSrc] = @(image.size.height);
-                                    [weakSelf.delegate reloadCellForElement:weakSelf.element];
-                                }
-                                [weakSelf layoutSubviews];
-                            }
-                            failure:^(NSError *error) {
-                                [weakSelf layoutSubviews];
-                            }
-    ];
+                          completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType) {
+                               if (error || !image) {
+                                   XBLog(@"Error: %@", error);
+                               }
+                               else {
+                                   if (!weakSelf.heightImageCache[imageSrc]) {
+                                       weakSelf.heightImageCache[imageSrc] = @(image.size.height);
+                                       [weakSelf.delegate reloadCellForElement:weakSelf.element];
+                                   }
+                               }
+                              [weakSelf layoutSubviews];
+                           }];
+
 }
 
 - (void)layoutSubviews {

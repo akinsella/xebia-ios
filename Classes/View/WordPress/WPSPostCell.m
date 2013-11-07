@@ -49,15 +49,20 @@
     self.authorLabel.text = post.authorFormatted;
 
     if (![post.primaryAuthor.slug isEqualToString:@"xebiafrance"]) {
+
         [[SDWebImageManager sharedManager] downloadWithURL:post.imageUrl
-                                                  delegate:self
                                                    options:kNilOptions
-                                                   success:^(UIImage *image) {
-                                                       self.avatarImageView.image = image;
-                                                   }
-                                                   failure:^(NSError *error) {
-                                                       self.avatarImageView.image = self.defaultPostImage;
-                                                   }];
+                                                  progress:^(NSUInteger receivedSize, long long int expectedSize) {
+
+                                                  }
+                                                 completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, BOOL finished) {
+                                                     if (error || !image) {
+                                                         self.avatarImageView.image = self.defaultPostImage;
+                                                     }
+                                                     else {
+                                                         self.avatarImageView.image = image;
+                                                     }
+                                                 }];
     }
     else {
         self.avatarImageView.image = self.xebiaPostImage;

@@ -49,13 +49,18 @@
 
         VMThumbnail * thumbnail = self.video.thumbnails[2];
         XBLog(@"Image url: %@", thumbnail.url);
-        [self.videoImage setImageWithURL:[NSURL URLWithString:thumbnail.url] placeholderImage:[UIImage imageNamed:@"video_placeholder.png"]
-                                 success:^(UIImage *image) {
-                                     self.videoImage.image = [self generateWatermarkForImage:image];
-                                 }
-                                 failure:^(NSError *error) {
-                                     XBLog(@"Error: %@", error);
-                                 }];
+
+        [self.videoImage setImageWithURL:[NSURL URLWithString:thumbnail.url]
+                        placeholderImage:[UIImage imageNamed:@"video_placeholder.png"]
+                               completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType) {
+                                   if (error || !image) {
+                                       XBLog(@"Error: %@", error);
+                                   }
+                                   else {
+                                       self.videoImage.image = [self generateWatermarkForImage:image];
+                                   }
+                               }];
+
         [self refreshViewWithVideoData];
     }
 }

@@ -40,7 +40,7 @@
 }
 
 - (void)revealToggle {
-    if (self.appDelegate.mainViewController.state == PKRevealControllerFocusesLeftViewController) {
+    if (self.appDelegate.mainViewController.state == PKRevealControllerShowsLeftViewController) {
         [self.appDelegate.mainViewController showViewController: self.appDelegate.mainViewController.frontViewController];
     }
     else {
