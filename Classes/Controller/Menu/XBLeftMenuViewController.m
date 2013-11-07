@@ -8,11 +8,11 @@
 #import "XBLeftMenuViewController.h"
 #import "XBMainViewController.h"
 #import "NSNumber+XBAdditions.h"
-#import "JSONKit.h"
 #import "XBLeftMenuCell.h"
 #import "UIViewController+XBAdditions.h"
 #import "GAITracker.h"
 #import "UIColor+XBAdditions.h"
+#import "XBNavigableViewController.h"
 
 
 // Enum for row indices
@@ -125,6 +125,10 @@ enum {
 }
 
 -(void)revealViewControllerWithIdentifier:(NSString *)identifier {
+    [self revealViewControllerWithIdentifier:identifier withPath: nil];
+}
+
+- (void)revealViewControllerWithIdentifier:(NSString *)identifier withPath:(NSString *)path {
     if ([self currentViewIsViewControllerWithIdentifier: identifier]) {
         [self.navigationController.revealController resignPresentationModeEntirely:YES
                                                                           animated:YES
@@ -132,8 +136,14 @@ enum {
     }
     else {
         UIViewController * viewController = [self.appDelegate.viewControllerManager getOrCreateControllerWithIdentifier: identifier];
+
         UINavigationController *navigationController = (UINavigationController *)self.navigationController.revealController.frontViewController;
-        [navigationController setViewControllers:[NSArray arrayWithObject:viewController] animated:NO];
+        [navigationController setViewControllers: @[viewController] animated:NO];
+
+        if (path && [viewController conformsToProtocol:@protocol(XBNavigableViewController)]) {
+            [(id<XBNavigableViewController>)viewController navigateToPath:path];
+        }
+
         [self.navigationController.revealController setFrontViewController:self.navigationController.revealController.frontViewController
                                                           focusAfterChange:YES completion:^(BOOL finished) { }];
     }
@@ -143,9 +153,14 @@ enum {
     return ((UINavigationController *)self.revealController.frontViewController).topViewController == [self.appDelegate.viewControllerManager getOrCreateControllerWithIdentifier:identifier];
 }
 
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation {
-    return YES;
+- (NSUInteger)supportedInterfaceOrientations
+{
+    return UIInterfaceOrientationMaskAll;
 }
 
+- (BOOL)shouldAutorotate
+{
+    return YES;
+}
 
 @end

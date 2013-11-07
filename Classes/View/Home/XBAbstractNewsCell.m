@@ -7,6 +7,7 @@
 
 #import <SDWebImage/UIImageView+WebCache.h>
 #import "XBAbstractNewsCell.h"
+#import "NSDate+XBAdditions.h"
 
 @interface XBAbstractNewsCell ()
 
@@ -39,7 +40,7 @@
 }
 
 -(BOOL)customizeSelectedBackgroundView {
-    return NO;
+    return YES;
 }
 
 -(BOOL)customizeBackgroundView {
@@ -62,15 +63,23 @@
     self.titleLabel.text = nil;
 }
 
+- (CGFloat)heightForCell:(UITableView *)tableView {
+    return 136;
+}
+
 - (void)updateWithNews:(XBNews *)news {
     self.news = news;
     self.titleLabel.text = news.title;
     self.authorLabel.text = [NSString stringWithFormat:@"%@ %@", NSLocalizedString(@"Par", nil), news.author];
-    NSString *date = [news.publicationDate description];
+    NSString *date = [news.publicationDate formatDayMonth];
     self.dateLabel.text = [NSString stringWithFormat:@"%@", date];
 
 //    self.titleView.backgroundColor = [UIColor colorWithHex:@"#000000" alpha:0.50];
 //    self.titleLabel.textColor = [UIColor colorWithHex: @"#FFFFFF"];
+}
+
+- (void)onSelection {
+    NSLog(@"News selected: %@", self.news);
 }
 
 @end

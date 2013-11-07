@@ -8,7 +8,8 @@
 
 #import <Foundation/Foundation.h>
 #import "XBReloadableTableViewController.h"
+#import "XBNavigableViewController.h"
 
-@interface VMVideoTableViewController : XBReloadableTableViewController<UITableViewDelegate, UITableViewDataSource, XBTableViewControllerDelegate>
+@interface VMVideoTableViewController : XBReloadableTableViewController<UITableViewDelegate, UITableViewDataSource, XBTableViewControllerDelegate, XBNavigableViewController>
 
 @end

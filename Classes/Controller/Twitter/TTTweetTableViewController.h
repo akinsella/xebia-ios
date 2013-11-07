@@ -9,7 +9,8 @@
 #import <UIKit/UIKit.h>
 #import "TTTAttributedLabel.h"
 #import "XBReloadableTableViewController.h"
+#import "XBNavigableViewController.h"
 
-@interface TTTweetTableViewController : XBReloadableTableViewController<UITableViewDelegate, UITableViewDataSource, XBTableViewControllerDelegate>
+@interface TTTweetTableViewController : XBReloadableTableViewController<UITableViewDelegate, UITableViewDataSource, XBTableViewControllerDelegate, XBNavigableViewController>
 
 @end

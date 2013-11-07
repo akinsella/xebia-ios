@@ -16,4 +16,5 @@
 @property (nonatomic, retain) NSString *json;
 @property (nonatomic, retain) XBShareInfo *shareInfo;
 
+- (void)loadRequest:(NSURL *)request;
 @end

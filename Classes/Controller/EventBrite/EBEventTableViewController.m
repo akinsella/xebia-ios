@@ -38,6 +38,16 @@
     self.navigationController.navigationBarHidden = NO;
 }
 
+- (NSUInteger)supportedInterfaceOrientations
+{
+    return UIInterfaceOrientationMaskPortrait;
+}
+
+- (BOOL)shouldAutorotate
+{
+    return YES;
+}
+
 - (NSString *)tableView:(UITableView *)tableView cellReuseIdentifierAtIndexPath:(NSIndexPath *)indexPath {
     // Needs to be static
     static NSString *cellReuseIdentifier = @"EBEvent";
@@ -64,6 +74,10 @@
     EBEvent *event = self.dataSource[(NSUInteger) indexPath.row];
 
     [eventCell updateWithEvent: event];
+}
+
+- (void)navigateToPath:(NSString *)path {
+    XBLog(@"Navigate to path: %@", path);
 }
 
 @end

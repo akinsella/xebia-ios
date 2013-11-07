@@ -16,6 +16,7 @@
 
 @interface XBWebViewController()
     @property(nonatomic, assign)BOOL jsonLoaded;
+    @property(nonatomic, strong)NSURL *loadRequest;
 @end
 
 @implementation XBWebViewController
@@ -35,11 +36,25 @@
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction
                                                                                           target:self
                                                                                           action:@selector(uiBarShareButtonItemHanderAction)];
+
+    if (self.loadRequest) {
+        [self.webView loadRequest:[NSURLRequest requestWithURL:self.loadRequest]];
+    }
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     self.navigationController.navigationBarHidden = NO;
+}
+
+- (NSUInteger)supportedInterfaceOrientations
+{
+    return UIInterfaceOrientationMaskPortrait;
+}
+
+- (BOOL)shouldAutorotate
+{
+    return YES;
 }
 
 - (void)disableUserInteractions {
@@ -276,6 +291,10 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)loadRequest:(NSURL *)loadRequest {
+    self.loadRequest = loadRequest;
 }
 
 @end

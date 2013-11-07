@@ -48,4 +48,13 @@
     }
 }
 
+- (void)onSelection {
+    [super onSelection];
+//    [self.appDelegate.mainViewController revealViewControllerWithIdentifier:@"tbBlog"];
+
+    NSURL * url  = [NSURL URLWithString:[NSString stringWithFormat: @"xebia://blog/posts/recent/%@", self.news.identifier]];
+    [[UIApplication sharedApplication] openURL: url];
+
+}
+
 @end

@@ -5,13 +5,9 @@
 //
 
 
+#import <DCKeyValueObjectMapping/DCObjectMapping.h>
 #import "TTTweet.h"
-#import "XBDate.h"
-#import "TTRetweetedStatus.h"
-#import "DCParserConfiguration.h"
-#import "DCKeyValueObjectMapping.h"
 #import "DCParserConfiguration+XBAdditions.h"
-#import "NSDate+XBAdditions.h"
 
 
 @implementation TTRetweetedStatus
@@ -19,6 +15,9 @@
 + (DCParserConfiguration *)mappings {
     DCParserConfiguration *config = [DCParserConfiguration configuration];
     config.datePattern = @"yyyy-MM-dd HH:mm:ss";
+
+    [config addObjectMapping: [DCObjectMapping mapKeyPath:@"id" toAttribute:@"identifier" onClass:[self class]]];
+    [config addObjectMapping: [DCObjectMapping mapKeyPath:@"id_str" toAttribute:@"identifier_str" onClass:[self class]]];
 
     [config mergeConfig:[TTUser mappings]];
     [config mergeConfig:[TTEntities mappings]];

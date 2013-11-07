@@ -29,10 +29,14 @@
 
 - (void)revealViewController:(UIViewController *)controller;
 
+
+-(void)revealViewControllerWithIdentifier:(NSString *)identifier;
+
 -(void)openURL:(NSURL *)url withTitle:(NSString *)title;
 
 -(void)openLocalURL:(NSString *)htmlFileRef withTitle:(NSString *)title object:(id)object shareInfo:(XBShareInfo *)shareInfo;
 
 -(void)openLocalURL:(NSString *)htmlFileRef withTitle:(NSString *)title json:(NSString *)object shareInfo: (XBShareInfo *)shareInfo;
 
+- (void)revealViewControllerWithIdentifier:(NSString *)identifier withPath:(NSString *)path;
 @end

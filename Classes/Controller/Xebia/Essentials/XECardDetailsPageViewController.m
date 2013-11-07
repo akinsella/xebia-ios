@@ -72,6 +72,16 @@
     self.navigationController.navigationBarHidden = NO;
 }
 
+- (NSUInteger)supportedInterfaceOrientations
+{
+    return UIInterfaceOrientationMaskPortrait;
+}
+
+- (BOOL)shouldAutorotate
+{
+    return YES;
+}
+
 - (void)configureContentView {
 
     [DTCoreTextLayoutFrame setShouldDrawDebugFrames: NO];

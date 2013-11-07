@@ -7,7 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "XBTabBarController.h"
+#import "XBNavigableViewController.h"
 
-@interface GHTabBarController : UITabBarController
+@interface GHTabBarController : XBTabBarController<XBNavigableViewController>
 
 @end

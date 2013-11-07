@@ -14,10 +14,14 @@
 #import "NSDateFormatter+XBAdditions.h"
 #import "XBRightMenuViewController.h"
 #import "UIViewController+XBAdditions.h"
+#import "XBLeftMenuViewController.h"
 
 @interface XBMainViewController ()
 
 @property (nonatomic, strong) XBViewControllerManager *viewControllerManager;
+
+@property (nonatomic, strong) XBLeftMenuViewController *leftMenuViewController;
+@property (nonatomic, strong) XBRightMenuViewController *rightMenuViewController;
 
 @end
 
@@ -42,18 +46,23 @@
                       revealControllerOptions:(NSDictionary *)revealControllerOptions {
 
     self.viewControllerManager = viewControllerManager;
-    UIViewController *leftViewController = [self.viewControllerManager getOrCreateControllerWithIdentifier:leftViewControllerIdentifier];
+
+    UINavigationController *leftViewNavigationController = (UINavigationController *)[self.viewControllerManager getOrCreateControllerWithIdentifier:leftViewControllerIdentifier];
+    self.leftMenuViewController = (XBLeftMenuViewController *)[leftViewNavigationController topViewController];
+
     UIViewController *centralViewController = [self.viewControllerManager getOrCreateControllerWithIdentifier:centralViewControllerIdentifier];
-    UIViewController *rightViewController = [self.viewControllerManager getOrCreateControllerWithIdentifier:rightViewControllerIdentifier];
+
+    UINavigationController *rightViewNavigationController = (UINavigationController *)[self.viewControllerManager getOrCreateControllerWithIdentifier:rightViewControllerIdentifier];
+    self.rightMenuViewController = (XBRightMenuViewController *)[rightViewNavigationController topViewController];
 
 
     self = [super initWithFrontViewController:centralViewController
-                           leftViewController:leftViewController
-                          rightViewController:rightViewController
+                           leftViewController:leftViewNavigationController
+                          rightViewController:rightViewNavigationController
                                       options:revealControllerOptions];
 
     if (self) {
-        [self setMinimumWidth:120.0f maximumWidth:200.0f forViewController:leftViewController];
+        [self setMinimumWidth:120.0f maximumWidth:200.0f forViewController:self.leftViewController];
     }
 
     return self;
@@ -64,6 +73,17 @@
     if (frontViewController.visibleViewController != viewController) {
         [frontViewController pushViewController:viewController animated:true];
     }
+}
+
+-(void)revealViewControllerWithIdentifier:(NSString *)identifier {
+
+    [self.leftMenuViewController revealViewControllerWithIdentifier: identifier];
+}
+
+- (void)revealViewControllerWithIdentifier:(NSString *)identifier withPath:(NSString *)path {
+
+    [self.leftMenuViewController revealViewControllerWithIdentifier: identifier withPath:path];
+
 }
 
 -(void)openLocalURL:(NSString *)htmlFileRef withTitle:(NSString *)title object:(id)object shareInfo: (XBShareInfo *)shareInfo {
@@ -93,7 +113,7 @@
      NSURL *htmlDocumentUrl = [NSURL fileURLWithPath:htmlFile];
      [self revealViewController: webViewController];
 
-     [webViewController.webView loadRequest:[NSURLRequest requestWithURL:htmlDocumentUrl]];
+     [webViewController loadRequest:htmlDocumentUrl];
 }
 
 -(void)openURL:(NSURL *)url withTitle:(NSString *)title {
@@ -102,7 +122,7 @@
     [frontViewController pushViewController:webViewController animated:true];
     webViewController.title = title;
     
-    [webViewController.webView loadRequest:[NSURLRequest requestWithURL: url]];
+    [webViewController loadRequest:url];
 }
 
 @end

@@ -18,6 +18,7 @@
 #import "XBPListConfigurationProvider.h"
 #import "GAITracker.h"
 #import "WPPostDetailsViewController.h"
+#import "NSString+XBAdditions.h"
 
 @interface WPPostTableViewController ()
 @property (nonatomic, strong) NSMutableDictionary *postTypes;
@@ -60,16 +61,6 @@
     } mutableCopy];
 }
 
-- (XBWordpressArrayDataSource *)buildDataSource {
-    XBHttpClient *httpClient = [[XBPListConfigurationProvider provider] httpClient];
-
-    XBWordpressArrayDataSource *dataSource = [XBWordpressArrayDataSource dataSourceWithResourcePath:[self resourcePath]
-                                                                                        rootKeyPath:@"posts"
-                                                                                          classType:[WPSPost class]
-                                                                                         httpClient:httpClient];
-    return dataSource;
-}
-
 - (void)viewDidLoad {
 
     [self.appDelegate.tracker sendView:[NSString stringWithFormat:@"/wordpress/%@", [self.currentPostType isEqualToString:@"recent"] ? @"posts/recent" : self.currentPostType]];
@@ -82,6 +73,26 @@
 
     [self customizeNavigationBarAppearance];
     [self addMenuButton];
+}
+
+- (NSUInteger)supportedInterfaceOrientations
+{
+    return UIInterfaceOrientationMaskPortrait;
+}
+
+- (BOOL)shouldAutorotate
+{
+    return YES;
+}
+
+- (XBWordpressArrayDataSource *)buildDataSource {
+    XBHttpClient *httpClient = [[XBPListConfigurationProvider provider] httpClient];
+
+    XBWordpressArrayDataSource *dataSource = [XBWordpressArrayDataSource dataSourceWithResourcePath:[self resourcePath]
+                                                                                        rootKeyPath:@"posts"
+                                                                                          classType:[WPSPost class]
+                                                                                         httpClient:httpClient];
+    return dataSource;
 }
 
 - (NSString *)currentPostType {
@@ -123,7 +134,7 @@
     WPSPost *post = self.dataSource[(NSUInteger) indexPath.row];
     NSLog(@"Post selected: %@", post);
 
-    NSString *postUrl = [NSString stringWithFormat:@"/wordpress/posts/%@", post.identifier];
+    NSString *postUrl = [[NSString stringWithFormat:@"/wordpress/posts/%@", post.identifier] stripLeadingSlash];
 
     [self fetchDataFromSourceWithResourcePath:postUrl success:^(id fetchedJson) {
         WPPost *fetchedPost = [XBMapper parseObject:fetchedJson[@"post"] intoObjectsOfType:[WPPost class]];

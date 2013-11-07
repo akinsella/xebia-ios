@@ -1,18 +1,16 @@
 //
-// Created by Alexis Kinsella on 23/10/13.
+// Created by Alexis Kinsella on 07/11/2013.
 // Copyright (c) 2013 Xebia. All rights reserved.
 //
 
 
 #import <DCKeyValueObjectMapping/DCObjectMapping.h>
-#import "XBNews.h"
+#import "VMVideoUrl.h"
 
-
-@implementation XBNews
+@implementation VMVideoUrl
 
 + (DCParserConfiguration *)mappings {
     DCParserConfiguration *config = [DCParserConfiguration configuration];
-    config.datePattern = @"yyyy-MM-dd HH:mm:ss";
 
     [config addObjectMapping: [DCObjectMapping mapKeyPath:@"id" toAttribute:@"identifier" onClass:[self class]]];
 

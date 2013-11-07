@@ -7,7 +7,6 @@
 
 
 #import <MediaPlayer/MediaPlayer.h>
-#import <YTVimeoExtractor/YTVimeoExtractor.h>
 #import <SDWebImage/UIImageView+WebCache.h>
 #import "VMVideoDetailsViewController.h"
 #import "VMVideo.h"
@@ -16,6 +15,8 @@
 #import "GAITracker.h"
 #import "UIViewController+XBAdditions.h"
 #import "NSDate+XBAdditions.h"
+#import "Underscore.h"
+#import "VMVideoUrl.h"
 
 @interface VMVideoDetailsViewController()
 
@@ -55,6 +56,7 @@
                                  failure:^(NSError *error) {
                                      XBLog(@"Error: %@", error);
                                  }];
+        [self refreshViewWithVideoData];
     }
 }
 
@@ -85,28 +87,44 @@
 
 - (void)videoImageTapped {
 
-    [YTVimeoExtractor fetchVideoURLFromID: [NSString stringWithFormat:@"%@", self.video.identifier]
-                                  quality:YTVimeoVideoQualityMedium
-                                  success:^(NSURL *videoURL) {
-                                      NSLog(@"Video URL: %@", [videoURL absoluteString]);
-                                      [self playMovieStream:videoURL];
-                                  }
-                                  failure:^(NSError *error) {
-                                      UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Erreur", nil)
-                                                                                          message:[error description]
-                                                                                         delegate:nil
-                                                                                cancelButtonTitle:NSLocalizedString(@"Ok", nil)
-                                                                                otherButtonTitles:nil];
+    VMVideoUrl *videoUrl = Underscore.array(self.video.videoUrls).find(^BOOL(VMVideoUrl * videoUrlEntry) {
+        return [videoUrlEntry.codec isEqualToString:@"hls"] && [videoUrlEntry.type isEqualToString:@"all"];
+    });
 
-                                      [alertView showWithCompletion:^(UIAlertView *alertView, NSInteger buttonIndex) { }];
-                                  }
-    ];
+    if (!videoUrl) {
+        videoUrl = Underscore.array(self.video.videoUrls).find(^BOOL(VMVideoUrl * videoUrlEntry) {
+            return [videoUrlEntry.codec isEqualToString:@"hls"];
+        });
+    }
+
+    if (!videoUrl) {
+        videoUrl = Underscore.array(self.video.videoUrls).first;
+    }
+
+    if (videoUrl) {
+        NSLog(@"Video URL: %@", videoUrl.url);
+        [self playMovieStream: [NSURL URLWithString: videoUrl.url]];
+    }
+    else {
+        UIAlertView *alertView = [[UIAlertView alloc] init];
+        alertView.title = NSLocalizedString(@"Erreur", nil);
+        alertView.message = NSLocalizedString(@"Pas d'url disponible pour la video", nil);
+
+        [alertView showWithCompletion:^(UIAlertView *alertView, NSInteger buttonIndex) {
+            XBLog("Validated alert view");
+        }];
+    }
 }
 
 - (void)updateWithVideo:(VMVideo *)video {
-
     self.video = video;
-    self.title = video.title;
+    [self refreshViewWithVideoData];
+}
+
+-(void)refreshViewWithVideoData {
+    self.title = self.video.title.length > 25 ?
+            [NSString stringWithFormat: @"%@ ...", [self.video.title substringToIndex:25]] :
+            self.video.title;
     self.videoImage.image = [UIImage imageNamed:@"video_placeholder.png"];
 
     self.displayName.text = self.video.owner.displayName;
@@ -117,6 +135,16 @@
     self.definition.text = [NSString stringWithFormat: @"%@", self.video.isHd ? @"HD":@""];
 }
 
+- (NSUInteger)supportedInterfaceOrientations
+{
+    return UIInterfaceOrientationMaskPortrait;
+}
+
+- (BOOL)shouldAutorotate
+{
+    return YES;
+}
+
 /* Called soon after the Play Movie button is pressed to play the streaming movie. */
 -(void)playMovieStream:(NSURL *)movieURL
 {
@@ -125,8 +153,12 @@
     if ([movieURL.pathExtension compare:@"m3u8" options:NSCaseInsensitiveSearch] == NSOrderedSame) {
         movieSourceType = MPMovieSourceTypeStreaming;
     }
+    else if ([movieURL.pathExtension compare:@"mp4" options:NSCaseInsensitiveSearch] == NSOrderedSame) {
+        movieSourceType = MPMovieSourceTypeFile;
+    }
 
     MPMoviePlayerViewController *player = [[MPMoviePlayerViewController alloc] initWithContentURL: movieURL];
+
     if (player) {
         player.moviePlayer.scalingMode = MPMovieScalingModeAspectFit;
         player.moviePlayer.movieSourceType = movieSourceType;
@@ -134,9 +166,10 @@
         player.moviePlayer.backgroundView.backgroundColor = [UIColor blackColor];
         player.moviePlayer.repeatMode = MPMovieRepeatModeNone;
         player.moviePlayer.useApplicationAudioSession = YES;
-
         /* Indicate the movie player allows AirPlay movie playback. */
         player.moviePlayer.allowsAirPlay = YES;
+
+        [player.moviePlayer prepareToPlay];
 
         [self presentMoviePlayerViewControllerAnimated:player];
     }

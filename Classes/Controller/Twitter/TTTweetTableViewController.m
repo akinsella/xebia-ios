@@ -41,6 +41,16 @@
     self.navigationController.navigationBarHidden = NO;
 }
 
+- (NSUInteger)supportedInterfaceOrientations
+{
+    return UIInterfaceOrientationMaskPortrait;
+}
+
+- (BOOL)shouldAutorotate
+{
+    return YES;
+}
+
 - (NSString *)tableView:(UITableView *)tableView cellReuseIdentifierAtIndexPath:(NSIndexPath *)indexPath {
     // Needs to be static
     static NSString *cellReuseIdentifier = @"TTTweet";
@@ -78,6 +88,10 @@
     ]];
     NSLog(@"Url requested: %@", tweetStatusUrl);
     [self.appDelegate.mainViewController openURL:tweetStatusUrl withTitle:tweet.user.name];
+}
+
+- (void)navigateToPath:(NSString *)path {
+    XBLog(@"Navigate to path: %@", path);
 }
 
 @end

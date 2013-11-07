@@ -10,4 +10,22 @@
 @implementation XBNewsTwitterCell
 
 
+- (CGFloat)heightForCell:(UITableView *)tableView {
+    return 70;
+}
+
+- (void)updateWithNews:(XBNews *)news {
+    [super updateWithNews:news];
+    [self.titleLabel sizeToFit];
+}
+
+- (void)onSelection {
+    [super onSelection];
+//    [self.appDelegate.mainViewController revealViewControllerWithIdentifier:@"tweets"];
+
+    NSURL * url  = [NSURL URLWithString:[NSString stringWithFormat: @"xebia://tweets/%@", self.news.identifier]];
+    [[UIApplication sharedApplication] openURL: url];
+
+}
+
 @end

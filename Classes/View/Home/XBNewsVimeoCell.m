@@ -9,4 +9,12 @@
 
 @implementation XBNewsVimeoCell
 
+- (void)onSelection {
+    [super onSelection];
+//    [self.appDelegate.mainViewController revealViewControllerWithIdentifier:@"videos"];
+
+    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat: @"xebia://videos/%@", self.news.identifier]];
+    [[UIApplication sharedApplication] openURL: url];
+}
+
 @end

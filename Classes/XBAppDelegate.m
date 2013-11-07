@@ -88,11 +88,10 @@ static NSString *const NewRelicApiKey = @"AA2a83288c6a4104ccf6cb9d48101ae3aba203
     [self initApplicationRating];
 
 #if DEBUG
-    XBLeftMenuViewController *leftMenuViewController = (XBLeftMenuViewController *) [(UINavigationController *)self.mainViewController.leftViewController topViewController];
-    [leftMenuViewController revealViewControllerWithIdentifier:@"home"];
-//    [leftMenuViewController revealViewControllerWithIdentifier:@"events"];
-//    [leftMenuViewController revealViewControllerWithIdentifier:@"tbBlog"];
-//    [leftMenuViewController revealViewControllerWithIdentifier:@"videos"];
+    [self.mainViewController revealViewControllerWithIdentifier:@"home"];
+//    [self.mainViewController revealViewControllerWithIdentifier:@"events"];
+//    [self.mainViewController revealViewControllerWithIdentifier:@"tbBlog"];
+//    [self.mainViewController revealViewControllerWithIdentifier:@"videos"];
 #endif
 
     [self.window makeKeyAndVisible];
@@ -421,6 +420,25 @@ void SignalHandler(int sig) {
 //#endif
     [TestFlight takeOff: TestFlightAppToken];
 
+}
+
+- (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url {
+    NSLog(@"url recieved: %@", url);
+    NSLog(@"query string: %@", [url query]);
+    NSLog(@"host: %@", [url host]);
+    NSLog(@"url path: %@", [url path]);
+
+    NSDictionary *hostToViewMappings = @{
+            @"events": @"events",
+            @"blog": @"tbBlog",
+            @"tweets": @"tweets",
+            @"videos": @"videos"
+    };
+
+    NSString *vcIdentifier = hostToViewMappings[[url host]];
+    [self.mainViewController revealViewControllerWithIdentifier: vcIdentifier withPath: [url path]];
+
+    return YES;
 }
 
 @end

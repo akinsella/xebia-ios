@@ -69,7 +69,7 @@ static const CGFloat kMarginHeight = 25.0;
         self.attributedString = [self attributedStringForHTML: html];
     }
     else {
-        NSString *html = [NSString stringWithFormat: @"<%@ style=\"padding: 0px 10px 0px 20px;text-align: justify;\">%@</%@>", @"div", element.text, @"div"];
+        NSString *html = [NSString stringWithFormat: @"<%@ style=\"padding: 0px 10px 0px 10px;text-align: justify;\">%@</%@>", @"div", element.text, @"div"];
         self.attributedString = [self attributedStringForHTML: html];
     }
 
@@ -84,10 +84,7 @@ static const CGFloat kMarginHeight = 25.0;
     // Load HTML data
     NSData *data = [html dataUsingEncoding:NSUTF8StringEncoding];
 
-    CGSize maxImageSize = CGSizeMake(self.bounds.size.width - kMarginWidth * 2, self.bounds.size.height - kMarginHeight * 2);
-
     NSDictionary *options = @{
-            DTMaxImageSize: [NSValue valueWithCGSize:maxImageSize],
             DTDefaultStyleSheet: stylesheet,
             DTDefaultFontFamily: kDefaultFontFamily,
             DTDefaultFontSize: @13.0,

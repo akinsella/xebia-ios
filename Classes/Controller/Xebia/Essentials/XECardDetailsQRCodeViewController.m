@@ -34,6 +34,16 @@
     }
 }
 
+- (NSUInteger)supportedInterfaceOrientations
+{
+    return UIInterfaceOrientationMaskPortrait;
+}
+
+- (BOOL)shouldAutorotate
+{
+    return YES;
+}
+
 -(void)viewWillAppear:(BOOL)animated {
 
     self.view.backgroundColor = [UIColor colorWithHex: self.card.category.backgroundColor];

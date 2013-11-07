@@ -63,13 +63,13 @@
 
     for (TTUserMentionEntity *entity in self.tweet.entities.user_mentions) {
         NSRange linkRange = NSMakeRange( [entity.indices.start unsignedIntegerValue], [entity.indices.end unsignedIntegerValue] - [entity.indices.start unsignedIntegerValue] );
-        NSString *urlStr = [NSString stringWithFormat:@"http://twitter.com/%@", entity.screen_name];
+        NSString *urlStr = [NSString stringWithFormat:@"http://mobile.twitter.com/%@", entity.screen_name];
         NSURL *url = [NSURL URLWithString:urlStr];
         [self.contentLabel addLinkToURL:url withRange:linkRange];
     }
     for (TTHashtagEntity *entity in self.tweet.entities.hashtags) {
         NSRange linkRange = NSMakeRange( [entity.indices.start unsignedIntegerValue], [entity.indices.end unsignedIntegerValue] - [entity.indices.start unsignedIntegerValue] );
-        NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"https://twitter.com/search?q=%23%@&src=hash", entity.text]];
+        NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"https://mobile.twitter.com/search?q=%%23%@", entity.text]];
         [self.contentLabel addLinkToURL:url withRange:linkRange];
     }
     for (TTUrlEntity *entity in self.tweet.entities.urls) {

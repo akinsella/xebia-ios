@@ -8,9 +8,9 @@
 #import <DCKeyValueObjectMapping/DCObjectMapping.h>
 #import <DCKeyValueObjectMapping/DCArrayMapping.h>
 #import "VMVideo.h"
+#import "VMVideoUrl.h"
 #import "VMThumbnail.h"
 #import "DCParserConfiguration+XBAdditions.h"
-#import "XBDate.h"
 
 
 @implementation VMVideo
@@ -25,6 +25,9 @@
 
     [config addArrayMapper: [DCArrayMapping mapperForClassElements:[VMThumbnail class] forAttribute:@"thumbnails" onClass:[self class]]];
     [config mergeConfig:[[VMThumbnail class] mappings]];
+
+    [config addArrayMapper: [DCArrayMapping mapperForClassElements:[VMVideoUrl class] forAttribute:@"videoUrls" onClass:[self class]]];
+    [config mergeConfig:[[VMVideoUrl class] mappings]];
 
     return config;
 }

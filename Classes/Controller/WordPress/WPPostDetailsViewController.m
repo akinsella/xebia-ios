@@ -77,6 +77,16 @@ NSString *kHeader6Type = @"H6";
     self.navigationController.navigationBarHidden = NO;
 }
 
+- (NSUInteger)supportedInterfaceOrientations
+{
+    return UIInterfaceOrientationMaskPortrait;
+}
+
+- (BOOL)shouldAutorotate
+{
+    return YES;
+}
+
 - (void)configureView {
     self.titleLabel.text = self.post.titlePlain;
     self.dateLabel.text = [self.post.date formatDateOrTime];

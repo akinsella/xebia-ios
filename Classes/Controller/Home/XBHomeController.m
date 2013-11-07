@@ -46,7 +46,6 @@ NSString *kOtherType = @"other";
     self.view.backgroundColor = [UIColor colorWithHex:@"#E0E0E0"];
 
     self.delegate = self;
-    self.tableView.rowHeight = 136;
     [self customizeNavigationBarAppearance];
     [self addMenuButton];
 
@@ -117,8 +116,17 @@ NSString *kOtherType = @"other";
 
     [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
 
-    XBNews *news = self.dataSource[(NSUInteger) indexPath.row];
-    NSLog(@"News selected: %@", news);
+    [(XBAbstractNewsCell *)cell onSelection];
+}
+
+- (NSUInteger)supportedInterfaceOrientations
+{
+    return UIInterfaceOrientationMaskPortrait;
+}
+
+- (BOOL)shouldAutorotate
+{
+    return YES;
 }
 
 @end

@@ -37,6 +37,16 @@
     self.tableView.bounds = newBounds;
 }
 
+- (NSUInteger)supportedInterfaceOrientations
+{
+    return UIInterfaceOrientationMaskPortrait;
+}
+
+- (BOOL)shouldAutorotate
+{
+    return YES;
+}
+
 -(void)configureTableView {
     [super configureTableView];
     self.searchBar.delegate = self;

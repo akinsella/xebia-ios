@@ -43,6 +43,16 @@
     self.navigationController.navigationBarHidden = NO;
 }
 
+- (NSUInteger)supportedInterfaceOrientations
+{
+    return UIInterfaceOrientationMaskPortrait;
+}
+
+- (BOOL)shouldAutorotate
+{
+    return YES;
+}
+
 - (NSString *)tableView:(UITableView *)tableView cellReuseIdentifierAtIndexPath:(NSIndexPath *)indexPath {
     // Needs to be static
     static NSString *cellReuseIdentifier = @"VMVideo";
@@ -58,7 +68,7 @@
     XBHttpClient *httpClient = [[XBPListConfigurationProvider provider] httpClient];
     XBBasicHttpQueryParamBuilder *httpQueryParamBuilder = [XBBasicHttpQueryParamBuilder builderWithDictionary:@{}];
     XBHttpJsonDataLoader *dataLoader = [XBHttpJsonDataLoader dataLoaderWithHttpClient:httpClient httpQueryParamBuilder:httpQueryParamBuilder resourcePath:@"/vimeo/videos"];
-    XBJsonToArrayDataMapper *dataMapper = [XBJsonToArrayDataMapper mapperWithRootKeyPath:@"videos.video" typeClass:[VMVideo class]];
+    XBJsonToArrayDataMapper *dataMapper = [XBJsonToArrayDataMapper mapperWithRootKeyPath:nil typeClass:[VMVideo class]];
     return [XBReloadableArrayDataSource dataSourceWithDataLoader:dataLoader dataMapper:dataMapper];
 }
 
@@ -77,5 +87,8 @@
     [self.navigationController pushViewController:videoDetailsViewController animated:YES];
 }
 
+- (void)navigateToPath:(NSString *)path {
+    XBLog(@"Navigate to path: %@", path);
+}
 
 @end

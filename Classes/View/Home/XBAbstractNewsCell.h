@@ -22,6 +22,10 @@
 
 @property (nonatomic, strong) IBOutlet UILabel *dateLabel;
 
+@property (nonatomic, strong, readonly) XBNews *news;
+
 - (void)updateWithNews:(XBNews *)news;
+
+- (void)onSelection;
 
 @end

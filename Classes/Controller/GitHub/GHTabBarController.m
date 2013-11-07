@@ -34,4 +34,18 @@
     self.navigationController.navigationBarHidden = NO;
 }
 
+- (NSUInteger)supportedInterfaceOrientations
+{
+    return UIInterfaceOrientationMaskPortrait;
+}
+
+- (BOOL)shouldAutorotate
+{
+    return YES;
+}
+
+- (void)navigateToPath:(NSString *)path {
+    XBLog(@"Navigate to path: %@", path);
+}
+
 @end

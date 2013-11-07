@@ -26,5 +26,6 @@
 @property (nonatomic, strong) NSNumber *commentCount;
 @property (nonatomic, strong) VMUser *owner;
 @property (nonatomic, strong) NSArray *thumbnails;
+@property (nonatomic, strong) NSArray *videoUrls;
 
 @end

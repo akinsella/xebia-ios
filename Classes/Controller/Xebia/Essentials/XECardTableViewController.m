@@ -28,6 +28,13 @@
 
 @implementation XECardTableViewController
 
+- (void)viewDidLoad {
+
+    self.delegate = self;
+
+    [super viewDidLoad];
+}
+
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     if (self.category) {
@@ -42,11 +49,14 @@
     self.navigationController.navigationBarHidden = NO;
 }
 
-- (void)viewDidLoad {
+- (NSUInteger)supportedInterfaceOrientations
+{
+    return UIInterfaceOrientationMaskPortrait;
+}
 
-    self.delegate = self;
-
-    [super viewDidLoad];
+- (BOOL)shouldAutorotate
+{
+    return YES;
 }
 
 - (NSString *)tableView:(UITableView *)tableView cellReuseIdentifierAtIndexPath:(NSIndexPath *)indexPath {

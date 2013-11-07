@@ -16,4 +16,5 @@
 
 - (void)revealViewControllerWithIdentifier:(NSString *)identifier;
 
+- (void)revealViewControllerWithIdentifier:(NSString *)identifier withPath:(NSString *)path;
 @end

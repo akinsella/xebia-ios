@@ -9,7 +9,7 @@
 #import "WPPostContentHeaderElementCell.h"
 #import "UIColor+XBAdditions.h"
 
-static const CGFloat kMarginWidth = 25.0;
+static const CGFloat kMarginWidth = 15.0;
 static const CGFloat kMarginHeight = 10.0;
 
 @implementation WPPostContentHeaderElementCell
@@ -27,7 +27,7 @@ static const CGFloat kMarginHeight = 10.0;
     [super layoutSubviews];
     CGSize headerLabelSize = [self sizeThatFits];
     self.headerLabel.frame = CGRectMake(
-            [self headerIndent],
+            (self.frame.size.width - headerLabelSize.width) / 2,
             self.headerLabel.frame.origin.y + (self.headerLabel.frame.size.height - headerLabelSize.height) / 2,
             headerLabelSize.width,
             headerLabelSize.height
@@ -68,7 +68,7 @@ static const CGFloat kMarginHeight = 10.0;
 }
 
 - (CGSize)sizeThatFits {
-    return [self.headerLabel sizeThatFits:CGSizeMake(self.frame.size.width - (self.headerIndent), CGFLOAT_MAX)];
+    return [self.headerLabel sizeThatFits:CGSizeMake(self.frame.size.width - (self.headerIndent * 2), CGFLOAT_MAX)];
 }
 
 @end

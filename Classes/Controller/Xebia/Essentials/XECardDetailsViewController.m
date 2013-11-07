@@ -21,7 +21,6 @@
 
 @implementation XECardDetailsViewController
 
-
 - (void)viewDidLoad {
     [super viewDidLoad];
 
@@ -58,11 +57,20 @@
     [self.scrollView addSubview:self.containerView];
 }
 
-
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
 
     self.navigationController.navigationBarHidden = NO;
+}
+
+- (NSUInteger)supportedInterfaceOrientations
+{
+    return UIInterfaceOrientationMaskPortrait;
+}
+
+- (BOOL)shouldAutorotate
+{
+    return YES;
 }
 
 -(void)viewDidLayoutSubviews {
