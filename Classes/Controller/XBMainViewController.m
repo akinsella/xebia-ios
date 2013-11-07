@@ -62,7 +62,8 @@
                                       options:revealControllerOptions];
 
     if (self) {
-        [self setMinimumWidth:120.0f maximumWidth:200.0f forViewController:self.leftViewController];
+        [self setMinimumWidth:290.0f maximumWidth:290.0f forViewController:leftViewNavigationController];
+        [self setMinimumWidth:290.0f maximumWidth:290.0f forViewController:rightViewNavigationController];
     }
 
     return self;
@@ -71,7 +72,7 @@
 - (void)revealViewController:(UIViewController *)viewController {
     UINavigationController *frontViewController = (UINavigationController *) self.frontViewController;
     if (frontViewController.visibleViewController != viewController) {
-        [frontViewController pushViewController:viewController animated:true];
+        [frontViewController pushViewController:viewController animated:YES];
     }
 }
 

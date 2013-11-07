@@ -7,12 +7,14 @@
 
 #import <Foundation/Foundation.h>
 #import "XBTableViewController.h"
+#import "IASKAppSettingsViewController.h"
+
 
 @class XBMainViewController;
 @class PKRevealController;
 @class XBViewControllerManager;
 
-@interface XBLeftMenuViewController : XBTableViewController <UITableViewDelegate, UITableViewDataSource, XBTableViewControllerDelegate>
+@interface XBLeftMenuViewController : XBTableViewController <UITableViewDelegate, UITableViewDataSource, XBTableViewControllerDelegate, IASKSettingsDelegate>
 
 - (void)revealViewControllerWithIdentifier:(NSString *)identifier;
 

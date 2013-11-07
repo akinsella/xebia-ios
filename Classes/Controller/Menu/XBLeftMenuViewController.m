@@ -13,7 +13,7 @@
 #import "GAITracker.h"
 #import "UIColor+XBAdditions.h"
 #import "XBNavigableViewController.h"
-
+#import "IASKAppSettingsViewController.h"
 
 // Enum for row indices
 enum {
@@ -28,6 +28,7 @@ enum {
 
 @interface XBLeftMenuViewController ()
 @property (nonatomic, strong) NSMutableDictionary *viewIdentifiers;
+@property (nonatomic, retain) IASKAppSettingsViewController *appSettingsViewController;
 @end
 
 @implementation XBLeftMenuViewController
@@ -63,7 +64,14 @@ enum {
 }
 
 -(void)revealPreferences {
-    [self.appDelegate.mainViewController revealViewControllerWithIdentifier:@"preferences"];
+    if (!self.appSettingsViewController) {
+        self.appSettingsViewController = [[IASKAppSettingsViewController alloc] init];
+        self.appSettingsViewController.delegate = self;
+        self.appSettingsViewController.showCreditsFooter = NO;
+        self.appSettingsViewController.showDoneButton = YES;
+    }
+
+    [self revealAndReplaceViewController: self.appSettingsViewController];
 }
 
 - (void)initViewIdentifiers {
@@ -132,6 +140,16 @@ enum {
     [self revealViewControllerWithIdentifier:identifier withPath: nil];
 }
 
+- (void)revealAndReplaceViewController:(UIViewController *)viewController {
+
+    UINavigationController *navigationController = (UINavigationController *)self.navigationController.revealController.frontViewController;
+    [navigationController setViewControllers: @[viewController] animated:NO];
+
+    [self.navigationController.revealController setFrontViewController:self.navigationController.revealController.frontViewController
+                                                      focusAfterChange:YES completion:^(BOOL finished) { }];
+
+}
+
 - (void)revealViewControllerWithIdentifier:(NSString *)identifier withPath:(NSString *)path {
     if ([self currentViewIsViewControllerWithIdentifier: identifier]) {
         [self.navigationController.revealController resignPresentationModeEntirely:YES
@@ -166,5 +184,10 @@ enum {
 {
     return YES;
 }
+
+- (void)settingsViewControllerDidEnd:(IASKAppSettingsViewController *)sender {
+    [self dismissModalViewControllerAnimated:YES];
+}
+
 
 @end
