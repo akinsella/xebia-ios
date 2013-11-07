@@ -21,17 +21,31 @@
 
 @implementation XBTableViewController
 
+- (id)initWithStyle:(UITableViewStyle)style {
+    self = [super initWithStyle:style];
+    if (self) {
+        self.fixedRowHeight = NO;
+    }
 
--(void)loadData {
-    [self.tableView reloadData];
+    return self;
 }
 
--(void)initialize {
-    _dataSource = [self buildDataSource];
+- (id)initWithCoder:(NSCoder *)coder {
+    self = [super initWithCoder:coder];
+    if (self) {
+        self.fixedRowHeight = NO;
+    }
+
+    return self;
 }
 
-- (XBArrayDataSource *)buildDataSource {
-    mustOverride();
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
+    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    if (self) {
+        self.fixedRowHeight = NO;
+    }
+
+    return self;
 }
 
 - (void)viewDidLoad {
@@ -44,6 +58,18 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     [self loadData];
+}
+
+-(void)loadData {
+    [self.tableView reloadData];
+}
+
+-(void)initialize {
+    _dataSource = [self buildDataSource];
+}
+
+- (XBArrayDataSource *)buildDataSource {
+    mustOverride();
 }
 
 - (void)configureTableView {
@@ -61,8 +87,10 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+//    XBLog(@"tableView:cellForRowAtIndexPath: %@", indexPath);
     NSString *cellNibName = [self.delegate tableView:tableView cellNibNameAtIndexPath:indexPath];
     NSString *reuseIdentifier = [self.delegate tableView:tableView cellReuseIdentifierAtIndexPath:indexPath];
+
     if (![self.nibNames containsObject: cellNibName]) {
         UINib *nib = [UINib nibWithNibName:cellNibName bundle:nil];
         [tableView registerNib:nib forCellReuseIdentifier:reuseIdentifier];
@@ -83,8 +111,12 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
 
-    UITableViewCell *cell = [self tableView:tableView cellForRowAtIndexPath:indexPath];
+//    XBLog(@"tableView:heightForRowAtIndexPath: %@", indexPath);
+    if (self.fixedRowHeight) {
+        return self.tableView.rowHeight;
+    }
 
+    UITableViewCell *cell = [self tableView:tableView cellForRowAtIndexPath:indexPath];
     return [cell respondsToSelector:@selector(heightForCell:)] ? [cell heightForCell: tableView] : self.tableView.rowHeight;
 }
 

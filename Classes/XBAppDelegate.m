@@ -88,9 +88,9 @@ static NSString *const NewRelicApiKey = @"AA2a83288c6a4104ccf6cb9d48101ae3aba203
     [self initApplicationRating];
 
 #if DEBUG
-    [self.mainViewController revealViewControllerWithIdentifier:@"home"];
+//    [self.mainViewController revealViewControllerWithIdentifier:@"home"];
 //    [self.mainViewController revealViewControllerWithIdentifier:@"events"];
-//    [self.mainViewController revealViewControllerWithIdentifier:@"tbBlog"];
+    [self.mainViewController revealViewControllerWithIdentifier:@"tbBlog"];
 //    [self.mainViewController revealViewControllerWithIdentifier:@"videos"];
 #endif
 

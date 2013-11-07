@@ -22,6 +22,8 @@
 
 - (void)viewDidLoad {
 
+    self.fixedRowHeight = YES;
+
     [self.appDelegate.tracker sendView:@"/wordpress/tag"];
 
     self.delegate = self;
@@ -35,6 +37,13 @@
     CGRect newBounds = self.tableView.bounds;
     newBounds.origin.y = newBounds.origin.y + self.searchBar.bounds.size.height;
     self.tableView.bounds = newBounds;
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+
+    [self.searchBar resignFirstResponder];
+    [self.searchBar endEditing:YES];
 }
 
 - (NSUInteger)supportedInterfaceOrientations
@@ -96,24 +105,48 @@
 #pragma mark - UISearchBarDelegate methods
 
 - (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText {
-    if (searchText.length > 0) {
+    [self updateTagsInTable:searchBar];
+
+    XBLog(@"searchBar:textDidChange:'%@'", searchText);
+}
+
+- (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar {
+    XBLog(@"searchBarCancelButtonClicked");
+    [self updateTagsInTable:searchBar];
+}
+- (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar {
+    XBLog(@"searchBarSearchButtonClicked");
+    [self updateTagsInTable:searchBar];
+    [searchBar endEditing:YES];
+}
+
+- (void)searchBarTextDidEndEditing:(UISearchBar *)searchBar {
+    XBLog(@"searchBarTextDidEndEditing");
+}
+
+- (void)searchBarResultsListButtonClicked:(UISearchBar *)searchBar {
+    XBLog(@"searchBarResultsListButtonClicked");
+}
+
+- (void)searchBar:(UISearchBar *)searchBar selectedScopeButtonIndexDidChange:(NSInteger)selectedScope {
+    XBLog(@"searchBar:selectedScopeButtonIndexDidChange");
+}
+
+
+- (void)updateTagsInTable:(UISearchBar *)searchBar {
+    if (searchBar.text.length > 0) {
         [self.dataSource filter:^BOOL(WPTag *tag) {
-            return [tag.title rangeOfString:searchText options:NSCaseInsensitiveSearch].location != NSNotFound;
+            return [tag.title rangeOfString:searchBar.text options:NSCaseInsensitiveSearch].location != NSNotFound;
         }];
     }
     else {
         [self.dataSource clearFilter];
+        [searchBar performSelector: @selector(endEditing:)
+                        withObject: @YES
+                        afterDelay: 0.1];
     }
 
     [self.tableView reloadData];
-
-    if (searchText.length) {
-        [self resignFirstResponder];
-    }
-}
-
-- (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar {
-    [self.dataSource clearFilter];
 }
 
 -(IBAction)goToSearch:(id)sender {

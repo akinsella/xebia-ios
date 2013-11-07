@@ -29,6 +29,7 @@
 
 @property (nonatomic, strong) id<XBTableViewControllerDelegate> delegate;
 @property(nonatomic, strong, readonly) XBArrayDataSource *dataSource;
+@property(nonatomic, assign)BOOL fixedRowHeight;
 
 - (XBArrayDataSource *)buildDataSource;
 - (void)configureTableView;
