@@ -2739,6 +2739,9 @@
 				DB34D136C947587B09AC74AB /* XBNewsEventBriteCell.xib in Resources */,
 				DB34D37EEDFD2075B74020FC /* XBNewsTwitterCell.xib in Resources */,
 				DB34DA1B59B992E03D808F83 /* XBNewsVimeoCell.xib in Resources */,
+				DB34DFB73A1B55BB53E94D64 /* Licenses.plist in Resources */,
+				DB34D34BCB2CFEEFC5207767 /* AFNetworking.plist in Resources */,
+				DB34DB176589DEB932ED2CAC /* Legals.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

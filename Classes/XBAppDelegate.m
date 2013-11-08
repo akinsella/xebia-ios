@@ -69,6 +69,9 @@ static NSString *const NewRelicApiKey = @"AA2a83288c6a4104ccf6cb9d48101ae3aba203
     [self initAnalytics];
     [self initTestFlight];
     [self initNewRelic];
+
+    [self initMainBundle];
+
     [self initURLCache];
     [self initAppearance];
     [self initRemoteDebugger];
@@ -102,6 +105,13 @@ static NSString *const NewRelicApiKey = @"AA2a83288c6a4104ccf6cb9d48101ae3aba203
 
 - (void)initNewRelic {
     [NewRelicAgent startWithApplicationToken: NewRelicApiKey];
+}
+
+-(void)initMainBundle {
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    // transfer the current version number into the defaults so that this correct value will be displayed when the user visit settings page later
+    NSString *version = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleVersion"];
+    [defaults setObject:version forKey:@"version"];
 }
 
 -(id<GAITracker>)tracker {

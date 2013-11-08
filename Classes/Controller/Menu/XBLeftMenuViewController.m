@@ -14,6 +14,7 @@
 #import "UIColor+XBAdditions.h"
 #import "XBNavigableViewController.h"
 #import "IASKAppSettingsViewController.h"
+#import "UIViewController+MJPopupViewController.h"
 
 // Enum for row indices
 enum {
@@ -71,7 +72,14 @@ enum {
         self.appSettingsViewController.showDoneButton = YES;
     }
 
-    [self revealAndReplaceViewController: self.appSettingsViewController];
+    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:self.appSettingsViewController];
+
+    [self.appDelegate.mainViewController presentPopupViewController:navigationController
+                                                      animationType:MJPopupViewAnimationSlideBottomTop];
+}
+
+-(void)settingsViewControllerDidEnd:(IASKAppSettingsViewController*)sender {
+    [self dismissPopupViewControllerWithanimationType:MJPopupViewAnimationSlideTopBottom];
 }
 
 - (void)initViewIdentifiers {
@@ -184,10 +192,5 @@ enum {
 {
     return YES;
 }
-
-- (void)settingsViewControllerDidEnd:(IASKAppSettingsViewController *)sender {
-    [self dismissModalViewControllerAnimated:YES];
-}
-
 
 @end

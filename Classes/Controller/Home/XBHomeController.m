@@ -15,6 +15,7 @@
 #import "XBJsonToArrayDataMapper.h"
 #import "XBNewsWordpressCell.h"
 #import "UIColor+XBAdditions.h"
+#import "SVPullToRefresh.h"
 
 static NSString *kWordpressCellReuseIdentifier = @"XBNewsWordpress";
 static NSString *kVimeoCellReuseIdentifier = @"XBNewsVimeo";
@@ -73,8 +74,11 @@ NSString *kOtherType = @"other";
 
     self.tableView.backgroundColor = [UIColor colorWithHex:@"#E0E0E0"];
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-}
 
+    self.tableView.pullToRefreshView.arrowColor = [UIColor darkGrayColor];
+    self.tableView.pullToRefreshView.textColor = [UIColor darkGrayColor];
+    self.tableView.pullToRefreshView.activityIndicatorViewStyle = UIActivityIndicatorViewStyleGray;
+}
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];

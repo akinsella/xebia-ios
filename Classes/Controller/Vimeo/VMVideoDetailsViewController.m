@@ -17,6 +17,13 @@
 #import "NSDate+XBAdditions.h"
 #import "Underscore.h"
 #import "VMVideoUrl.h"
+#import "NSString+XBAdditions.h"
+#import "XBPListConfigurationProvider.h"
+#import "XBBasicHttpQueryParamBuilder.h"
+#import "XBHttpJsonDataLoader.h"
+#import "XBJsonToArrayDataMapper.h"
+#import "XBReloadableArrayDataSource.h"
+#import "XBArrayDataSource+protected.h"
 
 @interface VMVideoDetailsViewController()
 
@@ -90,9 +97,28 @@
     return result;
 }
 
-- (void)videoImageTapped {
+- (XBReloadableArrayDataSource *)buildVideoUrlsDataSource {
+    XBHttpClient *httpClient = [[XBPListConfigurationProvider provider] httpClient];
+    XBBasicHttpQueryParamBuilder *httpQueryParamBuilder = [XBBasicHttpQueryParamBuilder builderWithDictionary:@{}];
 
-    VMVideoUrl *videoUrl = Underscore.array(self.video.videoUrls).find(^BOOL(VMVideoUrl * videoUrlEntry) {
+    NSString *path = [NSString stringWithFormat:@"/vimeo/videos/%@/urls", self.video.identifier];
+    XBHttpJsonDataLoader *dataLoader = [XBHttpJsonDataLoader dataLoaderWithHttpClient:httpClient
+                                                                httpQueryParamBuilder:httpQueryParamBuilder
+                                                                         resourcePath:path];
+
+    XBJsonToArrayDataMapper *dataMapper = [XBJsonToArrayDataMapper mapperWithRootKeyPath:nil typeClass:[VMVideoUrl class]];
+    return [XBReloadableArrayDataSource dataSourceWithDataLoader:dataLoader dataMapper:dataMapper];
+}
+
+- (void)videoImageTapped {
+    XBReloadableArrayDataSource *dataSource = [self buildVideoUrlsDataSource];
+    [dataSource loadDataWithCallback:^{
+        [self dataLoadedWithVideoUrls: dataSource.array];
+    }];
+}
+
+-(void)dataLoadedWithVideoUrls:(NSArray *)videoUrls {
+    VMVideoUrl *videoUrl = Underscore.array(videoUrls).find(^BOOL(VMVideoUrl * videoUrlEntry) {
         return [videoUrlEntry.codec isEqualToString:@"hls"] && [videoUrlEntry.type isEqualToString:@"all"];
     });
 
@@ -111,9 +137,11 @@
         [self playMovieStream: [NSURL URLWithString: videoUrl.url]];
     }
     else {
-        UIAlertView *alertView = [[UIAlertView alloc] init];
-        alertView.title = NSLocalizedString(@"Erreur", nil);
-        alertView.message = NSLocalizedString(@"Pas d'url disponible pour la video", nil);
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Erreur", nil)
+                                                            message:NSLocalizedString(@"Pas d'url disponible pour la video", nil)
+                                                           delegate:nil
+                                                  cancelButtonTitle:NSLocalizedString(@"Valider", nil)
+                                                  otherButtonTitles:nil];
 
         [alertView showWithCompletion:^(UIAlertView *alertView, NSInteger buttonIndex) {
             XBLog("Validated alert view");

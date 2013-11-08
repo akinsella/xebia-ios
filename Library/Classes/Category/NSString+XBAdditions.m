@@ -45,7 +45,7 @@
 }
 
 - (NSString *)stripLeadingSlash {
-    if (self.length == 0) {
+    if (self.length == 0 || ![[self substringToIndex:1] isEqualToString:@"/"]) {
         return self;
     }
     return [self substringFromIndex:1];
