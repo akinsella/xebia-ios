@@ -60,7 +60,7 @@
 - (CGFloat)heightForCell:(UITableView *)tableView {
     CGRect bounds = [UIScreen getScreenBoundsForCurrentOrientation];
     CGSize size = [self.descriptionLabel sizeThatFits:CGSizeMake(bounds.size.width - CELL_BORDER_WIDTH, CGFLOAT_MAX)];
-    CGFloat computedHeight = MAX(CELL_BASE_HEIGHT + size.height, CELL_MIN_HEIGHT);
+    CGFloat computedHeight = MAX(CELL_BASE_HEIGHT + size.height + 32, CELL_MIN_HEIGHT);
     return MIN(computedHeight, MAX_CELL_HEIGHT);
 }
 
@@ -80,10 +80,10 @@
     }
 
     if (event.isCompleted) {
-        self.titleLabel.textColor = [[UIColor colorWithHex:@"#fafafa"] darkerColorWithRatio:0.5];
-        self.descriptionLabel.textColor = [[UIColor colorWithHex:@"#fafafa"] darkerColorWithRatio:0.5];
-        ((DTCustomColoredAccessory *)self.accessoryView).accessoryColor = [self.accessoryViewColor darkerColorWithRatio:0.5];
-        ((DTCustomColoredAccessory *)self.accessoryView).highlightedColor = [self.accessoryViewHighlightedColor darkerColorWithRatio:0.5];
+        self.titleLabel.textColor = [[UIColor colorWithHex:@"#fafafa"] darkerColorWithRatio:0.3];
+        self.descriptionLabel.textColor = [[UIColor colorWithHex:@"#fafafa"] darkerColorWithRatio:0.3];
+        ((DTCustomColoredAccessory *)self.accessoryView).accessoryColor = [self.accessoryViewColor lighterColorWithRatio:0.2];
+        ((DTCustomColoredAccessory *)self.accessoryView).highlightedColor = [self.accessoryViewHighlightedColor lighterColorWithRatio:0.2];
     }
 
     self.descriptionLabel.text = description;

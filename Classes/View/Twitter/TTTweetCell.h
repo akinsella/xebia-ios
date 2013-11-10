@@ -10,12 +10,15 @@
 #import "TTTweet.h"
 #import "TTTAttributedLabel.h"
 #import "XBTableViewCell.h"
+#import "XBCircleImageView.h"
 
 @interface TTTweetCell : XBTableViewCell<TTTAttributedLabelDelegate>
 
 @property (nonatomic, strong) IBOutlet UILabel *authorNameLabel;
 @property (nonatomic, strong) IBOutlet TTTAttributedLabel *contentLabel;
 @property (nonatomic, strong) IBOutlet UILabel *dateLabel;
+@property (nonatomic, weak) IBOutlet XBCircleImageView *avatarImageView;
+
 @property(nonatomic, strong, readonly) TTTweet *tweet;
 
 - (CGFloat)heightForCell: (UITableView *)tableView;

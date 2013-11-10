@@ -11,12 +11,11 @@
 #import "XBBasicHttpQueryParamBuilder.h"
 #import "EBEventTableViewController.h"
 #import "EBEvent.h"
-#import "SDImageCache.h"
-#import "SDWebImageManager.h"
 #import "EBEventCell.h"
 #import "UIViewController+XBAdditions.h"
 #import "XBPListConfigurationProvider.h"
 #import "GAITracker.h"
+#import "SVPullToRefresh.h"
 
 @implementation EBEventTableViewController
 

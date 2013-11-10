@@ -13,7 +13,6 @@
 #import "GAITracker.h"
 #import "UIColor+XBAdditions.h"
 #import "XBNavigableViewController.h"
-#import "IASKAppSettingsViewController.h"
 #import "UIViewController+MJPopupViewController.h"
 
 // Enum for row indices
@@ -48,7 +47,6 @@ enum {
     [self.appDelegate.tracker sendView:@"/leftMenu"];
 
     self.delegate = self;
-
 
     UIButton *menuButton = [UIButton buttonWithType:UIButtonTypeCustom];
     menuButton.frame = CGRectMake(0, 0, 22, 22);

@@ -27,7 +27,7 @@ static const CGFloat kMarginHeight = 10.0;
     [super layoutSubviews];
     CGSize headerLabelSize = [self sizeThatFits];
     self.headerLabel.frame = CGRectMake(
-            (self.frame.size.width - headerLabelSize.width) / 2,
+            self.headerIndent,
             self.headerLabel.frame.origin.y + (self.headerLabel.frame.size.height - headerLabelSize.height) / 2,
             headerLabelSize.width,
             headerLabelSize.height

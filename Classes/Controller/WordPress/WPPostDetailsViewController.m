@@ -88,6 +88,7 @@ NSString *kHeader6Type = @"H6";
 }
 
 - (void)configureView {
+    self.title = self.post.titlePlain.length > 30 ? [NSString stringWithFormat:@"%@ ...", [self.post.titlePlain substringToIndex:30]] : self.post.titlePlain;
     self.titleLabel.text = self.post.titlePlain;
     self.dateLabel.text = [self.post.date formatDateOrTime];
     self.tagsLabel.text = self.post.tagsFormatted;

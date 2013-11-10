@@ -15,7 +15,6 @@
 #import "TTUrlEntity.h"
 #import "TTUserMentionEntity.h"
 #import "XBConstants.h"
-#import "XBMainViewController.h"
 #import "NSDate+XBAdditions.h"
 
 @interface TTTweetCell ()
@@ -36,17 +35,17 @@
     self.xebiaAvatarImage = [UIImage imageNamed:@"xebia-avatar"];
 
     self.contentLabel.font = [UIFont fontWithName:FONT_NAME size:FONT_SIZE];
-    self.contentLabel.textColor = [UIColor colorWithHex:@"#fafafa" alpha:1.0];
+    self.contentLabel.textColor = [UIColor colorWithHex:@"#444444" alpha:1.0];
     self.contentLabel.lineBreakMode = UILineBreakModeTailTruncation;
     self.contentLabel.numberOfLines = 0;
 
     self.contentLabel.linkAttributes = @{
-            (NSString *)kCTForegroundColorAttributeName: (id)[UIColor colorWithHex:@"#72b8f6"].CGColor,
+            (NSString *)kCTForegroundColorAttributeName: (id)[UIColor colorWithHex:@"#666666"].CGColor,
             (NSString *)kCTUnderlineStyleAttributeName: [NSNumber numberWithBool:YES]
     };
 
     self.contentLabel.activeLinkAttributes = @{
-            (NSString *)kCTForegroundColorAttributeName: (id)[UIColor colorWithHex:@"#446F94"].CGColor,
+            (NSString *)kCTForegroundColorAttributeName: (id)[UIColor colorWithHex:@"#222222"].CGColor,
             (NSString *)kCTUnderlineStyleAttributeName: [NSNumber numberWithBool:NO]
     };
 }
@@ -59,6 +58,12 @@
 
     self.layer.shouldRasterize = YES;
     self.layer.rasterizationScale = [[UIScreen mainScreen] scale];
+
+    XBLog("Default - %@", self.avatarImageView.image);
+    self.avatarImageView.offset = 2;
+    self.avatarImageView.backgroundColor = [UIColor clearColor];
+    self.avatarImageView.backgroundImage = [UIImage imageNamed:@"dp_holder_large.png"];
+    self.avatarImageView.defaultImage = self.defaultAvatarImage;
 
 
     for (TTUserMentionEntity *entity in self.tweet.entities.user_mentions) {
@@ -94,16 +99,32 @@
     
     self.contentLabel.delegate = self;
     if ([tweet.ownerScreenName isEqualToString:@"XebiaFr"]) {
-        self.imageView.image = self.xebiaAvatarImage;
+        self.avatarImageView.image = self.xebiaAvatarImage;
     }
     else {
-        [self.imageView setImageWithURL:tweet.ownerImageUrl placeholderImage:self.defaultAvatarImage];
+        [[SDWebImageManager sharedManager] downloadWithURL:tweet.ownerImageUrl
+                                                   options:kNilOptions
+                                                  progress:^(NSUInteger receivedSize, long long int expectedSize) {
+
+                                                  }
+                                                 completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, BOOL finished) {
+                                                     if (error || !image) {
+                                                         XBLog("Error - %@ for: %@", error, tweet.ownerScreenName);
+                                                         self.avatarImageView.image = self.defaultAvatarImage;
+                                                     }
+                                                     else {
+                                                         XBLog("Success - %@ for: %@", image, tweet.ownerScreenName);
+                                                         self.avatarImageView.image = image;
+                                                     }
+                                                 }];
     }
 
+
+
+
     self.authorNameLabel.text = tweet.ownerScreenName;
-    self.dateLabel.text = [tweet.created_at isToday] ?
-            [NSString stringWithFormat:NSLocalizedString(@"A %@", nil), [tweet.created_at formatTime]] :
-            [NSString stringWithFormat:NSLocalizedString(@"Le %@", nil), [tweet.created_at formatDayMonth]];
+    self.dateLabel.text = [NSString stringWithFormat:NSLocalizedString(@"%@", nil),
+                            [tweet.created_at isToday] ? [tweet.created_at formatTime] : [tweet.created_at formatDayMonth]];
     self.contentLabel.text = tweet.text;
 }
 

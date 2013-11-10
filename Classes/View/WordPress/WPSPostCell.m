@@ -44,7 +44,10 @@
     self.post = post;
     
     self.titleLabel.text = post.title;
-    self.dateLabel.text = [NSString stringWithFormat:NSLocalizedString(@"Le %@", nil), [post.date formatDate]];
+    self.dateLabel.text = [NSString stringWithFormat:NSLocalizedString(@"%@", nil),
+                                                     [post.date isToday] ? [post.date formatTime] : [post.date formatDayMonth]];
+
+
     self.categoriesLabel.text = post.categoriesFormatted;
     self.authorLabel.text = post.authorFormatted;
 

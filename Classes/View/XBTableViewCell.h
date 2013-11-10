@@ -19,6 +19,8 @@
 
 - (UIColor *)accessoryViewHighlightedColor;
 
+- (UIColor *)lineSeparatorColor;
+
 -(UIColor *)accessoryViewBackgroundColor;
 
 -(BOOL)showSeparatorLine;

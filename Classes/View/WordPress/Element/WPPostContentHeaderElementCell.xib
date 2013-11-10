@@ -23,7 +23,6 @@
                     </label>
                 </subviews>
             </tableViewCellContentView>
-            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
             <connections>
                 <outlet property="headerLabel" destination="21" id="22"/>
             </connections>

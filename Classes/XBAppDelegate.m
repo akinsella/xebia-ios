@@ -94,6 +94,7 @@ static NSString *const NewRelicApiKey = @"AA2a83288c6a4104ccf6cb9d48101ae3aba203
 //    [self.mainViewController revealViewControllerWithIdentifier:@"home"];
 //    [self.mainViewController revealViewControllerWithIdentifier:@"events"];
     [self.mainViewController revealViewControllerWithIdentifier:@"tbBlog"];
+//    [self.mainViewController revealViewControllerWithIdentifier:@"tweets"];
 //    [self.mainViewController revealViewControllerWithIdentifier:@"videos"];
 #endif
 
@@ -217,11 +218,19 @@ static NSString *const NewRelicApiKey = @"AA2a83288c6a4104ccf6cb9d48101ae3aba203
             UITextAttributeTextShadowOffset: [NSValue valueWithUIOffset:UIOffsetMake(0.0f, 1.0f)],
             UITextAttributeFont: [UIFont fontWithName:@"Lobster" size:20.0f]
     }];
-    
+
+
+    /* TabBar customization */
     [[UITabBar appearance] setBackgroundImage:[UIImage imageNamed:@"TabBar.png"]];
     [[UITabBar appearance] setSelectionIndicatorImage:[UIImage imageNamed:@"TabBarItemSelectedImage.png"]];
 
-    [[UITabBar appearance] setSelectedImageTintColor:[UIColor colorWithHex:@"#5c0f4f"]];
+
+    if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0")) {
+        [[UITabBar appearance] setTintColor:[UIColor colorWithHex:@"#5d2655"]];
+    }
+    else {
+        [[UITabBar appearance] setSelectedImageTintColor:[UIColor colorWithHex:@"#5d2655"]];
+    }
 
     [[UITabBarItem appearance] setTitleTextAttributes: @{
             UITextAttributeTextColor: [UIColor colorWithHex:@"#888888"],
@@ -229,11 +238,11 @@ static NSString *const NewRelicApiKey = @"AA2a83288c6a4104ccf6cb9d48101ae3aba203
     } forState:UIControlStateNormal];
 
     [[UITabBarItem appearance] setTitleTextAttributes:@{
-            UITextAttributeTextColor: [UIColor colorWithHex:@"#b96905"],
+            UITextAttributeTextColor: [UIColor colorWithHex:@"#5d2655"],
             UITextAttributeTextShadowColor: [UIColor blackColor]
     } forState:UIControlStateSelected];
 
-    // Change the appearance of back button
+    /* Back button appearance */
     UIImage *backButtonImage = [[UIImage imageNamed:@"left-arrow.png"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 16, 0, 0)];
     [[UIBarButtonItem appearance] setBackButtonBackgroundImage:backButtonImage forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
 

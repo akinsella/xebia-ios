@@ -57,7 +57,7 @@
     CGFloat imageWidthHeightRatio = self.imageView.image.size.width / self.imageView.image.size.width;
 
     CGRect imageFrame = CGRectMake(
-            (self.frame.size.width - maxImageWidth - 10 * 2) / 2,
+            10 + (self.frame.size.width - maxImageWidth - 10 * 2) / 2,
             10,
             maxImageWidth,
             maxImageWidth * imageWidthRatio / imageWidthHeightRatio

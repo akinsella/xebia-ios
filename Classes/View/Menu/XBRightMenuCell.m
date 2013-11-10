@@ -8,8 +8,13 @@
 
 #import <QuartzCore/QuartzCore.h>
 #import "XBRightMenuCell.h"
+#import "UIColor+XBAdditions.h"
 
 @implementation XBRightMenuCell
+
+- (UIColor *)lineSeparatorColor {
+    return [UIColor colorWithHex:@"#666666"];
+}
 
 - (void)layoutSubviews {
     [super layoutSubviews];

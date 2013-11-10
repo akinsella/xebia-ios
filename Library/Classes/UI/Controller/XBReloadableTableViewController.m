@@ -38,9 +38,9 @@
         }];
     }];
 
-    self.tableView.pullToRefreshView.arrowColor = [UIColor whiteColor];
-    self.tableView.pullToRefreshView.textColor = [UIColor whiteColor];
-    self.tableView.pullToRefreshView.activityIndicatorViewStyle = UIActivityIndicatorViewStyleWhite;
+    self.tableView.pullToRefreshView.arrowColor = [UIColor darkGrayColor];
+    self.tableView.pullToRefreshView.textColor = [UIColor darkGrayColor];
+    self.tableView.pullToRefreshView.activityIndicatorViewStyle = UIActivityIndicatorViewStyleGray;
 }
 
 -(void)loadData {

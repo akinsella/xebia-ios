@@ -9,17 +9,13 @@
 #import "TTTweet.h"
 #import "TTTweetTableViewController.h"
 #import "TTTweetCell.h"
-#import "SDImageCache.h"
-#import "SDWebImageManager.h"
-#import "UIImageView+WebCache.h"
 #import "UIViewController+XBAdditions.h"
-#import "XBMainViewController.h"
-#import "NSDateFormatter+XBAdditions.h"
 #import "XBPListConfigurationProvider.h"
 #import "XBBasicHttpQueryParamBuilder.h"
 #import "XBHttpJsonDataLoader.h"
 #import "XBJsonToArrayDataMapper.h"
 #import "GAITracker.h"
+#import "SVPullToRefresh.h"
 
 @implementation TTTweetTableViewController
 

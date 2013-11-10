@@ -53,7 +53,7 @@
 }
 
 -(UIColor *)accessoryViewColor {
-    return [UIColor colorWithHex:@"#fafafa"];
+    return [UIColor colorWithHex:@"#999999"];
 }
 
 -(UIColor *)accessoryViewBackgroundColor {
@@ -73,7 +73,7 @@
 }
 
 -(UIColor *)accessoryViewHighlightedColor {
-    return [UIColor colorWithHex:@"#ffffff"];
+    return [UIColor colorWithHex:@"#666666"];
 }
 
 -(void)initAccessoryView {
@@ -159,8 +159,8 @@
     CGMutablePathRef path = CGPathCreateMutable();
 
     if (!selected) {
-        CGPathMoveToPoint(path, NULL, 10, 0);
-        CGPathAddLineToPoint(path, NULL, self.bounds.size.width - 10, 0);
+        CGPathMoveToPoint(path, NULL, 2, 0);
+        CGPathAddLineToPoint(path, NULL, self.bounds.size.width - 2, 0);
     }
     else {
         CGPathMoveToPoint(path, NULL, 0, 0);
@@ -189,11 +189,15 @@
     [shapeLayer setBounds:self.bounds];
     [shapeLayer setPosition:self.center];
     [shapeLayer setFillColor:[[UIColor clearColor] CGColor]];
-    [shapeLayer setStrokeColor:[[UIColor colorWithHex:@"#262626"] CGColor]];
+    [shapeLayer setStrokeColor:[[self lineSeparatorColor] CGColor]];
     [shapeLayer setLineWidth:2.0f];
     [shapeLayer setLineJoin:kCALineJoinRound];
 
     return shapeLayer;
+}
+
+- (UIColor *)lineSeparatorColor {
+    return [UIColor colorWithHex:@"#E9E9E9"];
 }
 
 - (void)setAccessoryType:(UITableViewCellAccessoryType)accessoryType
