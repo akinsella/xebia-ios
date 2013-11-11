@@ -7,6 +7,7 @@
 #import <Foundation/Foundation.h>
 #import "XBURLHandler.h"
 
-@interface WPURLHandler : XBURLHandler
+
+@interface TTURLHandler : XBURLHandler
 
 @end

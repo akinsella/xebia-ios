@@ -23,7 +23,7 @@
     [super onSelection];
 //    [self.appDelegate.mainViewController revealViewControllerWithIdentifier:@"tweets"];
 
-    NSURL * url  = [NSURL URLWithString:[NSString stringWithFormat: @"xebia://tweets/%@", self.news.identifier]];
+    NSURL * url  = [NSURL URLWithString:[NSString stringWithFormat: @"xebia://tweets/%@", self.news.typeId]];
     [[UIApplication sharedApplication] openURL: url];
 
 }

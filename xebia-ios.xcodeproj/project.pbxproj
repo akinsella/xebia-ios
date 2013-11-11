@@ -399,6 +399,7 @@
 		DB34D083C9EDF348B8417033 /* XEULink.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34DB5D367DAA7DDB9AF238 /* XEULink.m */; };
 		DB34D09903A21CAF7F7291CA /* button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DB34D502E784F70A056F3F1F /* button@2x.png */; };
 		DB34D0BF5EEBF427D15642F0 /* WPTagCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34D779566E6E53EC3D0C66 /* WPTagCell.m */; };
+		DB34D0D0D97F2713B90DBDD3 /* TTURLHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34D785BC8C5ECAAFD18AE2 /* TTURLHandler.m */; };
 		DB34D0D7C801AAAE68093A11 /* VMVideoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34D3E67D5221EE4730132B /* VMVideoCell.m */; };
 		DB34D11D675FDB9F5FDA5C29 /* XECategoryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34DF96C607241FFD2FD30D /* XECategoryCell.m */; };
 		DB34D11E8CC0D57A2B27EAD2 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB34D2014253F0EE1EB4FBC5 /* ImageIO.framework */; };
@@ -995,6 +996,7 @@
 		DB34D73D18F676FE6A11CE63 /* VMThumbnail.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VMThumbnail.h; sourceTree = "<group>"; };
 		DB34D73F9AB47FAF1F9B13F0 /* WPPostContentStructuredElementAttribute.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WPPostContentStructuredElementAttribute.m; sourceTree = "<group>"; };
 		DB34D779566E6E53EC3D0C66 /* WPTagCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WPTagCell.m; sourceTree = "<group>"; };
+		DB34D785BC8C5ECAAFD18AE2 /* TTURLHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTURLHandler.m; sourceTree = "<group>"; };
 		DB34D78EBDB59559FF7AF9C6 /* WPAuthorCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WPAuthorCell.m; sourceTree = "<group>"; };
 		DB34D7921EDB6872C8B3221F /* WPPostContentImageElementCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WPPostContentImageElementCell.xib; sourceTree = "<group>"; };
 		DB34D7B3A32230066DEF57A0 /* XECardDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XECardDetailsViewController.m; sourceTree = "<group>"; };
@@ -1054,6 +1056,7 @@
 		DB34DC7A2F8601F51BAB479D /* EBEventCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EBEventCell.xib; sourceTree = "<group>"; };
 		DB34DCB44BA6B25B32C398EF /* navbar-landscape-iphone5-2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "navbar-landscape-iphone5-2@2x.png"; sourceTree = "<group>"; };
 		DB34DCB8E4CD6AEE658AD13B /* XBNewsWordpressCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = XBNewsWordpressCell.xib; sourceTree = "<group>"; };
+		DB34DCC129CA48E5A0379BC9 /* TTURLHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTURLHandler.h; sourceTree = "<group>"; };
 		DB34DCE9E629F0249A32FAE9 /* UIAlertView+XBAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIAlertView+XBAdditions.h"; sourceTree = "<group>"; };
 		DB34DD1E91201F3FE5598324 /* XBNews.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XBNews.h; sourceTree = "<group>"; };
 		DB34DD4E1507AF2BCB62C8A7 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = ../../../../../Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.1.sdk/System/Library/Frameworks/Social.framework; sourceTree = "<group>"; };
@@ -2302,6 +2305,8 @@
 				DB34D5DA23AED59EC58D9072 /* XBURLHandler.m */,
 				DB34D0D55AB1F9C807E391CC /* WPURLHandler.m */,
 				DB34D2D9034413AEAFF00840 /* XBURLHandler.h */,
+				DB34D785BC8C5ECAAFD18AE2 /* TTURLHandler.m */,
+				DB34DCC129CA48E5A0379BC9 /* TTURLHandler.h */,
 			);
 			path = URLHandler;
 			sourceTree = "<group>";
@@ -2972,6 +2977,7 @@
 				DB34DB2EAD07ECD07CBDE66B /* XBViewController.m in Sources */,
 				DB34DAAF9065D5CE91D01EAC /* XBURLHandler.m in Sources */,
 				DB34DCAFF4031D4A897A8657 /* WPURLHandler.m in Sources */,
+				DB34D0D0D97F2713B90DBDD3 /* TTURLHandler.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

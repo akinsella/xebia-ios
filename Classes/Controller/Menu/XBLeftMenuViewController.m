@@ -17,6 +17,7 @@
 #import "XBURLHandler.h"
 #import "WPURLHandler.h"
 #import "UIAlertView+XBAdditions.h"
+#import "TTURLHandler.h"
 
 // Enum for row indices
 enum {
@@ -50,7 +51,8 @@ enum {
 - (void)initialize {
 
     self.urlHandlers = @[
-            [[WPURLHandler alloc] init]
+            [[WPURLHandler alloc] init],
+            [[TTURLHandler alloc] init]
     ];
 
 }
