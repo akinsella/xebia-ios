@@ -97,7 +97,7 @@
     return [NSDictionary dictionaryWithDictionary:dict];
 }
 
-+ (NSArray *)parseArray:(NSArray*)objectArray intoObjectsOfType:(Class)objectClass {
++ (NSArray *)parseArray:(NSArray*)objectArray intoObjectsOfType:(Class<XBMappingProvider>)objectClass {
 
     if (![objectClass conformsToProtocol:@protocol(XBMappingProvider)]) {
 
@@ -107,10 +107,9 @@
     DCKeyValueObjectMapping *parser = [DCKeyValueObjectMapping mapperForClass: objectClass andConfiguration: [objectClass mappings]];
 
     return [parser parseArray:objectArray];
-
 }
 
-+ (id)parseObject:(NSDictionary*)objectDictionnary intoObjectsOfType:(Class)objectClass {
++ (id)parseObject:(NSDictionary*)objectDictionary intoObjectsOfType:(Class<XBMappingProvider>)objectClass {
 
     if (![objectClass conformsToProtocol:@protocol(XBMappingProvider)]) {
 
@@ -119,8 +118,7 @@
 
     DCKeyValueObjectMapping *parser = [DCKeyValueObjectMapping mapperForClass: objectClass andConfiguration: [objectClass mappings]];
 
-    return [parser parseDictionary:objectDictionnary];
-
+    return [parser parseDictionary:objectDictionary];
 }
 
 @end

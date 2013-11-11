@@ -16,6 +16,10 @@
     return (XBAppDelegate *) UIApplication.sharedApplication.delegate;
 }
 
++ (XBAppDelegate *) appDelegate {
+    return (XBAppDelegate *) UIApplication.sharedApplication.delegate;
+}
+
 -(void)viewDidLayoutSubviews {
     if ([self respondsToSelector:@selector(edgesForExtendedLayout)]) {
         self.edgesForExtendedLayout = UIRectEdgeNone;

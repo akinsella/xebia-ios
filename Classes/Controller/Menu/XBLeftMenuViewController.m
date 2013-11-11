@@ -5,6 +5,7 @@
 //
 
 
+#import <Underscore.m/Underscore.h>
 #import "XBLeftMenuViewController.h"
 #import "XBMainViewController.h"
 #import "NSNumber+XBAdditions.h"
@@ -12,8 +13,10 @@
 #import "UIViewController+XBAdditions.h"
 #import "GAITracker.h"
 #import "UIColor+XBAdditions.h"
-#import "XBNavigableViewController.h"
 #import "UIViewController+MJPopupViewController.h"
+#import "XBURLHandler.h"
+#import "WPURLHandler.h"
+#import "UIAlertView+XBAdditions.h"
 
 // Enum for row indices
 enum {
@@ -28,7 +31,8 @@ enum {
 
 @interface XBLeftMenuViewController ()
 @property (nonatomic, strong) NSMutableDictionary *viewIdentifiers;
-@property (nonatomic, retain) IASKAppSettingsViewController *appSettingsViewController;
+@property (nonatomic, strong) IASKAppSettingsViewController *appSettingsViewController;
+@property (nonatomic, strong) NSArray *urlHandlers;
 @end
 
 @implementation XBLeftMenuViewController
@@ -37,9 +41,18 @@ enum {
 - (id)initWithCoder:(NSCoder *)aDecoder {
     self = [super initWithCoder:aDecoder];
     if (self) {
+        [self initialize];
     }
 
     return self;
+}
+
+- (void)initialize {
+
+    self.urlHandlers = @[
+            [[WPURLHandler alloc] init]
+    ];
+
 }
 
 - (void)viewDidLoad {
@@ -142,10 +155,6 @@ enum {
     [self revealViewControllerWithIdentifier: identifier];
 }
 
--(void)revealViewControllerWithIdentifier:(NSString *)identifier {
-    [self revealViewControllerWithIdentifier:identifier withPath: nil];
-}
-
 - (void)revealAndReplaceViewController:(UIViewController *)viewController {
 
     UINavigationController *navigationController = (UINavigationController *)self.navigationController.revealController.frontViewController;
@@ -156,7 +165,7 @@ enum {
 
 }
 
-- (void)revealViewControllerWithIdentifier:(NSString *)identifier withPath:(NSString *)path {
+- (void)revealViewControllerWithIdentifier:(NSString *)identifier {
     if ([self currentViewIsViewControllerWithIdentifier: identifier]) {
         [self.navigationController.revealController resignPresentationModeEntirely:YES
                                                                           animated:YES
@@ -168,12 +177,30 @@ enum {
         UINavigationController *navigationController = (UINavigationController *)self.navigationController.revealController.frontViewController;
         [navigationController setViewControllers: @[viewController] animated:NO];
 
-        if (path && [viewController conformsToProtocol:@protocol(XBNavigableViewController)]) {
-            [(id<XBNavigableViewController>)viewController navigateToPath:path];
-        }
-
         [self.navigationController.revealController setFrontViewController:self.navigationController.revealController.frontViewController
                                                           focusAfterChange:YES completion:^(BOOL finished) { }];
+    }
+}
+
+- (void)revealViewControllerWithURL:(NSURL *)url {
+    NSLog(@"url recieved: %@", url);
+    NSLog(@"query string: %@", [url query]);
+    NSLog(@"host: %@", [url host]);
+    NSLog(@"url path: %@", [url path]);
+
+    XBURLHandler *foundURLHandler = Underscore.array(self.urlHandlers).find(^BOOL(XBURLHandler *urlHandler) {
+        return [urlHandler handleURL:url];
+    });
+
+    if (foundURLHandler) {
+        [foundURLHandler processURL:url];
+    }
+    else {
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Erreur", nil)
+                                   message:NSLocalizedString(@"Pas d'action trouvée pour l'URL", nil)
+                                  delegate:self cancelButtonTitle:NSLocalizedString(@"OK", nil)
+                         otherButtonTitles:nil];
+        [alertView showWithCompletion:^(UIAlertView *alertView, NSInteger buttonIndex) {}];
     }
 }
 

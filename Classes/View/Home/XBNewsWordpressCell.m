@@ -8,7 +8,6 @@
 
 #import <SDWebImage/UIImageView+WebCache.h>
 #import "XBNewsWordpressCell.h"
-#import "NSDate+XBAdditions.h"
 
 @interface XBNewsWordpressCell ()
 
@@ -52,11 +51,9 @@
 
 - (void)onSelection {
     [super onSelection];
-//    [self.appDelegate.mainViewController revealViewControllerWithIdentifier:@"tbBlog"];
 
-    NSURL * url  = [NSURL URLWithString:[NSString stringWithFormat: @"xebia://blog/posts/recent/%@", self.news.identifier]];
+    NSURL * url  = [NSURL URLWithString:[NSString stringWithFormat: @"xebia://blog/posts/%@", self.news.identifier]];
     [[UIApplication sharedApplication] openURL: url];
-
 }
 
 @end

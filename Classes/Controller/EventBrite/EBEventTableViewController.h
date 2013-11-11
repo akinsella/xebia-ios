@@ -8,8 +8,7 @@
 #import <UIKit/UIKit.h>
 #import "TTTAttributedLabel.h"
 #import "XBReloadableTableViewController.h"
-#import "XBNavigableViewController.h"
 
-@interface EBEventTableViewController : XBReloadableTableViewController<UITableViewDelegate, UITableViewDataSource, XBTableViewControllerDelegate, XBNavigableViewController>
+@interface EBEventTableViewController : XBReloadableTableViewController<UITableViewDelegate, UITableViewDataSource, XBTableViewControllerDelegate>
 
 @end

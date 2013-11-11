@@ -5,10 +5,6 @@
 //
 
 #import "EBEvent.h"
-#import "EBVenue.h"
-#import "EBOrganizer.h"
-#import "DCParserConfiguration.h"
-#import "DCKeyValueObjectMapping.h"
 
 @implementation EBEvent
 

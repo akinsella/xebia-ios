@@ -75,8 +75,8 @@
     [eventCell updateWithEvent: event];
 }
 
-- (void)navigateToPath:(NSString *)path {
-    XBLog(@"Navigate to path: %@", path);
++ (void)navigateToURL:(NSURL *)url {
+    XBLog(@"Navigate to path: %@", url);
 }
 
 @end

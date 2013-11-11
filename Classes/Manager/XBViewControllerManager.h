@@ -17,4 +17,5 @@
 
 -(UIViewController *)getOrCreateControllerWithIdentifier: (NSString *)identifier;
 
+- (Class *)controllerClassWithIdentifier:(NSString *)identifier;
 @end

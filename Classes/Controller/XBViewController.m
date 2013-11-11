@@ -4,25 +4,21 @@
 //
 
 
-#import "XBTabBarController.h"
+#import "XBViewController.h"
 #import "MBProgressHUD.h"
 
-@interface XBTabBarController()
+@interface XBViewController()
 
 @property (nonatomic, strong) MBProgressHUD *progressHUD;
 
 @end
 
-@implementation XBTabBarController
+@implementation XBViewController
 
-- (NSUInteger)supportedInterfaceOrientations
-{
-    return [self.selectedViewController supportedInterfaceOrientations];
-}
+- (void)viewDidLoad {
+    [super viewDidLoad];
 
-- (BOOL)shouldAutorotate
-{
-    return [self.selectedViewController shouldAutorotate];
+    [self initProgressHUD];
 }
 
 - (void)initProgressHUD {

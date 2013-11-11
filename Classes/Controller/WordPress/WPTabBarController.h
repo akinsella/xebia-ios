@@ -7,9 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "XBNavigableViewController.h"
 #import "XBTabBarController.h"
 
-@interface WPTabBarController : XBTabBarController<XBNavigableViewController>
+@interface WPTabBarController : XBTabBarController
 
 @end

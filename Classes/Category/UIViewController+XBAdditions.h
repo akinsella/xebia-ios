@@ -13,6 +13,7 @@
 
 - (void) addMenuButton;
 - (XBAppDelegate *) appDelegate;
++ (XBAppDelegate *) appDelegate;
 
 - (void)customizeNavigationBarAppearance;
 @end

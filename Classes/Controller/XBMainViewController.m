@@ -77,14 +77,11 @@
 }
 
 -(void)revealViewControllerWithIdentifier:(NSString *)identifier {
-
     [self.leftMenuViewController revealViewControllerWithIdentifier: identifier];
 }
 
-- (void)revealViewControllerWithIdentifier:(NSString *)identifier withPath:(NSString *)path {
-
-    [self.leftMenuViewController revealViewControllerWithIdentifier: identifier withPath:path];
-
+- (void)revealViewControllerWithURL:(NSURL *)url {
+    [self.leftMenuViewController revealViewControllerWithURL: url];
 }
 
 -(void)openLocalURL:(NSString *)htmlFileRef withTitle:(NSString *)title object:(id)object shareInfo: (XBShareInfo *)shareInfo {

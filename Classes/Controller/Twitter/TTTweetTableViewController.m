@@ -86,8 +86,8 @@
     [self.appDelegate.mainViewController openURL:tweetStatusUrl withTitle:tweet.user.name];
 }
 
-- (void)navigateToPath:(NSString *)path {
-    XBLog(@"Navigate to path: %@", path);
++ (void)navigateToURL:(NSURL *)url {
+    XBLog(@"Navigate to path: %@", url);
 }
 
 @end

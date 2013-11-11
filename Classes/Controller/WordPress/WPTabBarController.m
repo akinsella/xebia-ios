@@ -9,6 +9,12 @@
 #import "WPTabBarController.h"
 #import "UIViewController+XBAdditions.h"
 #import "UIColor+XBAdditions.h"
+#import "UIViewController+XBAdditions.h"
+#import "WPSPost.h"
+#import "WPPostDetailsViewController.h"
+#import "XBMapper.h"
+#import "NSString+XBAdditions.h"
+#import "XBNavigationController.h"
 
 @implementation WPTabBarController
 
@@ -22,7 +28,7 @@
     [self addMenuButton];
 
     [self.tabBar setSelectedImageTintColor:[UIColor colorWithHex:@"#888888"]];
-//
+
 //    for (UITabBarItem *tabBarItem in self.tabBar.items) {
 //        [tabBarItem setFinishedSelectedImage: tabBarItem.image
 //                 withFinishedUnselectedImage: tabBarItem.image];
@@ -42,10 +48,6 @@
 - (BOOL)shouldAutorotate
 {
     return YES;
-}
-
-- (void)navigateToPath:(NSString *)path {
-    XBLog(@"Navigate to path: %@", path);
 }
 
 @end
