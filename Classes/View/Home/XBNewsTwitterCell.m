@@ -5,7 +5,9 @@
 // To change the template use AppCode | Preferences | File Templates.
 //
 
+#import <Underscore.m/Underscore.h>
 #import "XBNewsTwitterCell.h"
+#import "XBNewsMetadata.h"
 
 @implementation XBNewsTwitterCell
 
@@ -23,7 +25,12 @@
     [super onSelection];
 //    [self.appDelegate.mainViewController revealViewControllerWithIdentifier:@"tweets"];
 
-    NSURL * url  = [NSURL URLWithString:[NSString stringWithFormat: @"xebia://tweets/%@", self.news.typeId]];
+    XBNewsMetadata *foundNewsMetadata = Underscore.array(self.news.metadata).find(^BOOL(XBNewsMetadata *newsMetadata) {
+        return [newsMetadata.key isEqualToString:@"screenName"];
+    });
+
+    NSString *screenName = foundNewsMetadata ? foundNewsMetadata.value : @"<UNKNOWN>";
+    NSURL * url  = [NSURL URLWithString:[NSString stringWithFormat: @"xebia://tweets/%@?screenName=%@", self.news.typeId, screenName]];
     [[UIApplication sharedApplication] openURL: url];
 
 }

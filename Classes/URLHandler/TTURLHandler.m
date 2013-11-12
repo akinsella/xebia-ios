@@ -3,10 +3,9 @@
 // Copyright (c) 2013 Xebia. All rights reserved.
 //
 
-
 #import "TTURLHandler.h"
 #import "XBAppDelegate.h"
-
+#import "NSURL+XBAdditions.h"
 
 @implementation TTURLHandler
 
@@ -18,9 +17,9 @@
     XBLog(@"Navigate to path: %@", url);
 
     NSString *identifier = url.pathComponents.lastObject;
-    NSString *author = @"XebiaFr"; // FixMe
+    NSString *screenName = [url valueForParameterName:@"screenName"];
 
-    NSURL *tweetStatusUrl = [NSURL URLWithString:[NSString stringWithFormat:@"https://twitter.com/%@/status/%@", author, identifier]];
+    NSURL *tweetStatusUrl = [NSURL URLWithString:[NSString stringWithFormat:@"https://twitter.com/%@/status/%@", screenName, identifier]];
 
     [self.appDelegate.mainViewController openURL:tweetStatusUrl withTitle:@"Twitter"];
 }

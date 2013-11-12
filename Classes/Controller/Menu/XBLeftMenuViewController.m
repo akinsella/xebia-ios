@@ -55,6 +55,7 @@ enum {
             [[TTURLHandler alloc] init]
     ];
 
+    [super initialize];
 }
 
 - (void)viewDidLoad {

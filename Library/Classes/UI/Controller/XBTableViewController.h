@@ -35,4 +35,5 @@
 - (void)configureTableView;
 -(void)loadData;
 
+- (void)initialize;
 @end

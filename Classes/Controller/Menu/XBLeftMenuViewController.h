@@ -16,6 +16,8 @@
 
 @interface XBLeftMenuViewController : XBTableViewController <UITableViewDelegate, UITableViewDataSource, XBTableViewControllerDelegate, IASKSettingsDelegate>
 
+- (void)initialize;
+
 - (void)revealViewControllerWithIdentifier:(NSString *)identifier;
 
 - (void)revealViewControllerWithURL:(NSURL *)url;

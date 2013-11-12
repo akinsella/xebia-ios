@@ -8,6 +8,7 @@
 #import <SDWebImage/UIImageView+WebCache.h>
 #import "XBAbstractNewsCell.h"
 #import "NSDate+XBAdditions.h"
+#import "XBNewsMetadata.h"
 
 @interface XBAbstractNewsCell ()
 

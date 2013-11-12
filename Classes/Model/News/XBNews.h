@@ -22,5 +22,6 @@
 @property (nonatomic, strong) NSString *type;
 @property (nonatomic, strong) NSString *typeId;
 @property (nonatomic, strong) NSString *author;
+@property (nonatomic, strong) NSArray *metadata;
 
 @end

@@ -10,6 +10,8 @@
 #import "XBNews.h"
 #import "XBTableViewCell.h"
 
+@class XBNewsMetadata;
+
 @interface XBAbstractNewsCell : XBTableViewCell
 
 @property (nonatomic, strong, readonly) IBOutlet UIImageView *imageView;
