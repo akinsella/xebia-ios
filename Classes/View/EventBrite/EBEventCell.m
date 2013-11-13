@@ -11,8 +11,8 @@
 #import "UIColor+XBAdditions.h"
 #import "XBConstants.h"
 #import "UIScreen+XBAdditions.h"
-#import "XBMainViewController.h"
 #import "DTCustomColoredAccessory.h"
+#import "NSDate+XBAdditions.h"
 
 @interface EBEventCell ()
 @property (nonatomic, strong) UIImage*defaultImage;
@@ -55,13 +55,24 @@
     
     self.layer.shouldRasterize = YES;
     self.layer.rasterizationScale = [[UIScreen mainScreen] scale];
+
+    self.descriptionLabel.frame = CGRectMake(
+            self.descriptionLabel.frame.origin.x,
+            self.descriptionLabel.frame.origin.y,
+            self.descriptionLabel.frame.size.width,
+            [self descriptionLabelHeight].height
+    );
 }
 
 - (CGFloat)heightForCell:(UITableView *)tableView {
-    CGRect bounds = [UIScreen getScreenBoundsForCurrentOrientation];
-    CGSize size = [self.descriptionLabel sizeThatFits:CGSizeMake(bounds.size.width - CELL_BORDER_WIDTH, CGFLOAT_MAX)];
-    CGFloat computedHeight = MAX(CELL_BASE_HEIGHT + size.height + 32, CELL_MIN_HEIGHT);
+    CGSize size = [self descriptionLabelHeight];
+    CGFloat computedHeight = MAX(CELL_BASE_HEIGHT + size.height + 16, CELL_MIN_HEIGHT);
     return MIN(computedHeight, MAX_CELL_HEIGHT);
+}
+
+- (CGSize)descriptionLabelHeight {
+    CGRect bounds = [UIScreen getScreenBoundsForCurrentOrientation];
+    return [self.descriptionLabel sizeThatFits:CGSizeMake(bounds.size.width - CELL_BORDER_WIDTH, CGFLOAT_MAX)];
 }
 
 - (void)updateWithEvent:(EBEvent *)event {
@@ -87,6 +98,8 @@
     }
 
     self.descriptionLabel.text = description;
+    
+    self.dateLabel.text = [NSString stringWithFormat: @"Le %@", [event.created formatDayMonth]];
 }
 
 - (void)attributedLabel:(TTTAttributedLabel *)label didSelectLinkWithURL:(NSURL *)url {

@@ -20,22 +20,37 @@
     return newThumbnail;
 }
 
+
+- (UIImage *)imageCroppedInRect:(CGRect)cropRect {
+    CGImageRef croppedImageRef = CGImageCreateWithImageInRect(self.CGImage, cropRect);
+
+    UIImage *croppedImage = [UIImage imageWithCGImage:croppedImageRef];
+    CGImageRelease(croppedImageRef);
+    return croppedImage;
+}
+
+- (UIImage *)imageScaledUsingBiggerSize:(CGSize)targetSize {
+    CGSize size;
+    if (self.size.width > self.size.height) {
+        size = CGSizeMake(targetSize.width * self.size.width / self.size.height, targetSize.height);
+    }
+    else {
+        size = CGSizeMake(targetSize.width, targetSize.height * self.size.height / self.size.width);
+    }
+
+    return [self imageScaledToSize:size];
+}
+
+
+
 - (UIImage*)imageScaledToSize:(CGSize)size {
     UIGraphicsBeginImageContext(size);
     [self drawInRect:CGRectMake(0, 0, size.width, size.height)];
     UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
+
     return image;
 }
-
-+ (UIImage *)imageWithImage:(UIImage *)image scaledToSize:(CGSize)size {
-    UIGraphicsBeginImageContext(size);
-    [image drawInRect:CGRectMake(0, 0, size.width, size.height)];
-    UIImage *scaledImage = UIGraphicsGetImageFromCurrentImageContext();
-    UIGraphicsEndImageContext();
-    return scaledImage;
-}
-
 
 - (UIImage *)resizeImageToSize:(CGSize)targetSize {
     UIImage *sourceImage = self;
@@ -94,9 +109,7 @@
     return newImage ;
 }
 
-
-
-- withColor:(UIColor *)color {
+- (UIImage *)imageWithColor:(UIColor *)color {
     // begin a new image context, to draw our colored image onto
     UIGraphicsBeginImageContext(self.size);
 

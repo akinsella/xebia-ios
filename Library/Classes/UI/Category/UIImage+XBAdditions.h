@@ -18,6 +18,9 @@
 
 - (UIImage *)resizeImageToSize:(CGSize)targetSize;
 
-- withColor:(UIColor *)color;
+- (UIImage *)imageCroppedInRect:(CGRect)cropSize;
+- (UIImage *)imageScaledUsingBiggerSize:(CGSize)targetSize;
+
+- (UIImage *)imageWithColor:(UIColor *)color;
 
 @end

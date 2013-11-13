@@ -8,6 +8,7 @@
 
 #import <SDWebImage/UIImageView+WebCache.h>
 #import "XBNewsWordpressCell.h"
+#import "UIImage+XBAdditions.h"
 
 @interface XBNewsWordpressCell ()
 
@@ -36,17 +37,17 @@
                                       XBLog(@"Error: %@", error);
                                   }
                                   else {
-                                      CGRect cropRect = CGRectMake(0, 0, 130, 130);
-                                      CGImageRef croppedImageRef = CGImageCreateWithImageInRect(image.CGImage, cropRect);
-
-                                      UIImage *croppedImage = [UIImage imageWithCGImage:croppedImageRef];
-                                      CGImageRelease(croppedImageRef);
-
-                                      weakSelf.imageView.image = croppedImage;
+                                      if (image.size.width >= 130 && image.size.height >= 130) {
+                                          weakSelf.imageView.image = [weakSelf resizeAndCropImage:image];
+                                      }
                                   }
                                   [weakSelf layoutSubviews];
                               }];
     }
+}
+
+- (UIImage *)resizeAndCropImage:(UIImage *)image {
+    return [[image imageScaledToSize:CGSizeMake(130, 130)] imageCroppedInRect:CGRectMake(0, 0, 130, 130)];
 }
 
 - (void)onSelection {
