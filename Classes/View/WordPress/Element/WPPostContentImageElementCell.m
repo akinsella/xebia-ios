@@ -41,7 +41,9 @@
                                else {
                                    if (!weakSelf.heightImageCache[imageSrc]) {
                                        weakSelf.heightImageCache[imageSrc] = @(image.size.height);
-                                       [weakSelf.delegate reloadCellForElement:weakSelf.element];
+                                       dispatch_async(dispatch_get_main_queue(), ^{
+                                           [weakSelf.delegate reloadCellForElement:weakSelf.element];
+                                       });
                                    }
                                }
                               [weakSelf layoutSubviews];
@@ -52,25 +54,23 @@
 - (void)layoutSubviews {
     [super layoutSubviews];
 
-    CGFloat maxImageWidth =  MIN(self.frame.size.width - 2 * 10, self.imageView.image.size.width);
-    CGFloat imageWidthRatio = maxImageWidth / maxImageWidth;
-    CGFloat imageWidthHeightRatio = self.imageView.image.size.width / self.imageView.image.size.width;
+    CGFloat maxImageWidth =  MIN(self.frame.size.width, self.imageView.image.size.width);
 
     CGRect imageFrame = CGRectMake(
-            10 + (self.frame.size.width - maxImageWidth - 10 * 2) / 2,
-            10,
+            (self.frame.size.width - maxImageWidth) / 2,
+            0,
             maxImageWidth,
-            maxImageWidth * imageWidthRatio / imageWidthHeightRatio
+            maxImageWidth * self.imageView.image.size.height / self.imageView.image.size.width
     );
 
-    if (self.imageView.image.size.width + 2 * 10 > self.frame.size.width) {
-        self.imageView.frame = imageFrame;
-    }
+    self.imageView.frame = imageFrame;
+
+    // Update cell frame
     self.frame = CGRectMake(
             self.frame.origin.x,
             self.frame.origin.y,
             self.frame.size.width,
-            self.imageView.image.size.height + 2 * 10
+            self.imageView.image.size.height
     );
 }
 
@@ -78,7 +78,7 @@
     NSString *imageSrc = self.element[@"src"];
     NSNumber *height = self.heightImageCache[imageSrc];
 
-    return (height ? [height integerValue] : self.placeholderImage.size.height) + 2 * 10;
+    return (height ? [height integerValue] : self.placeholderImage.size.height);
 }
 
 @end

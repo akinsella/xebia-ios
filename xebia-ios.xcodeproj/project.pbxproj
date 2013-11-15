@@ -2486,6 +2486,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 54C2DF1915BDFAFC00CABB12 /* Build configuration list for PBXNativeTarget "xebia-ios" */;
 			buildPhases = (
+				5473ADD31836CF2100B57351 /* ShellScript */,
 				54C2DEE215BDFAFB00CABB12 /* Sources */,
 				54C2DEE315BDFAFB00CABB12 /* Frameworks */,
 				54C2DEE415BDFAFB00CABB12 /* Resources */,
@@ -2762,6 +2763,19 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		5473ADD31836CF2100B57351 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if [ `whoami` = '_teamsserver' ]; then\necho \"running pod install as part of CI build\"\ncd ${SRCROOT}\nrm ./Podfile.lock\nrm -rf ./Pods\nsudo chown -R akinsella .\nsudo -H -u akinsella pod install\nsudo chown -R _teamsserver .\nfi";
+		};
 		54C4312217DB4BAB008913E5 /* Run Tests */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;

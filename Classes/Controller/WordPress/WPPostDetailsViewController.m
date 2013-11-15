@@ -253,11 +253,14 @@ NSString *kHeader6Type = @"H6";
 
 - (void)reloadCellForElement:(WPPostContentStructuredElement *)element {
 
-    NSUInteger indexOfElement = Underscore.indexOf(self.post.structuredContent, element);
-    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:indexOfElement inSection:0];
+//    NSUInteger indexOfElement = Underscore.indexOf(self.post.structuredContent, element);
+//    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:indexOfElement inSection:0];
+//
+//    [self.contentTableView beginUpdates];
+//    [self.contentTableView reloadRowsAtIndexPaths: @[indexPath] withRowAnimation:UITableViewRowAnimationNone];
+//    [self.contentTableView endUpdates];
 
     [self.contentTableView beginUpdates];
-    [self.contentTableView reloadRowsAtIndexPaths: @[indexPath] withRowAnimation:UITableViewRowAnimationNone];
     [self.contentTableView endUpdates];
 }
 

@@ -6,6 +6,7 @@
 //
 
 
+#import <CoreMedia/CoreMedia.h>
 #import "WPPostContentCodeElementCell.h"
 #import "NSString+XBAdditions.h"
 #import "NSString+HTML.h"
@@ -21,20 +22,29 @@
 - (void)updateWithWPPostContentElement:(WPPostContentStructuredElement *)element {
     [super updateWithWPPostContentElement: element];
 
-    NSString* path = [[NSBundle bundleForClass:self.class] pathForResource: @"index" ofType: @"html" inDirectory: @"www"];
+    [self loadWebViewContent:element];
+}
 
-    NSString* content = [NSString stringWithContentsOfFile:path
-                                                  encoding:NSUTF8StringEncoding
-                                                     error:NULL];
+- (void)loadWebViewContent:(WPPostContentStructuredElement *)element {
+    dispatch_async(dispatch_get_main_queue(), ^{
 
-    NSString *eltText = [element.text stringByAddingHTMLEntities];
-    content = [NSString stringWithFormat:content, element[@"language"], eltText];
-    [self.webView loadHTMLString:content baseURL:nil];
+        NSString* path = [[NSBundle bundleForClass:self.class] pathForResource: @"index" ofType: @"html" inDirectory: @"www"];
+
+        NSString* content = [NSString stringWithContentsOfFile:path
+                                                      encoding:NSUTF8StringEncoding
+                                                         error:NULL];
+
+        NSString *eltText = [element.text stringByAddingHTMLEntities];
+        content = [NSString stringWithFormat:content, @"Source code", element[@"language"], eltText];
+
+        NSURL *mainBundleURL = [NSURL fileURLWithPath:[[NSBundle mainBundle] bundlePath]];
+        [self.webView loadHTMLString:content baseURL:[mainBundleURL URLByAppendingPathComponent:@"www"]];
+    });
 }
 
 - (void)webViewDidFinishLoad:(UIWebView *)webView {
-    CGSize fittingSize = [webView sizeThatFits:CGSizeMake(self.frame.size.width - 30 - 20, 300)];
-    webView.frame = CGRectMake(30, 10, self.frame.size.width - 30 - 20, fittingSize.height);
+    CGSize fittingSize = [webView sizeThatFits:CGSizeMake(self.frame.size.width, 300)];
+    webView.frame = CGRectMake(0, 0, self.frame.size.width, fittingSize.height);
     NSLog(@"webview frame size %f", webView.frame.size.height);
 
     [webView setOpaque: NO];
@@ -46,7 +56,9 @@
     if (!self.heightWebViewCache[textMd5]) {
         NSNumber *height = @(webView.frame.size.height);
         self.heightWebViewCache[textMd5] = height;
-        [self.delegate reloadCellForElement:self.element];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self.delegate reloadCellForElement:self.element];
+        });
     }
 
 }
@@ -58,13 +70,10 @@
     NSNumber *height = self.heightWebViewCache[textMd5];
 
     if (height) {
-        return [height integerValue] + 2 * 10;
-    }
-    else if (self.webView) {
-        return self.webView.frame.size.height + 2 * 10;
+        return [height integerValue];
     }
     else {
-        return 64 + 2 * 10;
+        return 64;
     }
 }
 
