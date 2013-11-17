@@ -20,6 +20,7 @@
 #import "XBConstants.h"
 #import "DCIntrospect.h"
 #import "Appirater.h"
+#import "NSString+XBAdditions.h"
 #import <NewRelicAgent/NewRelicAgent.h>
 
 
@@ -369,7 +370,7 @@ static NSString *const NewRelicApiKey = @"AA2a83288c6a4104ccf6cb9d48101ae3aba203
     NSDictionary *jsonPayload = @{ @"udid": [self udid], @"token": deviceToken};
 
     AFHTTPClient *client = [AFHTTPClient clientWithBaseURL:[NSURL URLWithString:[self.configurationProvider baseUrl]]];
-    NSURLRequest *urlRequest = [client requestWithMethod:@"POST" path:@"/notifications/register" parameters:jsonPayload];
+    NSURLRequest *urlRequest = [client requestWithMethod:@"POST" path:[@"/devices/register" stripLeadingSlash] parameters:jsonPayload];
 
     AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:urlRequest
         success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
