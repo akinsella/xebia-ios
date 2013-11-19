@@ -77,14 +77,6 @@
         </dict>
         <dict>
             <key>Title</key>
-            <string>JSONKit</string>
-            <key>Type</key>
-            <string>PSChildPaneSpecifier</string>
-            <key>File</key>
-            <key>JSONKit</key>
-        </dict>
-        <dict>
-            <key>Title</key>
             <string>MBProgressHUD</string>
             <key>Type</key>
             <string>PSChildPaneSpecifier</string>

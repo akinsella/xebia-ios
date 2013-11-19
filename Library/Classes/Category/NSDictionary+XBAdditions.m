@@ -18,7 +18,45 @@ static NSString *urlEncode(id object) {
 
 @implementation NSDictionary(XBAdditions)
 
--(NSString*) urlEncodedString {
+-(NSString *)JSONStringWithError:(NSError **)error dateFormatter:(NSDateFormatter *)dateFormatter {
+
+    NSMutableDictionary *dict = [self.deepMutableCopy transformDictionaryWithBlock:^(id key, id value) {
+
+        if ([value isKindOfClass:NSDate.class]) {
+            return (id)[dateFormatter stringFromDate:(NSDate *)value];
+        }
+        else {
+            return value;
+        }
+    }];
+
+    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:dict
+                                                       options:kNilOptions
+                                                         error:error];
+
+    if (!jsonData) {
+        NSLog(@"JSON error: %@", *error);
+        return nil;
+    }
+
+    return [[NSString alloc] initWithBytes:[jsonData bytes] length:[jsonData length] encoding:NSUTF8StringEncoding];
+}
+
+- (NSMutableDictionary *)transformDictionaryWithBlock:(id (^)(id, id))transformBlock {
+    NSMutableDictionary *dict = self.mutableCopy;
+    for (NSString* key in dict.allKeys) {
+        id value = dict[key];
+        if ([value isKindOfClass:NSDictionary.class]) {
+            dict[key] = [(NSDictionary *)value transformDictionaryWithBlock:transformBlock];
+        }
+        else {
+            dict[key] = transformBlock(key, value);
+        }
+    }
+    return dict;
+}
+
+-(NSString *) urlEncodedString {
     NSMutableArray *parts = [NSMutableArray array];
 
     NSArray *queryParamKeys = [[self allKeys] sortedArrayUsingComparator:^NSComparisonResult(NSString *str1, NSString *str2) {

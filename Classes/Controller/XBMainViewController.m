@@ -9,12 +9,12 @@
 #import "XBMainViewController.h"
 
 #import "XBWebViewController.h"
-#import "JSONKit.h"
 #import "XBMapper.h"
 #import "NSDateFormatter+XBAdditions.h"
 #import "XBRightMenuViewController.h"
 #import "UIViewController+XBAdditions.h"
 #import "XBLeftMenuViewController.h"
+#import "NSDictionary+XBAdditions.h"
 
 @interface XBMainViewController ()
 
@@ -89,12 +89,9 @@
     NSDateFormatter *outputFormatter = [NSDateFormatter initWithDateFormat:@"yyyy-MM-dd'T'HH:mm:ss.SSSZZZ"];
 
     NSDictionary *dict = [XBMapper dictionaryWithPropertiesOfObject:object];
-    NSString* json = [dict JSONStringWithOptions:JKSerializeOptionNone serializeUnsupportedClassesUsingBlock:^id(id objectToSerialize) {
-        if([objectToSerialize isKindOfClass:[NSDate class]]) {
-            return([outputFormatter stringFromDate:object]);
-        }
-        return(nil);
-    } error:nil];
+
+    NSError *error;
+    NSString *json = [dict JSONStringWithError:&error dateFormatter:outputFormatter];
 
     [self openLocalURL:htmlFileRef withTitle:title json:json shareInfo:shareInfo];
 }

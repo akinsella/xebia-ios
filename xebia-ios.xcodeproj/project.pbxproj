@@ -463,6 +463,7 @@
 		DB34D8A191AED08EB1B7B03C /* XBNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34D85EF92BBB8CDB70FE0E /* XBNavigationController.m */; };
 		DB34D8A645E2E7469C52CDAD /* XECardCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DB34D815DF432CB4026A3863 /* XECardCell.xib */; };
 		DB34D8EC9D47F5119A3A9A5A /* VMVideo.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34DF603EC84E5DE3FCAD09 /* VMVideo.m */; };
+		DB34D98B213FD1D8FB965FF0 /* NSDictionaryTest.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34DFC68BF5CC33384D4969 /* NSDictionaryTest.m */; };
 		DB34D98E9DDB220C53C13531 /* EBEventCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DB34DC7A2F8601F51BAB479D /* EBEventCell.xib */; };
 		DB34D9918097632FC1032C05 /* XBNewsWordpressCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DB34DCB8E4CD6AEE658AD13B /* XBNewsWordpressCell.xib */; };
 		DB34D9BA49D147E153448596 /* WPSPostCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DB34D9E3899F49AEEFBDF81D /* WPSPostCell.xib */; };
@@ -1092,6 +1093,7 @@
 		DB34DF72D6782E0BEDF5F04E /* XBNewsVimeoCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = XBNewsVimeoCell.xib; sourceTree = "<group>"; };
 		DB34DF96C607241FFD2FD30D /* XECategoryCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XECategoryCell.m; sourceTree = "<group>"; };
 		DB34DFB3378D901394CCA123 /* xebia-ios-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "xebia-ios-Prefix.pch"; sourceTree = "<group>"; };
+		DB34DFC68BF5CC33384D4969 /* NSDictionaryTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSDictionaryTest.m; sourceTree = "<group>"; };
 		DB34DFF098560ECBEB2465D4 /* WPSPostCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WPSPostCell.h; sourceTree = "<group>"; };
 		DB34DFF64CA2F3C1F7B00CA6 /* WPPostContentHeaderElementCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WPPostContentHeaderElementCell.xib; sourceTree = "<group>"; };
 		EDB581D723EF4E5C808B5615 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -1647,6 +1649,7 @@
 			children = (
 				5443EC971775BEF30000FFE8 /* NSIndexSetTest.m */,
 				5443EC981775BEF30000FFE8 /* NSStringTest.m */,
+				DB34DFC68BF5CC33384D4969 /* NSDictionaryTest.m */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -3103,6 +3106,7 @@
 				DB34D6772D8F9B5AD6C3DB76 /* WPPostContentStructuredElement.m in Sources */,
 				DB34D89DB04BB9FA5059B985 /* WPPostContentStructuredElementAttribute.m in Sources */,
 				DB34D408EDFAC71D7C6488CE /* NSData+XBAdditions.m in Sources */,
+				DB34D98B213FD1D8FB965FF0 /* NSDictionaryTest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

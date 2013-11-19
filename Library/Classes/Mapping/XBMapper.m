@@ -9,9 +9,9 @@
 
 #import <objc/runtime.h>
 #import "NSDateFormatter+XBAdditions.h"
-#import "JSONKit.h"
 #import "DCKeyValueObjectMapping.h"
 #import "XBMappingProvider.h"
+#import "NSDictionary+XBAdditions.h"
 
 @implementation XBMapper
 
@@ -25,13 +25,8 @@
 
     NSDateFormatter *outputFormatter = [[NSDateFormatter alloc] init];
     [outputFormatter setDateFormat:dateFormat];
-
-    NSString* json = [dict JSONStringWithOptions:JKSerializeOptionPretty serializeUnsupportedClassesUsingBlock:^id(id object) {
-        if([object isKindOfClass:[NSDate class]]) {
-            return([outputFormatter stringFromDate:object]);
-        }
-        return(nil);
-    } error:nil];
+    NSError *error;
+    NSString* json = [dict JSONStringWithError:&error dateFormatter:outputFormatter];
 
     return json;
 }

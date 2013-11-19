@@ -7,7 +7,6 @@
 
 #import "XBHttpJsonDataLoader.h"
 #import "XBHttpQueryParamBuilder.h"
-#import "JSONKit.h"
 #import "XBBundleJsonDataLoader.h"
 #import "XBLogging.h"
 
@@ -39,7 +38,13 @@
     NSString *file = [mainBundle pathForResource:self.resourcePath ofType:self.resourceType];
     NSError *error;
     NSString *jsonLoaded = [NSString stringWithContentsOfFile:file encoding:NSUTF8StringEncoding error:&error];
-    NSDictionary *json = [jsonLoaded objectFromJSONString];
+    if (error) {
+        failure(error);
+    }
+
+    NSDictionary *json = [NSJSONSerialization JSONObjectWithData: [jsonLoaded dataUsingEncoding:NSUTF8StringEncoding]
+                                                         options: NSJSONReadingMutableContainers
+                                                           error: &error];
 
     if (!error) {
         XBLogDebug(@"Json loaded from bundle: %@", json);

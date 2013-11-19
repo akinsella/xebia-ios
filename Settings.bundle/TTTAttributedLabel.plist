@@ -34,7 +34,7 @@ THE SOFTWARE.
         </dict>
         <dict>
             <key>DefaultValue</key>
-            <string>1.7.1</string>
+            <string>1.7.5</string>
             <key>Key</key>
             <string>TTTAttributedLabelVersion</string>
             <key>Title</key>

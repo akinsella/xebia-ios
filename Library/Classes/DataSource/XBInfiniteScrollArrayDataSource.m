@@ -5,12 +5,8 @@
 //
 
 
-#import <JSONKit/JSONKit.h>
 #import "XBInfiniteScrollArrayDataSource.h"
-#import "XBInfiniteScrollArrayDataSource+protected.h"
 #import "XBReloadableArrayDataSource+protected.h"
-#import "XBDataMerger.h"
-#import "XBDictionaryDataMerger.h"
 #import "XBLogging.h"
 
 @interface XBInfiniteScrollArrayDataSource()

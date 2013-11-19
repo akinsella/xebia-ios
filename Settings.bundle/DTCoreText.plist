@@ -37,7 +37,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
         </dict>
         <dict>
             <key>DefaultValue</key>
-            <string>1.6.8</string>
+            <string>1.6.9</string>
             <key>Key</key>
             <string>DTCoreTextVersion</string>
             <key>Title</key>

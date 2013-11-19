@@ -38,7 +38,6 @@
 
 -(void)openLocalURL:(NSString *)htmlFileRef withTitle:(NSString *)title json:(NSString *)object shareInfo: (XBShareInfo *)shareInfo;
 
-- (void)revealViewControllerWithIdentifier:(NSString *)identifier withURL:(NSURL *)url;
-
 - (void)revealViewControllerWithURL:(NSURL *)url;
+
 @end
