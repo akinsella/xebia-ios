@@ -29,6 +29,14 @@
         </dict>
         <dict>
             <key>Title</key>
+            <string>A propos</string>
+            <key>Type</key>
+            <string>PSChildPaneSpecifier</string>
+            <key>File</key>
+            <key>About</key>
+        </dict>
+        <dict>
+            <key>Title</key>
             <string>Mentions Légales</string>
             <key>Type</key>
             <string>PSChildPaneSpecifier</string>
