@@ -18,10 +18,21 @@
 
 @implementation XBNewsWordpressCell
 
-- (void)layoutSubviews {
-    [super layoutSubviews];
-    self.imageView.frame = CGRectMake(10, 3, 130, 130);
-    self.imageView.layer.masksToBounds = YES;
+- (void)configure {
+    [super configure];
+}
+
+- (CGFloat)heightForCell:(UITableView *)tableView {
+    CGSize size = [self.titleLabel sizeThatFits:CGSizeMake(self.titleLabel.frame.size.width, CGFLOAT_MAX)];
+    CGFloat height = 136 - 39 - 10 + size.height;
+
+    if ( !self.news.imageUrl || [self.news.imageUrl length] == 0 ) {
+        height = height - 50 - 10;
+    }
+
+    height = MAX(70, height);
+
+    return height;
 }
 
 - (void)updateWithNews:(XBNews *)news {
@@ -30,16 +41,14 @@
     if (news.imageUrl) {
         __weak typeof(self) weakSelf = self;
 
-        [self.imageView setImageWithURL: [[NSURL alloc] initWithString:news.imageUrl]
+        [self.excerptImageView setImageWithURL: [[NSURL alloc] initWithString:news.imageUrl]
                        placeholderImage: self.placeholderImage
                               completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType) {
                                   if (error || !image) {
                                       XBLog(@"Error: %@", error);
                                   }
                                   else {
-                                      if (image.size.width >= 130 && image.size.height >= 130) {
-                                          weakSelf.imageView.image = [weakSelf resizeAndCropImage:image];
-                                      }
+                                      weakSelf.excerptImageView.image = [weakSelf resizeAndCropImage:image];
                                   }
                                   [weakSelf layoutSubviews];
                               }];
@@ -47,7 +56,7 @@
 }
 
 - (UIImage *)resizeAndCropImage:(UIImage *)image {
-    return [[image imageScaledToSize:CGSizeMake(130, 130)] imageCroppedInRect:CGRectMake(0, 0, 130, 130)];
+    return [[image imageScaledToSize:CGSizeMake(50, 50)] imageCroppedInRect:CGRectMake(0, 0, 50, 50)];
 }
 
 - (void)onSelection {

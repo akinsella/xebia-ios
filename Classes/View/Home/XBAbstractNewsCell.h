@@ -14,7 +14,7 @@
 
 @interface XBAbstractNewsCell : XBTableViewCell
 
-@property (nonatomic, strong, readonly) IBOutlet UIImageView *imageView;
+@property (nonatomic, strong) IBOutlet UIImageView *excerptImageView;
 
 @property (weak, nonatomic) IBOutlet UIView *titleView;
 

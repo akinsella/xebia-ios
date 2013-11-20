@@ -73,7 +73,6 @@ NSString *kOtherType = @"other";
     [super configureTableView];
 
     self.tableView.backgroundColor = [UIColor colorWithHex:@"#E0E0E0"];
-    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
 }
 
 - (void)viewWillAppear:(BOOL)animated {

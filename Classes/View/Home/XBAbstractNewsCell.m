@@ -5,10 +5,9 @@
 // To change the template use AppCode | Preferences | File Templates.
 //
 
-#import <SDWebImage/UIImageView+WebCache.h>
 #import "XBAbstractNewsCell.h"
 #import "NSDate+XBAdditions.h"
-#import "XBNewsMetadata.h"
+#import "UIColor+XBAdditions.h"
 
 @interface XBAbstractNewsCell ()
 
@@ -16,6 +15,7 @@
 @property (nonatomic, strong) XBNews *news;
 
 @end
+
 @implementation XBAbstractNewsCell
 
 - (void)configure {
@@ -45,13 +45,15 @@
 }
 
 -(BOOL)customizeBackgroundView {
-    return NO;
+    return YES;
+}
+
+- (UIColor *)gradientLayerColor {
+    return [UIColor colorWithHex:@"#444444"];
 }
 
 - (void)layoutSubviews {
     [super layoutSubviews];
-//    self.imageView.frame = CGRectMake(0, 0, self.frame.size.width, 137);
-//    self.imageView.layer.masksToBounds = YES;
 
     self.layer.shouldRasterize = YES;
     self.layer.rasterizationScale = [[UIScreen mainScreen] scale];
@@ -62,6 +64,7 @@
     [super prepareForReuse];
 
     self.titleLabel.text = nil;
+    self.excerptImageView.image = nil;
 }
 
 - (CGFloat)heightForCell:(UITableView *)tableView {
@@ -74,9 +77,6 @@
     self.authorLabel.text = [NSString stringWithFormat:@"%@ %@", NSLocalizedString(@"Par", nil), news.author];
     NSString *date = [news.publicationDate formatDayMonth];
     self.dateLabel.text = [NSString stringWithFormat:@"%@", date];
-
-//    self.titleView.backgroundColor = [UIColor colorWithHex:@"#000000" alpha:0.50];
-//    self.titleLabel.textColor = [UIColor colorWithHex: @"#FFFFFF"];
 }
 
 - (void)onSelection {

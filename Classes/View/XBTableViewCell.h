@@ -19,6 +19,8 @@
 
 - (UIColor *)accessoryViewHighlightedColor;
 
+- (UIColor *)gradientLayerColor;
+
 - (UIColor *)lineSeparatorColor;
 
 -(UIColor *)accessoryViewBackgroundColor;

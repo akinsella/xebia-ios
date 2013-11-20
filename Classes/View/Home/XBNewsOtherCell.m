@@ -17,32 +17,24 @@
 
 @implementation XBNewsOtherCell
 
+- (CGFloat)heightForCell:(UITableView *)tableView {
+    CGSize size = [self.titleLabel sizeThatFits:CGSizeMake(self.titleLabel.frame.size.width, CGFLOAT_MAX)];
+    CGFloat height = 36 - 21 + size.height;
+    
+    height = MAX(70, height);
+    
+    return height;
+}
+
 - (void)updateWithNews:(XBNews *)news {
     [super updateWithNews:news];
-
-    if (news.imageUrl) {
-//        __weak typeof(self) weakSelf = self;
-//        [self.imageView setImageWithURL: [[NSURL alloc] initWithString:news.imageUrl]
-//                       placeholderImage: self.placeholderImage
-//                                options: kNilOptions
-//                                success: ^(UIImage *image) {
-//                                    CGRect cropRect = CGRectMake(0, 0, weakSelf.frame.size.width, weakSelf.frame.size.height);
-//                                    CGImageRef croppedImageRef = CGImageCreateWithImageInRect(image.CGImage, cropRect);
-//
-//                                    UIImage *croppedImage = [UIImage imageWithCGImage:croppedImageRef];
-//                                    CGImageRelease(croppedImageRef);
-//
-//                                    weakSelf.imageView.image = croppedImage;
-//                                }
-//                                failure: ^(NSError *error) {
-//                                    [weakSelf layoutSubviews];
-//                                }
-//        ];
-    }
 }
 
 - (void)onSelection {
     [super onSelection];
+    
+    NSURL *url = [NSURL URLWithString: self.news.targetUrl];
+    [[UIApplication sharedApplication] openURL: url];
 }
 
 @end

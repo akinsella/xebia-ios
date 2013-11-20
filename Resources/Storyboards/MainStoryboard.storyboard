@@ -202,7 +202,7 @@
         <scene sceneID="9Cn-sX-dB6">
             <objects>
                 <tableViewController storyboardIdentifier="rightMenu" id="i6q-Dn-g4s" customClass="XBRightMenuViewController" sceneMemberID="viewController">
-                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="9ep-bY-Txv">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="9ep-bY-Txv">
                         <rect key="frame" x="0.0" y="64" width="320" height="416"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -255,25 +255,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IO5-qX-wZC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-4801" y="1434"/>
-        </scene>
-        <!--Github Tab Bar Controller-->
-        <scene sceneID="h6C-4Q-oi2">
-            <objects>
-                <tabBarController storyboardIdentifier="tbGithub" title="Github" definesPresentationContext="YES" id="rpq-iI-MUH" userLabel="Github Tab Bar Controller" customClass="GHTabBarController" sceneMemberID="viewController">
-                    <nil key="simulatedBottomBarMetrics"/>
-                    <tabBar key="tabBar" contentMode="scaleToFill" id="fc4-WG-F7E">
-                        <rect key="frame" x="129" y="330" width="163" height="49"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                    </tabBar>
-                    <connections>
-                        <segue destination="crA-oo-3so" kind="relationship" relationship="viewControllers" id="7b7-TF-x9W"/>
-                        <segue destination="2H0-MA-oyT" kind="relationship" relationship="viewControllers" id="TRU-5W-WfQ"/>
-                    </connections>
-                </tabBarController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="FJg-aX-fbk" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-3070" y="1357"/>
         </scene>
         <!--Card Table View Controller - Xebia Essentials-->
         <scene sceneID="w1x-by-XE8">
@@ -552,27 +533,6 @@
             </objects>
             <point key="canvasLocation" x="-4486" y="-1262"/>
         </scene>
-        <!--Github Repository Controller-->
-        <scene sceneID="0nK-Ho-fRt">
-            <objects>
-                <tableViewController storyboardIdentifier="ghRepositories" title="Repositories" id="crA-oo-3so" userLabel="Github Repository Controller" customClass="GHRepositoryTableViewController" sceneMemberID="viewController">
-                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="cPW-PW-XZy">
-                        <rect key="frame" x="0.0" y="64" width="320" height="367"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <connections>
-                            <outlet property="dataSource" destination="crA-oo-3so" id="0PF-Ld-oCj"/>
-                            <outlet property="delegate" destination="crA-oo-3so" id="iiW-jI-EsT"/>
-                        </connections>
-                    </tableView>
-                    <tabBarItem key="tabBarItem" title="Repositories" image="40-inbox.png" id="seG-TM-oau"/>
-                    <navigationItem key="navigationItem" title="Repositories" id="BJM-Dw-b0R"/>
-                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black" prompted="NO"/>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="QMV-nb-P0a" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-2033" y="995"/>
-        </scene>
         <!--Post Details View Controller-->
         <scene sceneID="ndc-wG-MSq">
             <objects>
@@ -610,27 +570,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="l3R-qB-V4A" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1478" y="876"/>
-        </scene>
-        <!--Github User Controller-->
-        <scene sceneID="bYc-JS-vyV">
-            <objects>
-                <tableViewController storyboardIdentifier="ghMembers" title="Members" id="2H0-MA-oyT" userLabel="Github User Controller" customClass="GHMemberTableViewController" sceneMemberID="viewController">
-                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="uUY-c3-VsJ">
-                        <rect key="frame" x="0.0" y="64" width="320" height="367"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <connections>
-                            <outlet property="dataSource" destination="2H0-MA-oyT" id="jlD-JL-YLr"/>
-                            <outlet property="delegate" destination="2H0-MA-oyT" id="fgI-S5-iHg"/>
-                        </connections>
-                    </tableView>
-                    <tabBarItem key="tabBarItem" title="Members" image="112-group.png" id="Cuw-JW-FYh"/>
-                    <navigationItem key="navigationItem" title="Members" id="4nM-Xb-2ks"/>
-                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black" prompted="NO"/>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="LMY-En-C8j" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-2022" y="1691"/>
         </scene>
         <!--Event Table View Controller - Events-->
         <scene sceneID="b6u-1j-PkA">
@@ -1035,7 +974,6 @@
         <image name="112-group.png" width="32" height="21"/>
         <image name="15-tags.png" width="24" height="25"/>
         <image name="34-coffee.png" width="24" height="26"/>
-        <image name="40-inbox.png" width="24" height="24"/>
         <image name="44-shoebox.png" width="24" height="22"/>
         <image name="video_placeholder.png" width="320" height="200"/>
         <image name="xebia-essentials-sample-barcode.png" width="248" height="248"/>

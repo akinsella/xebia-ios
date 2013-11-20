@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="4514" systemVersion="13A603" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="4514" systemVersion="13A603" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <deployment defaultVersion="1536" identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3746"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3747"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="GHIssueCell"/>
@@ -14,47 +14,65 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="63"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Title of the post" lineBreakMode="tailTruncation" adjustsFontSizeToFit="NO" id="3">
-                        <rect key="frame" x="66" y="20" width="245" height="16"/>
+                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" misplaced="YES" text="Title of the post" lineBreakMode="tailTruncation" numberOfLines="0" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="245" translatesAutoresizingMaskIntoConstraints="NO" id="3">
+                        <rect key="frame" x="66" y="20" width="245" height="21"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                         <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
                         <color key="textColor" red="0.37117866847826086" green="0.37117866847826086" blue="0.37117866847826086" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </label>
-                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Category" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="14">
-                        <rect key="frame" x="68" y="0.0" width="188" height="18"/>
+                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" misplaced="YES" text="Category" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="14">
+                        <rect key="frame" x="68" y="3" width="188" height="18"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <fontDescription key="fontDescription" type="italicSystem" pointSize="11"/>
                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </label>
-                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Alexis Kinsella" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="35">
+                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="249" misplaced="YES" text="Alexis Kinsella" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="35">
                         <rect key="frame" x="89" y="38" width="222" height="18"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                         <fontDescription key="fontDescription" type="italicSystem" pointSize="13"/>
                         <color key="textColor" red="0.39926545520000001" green="0.19288542319999999" blue="0.33100869799999999" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </label>
-                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Par" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="48">
+                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" misplaced="YES" text="Par" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="48">
                         <rect key="frame" x="66" y="38" width="24" height="18"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <fontDescription key="fontDescription" type="italicSystem" pointSize="13"/>
                         <color key="textColor" red="0.39926545520000001" green="0.19288542319999999" blue="0.33100869799999999" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </label>
-                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Date" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="30">
+                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" fixedFrame="YES" text="Date" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="30">
                         <rect key="frame" x="109" y="3" width="202" height="18"/>
                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxY="YES"/>
                         <fontDescription key="fontDescription" type="italicSystem" pointSize="12"/>
                         <color key="textColor" red="0.85098039219999999" green="0.47450980390000003" blue="0.0078431372550000003" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </label>
-                    <view contentMode="scaleToFill" id="50" customClass="XBCircleImageView">
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="50" customClass="XBCircleImageView">
                         <rect key="frame" x="13" y="13" width="40" height="40"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" red="0.68235294120000001" green="0.37254901959999998" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="40" id="jVJ-Bn-Li5"/>
+                            <constraint firstAttribute="width" constant="40" id="tQf-Oa-eTg"/>
+                        </constraints>
                     </view>
                 </subviews>
+                <constraints>
+                    <constraint firstItem="3" firstAttribute="leading" secondItem="50" secondAttribute="trailing" constant="13" id="1YO-S8-uIe"/>
+                    <constraint firstItem="3" firstAttribute="top" secondItem="14" secondAttribute="bottom" constant="2" id="36y-yK-2nU"/>
+                    <constraint firstItem="48" firstAttribute="leading" secondItem="50" secondAttribute="trailing" constant="13" id="4uP-fZ-FvT"/>
+                    <constraint firstAttribute="trailing" secondItem="35" secondAttribute="trailing" constant="9" id="7EB-9u-HZJ"/>
+                    <constraint firstItem="14" firstAttribute="top" secondItem="WVF-AT-qLJ" secondAttribute="top" constant="3" id="ACA-pf-xRq"/>
+                    <constraint firstItem="35" firstAttribute="leading" secondItem="48" secondAttribute="trailing" constant="-1" id="AEo-Ve-VzT"/>
+                    <constraint firstAttribute="trailing" secondItem="3" secondAttribute="trailing" constant="9" id="OSV-jZ-uwA"/>
+                    <constraint firstItem="14" firstAttribute="leading" secondItem="50" secondAttribute="trailing" constant="15" id="T0u-9f-2ah"/>
+                    <constraint firstItem="50" firstAttribute="leading" secondItem="WVF-AT-qLJ" secondAttribute="leading" constant="13" id="Wru-iX-CNM"/>
+                    <constraint firstItem="50" firstAttribute="top" secondItem="WVF-AT-qLJ" secondAttribute="top" constant="13" id="acm-k7-kGL"/>
+                    <constraint firstItem="48" firstAttribute="top" secondItem="3" secondAttribute="bottom" constant="2" id="vuN-nP-lLV"/>
+                    <constraint firstItem="35" firstAttribute="top" secondItem="3" secondAttribute="bottom" constant="2" id="zzQ-ax-2TX"/>
+                </constraints>
             </tableViewCellContentView>
             <connections>
                 <outlet property="authorLabel" destination="35" id="42"/>

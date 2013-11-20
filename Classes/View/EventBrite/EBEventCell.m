@@ -65,14 +65,20 @@
 }
 
 - (CGFloat)heightForCell:(UITableView *)tableView {
-    CGSize size = [self descriptionLabelHeight];
-    CGFloat computedHeight = MAX(CELL_BASE_HEIGHT + size.height + 16, CELL_MIN_HEIGHT);
-    return MIN(computedHeight, MAX_CELL_HEIGHT);
+    CGFloat labelsHeight = self.titleLabelHeight.height + self.descriptionLabelHeight.height;
+    CGFloat height = 74 - 21 - 39 + 8 + labelsHeight;
+    
+    height = MAX(74, height);
+    
+    return height;
+}
+
+- (CGSize)titleLabelHeight {
+    return [self.titleLabel sizeThatFits:CGSizeMake(self.titleLabel.frame.size.width, CGFLOAT_MAX)];
 }
 
 - (CGSize)descriptionLabelHeight {
-    CGRect bounds = [UIScreen getScreenBoundsForCurrentOrientation];
-    return [self.descriptionLabel sizeThatFits:CGSizeMake(bounds.size.width - CELL_BORDER_WIDTH, CGFLOAT_MAX)];
+    return [self.descriptionLabel sizeThatFits:CGSizeMake(self.descriptionLabel.frame.size.width, CGFLOAT_MAX)];
 }
 
 - (void)updateWithEvent:(EBEvent *)event {

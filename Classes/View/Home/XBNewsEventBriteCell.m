@@ -9,6 +9,15 @@
 
 @implementation XBNewsEventBriteCell
 
+- (CGFloat)heightForCell:(UITableView *)tableView {
+    CGSize size = [self.titleLabel sizeThatFits:CGSizeMake(self.titleLabel.frame.size.width, CGFLOAT_MAX)];
+    CGFloat height = 36 - 21 + size.height;
+    
+    height = MAX(70, height);
+    
+    return height;
+}
+
 - (void)updateWithNews:(XBNews *)news {
     [super updateWithNews:news];
     [self.titleLabel sizeToFit];
@@ -16,8 +25,7 @@
 
 - (void)onSelection {
     [super onSelection];
-//    [self.appDelegate.mainViewController revealViewControllerWithIdentifier:@"events"];
-
+    
     NSURL * url  = [NSURL URLWithString:[NSString stringWithFormat: @"xebia://events/%@", self.news.identifier]];
     [[UIApplication sharedApplication] openURL: url];
 }

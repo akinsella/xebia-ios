@@ -11,9 +11,13 @@
 
 @implementation XBNewsTwitterCell
 
-
 - (CGFloat)heightForCell:(UITableView *)tableView {
-    return 70;
+    CGSize size = [self.titleLabel sizeThatFits:CGSizeMake(self.titleLabel.frame.size.width, CGFLOAT_MAX)];
+    CGFloat height = 70 - 39 + size.height;
+
+    height = MAX(70, height);
+
+    return height;
 }
 
 - (void)updateWithNews:(XBNews *)news {
@@ -23,8 +27,7 @@
 
 - (void)onSelection {
     [super onSelection];
-//    [self.appDelegate.mainViewController revealViewControllerWithIdentifier:@"tweets"];
-
+    
     XBNewsMetadata *foundNewsMetadata = Underscore.array(self.news.metadata).find(^BOOL(XBNewsMetadata *newsMetadata) {
         return [newsMetadata.key isEqualToString:@"screenName"];
     });
@@ -32,7 +35,6 @@
     NSString *screenName = foundNewsMetadata ? foundNewsMetadata.value : @"<UNKNOWN>";
     NSURL * url  = [NSURL URLWithString:[NSString stringWithFormat: @"xebia://tweets/%@?screenName=%@", self.news.typeId, screenName]];
     [[UIApplication sharedApplication] openURL: url];
-
 }
 
 @end

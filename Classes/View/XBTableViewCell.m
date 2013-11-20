@@ -76,6 +76,14 @@
     return [UIColor colorWithHex:@"#666666"];
 }
 
+- (UIColor *)gradientLayerColor {
+    return [UIColor colorWithHex:@"#3e0b34"];
+}
+
+- (UIColor *)lineSeparatorColor {
+    return [UIColor colorWithHex:@"#E9E9E9"];
+}
+
 -(void)initAccessoryView {
     DTCustomColoredAccessory *accessory = [DTCustomColoredAccessory accessoryWithColor:[self accessoryViewColor]];
     accessory.highlightedColor = [self accessoryViewHighlightedColor];
@@ -100,7 +108,6 @@
             | UIViewAutoresizingFlexibleTopMargin
             | UIViewAutoresizingFlexibleLeftMargin
             | UIViewAutoresizingFlexibleRightMargin );
-
 
     //Create background view
     if (self.customizeBackgroundView) {
@@ -173,10 +180,10 @@
 - (CAGradientLayer *)createGradientLayer {
     CAGradientLayer *gradientLayer = [CAGradientLayer layer];
     
-    UIColor *first = [UIColor colorWithHex:@"#3e0b34"];
-    UIColor *second = [UIColor colorWithHex:@"#3e0b34"];
-    UIColor *third = [UIColor colorWithHex:@"#3e0b34"];
-    UIColor *fourth = [UIColor colorWithHex:@"#3e0b34"];
+    UIColor *first = self.gradientLayerColor;
+    UIColor *second = self.gradientLayerColor;
+    UIColor *third = self.gradientLayerColor;
+    UIColor *fourth = self.gradientLayerColor;
 
     gradientLayer.colors = @[(id)first.CGColor, (id)second.CGColor, (id)third.CGColor, (id)fourth.CGColor];
     gradientLayer.locations = @[@0.0f, @0.3f, @0.7f, @1.0f];
@@ -194,10 +201,6 @@
     [shapeLayer setLineJoin:kCALineJoinRound];
 
     return shapeLayer;
-}
-
-- (UIColor *)lineSeparatorColor {
-    return [UIColor colorWithHex:@"#E9E9E9"];
 }
 
 - (void)setAccessoryType:(UITableViewCellAccessoryType)accessoryType

@@ -40,6 +40,10 @@
     self.descriptionLabel.numberOfLines = 0;
 }
 
+- (CGFloat)heightForCell:(UITableView *)tableView {
+    return 75;
+}
+
 - (void)updateWithVideo:(VMVideo *)video {
     self.video = video;
     VMThumbnail *thumbnail = video.thumbnails[0];
@@ -48,7 +52,7 @@
 
     self.titleLabel.text = video.title;
     self.dateLabel.text = [NSString stringWithFormat:NSLocalizedString(@"Le %@", nil), [video.uploadDate formatDayMonth]];
-    self.descriptionLabel.text = [NSString stringWithFormat:@"%@%@ lecture(s) - %@ like(s) - %@ commentaire(s)", video.isHd ? @"HD | ": @"", video.playCount, video.likeCount, video.commentCount];
+    self.descriptionLabel.text = [NSString stringWithFormat:@"%@%@ lecture(s)", video.isHd ? @"HD | ": @"", video.playCount];
 }
 
 @end

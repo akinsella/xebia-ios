@@ -24,10 +24,8 @@ enum {
     XBMenuHome = 0,
     XBMenuWordpress,
     XBMenuTwitter,
-    /*XBMenuGithub,*/
     XBMenuEvent,
-    XBMenuVimeo,
-    XBMenuParameters
+    XBMenuVimeo
 };
 
 @interface XBLeftMenuViewController ()
@@ -124,7 +122,6 @@ enum {
             @{ @"title": @"Home", @"imageName" :@"home"},
             @{ @"title": @"Blog", @"imageName" :@"wordpress"},
             @{ @"title": @"Tweets", @"imageName" :@"twitter"},
-            /*@{ @"title": @"GitHub", @"imageName" :@"github"},*/
             @{ @"title": @"Events", @"imageName" :@"eventbrite-menu"},
             @{ @"title": @"Vimeo", @"imageName" :@"vimeo"}
     ];
@@ -137,7 +134,7 @@ enum {
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
 //    self.navigationItem.titleView = [UIImageView initWithImageNamed:@"Xebia-Logo"];
     UIView*backgroundView = [[UIView alloc] initWithFrame: self.tableView.bounds];
-    [backgroundView setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"blackorchid.png"]]];
+    [backgroundView setBackgroundColor:[UIColor colorWithHex:@"#222222"]];
     [self.tableView setBackgroundView:backgroundView];
 }
 

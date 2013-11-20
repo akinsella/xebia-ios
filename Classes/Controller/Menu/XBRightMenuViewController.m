@@ -9,9 +9,9 @@
 #import "XBMainViewController.h"
 #import "NSNumber+XBAdditions.h"
 #import "XBLeftMenuCell.h"
-#import "XBAppDelegate.h"
 #import "UIViewController+XBAdditions.h"
 #import "GAITracker.h"
+#import "UIColor+XBAdditions.h"
 
 
 // Enum for row indices
@@ -76,7 +76,7 @@ enum {
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     //    self.navigationItem.titleView = [UIImageView initWithImageNamed:@"Xebia-Logo"];
     UIView*backgroundView = [[UIView alloc] initWithFrame: self.tableView.bounds];
-    [backgroundView setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"blackorchid.png"]]];
+    [backgroundView setBackgroundColor:[UIColor colorWithHex:@"#222222"]];
     [self.tableView setBackgroundView:backgroundView];
 }
 

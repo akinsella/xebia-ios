@@ -8,10 +8,8 @@
 
 #import "WPSPostCell.h"
 #import "SDImageCache.h"
-#import "WPPost.h"
 #import <QuartzCore/QuartzCore.h>
 #import <SDWebImage/UIImageView+WebCache.h>
-#import "UIColor+XBAdditions.h"
 #import "NSDate+XBAdditions.h"
 
 @interface WPSPostCell ()
@@ -37,6 +35,19 @@
     self.avatarImageView.backgroundColor = [UIColor clearColor];
     self.avatarImageView.backgroundImage = [UIImage imageNamed:@"dp_holder_large.png"];
     self.avatarImageView.defaultImage = self.defaultPostImage;
+}
+
+- (CGFloat)heightForCell:(UITableView *)tableView {
+    CGFloat labelsHeight = self.titleLabelHeight.height;
+    CGFloat height = 64 - 21 + labelsHeight;
+
+    height = MAX(64, height);
+
+    return height;
+}
+
+- (CGSize)titleLabelHeight {
+    return [self.titleLabel sizeThatFits:CGSizeMake(self.titleLabel.frame.size.width, CGFLOAT_MAX)];
 }
 
 - (void)updateWithPost:(WPPost *)post {
