@@ -22,6 +22,21 @@
 
     [super configure];
     self.accessoryType = UITableViewCellAccessoryNone;
+    self.selectionStyle = UITableViewCellSelectionStyleNone;
+}
+
+- (void)setHighlighted:(BOOL)highlighted animated:(BOOL)animated
+{
+    if (highlighted) {
+        self.backgroundColor = [UIColor colorWithHex:@"C0C0C0"];
+        self.titleView.backgroundColor = [UIColor colorWithHex:@"F8F8F8"];
+        self.titleLabel.textColor = [UIColor colorWithHex:@"#222222"];
+    }
+    else {
+        self.backgroundColor = [UIColor clearColor];
+        self.titleView.backgroundColor = [UIColor whiteColor];
+        self.titleLabel.textColor = [UIColor colorWithHex:@"#5E5E5E"];
+    }
 }
 
 - (UIColor *)accessoryViewColor {
