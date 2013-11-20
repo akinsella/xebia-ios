@@ -36,14 +36,14 @@ fi
 echo "=== Building for Debug ..."
 START_TIME=$SECONDS
 #xcodebuild -workspace xebia-ios.xcworkspace -scheme "xebia-ios" -sdk iphonesimulator7.0 -configuration Debug clean build OBJROOT="$PWD/build" SYMROOT="$PWD/build" | grep -E "===|warn|error" | grep -v "ibtool"
-xcodebuild -workspace xebia-ios.xcworkspace -scheme "xebia-ios" -sdk iphonesimulator7.0 -configuration Debug clean build OBJROOT="$PWD/build" SYMROOT="$PWD/build" PROJECT_TEMP_ROOT="$PWD/build" CONFIGURATION_BUILD_DIR="$PWD/build" | grep -E "===|warn|error"
+xcodebuild -workspace xebia-ios.xcworkspace -scheme "xebia-ios" -sdk iphonesimulator7.0 -configuration Debug clean build OBJROOT="$PWD/build" SYMROOT="$PWD/build" PROJECT_TEMP_ROOT="$PWD/build" CONFIGURATION_BUILD_DIR="$PWD/build" > /dev/null
 ELAPSED_TIME=$(($SECONDS - $START_TIME))
 echo "=== Build for Debug took: $(($ELAPSED_TIME/60)) min $(($ELAPSED_TIME%60)) sec" 
 
 echo "=== Building for Tests ..."
 START_TIME=$SECONDS
-#xcodebuild -workspace xebia-ios.xcworkspace -scheme "xebia-iosTests" -sdk iphonesimulator7.0 -configuration Debug clean build OBJROOT="$PWD/build" SYMROOT="$PWD/build" TEST_AFTER_BUILD=YES SL_RUN_UNIT_TESTS=YES | grep -E "===|warn|error" | grep -v "ibtool"
-xcodebuild -workspace xebia-ios.xcworkspace -scheme "xebia-iosTests" -sdk iphonesimulator7.0 -configuration Debug clean build OBJROOT="$PWD/build" SYMROOT="$PWD/build" PROJECT_TEMP_ROOT="$PWD/build" CONFIGURATION_BUILD_DIR="$PWD/build" TEST_AFTER_BUILD=YES SL_RUN_UNIT_TESTS=YES | grep -E "===|warn|error" | grep -v "ibtool"
+#xcodebuild -workspace xebia-ios.xcworkspace -scheme "xebia-iosTests" -sdk iphonesimulator7.0 -configuration Debug clean build OBJROOT="$PWD/build" SYMROOT="$PWD/build" TEST_AFTER_BUILD=YES SL_RUN_UNIT_TESTS=YES > /dev/null
+xcodebuild -workspace xebia-ios.xcworkspace -scheme "xebia-iosTests" -sdk iphonesimulator7.0 -configuration Debug clean build OBJROOT="$PWD/build" SYMROOT="$PWD/build" PROJECT_TEMP_ROOT="$PWD/build" CONFIGURATION_BUILD_DIR="$PWD/build" TEST_AFTER_BUILD=YES SL_RUN_UNIT_TESTS=YES > /dev/null
 ELAPSED_TIME=$(($SECONDS - $START_TIME))
 echo "=== Build for Tests took: $(($ELAPSED_TIME/60)) min $(($ELAPSED_TIME%60)) sec" 
 
