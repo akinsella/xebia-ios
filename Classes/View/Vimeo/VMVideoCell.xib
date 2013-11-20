@@ -53,7 +53,6 @@
                     <constraint firstAttribute="bottom" secondItem="45" secondAttribute="bottom" constant="3" id="IvQ-xC-Iiq"/>
                     <constraint firstItem="6Ck-rt-hdd" firstAttribute="top" secondItem="6oP-SL-zxP" secondAttribute="top" id="Kcb-aA-6U3"/>
                     <constraint firstAttribute="bottom" secondItem="14" secondAttribute="bottom" constant="3" id="p1C-nf-Tmj"/>
-                    <constraint firstAttribute="bottom" secondItem="6Ck-rt-hdd" secondAttribute="bottom" id="pBy-H3-fD2"/>
                     <constraint firstItem="3" firstAttribute="leading" secondItem="6Ck-rt-hdd" secondAttribute="trailing" constant="8" id="qry-2Z-b1Y"/>
                 </constraints>
             </tableViewCellContentView>

@@ -38,7 +38,7 @@
 - (void)updateWithNews:(XBNews *)news {
     [super updateWithNews:news];
 
-    if (news.imageUrl) {
+    if (news.imageUrl && news.imageUrl.length > 0) {
         __weak typeof(self) weakSelf = self;
 
         [self.excerptImageView setImageWithURL: [[NSURL alloc] initWithString:news.imageUrl]
