@@ -44,18 +44,18 @@
 
     [self.appDelegate.configurationProvider.httpClient executeGetJsonRequestWithPath:path parameters:nil
                                                                              success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
-                                                                                 [navigationController dismissProgressHUD];
-
-                                                                                 if (success) {
-                                                                                     success(JSON);
-                                                                                 }
+                                                                                 [navigationController dismissProgressHUDWithCallback:^{
+                                                                                     if (success) {
+                                                                                         success(JSON);
+                                                                                     }
+                                                                                 }];
                                                                              }
                                                                              failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
-                                                                                 [navigationController showErrorProgressHUD];
-
-                                                                                 if (failure) {
-                                                                                     failure(error);
-                                                                                 }
+                                                                                 [navigationController showErrorProgressHUDWithCallback:^{
+                                                                                     if (failure) {
+                                                                                         failure(error);
+                                                                                     }
+                                                                                 }];
                                                                              }
     ];
 }

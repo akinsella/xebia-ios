@@ -66,6 +66,7 @@
                     <tabBarItem key="tabBarItem" title="Tags" image="15-tags.png" id="7lg-Ws-daY"/>
                     <navigationItem key="navigationItem" title="Tags" id="DxH-MZ-HDT">
                         <barButtonItem key="rightBarButtonItem" systemItem="search" id="aRv-5q-3SG">
+                            <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <action selector="goToSearch:" destination="2" id="aNb-Dm-MKD"/>
                             </connections>

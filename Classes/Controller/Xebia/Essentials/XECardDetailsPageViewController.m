@@ -232,12 +232,15 @@
                                    hints:hints
                                    error:&error];
     if (result) {
-        CGImageRef imageRef = [[ZXImage imageWithMatrix:result] cgimage];
-        UIImage *buttonImage = [[UIImage alloc] initWithCGImage:imageRef];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            NSAssert([NSThread isMainThread], @"Should be main thread !");
+            CGImageRef imageRef = [[ZXImage imageWithMatrix:result] cgimage];
+            UIImage *buttonImage = [[UIImage alloc] initWithCGImage:imageRef];
 
-        [self.qrCodeImage setImage:buttonImage forState:UIControlStateNormal];
-        [self.qrCodeImage setImage:buttonImage forState:UIControlStateHighlighted];
-        [self.qrCodeImage setImage:buttonImage forState:UIControlStateSelected];
+            [self.qrCodeImage setImage:buttonImage forState:UIControlStateNormal];
+            [self.qrCodeImage setImage:buttonImage forState:UIControlStateHighlighted];
+            [self.qrCodeImage setImage:buttonImage forState:UIControlStateSelected];
+        });
     }
     else {
         NSLog(@"Error: %@", [error localizedDescription]);

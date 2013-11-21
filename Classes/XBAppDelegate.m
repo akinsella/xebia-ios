@@ -21,6 +21,7 @@
 #import "DCIntrospect.h"
 #import "Appirater.h"
 #import "NSString+XBAdditions.h"
+#import "UINavigationBar+XBAdditions.h"
 #import <NewRelicAgent/NewRelicAgent.h>
 
 
@@ -188,9 +189,6 @@ static NSString *const NewRelicApiKey = @"AA2a83288c6a4104ccf6cb9d48101ae3aba203
 }
 
 -(void)initAppearance {
-
-
-//    BOOL isIOS7 = SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0");
     [[UINavigationBar appearance] setBackgroundImage:[UIImage imageNamed:[@"navbar-portrait" suffixIfIOS7]] forBarMetrics:UIBarMetricsDefault];
     if (IS_IPHONE_5) {
         [[UINavigationBar appearance] setBackgroundImage:[UIImage imageNamed:[@"navbar-landscape-iphone5" suffixIfIOS7]] forBarMetrics:UIBarMetricsLandscapePhone];
@@ -198,14 +196,12 @@ static NSString *const NewRelicApiKey = @"AA2a83288c6a4104ccf6cb9d48101ae3aba203
     else {
         [[UINavigationBar appearance] setBackgroundImage:[UIImage imageNamed:[@"navbar-landscape" suffixIfIOS7]] forBarMetrics:UIBarMetricsLandscapePhone];
     }
-    [[UINavigationBar appearance] setTintColor:[UIColor colorWithHex: @"#BCBFB5"]];
 
-//    [[UINavigationBar appearance] setBackgroundColor:[UIColor purpleColor]];
-//    [[UINavigationBar appearance] setTintColor:[UIColor purpleColor]];
+    [[UINavigationBar appearance] setBackgroundColor:[UIColor whiteColor]];
+
+    [[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
     [[UINavigationBar appearance] setTitleTextAttributes: @{
             UITextAttributeTextColor: [UIColor colorWithHex:@"#FFFFFF"],
-            UITextAttributeTextShadowColor: [UIColor colorWithHex:@"#661C04"],
-            UITextAttributeTextShadowOffset: [NSValue valueWithUIOffset:UIOffsetMake(0.0f, 1.0f)],
             UITextAttributeFont: [UIFont fontWithName:@"Lobster" size:20.0f]
     }];
 
@@ -234,18 +230,13 @@ static NSString *const NewRelicApiKey = @"AA2a83288c6a4104ccf6cb9d48101ae3aba203
 
     /* Back button appearance */
 
-    if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0")) {
-//        [[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
-//        UIImage *backButtonImage = [UIImage imageNamed:@"left-arrow-ios7.png"];
-//        [[UINavigationBar appearance] setBackIndicatorImage:backButtonImage];
-//        [[UINavigationBar appearance] setBackIndicatorTransitionMaskImage:backButtonImage];
-    }
-    else {
-        UIImage *backButtonImage = [[UIImage imageNamed:@"left-arrow.png"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 16, 0, 0)];
+    if (!SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0")) {
+
+        UIImage *backButtonImage = [[UIImage imageNamed:@"left-arrow"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 16, 0, 0)];
         [[UIBarButtonItem appearance] setBackButtonBackgroundImage:backButtonImage forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
 
         // Change the appearance of other navigation button
-        UIImage *barButtonImage = [[UIImage imageNamed:@"button.png"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 6, 0, 6)];
+        UIImage *barButtonImage = [[UIImage imageNamed:@"button"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 6, 0, 6)];
         [[UIBarButtonItem appearance] setBackgroundImage: barButtonImage forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
     }
 
@@ -256,25 +247,6 @@ static NSString *const NewRelicApiKey = @"AA2a83288c6a4104ccf6cb9d48101ae3aba203
             UITextAttributeTextShadowColor: [UIColor darkGrayColor],
             UITextAttributeTextShadowOffset: [NSValue valueWithCGSize:CGSizeMake(0.0, -1.0)]
     } forState:UIControlStateNormal];
-
-
-
-/*    [[UIBarButtonItem appearance] setTitleTextAttributes:@{
-            UITextAttributeTextColor: [UIColor colorWithHex:@"#5E6059"],
-//            UITextAttributeTextShadowColor: [UIColor colorWithHex:@"#661C04"],
-            UITextAttributeTextShadowOffset: [NSValue valueWithUIOffset:UIOffsetMake(0.0f, 0.0f)],
-//            UITextAttributeFont: [UIFont fontWithName:@"Lobster" size:15.0f]
-    } forState:UIControlStateNormal];
-    [[UIBarButtonItem appearance] setTitleTextAttributes:@{
-            UITextAttributeTextColor: [UIColor colorWithHex:@"#FFFFFF"],
-//            UITextAttributeTextShadowColor: [UIColor colorWithHex:@"#661C04"],
-            UITextAttributeTextShadowOffset: [NSValue valueWithUIOffset:UIOffsetMake(0.0f, 0.0f)],
-//            UITextAttributeFont: [UIFont fontWithName:@"Lobster" size:15.0f]
-    } forState:UIControlStateHighlighted];*/
-
-//    [[UITableView appearance] setBackgroundColor:[UIColor colorWithHex:@"#F2F5E3"]];
-//    [[UITableView appearance] setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"paper_fibers.png"]]];
-    [[UIToolbar appearance] setTintColor:[UIColor colorWithHex:@"#BCBFB5"]];
 }
 
 - (void)registerDeviceTokenKey {
