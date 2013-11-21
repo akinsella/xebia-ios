@@ -55,7 +55,7 @@
     if (!self.appDelegate.configurationProvider.reachability.isReachable) {
         [self showProgressHUDWithTitle: NSLocalizedString(@"Erreur", nil)
                                message: NSLocalizedString(@"Vous n'avez pas de connection internet.", nil)
-                                 delay:2.0
+                                 delay:1.0
                                yOffset: 200
                                    color:[UIColor colorWithHex:@"#C34E4E"]
                          callback:callback
@@ -118,8 +118,8 @@
     self.progressHUD.yOffset = yOffset;
     self.progressHUD.taskInProgress = YES;
     self.progressHUD.color = color;
-    self.progressHUD.margin = 10;
-    self.progressHUD.labelFont = [UIFont systemFontOfSize:13];
+    self.progressHUD.margin = 12;
+    self.progressHUD.labelFont = [UIFont boldSystemFontOfSize:13];
     self.progressHUD.detailsLabelFont = [UIFont systemFontOfSize:11];
     self.progressHUD.completionBlock = callback;
     [self.navigationController.view addSubview:self.progressHUD];
@@ -141,7 +141,7 @@
     [self.progressHUD hide:YES afterDelay:delay];
     self.progressHUD.taskInProgress = NO;
     self.progressHUD.yOffset = 0;
-    self.progressHUD.margin = 10;
+    self.progressHUD.margin = 20;
     self.progressHUD.color = [UIColor colorWithHex:@"#C34E4E"];
     self.progressHUD.labelFont = [UIFont systemFontOfSize:16];
     self.progressHUD.detailsLabelFont = [UIFont systemFontOfSize:12];
