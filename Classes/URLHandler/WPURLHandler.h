@@ -5,8 +5,8 @@
 
 
 #import <Foundation/Foundation.h>
-#import "XBURLHandler.h"
+#import "XBAbstractURLHandler.h"
 
-@interface WPURLHandler : XBURLHandler
+@interface WPURLHandler : XBAbstractURLHandler
 
 @end

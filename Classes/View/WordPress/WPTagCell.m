@@ -22,12 +22,8 @@
     self.tag_ = tag;
     
     self.titleLabel.text = [tag capitalizedTitle];
-    NSInteger itemCount = tag.postCount.intValue;
 
-    self.bottomDetailLabel.text = [NSString stringWithFormat:
-            itemCount > 1 ? @"%d posts" : @"%d post",
-            itemCount
-    ];
+    self.bottomDetailLabel.text = [NSString stringWithFormat: @"%@", tag.postCount];
 }
 
 @end

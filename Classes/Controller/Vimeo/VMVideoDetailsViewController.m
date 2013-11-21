@@ -17,7 +17,6 @@
 #import "NSDate+XBAdditions.h"
 #import "Underscore.h"
 #import "VMVideoUrl.h"
-#import "NSString+XBAdditions.h"
 #import "XBPListConfigurationProvider.h"
 #import "XBBasicHttpQueryParamBuilder.h"
 #import "XBHttpJsonDataLoader.h"
@@ -33,6 +32,15 @@
 
 @implementation VMVideoDetailsViewController
 
+- (instancetype)initWithVideo:(VMVideo *)video {
+    self = [super init];
+    if (self) {
+        self.video = video;
+    }
+
+    return self;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     NSLayoutConstraint *constraint = [NSLayoutConstraint
@@ -47,6 +55,9 @@
 	// Do any additional setup after loading the view, typically from a nib.
     [self.videoImage.superview addConstraint:constraint];
 
+    if (self.video) {
+        [self refreshViewWithVideoData];
+    }
 }
 
 - (void)viewWillAppear:(BOOL)animated {

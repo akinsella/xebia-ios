@@ -14,14 +14,17 @@
 #import "GAITracker.h"
 #import "UIColor+XBAdditions.h"
 #import "UIViewController+MJPopupViewController.h"
-#import "XBURLHandler.h"
+#import "XBAbstractURLHandler.h"
 #import "WPURLHandler.h"
 #import "UIAlertView+XBAdditions.h"
 #import "TTURLHandler.h"
+#import "EBURLHandler.h"
+#import "VMURLHandler.h"
+#import "XBURLHandler.h"
 
 // Enum for row indices
 enum {
-    XBMenuHome = 0,
+    XBMenuTimeline = 0,
     XBMenuWordpress,
     XBMenuTwitter,
     XBMenuEvent,
@@ -50,7 +53,9 @@ enum {
 
     self.urlHandlers = @[
             [[WPURLHandler alloc] init],
-            [[TTURLHandler alloc] init]
+            [[TTURLHandler alloc] init],
+            [[EBURLHandler alloc] init],
+            [[VMURLHandler alloc] init]
     ];
 
     [super initialize];
@@ -96,7 +101,7 @@ enum {
 
 - (void)initViewIdentifiers {
     self.viewIdentifiers = [@{
-            [NSNumber asString:XBMenuHome]: @"home",
+            [NSNumber asString:XBMenuTimeline]: @"timeline",
             [NSNumber asString:XBMenuWordpress]: @"tbBlog",
             [NSNumber asString:XBMenuTwitter]: @"tweets",
            /* [NSNumber asString:XBMenuGithub]: @"tbGithub",*/
@@ -119,7 +124,7 @@ enum {
 
 - (XBArrayDataSource *)buildDataSource {
     NSArray * menuItems = @[
-            @{ @"title": @"Home", @"imageName" :@"home"},
+            @{ @"title": @"Timeline", @"imageName" :@"timeline"},
             @{ @"title": @"Blog", @"imageName" :@"wordpress"},
             @{ @"title": @"Tweets", @"imageName" :@"twitter"},
             @{ @"title": @"Events", @"imageName" :@"eventbrite-menu"},
@@ -188,7 +193,7 @@ enum {
     NSLog(@"host: %@", [url host]);
     NSLog(@"url path: %@", [url path]);
 
-    XBURLHandler *foundURLHandler = Underscore.array(self.urlHandlers).find(^BOOL(XBURLHandler *urlHandler) {
+    XBAbstractURLHandler *foundURLHandler = Underscore.array(self.urlHandlers).find(^BOOL(XBAbstractURLHandler *urlHandler) {
         return [urlHandler handleURL:url];
     });
 
@@ -208,13 +213,11 @@ enum {
     return ((UINavigationController *)self.revealController.frontViewController).topViewController == [self.appDelegate.viewControllerManager getOrCreateControllerWithIdentifier:identifier];
 }
 
-- (NSUInteger)supportedInterfaceOrientations
-{
+- (NSUInteger)supportedInterfaceOrientations {
     return UIInterfaceOrientationMaskAll;
 }
 
-- (BOOL)shouldAutorotate
-{
+- (BOOL)shouldAutorotate {
     return YES;
 }
 

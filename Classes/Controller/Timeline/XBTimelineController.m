@@ -6,7 +6,7 @@
 //  Copyright (c) 2012 Xebia France. All rights reserved.
 //
 
-#import "XBHomeController.h"
+#import "XBTimelineController.h"
 #import "UIViewController+XBAdditions.h"
 #import "GAITracker.h"
 #import "XBPListConfigurationProvider.h"
@@ -30,21 +30,21 @@ NSString *kVimeoType = @"vimeo";
 NSString *kOtherType = @"other";
 
 
-@interface XBHomeController()
+@interface XBTimelineController ()
 
 @property(nonatomic, strong)NSDictionary *cellNibNames;
 @property(nonatomic, strong)NSDictionary *cellReuseIdentifiers;
 
 @end
 
-@implementation XBHomeController
+@implementation XBTimelineController
 
 - (void)viewDidLoad {
 
-    [self.appDelegate.tracker sendView:@"/home"];
+    [self.appDelegate.tracker sendView:@"/timeline"];
 
-    self.title = NSLocalizedString(@"Home", nil);
-    self.view.backgroundColor = [UIColor colorWithHex:@"#E0E0E0"];
+    self.title = NSLocalizedString(@"Timeline", nil);
+    self.view.backgroundColor = [UIColor colorWithHex:@"#F0F0F0"];
 
     self.delegate = self;
     [self customizeNavigationBarAppearance];
@@ -83,7 +83,7 @@ NSString *kOtherType = @"other";
 - (XBArrayDataSource *)buildDataSource {
     XBHttpClient *httpClient = [[XBPListConfigurationProvider provider] httpClient];
     XBBasicHttpQueryParamBuilder *httpQueryParamBuilder = [XBBasicHttpQueryParamBuilder builderWithDictionary:@{}];
-    XBHttpJsonDataLoader *dataLoader = [XBHttpJsonDataLoader dataLoaderWithHttpClient:httpClient httpQueryParamBuilder:httpQueryParamBuilder resourcePath:@"/news"];
+    XBHttpJsonDataLoader *dataLoader = [XBHttpJsonDataLoader dataLoaderWithHttpClient:httpClient httpQueryParamBuilder:httpQueryParamBuilder resourcePath:@"/timeline"];
     XBJsonToArrayDataMapper *dataMapper = [XBJsonToArrayDataMapper mapperWithRootKeyPath:nil typeClass:[XBNews class]];
     return [XBReloadableArrayDataSource dataSourceWithDataLoader:dataLoader dataMapper:dataMapper];
 }

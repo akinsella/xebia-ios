@@ -10,7 +10,7 @@
 #import "WPPost.h"
 #import "WPPostDetailsViewController.h"
 #import "XBAppDelegate.h"
-#import "XBNavigationController.h"
+#import "XBAbstractURLHandler+protected.h"
 
 @implementation WPURLHandler
 
@@ -36,29 +36,5 @@
                                       }
     ];
 }
-
-- (void)fetchDataFromSourceWithResourcePath:(NSString *)path success:(void (^)(id JSON))success failure:(void (^)(NSError *error))failure {
-
-    XBNavigationController *navigationController = (XBNavigationController *)self.appDelegate.mainViewController.frontViewController.navigationController;
-    [navigationController showProgressHUD];
-
-    [self.appDelegate.configurationProvider.httpClient executeGetJsonRequestWithPath:path parameters:nil
-                                                                             success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
-                                                                                 [navigationController dismissProgressHUDWithCallback:^{
-                                                                                     if (success) {
-                                                                                         success(JSON);
-                                                                                     }
-                                                                                 }];
-                                                                             }
-                                                                             failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
-                                                                                 [navigationController showErrorProgressHUDWithCallback:^{
-                                                                                     if (failure) {
-                                                                                         failure(error);
-                                                                                     }
-                                                                                 }];
-                                                                             }
-    ];
-}
-
 
 @end

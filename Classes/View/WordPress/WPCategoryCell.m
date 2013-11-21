@@ -31,10 +31,7 @@
     self.category = category;
     
     self.titleLabel.text = category.title;
-    self.bottomDetailLabel.text = [NSString stringWithFormat:
-            category.postCount.intValue > 1 ? @"%@ posts" : @"%@ post",
-            category.postCount
-    ];
+    self.bottomDetailLabel.text = [NSString stringWithFormat: @"%@", category.postCount];
 
 }
 

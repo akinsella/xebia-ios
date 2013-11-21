@@ -1,5 +1,5 @@
 //
-//  XBHomeController.h
+//  XBTimelineController.h
 //  xebia-ios
 //
 //  Created by Alexis Kinsella on 25/07/12.
@@ -10,6 +10,6 @@
 #import "XBTableViewController.h"
 #import "XBReloadableTableViewController.h"
 
-@interface XBHomeController : XBReloadableTableViewController<UITableViewDelegate, UITableViewDataSource, XBTableViewControllerDelegate>
+@interface XBTimelineController : XBReloadableTableViewController<UITableViewDelegate, UITableViewDataSource, XBTableViewControllerDelegate>
 
 @end

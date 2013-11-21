@@ -9,8 +9,7 @@
 @class XBAppDelegate;
 
 
-@interface XBURLHandler : NSObject
-
+@interface XBAbstractURLHandler : NSObject
 
 - (XBAppDelegate *)appDelegate;
 

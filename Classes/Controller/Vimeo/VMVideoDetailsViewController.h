@@ -25,6 +25,8 @@
 
 @property(nonatomic, strong, readonly)VMVideo *video;
 
+- (instancetype)initWithVideo:(VMVideo *)video;
+
 - (void)updateWithVideo:(VMVideo *)video;
 @end
 
