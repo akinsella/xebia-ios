@@ -5,37 +5,15 @@
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
 	<key>CFBundleDisplayName</key>
-	<string>${PRODUCT_NAME}</string>
+	<string>Xebia</string>
 	<key>CFBundleExecutable</key>
 	<string>${EXECUTABLE_NAME}</string>
 	<key>CFBundleIcons</key>
-	<dict>
-		<key>CFBundlePrimaryIcon</key>
-		<dict>
-			<key>CFBundleIconFiles</key>
-			<array>
-				<string>Default.png</string>
-				<string>Default@2x.png</string>
-				<string>Default-Landscape@2x~ipad.png</string>
-				<string>Default-Landscape~ipad.png</string>
-				<string>Default-Portrait~ipad.png</string>
-				<string>Default-Portrait@2x~ipad.png</string>
-				<string>Default-Portrait@2x~ipad.png</string>
-				<string>Default-Portrait@2x~ipad.png</string>
-				<string>Default-Portrait~ipad.png</string>
-				<string>Default-Portrait~ipad.png</string>
-				<string>Default-Portrait@2x~ipad.png</string>
-				<string>ios-icon-57.png</string>
-				<string>ios-icon-114.png</string>
-				<string>ios-icon-72.png</string>
-				<string>ios-icon-144.png</string>
-			</array>
-			<key>UIPrerenderedIcon</key>
-			<true/>
-		</dict>
-	</dict>
+	<dict/>
+	<key>CFBundleIcons~ipad</key>
+	<dict/>
 	<key>CFBundleIdentifier</key>
-	<string>fr.xebia.${PRODUCT_NAME:rfc1034identifier}</string>
+	<string>fr.xebia.xebia-ios</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>

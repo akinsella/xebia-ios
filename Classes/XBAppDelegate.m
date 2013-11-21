@@ -190,26 +190,15 @@ static NSString *const NewRelicApiKey = @"AA2a83288c6a4104ccf6cb9d48101ae3aba203
 -(void)initAppearance {
 
 
-    if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0")) {
-        [[UINavigationBar appearance] setBackgroundImage:[UIImage imageNamed:@"navbar-portrait-2.png"] forBarMetrics:UIBarMetricsDefault];
-        if (IS_IPHONE_5) {
-            [[UINavigationBar appearance] setBackgroundImage:[UIImage imageNamed:@"navbar-landscape-iphone5-2.png"] forBarMetrics:UIBarMetricsLandscapePhone];
-        }
-        else {
-            [[UINavigationBar appearance] setBackgroundImage:[UIImage imageNamed:@"navbar-landscape-2.png"] forBarMetrics:UIBarMetricsLandscapePhone];
-        }
-        [[UINavigationBar appearance] setTintColor:[UIColor colorWithHex: @"#BCBFB5"]];
+//    BOOL isIOS7 = SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0");
+    [[UINavigationBar appearance] setBackgroundImage:[UIImage imageNamed:[@"navbar-portrait" suffixIfIOS7]] forBarMetrics:UIBarMetricsDefault];
+    if (IS_IPHONE_5) {
+        [[UINavigationBar appearance] setBackgroundImage:[UIImage imageNamed:[@"navbar-landscape-iphone5" suffixIfIOS7]] forBarMetrics:UIBarMetricsLandscapePhone];
     }
     else {
-        [[UINavigationBar appearance] setBackgroundImage:[UIImage imageNamed:@"navbar-portrait.png"] forBarMetrics:UIBarMetricsDefault];
-        if (IS_IPHONE_5) {
-            [[UINavigationBar appearance] setBackgroundImage:[UIImage imageNamed:@"navbar-landscape-iphone5.png"] forBarMetrics:UIBarMetricsLandscapePhone];
-        }
-        else {
-            [[UINavigationBar appearance] setBackgroundImage:[UIImage imageNamed:@"navbar-landscape.png"] forBarMetrics:UIBarMetricsLandscapePhone];
-        }
-        [[UINavigationBar appearance] setTintColor:[UIColor colorWithHex: @"#BCBFB5"]];
+        [[UINavigationBar appearance] setBackgroundImage:[UIImage imageNamed:[@"navbar-landscape" suffixIfIOS7]] forBarMetrics:UIBarMetricsLandscapePhone];
     }
+    [[UINavigationBar appearance] setTintColor:[UIColor colorWithHex: @"#BCBFB5"]];
 
 //    [[UINavigationBar appearance] setBackgroundColor:[UIColor purpleColor]];
 //    [[UINavigationBar appearance] setTintColor:[UIColor purpleColor]];
@@ -244,18 +233,22 @@ static NSString *const NewRelicApiKey = @"AA2a83288c6a4104ccf6cb9d48101ae3aba203
     } forState:UIControlStateSelected];
 
     /* Back button appearance */
-    UIImage *backButtonImage = [[UIImage imageNamed:@"left-arrow.png"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 16, 0, 0)];
-    [[UIBarButtonItem appearance] setBackButtonBackgroundImage:backButtonImage forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
 
     if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0")) {
-        [[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
-        [[UINavigationBar appearance] setBackIndicatorTransitionMaskImage:backButtonImage];
-        [[UINavigationBar appearance] setBackIndicatorTransitionMaskImage:backButtonImage];
+//        [[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
+//        UIImage *backButtonImage = [UIImage imageNamed:@"left-arrow-ios7.png"];
+//        [[UINavigationBar appearance] setBackIndicatorImage:backButtonImage];
+//        [[UINavigationBar appearance] setBackIndicatorTransitionMaskImage:backButtonImage];
+    }
+    else {
+        UIImage *backButtonImage = [[UIImage imageNamed:@"left-arrow.png"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 16, 0, 0)];
+        [[UIBarButtonItem appearance] setBackButtonBackgroundImage:backButtonImage forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
+
+        // Change the appearance of other navigation button
+        UIImage *barButtonImage = [[UIImage imageNamed:@"button.png"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 6, 0, 6)];
+        [[UIBarButtonItem appearance] setBackgroundImage: barButtonImage forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
     }
 
-    // Change the appearance of other navigation button
-    UIImage *barButtonImage = [[UIImage imageNamed:@"button.png"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 6, 0, 6)];
-    [[UIBarButtonItem appearance] setBackgroundImage: barButtonImage forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
 
     [[UIBarButtonItem appearance] setTitleTextAttributes: @{
             UITextAttributeTextColor: [UIColor whiteColor],
@@ -367,27 +360,35 @@ static NSString *const NewRelicApiKey = @"AA2a83288c6a4104ccf6cb9d48101ae3aba203
 }
 
 - (void)sendProviderDeviceToken:(NSString *)deviceToken {
-    NSDictionary *jsonPayload = @{ @"udid": [self udid], @"token": deviceToken};
+    NSDictionary *jsonPayload = @{ @"udid": self.udid, @"token": deviceToken};
 
-    AFHTTPClient *client = [AFHTTPClient clientWithBaseURL:[NSURL URLWithString:[self.configurationProvider baseUrl]]];
-    NSURLRequest *urlRequest = [client requestWithMethod:@"POST" path:[@"/devices/register" stripLeadingSlash] parameters:jsonPayload];
+#if TARGET_IPHONE_SIMULATOR
+    XBLog("Running device is Simulator, cannot send Device Token to server: %@", jsonPayload);
+#else
+    if (!self.configurationProvider.reachability.isReachable) {
+        XBLog("Network is not available, cannot send Device Token to server: %@", jsonPayload);
+    }
+    else {
+        AFHTTPClient *client = [AFHTTPClient clientWithBaseURL:[NSURL URLWithString:[self.configurationProvider baseUrl]]];
+        NSURLRequest *urlRequest = [client requestWithMethod:@"POST" path:[@"/devices/register" stripLeadingSlash] parameters:jsonPayload];
 
-    AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:urlRequest
-        success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
-            if (response.statusCode > 299) {
-                NSString *reasonPhrase = (__bridge_transfer NSString *)CFHTTPMessageCopyResponseStatusLine((__bridge CFHTTPMessageRef)response);
-                NSLog(@"We got an error ! Status code: %i - Message: %@", response.statusCode, reasonPhrase);
-            } else {
-                NSLog(@"Device was registered by server as expected");
-            }
-        }
-        failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
-            NSLog(@"Device was registered by server as expected. Error: %@, JSON: %@", error, JSON);
-        }
-    ];
+        AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:urlRequest
+                                                                                            success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
+                                                                                                if (response.statusCode > 299) {
+                                                                                                    NSString *reasonPhrase = (__bridge_transfer NSString *)CFHTTPMessageCopyResponseStatusLine((__bridge CFHTTPMessageRef)response);
+                                                                                                    NSLog(@"We got an error ! Status code: %i - Message: %@", response.statusCode, reasonPhrase);
+                                                                                                } else {
+                                                                                                    NSLog(@"Device was registered by server as expected");
+                                                                                                }
+                                                                                            }
+                                                                                            failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
+                                                                                                NSLog(@"Device was registered by server as expected. Error: %@, JSON: %@", error, JSON);
+                                                                                            }
+        ];
 
-    [operation start];
-
+        [operation start];
+    }
+#endif
 }
 
 - (void)processRemoteNotification:(NSDictionary*)userInfo {

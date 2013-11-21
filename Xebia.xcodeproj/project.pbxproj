@@ -7,7 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5438726117DA885B00750791 /* xebia-iosTests-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5438726017DA885B00750791 /* xebia-iosTests-Info.plist */; };
+		338DF8973A884384AC8F7F16 /* libPods-XebiaTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AE3F961AF793434480B2C8FD /* libPods-XebiaTests.a */; };
+		5438726117DA885B00750791 /* XebiaTests-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5438726017DA885B00750791 /* XebiaTests-Info.plist */; };
 		5438726917DA8DFA00750791 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54A74840177CF28E00B9A907 /* AVFoundation.framework */; };
 		5438726A17DA8E0800750791 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54A7483E177A480E00B9A907 /* MediaPlayer.framework */; };
 		5438726B17DA8E2000750791 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54C2DEEE15BDFAFB00CABB12 /* CoreGraphics.framework */; };
@@ -331,6 +332,16 @@
 		5493E75B17B283D4009C0D2B /* avatar-sample@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 5493E75917B283D4009C0D2B /* avatar-sample@2x.jpg */; };
 		54997A26181722C600F40273 /* emblem.png in Resources */ = {isa = PBXBuildFile; fileRef = 54997A24181722C600F40273 /* emblem.png */; };
 		54997A27181722C600F40273 /* emblem@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 54997A25181722C600F40273 /* emblem@2x.png */; };
+		549A7F24183E3E76002B2026 /* ios-icon-76.png in Resources */ = {isa = PBXBuildFile; fileRef = 549A7F21183E3E75002B2026 /* ios-icon-76.png */; };
+		549A7F25183E3E76002B2026 /* ios-icon-120.png in Resources */ = {isa = PBXBuildFile; fileRef = 549A7F22183E3E76002B2026 /* ios-icon-120.png */; };
+		549A7F26183E3E76002B2026 /* ios-icon-152.png in Resources */ = {isa = PBXBuildFile; fileRef = 549A7F23183E3E76002B2026 /* ios-icon-152.png */; };
+		549A7F2D183E3FA1002B2026 /* ios-icon-40.png in Resources */ = {isa = PBXBuildFile; fileRef = 549A7F27183E3FA1002B2026 /* ios-icon-40.png */; };
+		549A7F2E183E3FA1002B2026 /* ios-icon-80.png in Resources */ = {isa = PBXBuildFile; fileRef = 549A7F28183E3FA1002B2026 /* ios-icon-80.png */; };
+		549A7F2F183E3FA1002B2026 /* ios-icon-100.png in Resources */ = {isa = PBXBuildFile; fileRef = 549A7F29183E3FA1002B2026 /* ios-icon-100.png */; };
+		549A7F30183E3FA1002B2026 /* ios-icon-50.png in Resources */ = {isa = PBXBuildFile; fileRef = 549A7F2A183E3FA1002B2026 /* ios-icon-50.png */; };
+		549A7F31183E3FA1002B2026 /* ios-icon-58.png in Resources */ = {isa = PBXBuildFile; fileRef = 549A7F2B183E3FA1002B2026 /* ios-icon-58.png */; };
+		549A7F32183E3FA1002B2026 /* ios-icon-29.png in Resources */ = {isa = PBXBuildFile; fileRef = 549A7F2C183E3FA1002B2026 /* ios-icon-29.png */; };
+		549A7F34183E3FF5002B2026 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 549A7F33183E3FF5002B2026 /* Images.xcassets */; };
 		54A7483F177A480E00B9A907 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54A7483E177A480E00B9A907 /* MediaPlayer.framework */; };
 		54A7484A177EFEB300B9A907 /* Wordings.strings in Resources */ = {isa = PBXBuildFile; fileRef = 54A74848177EFEB300B9A907 /* Wordings.strings */; };
 		54A7484E177F124B00B9A907 /* XBDate.m in Sources */ = {isa = PBXBuildFile; fileRef = 54A7484D177F124B00B9A907 /* XBDate.m */; };
@@ -383,18 +394,17 @@
 		54C6C80417F4E5520070BCD1 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 54C6C7FD17F4E5520070BCD1 /* Default@2x.png */; };
 		B56E64C3C14D4A618E4C1641 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EDB581D723EF4E5C808B5615 /* libPods.a */; };
 		DB34D029B20AB2CC024B5447 /* WPAbstractPostContentStructuredElementCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34D181FB864A5B5B0CCA4E /* WPAbstractPostContentStructuredElementCell.m */; };
-		DB34D034EEF15EA65FE88E71 /* navbar-portrait-2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DB34DA75E3DE4EAF11FC1A32 /* navbar-portrait-2@2x.png */; };
 		DB34D040BF7E24A9D7EEF4C7 /* VMThumbnail.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34D3ACE055F5BE09F95779 /* VMThumbnail.m */; };
 		DB34D05C1617F836DA82493E /* XBNewsVimeoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34D60263E9F933B0748089 /* XBNewsVimeoCell.m */; };
 		DB34D065E5EB4E434B6F3D37 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB34DD4E1507AF2BCB62C8A7 /* Social.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		DB34D083C9EDF348B8417033 /* XEULink.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34DB5D367DAA7DDB9AF238 /* XEULink.m */; };
-		DB34D09903A21CAF7F7291CA /* button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DB34D502E784F70A056F3F1F /* button@2x.png */; };
 		DB34D0BF5EEBF427D15642F0 /* WPTagCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34D779566E6E53EC3D0C66 /* WPTagCell.m */; };
 		DB34D0D0D97F2713B90DBDD3 /* TTURLHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34D785BC8C5ECAAFD18AE2 /* TTURLHandler.m */; };
 		DB34D0D7C801AAAE68093A11 /* VMVideoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34D3E67D5221EE4730132B /* VMVideoCell.m */; };
 		DB34D11D675FDB9F5FDA5C29 /* XECategoryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34DF96C607241FFD2FD30D /* XECategoryCell.m */; };
 		DB34D11E8CC0D57A2B27EAD2 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB34D2014253F0EE1EB4FBC5 /* ImageIO.framework */; };
 		DB34D136C947587B09AC74AB /* XBNewsEventBriteCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DB34D4F9D90570713A57AAD0 /* XBNewsEventBriteCell.xib */; };
+		DB34D164F321299603A499C8 /* navbar-landscape-iphone5-ios7.png in Resources */ = {isa = PBXBuildFile; fileRef = DB34D1A82DD52DBB5760A106 /* navbar-landscape-iphone5-ios7.png */; };
 		DB34D19D3D19B1F160EA25A7 /* WPPostContentParagraphElementCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34D0D9CEEE5E95E15C73A2 /* WPPostContentParagraphElementCell.m */; };
 		DB34D1C08763AD2643298EEE /* XBLeftMenuCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34D92EB516F92067A99CB9 /* XBLeftMenuCell.m */; };
 		DB34D1C0A4422D4B2C8E96FC /* video_placeholder_small@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DB34D31C0445BD5F00772EF8 /* video_placeholder_small@2x.png */; };
@@ -404,13 +414,13 @@
 		DB34D1EE0348634DF1E15ECA /* XBLeftMenuCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DB34DA4198F561241846CE47 /* XBLeftMenuCell.xib */; };
 		DB34D1F5746C1A99D77D2192 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB34DF58131095156D022417 /* CoreMedia.framework */; };
 		DB34D2178AD0916DF2038F6C /* XECard.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34D91042354A075764148E /* XECard.m */; };
+		DB34D223E46507917C829DA7 /* navbar-landscape-ios7@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DB34DBBF0B2307DDAEA0A486 /* navbar-landscape-ios7@2x.png */; };
 		DB34D257FA427B168188038E /* XESponsor.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34D0A4CC294EC4C22FF6BD /* XESponsor.m */; };
 		DB34D287DF321DF4415C449D /* video_placeholder_small.png in Resources */ = {isa = PBXBuildFile; fileRef = DB34DE5756C27D07E768DFED /* video_placeholder_small.png */; };
 		DB34D2B5279E454E7717D0AC /* WPAuthorCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DB34D96E0DF6CCFCBDF91B05 /* WPAuthorCell.xib */; };
 		DB34D2CB7AB56E241AE841E2 /* VMVideoDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34D520761597BD4B8B7669 /* VMVideoDetailsViewController.m */; };
 		DB34D33C7147CFEE06AD99EF /* XEDeck.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34D7E7E92FDE99630ABD8E /* XEDeck.m */; };
 		DB34D37EEDFD2075B74020FC /* XBNewsTwitterCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DB34D529546BD2BAC0D3C0CC /* XBNewsTwitterCell.xib */; };
-		DB34D3EA26C4C5FD516AA1FC /* navbar-landscape-2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DB34D08EB87BACF333576BCA /* navbar-landscape-2@2x.png */; };
 		DB34D408EDFAC71D7C6488CE /* NSData+XBAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34D875167669CDC17E1745 /* NSData+XBAdditions.m */; };
 		DB34D40BDAAE82CD6E751B94 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB34D4D95E1188A7AD47E551 /* StoreKit.framework */; };
 		DB34D410B1C1AFE5F1E60DAE /* XBAbstractNewsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34D8D7C5581033EBDFCB86 /* XBAbstractNewsCell.m */; };
@@ -419,14 +429,16 @@
 		DB34D430F905731F33738F4E /* VMVideoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DB34DA18E861CE300585EC75 /* VMVideoCell.xib */; };
 		DB34D440722370A61803A372 /* WPCategoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DB34DEEAA4079818595013B9 /* WPCategoryCell.xib */; };
 		DB34D4578F76484EBBF9DE93 /* XESponsor.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34D0A4CC294EC4C22FF6BD /* XESponsor.m */; };
+		DB34D45B28E777453933AACC /* navbar-landscape-ios7.png in Resources */ = {isa = PBXBuildFile; fileRef = DB34D428C45D77504F4E15E4 /* navbar-landscape-ios7.png */; };
 		DB34D4A4A6E4F5D1543A8999 /* XECardDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34D7B3A32230066DEF57A0 /* XECardDetailsViewController.m */; };
+		DB34D4DC90DEC695090780D9 /* navbar-portrait-ios7@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DB34D0499ADBDEAF2A2CBCD0 /* navbar-portrait-ios7@2x.png */; };
 		DB34D4E13F43F301BC033F90 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB34D705388B6EF1933EB1E3 /* CoreLocation.framework */; };
 		DB34D50E705A9B3CEAF84583 /* WPPostContentImageElementCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DB34D7921EDB6872C8B3221F /* WPPostContentImageElementCell.xib */; };
 		DB34D5144D350137E1CA9CA2 /* XECard.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34D91042354A075764148E /* XECard.m */; };
-		DB34D55C7D0A6BABB1F986A9 /* button.png in Resources */ = {isa = PBXBuildFile; fileRef = DB34D30BF4B977E5BC6067DD /* button.png */; };
 		DB34D577DC768DBB5F7E51AF /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB34D0F8B07C89387C2F9E3F /* QuartzCore.framework */; };
 		DB34D5951441E41E8530C803 /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB34DF04C907FB61BA2D66B5 /* CoreVideo.framework */; };
 		DB34D59DC2A685CF7592F814 /* WPPostContentImageElementCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34D0D1C8743CE91AD2A20A /* WPPostContentImageElementCell.m */; };
+		DB34D59EB26F612C90550A31 /* navbar-landscape-iphone5-ios7@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DB34DC70361C6AB0865E9DE9 /* navbar-landscape-iphone5-ios7@2x.png */; };
 		DB34D5DBC72AF1D315F28DE1 /* XECardDetailsPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34DF0EC54E9E1EECE42ED4 /* XECardDetailsPageViewController.m */; };
 		DB34D5E0DC911E182E1396ED /* XECategory.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34DA3846C32ED52912827E /* XECategory.m */; };
 		DB34D6057AAC049489CC6FDB /* WPPostDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34D224B60927694681348F /* WPPostDetailsViewController.m */; };
@@ -439,15 +451,12 @@
 		DB34D7406AEB8D5A9B097B80 /* XECategoryTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34DB62A49155EA87926383 /* XECategoryTableViewController.m */; };
 		DB34D747BCEFE89289B3BC00 /* XECategoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DB34DBCA884FDF6E452B2C96 /* XECategoryCell.xib */; };
 		DB34D74CF00ACCCED7353C90 /* VMVideo.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34DF603EC84E5DE3FCAD09 /* VMVideo.m */; };
-		DB34D75454885921D380E848 /* navbar-landscape-2.png in Resources */ = {isa = PBXBuildFile; fileRef = DB34D03ECE6EDE22C45023D0 /* navbar-landscape-2.png */; };
-		DB34D754ED46C0494B6D17EF /* navbar-landscape-iphone5-2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DB34DCB44BA6B25B32C398EF /* navbar-landscape-iphone5-2@2x.png */; };
 		DB34D7BFFFAFC975D2C19476 /* Styles.css in Resources */ = {isa = PBXBuildFile; fileRef = DB34D8A999304D432FA4F05D /* Styles.css */; };
 		DB34D7ED000E892BFDA50F9B /* xebia-ios.entitlements in Resources */ = {isa = PBXBuildFile; fileRef = DB34DF1B888D2DCFC1C32603 /* xebia-ios.entitlements */; };
 		DB34D7EE0FE712FFCF9BF08E /* XETag.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34DA8D8461A88D68351CEF /* XETag.m */; };
 		DB34D80DC3A883F6780EC05C /* WPPostContentStructuredElement.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34DF440D740A4ADAF7B0B2 /* WPPostContentStructuredElement.m */; };
 		DB34D81180C80CA12FDF0C6D /* WPPostContentHeaderElementCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DB34DFF64CA2F3C1F7B00CA6 /* WPPostContentHeaderElementCell.xib */; };
 		DB34D84AD043A864E101AA42 /* WPPostContentCodeElementCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34DF40B8B46F470EF4E6E1 /* WPPostContentCodeElementCell.m */; };
-		DB34D867B011DFAA9749D4EF /* navbar-portrait-2.png in Resources */ = {isa = PBXBuildFile; fileRef = DB34DDF1F3BF03CD66DC933B /* navbar-portrait-2.png */; };
 		DB34D89C142C8B7F7D0E7558 /* XECategory.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34DA3846C32ED52912827E /* XECategory.m */; };
 		DB34D89DB04BB9FA5059B985 /* WPPostContentStructuredElementAttribute.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34D73F9AB47FAF1F9B13F0 /* WPPostContentStructuredElementAttribute.m */; };
 		DB34D8A191AED08EB1B7B03C /* XBNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34D85EF92BBB8CDB70FE0E /* XBNavigationController.m */; };
@@ -464,6 +473,7 @@
 		DB34DA2196BBB030A68965CA /* XETag.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34DA8D8461A88D68351CEF /* XETag.m */; };
 		DB34DAA8E70671F835EEA0E7 /* TTTweetCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34DE9F5EB259E9CB86E112 /* TTTweetCell.m */; };
 		DB34DAAF9065D5CE91D01EAC /* XBURLHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34D5DA23AED59EC58D9072 /* XBURLHandler.m */; };
+		DB34DAC325E395D6818105F6 /* navbar-portrait-ios7.png in Resources */ = {isa = PBXBuildFile; fileRef = DB34D5485FF70C8CA82E9501 /* navbar-portrait-ios7.png */; };
 		DB34DAC5D49B33221B8CCA72 /* XBNews.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34D9C4C8249D59A9E39F46 /* XBNews.m */; };
 		DB34DAEFA05DFD5AE84E426B /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB34D86D5E8C02F41FEA568F /* CoreText.framework */; };
 		DB34DB2EAD07ECD07CBDE66B /* XBViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34D35BC92FD61DE976BB20 /* XBViewController.m */; };
@@ -477,7 +487,6 @@
 		DB34DC81B24B0E3CA6133A2B /* VMVideoUrl.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34D103960A920D4B7FD7B8 /* VMVideoUrl.m */; };
 		DB34DCA31F2B13810B79BC4F /* XEDeck.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34D7E7E92FDE99630ABD8E /* XEDeck.m */; };
 		DB34DCAFF4031D4A897A8657 /* WPURLHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34D0D55AB1F9C807E391CC /* WPURLHandler.m */; };
-		DB34DD0B3C599FF824CC3043 /* navbar-landscape-iphone5-2.png in Resources */ = {isa = PBXBuildFile; fileRef = DB34D3BCB933198712C2BAF4 /* navbar-landscape-iphone5-2.png */; };
 		DB34DD42DBD4F01CE77D2061 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB34D14B542638C01069450B /* CFNetwork.framework */; };
 		DB34DDB92CB08EB004BE2DA9 /* TTTweetCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DB34DA93BE919BF05DE33959 /* TTTweetCell.xib */; };
 		DB34DDBF4DE1F968488BF69C /* WPTagCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DB34DB0DD0A6B58C15D2461A /* WPTagCell.xib */; };
@@ -497,7 +506,8 @@
 
 /* Begin PBXFileReference section */
 		066FCD792FD04E9C87C35E33 /* libPods-xebia-iosTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-xebia-iosTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		5438726017DA885B00750791 /* xebia-iosTests-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "xebia-iosTests-Info.plist"; sourceTree = "<group>"; };
+		378A41F2988D464CA7748FC5 /* Pods-XebiaTests.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XebiaTests.xcconfig"; path = "Pods/Pods-XebiaTests.xcconfig"; sourceTree = "<group>"; };
+		5438726017DA885B00750791 /* XebiaTests-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "XebiaTests-Info.plist"; sourceTree = "<group>"; };
 		543C8F811777A7D20079675E /* vimeo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = vimeo.png; sourceTree = "<group>"; };
 		543C8F821777A7D20079675E /* vimeo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "vimeo@2x.png"; sourceTree = "<group>"; };
 		5443EA1C1775BEC40000FFE8 /* Lobster.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Lobster.ttf; sourceTree = "<group>"; };
@@ -852,6 +862,16 @@
 		5493E75917B283D4009C0D2B /* avatar-sample@2x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "avatar-sample@2x.jpg"; sourceTree = "<group>"; };
 		54997A24181722C600F40273 /* emblem.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = emblem.png; sourceTree = "<group>"; };
 		54997A25181722C600F40273 /* emblem@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "emblem@2x.png"; sourceTree = "<group>"; };
+		549A7F21183E3E75002B2026 /* ios-icon-76.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ios-icon-76.png"; sourceTree = "<group>"; };
+		549A7F22183E3E76002B2026 /* ios-icon-120.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ios-icon-120.png"; sourceTree = "<group>"; };
+		549A7F23183E3E76002B2026 /* ios-icon-152.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ios-icon-152.png"; sourceTree = "<group>"; };
+		549A7F27183E3FA1002B2026 /* ios-icon-40.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ios-icon-40.png"; sourceTree = "<group>"; };
+		549A7F28183E3FA1002B2026 /* ios-icon-80.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ios-icon-80.png"; sourceTree = "<group>"; };
+		549A7F29183E3FA1002B2026 /* ios-icon-100.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ios-icon-100.png"; sourceTree = "<group>"; };
+		549A7F2A183E3FA1002B2026 /* ios-icon-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ios-icon-50.png"; sourceTree = "<group>"; };
+		549A7F2B183E3FA1002B2026 /* ios-icon-58.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ios-icon-58.png"; sourceTree = "<group>"; };
+		549A7F2C183E3FA1002B2026 /* ios-icon-29.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ios-icon-29.png"; sourceTree = "<group>"; };
+		549A7F33183E3FF5002B2026 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = "xebia-ios/Images.xcassets"; sourceTree = SOURCE_ROOT; };
 		54A7483E177A480E00B9A907 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
 		54A74840177CF28E00B9A907 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		54A74847177EFD9400B9A907 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -888,12 +908,12 @@
 		54B6B4A717CA5D6E00C9C835 /* Lato-LigIta.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-LigIta.ttf"; sourceTree = "<group>"; };
 		54B6B4A817CA5D6E00C9C835 /* Lato-Reg.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Reg.ttf"; sourceTree = "<group>"; };
 		54B6B4A917CA5D6E00C9C835 /* Lato-RegIta.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-RegIta.ttf"; sourceTree = "<group>"; };
-		54C2DEE615BDFAFB00CABB12 /* xebia-ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "xebia-ios.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		54C2DEE615BDFAFB00CABB12 /* Xebia.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Xebia.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		54C2DEEA15BDFAFB00CABB12 /* UIKit.framework */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		54C2DEEC15BDFAFB00CABB12 /* Foundation.framework */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		54C2DEEE15BDFAFB00CABB12 /* CoreGraphics.framework */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		54C2DEF015BDFAFB00CABB12 /* CoreData.framework */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
-		54C2DF0615BDFAFC00CABB12 /* xebia-iosTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "xebia-iosTests.octest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		54C2DF0615BDFAFC00CABB12 /* XebiaTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = XebiaTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		54C2DF0715BDFAFC00CABB12 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		54C4312317DB5274008913E5 /* XBRightMenuCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XBRightMenuCell.h; sourceTree = "<group>"; };
 		54C4312417DB5274008913E5 /* XBRightMenuCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XBRightMenuCell.m; sourceTree = "<group>"; };
@@ -906,9 +926,9 @@
 		54C6C7FC17F4E5520070BCD1 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		54C6C7FD17F4E5520070BCD1 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		8CF994BE351A4432BFAA51FC /* Pods-xebia-iosTests.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-xebia-iosTests.xcconfig"; path = "Pods/Pods-xebia-iosTests.xcconfig"; sourceTree = "<group>"; };
+		AE3F961AF793434480B2C8FD /* libPods-XebiaTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-XebiaTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB34D0154E9979E5D300E8BF /* EBEventCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EBEventCell.h; sourceTree = "<group>"; };
-		DB34D03ECE6EDE22C45023D0 /* navbar-landscape-2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "navbar-landscape-2.png"; sourceTree = "<group>"; };
-		DB34D08EB87BACF333576BCA /* navbar-landscape-2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "navbar-landscape-2@2x.png"; sourceTree = "<group>"; };
+		DB34D0499ADBDEAF2A2CBCD0 /* navbar-portrait-ios7@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "navbar-portrait-ios7@2x.png"; sourceTree = "<group>"; };
 		DB34D0A4CC294EC4C22FF6BD /* XESponsor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XESponsor.m; sourceTree = "<group>"; };
 		DB34D0C49C3A04F978CDA147 /* VMVideoTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VMVideoTableViewController.h; sourceTree = "<group>"; };
 		DB34D0C8C2F603FE088B4DD4 /* WPAuthorCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WPAuthorCell.h; sourceTree = "<group>"; };
@@ -921,6 +941,7 @@
 		DB34D13F306D5BF0C107DF63 /* VMUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VMUser.m; sourceTree = "<group>"; };
 		DB34D14B542638C01069450B /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = ../../../../../Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.1.sdk/System/Library/Frameworks/CFNetwork.framework; sourceTree = "<group>"; };
 		DB34D181FB864A5B5B0CCA4E /* WPAbstractPostContentStructuredElementCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WPAbstractPostContentStructuredElementCell.m; sourceTree = "<group>"; };
+		DB34D1A82DD52DBB5760A106 /* navbar-landscape-iphone5-ios7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "navbar-landscape-iphone5-ios7.png"; sourceTree = "<group>"; };
 		DB34D1AE3B63AB0AFAB322EE /* XETag.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XETag.h; sourceTree = "<group>"; };
 		DB34D1BEFD3B2A376D88BF5D /* XEDeck.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XEDeck.h; sourceTree = "<group>"; };
 		DB34D1DFBCADDB8D4BA414EF /* XBNewsTwitterCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XBNewsTwitterCell.h; sourceTree = "<group>"; };
@@ -934,16 +955,15 @@
 		DB34D28263830287183F067D /* WPCategoryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WPCategoryCell.h; sourceTree = "<group>"; };
 		DB34D2CFCD07A39147FE78DC /* WPURLHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WPURLHandler.h; sourceTree = "<group>"; };
 		DB34D2D9034413AEAFF00840 /* XBURLHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XBURLHandler.h; sourceTree = "<group>"; };
-		DB34D30BF4B977E5BC6067DD /* button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button.png; sourceTree = "<group>"; };
 		DB34D31C0445BD5F00772EF8 /* video_placeholder_small@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "video_placeholder_small@2x.png"; sourceTree = "<group>"; };
 		DB34D32DCBB00AEEE9E7268B /* XECardCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XECardCell.h; sourceTree = "<group>"; };
 		DB34D35BC92FD61DE976BB20 /* XBViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XBViewController.m; sourceTree = "<group>"; };
 		DB34D38E1091A726A5C60A60 /* XECardCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XECardCell.m; sourceTree = "<group>"; };
 		DB34D3ACE055F5BE09F95779 /* VMThumbnail.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VMThumbnail.m; sourceTree = "<group>"; };
 		DB34D3B294EB2C7536CFA836 /* XECategoryTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XECategoryTableViewController.h; sourceTree = "<group>"; };
-		DB34D3BCB933198712C2BAF4 /* navbar-landscape-iphone5-2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "navbar-landscape-iphone5-2.png"; sourceTree = "<group>"; };
 		DB34D3E67D5221EE4730132B /* VMVideoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VMVideoCell.m; sourceTree = "<group>"; };
 		DB34D3FC5F249FB4FF934818 /* 5C27D63D-A528-42F0-BD67-83C8EAE9D70F.mobileprovision */ = {isa = PBXFileReference; lastKnownFileType = file.mobileprovision; path = "5C27D63D-A528-42F0-BD67-83C8EAE9D70F.mobileprovision"; sourceTree = "<group>"; };
+		DB34D428C45D77504F4E15E4 /* navbar-landscape-ios7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "navbar-landscape-ios7.png"; sourceTree = "<group>"; };
 		DB34D4305CB29857E2135633 /* XBNewsWordpressCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XBNewsWordpressCell.h; sourceTree = "<group>"; };
 		DB34D433E7A98268FA0ECBF0 /* XECardDetailsPageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XECardDetailsPageViewController.h; sourceTree = "<group>"; };
 		DB34D436823829E734F76969 /* WPPostContentParagraphElementCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WPPostContentParagraphElementCell.h; sourceTree = "<group>"; };
@@ -956,11 +976,11 @@
 		DB34D4F721008304510AF8B0 /* 69C78841-7884-4964-BEDD-0F29903ED49C.mobileprovision */ = {isa = PBXFileReference; lastKnownFileType = file.mobileprovision; path = "69C78841-7884-4964-BEDD-0F29903ED49C.mobileprovision"; sourceTree = "<group>"; };
 		DB34D4F9D90570713A57AAD0 /* XBNewsEventBriteCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = XBNewsEventBriteCell.xib; sourceTree = "<group>"; };
 		DB34D4FA19A6DAA619A951F4 /* XESponsor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XESponsor.h; sourceTree = "<group>"; };
-		DB34D502E784F70A056F3F1F /* button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "button@2x.png"; sourceTree = "<group>"; };
 		DB34D506233D03D70749314A /* XBRightMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XBRightMenuViewController.h; sourceTree = "<group>"; };
 		DB34D520761597BD4B8B7669 /* VMVideoDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VMVideoDetailsViewController.m; sourceTree = "<group>"; };
 		DB34D529546BD2BAC0D3C0CC /* XBNewsTwitterCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = XBNewsTwitterCell.xib; sourceTree = "<group>"; };
 		DB34D537D08BAF71AF6EDC03 /* VMUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VMUser.h; sourceTree = "<group>"; };
+		DB34D5485FF70C8CA82E9501 /* navbar-portrait-ios7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "navbar-portrait-ios7.png"; sourceTree = "<group>"; };
 		DB34D56827878B25BB1F025D /* WPSPostCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WPSPostCell.m; sourceTree = "<group>"; };
 		DB34D57A30630BE85C419903 /* VMVideo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VMVideo.h; sourceTree = "<group>"; };
 		DB34D598A6D9B889BE14DD65 /* remove-key.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = "remove-key.sh"; sourceTree = "<group>"; };
@@ -984,7 +1004,7 @@
 		DB34D7B3A32230066DEF57A0 /* XECardDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XECardDetailsViewController.m; sourceTree = "<group>"; };
 		DB34D7B7F0ACAC5B101E7103 /* WPPostContentStructuredElementAttribute.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WPPostContentStructuredElementAttribute.h; sourceTree = "<group>"; };
 		DB34D7C01CBB60177083BB96 /* dev.p12 */ = {isa = PBXFileReference; lastKnownFileType = file.p12; path = dev.p12; sourceTree = "<group>"; };
-		DB34D7DB27DFAA549ACA24FC /* xebia-ios-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.info; path = "xebia-ios-Info.plist"; sourceTree = "<group>"; };
+		DB34D7DB27DFAA549ACA24FC /* Xebia-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Xebia-Info.plist"; sourceTree = "<group>"; };
 		DB34D7E7E92FDE99630ABD8E /* XEDeck.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XEDeck.m; sourceTree = "<group>"; };
 		DB34D815DF432CB4026A3863 /* XECardCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = XECardCell.xib; sourceTree = "<group>"; };
 		DB34D85D915722509ED963BE /* .travis.yml */ = {isa = PBXFileReference; lastKnownFileType = file.yml; path = .travis.yml; sourceTree = "<group>"; };
@@ -1015,7 +1035,6 @@
 		DB34DA4198F561241846CE47 /* XBLeftMenuCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = XBLeftMenuCell.xib; sourceTree = "<group>"; };
 		DB34DA5B447F923BC81A43CF /* WPPostContentStructuredElementCellDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WPPostContentStructuredElementCellDelegate.h; sourceTree = "<group>"; };
 		DB34DA6C94AA4BC8E41D2C4C /* XBNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XBNavigationController.h; sourceTree = "<group>"; };
-		DB34DA75E3DE4EAF11FC1A32 /* navbar-portrait-2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "navbar-portrait-2@2x.png"; sourceTree = "<group>"; };
 		DB34DA8D8461A88D68351CEF /* XETag.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XETag.m; sourceTree = "<group>"; };
 		DB34DA93BE919BF05DE33959 /* TTTweetCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TTTweetCell.xib; sourceTree = "<group>"; };
 		DB34DA9FDF44684AE926C670 /* coveralls.rb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.ruby; path = coveralls.rb; sourceTree = "<group>"; };
@@ -1030,13 +1049,14 @@
 		DB34DB5D367DAA7DDB9AF238 /* XEULink.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XEULink.m; sourceTree = "<group>"; };
 		DB34DB62A49155EA87926383 /* XECategoryTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XECategoryTableViewController.m; sourceTree = "<group>"; };
 		DB34DB6D1628AA65D090CA5B /* VMVideoUrl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VMVideoUrl.h; sourceTree = "<group>"; };
+		DB34DBBF0B2307DDAEA0A486 /* navbar-landscape-ios7@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "navbar-landscape-ios7@2x.png"; sourceTree = "<group>"; };
 		DB34DBCA884FDF6E452B2C96 /* XECategoryCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = XECategoryCell.xib; sourceTree = "<group>"; };
 		DB34DBE047BC6CFF167AE66A /* XBNewsVimeoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XBNewsVimeoCell.h; sourceTree = "<group>"; };
 		DB34DBF1B3FCCC4E6026372E /* README.md */ = {isa = PBXFileReference; lastKnownFileType = file.md; path = README.md; sourceTree = "<group>"; };
 		DB34DBFA7A7896251890FD3D /* UIAlertView+XBAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIAlertView+XBAdditions.m"; sourceTree = "<group>"; };
+		DB34DC70361C6AB0865E9DE9 /* navbar-landscape-iphone5-ios7@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "navbar-landscape-iphone5-ios7@2x.png"; sourceTree = "<group>"; };
 		DB34DC7A1E12D0835C8876CF /* WPPostContentCodeElementCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WPPostContentCodeElementCell.h; sourceTree = "<group>"; };
 		DB34DC7A2F8601F51BAB479D /* EBEventCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EBEventCell.xib; sourceTree = "<group>"; };
-		DB34DCB44BA6B25B32C398EF /* navbar-landscape-iphone5-2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "navbar-landscape-iphone5-2@2x.png"; sourceTree = "<group>"; };
 		DB34DCB8E4CD6AEE658AD13B /* XBNewsWordpressCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = XBNewsWordpressCell.xib; sourceTree = "<group>"; };
 		DB34DCC129CA48E5A0379BC9 /* TTURLHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTURLHandler.h; sourceTree = "<group>"; };
 		DB34DCE9E629F0249A32FAE9 /* UIAlertView+XBAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIAlertView+XBAdditions.h"; sourceTree = "<group>"; };
@@ -1045,7 +1065,6 @@
 		DB34DD599FD01146D87A1615 /* add-key.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = "add-key.sh"; sourceTree = "<group>"; };
 		DB34DD635BB876A4193AAB19 /* VMVideoDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VMVideoDetailsViewController.h; sourceTree = "<group>"; };
 		DB34DDA94D4BAEA8558A2845 /* XBTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XBTabBarController.m; sourceTree = "<group>"; };
-		DB34DDF1F3BF03CD66DC933B /* navbar-portrait-2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "navbar-portrait-2.png"; sourceTree = "<group>"; };
 		DB34DDF6CFA86B21B8E0891F /* XEAbstractCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XEAbstractCell.h; sourceTree = "<group>"; };
 		DB34DE42A6FDB3DDA749CA6C /* WPPostContentDefaultElementCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WPPostContentDefaultElementCell.m; sourceTree = "<group>"; };
 		DB34DE5756C27D07E768DFED /* video_placeholder_small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = video_placeholder_small.png; sourceTree = "<group>"; };
@@ -1074,7 +1093,7 @@
 		DB34DF603EC84E5DE3FCAD09 /* VMVideo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VMVideo.m; sourceTree = "<group>"; };
 		DB34DF72D6782E0BEDF5F04E /* XBNewsVimeoCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = XBNewsVimeoCell.xib; sourceTree = "<group>"; };
 		DB34DF96C607241FFD2FD30D /* XECategoryCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XECategoryCell.m; sourceTree = "<group>"; };
-		DB34DFB3378D901394CCA123 /* xebia-ios-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "xebia-ios-Prefix.pch"; sourceTree = "<group>"; };
+		DB34DFB3378D901394CCA123 /* Xebia-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Xebia-Prefix.pch"; sourceTree = "<group>"; };
 		DB34DFC68BF5CC33384D4969 /* NSDictionaryTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSDictionaryTest.m; sourceTree = "<group>"; };
 		DB34DFF098560ECBEB2465D4 /* WPSPostCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WPSPostCell.h; sourceTree = "<group>"; };
 		DB34DFF64CA2F3C1F7B00CA6 /* WPPostContentHeaderElementCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WPPostContentHeaderElementCell.xib; sourceTree = "<group>"; };
@@ -1142,6 +1161,7 @@
 				5485016917DCBB0A002216C4 /* ImageIO.framework in Frameworks */,
 				5443EEE6177620B70000FFE8 /* libGoogleAnalytics_debug.a in Frameworks */,
 				E3C1ED277795426F8D7FCB8E /* libPods-xebia-iosTests.a in Frameworks */,
+				338DF8973A884384AC8F7F16 /* libPods-XebiaTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1151,7 +1171,7 @@
 		5438725F17DA885B00750791 /* xebia-iosTests */ = {
 			isa = PBXGroup;
 			children = (
-				5438726017DA885B00750791 /* xebia-iosTests-Info.plist */,
+				5438726017DA885B00750791 /* XebiaTests-Info.plist */,
 			);
 			name = "xebia-iosTests";
 			path = "Targets/xebia-iosTests";
@@ -1160,6 +1180,7 @@
 		5443EA1A1775BEC40000FFE8 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				549A7F33183E3FF5002B2026 /* Images.xcassets */,
 				5443EA1B1775BEC40000FFE8 /* Fonts */,
 				5443EA1D1775BEC40000FFE8 /* Icons */,
 				5443EA221775BEC40000FFE8 /* Images */,
@@ -1327,16 +1348,14 @@
 				5443EA6F1775BEC40000FFE8 /* xebia-logo-transparent@2x.png */,
 				5443EA701775BEC40000FFE8 /* Xebia-Logo.png */,
 				5443EA711775BEC40000FFE8 /* Xebia-Logo@2x.png */,
-				DB34D30BF4B977E5BC6067DD /* button.png */,
-				DB34D502E784F70A056F3F1F /* button@2x.png */,
-				DB34DA75E3DE4EAF11FC1A32 /* navbar-portrait-2@2x.png */,
-				DB34DDF1F3BF03CD66DC933B /* navbar-portrait-2.png */,
-				DB34D08EB87BACF333576BCA /* navbar-landscape-2@2x.png */,
-				DB34DCB44BA6B25B32C398EF /* navbar-landscape-iphone5-2@2x.png */,
-				DB34D03ECE6EDE22C45023D0 /* navbar-landscape-2.png */,
-				DB34D3BCB933198712C2BAF4 /* navbar-landscape-iphone5-2.png */,
 				DB34D31C0445BD5F00772EF8 /* video_placeholder_small@2x.png */,
 				DB34DE5756C27D07E768DFED /* video_placeholder_small.png */,
+				DB34DBBF0B2307DDAEA0A486 /* navbar-landscape-ios7@2x.png */,
+				DB34DC70361C6AB0865E9DE9 /* navbar-landscape-iphone5-ios7@2x.png */,
+				DB34D0499ADBDEAF2A2CBCD0 /* navbar-portrait-ios7@2x.png */,
+				DB34D5485FF70C8CA82E9501 /* navbar-portrait-ios7.png */,
+				DB34D428C45D77504F4E15E4 /* navbar-landscape-ios7.png */,
+				DB34D1A82DD52DBB5760A106 /* navbar-landscape-iphone5-ios7.png */,
 			);
 			path = Images;
 			sourceTree = "<group>";
@@ -2103,22 +2122,32 @@
 				54C6C7FB17F4E5520070BCD1 /* Default-Portrait~ipad.png */,
 				54C6C7FC17F4E5520070BCD1 /* Default.png */,
 				54C6C7FD17F4E5520070BCD1 /* Default@2x.png */,
+				549A7F21183E3E75002B2026 /* ios-icon-76.png */,
+				549A7F22183E3E76002B2026 /* ios-icon-120.png */,
+				549A7F23183E3E76002B2026 /* ios-icon-152.png */,
 				5443EF9D177627460000FFE8 /* ios-icon-57.png */,
 				5443EF99177627160000FFE8 /* ios-icon-72.png */,
 				5443EF97177627110000FFE8 /* ios-icon-114.png */,
 				5443EF9B177627250000FFE8 /* ios-icon-144.png */,
+				549A7F27183E3FA1002B2026 /* ios-icon-40.png */,
+				549A7F28183E3FA1002B2026 /* ios-icon-80.png */,
+				549A7F29183E3FA1002B2026 /* ios-icon-100.png */,
+				549A7F2A183E3FA1002B2026 /* ios-icon-50.png */,
+				549A7F2B183E3FA1002B2026 /* ios-icon-58.png */,
+				549A7F2C183E3FA1002B2026 /* ios-icon-29.png */,
 				8CF994BE351A4432BFAA51FC /* Pods-xebia-iosTests.xcconfig */,
 				DB34DE2B1FD85DCD2E8932E3 /* Scripts */,
 				DB34D85D915722509ED963BE /* .travis.yml */,
 				DB34D8AD967E65C25FCCB746 /* Gemfile */,
+				378A41F2988D464CA7748FC5 /* Pods-XebiaTests.xcconfig */,
 			);
 			sourceTree = "<group>";
 		};
 		54C2DEE715BDFAFB00CABB12 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				54C2DEE615BDFAFB00CABB12 /* xebia-ios.app */,
-				54C2DF0615BDFAFC00CABB12 /* xebia-iosTests.octest */,
+				54C2DEE615BDFAFB00CABB12 /* Xebia.app */,
+				54C2DF0615BDFAFC00CABB12 /* XebiaTests.octest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -2151,6 +2180,7 @@
 				DB34D4D95E1188A7AD47E551 /* StoreKit.framework */,
 				DB34D2014253F0EE1EB4FBC5 /* ImageIO.framework */,
 				066FCD792FD04E9C87C35E33 /* libPods-xebia-iosTests.a */,
+				AE3F961AF793434480B2C8FD /* libPods-XebiaTests.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -2375,8 +2405,8 @@
 		DB34DB008D30244781FE61D8 /* xebia-ios */ = {
 			isa = PBXGroup;
 			children = (
-				DB34D7DB27DFAA549ACA24FC /* xebia-ios-Info.plist */,
-				DB34DFB3378D901394CCA123 /* xebia-ios-Prefix.pch */,
+				DB34D7DB27DFAA549ACA24FC /* Xebia-Info.plist */,
+				DB34DFB3378D901394CCA123 /* Xebia-Prefix.pch */,
 				DB34DF1B888D2DCFC1C32603 /* xebia-ios.entitlements */,
 			);
 			name = "xebia-ios";
@@ -2463,9 +2493,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		54C2DEE515BDFAFB00CABB12 /* xebia-ios */ = {
+		54C2DEE515BDFAFB00CABB12 /* Xebia */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 54C2DF1915BDFAFC00CABB12 /* Build configuration list for PBXNativeTarget "xebia-ios" */;
+			buildConfigurationList = 54C2DF1915BDFAFC00CABB12 /* Build configuration list for PBXNativeTarget "Xebia" */;
 			buildPhases = (
 				5473ADD31836CF2100B57351 /* ShellScript */,
 				54C2DEE215BDFAFB00CABB12 /* Sources */,
@@ -2477,14 +2507,14 @@
 			);
 			dependencies = (
 			);
-			name = "xebia-ios";
+			name = Xebia;
 			productName = "xebia-ios";
-			productReference = 54C2DEE615BDFAFB00CABB12 /* xebia-ios.app */;
+			productReference = 54C2DEE615BDFAFB00CABB12 /* Xebia.app */;
 			productType = "com.apple.product-type.application";
 		};
-		54C2DF0515BDFAFC00CABB12 /* xebia-iosTests */ = {
+		54C2DF0515BDFAFC00CABB12 /* XebiaTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 54C2DF1C15BDFAFC00CABB12 /* Build configuration list for PBXNativeTarget "xebia-iosTests" */;
+			buildConfigurationList = 54C2DF1C15BDFAFC00CABB12 /* Build configuration list for PBXNativeTarget "XebiaTests" */;
 			buildPhases = (
 				BE5A72F9935547BC8C472848 /* Check Pods Manifest.lock */,
 				54C2DF0115BDFAFC00CABB12 /* Sources */,
@@ -2497,9 +2527,9 @@
 			);
 			dependencies = (
 			);
-			name = "xebia-iosTests";
+			name = XebiaTests;
 			productName = "xebia-iosTests";
-			productReference = 54C2DF0615BDFAFC00CABB12 /* xebia-iosTests.octest */;
+			productReference = 54C2DF0615BDFAFC00CABB12 /* XebiaTests.octest */;
 			productType = "com.apple.product-type.bundle";
 		};
 /* End PBXNativeTarget section */
@@ -2511,7 +2541,7 @@
 				LastUpgradeCheck = 0460;
 				ORGANIZATIONNAME = Xebia;
 			};
-			buildConfigurationList = 54C2DEE015BDFAFB00CABB12 /* Build configuration list for PBXProject "xebia-ios" */;
+			buildConfigurationList = 54C2DEE015BDFAFB00CABB12 /* Build configuration list for PBXProject "Xebia" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -2524,8 +2554,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				54C2DEE515BDFAFB00CABB12 /* xebia-ios */,
-				54C2DF0515BDFAFC00CABB12 /* xebia-iosTests */,
+				54C2DEE515BDFAFB00CABB12 /* Xebia */,
+				54C2DF0515BDFAFC00CABB12 /* XebiaTests */,
 			);
 		};
 /* End PBXProject section */
@@ -2591,8 +2621,11 @@
 				5443EAF41775BEC50000FFE8 /* menu.png in Resources */,
 				5443EAF51775BEC50000FFE8 /* menu@2x.png in Resources */,
 				5443EAF61775BEC50000FFE8 /* navbar-landscape-iphone5.png in Resources */,
+				549A7F2E183E3FA1002B2026 /* ios-icon-80.png in Resources */,
+				549A7F34183E3FF5002B2026 /* Images.xcassets in Resources */,
 				5443EAF71775BEC50000FFE8 /* navbar-landscape-iphone5@2x.png in Resources */,
 				5443EAF81775BEC50000FFE8 /* navbar-landscape.png in Resources */,
+				549A7F31183E3FA1002B2026 /* ios-icon-58.png in Resources */,
 				5443EAF91775BEC50000FFE8 /* navbar-landscape@2x.png in Resources */,
 				5443EAFA1775BEC50000FFE8 /* navbar-portrait.png in Resources */,
 				547A69DB181F06E6005B2B18 /* social-026_wordpress@2x.png in Resources */,
@@ -2604,6 +2637,7 @@
 				547A69D4181F06E6005B2B18 /* social-001-eventbrite.png in Resources */,
 				5443EB001775BEC50000FFE8 /* paper_fibers_@2x.png in Resources */,
 				5443EB011775BEC50000FFE8 /* spacer.png in Resources */,
+				549A7F26183E3E76002B2026 /* ios-icon-152.png in Resources */,
 				5443EB021775BEC50000FFE8 /* twitter.png in Resources */,
 				547A69D5181F06E6005B2B18 /* social-001-eventbrite@2x.png in Resources */,
 				54535580182C4965003532F7 /* Settings.bundle in Resources */,
@@ -2635,9 +2669,11 @@
 				DB34DDB92CB08EB004BE2DA9 /* TTTweetCell.xib in Resources */,
 				DB34DDBF4DE1F968488BF69C /* WPTagCell.xib in Resources */,
 				DB34D2B5279E454E7717D0AC /* WPAuthorCell.xib in Resources */,
+				549A7F2D183E3FA1002B2026 /* ios-icon-40.png in Resources */,
 				DB34D9BA49D147E153448596 /* WPSPostCell.xib in Resources */,
 				DB34D440722370A61803A372 /* WPCategoryCell.xib in Resources */,
 				DB34D1EE0348634DF1E15ECA /* XBLeftMenuCell.xib in Resources */,
+				549A7F32183E3FA1002B2026 /* ios-icon-29.png in Resources */,
 				DB34D430F905731F33738F4E /* VMVideoCell.xib in Resources */,
 				543C8F831777A7D20079675E /* vimeo.png in Resources */,
 				543C8F841777A7D20079675E /* vimeo@2x.png in Resources */,
@@ -2654,6 +2690,7 @@
 				DB34D747BCEFE89289B3BC00 /* XECategoryCell.xib in Resources */,
 				5493E740179C20BC009C0D2B /* xebia-essentials-sample-barcode.png in Resources */,
 				5493E741179C20BC009C0D2B /* xebia-essentials-sample-barcode@2x.png in Resources */,
+				549A7F25183E3E76002B2026 /* ios-icon-120.png in Resources */,
 				5493E74D17A2F09C009C0D2B /* xebia-essentials-card.png in Resources */,
 				547A69DA181F06E6005B2B18 /* social-026_wordpress.png in Resources */,
 				5493E74E17A2F09C009C0D2B /* xebia-essentials-card@2x.png in Resources */,
@@ -2663,6 +2700,7 @@
 				54AB456317C5651F00606F7F /* WPPostContentDefaultElementCell.xib in Resources */,
 				54AB456517C5651F00606F7F /* WPPostContentParagraphElementCell.xib in Resources */,
 				DB34D7ED000E892BFDA50F9B /* xebia-ios.entitlements in Resources */,
+				549A7F2F183E3FA1002B2026 /* ios-icon-100.png in Resources */,
 				5453557D182C4232003532F7 /* 19-gear.png in Resources */,
 				DB34D81180C80CA12FDF0C6D /* WPPostContentHeaderElementCell.xib in Resources */,
 				54B6B49317C80B9F00C9C835 /* WPPostContentCodeElementCell.xib in Resources */,
@@ -2689,9 +2727,11 @@
 				54B6B4B917CA5D6E00C9C835 /* Lato-LigIta.ttf in Resources */,
 				54B6B4BA17CA5D6E00C9C835 /* Lato-Reg.ttf in Resources */,
 				54B6B4BB17CA5D6E00C9C835 /* Lato-RegIta.ttf in Resources */,
+				549A7F30183E3FA1002B2026 /* ios-icon-50.png in Resources */,
 				DB34D7BFFFAFC975D2C19476 /* Styles.css in Resources */,
 				54C4312717DB5274008913E5 /* XBRightMenuCell.xib in Resources */,
 				5485016E17DFB8C6002216C4 /* WPPostContentTitleCell.xib in Resources */,
+				549A7F24183E3E76002B2026 /* ios-icon-76.png in Resources */,
 				5485017117DFBCD5002216C4 /* post-avatar-placeholder.png in Resources */,
 				5485017217DFBCD5002216C4 /* post-avatar-placeholder@2x.png in Resources */,
 				547A69D9181F06E6005B2B18 /* social-013_vimeo@2x.png in Resources */,
@@ -2711,17 +2751,17 @@
 				54997A26181722C600F40273 /* emblem.png in Resources */,
 				54997A27181722C600F40273 /* emblem@2x.png in Resources */,
 				DB34D9918097632FC1032C05 /* XBNewsWordpressCell.xib in Resources */,
-				DB34D034EEF15EA65FE88E71 /* navbar-portrait-2@2x.png in Resources */,
-				DB34D867B011DFAA9749D4EF /* navbar-portrait-2.png in Resources */,
-				DB34D3EA26C4C5FD516AA1FC /* navbar-landscape-2@2x.png in Resources */,
-				DB34D754ED46C0494B6D17EF /* navbar-landscape-iphone5-2@2x.png in Resources */,
-				DB34D75454885921D380E848 /* navbar-landscape-2.png in Resources */,
-				DB34DD0B3C599FF824CC3043 /* navbar-landscape-iphone5-2.png in Resources */,
 				DB34D136C947587B09AC74AB /* XBNewsEventBriteCell.xib in Resources */,
 				DB34D37EEDFD2075B74020FC /* XBNewsTwitterCell.xib in Resources */,
 				DB34DA1B59B992E03D808F83 /* XBNewsVimeoCell.xib in Resources */,
 				DB34D1C0A4422D4B2C8E96FC /* video_placeholder_small@2x.png in Resources */,
 				DB34D287DF321DF4415C449D /* video_placeholder_small.png in Resources */,
+				DB34D223E46507917C829DA7 /* navbar-landscape-ios7@2x.png in Resources */,
+				DB34D59EB26F612C90550A31 /* navbar-landscape-iphone5-ios7@2x.png in Resources */,
+				DB34D4DC90DEC695090780D9 /* navbar-portrait-ios7@2x.png in Resources */,
+				DB34DAC325E395D6818105F6 /* navbar-portrait-ios7.png in Resources */,
+				DB34D45B28E777453933AACC /* navbar-landscape-ios7.png in Resources */,
+				DB34D164F321299603A499C8 /* navbar-landscape-iphone5-ios7.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2733,9 +2773,7 @@
 				5443ECCB1775BEF30000FFE8 /* wp-author-index-p2.json in Resources */,
 				5443ECCC1775BEF30000FFE8 /* wp-author-index-p3.json in Resources */,
 				5443ECCD1775BEF30000FFE8 /* wp-author-index.json in Resources */,
-				5438726117DA885B00750791 /* xebia-iosTests-Info.plist in Resources */,
-				DB34D55C7D0A6BABB1F986A9 /* button.png in Resources */,
-				DB34D09903A21CAF7F7291CA /* button@2x.png in Resources */,
+				5438726117DA885B00750791 /* XebiaTests-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2810,7 +2848,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Pods-xebia-iosTests-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Pods-XebiaTests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -3157,12 +3195,14 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = FFE479B60E604A7197B75249 /* Pods.xcconfig */;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_OBJC_ARC = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Alexis Kinsella (46N4T2UZ32)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Targets/xebia-ios/xebia-ios-Prefix.pch";
-				INFOPLIST_FILE = "$(SRCROOT)/Targets/xebia-ios/xebia-ios-Info.plist";
+				GCC_PREFIX_HEADER = "Targets/xebia-ios/Xebia-Prefix.pch";
+				INFOPLIST_FILE = "Targets/xebia-ios/Xebia-Info.plist";
 				LIBRARY_SEARCH_PATHS = (
 					"\"$(PODS_ROOT)/TestFlightSDK\"",
 					"\"$(SRCROOT)/Classes/Analytics\"",
@@ -3177,12 +3217,14 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = FFE479B60E604A7197B75249 /* Pods.xcconfig */;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_OBJC_ARC = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Alexis Kinsella (46N4T2UZ32)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Targets/xebia-ios/xebia-ios-Prefix.pch";
-				INFOPLIST_FILE = "$(SRCROOT)/Targets/xebia-ios/xebia-ios-Info.plist";
+				GCC_PREFIX_HEADER = "Targets/xebia-ios/Xebia-Prefix.pch";
+				INFOPLIST_FILE = "Targets/xebia-ios/Xebia-Info.plist";
 				LIBRARY_SEARCH_PATHS = (
 					"\"$(PODS_ROOT)/TestFlightSDK\"",
 					"\"$(SRCROOT)/Classes/Analytics\"",
@@ -3195,7 +3237,7 @@
 		};
 		54C2DF1D15BDFAFC00CABB12 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 8CF994BE351A4432BFAA51FC /* Pods-xebia-iosTests.xcconfig */;
+			baseConfigurationReference = 378A41F2988D464CA7748FC5 /* Pods-XebiaTests.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/xebia-ios.app/xebia-ios";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -3207,7 +3249,7 @@
 				GCC_INSTRUMENT_PROGRAM_FLOW_ARCS = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Targets/xebia-ios/xebia-ios-Prefix.pch";
-				INFOPLIST_FILE = "$(SRCROOT)/Targets/xebia-iosTests/xebia-iosTests-Info.plist";
+				INFOPLIST_FILE = "Targets/xebia-iosTests/XebiaTests-Info.plist";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/Classes/Analytics\"",
@@ -3239,7 +3281,7 @@
 		};
 		54C2DF1E15BDFAFC00CABB12 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 8CF994BE351A4432BFAA51FC /* Pods-xebia-iosTests.xcconfig */;
+			baseConfigurationReference = 378A41F2988D464CA7748FC5 /* Pods-XebiaTests.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/xebia-ios.app/xebia-ios";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -3251,7 +3293,7 @@
 				GCC_INSTRUMENT_PROGRAM_FLOW_ARCS = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Targets/xebia-ios/xebia-ios-Prefix.pch";
-				INFOPLIST_FILE = "$(SRCROOT)/Targets/xebia-iosTests/xebia-iosTests-Info.plist";
+				INFOPLIST_FILE = "Targets/xebia-iosTests/XebiaTests-Info.plist";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/Classes/Analytics\"",
@@ -3265,7 +3307,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		54C2DEE015BDFAFB00CABB12 /* Build configuration list for PBXProject "xebia-ios" */ = {
+		54C2DEE015BDFAFB00CABB12 /* Build configuration list for PBXProject "Xebia" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				54C2DF1715BDFAFC00CABB12 /* Debug */,
@@ -3274,7 +3316,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		54C2DF1915BDFAFC00CABB12 /* Build configuration list for PBXNativeTarget "xebia-ios" */ = {
+		54C2DF1915BDFAFC00CABB12 /* Build configuration list for PBXNativeTarget "Xebia" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				54C2DF1A15BDFAFC00CABB12 /* Debug */,
@@ -3283,7 +3325,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		54C2DF1C15BDFAFC00CABB12 /* Build configuration list for PBXNativeTarget "xebia-iosTests" */ = {
+		54C2DF1C15BDFAFC00CABB12 /* Build configuration list for PBXNativeTarget "XebiaTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				54C2DF1D15BDFAFC00CABB12 /* Debug */,

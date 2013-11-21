@@ -28,7 +28,7 @@ pod 'MJPopupViewController',        '0.4'
 pod 'NewRelicAgent',				'1.376'
 pod 'InAppSettingsKit', 			'2.0'
 
-target :"xebia-iosTests", :exclusive => true do
+target :"XebiaTests", :exclusive => true do
   pod 'SenTestingKitAsync',		'1.0.6'
 #	pod 'GHUnitIOS',				'0.5.6'
 	pod 'OCMock',					'2.2.1'

@@ -20,4 +20,5 @@
 
 - (NSString *)stripLeadingSlash;
 
+- (NSString *)suffixIfIOS7;
 @end

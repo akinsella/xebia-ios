@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "54C2DEE515BDFAFB00CABB12"
-               BuildableName = "xebia-ios.app"
-               BlueprintName = "xebia-ios"
-               ReferencedContainer = "container:xebia-ios.xcodeproj">
+               BuildableName = "Xebia.app"
+               BlueprintName = "Xebia"
+               ReferencedContainer = "container:Xebia.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "54C2DF0515BDFAFC00CABB12"
-               BuildableName = "xebia-iosTests.octest"
-               BlueprintName = "xebia-iosTests"
-               ReferencedContainer = "container:xebia-ios.xcodeproj">
+               BuildableName = "XebiaTests.octest"
+               BlueprintName = "XebiaTests"
+               ReferencedContainer = "container:Xebia.xcodeproj">
             </BuildableReference>
             <SkippedTests>
                <Test
@@ -48,9 +48,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "54C2DEE515BDFAFB00CABB12"
-            BuildableName = "xebia-ios.app"
-            BlueprintName = "xebia-ios"
-            ReferencedContainer = "container:xebia-ios.xcodeproj">
+            BuildableName = "Xebia.app"
+            BlueprintName = "Xebia"
+            ReferencedContainer = "container:Xebia.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </TestAction>
@@ -67,9 +67,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "54C2DEE515BDFAFB00CABB12"
-            BuildableName = "xebia-ios.app"
-            BlueprintName = "xebia-ios"
-            ReferencedContainer = "container:xebia-ios.xcodeproj">
+            BuildableName = "Xebia.app"
+            BlueprintName = "Xebia"
+            ReferencedContainer = "container:Xebia.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <CommandLineArguments>
@@ -95,9 +95,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "54C2DEE515BDFAFB00CABB12"
-            BuildableName = "xebia-ios.app"
-            BlueprintName = "xebia-ios"
-            ReferencedContainer = "container:xebia-ios.xcodeproj">
+            BuildableName = "Xebia.app"
+            BlueprintName = "Xebia"
+            ReferencedContainer = "container:Xebia.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

@@ -94,6 +94,6 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="social-013_vimeo.png" width="64" height="64"/>
+        <image name="social-013_vimeo.png" width="50" height="50"/>
     </resources>
 </document>

@@ -8,6 +8,7 @@
 
 #import <CommonCrypto/CommonDigest.h>
 #import "NSString+XBAdditions.h"
+#import "XBConstants.h"
 
 @implementation NSString (XBAdditions)
 
@@ -52,4 +53,8 @@
 }
 
 
+- (NSString *)suffixIfIOS7 {
+    BOOL isIOS7 = SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0");
+    return isIOS7 ? [NSString stringWithFormat:@"%@-ios7", self] : self;
+}
 @end
