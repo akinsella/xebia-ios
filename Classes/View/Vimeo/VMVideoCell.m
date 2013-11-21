@@ -32,7 +32,7 @@
 
     [super configure];
 
-    self.defaultAvatarImage = [UIImage imageNamed:@"avatar_placeholder"];
+    self.defaultAvatarImage = [UIImage imageNamed:@"video_placeholder_small"];
 
     self.descriptionLabel.font = [UIFont fontWithName:FONT_NAME size:FONT_SIZE];
     self.descriptionLabel.textColor = [UIColor colorWithHex:@"#fafafa" alpha:1.0];

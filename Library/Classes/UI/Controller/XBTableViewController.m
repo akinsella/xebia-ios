@@ -73,7 +73,7 @@
 }
 
 - (void)configureTableView {
-    self.tableView.backgroundColor = [UIColor colorWithPatternImageName:@"paper_fibers"];
+    self.tableView.backgroundColor = [UIColor colorWithHex:@"#F0F0F0"];
 //    self.tableView.backgroundColor = [UIColor colorWithHex:@"#191919" alpha:1.0];
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
 }

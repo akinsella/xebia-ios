@@ -397,6 +397,7 @@
 		DB34D136C947587B09AC74AB /* XBNewsEventBriteCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DB34D4F9D90570713A57AAD0 /* XBNewsEventBriteCell.xib */; };
 		DB34D19D3D19B1F160EA25A7 /* WPPostContentParagraphElementCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34D0D9CEEE5E95E15C73A2 /* WPPostContentParagraphElementCell.m */; };
 		DB34D1C08763AD2643298EEE /* XBLeftMenuCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34D92EB516F92067A99CB9 /* XBLeftMenuCell.m */; };
+		DB34D1C0A4422D4B2C8E96FC /* video_placeholder_small@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DB34D31C0445BD5F00772EF8 /* video_placeholder_small@2x.png */; };
 		DB34D1DD12F4603A8CD5E2FD /* XECardTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34DAF58EBF524C851113DF /* XECardTableViewController.m */; };
 		DB34D1DEADC4E02B880126A6 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB34DE96DB0AD5C965696E37 /* MapKit.framework */; };
 		DB34D1EC375F15EF181F17F5 /* VMThumbnail.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34D3ACE055F5BE09F95779 /* VMThumbnail.m */; };
@@ -404,6 +405,7 @@
 		DB34D1F5746C1A99D77D2192 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB34DF58131095156D022417 /* CoreMedia.framework */; };
 		DB34D2178AD0916DF2038F6C /* XECard.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34D91042354A075764148E /* XECard.m */; };
 		DB34D257FA427B168188038E /* XESponsor.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34D0A4CC294EC4C22FF6BD /* XESponsor.m */; };
+		DB34D287DF321DF4415C449D /* video_placeholder_small.png in Resources */ = {isa = PBXBuildFile; fileRef = DB34DE5756C27D07E768DFED /* video_placeholder_small.png */; };
 		DB34D2B5279E454E7717D0AC /* WPAuthorCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DB34D96E0DF6CCFCBDF91B05 /* WPAuthorCell.xib */; };
 		DB34D2CB7AB56E241AE841E2 /* VMVideoDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34D520761597BD4B8B7669 /* VMVideoDetailsViewController.m */; };
 		DB34D33C7147CFEE06AD99EF /* XEDeck.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34D7E7E92FDE99630ABD8E /* XEDeck.m */; };
@@ -933,6 +935,7 @@
 		DB34D2CFCD07A39147FE78DC /* WPURLHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WPURLHandler.h; sourceTree = "<group>"; };
 		DB34D2D9034413AEAFF00840 /* XBURLHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XBURLHandler.h; sourceTree = "<group>"; };
 		DB34D30BF4B977E5BC6067DD /* button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button.png; sourceTree = "<group>"; };
+		DB34D31C0445BD5F00772EF8 /* video_placeholder_small@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "video_placeholder_small@2x.png"; sourceTree = "<group>"; };
 		DB34D32DCBB00AEEE9E7268B /* XECardCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XECardCell.h; sourceTree = "<group>"; };
 		DB34D35BC92FD61DE976BB20 /* XBViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XBViewController.m; sourceTree = "<group>"; };
 		DB34D38E1091A726A5C60A60 /* XECardCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XECardCell.m; sourceTree = "<group>"; };
@@ -1045,6 +1048,7 @@
 		DB34DDF1F3BF03CD66DC933B /* navbar-portrait-2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "navbar-portrait-2.png"; sourceTree = "<group>"; };
 		DB34DDF6CFA86B21B8E0891F /* XEAbstractCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XEAbstractCell.h; sourceTree = "<group>"; };
 		DB34DE42A6FDB3DDA749CA6C /* WPPostContentDefaultElementCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WPPostContentDefaultElementCell.m; sourceTree = "<group>"; };
+		DB34DE5756C27D07E768DFED /* video_placeholder_small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = video_placeholder_small.png; sourceTree = "<group>"; };
 		DB34DE645E387135F7469A74 /* XECardTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XECardTableViewController.h; sourceTree = "<group>"; };
 		DB34DE7998D7119E7605A81A /* E326D2CF-B8FE-4410-B9CC-CF569D60C47D.mobileprovision */ = {isa = PBXFileReference; lastKnownFileType = file.mobileprovision; path = "E326D2CF-B8FE-4410-B9CC-CF569D60C47D.mobileprovision"; sourceTree = "<group>"; };
 		DB34DE81E6F3D331FE105FE2 /* NSData+XBAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+XBAdditions.h"; sourceTree = "<group>"; };
@@ -1331,6 +1335,8 @@
 				DB34DCB44BA6B25B32C398EF /* navbar-landscape-iphone5-2@2x.png */,
 				DB34D03ECE6EDE22C45023D0 /* navbar-landscape-2.png */,
 				DB34D3BCB933198712C2BAF4 /* navbar-landscape-iphone5-2.png */,
+				DB34D31C0445BD5F00772EF8 /* video_placeholder_small@2x.png */,
+				DB34DE5756C27D07E768DFED /* video_placeholder_small.png */,
 			);
 			path = Images;
 			sourceTree = "<group>";
@@ -2714,6 +2720,8 @@
 				DB34D136C947587B09AC74AB /* XBNewsEventBriteCell.xib in Resources */,
 				DB34D37EEDFD2075B74020FC /* XBNewsTwitterCell.xib in Resources */,
 				DB34DA1B59B992E03D808F83 /* XBNewsVimeoCell.xib in Resources */,
+				DB34D1C0A4422D4B2C8E96FC /* video_placeholder_small@2x.png in Resources */,
+				DB34D287DF321DF4415C449D /* video_placeholder_small.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
