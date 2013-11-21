@@ -7,6 +7,7 @@
 
 #import <Foundation/Foundation.h>
 #import "XBTableViewController.h"
+#import "MBProgressHUD.h"
 
 
 @interface XBReloadableTableViewController : XBTableViewController
@@ -15,12 +16,22 @@
 
 - (void)showProgressHUD;
 
-- (void)showProgressHUDWithMessage:(NSString *)message graceTime:(float)graceTime;
+- (void)showProgressHUDWithMessage:(NSString *)message
+                         graceTime:(float)graceTime;
 
-- (void)showErrorProgressHUD;
+- (void)showProgressHUDWithTitle:(NSString *)title
+                         message:(NSString *)message
+                           delay:(float)delay
+                         yOffset:(CGFloat)yOffset
+                           color:(UIColor *)color
+                 callback:(void(^)())callback;
 
-- (void)showErrorProgressHUDWithMessage:(NSString *)errorMessage afterDelay:(float)delay;
+- (void)showErrorProgressHUDWithCallback:(void(^)())callback;
 
-- (void)dismissProgressHUD;
+- (void)showErrorProgressHUDWithMessage:(NSString *)errorMessage
+                             afterDelay:(float)delay
+                               callback:(void(^)())callback;
+
+- (void)dismissProgressHUDWithCallback:(void(^)())callback;
 
 @end

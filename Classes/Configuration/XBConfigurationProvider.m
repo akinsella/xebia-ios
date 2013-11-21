@@ -6,36 +6,40 @@
 
 
 #import "XBConfigurationProvider.h"
-#import "XBHttpClient.h"
 #import "XBConstants.h"
 
 
 @interface XBConfigurationProvider()
 
-@property(nonatomic, strong)NSDictionary *dictionary;
+@property(nonatomic, strong) NSDictionary *dictionary;
 @property(nonatomic, strong) XBHttpClient *httpClient;
+@property(nonatomic, strong) Reachability *reachability;
 
 @end
 
 @implementation XBConfigurationProvider
 
 + (id)configurationProviderWithBaseUrl:(NSString *)baseUrl {
-    return [XBConfigurationProvider configurationWithDictionnary:@{ kXBBaseUrl: baseUrl }];
+    return [XBConfigurationProvider configurationWithDictionary:@{kXBBaseUrl : baseUrl}];
 }
 
-+(id)configurationWithDictionnary:(NSDictionary *)dictionary {
-    return [[self alloc] initWithDictionnary:dictionary];
++(id)configurationWithDictionary:(NSDictionary *)dictionary {
+    return [[self alloc] initWithDictionary:dictionary];
 }
 
--(id)initWithDictionnary:(NSDictionary *)dictionary {
+-(id)initWithDictionary:(NSDictionary *)dictionary {
     self = [super init];
     if (self) {
         self.dictionary = dictionary;
         self.httpClient = [XBHttpClient httpClientWithBaseUrl:self.baseUrl];
+        NSURL *url = [NSURL URLWithString:self.baseUrl];
+
+        self.reachability = [Reachability reachabilityWithHostname:url.host];
     }
 
     return self;
 }
+
 
 - (NSString *)baseUrl {
 //#if DEBUG

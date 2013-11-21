@@ -154,18 +154,18 @@
     [self.appDelegate.configurationProvider.httpClient executeGetJsonRequestWithPath:path
                                                               parameters:nil
         success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
-            [self dismissProgressHUD];
-
-            if (success) {
-                success(JSON);
-            }
-        }
+            [self dismissProgressHUDWithCallback:^{
+                if (success) {
+                    success(JSON);
+                }
+            }];
+         }
         failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
-            [self showErrorProgressHUD];
-
-            if (failure) {
-                failure(error);
-            }
+            [self showErrorProgressHUDWithCallback:^{
+                if (failure) {
+                    failure(error);
+                }
+            }];
         }
     ];
 }

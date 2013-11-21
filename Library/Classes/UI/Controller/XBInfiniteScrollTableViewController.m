@@ -36,17 +36,17 @@
     }
     [self.infiniteScrollDataSource loadMoreDataWithCallback:^() {
         if (self.infiniteScrollDataSource.error) {
-            [self showErrorProgressHUD];
+            [self showErrorProgressHUDWithCallback:callback];
         }
         else {
             if (showProgress) {
-                [self dismissProgressHUD];
+                [self dismissProgressHUDWithCallback:callback];
+            }
+            else if (callback) {
+                callback();
             }
         }
 
-        if (callback) {
-            callback();
-        }
     }];
 }
 

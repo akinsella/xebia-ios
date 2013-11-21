@@ -16,7 +16,7 @@
 - (id)init {
     NSBundle *bundle = [NSBundle bundleForClass:self.class];
     NSDictionary *dictionary = [bundle infoDictionary];
-    self = [super initWithDictionnary:dictionary];
+    self = [super initWithDictionary:dictionary];
     if (self) {
         //
     }

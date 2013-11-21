@@ -7,14 +7,16 @@
 
 #import <Foundation/Foundation.h>
 #import "XBHttpClient.h"
+#import "Reachability.h"
 
 @interface XBConfigurationProvider : NSObject
 
 @property(nonatomic, strong, readonly)NSString *baseUrl;
 @property(nonatomic, strong, readonly) XBHttpClient *httpClient;
+@property(nonatomic, strong, readonly) Reachability *reachability;
 
-+(id)configurationWithDictionnary:(NSDictionary *)dictionary;
--(id)initWithDictionnary:(NSDictionary *)dictionary;
++(id)configurationWithDictionary:(NSDictionary *)dictionary;
+-(id)initWithDictionary:(NSDictionary *)dictionary;
 
 + (id)configurationProviderWithBaseUrl:(NSString *)string;
 
