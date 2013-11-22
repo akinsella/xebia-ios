@@ -5,12 +5,12 @@
 
 
 #import <Foundation/Foundation.h>
-
+#import "EBEvent.h"
 
 @interface EBEventDetailsInformationPageViewController : UIViewController
 
 @property(nonatomic, strong)EBEvent *event;
 
-- (instancetype)initWithEvent:(EBEvent *)event;
+- (id)initWithEvent:(EBEvent *)event;
 
 @end

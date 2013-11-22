@@ -5,7 +5,7 @@
 
 
 #import <Foundation/Foundation.h>
-
+#import "EBEvent.h"
 
 @interface EBEventDetailsViewController : UIPageViewController<UIPageViewControllerDataSource>
 
