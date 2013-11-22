@@ -20,7 +20,6 @@
 #import "TTURLHandler.h"
 #import "EBURLHandler.h"
 #import "VMURLHandler.h"
-#import "XBURLHandler.h"
 
 // Enum for row indices
 enum {
