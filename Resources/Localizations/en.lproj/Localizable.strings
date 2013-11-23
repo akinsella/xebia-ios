@@ -1,0 +1,18 @@
+/* 
+  Localizable.strings
+  Xebia
+
+  Created by Alexis Kinsella on 23/11/2013.
+  Copyright (c) 2013 Xebia. All rights reserved.
+*/
+"Pull to refresh"="Pull to refresh";
+"Last Updated: %@"="Last Updated: %@";
+"Release to refresh..."="Release to refresh...";
+"Loading..."="Loading...";
+"Cellular"="Cellular";
+"Wifi"="Wifi";
+"No Connection"="No Connection";
+"Settings"="Settings";
+"Mail not configured"="Mail not configured";
+"This device is not configured for sending Email. Please configure the Mail settings in the Settings app."="This device is not configured for sending Email. Please configure the Mail settings in the Settings app.";
+"OK"="OK";

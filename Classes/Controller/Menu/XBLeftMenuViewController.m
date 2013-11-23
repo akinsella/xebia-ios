@@ -103,7 +103,6 @@ enum {
             [NSNumber asString:XBMenuTimeline]: @"timeline",
             [NSNumber asString:XBMenuWordpress]: @"tbBlog",
             [NSNumber asString:XBMenuTwitter]: @"tweets",
-           /* [NSNumber asString:XBMenuGithub]: @"tbGithub",*/
             [NSNumber asString:XBMenuEvent]: @"events",
             [NSNumber asString:XBMenuVimeo]: @"videos"
                             

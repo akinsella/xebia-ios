@@ -1,0 +1,11 @@
+/* 
+  AFNetworking.strings
+  Xebia
+
+  Created by Alexis Kinsella on 23/11/2013.
+  Copyright (c) 2013 Xebia. All rights reserved.
+*/
+"Expected URL to be a file URL"="Expected URL to be a file URL";
+"File URL not reachable."="File URL not reachable.";
+"Expected status code in (%@), got %d"="Status code attendu: %@, reçu: %d";
+"Expected content type %@, got %@"="Content type attendu: %@, reçu: %@";
