@@ -16,6 +16,7 @@ fi
 PROVISIONING_PROFILE="`pwd`/Scripts/Profiles/$PROFILE_UUID.mobileprovision"
 RELEASE_DATE=`date '+%Y-%m-%d %H:%M:%S'`
 OUTPUTDIR="$PWD/build"
+APPNAME="Xebia"
 
 echo "=== ********************"
 echo "=== *     Signing      *"
