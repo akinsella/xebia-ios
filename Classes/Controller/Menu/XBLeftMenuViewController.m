@@ -122,11 +122,11 @@ enum {
 
 - (XBArrayDataSource *)buildDataSource {
     NSArray * menuItems = @[
-            @{ @"title": @"Timeline", @"imageName" :@"timeline"},
-            @{ @"title": @"Blog", @"imageName" :@"wordpress"},
-            @{ @"title": @"Tweets", @"imageName" :@"twitter"},
-            @{ @"title": @"Events", @"imageName" :@"eventbrite-menu"},
-            @{ @"title": @"Vimeo", @"imageName" :@"vimeo"}
+            @{ @"title": NSLocalizedString(@"Timeline", nil), @"imageName" :@"timeline"},
+            @{ @"title": NSLocalizedString(@"Blog", nil), @"imageName" :@"wordpress"},
+            @{ @"title": NSLocalizedString(@"Tweets", nil), @"imageName" :@"twitter"},
+            @{ @"title": NSLocalizedString(@"Events", nil), @"imageName" :@"eventbrite-menu"},
+            @{ @"title": NSLocalizedString(@"Vimeo", nil), @"imageName" :@"vimeo"}
     ];
 
     return [XBArrayDataSource dataSourceWithArray:menuItems];
