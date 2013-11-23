@@ -15,7 +15,7 @@
 #import "UIViewController+XBAdditions.h"
 #import "XBPListConfigurationProvider.h"
 #import "GAITracker.h"
-#import "SVPullToRefresh.h"
+#import "EBEventDetailsViewController.h"
 
 @implementation EBEventTableViewController
 
@@ -75,8 +75,11 @@
     [eventCell updateWithEvent: event];
 }
 
-+ (void)navigateToURL:(NSURL *)url {
-    XBLog(@"Navigate to path: %@", url);
+-(void)onSelectCell: (UITableViewCell *)cell forObject: (id) object withIndex: (NSIndexPath *)indexPath {
+    EBEvent *event = self.dataSource[(NSUInteger) indexPath.row];
+    EBEventDetailsViewController *eventDetailsViewController = (EBEventDetailsViewController *) [[self appDelegate].viewControllerManager getOrCreateControllerWithIdentifier:@"videoDetails"];
+    [eventDetailsViewController updateWithEvent:event];
+    [self.navigationController pushViewController:eventDetailsViewController animated:YES];
 }
 
 @end

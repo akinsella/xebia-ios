@@ -61,7 +61,7 @@
     self.avatarImageView.backgroundColor = [UIColor clearColor];
     self.avatarImageView.defaultImage = self.defaultAvatarImage;
     self.avatarImageView.offset = 2;
-    self.avatarImageView.backgroundImage = [UIImage imageNamed:@"dp_holder_large.png"];
+    self.avatarImageView.backgroundImage = [UIImage imageNamed:@"dp_holder_large"];
 }
 
 -(void)updateWithWPPost:(WPPost *)post {
@@ -71,8 +71,8 @@
     self.tagLabel.text = post.tagsFormatted;
     self.categoryLabel.text = post.categoriesFormatted;
     self.titleLabel.text = post.titlePlain;
-    self.authorLabel.text = [NSString stringWithFormat: NSLocalizedString(@"Par %@", nil), [author.name uppercaseString]];
-    self.dateLabel.text = [NSString stringWithFormat: NSLocalizedString(@"Le %@", nil), [post.date formatDayLongMonth]];
+    self.authorLabel.text = [NSString stringWithFormat: @"%@ %@", NSLocalizedString(@"By", nil), [author.name uppercaseString]];
+    self.dateLabel.text = [NSString stringWithFormat: @"%@", [post.date formatDayLongMonth]];
 
     [[SDWebImageManager sharedManager] downloadWithURL:author.avatarImageUrl
                                                options:kNilOptions

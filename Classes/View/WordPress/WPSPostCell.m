@@ -33,7 +33,7 @@
     
     self.avatarImageView.offset = 2;
     self.avatarImageView.backgroundColor = [UIColor clearColor];
-    self.avatarImageView.backgroundImage = [UIImage imageNamed:@"dp_holder_large.png"];
+    self.avatarImageView.backgroundImage = [UIImage imageNamed:@"dp_holder_large"];
     self.avatarImageView.defaultImage = self.defaultPostImage;
 }
 
@@ -55,8 +55,7 @@
     self.post = post;
     
     self.titleLabel.text = post.title;
-    self.dateLabel.text = [NSString stringWithFormat:NSLocalizedString(@"%@", nil),
-                                                     [post.date isToday] ? [post.date formatTime] : [post.date formatDayMonth]];
+    self.dateLabel.text = [NSString stringWithFormat:@"%@", [post.date isToday] ? [post.date formatTime] : [post.date formatDayMonth]];
 
 
     self.categoriesLabel.text = post.categoriesFormatted;

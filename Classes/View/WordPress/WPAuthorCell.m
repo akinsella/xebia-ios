@@ -33,7 +33,7 @@
     XBLog("Default - %@", self.avatarImageView.image);
     self.avatarImageView.offset = 2;
     self.avatarImageView.backgroundColor = [UIColor clearColor];
-    self.avatarImageView.backgroundImage = [UIImage imageNamed:@"dp_holder_large.png"];
+    self.avatarImageView.backgroundImage = [UIImage imageNamed:@"dp_holder_large"];
     self.avatarImageView.defaultImage = self.defaultAvatarImage;
 }
 

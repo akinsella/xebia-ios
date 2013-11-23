@@ -199,8 +199,8 @@ enum {
         [foundURLHandler processURL:url];
     }
     else {
-        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Erreur", nil)
-                                   message:NSLocalizedString(@"Pas d'action trouvée pour l'URL", nil)
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Error", nil)
+                                   message:NSLocalizedString(@"No action for URL", nil)
                                   delegate:self cancelButtonTitle:NSLocalizedString(@"OK", nil)
                          otherButtonTitles:nil];
         [alertView showWithCompletion:^(UIAlertView *alertView, NSInteger buttonIndex) {}];

@@ -87,8 +87,4 @@
     [self.navigationController pushViewController:videoDetailsViewController animated:YES];
 }
 
-+ (void)navigateToURL:(NSURL *)url {
-    XBLog(@"Navigate to path: %@", url);
-}
-
 @end

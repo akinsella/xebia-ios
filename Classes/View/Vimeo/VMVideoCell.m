@@ -51,8 +51,8 @@
     [self.imageView setImageWithURL:thumbnailUrl placeholderImage:self.defaultAvatarImage];
 
     self.titleLabel.text = video.title;
-    self.dateLabel.text = [NSString stringWithFormat:NSLocalizedString(@"Le %@", nil), [video.uploadDate formatDayMonth]];
-    self.descriptionLabel.text = [NSString stringWithFormat:@"%@%@ lecture(s)", video.isHd ? @"HD | ": @"", video.playCount];
+    self.dateLabel.text = [NSString stringWithFormat: @"%@", [video.uploadDate formatDayMonth]];
+    self.descriptionLabel.text = [NSString stringWithFormat:@"%@%@ %@", video.isHd ? @"HD | ": @"", video.playCount, NSLocalizedString(@"read(s)", nil)];
 }
 
 @end

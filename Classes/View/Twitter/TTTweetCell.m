@@ -62,7 +62,7 @@
     XBLog("Default - %@", self.avatarImageView.image);
     self.avatarImageView.offset = 2;
     self.avatarImageView.backgroundColor = [UIColor clearColor];
-    self.avatarImageView.backgroundImage = [UIImage imageNamed:@"dp_holder_large.png"];
+    self.avatarImageView.backgroundImage = [UIImage imageNamed:@"dp_holder_large"];
     self.avatarImageView.defaultImage = self.defaultAvatarImage;
 
 
@@ -123,7 +123,7 @@
 
 
     self.authorNameLabel.text = tweet.ownerScreenName;
-    self.dateLabel.text = [NSString stringWithFormat:NSLocalizedString(@"%@", nil),
+    self.dateLabel.text = [NSString stringWithFormat:@"%@",
                             [tweet.created_at isToday] ? [tweet.created_at formatTime] : [tweet.created_at formatDayMonth]];
     self.contentLabel.text = tweet.text;
 }

@@ -89,7 +89,7 @@
 - (void)updateWithNews:(XBNews *)news {
     self.news = news;
     self.titleLabel.text = news.title;
-    self.authorLabel.text = [NSString stringWithFormat:@"%@ %@", NSLocalizedString(@"Par", nil), news.author];
+    self.authorLabel.text = [NSString stringWithFormat:@"%@ %@", NSLocalizedString(@"By", nil), news.author];
     NSString *date = [news.publicationDate formatDayMonth];
     self.dateLabel.text = [NSString stringWithFormat:@"%@", date];
 }

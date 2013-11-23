@@ -10,7 +10,7 @@
 
 @implementation EBEventDetailsMapPageViewController
 
-- (instancetype)initWithEvent:(EBEvent *)event {
+- (id)initWithEvent:(EBEvent *)event {
     self = [super init];
     if (self) {
         self.event = event;

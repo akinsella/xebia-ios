@@ -69,7 +69,7 @@
         XBLog(@"Image url: %@", thumbnail.url);
 
         [self.videoImage setImageWithURL:[NSURL URLWithString:thumbnail.url]
-                        placeholderImage:[UIImage imageNamed:@"video_placeholder.png"]
+                        placeholderImage:[UIImage imageNamed:@"video_placeholder"]
                                completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType) {
                                    if (error || !image) {
                                        XBLog(@"Error: %@", error);
@@ -94,7 +94,7 @@
 
 -(UIImage *) generateWatermarkForImage:(UIImage *) mainImg {
     UIImage *backgroundImage = mainImg;
-    UIImage *watermarkImage = [UIImage imageNamed:@"videoPlayButton.png"];
+    UIImage *watermarkImage = [UIImage imageNamed:@"videoPlayButton"];
 
     //Now re-drawing your  Image using drawInRect method
     UIGraphicsBeginImageContext(backgroundImage.size);
@@ -148,10 +148,10 @@
         [self playMovieStream: [NSURL URLWithString: videoUrl.url]];
     }
     else {
-        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Erreur", nil)
-                                                            message:NSLocalizedString(@"Pas d'url disponible pour la video", nil)
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Error", nil)
+                                                            message:NSLocalizedString(@"No URL available for video", nil)
                                                            delegate:nil
-                                                  cancelButtonTitle:NSLocalizedString(@"Valider", nil)
+                                                  cancelButtonTitle:NSLocalizedString(@"Validate", nil)
                                                   otherButtonTitles:nil];
 
         [alertView showWithCompletion:^(UIAlertView *alertView, NSInteger buttonIndex) {
@@ -169,7 +169,7 @@
     self.title = self.video.title.length > 25 ?
             [NSString stringWithFormat: @"%@ ...", [self.video.title substringToIndex:25]] :
             self.video.title;
-    self.videoImage.image = [UIImage imageNamed:@"video_placeholder.png"];
+    self.videoImage.image = [UIImage imageNamed:@"video_placeholder"];
 
     self.displayName.text = self.video.owner.displayName;
     self.date.text = [self.video.uploadDate formatDateTime];

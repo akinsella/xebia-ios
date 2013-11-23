@@ -5,14 +5,32 @@
   Created by Alexis Kinsella on 23/11/2013.
   Copyright (c) 2013 Xebia. All rights reserved.
 */
-"Pull to refresh"="Pull to refresh";
+"Pull to refresh..."="Tirer pour rafraîchir ...";
 "Last Updated: %@"="Dernière mise à jour: %@";
 "Release to refresh..."="Relâcher pour rafraîchir ...";
 "Loading..."="Chargement ...";
 "Cellular"="Cellulaire";
-"Wifi"="Wifi";
+"WIFI"="WIFI";
 "No Connection"="Pas de connexion";
 "Settings"="Paramètres";
 "Mail not configured"="Mail non configuré";
 "This device is not configured for sending Email. Please configure the Mail settings in the Settings app."="Cet appareil n'est pas configuré pour envoyer des mails. Merci de configurer les paramètres mail dans les paramètres";
 "OK"="OK";
+"Error during loading"="Erreur pendant le chargement";
+"Cards"="Cartes";
+"Categories"="Categories";
+"Events"="Evénements";
+"Error"="Erreurs";
+"No action for URL"="Pas d'action trouvée pour l'URL";
+"Timeline"="Timeline";
+"Tweets"="Tweets";
+"Error"="Erreur";
+"No URL available for video"="Pas d'url disponible pour la video";
+"Validate"="Valider";
+"Videos"="Vidéos";
+"Authors"="Auteurs";
+"Posts"="Posts";
+"Blog"="Blog";
+"Tags"="Tags";
+"By"="Par";
+"read(s)"="lecture(s)";

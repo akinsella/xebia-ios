@@ -13,4 +13,6 @@
 
 - (id)initWithEvent:(EBEvent *)event;
 
+- (void)updateWithEvent:(EBEvent *)event;
+
 @end

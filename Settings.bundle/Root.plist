@@ -6,7 +6,7 @@
 	<array>
         <dict>
             <key>Title</key>
-            <string>A propos</string>
+            <string>About</string>
             <key>Type</key>
             <string>PSGroupSpecifier</string>
         </dict>
@@ -23,13 +23,13 @@
 
         <dict>
             <key>Title</key>
-            <string>Autre</string>
+            <string>Other</string>
             <key>Type</key>
             <string>PSGroupSpecifier</string>
         </dict>
         <dict>
             <key>Title</key>
-            <string>A propos</string>
+            <string>About</string>
             <key>Type</key>
             <string>PSChildPaneSpecifier</string>
             <key>File</key>
@@ -37,7 +37,7 @@
         </dict>
         <dict>
             <key>Title</key>
-            <string>Mentions Légales</string>
+            <string>Legals</string>
             <key>Type</key>
             <string>PSChildPaneSpecifier</string>
             <key>File</key>

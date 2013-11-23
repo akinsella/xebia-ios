@@ -17,7 +17,7 @@
 
 @implementation EBEventDetailsViewController
 
-- (instancetype)initWithEvent:(EBEvent *)event {
+- (id)initWithEvent:(EBEvent *)event {
     self = [super init];
     if (self) {
         self.
@@ -31,6 +31,23 @@
     }
 
     return self;
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [self refreshViewWithEventData];
+}
+
+
+- (void)updateWithEvent:(EBEvent *)event {
+    self.event = event;
+    [self refreshViewWithEventData];
+}
+
+-(void)refreshViewWithEventData {
+    self.title = self.event.title.length > 25 ?
+            [NSString stringWithFormat: @"%@ ...", [self.event.title substringToIndex:25]] :
+            self.event.title;
 }
 
 - (void)viewDidLoad {

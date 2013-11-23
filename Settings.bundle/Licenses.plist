@@ -189,7 +189,7 @@
         </dict>
         <dict>
             <key>Title</key>
-            <string>Underscorem</string>
+            <string>Underscore.m</string>
             <key>Type</key>
             <string>PSChildPaneSpecifier</string>
             <key>File</key>

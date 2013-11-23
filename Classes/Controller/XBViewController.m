@@ -26,7 +26,7 @@
 }
 
 - (void)showProgressHUD {
-    [self showProgressHUDWithMessage:NSLocalizedString(@"Chargement...", @"Chargement...")
+    [self showProgressHUDWithMessage:NSLocalizedString(@"Loading...", nil)
                            graceTime:0.5];
     [self.navigationController.view addSubview:self.progressHUD];
 }
@@ -41,8 +41,7 @@
 }
 
 - (void)showErrorProgressHUD {
-    [self showErrorProgressHUDWithMessage:NSLocalizedString(@"Erreur pendant le chargement", @"Erreur pendant le chargement")
-                               afterDelay:1.0];
+    [self showErrorProgressHUDWithMessage:NSLocalizedString(@"Error during loading", nil) afterDelay:1.0];
 }
 
 - (void)showErrorProgressHUDWithMessage:(NSString *)errorMessage afterDelay:(float)delay {

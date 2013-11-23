@@ -207,8 +207,8 @@ static NSString *const NewRelicApiKey = @"AA2a83288c6a4104ccf6cb9d48101ae3aba203
 
 
     /* TabBar customization */
-    [[UITabBar appearance] setBackgroundImage:[UIImage imageNamed:@"TabBar.png"]];
-    [[UITabBar appearance] setSelectionIndicatorImage:[UIImage imageNamed:@"TabBarItemSelectedImage.png"]];
+    [[UITabBar appearance] setBackgroundImage:[UIImage imageNamed:@"TabBar"]];
+    [[UITabBar appearance] setSelectionIndicatorImage:[UIImage imageNamed:@"TabBarItemSelectedImage"]];
 
 
     if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0")) {

@@ -35,7 +35,7 @@
 - (void) addMenuButton {
     UIButton *menuButton = [UIButton buttonWithType:UIButtonTypeCustom];
     menuButton.frame = CGRectMake(0, 0, 22, 22);
-    [menuButton setBackgroundImage:[UIImage imageNamed:@"menu-button.png"] forState:UIControlStateNormal];
+    [menuButton setBackgroundImage:[UIImage imageNamed:@"menu-button"] forState:UIControlStateNormal];
     [menuButton addTarget:self action:@selector(revealToggle) forControlEvents:UIControlEventTouchUpInside];
 
 
