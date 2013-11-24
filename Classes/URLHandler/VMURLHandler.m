@@ -16,7 +16,7 @@
 @implementation VMURLHandler
 
 - (BOOL)handleURL:(NSURL *)url {
-    return [url.host isEqualToString:@"video"];
+    return [url.host isEqualToString:@"videos"];
 }
 
 - (void)processURL:(NSURL *)url {
@@ -29,11 +29,12 @@
                                       success:^(id json) {
                                           VMVideo *video = [XBMapper parseObject:json intoObjectsOfType:VMVideo.class];
 
-                                          VMVideoDetailsViewController *videoDetailsViewController = [[VMVideoDetailsViewController alloc] initWithVideo:video];
+                                          VMVideoDetailsViewController *videoDetailsViewController = (VMVideoDetailsViewController *) [self.appDelegate.viewControllerManager getOrCreateControllerWithIdentifier:@"videoDetails"];
+                                          [videoDetailsViewController updateWithVideo:video];
                                           [self.appDelegate.mainViewController revealViewController:videoDetailsViewController];
                                       }
                                       failure:^(NSError *error) {
-                                          NSLog(@"Fetch video with id: '%@' failure: %@", identifier, error);
+                                          NSLog(@"Fetched video with id: '%@' failure: %@", identifier, error);
                                       }
     ];
 }

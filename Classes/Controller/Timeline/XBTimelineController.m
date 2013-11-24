@@ -15,7 +15,6 @@
 #import "XBJsonToArrayDataMapper.h"
 #import "XBNewsWordpressCell.h"
 #import "UIColor+XBAdditions.h"
-#import "SVPullToRefresh.h"
 
 static NSString *kWordpressCellReuseIdentifier = @"XBNewsWordpress";
 static NSString *kVimeoCellReuseIdentifier = @"XBNewsVimeo";
@@ -63,7 +62,7 @@ NSString *kOtherType = @"other";
             kEventBriteType: kEventBriteCellReuseIdentifier,
             kVimeoType: kVimeoCellReuseIdentifier,
             kTwitterType: kTwitterCellReuseIdentifier,
-            kOtherType: kOtherCellReuseIdentifier,
+            kOtherType: kOtherCellReuseIdentifier
     };
 
     [super viewDidLoad];
@@ -73,6 +72,9 @@ NSString *kOtherType = @"other";
     [super configureTableView];
 
     self.tableView.backgroundColor = [UIColor colorWithHex:@"#E0E0E0"];
+
+    self.tableView.tableHeaderView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 1, 6)];
+    self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 1, 6)];
 }
 
 - (void)viewWillAppear:(BOOL)animated {

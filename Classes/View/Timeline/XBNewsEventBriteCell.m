@@ -26,7 +26,7 @@
 - (void)onSelection {
     [super onSelection];
     
-    NSURL * url  = [NSURL URLWithString:[NSString stringWithFormat: @"xebia://events/%@", self.news.identifier]];
+    NSURL * url  = [NSURL URLWithString:[NSString stringWithFormat: @"xebia://events/%@", self.news.typeId]];
     [[UIApplication sharedApplication] openURL: url];
 }
 

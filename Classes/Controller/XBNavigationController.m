@@ -44,7 +44,6 @@
 }
 
 - (void)configureView {
-//    self.navigationBar.tintColor = [UIColor colorWithHex: @"#FFFFFF"];
 }
 
 
@@ -59,16 +58,22 @@
 }
 
 - (void)initProgressHUD {
-    self.progressHUD = [[MBProgressHUD alloc] initWithView:self.navigationController.view];
+    self.progressHUD = [[MBProgressHUD alloc] initWithView:self.view];
 }
 
 - (void)showProgressHUD {
+    if (!self.progressHUD) {
+        [self initProgressHUD];
+    }
     [self showProgressHUDWithMessage:NSLocalizedString(@"Loading...", nil)
                            graceTime:0.5];
-    [self.navigationController.view addSubview:self.progressHUD];
+    [self.view addSubview:self.progressHUD];
 }
 
 - (void)showProgressHUDWithMessage:(NSString *)message graceTime:(float)graceTime {
+    if (!self.progressHUD) {
+        [self initProgressHUD];
+    }
     self.progressHUD.mode = MBProgressHUDModeIndeterminate;
     self.progressHUD.labelText = NSLocalizedString(message, nil);
     self.progressHUD.graceTime = graceTime;
@@ -79,7 +84,7 @@
     self.progressHUD.labelFont = [UIFont systemFontOfSize:16];
     self.progressHUD.detailsLabelFont = [UIFont systemFontOfSize:12];
     self.progressHUD.completionBlock = nil;
-    [self.navigationController.view addSubview:self.progressHUD];
+    [self.view addSubview:self.progressHUD];
     [self.progressHUD show:YES];
 }
 
@@ -89,6 +94,9 @@
                          yOffset:(CGFloat)yOffset
                            color:(UIColor *) color
                         callback:(void(^)())callback {
+    if (!self.progressHUD) {
+        [self initProgressHUD];
+    }
     self.progressHUD.mode = MBProgressHUDModeText;
     self.progressHUD.labelText = NSLocalizedString(title, nil);
     self.progressHUD.detailsLabelText = NSLocalizedString(message, nil);
@@ -99,7 +107,7 @@
     self.progressHUD.labelFont = [UIFont boldSystemFontOfSize:13];
     self.progressHUD.detailsLabelFont = [UIFont systemFontOfSize:11];
     self.progressHUD.completionBlock = callback;
-    [self.navigationController.view addSubview:self.progressHUD];
+    [self.view addSubview:self.progressHUD];
 
 
     [self.progressHUD show:YES];
@@ -107,12 +115,18 @@
 }
 
 - (void)showErrorProgressHUDWithCallback:(void(^)())callback {
+    if (!self.progressHUD) {
+        [self initProgressHUD];
+    }
     [self showErrorProgressHUDWithMessage:NSLocalizedString(@"Error during loading", nil)
                                afterDelay:1.0
                                  callback:callback];
 }
 
 - (void)showErrorProgressHUDWithMessage:(NSString *)errorMessage afterDelay:(float)delay callback:(void(^)())callback {
+    if (!self.progressHUD) {
+        [self initProgressHUD];
+    }
     self.progressHUD.mode = MBProgressHUDModeText;
     self.progressHUD.labelText = errorMessage;
     [self.progressHUD hide:YES afterDelay:delay];
@@ -123,7 +137,7 @@
     self.progressHUD.labelFont = [UIFont systemFontOfSize:16];
     self.progressHUD.detailsLabelFont = [UIFont systemFontOfSize:12];
     self.progressHUD.completionBlock = callback;
-    [self.navigationController.view addSubview:self.progressHUD];
+    [self.view addSubview:self.progressHUD];
 
     if (callback) {
         callback();
@@ -131,6 +145,9 @@
 }
 
 - (void)dismissProgressHUDWithCallback:(void(^)())callback {
+    if (!self.progressHUD) {
+        [self initProgressHUD];
+    }
     self.progressHUD.taskInProgress = NO;
     [self.progressHUD hide:YES];
 

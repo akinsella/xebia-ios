@@ -15,7 +15,7 @@
 @implementation EBURLHandler
 
 - (BOOL)handleURL:(NSURL *)url {
-    return [url.host isEqualToString:@"event"];
+    return [url.host isEqualToString:@"events"];
 }
 
 - (void)processURL:(NSURL *)url {
@@ -28,11 +28,12 @@
                                       success:^(id json) {
                                           EBEvent *event = [XBMapper parseObject:json intoObjectsOfType:EBEvent.class];
 
-                                          EBEventDetailsViewController *eventDetailsViewController = [[EBEventDetailsViewController alloc] initWithEvent:event];
+                                          EBEventDetailsViewController *eventDetailsViewController = (EBEventDetailsViewController *)[self.appDelegate.viewControllerManager getOrCreateControllerWithIdentifier:@"eventDetails"];
+                                          [eventDetailsViewController updateWithEvent:event];
                                           [self.appDelegate.mainViewController revealViewController:eventDetailsViewController];
                                       }
                                       failure:^(NSError *error) {
-                                          NSLog(@"Fetch event with id: '%@' failure: %@", identifier, error);
+                                          NSLog(@"Fetched event with id: '%@' failure: %@", identifier, error);
                                       }
     ];
 }

@@ -21,7 +21,7 @@
 - (void)processURL:(NSURL *)url {
     XBLog(@"Navigate to path: %@", url);
 
-    NSString * identifier = url.pathComponents.lastObject;
+    NSString *identifier = url.pathComponents.lastObject;
     NSString *postUrl = [[NSString stringWithFormat:@"/wordpress/posts/%@", identifier] stripLeadingSlash];
 
     [self fetchDataFromSourceWithResourcePath:postUrl
@@ -32,7 +32,7 @@
                                           [self.appDelegate.mainViewController revealViewController:postDetailsViewController];
                                       }
                                       failure:^(NSError *error) {
-                                          NSLog(@"Fetch post with id: '%@' failure: %@", identifier, error);
+                                          NSLog(@"Fetched post with id: '%@' failure: %@", identifier, error);
                                       }
     ];
 }

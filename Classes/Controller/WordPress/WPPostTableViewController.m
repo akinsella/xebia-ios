@@ -143,7 +143,7 @@
         [self.navigationController pushViewController:postDetailsViewController animated:true];
     }
       failure:^(NSError *error) {
-          NSLog(@"Fetch post with id: '%@' failure: %@", post.identifier, error);
+          NSLog(@"Fetched post with id: '%@' failure: %@", post.identifier, error);
       }
     ];
 }

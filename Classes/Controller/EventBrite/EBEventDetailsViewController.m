@@ -6,8 +6,7 @@
 
 #import "EBEventDetailsViewController.h"
 #import "EBEvent.h"
-#import "EBEventDetailsInformationPageViewController.h"
-#import "EBEventDetailsMapPageViewController.h"
+#import "UIViewController+XBAdditions.h"
 
 @interface EBEventDetailsViewController()
 
@@ -17,20 +16,34 @@
 
 @implementation EBEventDetailsViewController
 
+- (id)initWithCoder:(NSCoder *)coder {
+    self = [super initWithCoder:coder];
+    if (self) {
+        [self configureView];
+    }
+
+    return self;
+}
+
+
 - (id)initWithEvent:(EBEvent *)event {
     self = [super init];
     if (self) {
         self.
         self.event = event;
-        self.dataSource = self;
-        self.eventViewControllers = @[
-                [[EBEventDetailsInformationPageViewController alloc] initWithEvent:event],
-                [[EBEventDetailsMapPageViewController alloc] initWithEvent:event]
-        ];
-        [self setViewControllers:self.eventViewControllers direction:UIPageViewControllerNavigationDirectionForward animated:NO completion:nil];
+        [self configureView];
     }
 
     return self;
+}
+
+- (void)configureView {
+    self.dataSource = self;
+    self.eventViewControllers = @[
+            [self.appDelegate.viewControllerManager getOrCreateControllerWithIdentifier:@"eventDetailsInfoPage"],
+            [self.appDelegate.viewControllerManager getOrCreateControllerWithIdentifier:@"eventDetailsMapPage"]
+    ];
+    [self setViewControllers:self.eventViewControllers direction:UIPageViewControllerNavigationDirectionForward animated:NO completion:nil];
 }
 
 - (void)viewWillAppear:(BOOL)animated {

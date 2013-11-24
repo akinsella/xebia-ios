@@ -614,16 +614,56 @@
             </objects>
             <point key="canvasLocation" x="-2022" y="2323"/>
         </scene>
-        <!--Page View Controller - Title-->
+        <!--Event Details View Controller - Détail de l'événement-->
         <scene sceneID="BeO-qG-OHB">
             <objects>
-                <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="pageCurl" navigationOrientation="horizontal" spineLocation="min" id="ZRR-39-gio" sceneMemberID="viewController">
-                    <navigationItem key="navigationItem" title="Title" id="ft2-zR-W1O"/>
+                <pageViewController storyboardIdentifier="eventDetails" autoresizesArchivedViewToFullSize="NO" transitionStyle="pageCurl" navigationOrientation="horizontal" spineLocation="min" id="ZRR-39-gio" customClass="EBEventDetailsViewController" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" title="Détail de l'événement" id="ft2-zR-W1O"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black" translucent="NO" prompted="NO"/>
                 </pageViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="v84-NH-qbV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1645" y="2325"/>
+        </scene>
+        <!--Event Details Information Page View Controller - Informations-->
+        <scene sceneID="tZd-Cl-SwE">
+            <objects>
+                <viewController storyboardIdentifier="eventDetailsInfoPage" id="L4L-Op-wSn" customClass="EBEventDetailsInformationPageViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="uJT-FW-p6f"/>
+                        <viewControllerLayoutGuide type="bottom" id="deN-EJ-jM6"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="KxT-fZ-LkB">
+                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Informations" id="aOi-25-I6m"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black" translucent="NO" prompted="NO"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ycR-Du-HhE" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1293" y="2325"/>
+        </scene>
+        <!--Event Details Map Page View Controller - Plan-->
+        <scene sceneID="efy-1C-Wkx">
+            <objects>
+                <viewController storyboardIdentifier="eventDetailsMapPage" id="ah5-FW-a4c" customClass="EBEventDetailsMapPageViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Ynh-w3-gS6"/>
+                        <viewControllerLayoutGuide type="bottom" id="4eH-mQ-hSp"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="5Nv-ND-Q0p">
+                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Plan" id="tgv-Jc-rzz"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black" translucent="NO" prompted="NO"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wnK-VN-OXa" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-955" y="2326"/>
         </scene>
         <!--Video Table View Controller - Videos-->
         <scene sceneID="CCD-qM-qNX">

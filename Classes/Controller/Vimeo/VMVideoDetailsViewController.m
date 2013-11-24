@@ -32,7 +32,7 @@
 
 @implementation VMVideoDetailsViewController
 
-- (instancetype)initWithVideo:(VMVideo *)video {
+- (id)initWithVideo:(VMVideo *)video {
     self = [super init];
     if (self) {
         self.video = video;
@@ -64,20 +64,6 @@
     [super viewWillAppear:animated];
     if (self.video) {
         [self.appDelegate.tracker sendView:[NSString stringWithFormat: @"/vimeo/video/%@", self.video.identifier]];
-
-        VMThumbnail * thumbnail = self.video.thumbnails[2];
-        XBLog(@"Image url: %@", thumbnail.url);
-
-        [self.videoImage setImageWithURL:[NSURL URLWithString:thumbnail.url]
-                        placeholderImage:[UIImage imageNamed:@"video_placeholder"]
-                               completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType) {
-                                   if (error || !image) {
-                                       XBLog(@"Error: %@", error);
-                                   }
-                                   else {
-                                       self.videoImage.image = [self generateWatermarkForImage:image];
-                                   }
-                               }];
 
         [self refreshViewWithVideoData];
     }
@@ -170,6 +156,26 @@
             [NSString stringWithFormat: @"%@ ...", [self.video.title substringToIndex:25]] :
             self.video.title;
     self.videoImage.image = [UIImage imageNamed:@"video_placeholder"];
+    VMThumbnail * thumbnail = Underscore.array(self.video.thumbnails).find(^BOOL(VMThumbnail *thumbnail) {
+        return [thumbnail.width isEqualToNumber:@640];
+    });
+
+    if (!thumbnail && self.video.thumbnails.count > 0) {
+        thumbnail = self.video.thumbnails[0];
+    }
+
+    XBLog(@"Image url: %@", thumbnail.url);
+
+    [self.videoImage setImageWithURL:[NSURL URLWithString:thumbnail.url]
+                    placeholderImage:[UIImage imageNamed:@"video_placeholder"]
+                           completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType) {
+                               if (error || !image) {
+                                   XBLog(@"Error: %@", error);
+                               }
+                               else {
+                                   self.videoImage.image = [self generateWatermarkForImage:image];
+                               }
+                           }];
 
     self.displayName.text = self.video.owner.displayName;
     self.date.text = [self.video.uploadDate formatDateTime];
