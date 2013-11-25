@@ -10,6 +10,7 @@
 #import "WPAbstractPostContentStructuredElementCell.h"
 
 @interface WPPostContentImageElementCell : WPAbstractPostContentStructuredElementCell
+        //<UIGestureRecognizerDelegate>
 
 @property (nonatomic, weak)id<WPPostContentElementCellDelegate> delegate;
 @property (nonatomic, strong) IBOutlet UIImageView *imageView;

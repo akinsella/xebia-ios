@@ -403,6 +403,7 @@
 		DB34D0D7C801AAAE68093A11 /* VMVideoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34D3E67D5221EE4730132B /* VMVideoCell.m */; };
 		DB34D11D675FDB9F5FDA5C29 /* XECategoryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34DF96C607241FFD2FD30D /* XECategoryCell.m */; };
 		DB34D11E8CC0D57A2B27EAD2 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB34D2014253F0EE1EB4FBC5 /* ImageIO.framework */; };
+		DB34D12B9E41F5EA1F64CB7F /* WPPostContentCode2ElementCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DB34DC859C70E09469188AE4 /* WPPostContentCode2ElementCell.xib */; };
 		DB34D136C947587B09AC74AB /* XBNewsEventBriteCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DB34D4F9D90570713A57AAD0 /* XBNewsEventBriteCell.xib */; };
 		DB34D164F321299603A499C8 /* navbar-landscape-iphone5-ios7.png in Resources */ = {isa = PBXBuildFile; fileRef = DB34D1A82DD52DBB5760A106 /* navbar-landscape-iphone5-ios7.png */; };
 		DB34D19D3D19B1F160EA25A7 /* WPPostContentParagraphElementCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34D0D9CEEE5E95E15C73A2 /* WPPostContentParagraphElementCell.m */; };
@@ -464,6 +465,7 @@
 		DB34D8B3619AA1E1C65226C0 /* XBRightMenuCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DB34D67D30B8E581ED3B4E29 /* XBRightMenuCell.xib */; };
 		DB34D8EC9D47F5119A3A9A5A /* VMVideo.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34DF603EC84E5DE3FCAD09 /* VMVideo.m */; };
 		DB34D91DB4677A4A10E3D27B /* XBLeftMenuCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DB34DE0CAAC75C616AD1D935 /* XBLeftMenuCell.xib */; };
+		DB34D95B89C4082D63A95CF0 /* WPPostContentCode2ElementCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34D8E48DFF8B5B7BD42181 /* WPPostContentCode2ElementCell.m */; };
 		DB34D98B213FD1D8FB965FF0 /* NSDictionaryTest.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34DFC68BF5CC33384D4969 /* NSDictionaryTest.m */; };
 		DB34D98E9DDB220C53C13531 /* EBEventCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DB34DC7A2F8601F51BAB479D /* EBEventCell.xib */; };
 		DB34D9918097632FC1032C05 /* XBNewsWordpressCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DB34DCB8E4CD6AEE658AD13B /* XBNewsWordpressCell.xib */; };
@@ -1032,7 +1034,9 @@
 		DB34D8A999304D432FA4F05D /* Styles.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = Styles.css; sourceTree = "<group>"; };
 		DB34D8AD967E65C25FCCB746 /* Gemfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Gemfile; sourceTree = "<group>"; };
 		DB34D8B87DC73AA8DDDD46C8 /* WPCategoryCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WPCategoryCell.m; sourceTree = "<group>"; };
+		DB34D8D509CA16758A627612 /* WPPostContentCode2ElementCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WPPostContentCode2ElementCell.h; sourceTree = "<group>"; };
 		DB34D8D7C5581033EBDFCB86 /* XBAbstractNewsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XBAbstractNewsCell.m; sourceTree = "<group>"; };
+		DB34D8E48DFF8B5B7BD42181 /* WPPostContentCode2ElementCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WPPostContentCode2ElementCell.m; sourceTree = "<group>"; };
 		DB34D91042354A075764148E /* XECard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XECard.m; sourceTree = "<group>"; };
 		DB34D95EEDED2AF924E082D1 /* EBEventDetailsMapPageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EBEventDetailsMapPageViewController.h; sourceTree = "<group>"; };
 		DB34D96E0DF6CCFCBDF91B05 /* WPAuthorCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WPAuthorCell.xib; sourceTree = "<group>"; };
@@ -1076,6 +1080,7 @@
 		DB34DC77A9793C5A076C7AB1 /* EBEventDetailsInformationPageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EBEventDetailsInformationPageViewController.h; sourceTree = "<group>"; };
 		DB34DC7A1E12D0835C8876CF /* WPPostContentCodeElementCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WPPostContentCodeElementCell.h; sourceTree = "<group>"; };
 		DB34DC7A2F8601F51BAB479D /* EBEventCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EBEventCell.xib; sourceTree = "<group>"; };
+		DB34DC859C70E09469188AE4 /* WPPostContentCode2ElementCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WPPostContentCode2ElementCell.xib; sourceTree = "<group>"; };
 		DB34DCB8E4CD6AEE658AD13B /* XBNewsWordpressCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = XBNewsWordpressCell.xib; sourceTree = "<group>"; };
 		DB34DCC129CA48E5A0379BC9 /* TTURLHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTURLHandler.h; sourceTree = "<group>"; };
 		DB34DCE9E629F0249A32FAE9 /* UIAlertView+XBAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIAlertView+XBAdditions.h"; sourceTree = "<group>"; };
@@ -2423,6 +2428,9 @@
 				5485016A17DFB89B002216C4 /* WPPostContentTitleCell.h */,
 				5485016B17DFB89B002216C4 /* WPPostContentTitleCell.m */,
 				5485016D17DFB8C5002216C4 /* WPPostContentTitleCell.xib */,
+				DB34D8D509CA16758A627612 /* WPPostContentCode2ElementCell.h */,
+				DB34DC859C70E09469188AE4 /* WPPostContentCode2ElementCell.xib */,
+				DB34D8E48DFF8B5B7BD42181 /* WPPostContentCode2ElementCell.m */,
 			);
 			path = Element;
 			sourceTree = "<group>";
@@ -2799,6 +2807,7 @@
 				DB34D164F321299603A499C8 /* navbar-landscape-iphone5-ios7.png in Resources */,
 				DB34D91DB4677A4A10E3D27B /* XBLeftMenuCell.xib in Resources */,
 				DB34D8B3619AA1E1C65226C0 /* XBRightMenuCell.xib in Resources */,
+				DB34D12B9E41F5EA1F64CB7F /* WPPostContentCode2ElementCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3048,6 +3057,7 @@
 				DB34DD5E38D240D31441EB04 /* EBEventDetailsViewController.m in Sources */,
 				DB34DFE1E17FB496A255F456 /* EBEventDetailsInformationPageViewController.m in Sources */,
 				DB34DD2AB8C4127883E29784 /* EBEventDetailsMapPageViewController.m in Sources */,
+				DB34D95B89C4082D63A95CF0 /* WPPostContentCode2ElementCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

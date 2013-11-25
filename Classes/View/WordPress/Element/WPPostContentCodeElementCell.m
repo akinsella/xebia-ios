@@ -6,7 +6,6 @@
 //
 
 
-#import <CoreMedia/CoreMedia.h>
 #import "WPPostContentCodeElementCell.h"
 #import "NSString+XBAdditions.h"
 #import "NSString+HTML.h"

@@ -19,12 +19,13 @@
 #import "UITableViewCell+VariableHeight.h"
 #import "WPPostContentTitleCell.h"
 #import "WPPostContentCodeElementCell.h"
+#import "WPPostContentCode2ElementCell.h"
 
 static NSString *kParagraphCellReuseIdentifier = @"paragraphCell";
 static NSString *kImageCellReuseIdentifier = @"imageCell";
 static NSString *kDefaultCellReuseIdentifier = @"defaultCell";
 static NSString *kHeaderCellReuseIdentifier = @"headerCell";
-static NSString *kCodeCellReuseIdentifier = @"codeCell";
+static NSString *kCodeCellReuseIdentifier = @"code2Cell";
 
 static NSString *kTitleCellReuseIdentifier = @"titleCell";
 
@@ -121,7 +122,7 @@ NSString *kHeader6Type = @"H6";
     [self.contentTableView registerNib:[UINib nibWithNibName:@"WPPostContentDefaultElementCell" bundle:nil] forCellReuseIdentifier:@"defaultCell"];
     [self.contentTableView registerNib:[UINib nibWithNibName:@"WPPostContentParagraphElementCell" bundle:nil] forCellReuseIdentifier:@"paragraphCell"];
     [self.contentTableView registerNib:[UINib nibWithNibName:@"WPPostContentHeaderElementCell" bundle:nil] forCellReuseIdentifier:@"headerCell"];
-    [self.contentTableView registerNib:[UINib nibWithNibName:@"WPPostContentCodeElementCell" bundle:nil] forCellReuseIdentifier:@"codeCell"];
+    [self.contentTableView registerNib:[UINib nibWithNibName:@"WPPostContentCode2ElementCell" bundle:nil] forCellReuseIdentifier:@"code2Cell"];
     [self.contentTableView registerNib:[UINib nibWithNibName:@"WPPostContentImageElementCell" bundle:nil] forCellReuseIdentifier:@"imageCell"];
     [self.contentTableView registerNib:[UINib nibWithNibName:@"WPPostContentTitleCell" bundle:nil] forCellReuseIdentifier:@"titleCell"];
 }
@@ -226,8 +227,6 @@ NSString *kHeader6Type = @"H6";
         }
         else if ( [structuredContentElement.type isEqualToString:kCodeType] ) {
             seCell = [self.contentTableView dequeueReusableCellWithIdentifier:kCodeCellReuseIdentifier];
-            ((WPPostContentCodeElementCell *)seCell).delegate = self;
-            ((WPPostContentCodeElementCell *)seCell).heightWebViewCache = self.heightWebViewCache;
         }
         else if ( [structuredContentElement.type isEqualToString:kImageType] ) {
             seCell = [self.contentTableView dequeueReusableCellWithIdentifier:kImageCellReuseIdentifier];
