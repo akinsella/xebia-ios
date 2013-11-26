@@ -5,15 +5,10 @@
 // To change the template use AppCode | Preferences | File Templates.
 //
 
-
-#import <QuartzCore/QuartzCore.h>
-#import <DTCoreText/DTHTMLElement.h>
-#import <DTCoreText/DTHTMLAttributedStringBuilder.h>
-#import <DTCoreText/DTCSSStylesheet.h>
 #import "WPPostContentCode2ElementCell.h"
 #import "XBAppDelegate.h"
 #import "UIColor+XBAdditions.h"
-#import "NSString+HTML.h"
+#import "NSString+XBAdditions.h"
 
 #define kDefaultFontFamily @"Cabin"
 
@@ -67,42 +62,10 @@ static const CGFloat kMarginHeight = 25.0;
 -(void)updateWithWPPostContentElement:(WPPostContentStructuredElement *)element {
     self.element = element;
 
-    NSString *html = [NSString stringWithFormat:@"<div style=\"padding: 10px;text-align: justify;\">%@</div>",
-                    [[[element.text stringByAddingHTMLEntities]
-                            stringByReplacingOccurrencesOfString:@"\r\n" withString:@"<br />"]
-                            stringByReplacingOccurrencesOfString:@" " withString:@"&nbsp;"]
-    ];
-    self.attributedString = [self attributedStringForHTML: html];
+    self.attributedTextContextView.edgeInsets = UIEdgeInsetsMake(10, 10, 10, 10);
+    self.attributedString = [element.text highlightSyntaxWithFont: [UIFont fontWithName:@"Cabin" size:14]];
 }
 
-- (NSAttributedString *)attributedStringForHTML:(NSString *)html
-{
-    NSString *cssFilePath = [[NSBundle bundleForClass:self.class] pathForResource:@"Styles" ofType:@"css"];
-    NSString *cssContent = [NSString stringWithContentsOfFile: cssFilePath encoding: NSUTF8StringEncoding error:nil];
-    DTCSSStylesheet *stylesheet = [[DTCSSStylesheet alloc] initWithStyleBlock: cssContent];
-
-    // Load HTML data
-    NSData *data = [html dataUsingEncoding:NSUTF8StringEncoding];
-
-    NSDictionary *options = @{
-            DTDefaultStyleSheet: stylesheet,
-            DTDefaultFontFamily: kDefaultFontFamily,
-            DTDefaultFontSize: @13.0,
-            DTDefaultTextColor: [UIColor colorWithHex:@"#E0E0E0"],
-            DTDefaultLinkColor: @"#9b59b6",
-            DTDefaultLinkHighlightColor: @"#e74c3c",
-            DTWillFlushBlockCallBack: ^(DTHTMLElement *element) {
-                XBLog(@"Element: %@", element.attributedString);
-            },
-            DTUseiOS6Attributes: @NO
-    };
-
-    DTHTMLAttributedStringBuilder *attributedStringBuilder = [[DTHTMLAttributedStringBuilder alloc] initWithHTML: data
-                                                                                                         options: options
-                                                                                              documentAttributes: nil];
-
-    return [attributedStringBuilder generatedAttributedString];
-}
 
 -(CGFloat)heightForCell:(UITableView *)tableView {
     return [self requiredRowHeightInTableView: tableView];

@@ -9,11 +9,10 @@
 #import <OCMock/OCMArg.h>
 
 #import "XBTestUtils.h"
-#import "JSONKit.h"
 #import "XBHttpClient.h"
 #import "OCMockRecorder.h"
 #import "NSInvocation+OCMAdditions.h"
-#import "NSURL+XBAdditions.h"
+#import "NSString+XBAdditions.h"
 
 @implementation XBTestUtils
 
@@ -24,11 +23,11 @@
 }
 
 +(WPAuthor *)findAuthorInArray:(NSArray *) authors ById:(NSInteger)identifier {
-    return Underscore.array(authors).filter([XBTestUtils filterAuthorById:50]).unwrap[0];
+    return Underscore.array(authors).filter([XBTestUtils filterAuthorById:identifier]).unwrap[0];
 }
 
 + (id)getAuthorsAsJsonWithPage:(NSUInteger)page {
-    NSString *filename = [NSString stringWithFormat:@"wp-author-index-p%ld", page];
+    NSString *filename = [NSString stringWithFormat:@"wp-author-index-p%lu", (unsigned long)page];
     NSString *file = [[NSBundle bundleForClass:self.class] pathForResource:filename ofType:@"json"];
     NSString *jsonLoaded = [NSString stringWithContentsOfFile:file encoding:NSUTF8StringEncoding error:nil];
     return [jsonLoaded objectFromJSONString];

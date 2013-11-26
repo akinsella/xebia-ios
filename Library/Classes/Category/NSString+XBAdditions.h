@@ -21,4 +21,10 @@
 - (NSString *)stripLeadingSlash;
 
 - (NSString *)suffixIfIOS7;
+
+- (id)objectFromJSONString;
+
+- (NSAttributedString *)highlightSyntax;
+
+- (NSAttributedString *)highlightSyntaxWithFont:(UIFont *)font;
 @end

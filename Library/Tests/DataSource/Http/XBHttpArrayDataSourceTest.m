@@ -9,7 +9,6 @@
 #import "WPAuthor.h"
 #import "XBHttpJsonDataLoader.h"
 #import "XBJsonToArrayDataMapper.h"
-#import "JSONKit.h"
 #import "XBTestUtils.h"
 #import "Underscore.h"
 #import "XBArrayDataSource+protected.h"

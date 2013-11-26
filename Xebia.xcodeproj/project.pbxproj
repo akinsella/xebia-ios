@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		338DF8973A884384AC8F7F16 /* libPods-XebiaTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AE3F961AF793434480B2C8FD /* libPods-XebiaTests.a */; };
-		5438726117DA885B00750791 /* XebiaTests-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5438726017DA885B00750791 /* XebiaTests-Info.plist */; };
 		5438726917DA8DFA00750791 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54A74840177CF28E00B9A907 /* AVFoundation.framework */; };
 		5438726A17DA8E0800750791 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54A7483E177A480E00B9A907 /* MediaPlayer.framework */; };
 		5438726B17DA8E2000750791 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54C2DEEE15BDFAFB00CABB12 /* CoreGraphics.framework */; };
@@ -297,6 +296,9 @@
 		547A69E0181F2405005B2B18 /* XBNewsOtherCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 547A69DE181F2405005B2B18 /* XBNewsOtherCell.xib */; };
 		547A69E3181F2542005B2B18 /* social-002-other.png in Resources */ = {isa = PBXBuildFile; fileRef = 547A69E1181F2542005B2B18 /* social-002-other.png */; };
 		547A69E4181F2542005B2B18 /* social-002-other@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 547A69E2181F2542005B2B18 /* social-002-other@2x.png */; };
+		547C4756184499D000F8BC76 /* Xebia-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 547C4751184499D000F8BC76 /* Xebia-Info.plist */; };
+		547C4757184499D000F8BC76 /* Xebia.entitlements in Resources */ = {isa = PBXBuildFile; fileRef = 547C4753184499D000F8BC76 /* Xebia.entitlements */; };
+		547C4758184499D000F8BC76 /* XebiaTests-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 547C4755184499D000F8BC76 /* XebiaTests-Info.plist */; };
 		5485015B17DCBB0A002216C4 /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB34D86D5E8C02F41FEA568F /* CoreText.framework */; };
 		5485015C17DCBB0A002216C4 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB34D14B542638C01069450B /* CFNetwork.framework */; };
 		5485015D17DCBB0A002216C4 /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB34DA21F8A3FD79A967EFEF /* Accounts.framework */; };
@@ -398,6 +400,7 @@
 		DB34D05C1617F836DA82493E /* XBNewsVimeoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34D60263E9F933B0748089 /* XBNewsVimeoCell.m */; };
 		DB34D065E5EB4E434B6F3D37 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB34DD4E1507AF2BCB62C8A7 /* Social.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		DB34D083C9EDF348B8417033 /* XEULink.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34DB5D367DAA7DDB9AF238 /* XEULink.m */; };
+		DB34D0BF27D3C21C75269E43 /* yahoo.json in Resources */ = {isa = PBXBuildFile; fileRef = DB34D544C3DEA15014DD622B /* yahoo.json */; };
 		DB34D0BF5EEBF427D15642F0 /* WPTagCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34D779566E6E53EC3D0C66 /* WPTagCell.m */; };
 		DB34D0D0D97F2713B90DBDD3 /* TTURLHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34D785BC8C5ECAAFD18AE2 /* TTURLHandler.m */; };
 		DB34D0D7C801AAAE68093A11 /* VMVideoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34D3E67D5221EE4730132B /* VMVideoCell.m */; };
@@ -441,6 +444,7 @@
 		DB34D59EB26F612C90550A31 /* navbar-landscape-iphone5-ios7@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DB34DC70361C6AB0865E9DE9 /* navbar-landscape-iphone5-ios7@2x.png */; };
 		DB34D5DBC72AF1D315F28DE1 /* XECardDetailsPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34DF0EC54E9E1EECE42ED4 /* XECardDetailsPageViewController.m */; };
 		DB34D5E0DC911E182E1396ED /* XECategory.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34DA3846C32ED52912827E /* XECategory.m */; };
+		DB34D5E76BE04B227D884481 /* yahoo.json in Resources */ = {isa = PBXBuildFile; fileRef = DB34D544C3DEA15014DD622B /* yahoo.json */; };
 		DB34D6057AAC049489CC6FDB /* WPPostDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34D224B60927694681348F /* WPPostDetailsViewController.m */; };
 		DB34D628E837AAA2BE0727A6 /* VMURLHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34DB7030A5E8996980B1F4 /* VMURLHandler.m */; };
 		DB34D66E4CF559E6404DBF3C /* NSDate+XBAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34D5EBA1F3E1109B672E44 /* NSDate+XBAdditions.m */; };
@@ -453,7 +457,6 @@
 		DB34D747BCEFE89289B3BC00 /* XECategoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DB34DBCA884FDF6E452B2C96 /* XECategoryCell.xib */; };
 		DB34D74CF00ACCCED7353C90 /* VMVideo.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34DF603EC84E5DE3FCAD09 /* VMVideo.m */; };
 		DB34D7BFFFAFC975D2C19476 /* Styles.css in Resources */ = {isa = PBXBuildFile; fileRef = DB34D8A999304D432FA4F05D /* Styles.css */; };
-		DB34D7ED000E892BFDA50F9B /* xebia-ios.entitlements in Resources */ = {isa = PBXBuildFile; fileRef = DB34DF1B888D2DCFC1C32603 /* xebia-ios.entitlements */; };
 		DB34D7EE0FE712FFCF9BF08E /* XETag.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34DA8D8461A88D68351CEF /* XETag.m */; };
 		DB34D80DC3A883F6780EC05C /* WPPostContentStructuredElement.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34DF440D740A4ADAF7B0B2 /* WPPostContentStructuredElement.m */; };
 		DB34D81180C80CA12FDF0C6D /* WPPostContentHeaderElementCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DB34DFF64CA2F3C1F7B00CA6 /* WPPostContentHeaderElementCell.xib */; };
@@ -510,13 +513,11 @@
 		DB34DFAC53F94C1D2D35014A /* XBNewsTwitterCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34D863EA020DED48FD2875 /* XBNewsTwitterCell.m */; };
 		DB34DFBA1E889164B9B81413 /* XBNewsWordpressCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34DAB6A3B79C276160F5EC /* XBNewsWordpressCell.m */; };
 		DB34DFE1E17FB496A255F456 /* EBEventDetailsInformationPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34D4F8F56E8CAFB62ACA77 /* EBEventDetailsInformationPageViewController.m */; };
-		E3C1ED277795426F8D7FCB8E /* libPods-xebia-iosTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 066FCD792FD04E9C87C35E33 /* libPods-xebia-iosTests.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		066FCD792FD04E9C87C35E33 /* libPods-xebia-iosTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-xebia-iosTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		378A41F2988D464CA7748FC5 /* Pods-XebiaTests.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XebiaTests.xcconfig"; path = "Pods/Pods-XebiaTests.xcconfig"; sourceTree = "<group>"; };
-		5438726017DA885B00750791 /* XebiaTests-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "XebiaTests-Info.plist"; sourceTree = "<group>"; };
 		543C8F811777A7D20079675E /* vimeo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = vimeo.png; sourceTree = "<group>"; };
 		543C8F821777A7D20079675E /* vimeo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "vimeo@2x.png"; sourceTree = "<group>"; };
 		5443EA1C1775BEC40000FFE8 /* Lobster.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Lobster.ttf; sourceTree = "<group>"; };
@@ -850,6 +851,10 @@
 		547A69DE181F2405005B2B18 /* XBNewsOtherCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XBNewsOtherCell.xib; sourceTree = "<group>"; };
 		547A69E1181F2542005B2B18 /* social-002-other.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "social-002-other.png"; sourceTree = "<group>"; };
 		547A69E2181F2542005B2B18 /* social-002-other@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "social-002-other@2x.png"; sourceTree = "<group>"; };
+		547C4751184499D000F8BC76 /* Xebia-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Xebia-Info.plist"; sourceTree = "<group>"; };
+		547C4752184499D000F8BC76 /* Xebia-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Xebia-Prefix.pch"; sourceTree = "<group>"; };
+		547C4753184499D000F8BC76 /* Xebia.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Xebia.entitlements; sourceTree = "<group>"; };
+		547C4755184499D000F8BC76 /* XebiaTests-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "XebiaTests-Info.plist"; sourceTree = "<group>"; };
 		5485016A17DFB89B002216C4 /* WPPostContentTitleCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WPPostContentTitleCell.h; sourceTree = "<group>"; };
 		5485016B17DFB89B002216C4 /* WPPostContentTitleCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WPPostContentTitleCell.m; sourceTree = "<group>"; };
 		5485016D17DFB8C5002216C4 /* WPPostContentTitleCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WPPostContentTitleCell.xib; sourceTree = "<group>"; };
@@ -995,6 +1000,7 @@
 		DB34D520761597BD4B8B7669 /* VMVideoDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VMVideoDetailsViewController.m; sourceTree = "<group>"; };
 		DB34D529546BD2BAC0D3C0CC /* XBNewsTwitterCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = XBNewsTwitterCell.xib; sourceTree = "<group>"; };
 		DB34D537D08BAF71AF6EDC03 /* VMUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VMUser.h; sourceTree = "<group>"; };
+		DB34D544C3DEA15014DD622B /* yahoo.json */ = {isa = PBXFileReference; lastKnownFileType = file.json; path = yahoo.json; sourceTree = "<group>"; };
 		DB34D5485FF70C8CA82E9501 /* navbar-portrait-ios7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "navbar-portrait-ios7.png"; sourceTree = "<group>"; };
 		DB34D56827878B25BB1F025D /* WPSPostCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WPSPostCell.m; sourceTree = "<group>"; };
 		DB34D5701234A95346A2BFAA /* VMURLHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VMURLHandler.h; sourceTree = "<group>"; };
@@ -1022,7 +1028,6 @@
 		DB34D7B3A32230066DEF57A0 /* XECardDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XECardDetailsViewController.m; sourceTree = "<group>"; };
 		DB34D7B7F0ACAC5B101E7103 /* WPPostContentStructuredElementAttribute.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WPPostContentStructuredElementAttribute.h; sourceTree = "<group>"; };
 		DB34D7C01CBB60177083BB96 /* dev.p12 */ = {isa = PBXFileReference; lastKnownFileType = file.p12; path = dev.p12; sourceTree = "<group>"; };
-		DB34D7DB27DFAA549ACA24FC /* Xebia-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Xebia-Info.plist"; sourceTree = "<group>"; };
 		DB34D7E7E92FDE99630ABD8E /* XEDeck.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XEDeck.m; sourceTree = "<group>"; };
 		DB34D815DF432CB4026A3863 /* XECardCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = XECardCell.xib; sourceTree = "<group>"; };
 		DB34D85D915722509ED963BE /* .travis.yml */ = {isa = PBXFileReference; lastKnownFileType = file.yml; path = .travis.yml; sourceTree = "<group>"; };
@@ -1109,7 +1114,6 @@
 		DB34DF039C3A138FECC6CB3B /* XEAbstractCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XEAbstractCell.m; sourceTree = "<group>"; };
 		DB34DF04C907FB61BA2D66B5 /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = ../../../../../Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.1.sdk/System/Library/Frameworks/CoreVideo.framework; sourceTree = "<group>"; };
 		DB34DF0EC54E9E1EECE42ED4 /* XECardDetailsPageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XECardDetailsPageViewController.m; sourceTree = "<group>"; };
-		DB34DF1B888D2DCFC1C32603 /* xebia-ios.entitlements */ = {isa = PBXFileReference; lastKnownFileType = file.entitlements; path = "xebia-ios.entitlements"; sourceTree = "<group>"; };
 		DB34DF40B8B46F470EF4E6E1 /* WPPostContentCodeElementCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WPPostContentCodeElementCell.m; sourceTree = "<group>"; };
 		DB34DF42FC8A668B62D47E66 /* XBRightMenuCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XBRightMenuCell.m; sourceTree = "<group>"; };
 		DB34DF440D740A4ADAF7B0B2 /* WPPostContentStructuredElement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WPPostContentStructuredElement.m; sourceTree = "<group>"; };
@@ -1120,7 +1124,6 @@
 		DB34DF603EC84E5DE3FCAD09 /* VMVideo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VMVideo.m; sourceTree = "<group>"; };
 		DB34DF72D6782E0BEDF5F04E /* XBNewsVimeoCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = XBNewsVimeoCell.xib; sourceTree = "<group>"; };
 		DB34DF96C607241FFD2FD30D /* XECategoryCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XECategoryCell.m; sourceTree = "<group>"; };
-		DB34DFB3378D901394CCA123 /* Xebia-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Xebia-Prefix.pch"; sourceTree = "<group>"; };
 		DB34DFC68BF5CC33384D4969 /* NSDictionaryTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSDictionaryTest.m; sourceTree = "<group>"; };
 		DB34DFF098560ECBEB2465D4 /* WPSPostCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WPSPostCell.h; sourceTree = "<group>"; };
 		DB34DFF64CA2F3C1F7B00CA6 /* WPPostContentHeaderElementCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WPPostContentHeaderElementCell.xib; sourceTree = "<group>"; };
@@ -1187,7 +1190,6 @@
 				5485016817DCBB0A002216C4 /* StoreKit.framework in Frameworks */,
 				5485016917DCBB0A002216C4 /* ImageIO.framework in Frameworks */,
 				5443EEE6177620B70000FFE8 /* libGoogleAnalytics_debug.a in Frameworks */,
-				E3C1ED277795426F8D7FCB8E /* libPods-xebia-iosTests.a in Frameworks */,
 				338DF8973A884384AC8F7F16 /* libPods-XebiaTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1195,15 +1197,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		5438725F17DA885B00750791 /* xebia-iosTests */ = {
-			isa = PBXGroup;
-			children = (
-				5438726017DA885B00750791 /* XebiaTests-Info.plist */,
-			);
-			name = "xebia-iosTests";
-			path = "Targets/xebia-iosTests";
-			sourceTree = SOURCE_ROOT;
-		};
 		5443EA1A1775BEC40000FFE8 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
@@ -1215,6 +1208,7 @@
 				5443EA7D1775BEC40000FFE8 /* Storyboards */,
 				54A7485817849E0F00B9A907 /* www */,
 				DB34D715D5FC7BFDE658AF19 /* Stylesheets */,
+				DB34D544C3DEA15014DD622B /* yahoo.json */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -2137,6 +2131,33 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		547C474F184499D000F8BC76 /* Targets */ = {
+			isa = PBXGroup;
+			children = (
+				547C4750184499D000F8BC76 /* Xebia */,
+				547C4754184499D000F8BC76 /* XebiaTests */,
+			);
+			path = Targets;
+			sourceTree = "<group>";
+		};
+		547C4750184499D000F8BC76 /* Xebia */ = {
+			isa = PBXGroup;
+			children = (
+				547C4751184499D000F8BC76 /* Xebia-Info.plist */,
+				547C4752184499D000F8BC76 /* Xebia-Prefix.pch */,
+				547C4753184499D000F8BC76 /* Xebia.entitlements */,
+			);
+			path = Xebia;
+			sourceTree = "<group>";
+		};
+		547C4754184499D000F8BC76 /* XebiaTests */ = {
+			isa = PBXGroup;
+			children = (
+				547C4755184499D000F8BC76 /* XebiaTests-Info.plist */,
+			);
+			path = XebiaTests;
+			sourceTree = "<group>";
+		};
 		54C2DEDB15BDFAFB00CABB12 = {
 			isa = PBXGroup;
 			children = (
@@ -2149,7 +2170,7 @@
 				54C2DEE715BDFAFB00CABB12 /* Products */,
 				5443EE281775BF1C0000FFE8 /* Other */,
 				DB34DE2B1FD85DCD2E8932E3 /* Scripts */,
-				DB34D19D4816F6300ED5724D /* Targets */,
+				547C474F184499D000F8BC76 /* Targets */,
 				FFE479B60E604A7197B75249 /* Pods.xcconfig */,
 				54C6C7F717F4E5520070BCD1 /* Default-568h@2x.png */,
 				54C6C7F817F4E5520070BCD1 /* Default-Landscape@2x~ipad.png */,
@@ -2267,15 +2288,6 @@
 				DB34DEEAA4079818595013B9 /* WPCategoryCell.xib */,
 			);
 			path = WordPress;
-			sourceTree = "<group>";
-		};
-		DB34D19D4816F6300ED5724D /* Targets */ = {
-			isa = PBXGroup;
-			children = (
-				DB34DB008D30244781FE61D8 /* xebia-ios */,
-				5438725F17DA885B00750791 /* xebia-iosTests */,
-			);
-			name = Targets;
 			sourceTree = "<group>";
 		};
 		DB34D1D94FC5ACF3E5193F0E /* Timeline */ = {
@@ -2443,17 +2455,6 @@
 				DB34DE9F5EB259E9CB86E112 /* TTTweetCell.m */,
 			);
 			path = Twitter;
-			sourceTree = "<group>";
-		};
-		DB34DB008D30244781FE61D8 /* xebia-ios */ = {
-			isa = PBXGroup;
-			children = (
-				DB34D7DB27DFAA549ACA24FC /* Xebia-Info.plist */,
-				DB34DFB3378D901394CCA123 /* Xebia-Prefix.pch */,
-				DB34DF1B888D2DCFC1C32603 /* xebia-ios.entitlements */,
-			);
-			name = "xebia-ios";
-			path = "Targets/xebia-ios";
 			sourceTree = "<group>";
 		};
 		DB34DC13B92155E710202E13 /* Profiles */ = {
@@ -2741,9 +2742,9 @@
 				5493E75A17B283D4009C0D2B /* avatar-sample.jpg in Resources */,
 				547A69D6181F06E6005B2B18 /* social-003_twitter.png in Resources */,
 				5493E75B17B283D4009C0D2B /* avatar-sample@2x.jpg in Resources */,
+				547C4757184499D000F8BC76 /* Xebia.entitlements in Resources */,
 				54AB456317C5651F00606F7F /* WPPostContentDefaultElementCell.xib in Resources */,
 				54AB456517C5651F00606F7F /* WPPostContentParagraphElementCell.xib in Resources */,
-				DB34D7ED000E892BFDA50F9B /* xebia-ios.entitlements in Resources */,
 				549A7F2F183E3FA1002B2026 /* ios-icon-100.png in Resources */,
 				5453557D182C4232003532F7 /* 19-gear.png in Resources */,
 				DB34D81180C80CA12FDF0C6D /* WPPostContentHeaderElementCell.xib in Resources */,
@@ -2760,6 +2761,7 @@
 				54B6B4AE17CA5D6E00C9C835 /* Cabin-MediumItalic.ttf in Resources */,
 				54B6B4AF17CA5D6E00C9C835 /* Cabin-Regular.ttf in Resources */,
 				54B6B4B017CA5D6E00C9C835 /* Cabin-SemiBold.ttf in Resources */,
+				547C4756184499D000F8BC76 /* Xebia-Info.plist in Resources */,
 				54B6B4B117CA5D6E00C9C835 /* Cabin-SemiBoldItalic.ttf in Resources */,
 				54B6B4B217CA5D6E00C9C835 /* Lato-Bla.ttf in Resources */,
 				54B6B4B317CA5D6E00C9C835 /* Lato-BlaIta.ttf in Resources */,
@@ -2771,6 +2773,7 @@
 				54B6B4B917CA5D6E00C9C835 /* Lato-LigIta.ttf in Resources */,
 				54B6B4BA17CA5D6E00C9C835 /* Lato-Reg.ttf in Resources */,
 				54B6B4BB17CA5D6E00C9C835 /* Lato-RegIta.ttf in Resources */,
+				547C4758184499D000F8BC76 /* XebiaTests-Info.plist in Resources */,
 				549A7F30183E3FA1002B2026 /* ios-icon-50.png in Resources */,
 				DB34D7BFFFAFC975D2C19476 /* Styles.css in Resources */,
 				5485016E17DFB8C6002216C4 /* WPPostContentTitleCell.xib in Resources */,
@@ -2808,6 +2811,7 @@
 				DB34D91DB4677A4A10E3D27B /* XBLeftMenuCell.xib in Resources */,
 				DB34D8B3619AA1E1C65226C0 /* XBRightMenuCell.xib in Resources */,
 				DB34D12B9E41F5EA1F64CB7F /* WPPostContentCode2ElementCell.xib in Resources */,
+				DB34D0BF27D3C21C75269E43 /* yahoo.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2819,7 +2823,7 @@
 				5443ECCB1775BEF30000FFE8 /* wp-author-index-p2.json in Resources */,
 				5443ECCC1775BEF30000FFE8 /* wp-author-index-p3.json in Resources */,
 				5443ECCD1775BEF30000FFE8 /* wp-author-index.json in Resources */,
-				5438726117DA885B00750791 /* XebiaTests-Info.plist in Resources */,
+				DB34D5E76BE04B227D884481 /* yahoo.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3272,8 +3276,8 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Targets/xebia-ios/Xebia-Prefix.pch";
-				INFOPLIST_FILE = "Targets/xebia-ios/Xebia-Info.plist";
+				GCC_PREFIX_HEADER = "Targets/Xebia/Xebia-Prefix.pch";
+				INFOPLIST_FILE = "Targets/Xebia/Xebia-Info.plist";
 				LIBRARY_SEARCH_PATHS = (
 					"\"$(PODS_ROOT)/TestFlightSDK\"",
 					"\"$(SRCROOT)/Classes/Analytics\"",
@@ -3294,8 +3298,8 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Targets/xebia-ios/Xebia-Prefix.pch";
-				INFOPLIST_FILE = "Targets/xebia-ios/Xebia-Info.plist";
+				GCC_PREFIX_HEADER = "Targets/Xebia/Xebia-Prefix.pch";
+				INFOPLIST_FILE = "Targets/Xebia/Xebia-Info.plist";
 				LIBRARY_SEARCH_PATHS = (
 					"\"$(PODS_ROOT)/TestFlightSDK\"",
 					"\"$(SRCROOT)/Classes/Analytics\"",
@@ -3310,7 +3314,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 378A41F2988D464CA7748FC5 /* Pods-XebiaTests.xcconfig */;
 			buildSettings = {
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/xebia-ios.app/xebia-ios";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Xebia.app/Xebia";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SDKROOT)/Developer/Library/Frameworks",
@@ -3319,8 +3323,8 @@
 				GCC_GENERATE_TEST_COVERAGE_FILES = YES;
 				GCC_INSTRUMENT_PROGRAM_FLOW_ARCS = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Targets/xebia-ios/xebia-ios-Prefix.pch";
-				INFOPLIST_FILE = "Targets/xebia-iosTests/XebiaTests-Info.plist";
+				GCC_PREFIX_HEADER = "Targets/Xebia/Xebia-Prefix.pch";
+				INFOPLIST_FILE = "Targets/XebiaTests/XebiaTests-Info.plist";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/Classes/Analytics\"",
@@ -3354,7 +3358,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 378A41F2988D464CA7748FC5 /* Pods-XebiaTests.xcconfig */;
 			buildSettings = {
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/xebia-ios.app/xebia-ios";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Xebia.app/Xebia";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SDKROOT)/Developer/Library/Frameworks",
@@ -3363,8 +3367,8 @@
 				GCC_GENERATE_TEST_COVERAGE_FILES = YES;
 				GCC_INSTRUMENT_PROGRAM_FLOW_ARCS = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Targets/xebia-ios/xebia-ios-Prefix.pch";
-				INFOPLIST_FILE = "Targets/xebia-iosTests/XebiaTests-Info.plist";
+				GCC_PREFIX_HEADER = "Targets/Xebia/Xebia-Prefix.pch";
+				INFOPLIST_FILE = "Targets/XebiaTests/XebiaTests-Info.plist";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/Classes/Analytics\"",

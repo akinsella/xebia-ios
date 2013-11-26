@@ -7,8 +7,8 @@
 
 
 #import "NSString+XBAdditions.h"
+#import "PKTokenizer.h"
 
-#import <Foundation/Foundation.h>
 #import <SenTestingKit/SenTestingKit.h>
 
 @interface NSStringTest : SenTestCase @end
@@ -30,6 +30,16 @@
 
     STAssertEquals([indexSet count], 1U, nil);
     STAssertEquals([indexSet firstIndex], 23U, nil);
+}
+
+-(void)testSyntaxHighlight {
+    NSString *path = [[NSBundle bundleForClass:[self class]] pathForResource:@"yahoo" ofType:@"json"];
+    NSString *source = [NSString stringWithContentsOfFile:path encoding:NSUTF8StringEncoding error:nil];
+
+    NSAttributedString *attributedString = [source highlightSyntax];
+
+    STAssertNotNil(attributedString, nil);
+
 }
 
 @end
