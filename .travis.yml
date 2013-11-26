@@ -1,10 +1,12 @@
 language: objective-c
-rvm: 
-- 1.9.3
-gemfile: Gemfile
+#rvm: 
+#- 1.9.3
+#gemfile: Gemfile
 before_script:
 - export LC_ALL="en_US.UTF-8"
 - export PROFILE_UUID=38CF6B6F-CFC0-4A4B-9125-9992227AF0C6
+- echo "PROFILE_UUID: $PROFILE_UUID"
+- echo "ENCRYPTION_SECRET: $ENCRYPTION_SECRET"
 - openssl aes-256-cbc -k "$ENCRYPTION_SECRET" -in Scripts/Profiles/$PROFILE_UUID.mobileprovision.enc -d -a -out Scripts/Profiles/$PROFILE_UUID.mobileprovision
 - openssl aes-256-cbc -k "$ENCRYPTION_SECRET" -in Scripts/Certs/dev.cer.enc -d -a -out Scripts/Certs/dev.cer
 - openssl aes-256-cbc -k "$ENCRYPTION_SECRET" -in Scripts/Certs/dev.p12.enc -d -a -out Scripts/Certs/dev.p12
