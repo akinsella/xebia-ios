@@ -37,6 +37,14 @@
         </dict>
         <dict>
             <key>Title</key>
+            <string>Crashlytics</string>
+            <key>Type</key>
+            <string>PSChildPaneSpecifier</string>
+            <key>File</key>
+            <key>Crashlytics</key>
+        </dict>
+        <dict>
+            <key>Title</key>
             <string>DCIntrospect</string>
             <key>Type</key>
             <string>PSChildPaneSpecifier</string>

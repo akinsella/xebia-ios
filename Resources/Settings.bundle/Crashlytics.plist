@@ -6,19 +6,19 @@
 	<array>
         <dict>
             <key>Title</key>
-            <string>GoogleAnalytics</string>
+            <string>Crashlytics</string>
             <key>FooterText</key>
             <string>
-Copyright 2009 - 2013 Google, Inc. All rights reserved.
+Commercial license - See web site: http://try.crashlytics.com/terms/
             </string>
             <key>Type</key>
             <string>PSGroupSpecifier</string>
         </dict>
         <dict>
             <key>DefaultValue</key>
-            <string>3.0.2</string>
+            <string>???</string>
             <key>Key</key>
-            <string>GoogleAnalyticsVersion</string>
+            <string>PKRevealControllerVersion</string>
             <key>Title</key>
             <string>Version</string>
             <key>Type</key>
@@ -27,6 +27,6 @@ Copyright 2009 - 2013 Google, Inc. All rights reserved.
 
     </array>
 	<key>StringsTable</key>
-	<string>GoogleAnalytics</string>
+	<string>Crashlytics</string>
 </dict>
 </plist>
