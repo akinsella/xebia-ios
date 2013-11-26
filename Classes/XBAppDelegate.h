@@ -20,7 +20,8 @@
 @property(nonatomic, strong, readonly) NSString *deviceToken;
 @property(nonatomic, strong, readonly) XBConfigurationProvider *configurationProvider;
 @property(nonatomic, assign, readonly) Boolean registered;
-@property(nonatomic, strong, readonly) id<GAITracker> tracker;
 @property(nonatomic, strong) UIWindow *window;
+
+- (void)trackView:(NSString *)viewPath;
 
 @end

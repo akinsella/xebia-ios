@@ -27,7 +27,7 @@
 
 - (void)viewDidLoad {
 
-    [self.appDelegate.tracker sendView:@"/wordpress/author"];
+    [self.appDelegate trackView:@"/wordpress/author"];
 
     self.delegate = self;
     self.tableView.rowHeight = 60;

@@ -63,7 +63,7 @@
 
 - (void)viewDidLoad {
 
-    [self.appDelegate.tracker sendView:[NSString stringWithFormat:@"/wordpress/%@", [self.currentPostType isEqualToString:@"recent"] ? @"posts/recent" : self.currentPostType]];
+    [self.appDelegate trackView:[NSString stringWithFormat:@"/wordpress/%@", [self.currentPostType isEqualToString:@"recent"] ? @"posts/recent" : self.currentPostType]];
 
     self.delegate = self;
     self.title = @"Posts";

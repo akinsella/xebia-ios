@@ -27,7 +27,7 @@ pod 'ZXingObjC',					'2.2.2'
 pod 'MJPopupViewController',        '0.4'
 pod 'NewRelicAgent',				'1.376'
 pod 'InAppSettingsKit', 			'2.0'
-pod 'ParseKit',								'0.7'
+pod 'ParseKit',						'0.7'
 
 target :"XebiaTests", :exclusive => true do
   pod 'SenTestingKitAsync',		'1.0.6'

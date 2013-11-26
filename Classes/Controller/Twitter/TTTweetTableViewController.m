@@ -21,7 +21,7 @@
 
 - (void)viewDidLoad {
 
-    [self.appDelegate.tracker sendView:@"/twitter/timeline"];
+    [self.appDelegate trackView:@"/twitter/timeline"];
 
     self.delegate = self;
     self.title = NSLocalizedString(@"Tweets", nil);

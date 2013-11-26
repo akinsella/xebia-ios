@@ -21,7 +21,7 @@
 
 - (void)viewDidLoad {
 
-    [self.appDelegate.tracker sendView:@"/eventbrite/event"];
+    [self.appDelegate trackView:@"/eventbrite/event"];
 
     self.delegate = self;
     self.title = NSLocalizedString(@"Events", nil);

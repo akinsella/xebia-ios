@@ -26,7 +26,7 @@
 
 - (void)viewDidLoad {
 
-    [self.appDelegate.tracker sendView:@"/vimeo/video"];
+    [self.appDelegate trackView:@"/vimeo/video"];
 
     self.delegate = self;
     self.tableView.rowHeight = 75;

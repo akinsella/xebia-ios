@@ -21,7 +21,7 @@
 
 - (void)viewDidLoad {
 
-    [self.appDelegate.tracker sendView:@"/essentials/category"];
+    [self.appDelegate trackView:@"/essentials/category"];
 
     self.delegate = self;
     self.title = NSLocalizedString(@"Categories", nil);

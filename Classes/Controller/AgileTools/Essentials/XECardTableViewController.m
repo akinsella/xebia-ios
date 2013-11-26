@@ -39,11 +39,11 @@
     [super viewWillAppear:animated];
     if (self.category) {
         self.title = self.category.label;
-        [self.appDelegate.tracker sendView:[NSString stringWithFormat: @"/essentials/category/%@", self.category.identifier]];
+        [self.appDelegate trackView:[NSString stringWithFormat: @"/essentials/category/%@", self.category.identifier]];
     }
     else {
         self.title = NSLocalizedString(@"Cards", nil);
-        [self.appDelegate.tracker sendView:@"/essentials/card"];
+        [self.appDelegate trackView:@"/essentials/card"];
     }
 
     self.navigationController.navigationBarHidden = NO;

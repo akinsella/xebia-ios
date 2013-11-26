@@ -36,7 +36,7 @@ enum {
 
 - (void)viewDidLoad {
     
-    [self.appDelegate.tracker sendView:@"/rightMenu"];
+    [self.appDelegate trackView:@"/rightMenu"];
     
     self.delegate = self;
     [self initViewIdentifiers];

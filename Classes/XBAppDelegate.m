@@ -13,7 +13,6 @@
 #import "AFNetworking.h"
 #import "SDURLCache.h"
 #import "XBPListConfigurationProvider.h"
-#import "XBLeftMenuViewController.h"
 #import "GAITracker.h"
 #import "GAI.h"
 #import "XBUDID.h"
@@ -21,11 +20,12 @@
 #import "DCIntrospect.h"
 #import "Appirater.h"
 #import "NSString+XBAdditions.h"
-#import "UINavigationBar+XBAdditions.h"
+#import "GAIDictionaryBuilder.h"
+#import "GAIFields.h"
 #import <NewRelicAgent/NewRelicAgent.h>
+#import <Crashlytics/Crashlytics.h>
 
-
-static NSString *const kTrackingId = @"UA-40651647-1";
+static NSString *const kTrackingId = @"UA-1889791-23";
 
 //TODO: Need to change AppID
 static NSString *const kAppId = @"1234567890";
@@ -35,6 +35,8 @@ static NSString *const DeviceTokenKey = @"DeviceToken";
 static NSString *const TestFlightAppToken = @"856b817d-b51c-44a3-9a24-ddcabfda8a0c";
 
 static NSString *const NewRelicApiKey = @"AA2a83288c6a4104ccf6cb9d48101ae3aba20325cc";
+
+static NSString *const CrashlyticsApiKey = @"48e99a586053e4194936d79b6126ad23e9de4cc7";
 
 @interface XBAppDelegate()
 
@@ -49,7 +51,7 @@ static NSString *const NewRelicApiKey = @"AA2a83288c6a4104ccf6cb9d48101ae3aba203
 @implementation XBAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-
+    
     if (NSClassFromString(@"SenTestCase") != nil) {
         return YES;
     }
@@ -71,6 +73,7 @@ static NSString *const NewRelicApiKey = @"AA2a83288c6a4104ccf6cb9d48101ae3aba203
     [self initAnalytics];
     [self initTestFlight];
     [self initNewRelic];
+    [self initCrashlytics];
 
     [self initMainBundle];
 
@@ -117,10 +120,6 @@ static NSString *const NewRelicApiKey = @"AA2a83288c6a4104ccf6cb9d48101ae3aba203
     [defaults setObject:version forKey:@"version"];
 }
 
--(id<GAITracker>)tracker {
-    return GAI.sharedInstance.defaultTracker;
-}
-
 - (void)initApplicationRating {
     [Appirater setAppId:kAppId];
     [Appirater setDaysUntilPrompt:1];
@@ -144,20 +143,23 @@ static NSString *const NewRelicApiKey = @"AA2a83288c6a4104ccf6cb9d48101ae3aba203
 }
 
 -(void)initAnalytics {
-
-    // Initialize Google Analytics with a 120-second dispatch interval. There is a
-    // tradeoff between battery usage and timely dispatch.
-
+    
 #if TARGET_IPHONE_SIMULATOR || defined(DEBUG)
-    [GAI sharedInstance].debug = YES;
-    [GAI sharedInstance].dispatchInterval = 60;
+    GAI.sharedInstance.dispatchInterval = 20;
+    GAI.sharedInstance.logger.logLevel = kGAILogLevelVerbose;
 #else
-    [GAI sharedInstance].debug = NO;
-    [GAI sharedInstance].dispatchInterval = 120;
+    GAI.sharedInstance.dispatchInterval = 120;
+    GAI.sharedInstance.logger.logLevel = kGAILogLevelInfo;
 #endif
-    [GAI sharedInstance].trackUncaughtExceptions = YES;
+    
+    GAI.sharedInstance.trackUncaughtExceptions = NO;
     id<GAITracker> tracker = [GAI.sharedInstance trackerWithTrackingId:kTrackingId];
     [GAI.sharedInstance setDefaultTracker:tracker];
+}
+
+- (void)trackView:(NSString *)viewPath {
+    [GAI.sharedInstance.defaultTracker set:kGAIScreenName value:viewPath];
+    [GAI.sharedInstance.defaultTracker send:[[GAIDictionaryBuilder createAppView] build]];
 }
 
 - (void)initMainViewController {
@@ -219,13 +221,17 @@ static NSString *const NewRelicApiKey = @"AA2a83288c6a4104ccf6cb9d48101ae3aba203
     }
 
     [[UITabBarItem appearance] setTitleTextAttributes: @{
+            UITextAttributeFont: [UIFont systemFontOfSize:11],
             UITextAttributeTextColor: [UIColor colorWithHex:@"#888888"],
-            UITextAttributeTextShadowColor: [UIColor blackColor]
+            UITextAttributeTextShadowColor: [UIColor clearColor],
+            UITextAttributeTextShadowOffset: [NSValue valueWithUIOffset:UIOffsetMake(0.0f, 0.0f)]
     } forState:UIControlStateNormal];
 
     [[UITabBarItem appearance] setTitleTextAttributes:@{
+            UITextAttributeFont: [UIFont systemFontOfSize:11],
             UITextAttributeTextColor: [UIColor colorWithHex:@"#5d2655"],
-            UITextAttributeTextShadowColor: [UIColor blackColor]
+            UITextAttributeTextShadowColor: [UIColor clearColor],
+            UITextAttributeTextShadowOffset: [NSValue valueWithUIOffset:UIOffsetMake(0.0f, 0.0f)]
     } forState:UIControlStateSelected];
 
     /* Back button appearance */
@@ -265,10 +271,6 @@ static NSString *const NewRelicApiKey = @"AA2a83288c6a4104ccf6cb9d48101ae3aba203
 
 - (void)initLogging {
     [[AFHTTPRequestOperationLogger sharedLogger] startLogging];
-}
-
-- (void)initTestFlight {
-    [self setupTestFlight];
 }
 
 - (void)initURLCache {
@@ -375,43 +377,41 @@ static NSString *const NewRelicApiKey = @"AA2a83288c6a4104ccf6cb9d48101ae3aba203
 
 - (void)applicationWillTerminate:(UIApplication *)application {
     NSLog(@"Application will terminate !!");
-//    [MagicalRecord cleanUp];
 }
 
-/*
-   My Apps Custom uncaught exception catcher, we do special stuff here, and TestFlight takes care of the rest
-  */
-void HandleExceptions(NSException *exception) {
-    NSLog(@"This is where we save the application data during a exception");
-    // Save application data on crash
-}
-/*
- My Apps Custom signal catcher, we do special stuff here, and TestFlight takes care of the rest
-*/
-void SignalHandler(int sig) {
-    NSLog(@"This is where we save the application data during a signal");
-    // Save application data on crash
-}
+//void HandleExceptions(NSException *exception) {
+//    NSLog(@"This is where we save the application data during a exception");
+//    // Save application data on crash
+//}
 
-- (void)setupTestFlight {
-    // installs HandleExceptions as the Uncaught Exception Handler
-    NSSetUncaughtExceptionHandler(&HandleExceptions);
-    // create the signal action structure
-    struct sigaction newSignalAction;
-    // initialize the signal action structure
-    memset(&newSignalAction, 0, sizeof(newSignalAction));
-    // set SignalHandler as the handler in the signal action structure
-    newSignalAction.sa_handler = &SignalHandler;
-    // set SignalHandler as the handlers for SIGABRT, SIGILL and SIGBUS
-    sigaction(SIGABRT, &newSignalAction, NULL);
-    sigaction(SIGILL, &newSignalAction, NULL);
-    sigaction(SIGBUS, &newSignalAction, NULL);
-    // Call takeOff after install your own unhandled exception and signal handlers
+//void SignalHandler(int sig) {
+//    NSLog(@"This is where we save the application data during a signal");
+//    // Save application data on crash
+//}
+
+- (void)initTestFlight {
+//    // installs HandleExceptions as the Uncaught Exception Handler
+//    NSSetUncaughtExceptionHandler(&HandleExceptions);
+//    // create the signal action structure
+//    struct sigaction newSignalAction;
+//    // initialize the signal action structure
+//    memset(&newSignalAction, 0, sizeof(newSignalAction));
+//    // set SignalHandler as the handler in the signal action structure
+//    newSignalAction.sa_handler = &SignalHandler;
+//    // set SignalHandler as the handlers for SIGABRT, SIGILL and SIGBUS
+//    sigaction(SIGABRT, &newSignalAction, NULL);
+//    sigaction(SIGILL, &newSignalAction, NULL);
+//    sigaction(SIGBUS, &newSignalAction, NULL);
+//    // Call takeOff after install your own unhandled exception and signal handlers
 
 //#ifdef DEBUG
 //    [TestFlight setDeviceIdentifier:[[UIDevice currentDevice] uniqueIdentifier]];
 //#endifXBNavigableViewController
     [TestFlight takeOff: TestFlightAppToken];
+}
+
+-(void)initCrashlytics {
+    [Crashlytics startWithAPIKey: CrashlyticsApiKey];
 }
 
 - (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url {

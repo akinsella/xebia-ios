@@ -40,7 +40,7 @@ NSString *kOtherType = @"other";
 
 - (void)viewDidLoad {
 
-    [self.appDelegate.tracker sendView:@"/timeline"];
+    [self.appDelegate trackView:@"/timeline"];
 
     self.title = NSLocalizedString(@"Timeline", nil);
     self.view.backgroundColor = [UIColor colorWithHex:@"#F0F0F0"];

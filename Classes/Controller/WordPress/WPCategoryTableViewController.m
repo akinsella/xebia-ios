@@ -24,7 +24,7 @@
 
 - (void)viewDidLoad {
 
-    [self.appDelegate.tracker sendView:@"/wordpress/category"];
+    [self.appDelegate trackView:@"/wordpress/category"];
 
     self.delegate = self;
     self.title = NSLocalizedString(@"Categories", nil);

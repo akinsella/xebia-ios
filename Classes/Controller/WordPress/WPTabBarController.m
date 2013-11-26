@@ -9,12 +9,7 @@
 #import "WPTabBarController.h"
 #import "UIViewController+XBAdditions.h"
 #import "UIColor+XBAdditions.h"
-#import "UIViewController+XBAdditions.h"
-#import "WPSPost.h"
-#import "WPPostDetailsViewController.h"
-#import "XBMapper.h"
-#import "NSString+XBAdditions.h"
-#import "XBNavigationController.h"
+#import "XBConstants.h"
 
 @implementation WPTabBarController
 
@@ -29,10 +24,21 @@
 
     [self.tabBar setSelectedImageTintColor:[UIColor colorWithHex:@"#888888"]];
 
-//    for (UITabBarItem *tabBarItem in self.tabBar.items) {
-//        [tabBarItem setFinishedSelectedImage: tabBarItem.image
-//                 withFinishedUnselectedImage: tabBarItem.image];
-//    }
+    NSArray *tabBarImageNames = @[@"34-coffee", @"44-shoebox", @"15-tags"];
+
+    if (!SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0")) {
+        NSUInteger index = 0;
+        for (UITabBarItem *tabBarItem in self.tabBar.items) {
+            NSString *selectedImage = [NSString stringWithFormat:@"%@-selected", tabBarImageNames[index]];
+//            NSString *unselectedImage = [[NSString stringWithFormat:@"%@-unselected", tabBarImageNames[index]] suffixIfIOS6];
+//            NSString *selectedImage = tabBarImageNames[index];
+            NSString *unselectedImage = tabBarImageNames[index];
+
+            [tabBarItem setFinishedSelectedImage:[UIImage imageNamed:selectedImage]
+                     withFinishedUnselectedImage:[UIImage imageNamed:unselectedImage]];
+            index++;
+        }
+    }
 }
 
 - (void)viewWillAppear:(BOOL)animated {

@@ -63,7 +63,7 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     if (self.video) {
-        [self.appDelegate.tracker sendView:[NSString stringWithFormat: @"/vimeo/video/%@", self.video.identifier]];
+        [self.appDelegate trackView:[NSString stringWithFormat: @"/vimeo/video/%@", self.video.identifier]];
 
         [self refreshViewWithVideoData];
     }

@@ -63,6 +63,11 @@
     return isIOS7 ? [NSString stringWithFormat:@"%@-ios7", self] : self;
 }
 
+- (NSString *)suffixIfIOS6 {
+    BOOL isIOS6 = !SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0");
+    return isIOS6 ? [NSString stringWithFormat:@"%@-ios6", self] : self;
+}
+
 - (id)objectFromJSONString {
     NSError *error;
     return [NSJSONSerialization JSONObjectWithData: [self dataUsingEncoding:NSUTF8StringEncoding]

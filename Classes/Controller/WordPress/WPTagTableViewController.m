@@ -24,7 +24,7 @@
 
     self.fixedRowHeight = YES;
 
-    [self.appDelegate.tracker sendView:@"/wordpress/tag"];
+    [self.appDelegate trackView:@"/wordpress/tag"];
 
     self.delegate = self;
     self.title = NSLocalizedString(@"Tags", nil);
