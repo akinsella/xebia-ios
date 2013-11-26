@@ -4,7 +4,7 @@ rvm:
 gemfile: Gemfile
 before_script:
 - openssl aes-256-cbc -k "$ENCRYPTION_SECRET" -in Scripts/Profiles/$PROFILE_UUID.mobileprovision.enc -d -a -out Scripts/Profiles/$PROFILE_UUID.mobileprovision
-- openssl aes-256-cbc -k "$ENCRYPTION_SECRET" -in Scripts/Certs/dev.cert.enc -d -a -out Scripts/Certs/dev.cert
+- openssl aes-256-cbc -k "$ENCRYPTION_SECRET" -in Scripts/Certs/dev.cer.enc -d -a -out Scripts/Certs/dev.cer
 - openssl aes-256-cbc -k "$ENCRYPTION_SECRET" -in Scripts/Certs/dev.p12.enc -d -a -out Scripts/Certs/dev.p12
 - Scripts/before.sh
 - Scripts/add-key.sh
