@@ -22,6 +22,7 @@
 #import "NSString+XBAdditions.h"
 #import "GAIDictionaryBuilder.h"
 #import "GAIFields.h"
+#import "WPURLHandler.h"
 #import <NewRelicAgent/NewRelicAgent.h>
 #import <Crashlytics/Crashlytics.h>
 
@@ -97,6 +98,7 @@ static NSString *const CrashlyticsApiKey = @"48e99a586053e4194936d79b6126ad23e9d
 
 #if DEBUG
     [self.mainViewController revealViewControllerWithIdentifier:@"timeline"];
+//    [[[WPURLHandler alloc] init] handleURL:[NSURL URLWithString:@"xebia://blog/posts/3035"]];
 //    [self.mainViewController revealViewControllerWithIdentifier:@"events"];
 //    [self.mainViewController revealViewControllerWithIdentifier:@"tbBlog"];
 //    [self.mainViewController revealViewControllerWithIdentifier:@"tweets"];
