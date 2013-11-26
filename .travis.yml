@@ -3,6 +3,7 @@ rvm:
 - 1.9.3
 gemfile: Gemfile
 before_script:
+- export LC_ALL="en_US.UTF-8"
 - openssl aes-256-cbc -k "$ENCRYPTION_SECRET" -in Scripts/Profiles/$PROFILE_UUID.mobileprovision.enc -d -a -out Scripts/Profiles/$PROFILE_UUID.mobileprovision
 - openssl aes-256-cbc -k "$ENCRYPTION_SECRET" -in Scripts/Certs/dev.cer.enc -d -a -out Scripts/Certs/dev.cer
 - openssl aes-256-cbc -k "$ENCRYPTION_SECRET" -in Scripts/Certs/dev.p12.enc -d -a -out Scripts/Certs/dev.p12
