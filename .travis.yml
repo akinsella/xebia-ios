@@ -1,8 +1,5 @@
 language: objective-c
-#rvm: 
-#- 1.9.3
-#gemfile: Gemfile
-before_script:
+before_script: 
 - openssl aes-256-cbc -k "$ENCRYPTION_SECRET" -in "Scripts/Profiles/$PROFILE_UUID.mobileprovision.enc" -d -a -out "Scripts/Profiles/$PROFILE_UUID.mobileprovision"
 - openssl aes-256-cbc -k "$ENCRYPTION_SECRET" -in "Scripts/Certs/dev.cer.enc" -d -a -out "Scripts/Certs/dev.cer"
 - openssl aes-256-cbc -k "$ENCRYPTION_SECRET" -in "Scripts/Certs/dev.p12.enc" -d -a -out "Scripts/Certs/dev.p12"
@@ -25,7 +22,7 @@ env:
   - secure: I7ORmBOoXN6iOy94VTeGU9/Duw+3/x2W4+z9HXZ/JBR7ZCP+YrNzLIn2/5LteZEKoWZMHmVrvHV1zadcOnCLJIETTEX1JC6KkmeFDYn1kq33BnHZx4wL+1nADH0kkYKwGKbKEoQiVpAeM3cEEbmru4Euw7dJdrgrR+j6e7KI6XI=
   - secure: AKohm7ovaPAkQ21iPe9eIChvrLKcFt1DdAfyzjpe9Pb8nudDsMOzI85QHTd4FWALA/YZ+VMQgPo3AjQy4BBMzx6nRIkA2lwldqDSaLAmcR9B9W91t/RghZs02SBxSPUp5lPkf4XkCEEsXiTPKLL/96nOnDPAx0nTL9A6LzxESLo=
   - secure: KUeVQN5BWMmDGX5HvxREMMbyz0+IjXbonCHN3VRADKE88Mq9wPS07YKqJzQ8D31GSUHFNYbmu5/WQXqB0LFg522JSJ3SWHvARWqsxrP3wpkDVcvrxtj3AvWgG+S0NZlsCCKsWrIq/M9nQg7UtF2tgJw3IEZtQuCKK6hSTSxuF3A=
-  - secure: rzOcH9VIrMx5l+618+Gig9DgVfzt5/Pxru+3ymnQTXuAVXjEAMhAVHJ3yJrXLCmOhUwOxgQDM07Jy/n8K9VkkxY3hwSd4xhVBCAlMNNq3lVsCOKQOwbi4et57tXsqZr46TT75bPFRQwQPyey/RHAdmuFbaqwmBTfGDfItsA4GCc=
+  - secure: wQ2Y8LczmeqVeEtYuALedXvVzOlJ6yaZYrxsWNF62GPmgSECDQHRZ6/xotbHCkwthIZ7WFKi5D3AnF26cBdLD4is7QJCqVA/hplq4ymx9Qe3FCi8AZO63Lx17Sp1vUVEcanDpxxCwHHsPzHk6iO33z3+LgjFMSrYXbe8xAeYq7Q=
 notifications: 
   recipients: 
   - akinsella@xebia.fr
