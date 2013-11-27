@@ -25,9 +25,11 @@
 
 @implementation WPAuthorTableViewController
 
-- (void)viewDidLoad {
+- (NSString *)trackPath {
+    return [NSString stringWithFormat:@"/blog/authors"];
+}
 
-    [self.appDelegate trackView:@"/wordpress/author"];
+- (void)viewDidLoad {
 
     self.delegate = self;
     self.tableView.rowHeight = 60;

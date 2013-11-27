@@ -201,7 +201,6 @@
 		5443EEFD177620B70000FFE8 /* XBLeftMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5443EE55177620B60000FFE8 /* XBLeftMenuViewController.m */; };
 		5443EEFF177620B70000FFE8 /* TTTweetTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5443EE58177620B60000FFE8 /* TTTweetTableViewController.m */; };
 		5443EF01177620B70000FFE8 /* XBWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5443EE5B177620B70000FFE8 /* XBWebViewController.m */; };
-		5443EF03177620B70000FFE8 /* WPAuthorTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5443EE5E177620B70000FFE8 /* WPAuthorTableViewController.m */; };
 		5443EF05177620B70000FFE8 /* WPCategoryTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5443EE60177620B70000FFE8 /* WPCategoryTableViewController.m */; };
 		5443EF07177620B70000FFE8 /* WPPostTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5443EE62177620B70000FFE8 /* WPPostTableViewController.m */; };
 		5443EF09177620B70000FFE8 /* WPRecentPostTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5443EE64177620B70000FFE8 /* WPRecentPostTableViewController.m */; };
@@ -419,6 +418,7 @@
 		DB34D4578F76484EBBF9DE93 /* XESponsor.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34D0A4CC294EC4C22FF6BD /* XESponsor.m */; };
 		DB34D45B28E777453933AACC /* navbar-landscape-ios7.png in Resources */ = {isa = PBXBuildFile; fileRef = DB34D428C45D77504F4E15E4 /* navbar-landscape-ios7.png */; };
 		DB34D4A4A6E4F5D1543A8999 /* XECardDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34D7B3A32230066DEF57A0 /* XECardDetailsViewController.m */; };
+		DB34D4C29EB537F14D5871D1 /* WPAuthorTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34D061A1D73CE9CAB57DF0 /* WPAuthorTableViewController.m */; };
 		DB34D4DC90DEC695090780D9 /* navbar-portrait-ios7@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DB34D0499ADBDEAF2A2CBCD0 /* navbar-portrait-ios7@2x.png */; };
 		DB34D4E13F43F301BC033F90 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB34D705388B6EF1933EB1E3 /* CoreLocation.framework */; };
 		DB34D50E705A9B3CEAF84583 /* WPPostContentImageElementCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DB34D7921EDB6872C8B3221F /* WPPostContentImageElementCell.xib */; };
@@ -732,8 +732,6 @@
 		5443EE58177620B60000FFE8 /* TTTweetTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTTweetTableViewController.m; sourceTree = "<group>"; };
 		5443EE5A177620B70000FFE8 /* XBWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XBWebViewController.h; sourceTree = "<group>"; };
 		5443EE5B177620B70000FFE8 /* XBWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XBWebViewController.m; sourceTree = "<group>"; };
-		5443EE5D177620B70000FFE8 /* WPAuthorTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WPAuthorTableViewController.h; sourceTree = "<group>"; };
-		5443EE5E177620B70000FFE8 /* WPAuthorTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WPAuthorTableViewController.m; sourceTree = "<group>"; };
 		5443EE5F177620B70000FFE8 /* WPCategoryTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WPCategoryTableViewController.h; sourceTree = "<group>"; };
 		5443EE60177620B70000FFE8 /* WPCategoryTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WPCategoryTableViewController.m; sourceTree = "<group>"; };
 		5443EE61177620B70000FFE8 /* WPPostTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WPPostTableViewController.h; sourceTree = "<group>"; };
@@ -924,6 +922,7 @@
 		AE3F961AF793434480B2C8FD /* libPods-XebiaTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-XebiaTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB34D0154E9979E5D300E8BF /* EBEventCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EBEventCell.h; sourceTree = "<group>"; };
 		DB34D0499ADBDEAF2A2CBCD0 /* navbar-portrait-ios7@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "navbar-portrait-ios7@2x.png"; sourceTree = "<group>"; };
+		DB34D061A1D73CE9CAB57DF0 /* WPAuthorTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WPAuthorTableViewController.m; sourceTree = "<group>"; };
 		DB34D0A4CC294EC4C22FF6BD /* XESponsor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XESponsor.m; sourceTree = "<group>"; };
 		DB34D0C49C3A04F978CDA147 /* VMVideoTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VMVideoTableViewController.h; sourceTree = "<group>"; };
 		DB34D0C8C2F603FE088B4DD4 /* WPAuthorCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WPAuthorCell.h; sourceTree = "<group>"; };
@@ -1093,6 +1092,7 @@
 		DB34DF039C3A138FECC6CB3B /* XEAbstractCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XEAbstractCell.m; sourceTree = "<group>"; };
 		DB34DF04C907FB61BA2D66B5 /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = ../../../../../Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.1.sdk/System/Library/Frameworks/CoreVideo.framework; sourceTree = "<group>"; };
 		DB34DF0EC54E9E1EECE42ED4 /* XECardDetailsPageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XECardDetailsPageViewController.m; sourceTree = "<group>"; };
+		DB34DF3A6B5A9B9D98B47DB6 /* WPAuthorTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WPAuthorTableViewController.h; sourceTree = "<group>"; };
 		DB34DF40B8B46F470EF4E6E1 /* WPPostContentCodeElementCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WPPostContentCodeElementCell.m; sourceTree = "<group>"; };
 		DB34DF42FC8A668B62D47E66 /* XBRightMenuCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XBRightMenuCell.m; sourceTree = "<group>"; };
 		DB34DF440D740A4ADAF7B0B2 /* WPPostContentStructuredElement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WPPostContentStructuredElement.m; sourceTree = "<group>"; };
@@ -1942,8 +1942,6 @@
 		5443EE5C177620B70000FFE8 /* WordPress */ = {
 			isa = PBXGroup;
 			children = (
-				5443EE5D177620B70000FFE8 /* WPAuthorTableViewController.h */,
-				5443EE5E177620B70000FFE8 /* WPAuthorTableViewController.m */,
 				5443EE5F177620B70000FFE8 /* WPCategoryTableViewController.h */,
 				5443EE60177620B70000FFE8 /* WPCategoryTableViewController.m */,
 				5443EE61177620B70000FFE8 /* WPPostTableViewController.h */,
@@ -1956,6 +1954,8 @@
 				5443EE68177620B70000FFE8 /* WPTagTableViewController.m */,
 				DB34D224B60927694681348F /* WPPostDetailsViewController.m */,
 				DB34D99B5ADEB23A380BC4A2 /* WPPostDetailsViewController.h */,
+				DB34DF3A6B5A9B9D98B47DB6 /* WPAuthorTableViewController.h */,
+				DB34D061A1D73CE9CAB57DF0 /* WPAuthorTableViewController.m */,
 			);
 			path = WordPress;
 			sourceTree = "<group>";
@@ -2944,7 +2944,6 @@
 				5443EEFD177620B70000FFE8 /* XBLeftMenuViewController.m in Sources */,
 				5443EEFF177620B70000FFE8 /* TTTweetTableViewController.m in Sources */,
 				5443EF01177620B70000FFE8 /* XBWebViewController.m in Sources */,
-				5443EF03177620B70000FFE8 /* WPAuthorTableViewController.m in Sources */,
 				5443EF05177620B70000FFE8 /* WPCategoryTableViewController.m in Sources */,
 				5443EF07177620B70000FFE8 /* WPPostTableViewController.m in Sources */,
 				5443EF09177620B70000FFE8 /* WPRecentPostTableViewController.m in Sources */,
@@ -3051,6 +3050,7 @@
 				DB34DFE1E17FB496A255F456 /* EBEventDetailsInformationPageViewController.m in Sources */,
 				DB34DD2AB8C4127883E29784 /* EBEventDetailsMapPageViewController.m in Sources */,
 				DB34D95B89C4082D63A95CF0 /* WPPostContentCode2ElementCell.m in Sources */,
+				DB34D4C29EB537F14D5871D1 /* WPAuthorTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -5,6 +5,7 @@
 
 
 #import "XBViewController.h"
+#import "UIViewController+XBAdditions.h"
 #import "MBProgressHUD.h"
 
 @interface XBViewController()
@@ -14,6 +15,17 @@
 @end
 
 @implementation XBViewController
+
+- (NSString *)trackPath {
+    return @"<NO_TRACK_PATH>";
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+
+    [self.appDelegate trackView:self.trackPath];
+
+    [super viewWillAppear:animated];
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];

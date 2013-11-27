@@ -36,4 +36,6 @@
 -(void)loadData;
 
 - (void)initialize;
+- (NSString *)trackPath;
+
 @end

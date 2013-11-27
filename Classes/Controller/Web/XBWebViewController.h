@@ -8,8 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "XBShareInfo.h"
+#import "XBViewController.h"
 
-@interface XBWebViewController : UIViewController<UIWebViewDelegate>
+@interface XBWebViewController : XBViewController<UIWebViewDelegate>
 
 @property (nonatomic, retain) IBOutlet UIWebView *webView;
 @property (nonatomic, retain) NSString *json;

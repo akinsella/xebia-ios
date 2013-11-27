@@ -10,7 +10,7 @@
 #import "XECard.h"
 #import "XECardDetailsPageViewController.h"
 
-@interface XECardDetailsQRCodeViewController : UIViewController
+@interface XECardDetailsQRCodeViewController : XBViewController
 
 @property(nonatomic, strong, readonly) XECard *card;
 

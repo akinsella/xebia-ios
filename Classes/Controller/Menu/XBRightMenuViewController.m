@@ -34,10 +34,12 @@ enum {
     return self;
 }
 
+- (NSString *)trackPath {
+    return @"/rightMenu";
+}
+
 - (void)viewDidLoad {
-    
-    [self.appDelegate trackView:@"/rightMenu"];
-    
+
     self.delegate = self;
     [self initViewIdentifiers];
     [self configureTableView];

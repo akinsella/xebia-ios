@@ -160,6 +160,7 @@ static NSString *const CrashlyticsApiKey = @"48e99a586053e4194936d79b6126ad23e9d
 }
 
 - (void)trackView:(NSString *)viewPath {
+    XBLog("[Tracker] view path tracked: '%@'", viewPath);
     [GAI.sharedInstance.defaultTracker set:kGAIScreenName value:viewPath];
     [GAI.sharedInstance.defaultTracker send:[[GAIDictionaryBuilder createAppView] build]];
 }

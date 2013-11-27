@@ -61,9 +61,12 @@
     } mutableCopy];
 }
 
-- (void)viewDidLoad {
+- (NSString *)trackPath {
+    return [NSString stringWithFormat:@"/blog/posts/%@",
+                    [self.currentPostType isEqualToString:@"recent"] ? @"posts/recent" : self.currentPostType];
+}
 
-    [self.appDelegate trackView:[NSString stringWithFormat:@"/wordpress/%@", [self.currentPostType isEqualToString:@"recent"] ? @"posts/recent" : self.currentPostType]];
+- (void)viewDidLoad {
 
     self.delegate = self;
     self.title = @"Posts";

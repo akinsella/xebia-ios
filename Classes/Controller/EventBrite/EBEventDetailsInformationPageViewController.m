@@ -9,6 +9,10 @@
 
 @implementation EBEventDetailsInformationPageViewController
 
+- (NSString *)trackPath {
+    return [NSString stringWithFormat:@"/events/%@/information", self.event.identifier];
+}
+
 - (id)initWithEvent:(EBEvent *)event {
     self = [super init];
     if (self) {

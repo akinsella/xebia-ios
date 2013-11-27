@@ -43,6 +43,10 @@
     return self;
 }
 
+- (NSString *)trackPath {
+    return [NSString stringWithFormat:@"/cards/categories/%@/%@", self.card.category.identifier, self.card.identifier];
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
 

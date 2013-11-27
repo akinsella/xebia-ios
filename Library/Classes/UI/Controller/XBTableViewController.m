@@ -11,6 +11,7 @@
 #import "XBToolkit.h"
 #import "XBArrayDataSource.h"
 #import "XBTableViewController.h"
+#import "UIViewController+XBAdditions.h"
 
 @interface XBTableViewController ()
 
@@ -55,7 +56,14 @@
     [self configureTableView];
 }
 
+- (NSString *)trackPath {
+    return @"<NO_TRACK_PATH>";
+}
+
 - (void)viewWillAppear:(BOOL)animated {
+
+    [self.appDelegate trackView:self.trackPath];
+
     [super viewWillAppear:animated];
     [self loadData];
 }

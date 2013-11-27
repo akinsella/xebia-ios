@@ -50,6 +50,10 @@ NSString *kHeader6Type = @"H6";
 
 @implementation WPPostDetailsViewController
 
+- (NSString *)trackPath {
+    return [NSString stringWithFormat:@"/blog/posts/%@", self.post.identifier];
+}
+
 - (id)initWithPost:(WPPost *)post
 {
     UIStoryboard *sb = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];

@@ -19,11 +19,13 @@
 
 @implementation EBEventTableViewController
 
+- (NSString *)trackPath {
+    return [NSString stringWithFormat:@"/events"];
+}
+
 - (void)viewDidLoad {
 
-    [self.appDelegate trackView:@"/eventbrite/event"];
-
-    self.delegate = self;
+   self.delegate = self;
     self.title = NSLocalizedString(@"Events", nil);
 
     [self customizeNavigationBarAppearance];

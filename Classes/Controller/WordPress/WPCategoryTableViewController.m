@@ -22,9 +22,11 @@
 
 @implementation WPCategoryTableViewController
 
-- (void)viewDidLoad {
+- (NSString *)trackPath {
+    return [NSString stringWithFormat:@"/blog/categories"];
+}
 
-    [self.appDelegate trackView:@"/wordpress/category"];
+- (void)viewDidLoad {
 
     self.delegate = self;
     self.title = NSLocalizedString(@"Categories", nil);

@@ -10,6 +10,10 @@
 
 @implementation EBEventDetailsMapPageViewController
 
+- (NSString *)trackPath {
+    return [NSString stringWithFormat:@"/events/%@/map", self.event.identifier];
+}
+
 - (id)initWithEvent:(EBEvent *)event {
     self = [super init];
     if (self) {

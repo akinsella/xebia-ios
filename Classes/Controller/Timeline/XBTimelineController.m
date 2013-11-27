@@ -8,7 +8,6 @@
 
 #import "XBTimelineController.h"
 #import "UIViewController+XBAdditions.h"
-#import "GAITracker.h"
 #import "XBPListConfigurationProvider.h"
 #import "XBBasicHttpQueryParamBuilder.h"
 #import "XBHttpJsonDataLoader.h"
@@ -38,9 +37,11 @@ NSString *kOtherType = @"other";
 
 @implementation XBTimelineController
 
-- (void)viewDidLoad {
+- (NSString *)trackPath {
+    return [NSString stringWithFormat:@"/timeline"];
+}
 
-    [self.appDelegate trackView:@"/timeline"];
+- (void)viewDidLoad {
 
     self.title = NSLocalizedString(@"Timeline", nil);
     self.view.backgroundColor = [UIColor colorWithHex:@"#F0F0F0"];

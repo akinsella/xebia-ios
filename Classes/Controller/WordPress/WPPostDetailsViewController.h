@@ -12,11 +12,12 @@
 #import <DTCoreText/DTAttributedTextContentView.h>
 #import "WPPost.h"
 #import "WPPostContentImageElementCell.h"
+#import "XBViewController.h"
 
 @class DTAttributedTextView;
 @protocol DTAttributedTextContentViewDelegate;
 
-@interface WPPostDetailsViewController : UIViewController<UIActionSheetDelegate, DTAttributedTextContentViewDelegate, UITableViewDelegate, UITableViewDataSource, WPPostContentElementCellDelegate>
+@interface WPPostDetailsViewController : XBViewController<UIActionSheetDelegate, DTAttributedTextContentViewDelegate, UITableViewDelegate, UITableViewDataSource, WPPostContentElementCellDelegate>
 
 @property(nonatomic, strong, readonly)WPPost *post;
 

@@ -20,11 +20,13 @@
 
 @implementation WPTagTableViewController
 
+- (NSString *)trackPath {
+    return [NSString stringWithFormat:@"/blog/tags"];
+}
+
 - (void)viewDidLoad {
 
     self.fixedRowHeight = YES;
-
-    [self.appDelegate trackView:@"/wordpress/tag"];
 
     self.delegate = self;
     self.title = NSLocalizedString(@"Tags", nil);

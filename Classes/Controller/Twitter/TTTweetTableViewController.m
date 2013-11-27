@@ -19,9 +19,11 @@
 
 @implementation TTTweetTableViewController
 
-- (void)viewDidLoad {
+- (NSString *)trackPath {
+    return [NSString stringWithFormat:@"/twitter/timeline"];
+}
 
-    [self.appDelegate trackView:@"/twitter/timeline"];
+- (void)viewDidLoad {
 
     self.delegate = self;
     self.title = NSLocalizedString(@"Tweets", nil);

@@ -19,9 +19,11 @@
 
 @implementation XECategoryTableViewController
 
-- (void)viewDidLoad {
+- (NSString *)trackPath {
+    return [NSString stringWithFormat:@"/cards/categories"];
+}
 
-    [self.appDelegate trackView:@"/essentials/category"];
+- (void)viewDidLoad {
 
     self.delegate = self;
     self.title = NSLocalizedString(@"Categories", nil);

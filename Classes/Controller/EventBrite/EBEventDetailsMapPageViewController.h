@@ -6,8 +6,9 @@
 
 #import <Foundation/Foundation.h>
 #import "EBEvent.h"
+#import "XBViewController.h"
 
-@interface EBEventDetailsMapPageViewController : UIViewController
+@interface EBEventDetailsMapPageViewController : XBViewController
 
 @property(nonatomic, strong)EBEvent *event;
 

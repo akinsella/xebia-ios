@@ -25,7 +25,6 @@
     [super viewDidLoad];
 
     XECard *card = self.cards[self.initialIndex];
-    [self.appDelegate trackView:[NSString stringWithFormat: @"/essentials/category/%@", card.category.identifier]];
     self.title = card.category.label;
 
     self.pageViewControllers = [[NSMutableArray alloc] init];

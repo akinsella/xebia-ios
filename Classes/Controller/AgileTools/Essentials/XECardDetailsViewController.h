@@ -11,8 +11,9 @@
 #import <DTCoreText/DTAttributedTextContentView.h>
 #import "XECard.h"
 #import "DTAttributedTextView.h"
+#import "XBViewController.h"
 
-@interface XECardDetailsViewController : UIViewController<UIScrollViewDelegate>
+@interface XECardDetailsViewController : XBViewController<UIScrollViewDelegate>
 
 @property(nonatomic, strong, readonly) NSArray *cards;
 

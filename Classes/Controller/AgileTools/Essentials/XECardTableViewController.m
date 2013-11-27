@@ -7,7 +7,6 @@
 
 
 #import "XECardTableViewController.h"
-#import "GAITracker.h"
 #import "UIViewController+XBAdditions.h"
 #import "XBPListConfigurationProvider.h"
 #import "XBBasicHttpQueryParamBuilder.h"
@@ -28,6 +27,10 @@
 
 @implementation XECardTableViewController
 
+- (NSString *)trackPath {
+    return [NSString stringWithFormat:@"/cards/categories/%@", self.category.identifier];
+}
+
 - (void)viewDidLoad {
 
     self.delegate = self;
@@ -39,11 +42,9 @@
     [super viewWillAppear:animated];
     if (self.category) {
         self.title = self.category.label;
-        [self.appDelegate trackView:[NSString stringWithFormat: @"/essentials/category/%@", self.category.identifier]];
     }
     else {
         self.title = NSLocalizedString(@"Cards", nil);
-        [self.appDelegate trackView:@"/essentials/card"];
     }
 
     self.navigationController.navigationBarHidden = NO;

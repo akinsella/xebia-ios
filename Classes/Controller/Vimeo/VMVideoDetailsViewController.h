@@ -9,10 +9,11 @@
 
 #import <UIKit/UIKit.h>
 #import <MediaPlayer/MediaPlayer.h>
+#import "XBViewController.h"
 
 @class VMVideo;
 
-@interface VMVideoDetailsViewController : UIViewController
+@interface VMVideoDetailsViewController : XBViewController
 
 @property (strong, nonatomic) IBOutlet UILabel *playCount;
 @property (strong, nonatomic) IBOutlet UILabel *likeCount;

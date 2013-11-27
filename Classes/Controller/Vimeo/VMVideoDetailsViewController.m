@@ -32,6 +32,10 @@
 
 @implementation VMVideoDetailsViewController
 
+- (NSString *)trackPath {
+    return [NSString stringWithFormat:@"/videos/%@", self.video.identifier];
+}
+
 - (id)initWithVideo:(VMVideo *)video {
     self = [super init];
     if (self) {
@@ -63,8 +67,6 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     if (self.video) {
-        [self.appDelegate trackView:[NSString stringWithFormat: @"/vimeo/video/%@", self.video.identifier]];
-
         [self refreshViewWithVideoData];
     }
 }

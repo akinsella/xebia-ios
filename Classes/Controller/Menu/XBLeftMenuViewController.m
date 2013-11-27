@@ -60,9 +60,11 @@ enum {
     [super initialize];
 }
 
-- (void)viewDidLoad {
+-(NSString *)trackPath {
+    return @"/leftMenu";
+}
 
-    [self.appDelegate trackView:@"/leftMenu"];
+- (void)viewDidLoad {
 
     self.delegate = self;
 

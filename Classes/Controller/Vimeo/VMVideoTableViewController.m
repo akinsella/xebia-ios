@@ -24,9 +24,11 @@
 
 @implementation VMVideoTableViewController
 
-- (void)viewDidLoad {
+- (NSString *)trackPath {
+    return [NSString stringWithFormat:@"/videos"];
+}
 
-    [self.appDelegate trackView:@"/vimeo/video"];
+- (void)viewDidLoad {
 
     self.delegate = self;
     self.tableView.rowHeight = 75;
