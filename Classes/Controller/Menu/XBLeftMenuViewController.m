@@ -126,7 +126,7 @@ enum {
             @{ @"title": NSLocalizedString(@"Blog", nil), @"imageName" :@"wordpress"},
             @{ @"title": NSLocalizedString(@"Tweets", nil), @"imageName" :@"twitter"},
             @{ @"title": NSLocalizedString(@"Events", nil), @"imageName" :@"eventbrite-menu"},
-            @{ @"title": NSLocalizedString(@"Vimeo", nil), @"imageName" :@"vimeo"}
+            @{ @"title": NSLocalizedString(@"Videos", nil), @"imageName" :@"vimeo"}
     ];
 
     return [XBArrayDataSource dataSourceWithArray:menuItems];

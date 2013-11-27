@@ -21,4 +21,5 @@
 - (void)revealViewControllerWithIdentifier:(NSString *)identifier;
 
 - (void)revealViewControllerWithURL:(NSURL *)url;
+
 @end

@@ -64,6 +64,10 @@
     return YES;
 }
 
+-(BOOL)showSelectedSeparatorLine {
+    return [self showSeparatorLine];
+}
+
 -(BOOL)customizeSelectedBackgroundView {
     return YES;
 }
@@ -77,7 +81,7 @@
 }
 
 - (UIColor *)gradientLayerColor {
-    return [UIColor colorWithHex:@"#3e0b34"];
+    return [UIColor colorWithHex:@"#6a205f"];
 }
 
 - (UIColor *)lineSeparatorColor {
@@ -131,7 +135,7 @@
         self.selectedGradientLayer = [self createGradientLayer];
         [self.selectedBackgroundView.layer insertSublayer:self.selectedGradientLayer atIndex:0];
 
-        if (self.showSeparatorLine) {
+        if (self.showSelectedSeparatorLine) {
             self.selectedShapeLayer = [self createBottomLineShapeLayout];
             [self.selectedBackgroundView.layer insertSublayer:self.selectedShapeLayer atIndex:1];
         }

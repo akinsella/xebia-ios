@@ -27,6 +27,8 @@
 
 -(BOOL)showSeparatorLine;
 
+- (BOOL)showSelectedSeparatorLine;
+
 -(BOOL)customizeSelectedBackgroundView;
 
 -(BOOL)customizeBackgroundView;
