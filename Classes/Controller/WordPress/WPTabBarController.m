@@ -31,20 +31,21 @@
         NSLocalizedString(@"Tags", nil)
     ];
 
-    if (!SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0")) {
-        NSUInteger index = 0;
-        for (UITabBarItem *tabBarItem in self.tabBar.items) {
-            NSString *selectedImage = [NSString stringWithFormat:@"%@-selected", tabBarImageNames[index]];
+    NSUInteger index = 0;
+    for (UITabBarItem *tabBarItem in self.tabBar.items) {
+        if (!SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0")) {
+        NSString *selectedImage = [NSString stringWithFormat:@"%@-selected", tabBarImageNames[index]];
 //            NSString *unselectedImage = [[NSString stringWithFormat:@"%@-unselected", tabBarImageNames[index]] suffixIfIOS6];
 //            NSString *selectedImage = tabBarImageNames[index];
-            NSString *unselectedImage = tabBarImageNames[index];
+        NSString *unselectedImage = tabBarImageNames[index];
 
-            [tabBarItem setFinishedSelectedImage:[UIImage imageNamed:selectedImage]
-                     withFinishedUnselectedImage:[UIImage imageNamed:unselectedImage]];
+        [tabBarItem setFinishedSelectedImage:[UIImage imageNamed:selectedImage]
+                 withFinishedUnselectedImage:[UIImage imageNamed:unselectedImage]];
 
-            tabBarItem.title = tabBarItemNames[index];
-            index++;
         }
+
+        tabBarItem.title = tabBarItemNames[index];
+        index++;
     }
 }
 
