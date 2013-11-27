@@ -25,6 +25,11 @@
     [self.tabBar setSelectedImageTintColor:[UIColor colorWithHex:@"#888888"]];
 
     NSArray *tabBarImageNames = @[@"34-coffee", @"44-shoebox", @"15-tags"];
+    NSArray *tabBarItemName = @[
+        NSLocalizedString(@"Posts", nil),
+        NSLocalizedString(@"Categories", nil),
+        NSLocalizedString(@"Tags", nil)
+    ];
 
     if (!SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0")) {
         NSUInteger index = 0;

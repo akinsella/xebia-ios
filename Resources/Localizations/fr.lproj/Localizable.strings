@@ -18,7 +18,7 @@
 "OK"="OK";
 "Error during loading"="Erreur pendant le chargement";
 "Cards"="Cartes";
-"Categories"="Categories";
+"Categories"="Catégories";
 "Events"="Evénements";
 "Error"="Erreurs";
 "No action for URL"="Pas d'action trouvée pour l'URL";
@@ -35,3 +35,6 @@
 "By"="Par";
 "read(s)"="lecture(s)";
 "Events"="Evénements";
+"Posts"="Posts";
+"Categories"="Catégories";
+"Tags"="Tags";

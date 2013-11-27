@@ -59,7 +59,7 @@
 
 
     self.categoriesLabel.text = post.categoriesFormatted;
-    self.authorLabel.text = post.authorFormatted;
+    self.authorLabel.text = [NSString stringWithFormat:@"%@ %@", NSLocalizedString(@"By", nil), post.authorFormatted];
 
     if (![post.primaryAuthor.slug isEqualToString:@"xebiafrance"]) {
 
