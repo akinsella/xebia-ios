@@ -1,104 +1,110 @@
 //
-// Created by Alexis Kinsella on 21/11/2013.
+// Created by Alexis Kinsella on 09/07/13.
 // Copyright (c) 2013 Xebia. All rights reserved.
 //
-
+// To change the template use AppCode | Preferences | File Templates.
+//
 
 #import "EBEventDetailsViewController.h"
-#import "EBEvent.h"
 #import "UIViewController+XBAdditions.h"
 
-@interface EBEventDetailsViewController()
-
-@property NSArray *eventViewControllers;
-
+@interface EBEventDetailsViewController ()
+@property(nonatomic, assign) NSUInteger initialIndex;
+@property(nonatomic, assign)BOOL pageControlUsed;
+@property(nonatomic, strong)NSArray *pageViewControllers;
+@property(nonatomic, strong)UIView *containerView;
 @end
 
 @implementation EBEventDetailsViewController
 
-- (id)initWithCoder:(NSCoder *)coder {
-    self = [super initWithCoder:coder];
-    if (self) {
-        [self configureView];
-    }
+- (void)viewDidLoad {
+    [super viewDidLoad];
 
-    return self;
-}
+    self.title = self.event.title;
 
-
-- (id)initWithEvent:(EBEvent *)event {
-    self = [super init];
-    if (self) {
-        self.
-        self.event = event;
-        [self configureView];
-    }
-
-    return self;
-}
-
-- (void)configureView {
-    self.dataSource = self;
-    self.eventViewControllers = @[
+    self.pageViewControllers = @[
             [self.appDelegate.viewControllerManager getOrCreateControllerWithIdentifier:@"eventDetailsInfoPage"],
             [self.appDelegate.viewControllerManager getOrCreateControllerWithIdentifier:@"eventDetailsMapPage"]
     ];
-    [self setViewControllers:self.eventViewControllers direction:UIPageViewControllerNavigationDirectionForward animated:NO completion:nil];
+
+
+    self.scrollView.pagingEnabled = YES;
+    self.scrollView.showsHorizontalScrollIndicator = NO;
+    self.scrollView.showsVerticalScrollIndicator = NO;
+    self.scrollView.scrollsToTop = NO;
+    self.scrollView.delegate = self;
+    self.scrollView.alwaysBounceHorizontal = NO;
+    self.scrollView.alwaysBounceVertical = NO;
+    self.scrollView.bounces = NO;
+    self.scrollView.translatesAutoresizingMaskIntoConstraints = NO;
+
+    [self.view addConstraints:
+            [NSLayoutConstraint constraintsWithVisualFormat:@"H:|[sv]|"
+                                                    options:kNilOptions
+                                                    metrics:nil
+                                                      views:@{@"sv":self.scrollView}]];
+    [self.view addConstraints:
+            [NSLayoutConstraint constraintsWithVisualFormat:@"V:|[sv]|"
+                                                    options:kNilOptions
+                                                    metrics:nil
+                                                      views:@{@"sv":self.scrollView}]];
+
+    self.pageControl.numberOfPages = self.pageViewControllers.count;
+    self.pageControl.currentPage = (NSInteger) self.initialIndex;
+
+    self.containerView = [[UIView alloc]initWithFrame:CGRectMake(0.0, 0.0, self.scrollView.frame.size.width * self.pageViewControllers.count, self.scrollView.frame.size.height)];
+    [self.scrollView addSubview:self.containerView];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    [self refreshViewWithEventData];
+
+    self.navigationController.navigationBarHidden = NO;
 }
 
+-(void)viewDidLayoutSubviews {
+    [super viewDidLayoutSubviews];
+
+    self.scrollView.contentSize = CGSizeMake(self.scrollView.frame.size.width * self.pageViewControllers.count, self.scrollView.frame.size.height);
+    self.scrollView.contentOffset = CGPointMake(self.scrollView.frame.size.width * self.initialIndex, 0.0);
+
+    self.containerView.frame = CGRectMake(0.0, 0.0, self.scrollView.frame.size.width * self.pageViewControllers.count, self.scrollView.frame.size.height);
+
+    [self.view layoutSubviews];
+}
 
 - (void)updateWithEvent:(EBEvent *)event {
     self.event = event;
-    [self refreshViewWithEventData];
+    self.initialIndex = (NSUInteger) index;
 }
 
--(void)refreshViewWithEventData {
-    self.title = self.event.title.length > 25 ?
-            [NSString stringWithFormat: @"%@ ...", [self.event.title substringToIndex:25]] :
-            self.event.title;
-}
-
-- (void)viewDidLoad {
-    [super viewDidLoad];
-}
-
-- (UIViewController *)pageViewController:(UIPageViewController *)pageViewController viewControllerBeforeViewController:(UIViewController *)viewController {
-
-    if (pageViewController == self.eventViewControllers.firstObject) {
-        return nil;
+- (void)scrollViewDidScroll:(UIScrollView *)sender {
+    if (self.pageControlUsed) {
+        return;
     }
 
-    NSUInteger index = [self.eventViewControllers indexOfObject:pageViewController];
-    index--;
-    return [self viewControllerAtIndex:index];
+    CGFloat pageWidth = self.scrollView.frame.size.width;
+    NSUInteger page = (NSUInteger) (floor((self.scrollView.contentOffset.x - pageWidth / 2) / pageWidth) + 1);
+    self.pageControl.currentPage = page;
 }
 
-- (UIViewController *)pageViewController:(UIPageViewController *)pageViewController viewControllerAfterViewController:(UIViewController *)viewController {
-
-    if (pageViewController == self.eventViewControllers.lastObject) {
-        return nil;
-    }
-
-    NSUInteger index = [self.eventViewControllers indexOfObject:pageViewController];
-    index++;
-    return [self viewControllerAtIndex:index];
+- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView {
+    self.pageControlUsed = NO;
 }
 
-- (UIViewController *)viewControllerAtIndex:(NSUInteger)index {
-    return self.eventViewControllers[index];
+- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
+    self.pageControlUsed = NO;
 }
 
-- (NSInteger)presentationCountForPageViewController:(UIPageViewController *)pageViewController {
-    return self.eventViewControllers.count;
-}
+- (IBAction)changePage:(id)sender {
+    NSUInteger page = (NSUInteger) self.pageControl.currentPage;
 
-- (NSInteger)presentationIndexForPageViewController:(UIPageViewController *)pageViewController {
-    return 0;
+    CGRect frame = self.scrollView.frame;
+    frame.origin.x = frame.size.width * page;
+    frame.origin.y = 0;
+    [self.scrollView scrollRectToVisible:frame animated:YES];
+
+    self.pageControlUsed = YES;
 }
 
 @end

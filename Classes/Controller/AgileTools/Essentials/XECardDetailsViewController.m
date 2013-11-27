@@ -6,8 +6,6 @@
 //
 
 #import "XECardDetailsViewController.h"
-#import "GAITracker.h"
-#import "UIViewController+XBAdditions.h"
 #import "XECategory.h"
 #import "XECardDetailsPageViewController.h"
 
@@ -62,16 +60,6 @@
     self.navigationController.navigationBarHidden = NO;
 }
 
-- (NSUInteger)supportedInterfaceOrientations
-{
-    return UIInterfaceOrientationMaskPortrait;
-}
-
-- (BOOL)shouldAutorotate
-{
-    return YES;
-}
-
 -(void)viewDidLayoutSubviews {
     [super viewDidLayoutSubviews];
     
@@ -84,10 +72,6 @@
     [self loadScrollViewWithPage:self.initialIndex - 1];
     [self loadScrollViewWithPage:self.initialIndex + 1];
     [self.view layoutSubviews];
-}
-
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation {
-    return NO;
 }
 
 - (void)loadScrollViewWithPage:(NSUInteger)page

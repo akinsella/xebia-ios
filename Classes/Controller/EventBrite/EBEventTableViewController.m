@@ -79,7 +79,7 @@
 
 -(void)onSelectCell: (UITableViewCell *)cell forObject: (id) object withIndex: (NSIndexPath *)indexPath {
     EBEvent *event = self.dataSource[(NSUInteger) indexPath.row];
-    EBEventDetailsViewController *eventDetailsViewController = (EBEventDetailsViewController *) [[self appDelegate].viewControllerManager getOrCreateControllerWithIdentifier:@"videoDetails"];
+    EBEventDetailsViewController *eventDetailsViewController = (EBEventDetailsViewController *) [[self appDelegate].viewControllerManager getOrCreateControllerWithIdentifier:@"eventDetails"];
     [eventDetailsViewController updateWithEvent:event];
     [self.navigationController pushViewController:eventDetailsViewController animated:YES];
 }

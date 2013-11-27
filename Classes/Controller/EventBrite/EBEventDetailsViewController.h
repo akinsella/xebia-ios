@@ -6,12 +6,17 @@
 
 #import <Foundation/Foundation.h>
 #import "EBEvent.h"
+#import "XBViewController.h"
 
-@interface EBEventDetailsViewController : UIPageViewController<UIPageViewControllerDataSource>
+@interface EBEventDetailsViewController : XBViewController<UIScrollViewDelegate>
 
 @property(nonatomic, strong)EBEvent *event;
 
-- (id)initWithEvent:(EBEvent *)event;
+@property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
+
+@property (weak, nonatomic) IBOutlet UIPageControl *pageControl;
+
+- (IBAction)changePage:(id)sender;
 
 - (void)updateWithEvent:(EBEvent *)event;
 
