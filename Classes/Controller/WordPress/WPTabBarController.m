@@ -25,7 +25,7 @@
     [self.tabBar setSelectedImageTintColor:[UIColor colorWithHex:@"#888888"]];
 
     NSArray *tabBarImageNames = @[@"34-coffee", @"44-shoebox", @"15-tags"];
-    NSArray *tabBarItemName = @[
+    NSArray *tabBarItemNames = @[
         NSLocalizedString(@"Posts", nil),
         NSLocalizedString(@"Categories", nil),
         NSLocalizedString(@"Tags", nil)
@@ -41,6 +41,8 @@
 
             [tabBarItem setFinishedSelectedImage:[UIImage imageNamed:selectedImage]
                      withFinishedUnselectedImage:[UIImage imageNamed:unselectedImage]];
+
+            tabBarItem.title = tabBarItemNames[index];
             index++;
         }
     }
