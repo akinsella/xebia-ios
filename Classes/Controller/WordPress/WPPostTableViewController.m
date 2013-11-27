@@ -63,7 +63,7 @@
 
 - (NSString *)trackPath {
     return [NSString stringWithFormat:@"/blog/posts/%@",
-                    [self.currentPostType isEqualToString:@"recent"] ? @"posts/recent" : self.currentPostType];
+                    [self.currentPostType isEqualToString:@"recent"] ? @"recent" : self.currentPostType];
 }
 
 - (void)viewDidLoad {
