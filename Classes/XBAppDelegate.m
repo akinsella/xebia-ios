@@ -97,9 +97,9 @@ static NSString *const CrashlyticsApiKey = @"48e99a586053e4194936d79b6126ad23e9d
     [self initApplicationRating];
 
 #if DEBUG
-//    [self.mainViewController revealViewControllerWithIdentifier:@"timeline"];
+    [self.mainViewController revealViewControllerWithIdentifier:@"timeline"];
 //    [[[WPURLHandler alloc] init] handleURL:[NSURL URLWithString:@"xebia://blog/posts/3035"]];
-    [self.mainViewController revealViewControllerWithIdentifier:@"events"];
+//    [self.mainViewController revealViewControllerWithIdentifier:@"events"];
 //    [self.mainViewController revealViewControllerWithIdentifier:@"tbBlog"];
 //    [self.mainViewController revealViewControllerWithIdentifier:@"tweets"];
 //    [self.mainViewController revealViewControllerWithIdentifier:@"videos"];
@@ -169,7 +169,7 @@ static NSString *const CrashlyticsApiKey = @"48e99a586053e4194936d79b6126ad23e9d
     NSDictionary *revealControllerOptions = @{
             PKRevealControllerAllowsOverdrawKey : @YES,
             PKRevealControllerDisablesFrontViewInteractionKey : @YES,
-            PKRevealControllerRecognizesPanningOnFrontViewKey : @NO
+            PKRevealControllerRecognizesPanningOnFrontViewKey : @YES
     };
 
     self.mainViewController = [XBMainViewController controllerWithCentralViewControllerIdentifier:@"centralNavigationController"

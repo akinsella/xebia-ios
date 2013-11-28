@@ -3,20 +3,15 @@
 // Copyright (c) 2013 Xebia. All rights reserved.
 //
 
-
-#import <Foundation/Foundation.h>
 #import "EBEvent.h"
 #import "XBViewController.h"
 
-@interface EBEventDetailsViewController : XBViewController<UIScrollViewDelegate>
-
-@property(nonatomic, strong)EBEvent *event;
+@interface EBEventDetailsViewController : XBViewController
 
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
+@property (weak, nonatomic) IBOutlet UIView *innerView;
 
-@property (weak, nonatomic) IBOutlet UIPageControl *pageControl;
-
-- (IBAction)changePage:(id)sender;
+@property(nonatomic, strong)EBEvent *event;
 
 - (void)updateWithEvent:(EBEvent *)event;
 

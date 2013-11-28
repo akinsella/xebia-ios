@@ -14,7 +14,6 @@
 #import "EBEventCell.h"
 #import "UIViewController+XBAdditions.h"
 #import "XBPListConfigurationProvider.h"
-#import "GAITracker.h"
 #import "EBEventDetailsViewController.h"
 
 @implementation EBEventTableViewController

@@ -284,6 +284,8 @@
 		54535583182C4FFE003532F7 /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54535581182C4FF6003532F7 /* AssetsLibrary.framework */; };
 		54535586182ED71F003532F7 /* paper_fibers_@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 54535584182ED71F003532F7 /* paper_fibers_@2x.png */; };
 		54535587182ED71F003532F7 /* paper_fibers.png in Resources */ = {isa = PBXBuildFile; fileRef = 54535585182ED71F003532F7 /* paper_fibers.png */; };
+		5470307A1847E0F300CDFD9E /* 83-calendar.png in Resources */ = {isa = PBXBuildFile; fileRef = 547030781847E0F300CDFD9E /* 83-calendar.png */; };
+		5470307B1847E0F300CDFD9E /* 83-calendar@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 547030791847E0F300CDFD9E /* 83-calendar@2x.png */; };
 		547A69D4181F06E6005B2B18 /* social-001-eventbrite.png in Resources */ = {isa = PBXBuildFile; fileRef = 547A69CC181F06E6005B2B18 /* social-001-eventbrite.png */; };
 		547A69D5181F06E6005B2B18 /* social-001-eventbrite@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 547A69CD181F06E6005B2B18 /* social-001-eventbrite@2x.png */; };
 		547A69D6181F06E6005B2B18 /* social-003_twitter.png in Resources */ = {isa = PBXBuildFile; fileRef = 547A69CE181F06E6005B2B18 /* social-003_twitter.png */; };
@@ -348,6 +350,8 @@
 		54A7485917849E0F00B9A907 /* www in Resources */ = {isa = PBXBuildFile; fileRef = 54A7485817849E0F00B9A907 /* www */; };
 		54A7485C178CA96600B9A907 /* xebia-essentials.png in Resources */ = {isa = PBXBuildFile; fileRef = 54A7485A178CA96600B9A907 /* xebia-essentials.png */; };
 		54A7485D178CA96600B9A907 /* xebia-essentials@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 54A7485B178CA96600B9A907 /* xebia-essentials@2x.png */; };
+		54A90CD31847EC2200133EF9 /* eventbrite-background.png in Resources */ = {isa = PBXBuildFile; fileRef = 54A90CD11847EC2200133EF9 /* eventbrite-background.png */; };
+		54A90CD41847EC2200133EF9 /* eventbrite-background@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 54A90CD21847EC2200133EF9 /* eventbrite-background@2x.png */; };
 		54AB456317C5651F00606F7F /* WPPostContentDefaultElementCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 54AB456117C5651F00606F7F /* WPPostContentDefaultElementCell.xib */; };
 		54AB456517C5651F00606F7F /* WPPostContentParagraphElementCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 54AB456217C5651F00606F7F /* WPPostContentParagraphElementCell.xib */; };
 		54B6B49317C80B9F00C9C835 /* WPPostContentCodeElementCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 54B6B49217C80B9F00C9C835 /* WPPostContentCodeElementCell.xib */; };
@@ -479,7 +483,6 @@
 		DB34DC81B24B0E3CA6133A2B /* VMVideoUrl.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34D103960A920D4B7FD7B8 /* VMVideoUrl.m */; };
 		DB34DCA31F2B13810B79BC4F /* XEDeck.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34D7E7E92FDE99630ABD8E /* XEDeck.m */; };
 		DB34DCAFF4031D4A897A8657 /* WPURLHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34D0D55AB1F9C807E391CC /* WPURLHandler.m */; };
-		DB34DD2AB8C4127883E29784 /* EBEventDetailsMapPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34D3478C2A044E88636655 /* EBEventDetailsMapPageViewController.m */; };
 		DB34DD42DBD4F01CE77D2061 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB34D14B542638C01069450B /* CFNetwork.framework */; };
 		DB34DD5E38D240D31441EB04 /* EBEventDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34DB21FD6535089989F06C /* EBEventDetailsViewController.m */; };
 		DB34DDB92CB08EB004BE2DA9 /* TTTweetCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DB34DA93BE919BF05DE33959 /* TTTweetCell.xib */; };
@@ -497,7 +500,6 @@
 		DB34DF9F8E57008C3855913A /* XBRightMenuCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34DF42FC8A668B62D47E66 /* XBRightMenuCell.m */; };
 		DB34DFAC53F94C1D2D35014A /* XBNewsTwitterCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34D863EA020DED48FD2875 /* XBNewsTwitterCell.m */; };
 		DB34DFBA1E889164B9B81413 /* XBNewsWordpressCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34DAB6A3B79C276160F5EC /* XBNewsWordpressCell.m */; };
-		DB34DFE1E17FB496A255F456 /* EBEventDetailsInformationPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34D4F8F56E8CAFB62ACA77 /* EBEventDetailsInformationPageViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -827,6 +829,8 @@
 		54535581182C4FF6003532F7 /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
 		54535584182ED71F003532F7 /* paper_fibers_@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "paper_fibers_@2x.png"; sourceTree = "<group>"; };
 		54535585182ED71F003532F7 /* paper_fibers.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = paper_fibers.png; sourceTree = "<group>"; };
+		547030781847E0F300CDFD9E /* 83-calendar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "83-calendar.png"; sourceTree = "<group>"; };
+		547030791847E0F300CDFD9E /* 83-calendar@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "83-calendar@2x.png"; sourceTree = "<group>"; };
 		547A69CC181F06E6005B2B18 /* social-001-eventbrite.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "social-001-eventbrite.png"; sourceTree = "<group>"; };
 		547A69CD181F06E6005B2B18 /* social-001-eventbrite@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "social-001-eventbrite@2x.png"; sourceTree = "<group>"; };
 		547A69CE181F06E6005B2B18 /* social-003_twitter.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "social-003_twitter.png"; sourceTree = "<group>"; };
@@ -883,6 +887,8 @@
 		54A7485817849E0F00B9A907 /* www */ = {isa = PBXFileReference; lastKnownFileType = folder; path = www; sourceTree = "<group>"; };
 		54A7485A178CA96600B9A907 /* xebia-essentials.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "xebia-essentials.png"; sourceTree = "<group>"; };
 		54A7485B178CA96600B9A907 /* xebia-essentials@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "xebia-essentials@2x.png"; sourceTree = "<group>"; };
+		54A90CD11847EC2200133EF9 /* eventbrite-background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "eventbrite-background.png"; sourceTree = "<group>"; };
+		54A90CD21847EC2200133EF9 /* eventbrite-background@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "eventbrite-background@2x.png"; sourceTree = "<group>"; };
 		54AB456117C5651F00606F7F /* WPPostContentDefaultElementCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WPPostContentDefaultElementCell.xib; sourceTree = "<group>"; };
 		54AB456217C5651F00606F7F /* WPPostContentParagraphElementCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WPPostContentParagraphElementCell.xib; sourceTree = "<group>"; };
 		54B6B49217C80B9F00C9C835 /* WPPostContentCodeElementCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WPPostContentCodeElementCell.xib; sourceTree = "<group>"; };
@@ -953,7 +959,6 @@
 		DB34D2D9034413AEAFF00840 /* XBAbstractURLHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XBAbstractURLHandler.h; sourceTree = "<group>"; };
 		DB34D31C0445BD5F00772EF8 /* video_placeholder_small@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "video_placeholder_small@2x.png"; sourceTree = "<group>"; };
 		DB34D32DCBB00AEEE9E7268B /* XECardCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XECardCell.h; sourceTree = "<group>"; };
-		DB34D3478C2A044E88636655 /* EBEventDetailsMapPageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EBEventDetailsMapPageViewController.m; sourceTree = "<group>"; };
 		DB34D35BC92FD61DE976BB20 /* XBViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XBViewController.m; sourceTree = "<group>"; };
 		DB34D37317CEB8076893367C /* EBEventDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EBEventDetailsViewController.h; sourceTree = "<group>"; };
 		DB34D38E1091A726A5C60A60 /* XECardCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XECardCell.m; sourceTree = "<group>"; };
@@ -973,7 +978,6 @@
 		DB34D4E5579AD7C7B4A4BDA4 /* WPPostContentHeaderElementCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WPPostContentHeaderElementCell.h; sourceTree = "<group>"; };
 		DB34D4EFB6B210E491FF08F5 /* run_tests.rb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.ruby; path = run_tests.rb; sourceTree = "<group>"; };
 		DB34D4F721008304510AF8B0 /* 69C78841-7884-4964-BEDD-0F29903ED49C.mobileprovision */ = {isa = PBXFileReference; lastKnownFileType = file.mobileprovision; path = "69C78841-7884-4964-BEDD-0F29903ED49C.mobileprovision"; sourceTree = "<group>"; };
-		DB34D4F8F56E8CAFB62ACA77 /* EBEventDetailsInformationPageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EBEventDetailsInformationPageViewController.m; sourceTree = "<group>"; };
 		DB34D4F9D90570713A57AAD0 /* XBNewsEventBriteCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = XBNewsEventBriteCell.xib; sourceTree = "<group>"; };
 		DB34D4FA19A6DAA619A951F4 /* XESponsor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XESponsor.h; sourceTree = "<group>"; };
 		DB34D506233D03D70749314A /* XBRightMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XBRightMenuViewController.h; sourceTree = "<group>"; };
@@ -1022,7 +1026,6 @@
 		DB34D8D7C5581033EBDFCB86 /* XBAbstractNewsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XBAbstractNewsCell.m; sourceTree = "<group>"; };
 		DB34D8E48DFF8B5B7BD42181 /* WPPostContentCode2ElementCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WPPostContentCode2ElementCell.m; sourceTree = "<group>"; };
 		DB34D91042354A075764148E /* XECard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XECard.m; sourceTree = "<group>"; };
-		DB34D95EEDED2AF924E082D1 /* EBEventDetailsMapPageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EBEventDetailsMapPageViewController.h; sourceTree = "<group>"; };
 		DB34D96E0DF6CCFCBDF91B05 /* WPAuthorCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WPAuthorCell.xib; sourceTree = "<group>"; };
 		DB34D979443629EB274C6B7C /* XECard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XECard.h; sourceTree = "<group>"; };
 		DB34D99B5ADEB23A380BC4A2 /* WPPostDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WPPostDetailsViewController.h; sourceTree = "<group>"; };
@@ -1060,7 +1063,6 @@
 		DB34DC226E31B0314FEF4887 /* EBURLHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EBURLHandler.h; sourceTree = "<group>"; };
 		DB34DC44DD8FCA65747A3416 /* XBLeftMenuCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XBLeftMenuCell.m; sourceTree = "<group>"; };
 		DB34DC70361C6AB0865E9DE9 /* navbar-landscape-iphone5-ios7@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "navbar-landscape-iphone5-ios7@2x.png"; sourceTree = "<group>"; };
-		DB34DC77A9793C5A076C7AB1 /* EBEventDetailsInformationPageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EBEventDetailsInformationPageViewController.h; sourceTree = "<group>"; };
 		DB34DC7A1E12D0835C8876CF /* WPPostContentCodeElementCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WPPostContentCodeElementCell.h; sourceTree = "<group>"; };
 		DB34DC7A2F8601F51BAB479D /* EBEventCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EBEventCell.xib; sourceTree = "<group>"; };
 		DB34DC859C70E09469188AE4 /* WPPostContentCode2ElementCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WPPostContentCode2ElementCell.xib; sourceTree = "<group>"; };
@@ -1265,6 +1267,10 @@
 		5443EA221775BEC40000FFE8 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				54A90CD11847EC2200133EF9 /* eventbrite-background.png */,
+				54A90CD21847EC2200133EF9 /* eventbrite-background@2x.png */,
+				547030781847E0F300CDFD9E /* 83-calendar.png */,
+				547030791847E0F300CDFD9E /* 83-calendar@2x.png */,
 				54276B05184504E70078E4E6 /* 15-tags-selected.png */,
 				54276B06184504E70078E4E6 /* 15-tags-selected@2x.png */,
 				54276B07184504E70078E4E6 /* 34-coffee-selected.png */,
@@ -1893,10 +1899,6 @@
 				5443EE48177620B60000FFE8 /* EBEventTableViewController.m */,
 				DB34DB21FD6535089989F06C /* EBEventDetailsViewController.m */,
 				DB34D37317CEB8076893367C /* EBEventDetailsViewController.h */,
-				DB34D4F8F56E8CAFB62ACA77 /* EBEventDetailsInformationPageViewController.m */,
-				DB34DC77A9793C5A076C7AB1 /* EBEventDetailsInformationPageViewController.h */,
-				DB34D3478C2A044E88636655 /* EBEventDetailsMapPageViewController.m */,
-				DB34D95EEDED2AF924E082D1 /* EBEventDetailsMapPageViewController.h */,
 			);
 			path = EventBrite;
 			sourceTree = "<group>";
@@ -2662,6 +2664,7 @@
 				54EDAFE8184503F200C9EE82 /* 15-tags-selected@2x.png in Resources */,
 				5443EAF61775BEC50000FFE8 /* navbar-landscape-iphone5.png in Resources */,
 				549A7F34183E3FF5002B2026 /* Images.xcassets in Resources */,
+				54A90CD41847EC2200133EF9 /* eventbrite-background@2x.png in Resources */,
 				5443EAF71775BEC50000FFE8 /* navbar-landscape-iphone5@2x.png in Resources */,
 				5443EAF81775BEC50000FFE8 /* navbar-landscape.png in Resources */,
 				5443EAF91775BEC50000FFE8 /* navbar-landscape@2x.png in Resources */,
@@ -2673,6 +2676,7 @@
 				5443EAFD1775BEC50000FFE8 /* navigationBarBackButton@2x.png in Resources */,
 				5443EAFF1775BEC50000FFE8 /* paper_fibers.png in Resources */,
 				547A69D4181F06E6005B2B18 /* social-001-eventbrite.png in Resources */,
+				5470307B1847E0F300CDFD9E /* 83-calendar@2x.png in Resources */,
 				5443EB001775BEC50000FFE8 /* paper_fibers_@2x.png in Resources */,
 				5443EB011775BEC50000FFE8 /* spacer.png in Resources */,
 				5443EB021775BEC50000FFE8 /* twitter.png in Resources */,
@@ -2698,6 +2702,7 @@
 				544714BF17764B61001F5153 /* TabBar@2x.png in Resources */,
 				544714C217764B61001F5153 /* TabBarItemSelectedImage.png in Resources */,
 				544714C317764B61001F5153 /* TabBarItemSelectedImage@2x.png in Resources */,
+				54A90CD31847EC2200133EF9 /* eventbrite-background.png in Resources */,
 				DB34D98E9DDB220C53C13531 /* EBEventCell.xib in Resources */,
 				DB34DDB92CB08EB004BE2DA9 /* TTTweetCell.xib in Resources */,
 				DB34DDBF4DE1F968488BF69C /* WPTagCell.xib in Resources */,
@@ -2779,6 +2784,7 @@
 				DB34D1C0A4422D4B2C8E96FC /* video_placeholder_small@2x.png in Resources */,
 				DB34D287DF321DF4415C449D /* video_placeholder_small.png in Resources */,
 				DB34D223E46507917C829DA7 /* navbar-landscape-ios7@2x.png in Resources */,
+				5470307A1847E0F300CDFD9E /* 83-calendar.png in Resources */,
 				DB34D59EB26F612C90550A31 /* navbar-landscape-iphone5-ios7@2x.png in Resources */,
 				DB34D4DC90DEC695090780D9 /* navbar-portrait-ios7@2x.png in Resources */,
 				DB34DAC325E395D6818105F6 /* navbar-portrait-ios7.png in Resources */,
@@ -3047,8 +3053,6 @@
 				DB34D559CE4071A336DCE3FB /* XBLeftMenuCell.m in Sources */,
 				DB34DF9F8E57008C3855913A /* XBRightMenuCell.m in Sources */,
 				DB34DD5E38D240D31441EB04 /* EBEventDetailsViewController.m in Sources */,
-				DB34DFE1E17FB496A255F456 /* EBEventDetailsInformationPageViewController.m in Sources */,
-				DB34DD2AB8C4127883E29784 /* EBEventDetailsMapPageViewController.m in Sources */,
 				DB34D95B89C4082D63A95CF0 /* WPPostContentCode2ElementCell.m in Sources */,
 				DB34D4C29EB537F14D5871D1 /* WPAuthorTableViewController.m in Sources */,
 			);
