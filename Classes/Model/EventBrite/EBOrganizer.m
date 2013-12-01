@@ -4,14 +4,16 @@
 // To change the template use AppCode | Preferences | File Templates.
 //
 
+#import <DCKeyValueObjectMapping/DCObjectMapping.h>
 #import "EBOrganizer.h"
-#import "DCParserConfiguration.h"
-#import "DCKeyValueObjectMapping.h"
 
 @implementation EBOrganizer
 
 + (DCParserConfiguration *)mappings {
     DCParserConfiguration *config = [DCParserConfiguration configuration];
+
+    [config addObjectMapping: [DCObjectMapping mapKeyPath:@"id" toAttribute:@"identifier" onClass:[self class]]];
+
     return config;
 }
 

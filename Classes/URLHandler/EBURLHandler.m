@@ -22,7 +22,7 @@
     XBLog(@"Navigate to path: %@", url);
 
     NSString * identifier = url.pathComponents.lastObject;
-    NSString *eventUrl = [[NSString stringWithFormat:@"/eventbrite/events/%@", identifier] stripLeadingSlash];
+    NSString *eventUrl = [[NSString stringWithFormat:@"/events/%@", identifier] stripLeadingSlash];
 
     [self fetchDataFromSourceWithResourcePath:eventUrl
                                       success:^(id json) {

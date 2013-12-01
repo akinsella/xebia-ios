@@ -626,11 +626,11 @@
                         <rect key="frame" x="0.0" y="64" width="320" height="560"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="duR-6B-J0n">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="duR-6B-J0n">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="560"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="L19-5x-Io0" userLabel="Inner View">
+                                    <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="L19-5x-Io0" userLabel="Inner View">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="560"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                         <subviews>
@@ -685,6 +685,9 @@
                                                                     <color key="titleColor" red="0.97647058819999999" green="0.32549019610000002" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                                 </state>
+                                                                <connections>
+                                                                    <action selector="openEventInWebView" destination="9RA-Ql-GIc" eventType="touchUpInside" id="LVs-ED-WtL"/>
+                                                                </connections>
                                                             </button>
                                                         </subviews>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -750,8 +753,11 @@
                                                                     <color key="titleColor" red="0.97647058819999999" green="0.32549019610000002" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                                 </state>
+                                                                <connections>
+                                                                    <action selector="openEventInWebView" destination="9RA-Ql-GIc" eventType="touchUpInside" id="gJ6-d3-R5s"/>
+                                                                </connections>
                                                             </button>
-                                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QHr-n3-ejk">
+                                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QHr-n3-ejk">
                                                                 <rect key="frame" x="0.0" y="44" width="320" height="103"/>
                                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -815,16 +821,36 @@
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                     </view>
                                 </subviews>
+                                <constraints>
+                                    <constraint firstItem="L19-5x-Io0" firstAttribute="top" secondItem="duR-6B-J0n" secondAttribute="top" id="Az2-sH-eV5"/>
+                                    <constraint firstAttribute="bottom" secondItem="L19-5x-Io0" secondAttribute="bottom" id="Bn9-So-CQo"/>
+                                    <constraint firstAttribute="trailing" secondItem="L19-5x-Io0" secondAttribute="trailing" id="LFH-45-aTb"/>
+                                    <constraint firstItem="L19-5x-Io0" firstAttribute="leading" secondItem="duR-6B-J0n" secondAttribute="leading" id="zPx-2H-5vy"/>
+                                </constraints>
                             </scrollView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="duR-6B-J0n" firstAttribute="leading" secondItem="hvd-Jp-A5u" secondAttribute="leading" id="eTe-ga-gaC"/>
+                            <constraint firstItem="duR-6B-J0n" firstAttribute="top" secondItem="d27-Qq-OT0" secondAttribute="bottom" id="gdk-7Z-fw7"/>
+                            <constraint firstAttribute="trailing" secondItem="duR-6B-J0n" secondAttribute="trailing" id="qos-N5-m3x"/>
+                            <constraint firstItem="C1Y-6M-oon" firstAttribute="top" secondItem="duR-6B-J0n" secondAttribute="bottom" id="tmw-CO-hmq"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Event Details" id="xUS-us-yph"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black" translucent="NO" prompted="NO"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <connections>
+                        <outlet property="avatarImageView" destination="4tj-bl-xgC" id="gTT-ys-EJq"/>
+                        <outlet property="dateEndLabel" destination="uu1-ys-z4L" id="JdN-kq-eIg"/>
+                        <outlet property="dateStartLabel" destination="tt8-bW-DK1" id="DOp-nm-Yay"/>
+                        <outlet property="excerptTextView" destination="QHr-n3-ejk" id="lLi-DU-00y"/>
                         <outlet property="innerView" destination="L19-5x-Io0" id="2Tj-Ux-8kR"/>
-                        <outlet property="scrollView" destination="duR-6B-J0n" id="Z9d-Md-9ha"/>
+                        <outlet property="logoImageView" destination="yg4-j5-mkN" id="lU7-Oa-cQi"/>
+                        <outlet property="scrollView" destination="duR-6B-J0n" id="9s7-wl-6Kj"/>
+                        <outlet property="timeEndLabel" destination="ycm-GA-CfQ" id="i6T-DS-Otj"/>
+                        <outlet property="timeStartLabel" destination="a4A-q9-Gcc" id="QMx-nb-m66"/>
+                        <outlet property="titleLabel" destination="hrj-Wv-Apd" id="xCa-pB-3sf"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rdc-fv-a4X" userLabel="First Responder" sceneMemberID="firstResponder"/>

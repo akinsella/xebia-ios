@@ -23,7 +23,7 @@
     XBLog(@"Navigate to path: %@", url);
 
     NSString * identifier = url.pathComponents.lastObject;
-    NSString *videoUrl = [[NSString stringWithFormat:@"/vimeo/videos/%@", identifier] stripLeadingSlash];
+    NSString *videoUrl = [[NSString stringWithFormat:@"/videos/%@", identifier] stripLeadingSlash];
 
     [self fetchDataFromSourceWithResourcePath:videoUrl
                                       success:^(id json) {

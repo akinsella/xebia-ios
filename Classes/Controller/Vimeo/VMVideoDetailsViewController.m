@@ -76,7 +76,7 @@
     UITouch *touch = touches.anyObject;
 
     if (touch.view == self.videoImage) {
-        [self videoImageTapped];
+        [self onVideoTapped];
     }
 }
 
@@ -96,28 +96,8 @@
     return result;
 }
 
-- (XBReloadableArrayDataSource *)buildVideoUrlsDataSource {
-    XBHttpClient *httpClient = [[XBPListConfigurationProvider provider] httpClient];
-    XBBasicHttpQueryParamBuilder *httpQueryParamBuilder = [XBBasicHttpQueryParamBuilder builderWithDictionary:@{}];
-
-    NSString *path = [NSString stringWithFormat:@"/vimeo/videos/%@/urls", self.video.identifier];
-    XBHttpJsonDataLoader *dataLoader = [XBHttpJsonDataLoader dataLoaderWithHttpClient:httpClient
-                                                                httpQueryParamBuilder:httpQueryParamBuilder
-                                                                         resourcePath:path];
-
-    XBJsonToArrayDataMapper *dataMapper = [XBJsonToArrayDataMapper mapperWithRootKeyPath:nil typeClass:[VMVideoUrl class]];
-    return [XBReloadableArrayDataSource dataSourceWithDataLoader:dataLoader dataMapper:dataMapper];
-}
-
-- (void)videoImageTapped {
-    XBReloadableArrayDataSource *dataSource = [self buildVideoUrlsDataSource];
-    [dataSource loadDataWithCallback:^{
-        [self dataLoadedWithVideoUrls: dataSource.array];
-    }];
-}
-
--(void)dataLoadedWithVideoUrls:(NSArray *)videoUrls {
-    VMVideoUrl *videoUrl = Underscore.array(videoUrls).find(^BOOL(VMVideoUrl * videoUrlEntry) {
+-(void)onVideoTapped {
+    VMVideoUrl *videoUrl = Underscore.array(self.video.videoUrls).find(^BOOL(VMVideoUrl * videoUrlEntry) {
         return [videoUrlEntry.codec isEqualToString:@"hls"] && [videoUrlEntry.type isEqualToString:@"all"];
     });
 

@@ -22,7 +22,7 @@
     XBLog(@"Navigate to path: %@", url);
 
     NSString *identifier = url.pathComponents.lastObject;
-    NSString *postUrl = [[NSString stringWithFormat:@"/wordpress/posts/%@", identifier] stripLeadingSlash];
+    NSString *postUrl = [[NSString stringWithFormat:@"/blog/posts/%@", identifier] stripLeadingSlash];
 
     [self fetchDataFromSourceWithResourcePath:postUrl
                                       success:^(id fetchedJson) {

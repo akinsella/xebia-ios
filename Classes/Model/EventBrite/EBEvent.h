@@ -14,16 +14,16 @@
 @property (nonatomic, strong) NSString *type;
 @property (nonatomic, strong) NSNumber *capacity;
 @property (nonatomic, strong) NSString *title;
-@property (nonatomic, strong) NSDate *start_date;
-@property (nonatomic, strong) NSDate *end_date;
-@property (nonatomic, strong) NSString *timezone_offset;
+@property (nonatomic, strong) NSDate *startDate;
+@property (nonatomic, strong) NSDate *endDate;
+@property (nonatomic, strong) NSString *timezoneOffset;
 @property (nonatomic, strong) NSString *tags;
 @property (nonatomic, strong) NSDate *created;
 @property (nonatomic, strong) NSString *url;
 @property (nonatomic, strong) NSString *privacy;
 @property (nonatomic, strong) NSString *status;
 @property (nonatomic, strong) NSString *description_;
-@property (nonatomic, strong) NSString *description_plain_text;
+@property (nonatomic, strong) NSString *descriptionPlainText;
 @property (nonatomic, strong) EBVenue *venue;
 @property (nonatomic, strong) EBOrganizer *organizer;
 

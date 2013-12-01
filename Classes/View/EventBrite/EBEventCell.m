@@ -88,11 +88,11 @@
     [self.imageView setImage: self.defaultImage];
     self.titleLabel.text = event.title;
 
-    NSString *description = event.description_plain_text;
+    NSString *description = event.descriptionPlainText;
 
     description = [description stringByReplacingOccurrencesOfString:@"\r\n" withString:@""];
 
-    if ([event.description_plain_text length] > 128) {
+    if ([event.descriptionPlainText length] > 128) {
         description = [NSString stringWithFormat:@"%@ ...",  [description substringToIndex:128]];
     }
 
@@ -105,7 +105,7 @@
 
     self.descriptionLabel.text = description;
     
-    self.dateLabel.text = [NSString stringWithFormat: @"%@", [event.created formatDayMonth]];
+    self.dateLabel.text = [NSString stringWithFormat: @"%@", [event.startDate formatDayMonth]];
 }
 
 - (void)attributedLabel:(TTTAttributedLabel *)label didSelectLinkWithURL:(NSURL *)url {

@@ -309,7 +309,6 @@
 		5485016017DCBB0A002216C4 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB34D43948A4D9409E09F947 /* MessageUI.framework */; };
 		5485016117DCBB0A002216C4 /* Twitter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB34D5CB72485B6E20272C19 /* Twitter.framework */; };
 		5485016217DCBB0A002216C4 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB34DADE223E5899F8B6B00B /* Security.framework */; };
-		5485016317DCBB0A002216C4 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB34DE96DB0AD5C965696E37 /* MapKit.framework */; };
 		5485016417DCBB0A002216C4 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB34DD4E1507AF2BCB62C8A7 /* Social.framework */; };
 		5485016517DCBB0A002216C4 /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB34DF04C907FB61BA2D66B5 /* CoreVideo.framework */; };
 		5485016617DCBB0A002216C4 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB34DF58131095156D022417 /* CoreMedia.framework */; };
@@ -352,6 +351,10 @@
 		54A7485D178CA96600B9A907 /* xebia-essentials@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 54A7485B178CA96600B9A907 /* xebia-essentials@2x.png */; };
 		54A90CD31847EC2200133EF9 /* eventbrite-background.png in Resources */ = {isa = PBXBuildFile; fileRef = 54A90CD11847EC2200133EF9 /* eventbrite-background.png */; };
 		54A90CD41847EC2200133EF9 /* eventbrite-background@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 54A90CD21847EC2200133EF9 /* eventbrite-background@2x.png */; };
+		54A90CD6184B890100133EF9 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54A90CD5184B890100133EF9 /* MapKit.framework */; };
+		54A90CD7184B890900133EF9 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54A90CD5184B890100133EF9 /* MapKit.framework */; };
+		54A90CD9184B8A6400133EF9 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54A90CD8184B8A6400133EF9 /* CoreLocation.framework */; };
+		54A90CDA184B8A7400133EF9 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54A90CD8184B8A6400133EF9 /* CoreLocation.framework */; };
 		54AB456317C5651F00606F7F /* WPPostContentDefaultElementCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 54AB456117C5651F00606F7F /* WPPostContentDefaultElementCell.xib */; };
 		54AB456517C5651F00606F7F /* WPPostContentParagraphElementCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 54AB456217C5651F00606F7F /* WPPostContentParagraphElementCell.xib */; };
 		54B6B49317C80B9F00C9C835 /* WPPostContentCodeElementCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 54B6B49217C80B9F00C9C835 /* WPPostContentCodeElementCell.xib */; };
@@ -402,7 +405,6 @@
 		DB34D19D3D19B1F160EA25A7 /* WPPostContentParagraphElementCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34D0D9CEEE5E95E15C73A2 /* WPPostContentParagraphElementCell.m */; };
 		DB34D1C0A4422D4B2C8E96FC /* video_placeholder_small@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DB34D31C0445BD5F00772EF8 /* video_placeholder_small@2x.png */; };
 		DB34D1DD12F4603A8CD5E2FD /* XECardTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34DAF58EBF524C851113DF /* XECardTableViewController.m */; };
-		DB34D1DEADC4E02B880126A6 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB34DE96DB0AD5C965696E37 /* MapKit.framework */; };
 		DB34D1EC375F15EF181F17F5 /* VMThumbnail.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34D3ACE055F5BE09F95779 /* VMThumbnail.m */; };
 		DB34D1F5746C1A99D77D2192 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB34DF58131095156D022417 /* CoreMedia.framework */; };
 		DB34D2178AD0916DF2038F6C /* XECard.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34D91042354A075764148E /* XECard.m */; };
@@ -889,6 +891,8 @@
 		54A7485B178CA96600B9A907 /* xebia-essentials@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "xebia-essentials@2x.png"; sourceTree = "<group>"; };
 		54A90CD11847EC2200133EF9 /* eventbrite-background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "eventbrite-background.png"; sourceTree = "<group>"; };
 		54A90CD21847EC2200133EF9 /* eventbrite-background@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "eventbrite-background@2x.png"; sourceTree = "<group>"; };
+		54A90CD5184B890100133EF9 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		54A90CD8184B8A6400133EF9 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		54AB456117C5651F00606F7F /* WPPostContentDefaultElementCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WPPostContentDefaultElementCell.xib; sourceTree = "<group>"; };
 		54AB456217C5651F00606F7F /* WPPostContentParagraphElementCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WPPostContentParagraphElementCell.xib; sourceTree = "<group>"; };
 		54B6B49217C80B9F00C9C835 /* WPPostContentCodeElementCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WPPostContentCodeElementCell.xib; sourceTree = "<group>"; };
@@ -1117,6 +1121,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				54A90CDA184B8A7400133EF9 /* CoreLocation.framework in Frameworks */,
+				54A90CD6184B890100133EF9 /* MapKit.framework in Frameworks */,
 				54535582182C4FF6003532F7 /* AssetsLibrary.framework in Frameworks */,
 				5493E74A179C7200009C0D2B /* AVFoundation.framework in Frameworks */,
 				54A7483F177A480E00B9A907 /* MediaPlayer.framework in Frameworks */,
@@ -1134,7 +1140,6 @@
 				DB34DE741118B4A0C6E2A745 /* MessageUI.framework in Frameworks */,
 				DB34DE5FFE92DC6FF69467BC /* Twitter.framework in Frameworks */,
 				DB34DB9B24183178EE137070 /* Security.framework in Frameworks */,
-				DB34D1DEADC4E02B880126A6 /* MapKit.framework in Frameworks */,
 				DB34D065E5EB4E434B6F3D37 /* Social.framework in Frameworks */,
 				DB34D5951441E41E8530C803 /* CoreVideo.framework in Frameworks */,
 				DB34D1F5746C1A99D77D2192 /* CoreMedia.framework in Frameworks */,
@@ -1149,6 +1154,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				54A90CD9184B8A6400133EF9 /* CoreLocation.framework in Frameworks */,
+				54A90CD7184B890900133EF9 /* MapKit.framework in Frameworks */,
 				54535583182C4FFE003532F7 /* AssetsLibrary.framework in Frameworks */,
 				5438726917DA8DFA00750791 /* AVFoundation.framework in Frameworks */,
 				5438726A17DA8E0800750791 /* MediaPlayer.framework in Frameworks */,
@@ -1164,7 +1171,6 @@
 				5485016017DCBB0A002216C4 /* MessageUI.framework in Frameworks */,
 				5485016117DCBB0A002216C4 /* Twitter.framework in Frameworks */,
 				5485016217DCBB0A002216C4 /* Security.framework in Frameworks */,
-				5485016317DCBB0A002216C4 /* MapKit.framework in Frameworks */,
 				5485016417DCBB0A002216C4 /* Social.framework in Frameworks */,
 				5485016517DCBB0A002216C4 /* CoreVideo.framework in Frameworks */,
 				5485016617DCBB0A002216C4 /* CoreMedia.framework in Frameworks */,
@@ -2202,6 +2208,8 @@
 		54C2DEE915BDFAFB00CABB12 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				54A90CD8184B8A6400133EF9 /* CoreLocation.framework */,
+				54A90CD5184B890100133EF9 /* MapKit.framework */,
 				54276B1618450B9A0078E4E6 /* Crashlytics.framework */,
 				54535581182C4FF6003532F7 /* AssetsLibrary.framework */,
 				54A74840177CF28E00B9A907 /* AVFoundation.framework */,
