@@ -18,6 +18,8 @@
 
 - (NSString *)formatTime;
 
+- (NSString *)formatAuto;
+
 - (NSString *)formatDateOrTime;
 
 - (NSString *)formatDayLongMonth;

@@ -55,7 +55,13 @@
     self.post = post;
     
     self.titleLabel.text = post.title;
-    self.dateLabel.text = [NSString stringWithFormat:@"%@", [post.date isToday] ? [post.date formatTime] : [post.date formatDayMonth]];
+
+    NSCalendar *cal = [[NSCalendar alloc] init];
+    NSDateComponents *postDateComponents = [cal components:0 fromDate:post.date];
+    NSDateComponents *currentDateComponents = [cal components:0 fromDate:[NSDate date]];
+    int postDateYear = [postDateComponents year];
+    int currentDateYear = [postDateComponents year];
+    self.dateLabel.text = [NSString stringWithFormat:@"%@", [post.date formatAuto]];
 
 
     self.categoriesLabel.text = post.categoriesFormatted;

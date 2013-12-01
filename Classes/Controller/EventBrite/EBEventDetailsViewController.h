@@ -6,7 +6,7 @@
 #import "EBEvent.h"
 #import "XBViewController.h"
 
-@interface EBEventDetailsViewController : XBViewController
+@interface EBEventDetailsViewController : XBViewController<MKMapViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (weak, nonatomic) IBOutlet UIView *innerView;
@@ -19,6 +19,10 @@
 @property (weak, nonatomic) IBOutlet UILabel *timeEndLabel;
 @property (weak, nonatomic) IBOutlet UITextView *excerptTextView;
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
+@property (weak, nonatomic) IBOutlet UILabel *organizerLabel;
+@property (weak, nonatomic) IBOutlet UILabel *addressLabel;
+@property (weak, nonatomic) IBOutlet UILabel *address2Label;
+@property (weak, nonatomic) IBOutlet UILabel *cityLabel;
 
 @property(nonatomic, strong)EBEvent *event;
 

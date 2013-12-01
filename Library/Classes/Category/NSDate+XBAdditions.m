@@ -92,6 +92,13 @@
     return [dateFormatter stringFromDate:self];
 }
 
+- (NSString *)formatShortDate {
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setLocale:[[NSLocale alloc] initWithLocaleIdentifier:kDefaultLocale]];
+    [dateFormatter setDateFormat:NSLocalizedString(@"dd'/'MM'/'yy", nil)];
+    return [dateFormatter stringFromDate:self];
+}
+
 - (NSString *)formatDayMonth {
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     [dateFormatter setLocale:[[NSLocale alloc] initWithLocaleIdentifier:kDefaultLocale]];
@@ -104,6 +111,15 @@
     [dateFormatter setLocale:[[NSLocale alloc] initWithLocaleIdentifier:kDefaultLocale]];
     [dateFormatter setDateFormat:NSLocalizedString(@"HH'h'mm", nil)];
     return [dateFormatter stringFromDate:self];
+}
+
+-(NSString *)formatAuto {
+    NSCalendar *cal = [NSCalendar currentCalendar];
+    NSDateComponents *dateComponents = [cal components:NSYearCalendarUnit fromDate:self];
+    NSDateComponents *currentDateComponents = [cal components:NSYearCalendarUnit fromDate:[NSDate date]];
+    int dateYear = [dateComponents year];
+    int currentDateYear = [currentDateComponents year];
+    return [NSString stringWithFormat:@"%@", [self isToday] ? [self formatTime] : (dateYear == currentDateYear ? [self formatDayMonth] : [self formatShortDate])];
 }
 
 - (NSString *)formatDayLongMonth {

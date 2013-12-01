@@ -105,7 +105,7 @@
 
     self.descriptionLabel.text = description;
     
-    self.dateLabel.text = [NSString stringWithFormat: @"%@", [event.startDate formatDayMonth]];
+    self.dateLabel.text = [NSString stringWithFormat: @"%@", [event.startDate formatAuto]];
 }
 
 - (void)attributedLabel:(TTTAttributedLabel *)label didSelectLinkWithURL:(NSURL *)url {

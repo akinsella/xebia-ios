@@ -623,15 +623,15 @@
                         <viewControllerLayoutGuide type="bottom" id="C1Y-6M-oon"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="hvd-Jp-A5u" userLabel="Global View">
-                        <rect key="frame" x="0.0" y="64" width="320" height="560"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="555"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="duR-6B-J0n">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="560"/>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="duR-6B-J0n">
+                                <rect key="frame" x="0.0" y="-5" width="320" height="555"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="L19-5x-Io0" userLabel="Inner View">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="560"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="555"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BSD-h9-K8Q" userLabel="Outer Logo View">
@@ -791,21 +791,28 @@
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <subviews>
                                                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Xebia" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tpY-3o-icm">
-                                                                <rect key="frame" x="7" y="6" width="293" height="21"/>
+                                                                <rect key="frame" x="7" y="2" width="293" height="21"/>
                                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                                 <color key="textColor" red="0.13333333333333333" green="0.13333333333333333" blue="0.13333333333333333" alpha="1" colorSpace="calibratedRGB"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="156 Boulevard Haussmann" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F1z-OY-BHd">
-                                                                <rect key="frame" x="7" y="22" width="293" height="21"/>
+                                                                <rect key="frame" x="7" y="18" width="293" height="21"/>
+                                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Rez-de-chaussée" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qfp-xR-wHf">
+                                                                <rect key="frame" x="7" y="30" width="293" height="21"/>
                                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="75008 Paris" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="399-aW-k22">
-                                                                <rect key="frame" x="7" y="35" width="91" height="21"/>
+                                                                <rect key="frame" x="7" y="43" width="293" height="21"/>
                                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
@@ -841,12 +848,16 @@
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black" translucent="NO" prompted="NO"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <connections>
+                        <outlet property="address2Label" destination="Qfp-xR-wHf" id="mzE-2F-ExI"/>
+                        <outlet property="addressLabel" destination="F1z-OY-BHd" id="2EU-vj-wRX"/>
                         <outlet property="avatarImageView" destination="4tj-bl-xgC" id="gTT-ys-EJq"/>
+                        <outlet property="cityLabel" destination="399-aW-k22" id="3ff-EY-MhD"/>
                         <outlet property="dateEndLabel" destination="uu1-ys-z4L" id="JdN-kq-eIg"/>
                         <outlet property="dateStartLabel" destination="tt8-bW-DK1" id="DOp-nm-Yay"/>
                         <outlet property="excerptTextView" destination="QHr-n3-ejk" id="lLi-DU-00y"/>
                         <outlet property="innerView" destination="L19-5x-Io0" id="2Tj-Ux-8kR"/>
                         <outlet property="logoImageView" destination="yg4-j5-mkN" id="lU7-Oa-cQi"/>
+                        <outlet property="organizerLabel" destination="tpY-3o-icm" id="OOE-Eu-ORp"/>
                         <outlet property="scrollView" destination="duR-6B-J0n" id="9s7-wl-6Kj"/>
                         <outlet property="timeEndLabel" destination="ycm-GA-CfQ" id="i6T-DS-Otj"/>
                         <outlet property="timeStartLabel" destination="a4A-q9-Gcc" id="QMx-nb-m66"/>

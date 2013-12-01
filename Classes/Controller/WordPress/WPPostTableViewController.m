@@ -113,7 +113,7 @@
 
     NSString *resourcePath = [self.currentPostType isEqualToString:@"recent"] ?
             @"/blog/posts/recent" :
-            [NSString stringWithFormat:@"/blog/%@/%@", self.currentPostType, self.identifier];
+            [NSString stringWithFormat:@"/blog/%@/%@/posts", self.currentPostType, self.identifier];
 
     return resourcePath;
 }
