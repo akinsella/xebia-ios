@@ -30,8 +30,8 @@
     STAssertEquals([wpAuthor.identifier unsignedIntegerValue], 50U, nil);
     STAssertEqualObjects(wpAuthor.slug, @"akinsella", nil);
     STAssertEqualObjects(wpAuthor.name, @"Alexis Kinsella", nil);
-    STAssertEqualObjects(wpAuthor.firstname, @"Alexis", nil);
-    STAssertEqualObjects(wpAuthor.lastname, @"Kinsella", nil);
+    STAssertEqualObjects(wpAuthor.firstName, @"Alexis", nil);
+    STAssertEqualObjects(wpAuthor.lastName, @"Kinsella", nil);
     STAssertEqualObjects(wpAuthor.nickname, @"akinsella", nil);
     STAssertEqualObjects(wpAuthor.url, @"http://www.xebia.fr", nil);
     STAssertEqualObjects(wpAuthor.description_, @"", nil);

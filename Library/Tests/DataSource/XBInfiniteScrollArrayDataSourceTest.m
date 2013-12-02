@@ -68,8 +68,8 @@
     STAssertEquals([author.identifier unsignedIntegerValue], 50U, nil);
     STAssertEqualObjects(author.slug, @"akinsella", nil);
     STAssertEqualObjects(author.name, @"Alexis Kinsella", nil);
-    STAssertEqualObjects(author.firstname, @"Alexis", nil);
-    STAssertEqualObjects(author.lastname, @"Kinsella", nil);
+    STAssertEqualObjects(author.firstName, @"Alexis", nil);
+    STAssertEqualObjects(author.lastName, @"Kinsella", nil);
     STAssertEqualObjects(author.nickname, @"akinsella", nil);
     STAssertEqualObjects(author.url, @"http://www.xebia.fr", nil);
     STAssertEqualObjects(author.description_, @"", nil);
