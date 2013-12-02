@@ -6,11 +6,10 @@
 #import "EBEvent.h"
 #import "XBViewController.h"
 
-@interface EBEventDetailsViewController : XBViewController<MKMapViewDelegate>
+@interface EBEventDetailsViewController : XBViewController
 
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (weak, nonatomic) IBOutlet UIView *innerView;
-@property (weak, nonatomic) IBOutlet MKMapView *mapView;
 @property (weak, nonatomic) IBOutlet UIImageView *avatarImageView;
 @property (weak, nonatomic) IBOutlet UIImageView *logoImageView;
 @property (weak, nonatomic) IBOutlet UILabel *dateStartLabel;
@@ -23,11 +22,15 @@
 @property (weak, nonatomic) IBOutlet UILabel *addressLabel;
 @property (weak, nonatomic) IBOutlet UILabel *address2Label;
 @property (weak, nonatomic) IBOutlet UILabel *cityLabel;
+@property (weak, nonatomic) IBOutlet UIButton *attendingLabel;
+@property (weak, nonatomic) IBOutlet UIButton *mapButton;
 
 @property(nonatomic, strong)EBEvent *event;
 
 - (void)updateWithEvent:(EBEvent *)event;
 
-- (IBAction)openEventInWebView;
+- (IBAction)openEventDetailsInWebView;
+
+- (IBAction)openEventMapInWebView;
 
 @end

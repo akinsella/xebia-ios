@@ -284,6 +284,8 @@
 		54535583182C4FFE003532F7 /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54535581182C4FF6003532F7 /* AssetsLibrary.framework */; };
 		54535586182ED71F003532F7 /* paper_fibers_@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 54535584182ED71F003532F7 /* paper_fibers_@2x.png */; };
 		54535587182ED71F003532F7 /* paper_fibers.png in Resources */ = {isa = PBXBuildFile; fileRef = 54535585182ED71F003532F7 /* paper_fibers.png */; };
+		545F2C30184D35690073CF20 /* xebia_map_placeholder.png in Resources */ = {isa = PBXBuildFile; fileRef = 545F2C2E184D35690073CF20 /* xebia_map_placeholder.png */; };
+		545F2C31184D35690073CF20 /* xebia_map_placeholder@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 545F2C2F184D35690073CF20 /* xebia_map_placeholder@2x.png */; };
 		5470307A1847E0F300CDFD9E /* 83-calendar.png in Resources */ = {isa = PBXBuildFile; fileRef = 547030781847E0F300CDFD9E /* 83-calendar.png */; };
 		5470307B1847E0F300CDFD9E /* 83-calendar@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 547030791847E0F300CDFD9E /* 83-calendar@2x.png */; };
 		547A69D4181F06E6005B2B18 /* social-001-eventbrite.png in Resources */ = {isa = PBXBuildFile; fileRef = 547A69CC181F06E6005B2B18 /* social-001-eventbrite.png */; };
@@ -449,6 +451,7 @@
 		DB34D747BCEFE89289B3BC00 /* XECategoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DB34DBCA884FDF6E452B2C96 /* XECategoryCell.xib */; };
 		DB34D74CF00ACCCED7353C90 /* VMVideo.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34DF603EC84E5DE3FCAD09 /* VMVideo.m */; };
 		DB34D7BFFFAFC975D2C19476 /* Styles.css in Resources */ = {isa = PBXBuildFile; fileRef = DB34D8A999304D432FA4F05D /* Styles.css */; };
+		DB34D7E4E9DD1CA50FBC5157 /* EBEventMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34D4FF04C03E6FECDAF3DE /* EBEventMapViewController.m */; };
 		DB34D7EE0FE712FFCF9BF08E /* XETag.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34DA8D8461A88D68351CEF /* XETag.m */; };
 		DB34D80DC3A883F6780EC05C /* WPPostContentStructuredElement.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34DF440D740A4ADAF7B0B2 /* WPPostContentStructuredElement.m */; };
 		DB34D81180C80CA12FDF0C6D /* WPPostContentHeaderElementCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DB34DFF64CA2F3C1F7B00CA6 /* WPPostContentHeaderElementCell.xib */; };
@@ -831,6 +834,8 @@
 		54535581182C4FF6003532F7 /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
 		54535584182ED71F003532F7 /* paper_fibers_@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "paper_fibers_@2x.png"; sourceTree = "<group>"; };
 		54535585182ED71F003532F7 /* paper_fibers.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = paper_fibers.png; sourceTree = "<group>"; };
+		545F2C2E184D35690073CF20 /* xebia_map_placeholder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = xebia_map_placeholder.png; sourceTree = "<group>"; };
+		545F2C2F184D35690073CF20 /* xebia_map_placeholder@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "xebia_map_placeholder@2x.png"; sourceTree = "<group>"; };
 		547030781847E0F300CDFD9E /* 83-calendar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "83-calendar.png"; sourceTree = "<group>"; };
 		547030791847E0F300CDFD9E /* 83-calendar@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "83-calendar@2x.png"; sourceTree = "<group>"; };
 		547A69CC181F06E6005B2B18 /* social-001-eventbrite.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "social-001-eventbrite.png"; sourceTree = "<group>"; };
@@ -984,6 +989,7 @@
 		DB34D4F721008304510AF8B0 /* 69C78841-7884-4964-BEDD-0F29903ED49C.mobileprovision */ = {isa = PBXFileReference; lastKnownFileType = file.mobileprovision; path = "69C78841-7884-4964-BEDD-0F29903ED49C.mobileprovision"; sourceTree = "<group>"; };
 		DB34D4F9D90570713A57AAD0 /* XBNewsEventBriteCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = XBNewsEventBriteCell.xib; sourceTree = "<group>"; };
 		DB34D4FA19A6DAA619A951F4 /* XESponsor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XESponsor.h; sourceTree = "<group>"; };
+		DB34D4FF04C03E6FECDAF3DE /* EBEventMapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EBEventMapViewController.m; sourceTree = "<group>"; };
 		DB34D506233D03D70749314A /* XBRightMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XBRightMenuViewController.h; sourceTree = "<group>"; };
 		DB34D520761597BD4B8B7669 /* VMVideoDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VMVideoDetailsViewController.m; sourceTree = "<group>"; };
 		DB34D529546BD2BAC0D3C0CC /* XBNewsTwitterCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = XBNewsTwitterCell.xib; sourceTree = "<group>"; };
@@ -1006,6 +1012,7 @@
 		DB34D7023381A681C697733B /* VMVideoTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VMVideoTableViewController.m; sourceTree = "<group>"; };
 		DB34D705388B6EF1933EB1E3 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = ../../../../../Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.1.sdk/System/Library/Frameworks/CoreLocation.framework; sourceTree = "<group>"; };
 		DB34D712058259EB7ABA14BD /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = ../../../../../Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.1.sdk/System/Library/Frameworks/SystemConfiguration.framework; sourceTree = "<group>"; };
+		DB34D718A59C940F8D37BA97 /* EBEventMapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EBEventMapViewController.h; sourceTree = "<group>"; };
 		DB34D73D18F676FE6A11CE63 /* VMThumbnail.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VMThumbnail.h; sourceTree = "<group>"; };
 		DB34D73F9AB47FAF1F9B13F0 /* WPPostContentStructuredElementAttribute.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WPPostContentStructuredElementAttribute.m; sourceTree = "<group>"; };
 		DB34D779566E6E53EC3D0C66 /* WPTagCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WPTagCell.m; sourceTree = "<group>"; };
@@ -1273,6 +1280,8 @@
 		5443EA221775BEC40000FFE8 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				545F2C2E184D35690073CF20 /* xebia_map_placeholder.png */,
+				545F2C2F184D35690073CF20 /* xebia_map_placeholder@2x.png */,
 				54A90CD11847EC2200133EF9 /* eventbrite-background.png */,
 				54A90CD21847EC2200133EF9 /* eventbrite-background@2x.png */,
 				547030781847E0F300CDFD9E /* 83-calendar.png */,
@@ -1905,6 +1914,8 @@
 				5443EE48177620B60000FFE8 /* EBEventTableViewController.m */,
 				DB34DB21FD6535089989F06C /* EBEventDetailsViewController.m */,
 				DB34D37317CEB8076893367C /* EBEventDetailsViewController.h */,
+				DB34D4FF04C03E6FECDAF3DE /* EBEventMapViewController.m */,
+				DB34D718A59C940F8D37BA97 /* EBEventMapViewController.h */,
 			);
 			path = EventBrite;
 			sourceTree = "<group>";
@@ -2712,10 +2723,12 @@
 				544714C317764B61001F5153 /* TabBarItemSelectedImage@2x.png in Resources */,
 				54A90CD31847EC2200133EF9 /* eventbrite-background.png in Resources */,
 				DB34D98E9DDB220C53C13531 /* EBEventCell.xib in Resources */,
+				545F2C30184D35690073CF20 /* xebia_map_placeholder.png in Resources */,
 				DB34DDB92CB08EB004BE2DA9 /* TTTweetCell.xib in Resources */,
 				DB34DDBF4DE1F968488BF69C /* WPTagCell.xib in Resources */,
 				DB34D2B5279E454E7717D0AC /* WPAuthorCell.xib in Resources */,
 				DB34D440722370A61803A372 /* WPCategoryCell.xib in Resources */,
+				545F2C31184D35690073CF20 /* xebia_map_placeholder@2x.png in Resources */,
 				DB34D430F905731F33738F4E /* VMVideoCell.xib in Resources */,
 				549A7F411840ED73002B2026 /* AFNetworking.strings in Resources */,
 				543C8F831777A7D20079675E /* vimeo.png in Resources */,
@@ -3063,6 +3076,7 @@
 				DB34DD5E38D240D31441EB04 /* EBEventDetailsViewController.m in Sources */,
 				DB34D95B89C4082D63A95CF0 /* WPPostContentCode2ElementCell.m in Sources */,
 				DB34D4C29EB537F14D5871D1 /* WPAuthorTableViewController.m in Sources */,
+				DB34D7E4E9DD1CA50FBC5157 /* EBEventMapViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

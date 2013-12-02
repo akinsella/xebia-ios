@@ -58,22 +58,22 @@
 
 
     XBLog(@"Loading image with URL: '%@'", imageSrc);
-        [self.imageView setImageWithURL:[NSURL URLWithString:imageSrc]
-                   placeholderImage: self.placeholderImage
-                          completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType) {
-                               if (error || !image) {
-                                   XBLog(@"Error: %@", error);
+    [self.imageView setImageWithURL:[NSURL URLWithString:imageSrc]
+               placeholderImage: self.placeholderImage
+                      completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType) {
+                           if (error || !image) {
+                               XBLog(@"Error: %@", error);
+                           }
+                           else {
+                               if (!weakSelf.heightImageCache[imageSrc]) {
+                                   weakSelf.heightImageCache[imageSrc] = @(image.size.height);
+                                   dispatch_async(dispatch_get_main_queue(), ^{
+                                       [weakSelf.delegate reloadCellForElement:weakSelf.element];
+                                   });
                                }
-                               else {
-                                   if (!weakSelf.heightImageCache[imageSrc]) {
-                                       weakSelf.heightImageCache[imageSrc] = @(image.size.height);
-                                       dispatch_async(dispatch_get_main_queue(), ^{
-                                           [weakSelf.delegate reloadCellForElement:weakSelf.element];
-                                       });
-                                   }
-                               }
-                              [weakSelf layoutSubviews];
-                           }];
+                           }
+                          [weakSelf layoutSubviews];
+                       }];
 
 }
 

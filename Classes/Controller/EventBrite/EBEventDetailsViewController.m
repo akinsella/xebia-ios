@@ -5,17 +5,28 @@
 // To change the template use AppCode | Preferences | File Templates.
 //
 
+#import <SDWebImage/SDImageCache.h>
+#import <SDWebImage/UIImageView+WebCache.h>
 #import "EBEventDetailsViewController.h"
 #import "NSDate+XBAdditions.h"
 #import "UIViewController+XBAdditions.h"
+#import "EBEventMapViewController.h"
+#import "UIViewController+MJPopupViewController.h"
+
+@interface EBEventDetailsViewController()
+
+@property(nonatomic,strong)UIImage *placeholderImage;
+
+@end
 
 @implementation EBEventDetailsViewController
 
+- (NSString *)trackPath {
+    return [NSString stringWithFormat:@"/events/%@", self.event.identifier];
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
-
-    self.mapView.showsUserLocation = YES;
-    self.mapView.delegate = self;
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -37,19 +48,39 @@
     self.addressLabel.text = event.venue.address;
     self.address2Label.text = event.venue.address2;
     self.cityLabel.text = [NSString stringWithFormat:@"%@, %@ (%@)", event.venue.postalCode, event.venue.city, event.venue.country ];
+    self.attendingLabel.titleLabel.text = [NSString stringWithFormat:@"%@%@",
+        NSLocalizedString(@"I attend the meetup", nil),
+        [event.capacity intValue] > 0 ? [NSString stringWithFormat: @" (%@)", NSLocalizedString(@"places", nil)] : @""
 
-    MKCoordinateRegion region;
-    MKCoordinateSpan span;
-    span.latitudeDelta = 0.005;
-    span.longitudeDelta = 0.005;
+    ];
 
-    region.span = span;
-    region.center = CLLocationCoordinate2DMake([self.event.venue.latitude doubleValue], [self.event.venue.longitude doubleValue]);
-    [self.mapView setRegion:region animated:YES];
+    NSString *mapImageURL = [NSString stringWithFormat:@"http://maps.googleapis.com/maps/api/staticmap?center=%@,%@,%@&zoom=13&size=640x256&maptype=roadmap&markers=color:red%%7Clabel:S%%7C%@,%@&sensor=false",
+            self.event.venue.address,
+            self.event.venue.postalCode,
+            self.event.venue.city,
+            self.event.venue.latitude,
+            self.event.venue.longitude
+    ];
+
+    [self.mapButton.imageView  setImageWithURL:[NSURL URLWithString:mapImageURL]
+                              placeholderImage: self.placeholderImage
+                                     completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType) {
+                                         if (error || !image) {
+                                             XBLog(@"Error: %@", error);
+                                         }
+                                     }];
+
 }
 
--(IBAction)openEventInWebView {
+-(IBAction)openEventDetailsInWebView {
     [self.appDelegate.mainViewController openURL:[NSURL URLWithString:self.event.url] withTitle:self.event.title];
+}
+
+-(IBAction)openEventMapInWebView {
+    EBEventMapViewController *eventMapViewController = (EBEventMapViewController *)[self.appDelegate.viewControllerManager getOrCreateControllerWithIdentifier:@"eventMap"];
+    [eventMapViewController updateWithEvent: self.event];
+    [self.appDelegate.mainViewController presentPopupViewController:eventMapViewController
+                                                      animationType:MJPopupViewAnimationSlideBottomTop];
 }
 
 @end
