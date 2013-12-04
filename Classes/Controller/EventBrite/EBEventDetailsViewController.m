@@ -53,23 +53,15 @@
     NSString *attendingLabelTitle = [NSString stringWithFormat:@"%@%@", NSLocalizedString(@"I attend the meetup", nil), [event.capacity intValue] > 0 ? [NSString stringWithFormat: @" (%@)", NSLocalizedString(@"places", nil)] : @""];
     [self.attendingLabel setTitle:attendingLabelTitle forState:UIControlStateNormal];
 
-
-    NSString *mapImageURL = [NSString stringWithFormat:@"http://maps.googleapis.com/maps/api/staticmap?center=%@,%@,%@&zoom=13&size=320x128&maptype=roadmap&markers=color:red%%7Clabel:S%%7C%@,%@&sensor=false&key=%@",
+    NSString *mapImageURL = [NSString stringWithFormat:@"http://maps.googleapis.com/maps/api/staticmap?center=%@,%@,%@&zoom=13&size=%@&maptype=roadmap&markers=color:red%%7Clabel:S%%7C%@,%@&sensor=false&key=%@",
                                                        [self.event.venue.address stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding],
                                                        [self.event.venue.postalCode stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding],
                                                        [self.event.venue.city stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding],
+                                                       [UIScreen mainScreen].scale == 1.0 ? @"320x128" : @"640x256",
                                                        self.event.venue.latitude,
                                                        self.event.venue.longitude,
                                                        kGoogleMapsApiKey
     ];
-
-    [self.mapButton.imageView setImageWithURL:[NSURL URLWithString:mapImageURL]
-                             placeholderImage: self.placeholderImage
-                                    completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType) {
-                                        if (error || !image) {
-                                            XBLog(@"Error: %@", error);
-                                        }
-                                    }];
 
 
     [[SDWebImageManager sharedManager] downloadWithURL:[NSURL URLWithString:mapImageURL]
@@ -82,6 +74,10 @@
                                                  }
                                                  else {
                                                      XBLog("Success - %@", image);
+                                                     CGFloat screenScale = [UIScreen mainScreen].scale;
+                                                     if (screenScale != image.scale) {
+                                                         image = [UIImage imageWithCGImage:image.CGImage scale:screenScale orientation:image.imageOrientation];
+                                                     }
                                                      [self.mapButton setImage:image forState:UIControlStateNormal];
                                                  }
                                              }];

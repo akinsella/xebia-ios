@@ -22,7 +22,6 @@
     [super configure];
 
     self.placeholderImage = [UIImage imageNamed:@"image-placeholder"];
-
 //    self.imageView.userInteractionEnabled = YES;
 //    UITapGestureRecognizer *tgr = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTap:)];
 //    tgr.numberOfTapsRequired = 1;
@@ -66,7 +65,11 @@
                            }
                            else {
                                if (!weakSelf.heightImageCache[imageSrc]) {
-                                   weakSelf.heightImageCache[imageSrc] = @(image.size.height);
+                                   CGFloat maxImageWidth =  MIN(weakSelf.frame.size.width, image.size.width);
+
+                                   CGFloat imageHeight = maxImageWidth * image.size.height / image.size.width;
+
+                                   weakSelf.heightImageCache[imageSrc] = @(imageHeight);
                                    dispatch_async(dispatch_get_main_queue(), ^{
                                        [weakSelf.delegate reloadCellForElement:weakSelf.element];
                                    });
@@ -96,7 +99,7 @@
             self.frame.origin.x,
             self.frame.origin.y,
             self.frame.size.width,
-            self.imageView.image.size.height
+            imageFrame.size.height
     );
 }
 
