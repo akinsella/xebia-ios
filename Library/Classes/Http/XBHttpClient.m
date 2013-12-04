@@ -5,19 +5,18 @@
 //
 
 
+#import <AFNetworking/AFNetworking.h>
 #import "XBHttpClient.h"
-#import "AFNetworking.h"
 #import "XBLogging.h"
 
 @interface XBHttpClient()
 
 @property(nonatomic, strong)NSString *baseUrl;
+@property(nonatomic, strong)AFHTTPRequestOperationManager *operationManager;
 
 @end
 
-@implementation XBHttpClient {
-    AFHTTPClient *_afHttpClient;
-}
+@implementation XBHttpClient
 
 +(id)httpClientWithBaseUrl:(NSString *)baseUrl {
     return [[XBHttpClient alloc] initWithBaseUrl:baseUrl];
@@ -28,7 +27,8 @@
 
     if (self) {
         self.baseUrl = baseUrl;
-        _afHttpClient = [AFHTTPClient clientWithBaseURL:[NSURL URLWithString:baseUrl]];
+        self.operationManager = [[AFHTTPRequestOperationManager alloc] initWithBaseURL:[NSURL URLWithString:baseUrl]];
+        self.operationManager.responseSerializer = [AFJSONResponseSerializer serializer];
     }
 
     return self;
@@ -36,24 +36,22 @@
 
 - (void)executeGetJsonRequestWithPath:(NSString *)path
                            parameters:(NSDictionary *)parameters
-                                  success:(void (^)(NSURLRequest *, NSHTTPURLResponse *, id))successCb
-                              failure: (void (^)(NSURLRequest *, NSHTTPURLResponse *, NSError *, id))errorCb {
+                              success:(void (^)(NSURLRequest *request, NSHTTPURLResponse *response, id jsonFetched))successCb
+                              failure: (void (^)(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id jsonFetched))errorCb {
 
-    NSURLRequest *urlRequest = [_afHttpClient requestWithMethod:@"GET" path:path parameters:parameters];
-
-    AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:urlRequest
-        success:^(NSURLRequest *request, NSHTTPURLResponse *response, id json) {
+    AFHTTPRequestOperation *operation = [self.operationManager GET: path parameters: parameters
+         success:^(AFHTTPRequestOperation *operation, id json) {
             XBLogDebug(@"json: %@", json);
 
             if (successCb) {
-                successCb(request, response, json);
+                successCb(operation.request, operation.response, json);
             }
         }
-        failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id json) {
-            XBLogWarn(@"Error: %@, json: %@", error, json);
+        failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+            XBLogWarn(@"Error: %@, json: %@", error);
 
             if (errorCb) {
-                errorCb(request, response, error, json);
+                errorCb(operation.request, operation.response, error, operation.responseObject);
             }
         }
     ];

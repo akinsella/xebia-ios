@@ -844,14 +844,14 @@
                                                 <rect key="frame" x="0.0" y="360" width="320" height="128"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OKQ-nK-PQd">
-                                                        <rect key="frame" x="0.0" y="0.0" width="320" height="128"/>
+                                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OKQ-nK-PQd">
+                                                        <rect key="frame" x="0.0" y="1" width="320" height="128"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="128" id="u3c-L7-XyO"/>
                                                         </constraints>
                                                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                                        <state key="normal" title="Button" image="xebia_map_placeholder.png" backgroundImage="xebia_map_placeholder.png">
+                                                        <state key="normal" image="xebia_map_placeholder.png">
                                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                         </state>
                                                         <connections>
@@ -973,7 +973,7 @@
             </objects>
             <point key="canvasLocation" x="-1669" y="2323"/>
         </scene>
-        <!--Event Map View Controller - Event Map-->
+        <!--Event Map View Controller - Map-->
         <scene sceneID="0th-Tv-0TC">
             <objects>
                 <viewController storyboardIdentifier="eventMap" id="4Pl-oV-Srf" customClass="EBEventMapViewController" sceneMemberID="viewController">
@@ -998,7 +998,7 @@
                             <constraint firstAttribute="trailing" secondItem="kX0-Jr-0li" secondAttribute="trailing" id="mk2-cy-4Yq"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Event Map" id="Stc-i4-LlG">
+                    <navigationItem key="navigationItem" title="Map" id="Stc-i4-LlG">
                         <barButtonItem key="rightBarButtonItem" title="Close" id="lAU-HI-bCL">
                             <connections>
                                 <action selector="closePopup" destination="4Pl-oV-Srf" id="OAu-gT-Dvb"/>
@@ -1007,6 +1007,7 @@
                     </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black" translucent="NO" prompted="NO"/>
                     <connections>
+                        <outlet property="closeButton" destination="lAU-HI-bCL" id="TTV-N0-fvM"/>
                         <outlet property="mapView" destination="kX0-Jr-0li" id="Ijf-3Z-2ko"/>
                     </connections>
                 </viewController>

@@ -7,9 +7,10 @@
 
 
 #import <Foundation/Foundation.h>
-
-@class AFHTTPRequestOperation;
-
+#import <AFNetworking/AFNetworking.h>
+#import "AFHTTPRequestOperationManager.h"
+#import "AFURLResponseSerialization.h"
+#import "AFNetworkActivityLogger.h"
 
 @interface XBHttpUtils : NSObject
 

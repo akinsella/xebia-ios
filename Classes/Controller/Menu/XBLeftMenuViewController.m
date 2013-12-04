@@ -13,7 +13,6 @@
 #import "UIViewController+XBAdditions.h"
 #import "GAITracker.h"
 #import "UIColor+XBAdditions.h"
-#import "UIViewController+MJPopupViewController.h"
 #import "XBAbstractURLHandler.h"
 #import "WPURLHandler.h"
 #import "UIAlertView+XBAdditions.h"
@@ -91,13 +90,11 @@ enum {
     }
 
     UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:self.appSettingsViewController];
-
-    [self.appDelegate.mainViewController presentPopupViewController:navigationController
-                                                      animationType:MJPopupViewAnimationSlideBottomTop];
+    [self.appDelegate.mainViewController presentViewController:navigationController animated:YES completion:^{}];
 }
 
 -(void)settingsViewControllerDidEnd:(IASKAppSettingsViewController*)sender {
-    [self dismissPopupViewControllerWithanimationType:MJPopupViewAnimationSlideTopBottom];
+    [self dismissViewControllerAnimated: YES  completion:^{}];
 }
 
 - (void)initViewIdentifiers {

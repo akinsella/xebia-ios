@@ -11,6 +11,7 @@
 
 @interface EBEventMapViewController : XBViewController<MKMapViewDelegate>
 
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *closeButton;
 @property(nonatomic,strong) IBOutlet MKMapView *mapView;
 
 - (void)updateWithEvent:(EBEvent *)event;

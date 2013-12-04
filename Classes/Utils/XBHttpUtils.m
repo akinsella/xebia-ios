@@ -6,9 +6,8 @@
 //
 
 
-#import <AFNetworking/AFHTTPRequestOperation.h>
+#import <AFNetworking/AFNetworking.h>
 #import "XBHttpUtils.h"
-#import "AFHTTPClient.h"
 
 
 @implementation XBHttpUtils
@@ -55,17 +54,10 @@
 }
 
 + (NSMutableURLRequest *)urlRequestWithURL:(NSURL *)url method:(NSString *)method {
-    NSString *urlBase = [self urlBaseWithURL:url];
-    NSString *urlPath = [self urlPathWithURL:url];
-
     NSMutableDictionary *urlQueryParams = [self urlQueryParamsWithURL:url];
 
-    AFHTTPClient *httpClient = [self httpClientWithURL:urlBase];
-    return [httpClient requestWithMethod:method path:urlPath parameters:urlQueryParams];
-}
-
-+ (AFHTTPClient *)httpClientWithURL:(NSString *)urlBase {
-    return [AFHTTPClient clientWithBaseURL:[NSURL URLWithString:urlBase]];
+    AFHTTPRequestOperationManager *manager = [[AFHTTPRequestOperationManager alloc] initWithBaseURL:url];
+    return [manager.requestSerializer requestWithMethod:method URLString:[url absoluteString] parameters:urlQueryParams];
 }
 
 + (NSMutableDictionary *)urlQueryParamsWithURL:(NSURL *)url {
@@ -78,19 +70,6 @@
     }
 
     return urlQueryParams;
-}
-
-+ (NSString *)urlBaseWithURL:(NSURL *)url {
-    NSString *urlBase = [NSString stringWithFormat:@"%@://%@", url.scheme, url.host];
-    if (url.port) {
-        urlBase = [NSString stringWithFormat:@"%@:%@", urlBase, url.port];
-    }
-
-    return urlBase;
-}
-
-+ (NSString *)urlPathWithURL:(NSURL *)url {
-    return [NSString stringWithFormat:@"%@", url.path];
 }
 
 @end

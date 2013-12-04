@@ -6,11 +6,10 @@
 //  Copyright (c) 2012 Xebia France. All rights reserved.
 //
 
+#import <AFNetworking/AFNetworking.h>
 #import "UIColor+XBAdditions.h"
 #import "XBAppDelegate.h"
 #import "XBSharekitSupport.h"
-#import "AFHTTPRequestOperationLogger.h"
-#import "AFNetworking.h"
 #import "SDURLCache.h"
 #import "XBPListConfigurationProvider.h"
 #import "GAITracker.h"
@@ -22,7 +21,7 @@
 #import "NSString+XBAdditions.h"
 #import "GAIDictionaryBuilder.h"
 #import "GAIFields.h"
-#import "WPURLHandler.h"
+#import "AFNetworkActivityLogger.h"
 #import <NewRelicAgent/NewRelicAgent.h>
 #import <Crashlytics/Crashlytics.h>
 
@@ -273,7 +272,13 @@ static NSString *const CrashlyticsApiKey = @"48e99a586053e4194936d79b6126ad23e9d
 }
 
 - (void)initLogging {
-    [[AFHTTPRequestOperationLogger sharedLogger] startLogging];
+    [[AFNetworkActivityLogger sharedLogger] startLogging];
+
+#if TARGET_IPHONE_SIMULATOR || defined(DEBUG)
+    [[AFNetworkActivityLogger sharedLogger] setLevel:AFLoggerLevelDebug];
+#else
+    [[AFNetworkActivityLogger sharedLogger] setLevel:AFLoggerLevelError];
+#endif
 }
 
 - (void)initURLCache {
@@ -346,23 +351,22 @@ static NSString *const CrashlyticsApiKey = @"48e99a586053e4194936d79b6126ad23e9d
         XBLog("Network is not available, cannot send Device Token to server: %@", jsonPayload);
     }
     else {
-        AFHTTPClient *client = [AFHTTPClient clientWithBaseURL:[NSURL URLWithString:[self.configurationProvider baseUrl]]];
-        NSURLRequest *urlRequest = [client requestWithMethod:@"POST" path:[@"/devices/register" stripLeadingSlash] parameters:jsonPayload];
-
-        AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:urlRequest
-                                                                                            success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
-                                                                                                if (response.statusCode > 299) {
-                                                                                                    NSString *reasonPhrase = (__bridge_transfer NSString *)CFHTTPMessageCopyResponseStatusLine((__bridge CFHTTPMessageRef)response);
-                                                                                                    NSLog(@"We got an error ! Status code: %i - Message: %@", response.statusCode, reasonPhrase);
-                                                                                                } else {
-                                                                                                    NSLog(@"Device was registered by server as expected");
-                                                                                                }
-                                                                                            }
-                                                                                            failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
-                                                                                                NSLog(@"Device was registered by server as expected. Error: %@, JSON: %@", error, JSON);
-                                                                                            }
+        AFHTTPRequestOperationManager *manager = [[AFHTTPRequestOperationManager alloc] initWithBaseURL:[NSURL URLWithString:self.configurationProvider.baseUrl]];
+        manager.responseSerializer = [AFJSONResponseSerializer serializer];
+        AFHTTPRequestOperation *operation = [manager POST:[@"/devices/register" stripLeadingSlash] parameters:jsonPayload
+            success:^(AFHTTPRequestOperation *operation, id JSON) {
+                if (operation.response.statusCode > 299) {
+                    NSString *reasonPhrase = (__bridge_transfer NSString *)CFHTTPMessageCopyResponseStatusLine((__bridge CFHTTPMessageRef)operation.response);
+                    NSLog(@"We got an error ! Status code: %i - Message: %@", operation.response.statusCode, reasonPhrase);
+                }
+                else {
+                    NSLog(@"Device was registered by server as expected. Error: %@, JSON: %@", operation.error, JSON);
+                }
+            }
+            failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                NSLog(@"Error: %@", error);
+            }
         ];
-
         [operation start];
     }
 #endif

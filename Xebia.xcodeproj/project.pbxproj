@@ -3302,6 +3302,7 @@
 					"$(PODS_ROOT)/TestFlightSDK",
 					"$(SRCROOT)/Resources/Libraries/GoogleAnalytics",
 				);
+				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "F111872C-E715-4AC3-9826-98B9DA179CA2";
 				WRAPPER_EXTENSION = app;
@@ -3329,6 +3330,7 @@
 					"$(PODS_ROOT)/TestFlightSDK",
 					"$(SRCROOT)/Resources/Libraries/GoogleAnalytics",
 				);
+				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "F111872C-E715-4AC3-9826-98B9DA179CA2";
 				WRAPPER_EXTENSION = app;

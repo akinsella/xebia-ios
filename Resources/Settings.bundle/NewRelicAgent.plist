@@ -16,7 +16,7 @@ Commercial License / No other informations
         </dict>
         <dict>
             <key>DefaultValue</key>
-            <string>1.376</string>
+            <string>1.396</string>
             <key>Key</key>
             <string>NewRelicAgentVersion</string>
             <key>Title</key>

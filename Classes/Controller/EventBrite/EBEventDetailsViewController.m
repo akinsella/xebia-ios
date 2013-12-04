@@ -11,7 +11,8 @@
 #import "NSDate+XBAdditions.h"
 #import "UIViewController+XBAdditions.h"
 #import "EBEventMapViewController.h"
-#import "UIViewController+MJPopupViewController.h"
+
+#define kGoogleMapsApiKey @"AIzaSyCeZZqN7-vVmAehdjAtfRbZyw2BmsWgUu4"
 
 @interface EBEventDetailsViewController()
 
@@ -48,27 +49,42 @@
     self.addressLabel.text = event.venue.address;
     self.address2Label.text = event.venue.address2;
     self.cityLabel.text = [NSString stringWithFormat:@"%@, %@ (%@)", event.venue.postalCode, event.venue.city, event.venue.country ];
-    self.attendingLabel.titleLabel.text = [NSString stringWithFormat:@"%@%@",
-        NSLocalizedString(@"I attend the meetup", nil),
-        [event.capacity intValue] > 0 ? [NSString stringWithFormat: @" (%@)", NSLocalizedString(@"places", nil)] : @""
 
+    NSString *attendingLabelTitle = [NSString stringWithFormat:@"%@%@", NSLocalizedString(@"I attend the meetup", nil), [event.capacity intValue] > 0 ? [NSString stringWithFormat: @" (%@)", NSLocalizedString(@"places", nil)] : @""];
+    [self.attendingLabel setTitle:attendingLabelTitle forState:UIControlStateNormal];
+
+
+    NSString *mapImageURL = [NSString stringWithFormat:@"http://maps.googleapis.com/maps/api/staticmap?center=%@,%@,%@&zoom=13&size=320x128&maptype=roadmap&markers=color:red%%7Clabel:S%%7C%@,%@&sensor=false&key=%@",
+                                                       [self.event.venue.address stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding],
+                                                       [self.event.venue.postalCode stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding],
+                                                       [self.event.venue.city stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding],
+                                                       self.event.venue.latitude,
+                                                       self.event.venue.longitude,
+                                                       kGoogleMapsApiKey
     ];
 
-    NSString *mapImageURL = [NSString stringWithFormat:@"http://maps.googleapis.com/maps/api/staticmap?center=%@,%@,%@&zoom=13&size=640x256&maptype=roadmap&markers=color:red%%7Clabel:S%%7C%@,%@&sensor=false",
-            self.event.venue.address,
-            self.event.venue.postalCode,
-            self.event.venue.city,
-            self.event.venue.latitude,
-            self.event.venue.longitude
-    ];
+    [self.mapButton.imageView setImageWithURL:[NSURL URLWithString:mapImageURL]
+                             placeholderImage: self.placeholderImage
+                                    completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType) {
+                                        if (error || !image) {
+                                            XBLog(@"Error: %@", error);
+                                        }
+                                    }];
 
-    [self.mapButton.imageView  setImageWithURL:[NSURL URLWithString:mapImageURL]
-                              placeholderImage: self.placeholderImage
-                                     completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType) {
-                                         if (error || !image) {
-                                             XBLog(@"Error: %@", error);
-                                         }
-                                     }];
+
+    [[SDWebImageManager sharedManager] downloadWithURL:[NSURL URLWithString:mapImageURL]
+                                               options:kNilOptions
+                                              progress:^(NSUInteger receivedSize, long long int expectedSize) {}
+                                             completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, BOOL finished) {
+                                                 if (error || !image) {
+                                                     XBLog("Error - %@", error);
+                                                     [self.mapButton setImage:self.placeholderImage forState:UIControlStateNormal];
+                                                 }
+                                                 else {
+                                                     XBLog("Success - %@", image);
+                                                     [self.mapButton setImage:image forState:UIControlStateNormal];
+                                                 }
+                                             }];
 
 }
 
@@ -79,8 +95,8 @@
 -(IBAction)openEventMapInWebView {
     EBEventMapViewController *eventMapViewController = (EBEventMapViewController *)[self.appDelegate.viewControllerManager getOrCreateControllerWithIdentifier:@"eventMap"];
     [eventMapViewController updateWithEvent: self.event];
-    [self.appDelegate.mainViewController presentPopupViewController:eventMapViewController
-                                                      animationType:MJPopupViewAnimationSlideBottomTop];
+    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:eventMapViewController];
+    [self.navigationController presentViewController:navigationController animated:YES completion:^{}];
 }
 
 @end

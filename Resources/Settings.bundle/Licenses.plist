@@ -13,11 +13,11 @@
 
         <dict>
             <key>Title</key>
-            <string>AFHTTPRequestOperationLogger</string>
+            <string>AFNetworkActivityLogger</string>
             <key>Type</key>
             <string>PSChildPaneSpecifier</string>
             <key>File</key>
-            <key>AFHTTPRequestOperationLogger</key>
+            <key>AFNetworkActivityLogger</key>
         </dict>
         <dict>
             <key>Title</key>
@@ -98,14 +98,6 @@
             <string>PSChildPaneSpecifier</string>
             <key>File</key>
             <key>MBProgressHUD</key>
-        </dict>
-        <dict>
-            <key>Title</key>
-            <string>MJPopupViewController</string>
-            <key>Type</key>
-            <string>PSChildPaneSpecifier</string>
-            <key>File</key>
-            <key>MJPopupViewController</key>
         </dict>
         <dict>
             <key>Title</key>
