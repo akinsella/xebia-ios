@@ -3,15 +3,11 @@ rvm:
  - 1.9.3
 gemfile: Gemfile
 before_script: 
-- openssl aes-256-cbc -k "$ENCRYPTION_SECRET" -in "Scripts/Profiles/$PROFILE_UUID.mobileprovision.enc" -d -a -out "Scripts/Profiles/$PROFILE_UUID.mobileprovision"
-- openssl aes-256-cbc -k "$ENCRYPTION_SECRET" -in "Scripts/Certs/dev.cer.enc" -d -a -out "Scripts/Certs/dev.cer"
-- openssl aes-256-cbc -k "$ENCRYPTION_SECRET" -in "Scripts/Certs/dev.p12.enc" -d -a -out "Scripts/Certs/dev.p12"
-- Scripts/before.sh
-- Scripts/add-key.sh
+- Scripts/before_script.sh
 - sudo easy_install cpp-coveralls
 - sudo easy_install PyYAML
 after_script: 
-- Scripts/remove-key.sh
+- Scripts/after_script.sh
 after_success: 
 - Scripts/testflight.sh
 - ./Scripts/coveralls.rb --extension m --exclude-folder Artwork --exclude-folder bin --exclude-folder build --exclude-folder output --exclude-folder Pods --exclude-folder Resources --exclude-folder Scripts --exclude-folder Targets --exclude-folder Tests --exclude-folder Library/Tests
@@ -19,7 +15,7 @@ script: Scripts/build.sh
 env: 
   global: 
   - LC_ALL="en_US.UTF-8"
-  - APPNAME="xebia-ios"
+  - APPNAME="Xebia"
   - "DEVELOPER_NAME=\"iPhone Developer: Alexis Kinsella (46N4T2UZ32)\""
   - PROFILE_UUID="978D2EE1-E2B3-43D8-9102-DD267A425BBE"
   - secure: I7ORmBOoXN6iOy94VTeGU9/Duw+3/x2W4+z9HXZ/JBR7ZCP+YrNzLIn2/5LteZEKoWZMHmVrvHV1zadcOnCLJIETTEX1JC6KkmeFDYn1kq33BnHZx4wL+1nADH0kkYKwGKbKEoQiVpAeM3cEEbmru4Euw7dJdrgrR+j6e7KI6XI=
