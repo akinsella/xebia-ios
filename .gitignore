@@ -45,3 +45,7 @@ nodejs-xebia-mobile-proxy/application/dump.rdb
 
 #Working dir
 target
+
+Scripts/Certs/dev.cer
+Scripts/Certs/dev.p12
+Scripts/Profiles/*.mobileprovision

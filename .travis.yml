@@ -1,7 +1,7 @@
 language: objective-c
-rvm: 
- - 1.9.3
-gemfile: Gemfile
+#rvm: 
+# - 1.9.3
+#gemfile: Gemfile
 before_script: 
 - Scripts/before_script.sh
 - sudo easy_install cpp-coveralls
