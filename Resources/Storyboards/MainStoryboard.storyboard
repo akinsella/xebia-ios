@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4514" systemVersion="13A603" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="EcE-bF-5J2">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4514" systemVersion="13A3028" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="EcE-bF-5J2">
     <dependencies>
         <deployment defaultVersion="1536" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3747"/>
@@ -1014,6 +1014,47 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wn4-ei-Qcq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1264" y="2323"/>
+        </scene>
+        <!--App Upgrade View Controller - Error-->
+        <scene sceneID="vHb-ir-Vds">
+            <objects>
+                <viewController storyboardIdentifier="appUpgrade" id="Aig-e5-72Z" customClass="XBAppUpgradeViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="14d-nh-RS7"/>
+                        <viewControllerLayoutGuide type="bottom" id="W3F-Fh-lN1"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="oNh-5w-P2G">
+                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Api used by application is deprecated. Please update!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="268" translatesAutoresizingMaskIntoConstraints="NO" id="DCb-Wb-pTH">
+                                <rect key="frame" x="26" y="165" width="268" height="85"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.42085597829999999" green="0.0" blue="0.40731365980000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="DCb-Wb-pTH" firstAttribute="top" secondItem="14d-nh-RS7" secondAttribute="bottom" constant="165" id="T3J-1R-Wdh"/>
+                            <constraint firstItem="DCb-Wb-pTH" firstAttribute="leading" secondItem="oNh-5w-P2G" secondAttribute="leading" constant="26" id="VB9-nI-b2p"/>
+                            <constraint firstItem="W3F-Fh-lN1" firstAttribute="top" secondItem="DCb-Wb-pTH" secondAttribute="bottom" constant="166" id="hek-BN-UUl"/>
+                            <constraint firstAttribute="trailing" secondItem="DCb-Wb-pTH" secondAttribute="trailing" constant="26" id="jfx-RY-g9y"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Error" id="yP7-GC-L5g">
+                        <barButtonItem key="rightBarButtonItem" title="Close" id="o0a-3e-O9H">
+                            <connections>
+                                <action selector="onClose" destination="Aig-e5-72Z" id="oHp-01-Vkx"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black" translucent="NO" prompted="NO"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fJL-Vi-0hW" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-865" y="2323"/>
         </scene>
         <!--Video Table View Controller - Videos-->
         <scene sceneID="CCD-qM-qNX">
