@@ -22,9 +22,8 @@
 #import "GAIDictionaryBuilder.h"
 #import "GAIFields.h"
 #import "AFNetworkActivityLogger.h"
-#import <NewRelicAgent/NewRelicAgent.h>
+#import <NewRelicAgent/NewRelic.h>
 #import <Crashlytics/Crashlytics.h>
-#import "XBAppUpgradeViewController.h"
 
 static NSString *const kTrackingId = @"UA-1889791-23";
 

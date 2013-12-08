@@ -13,7 +13,7 @@
 - (void)updateWithWPPostContentElement:(WPPostContentStructuredElement *)element {
     [super updateWithWPPostContentElement:element];
 
-    self.typeLabel = self.element.type;
+    self.typeLabel.text = self.element.type;
 }
 
 - (CGFloat)heightForCell:(UITableView *)tableView {

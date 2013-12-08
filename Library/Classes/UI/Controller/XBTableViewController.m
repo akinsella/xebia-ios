@@ -12,6 +12,7 @@
 #import "XBArrayDataSource.h"
 #import "XBTableViewController.h"
 #import "UIViewController+XBAdditions.h"
+#import "UITableView+NXEmptyView.h"
 
 @interface XBTableViewController ()
 
@@ -94,8 +95,9 @@
 
 - (void)configureTableView {
     self.tableView.backgroundColor = [UIColor colorWithHex:@"#F0F0F0"];
-//    self.tableView.backgroundColor = [UIColor colorWithHex:@"#191919" alpha:1.0];
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    self.tableView.nxEV_emptyView = [[NSBundle mainBundle] loadNibNamed:@"XBEmptyView" owner:nil options:nil][0];
+    self.tableView.nxEV_emptyView.backgroundColor = [UIColor colorWithHex:@"#F0F0F0"];
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
