@@ -109,6 +109,14 @@
         </dict>
         <dict>
             <key>Title</key>
+            <string>NXEmptyView</string>
+            <key>Type</key>
+            <string>PSChildPaneSpecifier</string>
+            <key>File</key>
+            <key>NXEmptyView</key>
+        </dict>
+        <dict>
+            <key>Title</key>
             <string>OCMock</string>
             <key>Type</key>
             <string>PSChildPaneSpecifier</string>

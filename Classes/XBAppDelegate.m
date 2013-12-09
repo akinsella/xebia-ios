@@ -22,7 +22,7 @@
 #import "GAIDictionaryBuilder.h"
 #import "GAIFields.h"
 #import "AFNetworkActivityLogger.h"
-#import <NewRelicAgent/NewRelicAgent.h>
+#import <NewRelicAgent/NewRelic.h>
 #import <Crashlytics/Crashlytics.h>
 #import <sys/utsname.h>
 #import <sys/sysctl.h>
@@ -39,6 +39,8 @@ static NSString *const TestFlightAppToken = @"856b817d-b51c-44a3-9a24-ddcabfda8a
 static NSString *const NewRelicApiKey = @"AA2a83288c6a4104ccf6cb9d48101ae3aba20325cc";
 
 static NSString *const CrashlyticsApiKey = @"48e99a586053e4194936d79b6126ad23e9de4cc7";
+
+static NSInteger const kApiVersion = 1;
 
 @interface XBAppDelegate()
 
@@ -108,7 +110,8 @@ static NSString *const CrashlyticsApiKey = @"48e99a586053e4194936d79b6126ad23e9d
 
     [self.window makeKeyAndVisible];
 
-//    self.window.backgroundColor = [UIColor redColor];
+    [self checkMinApiVersion];
+
     return YES;
 }
 
@@ -343,6 +346,7 @@ static NSString *const CrashlyticsApiKey = @"48e99a586053e4194936d79b6126ad23e9d
 	[self processRemoteNotification:userInfo];
 }
 
+<<<<<<< HEAD
 -(NSString *)deviceModel {
     size_t size;
     sysctlbyname("hw.machine", NULL, &size, NULL, 0);
@@ -356,6 +360,49 @@ static NSString *const CrashlyticsApiKey = @"48e99a586053e4194936d79b6126ad23e9d
 
 -(NSString *)systemVersion {
     return UIDevice.currentDevice.systemVersion;
+=======
+- (void)checkMinApiVersion {
+
+    if (!self.configurationProvider.reachability.isReachable) {
+        XBLog("Network is not available, cannot check min api version!");
+    }
+    else {
+        AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+        AFHTTPRequestOperation *operation = [manager GET:@"http://backend.mobile.xebia.io/api/info" parameters:nil
+                                                  success:^(AFHTTPRequestOperation *operation, id JSON) {
+                                                      if (operation.response.statusCode > 299) {
+                                                          NSString *reasonPhrase = (__bridge_transfer NSString *)CFHTTPMessageCopyResponseStatusLine((__bridge CFHTTPMessageRef)operation.response);
+                                                          NSLog(@"We got an error ! Status code: %i - Message: %@", operation.response.statusCode, reasonPhrase);
+                                                      }
+                                                      else {
+                                                          NSString *minApiVersionStr = JSON[@"minApiVersion"];
+                                                          if (!minApiVersionStr) {
+                                                              NSLog(@"Could not check minApi version");
+                                                          }
+                                                          else {
+                                                              NSNumberFormatter * nf = [[NSNumberFormatter alloc] init];
+                                                              [nf setNumberStyle:NSNumberFormatterDecimalStyle];
+                                                              NSNumber * minApiVersion = [nf numberFromString:minApiVersionStr];
+
+                                                              if (minApiVersion.integerValue > kApiVersion) {
+                                                                  XBLog("Application API version is not supported anymore by sever");
+                                                                  UIViewController *viewController = [self.viewControllerManager getOrCreateControllerWithIdentifier:@"appUpgrade"];
+                                                                  UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:viewController];
+                                                                  [self.window.rootViewController presentViewController:navigationController animated:true completion:^{ }];
+                                                              }
+                                                              else {
+                                                                  XBLog("Application API version is currently supported by server");
+                                                              }
+                                                          }
+                                                      }
+                                                  }
+                                                  failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                                                      NSLog(@"Error: %@", error);
+                                                  }
+        ];
+        [operation start];
+    }
+>>>>>>> 89abc1cc9865843680d138e96237809a51ee1e60
 }
 
 - (void)sendProviderDeviceToken:(NSString *)deviceToken {
@@ -368,30 +415,28 @@ static NSString *const CrashlyticsApiKey = @"48e99a586053e4194936d79b6126ad23e9d
         XBLog("Network is not available, cannot send Device Token to server: %@", jsonPayload);
     }
     else {
-        AFHTTPRequestOperationManager *manager = [[AFHTTPRequestOperationManager alloc] initWithBaseURL:[NSURL URLWithString:self.configurationProvider.baseUrl]];
-        manager.responseSerializer = [AFJSONResponseSerializer serializer];
-        AFHTTPRequestOperation *operation = [manager POST:[@"/devices/register" stripLeadingSlash] parameters:jsonPayload
-            success:^(AFHTTPRequestOperation *operation, id JSON) {
-                if (operation.response.statusCode > 299) {
-                    NSString *reasonPhrase = (__bridge_transfer NSString *)CFHTTPMessageCopyResponseStatusLine((__bridge CFHTTPMessageRef)operation.response);
-                    NSLog(@"We got an error ! Status code: %i - Message: %@", operation.response.statusCode, reasonPhrase);
-                }
-                else {
-                    NSLog(@"Device was registered by server as expected. Error: %@, JSON: %@", operation.error, JSON);
-                }
-            }
-            failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-                NSLog(@"Error: %@", error);
-            }
+        XBHttpClient *httpClient = [self configurationProvider].httpClient;
+        [httpClient executePostJsonRequestWithPath:@"/devices/register" parameters:jsonPayload
+                                           success:^(NSURLRequest *request, NSHTTPURLResponse *response, id jsonFetched) {
+                                               if (response.statusCode > 299) {
+                                                   NSString *reasonPhrase = (__bridge_transfer NSString *)CFHTTPMessageCopyResponseStatusLine((__bridge CFHTTPMessageRef)response);
+                                                   NSLog(@"Could not register device.  Status code: %i - Message: %@", response.statusCode, reasonPhrase);
+                                               }
+                                               else {
+                                                   NSLog(@"Device got registered by server as expected. JSON: %@", jsonFetched);
+                                               }
+                                           }
+                                           failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id jsonFetched) {
+                                               NSString *reasonPhrase = (__bridge_transfer NSString *)CFHTTPMessageCopyResponseStatusLine((__bridge CFHTTPMessageRef)response);
+                                               NSLog(@"Could not register device. We got an error ! Status code: %i - Message: %@", response.statusCode, reasonPhrase);
+                                           }
         ];
-        [operation start];
     }
 #endif
 }
 
 - (void)processRemoteNotification:(NSDictionary*)userInfo {
 	NSString* alertValue = [[userInfo valueForKey:@"aps"] valueForKey:@"alert"];
-    
 	NSLog(@"Alert received: %@", alertValue);
 }
 
@@ -403,34 +448,7 @@ static NSString *const CrashlyticsApiKey = @"48e99a586053e4194936d79b6126ad23e9d
     NSLog(@"Application will terminate !!");
 }
 
-//void HandleExceptions(NSException *exception) {
-//    NSLog(@"This is where we save the application data during a exception");
-//    // Save application data on crash
-//}
-
-//void SignalHandler(int sig) {
-//    NSLog(@"This is where we save the application data during a signal");
-//    // Save application data on crash
-//}
-
 - (void)initTestFlight {
-//    // installs HandleExceptions as the Uncaught Exception Handler
-//    NSSetUncaughtExceptionHandler(&HandleExceptions);
-//    // create the signal action structure
-//    struct sigaction newSignalAction;
-//    // initialize the signal action structure
-//    memset(&newSignalAction, 0, sizeof(newSignalAction));
-//    // set SignalHandler as the handler in the signal action structure
-//    newSignalAction.sa_handler = &SignalHandler;
-//    // set SignalHandler as the handlers for SIGABRT, SIGILL and SIGBUS
-//    sigaction(SIGABRT, &newSignalAction, NULL);
-//    sigaction(SIGILL, &newSignalAction, NULL);
-//    sigaction(SIGBUS, &newSignalAction, NULL);
-//    // Call takeOff after install your own unhandled exception and signal handlers
-
-//#ifdef DEBUG
-//    [TestFlight setDeviceIdentifier:[[UIDevice currentDevice] uniqueIdentifier]];
-//#endifXBNavigableViewController
     [TestFlight takeOff: TestFlightAppToken];
 }
 

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="4514" systemVersion="13A603" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="4514" systemVersion="13A3028" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <deployment defaultVersion="1536" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3747"/>
@@ -35,7 +35,7 @@
                         <color key="textColor" red="0.53333333333333333" green="0.53333333333333333" blue="0.53333333333333333" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </label>
-                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" fixedFrame="YES" text="Date" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="30">
+                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" misplaced="YES" text="Date" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="30">
                         <rect key="frame" x="109" y="3" width="202" height="18"/>
                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxY="YES"/>
                         <fontDescription key="fontDescription" type="italicSystem" pointSize="12"/>
@@ -62,6 +62,8 @@
                     <constraint firstItem="14" firstAttribute="leading" secondItem="50" secondAttribute="trailing" constant="13" id="T0u-9f-2ah"/>
                     <constraint firstItem="50" firstAttribute="leading" secondItem="WVF-AT-qLJ" secondAttribute="leading" constant="13" id="Wru-iX-CNM"/>
                     <constraint firstItem="50" firstAttribute="top" secondItem="WVF-AT-qLJ" secondAttribute="top" constant="13" id="acm-k7-kGL"/>
+                    <constraint firstAttribute="trailing" secondItem="30" secondAttribute="trailing" constant="9" id="dv9-Iy-NZI"/>
+                    <constraint firstItem="30" firstAttribute="top" secondItem="WVF-AT-qLJ" secondAttribute="top" constant="3" id="p9B-SX-D1w"/>
                     <constraint firstItem="35" firstAttribute="top" secondItem="3" secondAttribute="bottom" constant="2" id="zzQ-ax-2TX"/>
                 </constraints>
             </tableViewCellContentView>

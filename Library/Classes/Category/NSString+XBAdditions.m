@@ -98,7 +98,10 @@
 //        XBLogDebug(@"tok: %@", token.debugDescription);
 
         UIColor *color = [UIColor colorWithHex:@"#E0E0E0"];
-        if (token.quotedString) {
+        if (token.isComment) {
+            color = [UIColor colorWithHex: @"#808080"];
+        }
+        else if (token.quotedString) {
             color = [UIColor colorWithHex: @"#A5C15B"];
         }
         else if (token.isEmail) {
@@ -106,9 +109,6 @@
         }
         else if (token.isURL) {
             color = [UIColor colorWithHex: @"#6795BA"];
-        }
-        else if (token.isComment) {
-            color = [UIColor colorWithHex: @"#808080"];
         }
         else if (token.isSymbol) {
             color = [UIColor colorWithHex: @"#CC7731"];

@@ -28,7 +28,7 @@
     if (self) {
         self.baseUrl = baseUrl;
         self.operationManager = [[AFHTTPRequestOperationManager alloc] initWithBaseURL:[NSURL URLWithString:baseUrl]];
-        self.operationManager.responseSerializer = [AFJSONResponseSerializer serializer];
+//        self.operationManager.responseSerializer = [AFJSONResponseSerializer serializer];
     }
 
     return self;
@@ -40,20 +40,45 @@
                               failure: (void (^)(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id jsonFetched))errorCb {
 
     AFHTTPRequestOperation *operation = [self.operationManager GET: path parameters: parameters
-         success:^(AFHTTPRequestOperation *operation, id json) {
-            XBLogDebug(@"json: %@", json);
+                                                           success:^(AFHTTPRequestOperation *operation, id json) {
+                                                               XBLogDebug(@"json: %@", json);
 
-            if (successCb) {
-                successCb(operation.request, operation.response, json);
-            }
-        }
-        failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-            XBLogWarn(@"Error: %@, json: %@", error);
+                                                               if (successCb) {
+                                                                   successCb(operation.request, operation.response, json);
+                                                               }
+                                                           }
+                                                           failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                                                               XBLogWarn(@"Error: %@, json: %@", error);
 
-            if (errorCb) {
-                errorCb(operation.request, operation.response, error, operation.responseObject);
-            }
-        }
+                                                               if (errorCb) {
+                                                                   errorCb(operation.request, operation.response, error, operation.responseObject);
+                                                               }
+                                                           }
+    ];
+
+    [operation start];
+}
+
+- (void)executePostJsonRequestWithPath:(NSString *)path
+                           parameters:(NSDictionary *)parameters
+                              success:(void (^)(NSURLRequest *request, NSHTTPURLResponse *response, id jsonFetched))successCb
+                              failure: (void (^)(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id jsonFetched))errorCb {
+
+    AFHTTPRequestOperation *operation = [self.operationManager POST: path parameters: parameters
+                                                           success:^(AFHTTPRequestOperation *operation, id json) {
+                                                               XBLogDebug(@"json: %@", json);
+
+                                                               if (successCb) {
+                                                                   successCb(operation.request, operation.response, json);
+                                                               }
+                                                           }
+                                                           failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                                                               XBLogWarn(@"Error: %@, json: %@", error);
+
+                                                               if (errorCb) {
+                                                                   errorCb(operation.request, operation.response, error, operation.responseObject);
+                                                               }
+                                                           }
     ];
 
     [operation start];

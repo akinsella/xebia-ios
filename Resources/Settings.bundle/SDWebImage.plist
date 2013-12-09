@@ -34,7 +34,7 @@ THE SOFTWARE.
         </dict>
         <dict>
             <key>DefaultValue</key>
-            <string>3.5</string>
+            <string>3.5.1</string>
             <key>Key</key>
             <string>SDWebImageVersion</string>
             <key>Title</key>
