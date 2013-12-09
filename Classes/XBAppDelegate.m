@@ -346,7 +346,6 @@ static NSInteger const kApiVersion = 1;
 	[self processRemoteNotification:userInfo];
 }
 
-<<<<<<< HEAD
 -(NSString *)deviceModel {
     size_t size;
     sysctlbyname("hw.machine", NULL, &size, NULL, 0);
@@ -360,7 +359,8 @@ static NSInteger const kApiVersion = 1;
 
 -(NSString *)systemVersion {
     return UIDevice.currentDevice.systemVersion;
-=======
+}
+
 - (void)checkMinApiVersion {
 
     if (!self.configurationProvider.reachability.isReachable) {
@@ -402,7 +402,6 @@ static NSInteger const kApiVersion = 1;
         ];
         [operation start];
     }
->>>>>>> 89abc1cc9865843680d138e96237809a51ee1e60
 }
 
 - (void)sendProviderDeviceToken:(NSString *)deviceToken {
