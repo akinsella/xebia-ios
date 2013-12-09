@@ -12,16 +12,14 @@
 #import "VMVideo.h"
 #import "UIAlertView+XBAdditions.h"
 #import "VMThumbnail.h"
-#import "GAITracker.h"
-#import "UIViewController+XBAdditions.h"
 #import "NSDate+XBAdditions.h"
 #import "Underscore.h"
 #import "VMVideoUrl.h"
+#import "XBReloadableArrayDataSource.h"
 #import "XBPListConfigurationProvider.h"
 #import "XBBasicHttpQueryParamBuilder.h"
 #import "XBHttpJsonDataLoader.h"
 #import "XBJsonToArrayDataMapper.h"
-#import "XBReloadableArrayDataSource.h"
 #import "XBArrayDataSource+protected.h"
 
 @interface VMVideoDetailsViewController()
@@ -96,19 +94,39 @@
     return result;
 }
 
--(void)onVideoTapped {
-    VMVideoUrl *videoUrl = Underscore.array(self.video.videoUrls).find(^BOOL(VMVideoUrl * videoUrlEntry) {
+- (XBReloadableArrayDataSource *)buildVideoUrlsDataSource {
+    XBHttpClient *httpClient = [[XBPListConfigurationProvider provider] httpClient];
+    XBBasicHttpQueryParamBuilder *httpQueryParamBuilder = [XBBasicHttpQueryParamBuilder builderWithDictionary:@{}];
+
+    NSString *path = [NSString stringWithFormat:@"/videos/%@/urls", self.video.identifier];
+    XBHttpJsonDataLoader *dataLoader = [XBHttpJsonDataLoader dataLoaderWithHttpClient:httpClient
+                                                                httpQueryParamBuilder:httpQueryParamBuilder
+                                                                         resourcePath:path];
+
+    XBJsonToArrayDataMapper *dataMapper = [XBJsonToArrayDataMapper mapperWithRootKeyPath:nil typeClass:[VMVideoUrl class]];
+    return [XBReloadableArrayDataSource dataSourceWithDataLoader:dataLoader dataMapper:dataMapper];
+}
+
+- (void)onVideoTapped {
+    XBReloadableArrayDataSource *dataSource = [self buildVideoUrlsDataSource];
+    [dataSource loadDataWithCallback:^{
+        [self dataLoadedWithVideoUrls: dataSource.array];
+    }];
+}
+
+-(void)dataLoadedWithVideoUrls:(NSArray *)videoUrls {
+    VMVideoUrl *videoUrl = Underscore.array(videoUrls).find(^BOOL(VMVideoUrl * videoUrlEntry) {
         return [videoUrlEntry.codec isEqualToString:@"hls"] && [videoUrlEntry.type isEqualToString:@"all"];
     });
 
     if (!videoUrl) {
-        videoUrl = Underscore.array(self.video.videoUrls).find(^BOOL(VMVideoUrl * videoUrlEntry) {
+        videoUrl = Underscore.array(videoUrls).find(^BOOL(VMVideoUrl * videoUrlEntry) {
             return [videoUrlEntry.codec isEqualToString:@"hls"];
         });
     }
 
     if (!videoUrl) {
-        videoUrl = Underscore.array(self.video.videoUrls).first;
+        videoUrl = Underscore.array(videoUrls).first;
     }
 
     if (videoUrl) {

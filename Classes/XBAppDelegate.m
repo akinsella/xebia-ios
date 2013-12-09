@@ -24,6 +24,8 @@
 #import "AFNetworkActivityLogger.h"
 #import <NewRelicAgent/NewRelicAgent.h>
 #import <Crashlytics/Crashlytics.h>
+#import <sys/utsname.h>
+#import <sys/sysctl.h>
 
 static NSString *const kTrackingId = @"UA-1889791-23";
 
@@ -341,8 +343,23 @@ static NSString *const CrashlyticsApiKey = @"48e99a586053e4194936d79b6126ad23e9d
 	[self processRemoteNotification:userInfo];
 }
 
+-(NSString *)deviceModel {
+    size_t size;
+    sysctlbyname("hw.machine", NULL, &size, NULL, 0);
+    char *machine = malloc(size);
+    sysctlbyname("hw.machine", machine, &size, NULL, 0);
+    NSString *platform = [NSString stringWithUTF8String:machine];
+    free(machine);
+
+    return platform;
+}
+
+-(NSString *)systemVersion {
+    return UIDevice.currentDevice.systemVersion;
+}
+
 - (void)sendProviderDeviceToken:(NSString *)deviceToken {
-    NSDictionary *jsonPayload = @{ @"udid": self.udid, @"token": deviceToken};
+    NSDictionary *jsonPayload = @{ @"udid": self.udid, @"token": deviceToken, @"deviceModel": self.deviceModel, @"systemVersion": self.systemVersion};
 
 #if TARGET_IPHONE_SIMULATOR
     XBLog("Running device is Simulator, cannot send Device Token to server: %@", jsonPayload);
