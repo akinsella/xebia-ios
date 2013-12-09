@@ -11,6 +11,7 @@
 #import "NSDate+XBAdditions.h"
 #import "UIViewController+XBAdditions.h"
 #import "EBEventMapViewController.h"
+#import "XBConstants.h"
 
 #define kGoogleMapsApiKey @"AIzaSyCeZZqN7-vVmAehdjAtfRbZyw2BmsWgUu4"
 
@@ -57,7 +58,7 @@
                                                        [self.event.venue.address stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding],
                                                        [self.event.venue.postalCode stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding],
                                                        [self.event.venue.city stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding],
-                                                       [UIScreen mainScreen].scale == 1.0 ? @"320x128" : @"640x256",
+                                                       [UIScreen mainScreen].scale == 1.0 ? (IS_IPAD ? @"768x307" : @"320x128") : (IS_IPAD ? @"1536x614" : @"640x256"),
                                                        self.event.venue.latitude,
                                                        self.event.venue.longitude,
                                                        kGoogleMapsApiKey
