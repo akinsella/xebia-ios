@@ -214,8 +214,8 @@ static NSInteger const kApiVersion = 1;
 
 
     /* TabBar customization */
-    [[UITabBar appearance] setBackgroundImage:[UIImage imageNamed:@"TabBar"]];
-    [[UITabBar appearance] setSelectionIndicatorImage:[UIImage imageNamed:@"TabBarItemSelectedImage"]];
+    [[UITabBar appearance] setBackgroundImage:[UIImage imageNamed:[@"TabBar" suffixIfIPad]]];
+    [[UITabBar appearance] setSelectionIndicatorImage:[UIImage imageNamed:[@"TabBarItemSelectedImage" suffixIfIPad]]];
 
 
     if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0")) {
@@ -398,7 +398,7 @@ static NSInteger const kApiVersion = 1;
     }
     else {
         XBHttpClient *httpClient = [self configurationProvider].httpClient;
-        [httpClient executePostJsonRequestWithPath:@"/devices/register" parameters:jsonPayload
+        [httpClient executePostJsonRequestWithPath:[@"/devices/register" stripLeadingSlash] parameters:jsonPayload
                                            success:^(NSURLRequest *request, NSHTTPURLResponse *response, id jsonFetched) {
                                                if (response.statusCode > 299) {
                                                    NSString *reasonPhrase = (__bridge_transfer NSString *)CFHTTPMessageCopyResponseStatusLine((__bridge CFHTTPMessageRef)response);

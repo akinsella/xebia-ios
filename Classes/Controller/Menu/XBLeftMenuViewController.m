@@ -50,10 +50,10 @@ enum {
 - (void)initialize {
 
     self.urlHandlers = @[
-            [[WPURLHandler alloc] init],
-            [[TTURLHandler alloc] init],
-            [[EBURLHandler alloc] init],
-            [[VMURLHandler alloc] init]
+        [[WPURLHandler alloc] init],
+        [[TTURLHandler alloc] init],
+        [[EBURLHandler alloc] init],
+        [[VMURLHandler alloc] init]
     ];
 
     [super initialize];

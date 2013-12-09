@@ -9,6 +9,7 @@
 #import <QuartzCore/QuartzCore.h>
 #import "XBRightMenuCell.h"
 #import "UIColor+XBAdditions.h"
+#import "XBConstants.h"
 
 @implementation XBRightMenuCell
 
@@ -20,23 +21,30 @@
     return NO;
 }
 
+- (UIColor *)customizedBackgroundColor {
+    return [UIColor colorWithHex:@"#222222"];
+}
+
 - (UIColor *)gradientLayerColor {
     return [UIColor colorWithHex:@"#6a205f"];
 }
 
 - (void)layoutSubviews {
     [super layoutSubviews];
-    self.imageView.frame = CGRectMake(42,10,22,22);
+
+    if (IS_IPAD) {
+        self.titleLabel.frame = CGRectMake(520,  self.titleLabel.frame.origin.y, self.titleLabel.frame.size.width, self.titleLabel.frame.size.height);
+        self.imageView.frame = CGRectMake(490,10,22,22);
+    }
+    else {
+        self.imageView.frame = CGRectMake(42,10,22,22);
+    }
+
     self.imageView.layer.masksToBounds = YES;
     self.imageView.layer.cornerRadius = 3.0;
 
     self.layer.shouldRasterize = YES;
     self.layer.rasterizationScale = [[UIScreen mainScreen] scale];
-
-    [self.textLabel setFont:[UIFont fontWithName:@"HelveticaNeue-Bold" size:17.0]];
-    [self.textLabel setTextColor: [UIColor whiteColor]];
-    [self.textLabel setShadowColor: [UIColor colorWithRed:0.0 green:0.0 blue:0.0 alpha:0.75]];
-    [self.textLabel setShadowOffset:CGSizeMake(0.0, 1.0)];
 }
 
 @end

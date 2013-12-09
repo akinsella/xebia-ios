@@ -68,6 +68,10 @@
     return isIOS6 ? [NSString stringWithFormat:@"%@-ios6", self] : self;
 }
 
+- (NSString *)suffixIfIPad {
+    return IS_IPAD ? [NSString stringWithFormat:@"%@-ipad", self] : self;
+}
+
 - (id)objectFromJSONString {
     NSError *error;
     return [NSJSONSerialization JSONObjectWithData: [self dataUsingEncoding:NSUTF8StringEncoding]

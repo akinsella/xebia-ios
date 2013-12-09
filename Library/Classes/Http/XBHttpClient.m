@@ -73,7 +73,7 @@
                                                                }
                                                            }
                                                            failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-                                                               XBLogWarn(@"Error: %@, json: %@", error);
+                                                               XBLogWarn(@"Error: %@, response object: %@", error, operation.responseObject);
 
                                                                if (errorCb) {
                                                                    errorCb(operation.request, operation.response, error, operation.responseObject);

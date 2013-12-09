@@ -7,7 +7,6 @@
 //
 
 #import <QuartzCore/QuartzCore.h>
-#import <CoreGraphics/CoreGraphics.h>
 #import "XBTableViewCell.h"
 #import "DTCustomColoredAccessory.h"
 #import "UIColor+XBAdditions.h"
@@ -88,6 +87,10 @@
     return [UIColor colorWithHex:@"#E9E9E9"];
 }
 
+- (UIColor *)customizedBackgroundColor {
+    return [UIColor clearColor];
+}
+
 -(void)initAccessoryView {
     DTCustomColoredAccessory *accessory = [DTCustomColoredAccessory accessoryWithColor:[self accessoryViewColor]];
     accessory.highlightedColor = [self accessoryViewHighlightedColor];
@@ -96,13 +99,13 @@
     self.accessoryView = accessory;
 }
 
-//- (void)accessoryButtonTapped:(UIControl *)button withEvent:(UIEvent *)event
-//{
-//    UITableViewCell *cell = (UITableViewCell *)button.superview;
-//    UITableView *tableView = (UITableView *)cell.superview;
-//    NSIndexPath *indexPath = [tableView indexPathForCell:cell];
-//    [tableView.delegate tableView:tableView accessoryButtonTappedForRowWithIndexPath:indexPath];
-//}
+- (void)accessoryButtonTapped:(UIControl *)button withEvent:(UIEvent *)event
+{
+    UITableViewCell *cell = (UITableViewCell *)button.superview;
+    UITableView *tableView = (UITableView *)cell.superview;
+    NSIndexPath *indexPath = [tableView indexPathForCell:cell];
+    [tableView.delegate tableView:tableView accessoryButtonTappedForRowWithIndexPath:indexPath];
+}
 
 - (void)initBackgroundView {
 
@@ -116,7 +119,7 @@
     //Create background view
     if (self.customizeBackgroundView) {
         self.backgroundView = [[UIView alloc] init];
-        self.backgroundView.backgroundColor = [UIColor clearColor];
+        self.backgroundView.backgroundColor = [self customizedBackgroundColor];
         self.backgroundView.contentMode = UIViewContentModeTop;
         self.backgroundView.autoresizingMask = autoResizingMask;
 

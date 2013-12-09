@@ -24,6 +24,8 @@
 
 - (NSString *)suffixIfIOS6;
 
+- (NSString *)suffixIfIPad;
+
 - (id)objectFromJSONString;
 
 - (NSAttributedString *)highlightSyntax;

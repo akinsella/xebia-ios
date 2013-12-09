@@ -126,6 +126,7 @@
         cell = [[NSBundle bundleForClass:self.class] loadNibNamed:cellNibName owner:self options:nil][0];
     }
 
+    [cell setBackgroundColor:[UIColor clearColor]];
     [self.delegate configureCell:cell atIndex:indexPath];
 
     return cell;

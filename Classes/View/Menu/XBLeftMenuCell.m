@@ -20,6 +20,10 @@
     return NO;
 }
 
+- (UIColor *)customizedBackgroundColor {
+    return [UIColor colorWithHex:@"#222222"];
+}
+
 - (void)layoutSubviews {
     [super layoutSubviews];
     self.imageView.frame = CGRectMake(10,10,22,22);
