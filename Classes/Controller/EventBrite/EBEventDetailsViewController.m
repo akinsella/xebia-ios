@@ -29,6 +29,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -36,6 +37,18 @@
 
     self.title = self.event.title;
     self.navigationController.navigationBarHidden = NO;
+}
+
+- (void)viewWillLayoutSubviews {
+    [super viewWillLayoutSubviews];
+
+    self.innerView.frame = CGRectMake(0, 0, self.view.frame.size.width, self.scrollView.contentSize.height);
+//    self.scrollView.contentSize = CGSizeMake(self.view.frame.size.width, self.scrollView.contentSize.height);
+//    self.scrollView.frame = CGRectMake(0, 0, self.view.frame.size.width, self.scrollView.contentSize.height);
+}
+
+- (void)viewDidLayoutSubviews {
+    [super viewDidLayoutSubviews];
 }
 
 - (void)updateWithEvent:(EBEvent *)event {

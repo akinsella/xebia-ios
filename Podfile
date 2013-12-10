@@ -28,7 +28,7 @@ pod 'ZXingObjC',					'2.2.2'
 pod 'NewRelicAgent',				'3.130'
 pod 'InAppSettingsKit', 			'2.0'
 pod 'ParseKit',						'0.7'
-pod 'UITableView-NXEmptyView',  '0.1.4'
+#pod 'UITableView-NXEmptyView',  '0.1.4'
 
 target :"XebiaTests", :exclusive => true do
   pod 'SenTestingKitAsync',		'1.0.6'

@@ -12,7 +12,9 @@
 #import "XBArrayDataSource.h"
 #import "XBTableViewController.h"
 #import "UIViewController+XBAdditions.h"
-#import "UITableView+NXEmptyView.h"
+#import "XBTableView.h"
+#import <objc/runtime.h>
+
 
 @interface XBTableViewController ()
 
@@ -55,6 +57,7 @@
     [super viewDidLoad];
     [self initialize];
     [self configureTableView];
+    [self loadData];
 }
 
 - (NSString *)trackPath {
@@ -62,11 +65,14 @@
 }
 
 - (void)viewWillAppear:(BOOL)animated {
-
     [self.appDelegate trackView:self.trackPath];
 
     [super viewWillAppear:animated];
-    [self loadData];
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+
+    [super viewWillDisappear:animated];
 }
 
 -(void)loadData {
@@ -96,8 +102,8 @@
 - (void)configureTableView {
     self.tableView.backgroundColor = [UIColor colorWithHex:@"#F0F0F0"];
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-    self.tableView.nxEV_emptyView = [[NSBundle mainBundle] loadNibNamed:@"XBEmptyView" owner:nil options:nil][0];
-    self.tableView.nxEV_emptyView.backgroundColor = [UIColor colorWithHex:@"#F0F0F0"];
+    ((XBTableView *)self.tableView).emptyView = [[NSBundle mainBundle] loadNibNamed:@"XBEmptyView" owner:nil options:nil][0];
+    ((XBTableView *)self.tableView).emptyView.backgroundColor = [UIColor colorWithHex:@"#F0F0F0"];
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {

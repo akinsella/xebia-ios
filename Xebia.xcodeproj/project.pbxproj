@@ -428,6 +428,7 @@
 		DB34D416238352A196D98149 /* XBTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34DDA94D4BAEA8558A2845 /* XBTabBarController.m */; };
 		DB34D42FD499E06D305AAAE0 /* XEULink.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34DB5D367DAA7DDB9AF238 /* XEULink.m */; };
 		DB34D430F905731F33738F4E /* VMVideoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DB34DA18E861CE300585EC75 /* VMVideoCell.xib */; };
+		DB34D43E1A711AF0A3BC6AFB /* XBTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34DC06B75BDC531B4CF3A3 /* XBTableView.m */; };
 		DB34D440722370A61803A372 /* WPCategoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DB34DEEAA4079818595013B9 /* WPCategoryCell.xib */; };
 		DB34D4578F76484EBBF9DE93 /* XESponsor.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34D0A4CC294EC4C22FF6BD /* XESponsor.m */; };
 		DB34D45B28E777453933AACC /* navbar-landscape-ios7.png in Resources */ = {isa = PBXBuildFile; fileRef = DB34D428C45D77504F4E15E4 /* navbar-landscape-ios7.png */; };
@@ -1021,6 +1022,7 @@
 		DB34D64CC0FEB4ACD0D3B9B4 /* XBNewsEventBriteCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XBNewsEventBriteCell.m; sourceTree = "<group>"; };
 		DB34D67385B70DF3E8904BDD /* XECategoryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XECategoryCell.h; sourceTree = "<group>"; };
 		DB34D67D30B8E581ED3B4E29 /* XBRightMenuCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = XBRightMenuCell.xib; sourceTree = "<group>"; };
+		DB34D6A4379E8B12D55A2A48 /* XBTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XBTableView.h; sourceTree = "<group>"; };
 		DB34D6F44063EE2EE62B4A43 /* 35332708-99B1-4E91-8188-0A570401657A.mobileprovision */ = {isa = PBXFileReference; lastKnownFileType = file.mobileprovision; path = "35332708-99B1-4E91-8188-0A570401657A.mobileprovision"; sourceTree = "<group>"; };
 		DB34D6F8E8C86AC98B83C1CC /* dev.cer */ = {isa = PBXFileReference; lastKnownFileType = file.cer; path = dev.cer; sourceTree = "<group>"; };
 		DB34D7023381A681C697733B /* VMVideoTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VMVideoTableViewController.m; sourceTree = "<group>"; };
@@ -1086,6 +1088,7 @@
 		DB34DBE047BC6CFF167AE66A /* XBNewsVimeoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XBNewsVimeoCell.h; sourceTree = "<group>"; };
 		DB34DBF1B3FCCC4E6026372E /* README.md */ = {isa = PBXFileReference; lastKnownFileType = file.md; path = README.md; sourceTree = "<group>"; };
 		DB34DBFA7A7896251890FD3D /* UIAlertView+XBAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIAlertView+XBAdditions.m"; sourceTree = "<group>"; };
+		DB34DC06B75BDC531B4CF3A3 /* XBTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XBTableView.m; sourceTree = "<group>"; };
 		DB34DC226E31B0314FEF4887 /* EBURLHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EBURLHandler.h; sourceTree = "<group>"; };
 		DB34DC44DD8FCA65747A3416 /* XBLeftMenuCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XBLeftMenuCell.m; sourceTree = "<group>"; };
 		DB34DC70361C6AB0865E9DE9 /* navbar-landscape-iphone5-ios7@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "navbar-landscape-iphone5-ios7@2x.png"; sourceTree = "<group>"; };
@@ -2187,6 +2190,8 @@
 				544714C5177717D0001F5153 /* XBTableViewCell.m */,
 				5485017717DFD8E2002216C4 /* XBCircleImageView.h */,
 				5485017817DFD8E3002216C4 /* XBCircleImageView.m */,
+				DB34DC06B75BDC531B4CF3A3 /* XBTableView.m */,
+				DB34D6A4379E8B12D55A2A48 /* XBTableView.h */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -3115,6 +3120,7 @@
 				DB34D7E4E9DD1CA50FBC5157 /* EBEventMapViewController.m in Sources */,
 				DB34D4F5930C35B2A659CD49 /* XBAppUpgradeViewController.m in Sources */,
 				DB34D9008A22ADAD23A21DF6 /* XBEmptyView.m in Sources */,
+				DB34D43E1A711AF0A3BC6AFB /* XBTableView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
