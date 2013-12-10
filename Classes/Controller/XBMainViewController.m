@@ -98,7 +98,8 @@
 
 -(void)openLocalURL:(NSString *)htmlFileRef withTitle:(NSString *)title json:(NSString *)json shareInfo: (XBShareInfo *)shareInfo
  {
-    XBWebViewController *webViewController = (XBWebViewController *)[self.viewControllerManager getOrCreateControllerWithIdentifier: @"webview"];
+     UIStoryboard *sb = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
+     XBWebViewController *webViewController = (XBWebViewController *)[sb instantiateViewControllerWithIdentifier: @"webview"];
 
      webViewController.title = title;
      webViewController.shareInfo = shareInfo;
@@ -113,7 +114,8 @@
 }
 
 -(void)openURL:(NSURL *)url withTitle:(NSString *)title {
-    XBWebViewController *webViewController = (XBWebViewController *)[self.viewControllerManager getOrCreateControllerWithIdentifier: @"webview"];
+    UIStoryboard *sb = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
+    XBWebViewController *webViewController = (XBWebViewController *)[sb instantiateViewControllerWithIdentifier: @"webview"];
     UINavigationController *frontViewController = (UINavigationController *) self.appDelegate.mainViewController.frontViewController;
 
     [frontViewController pushViewController:webViewController animated:true];
