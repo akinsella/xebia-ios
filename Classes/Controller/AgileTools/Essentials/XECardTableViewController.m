@@ -99,7 +99,6 @@
     XECard *card = self.dataSource[(NSUInteger) indexPath.row];
     NSLog(@"Card selected: %@", card);
 
-
     UIStoryboard *sb = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
     XECardDetailsViewController *cardDetailsViewController = (XECardDetailsViewController *)[sb instantiateViewControllerWithIdentifier:@"cardDetails"];
     [cardDetailsViewController updateWithCards:self.dataSource.array andIndex:(NSUInteger) indexPath.row];

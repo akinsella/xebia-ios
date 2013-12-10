@@ -81,7 +81,8 @@
     XECategory *category = self.dataSource[(NSUInteger) indexPath.row];
     NSLog(@"Category selected: %@", category);
 
-    XECardTableViewController *cardCategoryViewController = (XECardTableViewController *) [self.appDelegate.viewControllerManager getOrCreateControllerWithIdentifier:@"cards"];
+    UIStoryboard *sb = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
+    XECardTableViewController *cardCategoryViewController = (XECardTableViewController *) [sb instantiateViewControllerWithIdentifier:@"cards"];
     [cardCategoryViewController updateWithCategory: category];
     [self.navigationController pushViewController:cardCategoryViewController animated:YES];
 }

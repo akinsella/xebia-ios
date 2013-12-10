@@ -122,6 +122,7 @@
     CGFloat pageWidth = self.scrollView.frame.size.width;
     NSUInteger page = (NSUInteger) (floor((self.scrollView.contentOffset.x - pageWidth / 2) / pageWidth) + 1);
     self.pageControl.currentPage = page;
+    self.initialIndex = page;
 
     // load the visible page and the page on either side of it (to avoid flashes when the user starts scrolling)
     [self loadScrollViewWithPage:page - 1];
