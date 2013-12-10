@@ -24,6 +24,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *cityLabel;
 @property (weak, nonatomic) IBOutlet UIButton *attendingLabel;
 @property (weak, nonatomic) IBOutlet UIButton *mapButton;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *innerViewWidthConstraint;
+@property (weak, nonatomic) IBOutlet UIView *outerLogoView;
 
 @property(nonatomic, strong)EBEvent *event;
 

@@ -22,7 +22,7 @@
 #import "GAIDictionaryBuilder.h"
 #import "GAIFields.h"
 #import "AFNetworkActivityLogger.h"
-#import <NewRelicAgent/NewRelic.h>
+#import <NewRelicAgent/NewRelicAgent.h>
 #import <Crashlytics/Crashlytics.h>
 #import <sys/utsname.h>
 #import <sys/sysctl.h>
@@ -100,9 +100,9 @@ static NSInteger const kApiVersion = 1;
     [self initApplicationRating];
 
 #if DEBUG
-    [self.mainViewController revealViewControllerWithIdentifier:@"timeline"];
+//    [self.mainViewController revealViewControllerWithIdentifier:@"timeline"];
 //    [[[WPURLHandler alloc] init] handleURL:[NSURL URLWithString:@"xebia://blog/posts/3035"]];
-//    [self.mainViewController revealViewControllerWithIdentifier:@"events"];
+    [self.mainViewController revealViewControllerWithIdentifier:@"events"];
 //    [self.mainViewController revealViewControllerWithIdentifier:@"tbBlog"];
 //    [self.mainViewController revealViewControllerWithIdentifier:@"tweets"];
 //    [self.mainViewController revealViewControllerWithIdentifier:@"videos"];
@@ -152,10 +152,10 @@ static NSInteger const kApiVersion = 1;
     
 #if TARGET_IPHONE_SIMULATOR || defined(DEBUG)
     GAI.sharedInstance.dispatchInterval = 20;
-    GAI.sharedInstance.logger.logLevel = kGAILogLevelVerbose;
+    GAI.sharedInstance.logger.logLevel = kGAILogLevelInfo;
 #else
     GAI.sharedInstance.dispatchInterval = 120;
-    GAI.sharedInstance.logger.logLevel = kGAILogLevelInfo;
+    GAI.sharedInstance.logger.logLevel = kGAILogLevelWarn;
 #endif
     
     GAI.sharedInstance.trackUncaughtExceptions = NO;

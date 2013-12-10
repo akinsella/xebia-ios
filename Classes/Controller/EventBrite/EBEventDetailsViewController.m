@@ -11,7 +11,10 @@
 #import "NSDate+XBAdditions.h"
 #import "UIViewController+XBAdditions.h"
 #import "EBEventMapViewController.h"
+#import "UIImageView+XBAdditions.h"
+#import "UIImage+XBAdditions.h"
 #import "XBConstants.h"
+
 
 #define kGoogleMapsApiKey @"AIzaSyCeZZqN7-vVmAehdjAtfRbZyw2BmsWgUu4"
 
@@ -37,14 +40,36 @@
 
     self.title = self.event.title;
     self.navigationController.navigationBarHidden = NO;
+
+    self.innerViewWidthConstraint.constant = self.view.frame.size.width;
+
+    NSLayoutConstraint *outputLogoViewConstraint = [NSLayoutConstraint
+            constraintWithItem:self.outerLogoView
+                     attribute:NSLayoutAttributeHeight
+                     relatedBy:NSLayoutRelationEqual
+                        toItem:self.outerLogoView
+                     attribute:NSLayoutAttributeWidth
+                    multiplier:160.0/320.0
+                      constant:0];
+    outputLogoViewConstraint.priority = 1000;
+    // Do any additional setup after loading the view, typically from a nib.
+    [self.outerLogoView.superview addConstraint:outputLogoViewConstraint];
+
+    NSLayoutConstraint *mapButtonConstraint = [NSLayoutConstraint
+            constraintWithItem:self.mapButton
+                     attribute:NSLayoutAttributeHeight
+                     relatedBy:NSLayoutRelationEqual
+                        toItem:self.mapButton
+                     attribute:NSLayoutAttributeWidth
+                    multiplier:128.0/320.0
+                      constant:0];
+    mapButtonConstraint.priority = 1000;
+    // Do any additional setup after loading the view, typically from a nib.
+    [self.mapButton.superview addConstraint:mapButtonConstraint];
 }
 
 - (void)viewWillLayoutSubviews {
     [super viewWillLayoutSubviews];
-
-    self.innerView.frame = CGRectMake(0, 0, self.view.frame.size.width, self.scrollView.contentSize.height);
-//    self.scrollView.contentSize = CGSizeMake(self.view.frame.size.width, self.scrollView.contentSize.height);
-//    self.scrollView.frame = CGRectMake(0, 0, self.view.frame.size.width, self.scrollView.contentSize.height);
 }
 
 - (void)viewDidLayoutSubviews {
@@ -71,7 +96,7 @@
                                                        [self.event.venue.address stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding],
                                                        [self.event.venue.postalCode stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding],
                                                        [self.event.venue.city stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding],
-                                                       [UIScreen mainScreen].scale == 1.0 ? (IS_IPAD ? @"768x307" : @"320x128") : (IS_IPAD ? @"1536x614" : @"640x256"),
+                                                       [UIScreen mainScreen].scale == 1.0 ? @"640x256" : @"320x128",
                                                        self.event.venue.latitude,
                                                        self.event.venue.longitude,
                                                        kGoogleMapsApiKey
@@ -91,6 +116,9 @@
                                                      CGFloat screenScale = [UIScreen mainScreen].scale;
                                                      if (screenScale != image.scale) {
                                                          image = [UIImage imageWithCGImage:image.CGImage scale:screenScale orientation:image.imageOrientation];
+                                                      }
+                                                     if (IS_IPAD) {
+                                                         image = [image imageScaledToSize:self.mapButton.frame.size];
                                                      }
                                                      [self.mapButton setImage:image forState:UIControlStateNormal];
                                                  }

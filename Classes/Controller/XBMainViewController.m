@@ -106,6 +106,7 @@
 
      NSString *htmlFile = [[NSBundle bundleForClass:self.class] pathForResource:htmlFileRef ofType:@"html" inDirectory:@"www"];
      NSURL *htmlDocumentUrl = [NSURL fileURLWithPath:htmlFile];
+
      [self revealViewController: webViewController];
 
      [webViewController loadRequest:htmlDocumentUrl];
@@ -114,6 +115,7 @@
 -(void)openURL:(NSURL *)url withTitle:(NSString *)title {
     XBWebViewController *webViewController = (XBWebViewController *)[self.viewControllerManager getOrCreateControllerWithIdentifier: @"webview"];
     UINavigationController *frontViewController = (UINavigationController *) self.appDelegate.mainViewController.frontViewController;
+
     [frontViewController pushViewController:webViewController animated:true];
     webViewController.title = title;
     

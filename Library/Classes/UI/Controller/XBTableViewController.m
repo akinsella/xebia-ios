@@ -13,6 +13,7 @@
 #import "XBTableViewController.h"
 #import "UIViewController+XBAdditions.h"
 #import "XBTableView.h"
+#import "XBLogging.h"
 #import <objc/runtime.h>
 
 
@@ -102,8 +103,14 @@
 - (void)configureTableView {
     self.tableView.backgroundColor = [UIColor colorWithHex:@"#F0F0F0"];
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-    ((XBTableView *)self.tableView).emptyView = [[NSBundle mainBundle] loadNibNamed:@"XBEmptyView" owner:nil options:nil][0];
-    ((XBTableView *)self.tableView).emptyView.backgroundColor = [UIColor colorWithHex:@"#F0F0F0"];
+
+    if ([self.tableView respondsToSelector:@selector(setEmptyView:)]) {
+        ((XBTableView *)self.tableView).emptyView = [[NSBundle mainBundle] loadNibNamed:@"XBEmptyView" owner:nil options:nil][0];
+        ((XBTableView *)self.tableView).emptyView.backgroundColor = [UIColor colorWithHex:@"#F0F0F0"];
+    }
+    else {
+        XBLogDebug(@"Table view is not an XBTableView instance !: Classe:%@", NSStringFromClass(self.tableView.class));
+    }
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
