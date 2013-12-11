@@ -403,6 +403,7 @@
 		54FDDF4F1857E84F00912B1F /* XBNewsTwitterCell-ipad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 54FDDF4A1857E84F00912B1F /* XBNewsTwitterCell-ipad.xib */; };
 		54FDDF501857E84F00912B1F /* XBNewsVimeoCell-ipad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 54FDDF4B1857E84F00912B1F /* XBNewsVimeoCell-ipad.xib */; };
 		54FDDF511857E84F00912B1F /* XBNewsWordpressCell-ipad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 54FDDF4C1857E84F00912B1F /* XBNewsWordpressCell-ipad.xib */; };
+		54FDDF531857F5FF00912B1F /* WPSPostCell-ipad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 54FDDF521857F5FF00912B1F /* WPSPostCell-ipad.xib */; };
 		B56E64C3C14D4A618E4C1641 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EDB581D723EF4E5C808B5615 /* libPods.a */; };
 		DB34D029B20AB2CC024B5447 /* WPAbstractPostContentStructuredElementCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34D181FB864A5B5B0CCA4E /* WPAbstractPostContentStructuredElementCell.m */; };
 		DB34D040BF7E24A9D7EEF4C7 /* VMThumbnail.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34D3ACE055F5BE09F95779 /* VMThumbnail.m */; };
@@ -963,6 +964,7 @@
 		54FDDF4A1857E84F00912B1F /* XBNewsTwitterCell-ipad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = "XBNewsTwitterCell-ipad.xib"; sourceTree = "<group>"; };
 		54FDDF4B1857E84F00912B1F /* XBNewsVimeoCell-ipad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = "XBNewsVimeoCell-ipad.xib"; sourceTree = "<group>"; };
 		54FDDF4C1857E84F00912B1F /* XBNewsWordpressCell-ipad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = "XBNewsWordpressCell-ipad.xib"; sourceTree = "<group>"; };
+		54FDDF521857F5FF00912B1F /* WPSPostCell-ipad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = "WPSPostCell-ipad.xib"; sourceTree = "<group>"; };
 		AE3F961AF793434480B2C8FD /* libPods-XebiaTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-XebiaTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB34D0154E9979E5D300E8BF /* EBEventCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EBEventCell.h; sourceTree = "<group>"; };
 		DB34D0428993A0CF6AAAC10B /* XBAppUpgradeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XBAppUpgradeViewController.m; sourceTree = "<group>"; };
@@ -2343,6 +2345,7 @@
 				DB34DFF098560ECBEB2465D4 /* WPSPostCell.h */,
 				DB34D56827878B25BB1F025D /* WPSPostCell.m */,
 				5418864718460A13005B6E4B /* WPSPostCell.xib */,
+				54FDDF521857F5FF00912B1F /* WPSPostCell-ipad.xib */,
 				DB34D2290A197B1970EB3090 /* WPTagCell.h */,
 				DB34D779566E6E53EC3D0C66 /* WPTagCell.m */,
 				DB34DB0DD0A6B58C15D2461A /* WPTagCell.xib */,
@@ -2697,6 +2700,7 @@
 				5443EAC71775BEC50000FFE8 /* 34-coffee.png in Resources */,
 				549A7F371840E7A5002B2026 /* Localizable.strings in Resources */,
 				54276B0B184504E70078E4E6 /* 15-tags-selected.png in Resources */,
+				54FDDF531857F5FF00912B1F /* WPSPostCell-ipad.xib in Resources */,
 				5443EAC81775BEC50000FFE8 /* 34-coffee@2x.png in Resources */,
 				5443EAC91775BEC50000FFE8 /* 40-inbox.png in Resources */,
 				5443EACA1775BEC50000FFE8 /* 40-inbox@2x.png in Resources */,

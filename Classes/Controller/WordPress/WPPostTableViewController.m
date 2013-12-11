@@ -119,7 +119,7 @@
 }
 
 - (NSString *)tableView:(UITableView *)tableView cellNibNameAtIndexPath:(NSIndexPath *)indexPath {
-    return @"WPSPostCell";
+    return [@"WPSPostCell" suffixIfIPad];
 }
 
 - (void)configureCell:(UITableViewCell *)cell atIndex:(NSIndexPath *)indexPath {
