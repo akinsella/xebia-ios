@@ -33,14 +33,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-}
-
-- (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
-
-    self.title = self.event.title;
-    self.navigationController.navigationBarHidden = NO;
-
     self.innerViewWidthConstraint.constant = self.view.frame.size.width;
 
     NSLayoutConstraint *outputLogoViewConstraint = [NSLayoutConstraint
@@ -68,6 +60,15 @@
     [self.mapButton.superview addConstraint:mapButtonConstraint];
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+
+    self.title = self.event.title;
+    self.navigationController.navigationBarHidden = NO;
+
+    [self updateView];
+}
+
 - (void)viewWillLayoutSubviews {
     [super viewWillLayoutSubviews];
 }
@@ -78,25 +79,28 @@
 
 - (void)updateWithEvent:(EBEvent *)event {
     self.event = event;
-    self.dateStartLabel.text = [event.startDate formatDayLongMonth];
-    self.timeStartLabel.text = [event.startDate formatTime];
-    self.dateEndLabel.text = [event.endDate formatDayLongMonth];
-    self.timeEndLabel.text = [event.endDate formatTime];
-    self.excerptTextView.text = event.descriptionPlainText.length < 300 ? event.descriptionPlainText : [event.descriptionPlainText substringToIndex:300];
-    self.titleLabel.text = event.title;
-    self.organizerLabel.text = event.organizer.name;
-    self.addressLabel.text = event.venue.address;
-    self.address2Label.text = event.venue.address2;
-    self.cityLabel.text = [NSString stringWithFormat:@"%@, %@ (%@)", event.venue.postalCode, event.venue.city, event.venue.country ];
+}
 
-    NSString *attendingLabelTitle = [NSString stringWithFormat:@"%@%@", NSLocalizedString(@"I attend the meetup", nil), [event.capacity intValue] > 0 ? [NSString stringWithFormat: @" (%@)", NSLocalizedString(@"places", nil)] : @""];
+- (void)updateView {
+    self.dateStartLabel.text = [self.event.startDate formatDayLongMonth];
+    self.timeStartLabel.text = [self.event.startDate formatTime];
+    self.dateEndLabel.text = [self.event.endDate formatDayLongMonth];
+    self.timeEndLabel.text = [self.event.endDate formatTime];
+    self.excerptTextView.text = self.event.descriptionPlainText.length < 300 ? self.event.descriptionPlainText : [self.event.descriptionPlainText substringToIndex:300];
+    self.titleLabel.text = self.event.title;
+    self.organizerLabel.text = self.event.organizer.name;
+    self.addressLabel.text = self.event.venue.address;
+    self.address2Label.text = self.event.venue.address2;
+    self.cityLabel.text = [NSString stringWithFormat:@"%@, %@ (%@)", self.event.venue.postalCode, self.event.venue.city, self.event.venue.country ];
+
+    NSString *attendingLabelTitle = [NSString stringWithFormat:@"%@%@", NSLocalizedString(@"I attend the meetup", nil), [self.event.capacity intValue] > 0 ? [NSString stringWithFormat: @" (%@)", NSLocalizedString(@"places", nil)] : @""];
     [self.attendingLabel setTitle:attendingLabelTitle forState:UIControlStateNormal];
 
     NSString *mapImageURL = [NSString stringWithFormat:@"http://maps.googleapis.com/maps/api/staticmap?center=%@,%@,%@&zoom=13&size=%@&maptype=roadmap&markers=color:red%%7Clabel:S%%7C%@,%@&sensor=false&key=%@",
-                                                       [self.event.venue.address stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding],
+                                                       [self.self.event.venue.address stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding],
                                                        [self.event.venue.postalCode stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding],
                                                        [self.event.venue.city stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding],
-                                                       [UIScreen mainScreen].scale == 1.0 ? @"640x256" : @"320x128",
+                                                       [UIScreen mainScreen].scale == 1.0 && !IS_IPAD ? @"320x128" : @"640x256",
                                                        self.event.venue.latitude,
                                                        self.event.venue.longitude,
                                                        kGoogleMapsApiKey
@@ -116,13 +120,14 @@
                                                      CGFloat screenScale = [UIScreen mainScreen].scale;
                                                      if (screenScale != image.scale) {
                                                          image = [UIImage imageWithCGImage:image.CGImage scale:screenScale orientation:image.imageOrientation];
-                                                      }
+                                                     }
                                                      if (IS_IPAD) {
                                                          image = [image imageScaledToSize:self.mapButton.frame.size];
                                                      }
                                                      [self.mapButton setImage:image forState:UIControlStateNormal];
                                                  }
                                              }];
+
 
 }
 

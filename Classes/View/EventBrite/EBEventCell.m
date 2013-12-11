@@ -52,7 +52,7 @@
     self.imageView.frame = CGRectMake(10,10,44,44);
     self.imageView.layer.masksToBounds = YES;
     self.imageView.layer.cornerRadius = 3.0;
-    
+
     self.layer.shouldRasterize = YES;
     self.layer.rasterizationScale = [[UIScreen mainScreen] scale];
 
@@ -60,7 +60,7 @@
             self.descriptionLabel.frame.origin.x,
             self.descriptionLabel.frame.origin.y,
             self.descriptionLabel.frame.size.width,
-            [self descriptionLabelHeight].height
+            self.descriptionLabelHeight.height
     );
 }
 

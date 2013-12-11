@@ -15,6 +15,7 @@
 #import "XBNewsWordpressCell.h"
 #import "UIColor+XBAdditions.h"
 #import "XBTableView.h"
+#import "NSString+XBAdditions.h"
 
 static NSString *kWordpressCellReuseIdentifier = @"XBNewsWordpress";
 static NSString *kVimeoCellReuseIdentifier = @"XBNewsVimeo";
@@ -104,7 +105,7 @@ NSString *kOtherType = @"other";
 
     XBNews *news = self.dataSource[(NSUInteger) indexPath.row];
 
-    return self.cellNibNames[news.type];
+    return [self.cellNibNames[news.type] suffixIfIPad];
 }
 
 - (void)configureCell:(UITableViewCell *)cell atIndex:(NSIndexPath *)indexPath {

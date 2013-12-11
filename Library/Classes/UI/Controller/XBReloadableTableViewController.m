@@ -29,6 +29,10 @@
     [self initProgressHUD];
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+}
+
 - (void)configureTableView {
     [super configureTableView];
 

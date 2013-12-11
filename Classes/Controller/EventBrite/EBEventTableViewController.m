@@ -15,6 +15,7 @@
 #import "UIViewController+XBAdditions.h"
 #import "XBPListConfigurationProvider.h"
 #import "EBEventDetailsViewController.h"
+#import "NSString+XBAdditions.h"
 
 @implementation EBEventTableViewController
 
@@ -38,13 +39,11 @@
     self.navigationController.navigationBarHidden = NO;
 }
 
-- (NSUInteger)supportedInterfaceOrientations
-{
+- (NSUInteger)supportedInterfaceOrientations {
     return UIInterfaceOrientationMaskPortrait;
 }
 
-- (BOOL)shouldAutorotate
-{
+- (BOOL)shouldAutorotate {
     return YES;
 }
 
@@ -56,7 +55,7 @@
 }
 
 - (NSString *)tableView:(UITableView *)tableView cellNibNameAtIndexPath:(NSIndexPath *)indexPath {
-    return @"EBEventCell";
+    return [@"EBEventCell" suffixIfIPad];
 }
 
 - (XBArrayDataSource *)buildDataSource {

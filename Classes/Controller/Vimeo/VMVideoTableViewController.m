@@ -21,6 +21,7 @@
 #import "VMVideoCell.h"
 #import "VMThumbnail.h"
 #import "VMVideoDetailsViewController.h"
+#import "NSString+XBAdditions.h"
 
 @implementation VMVideoTableViewController
 
@@ -63,7 +64,7 @@
 }
 
 - (NSString *)tableView:(UITableView *)tableView cellNibNameAtIndexPath:(NSIndexPath *)indexPath {
-    return @"VMVideoCell";
+    return [@"VMVideoCell" suffixIfIPad];
 }
 
 - (XBArrayDataSource *)buildDataSource {

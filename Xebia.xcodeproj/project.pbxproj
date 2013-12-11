@@ -395,6 +395,14 @@
 		54EDAFE8184503F200C9EE82 /* 15-tags-selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 54EDAFE2184503F200C9EE82 /* 15-tags-selected@2x.png */; };
 		54EDAFE9184503F200C9EE82 /* 34-coffee-selected.png in Resources */ = {isa = PBXBuildFile; fileRef = 54EDAFE3184503F200C9EE82 /* 34-coffee-selected.png */; };
 		54EDAFEC184503F200C9EE82 /* 44-shoebox-selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 54EDAFE6184503F200C9EE82 /* 44-shoebox-selected@2x.png */; };
+		54FDDF431857E74400912B1F /* EBEventCell-ipad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 54FDDF421857E74400912B1F /* EBEventCell-ipad.xib */; };
+		54FDDF451857E75300912B1F /* TTTweetCell-ipad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 54FDDF441857E75300912B1F /* TTTweetCell-ipad.xib */; };
+		54FDDF471857E75E00912B1F /* VMVideoCell-ipad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 54FDDF461857E75E00912B1F /* VMVideoCell-ipad.xib */; };
+		54FDDF4D1857E84F00912B1F /* XBNewsEventBriteCell-ipad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 54FDDF481857E84F00912B1F /* XBNewsEventBriteCell-ipad.xib */; };
+		54FDDF4E1857E84F00912B1F /* XBNewsOtherCell-ipad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 54FDDF491857E84F00912B1F /* XBNewsOtherCell-ipad.xib */; };
+		54FDDF4F1857E84F00912B1F /* XBNewsTwitterCell-ipad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 54FDDF4A1857E84F00912B1F /* XBNewsTwitterCell-ipad.xib */; };
+		54FDDF501857E84F00912B1F /* XBNewsVimeoCell-ipad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 54FDDF4B1857E84F00912B1F /* XBNewsVimeoCell-ipad.xib */; };
+		54FDDF511857E84F00912B1F /* XBNewsWordpressCell-ipad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 54FDDF4C1857E84F00912B1F /* XBNewsWordpressCell-ipad.xib */; };
 		B56E64C3C14D4A618E4C1641 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EDB581D723EF4E5C808B5615 /* libPods.a */; };
 		DB34D029B20AB2CC024B5447 /* WPAbstractPostContentStructuredElementCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34D181FB864A5B5B0CCA4E /* WPAbstractPostContentStructuredElementCell.m */; };
 		DB34D040BF7E24A9D7EEF4C7 /* VMThumbnail.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34D3ACE055F5BE09F95779 /* VMThumbnail.m */; };
@@ -947,6 +955,14 @@
 		54EDAFE4184503F200C9EE82 /* 34-coffee-selected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "34-coffee-selected@2x.png"; sourceTree = "<group>"; };
 		54EDAFE5184503F200C9EE82 /* 44-shoebox-selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "44-shoebox-selected.png"; sourceTree = "<group>"; };
 		54EDAFE6184503F200C9EE82 /* 44-shoebox-selected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "44-shoebox-selected@2x.png"; sourceTree = "<group>"; };
+		54FDDF421857E74400912B1F /* EBEventCell-ipad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = "EBEventCell-ipad.xib"; sourceTree = "<group>"; };
+		54FDDF441857E75300912B1F /* TTTweetCell-ipad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = "TTTweetCell-ipad.xib"; sourceTree = "<group>"; };
+		54FDDF461857E75E00912B1F /* VMVideoCell-ipad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = "VMVideoCell-ipad.xib"; sourceTree = "<group>"; };
+		54FDDF481857E84F00912B1F /* XBNewsEventBriteCell-ipad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = "XBNewsEventBriteCell-ipad.xib"; sourceTree = "<group>"; };
+		54FDDF491857E84F00912B1F /* XBNewsOtherCell-ipad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = "XBNewsOtherCell-ipad.xib"; sourceTree = "<group>"; };
+		54FDDF4A1857E84F00912B1F /* XBNewsTwitterCell-ipad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = "XBNewsTwitterCell-ipad.xib"; sourceTree = "<group>"; };
+		54FDDF4B1857E84F00912B1F /* XBNewsVimeoCell-ipad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = "XBNewsVimeoCell-ipad.xib"; sourceTree = "<group>"; };
+		54FDDF4C1857E84F00912B1F /* XBNewsWordpressCell-ipad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = "XBNewsWordpressCell-ipad.xib"; sourceTree = "<group>"; };
 		AE3F961AF793434480B2C8FD /* libPods-XebiaTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-XebiaTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB34D0154E9979E5D300E8BF /* EBEventCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EBEventCell.h; sourceTree = "<group>"; };
 		DB34D0428993A0CF6AAAC10B /* XBAppUpgradeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XBAppUpgradeViewController.m; sourceTree = "<group>"; };
@@ -2340,6 +2356,11 @@
 		DB34D1D94FC5ACF3E5193F0E /* Timeline */ = {
 			isa = PBXGroup;
 			children = (
+				54FDDF481857E84F00912B1F /* XBNewsEventBriteCell-ipad.xib */,
+				54FDDF491857E84F00912B1F /* XBNewsOtherCell-ipad.xib */,
+				54FDDF4A1857E84F00912B1F /* XBNewsTwitterCell-ipad.xib */,
+				54FDDF4B1857E84F00912B1F /* XBNewsVimeoCell-ipad.xib */,
+				54FDDF4C1857E84F00912B1F /* XBNewsWordpressCell-ipad.xib */,
 				547A69DC181F2405005B2B18 /* XBNewsOtherCell.h */,
 				547A69DD181F2405005B2B18 /* XBNewsOtherCell.m */,
 				547A69DE181F2405005B2B18 /* XBNewsOtherCell.xib */,
@@ -2378,6 +2399,7 @@
 				DB34D254DFC068453CDD0A91 /* VMVideoCell.h */,
 				DB34D3E67D5221EE4730132B /* VMVideoCell.m */,
 				DB34DA18E861CE300585EC75 /* VMVideoCell.xib */,
+				54FDDF461857E75E00912B1F /* VMVideoCell-ipad.xib */,
 			);
 			path = Vimeo;
 			sourceTree = "<group>";
@@ -2498,6 +2520,7 @@
 			isa = PBXGroup;
 			children = (
 				DB34DA93BE919BF05DE33959 /* TTTweetCell.xib */,
+				54FDDF441857E75300912B1F /* TTTweetCell-ipad.xib */,
 				DB34D2236ADFB1F5325EE549 /* TTTweetCell.h */,
 				DB34DE9F5EB259E9CB86E112 /* TTTweetCell.m */,
 			);
@@ -2575,6 +2598,7 @@
 			isa = PBXGroup;
 			children = (
 				DB34DC7A2F8601F51BAB479D /* EBEventCell.xib */,
+				54FDDF421857E74400912B1F /* EBEventCell-ipad.xib */,
 				DB34D0154E9979E5D300E8BF /* EBEventCell.h */,
 				DB34DB3AFCA127427FE3B210 /* EBEventCell.m */,
 			);
@@ -2686,6 +2710,7 @@
 				5443EAD01775BEC50000FFE8 /* back-button@2x.png in Resources */,
 				5443EAD71775BEC50000FFE8 /* btn-menu-normal.png in Resources */,
 				5443EAD81775BEC50000FFE8 /* btn-menu-normal@2x.png in Resources */,
+				54FDDF501857E84F00912B1F /* XBNewsVimeoCell-ipad.xib in Resources */,
 				54A17CC718567E2100CA41BF /* TabBar-ipad.png in Resources */,
 				5443EAD91775BEC50000FFE8 /* btn-menu-pressed.png in Resources */,
 				54A17CCA18567E2100CA41BF /* TabBarItemSelectedImage-ipad@2x.png in Resources */,
@@ -2705,6 +2730,7 @@
 				5443EAE61775BEC50000FFE8 /* github@2x.png in Resources */,
 				5443EAE71775BEC50000FFE8 /* timeline.png in Resources */,
 				5443EAE81775BEC50000FFE8 /* timeline@2x.png in Resources */,
+				54FDDF511857E84F00912B1F /* XBNewsWordpressCell-ipad.xib in Resources */,
 				5443EAE91775BEC50000FFE8 /* homeview.png in Resources */,
 				5443EAEA1775BEC50000FFE8 /* homeview@2x.png in Resources */,
 				5443EAEB1775BEC50000FFE8 /* LightBackground.png in Resources */,
@@ -2714,6 +2740,7 @@
 				5443EAEF1775BEC50000FFE8 /* menu-btn-ios@2x.png in Resources */,
 				5443EAF01775BEC50000FFE8 /* menu-btn.png in Resources */,
 				5443EAF11775BEC50000FFE8 /* menu-btn@2x.png in Resources */,
+				54FDDF4F1857E84F00912B1F /* XBNewsTwitterCell-ipad.xib in Resources */,
 				5443EAF21775BEC50000FFE8 /* menu-button.png in Resources */,
 				5443EAF31775BEC50000FFE8 /* menu-button@2x.png in Resources */,
 				5443EAF41775BEC50000FFE8 /* menu.png in Resources */,
@@ -2722,6 +2749,7 @@
 				5443EAF61775BEC50000FFE8 /* navbar-landscape-iphone5.png in Resources */,
 				549A7F34183E3FF5002B2026 /* Images.xcassets in Resources */,
 				54A90CD41847EC2200133EF9 /* eventbrite-background@2x.png in Resources */,
+				54FDDF4E1857E84F00912B1F /* XBNewsOtherCell-ipad.xib in Resources */,
 				5443EAF71775BEC50000FFE8 /* navbar-landscape-iphone5@2x.png in Resources */,
 				5443EAF81775BEC50000FFE8 /* navbar-landscape.png in Resources */,
 				5443EAF91775BEC50000FFE8 /* navbar-landscape@2x.png in Resources */,
@@ -2730,6 +2758,7 @@
 				5443EAFB1775BEC50000FFE8 /* navbar-portrait@2x.png in Resources */,
 				5443EAFC1775BEC50000FFE8 /* navigationBarBackButton.png in Resources */,
 				547A69E4181F2542005B2B18 /* social-002-other@2x.png in Resources */,
+				54FDDF431857E74400912B1F /* EBEventCell-ipad.xib in Resources */,
 				5443EAFD1775BEC50000FFE8 /* navigationBarBackButton@2x.png in Resources */,
 				5443EAFF1775BEC50000FFE8 /* paper_fibers.png in Resources */,
 				547A69D4181F06E6005B2B18 /* social-001-eventbrite.png in Resources */,
@@ -2760,6 +2789,7 @@
 				544714C217764B61001F5153 /* TabBarItemSelectedImage.png in Resources */,
 				544714C317764B61001F5153 /* TabBarItemSelectedImage@2x.png in Resources */,
 				54A90CD31847EC2200133EF9 /* eventbrite-background.png in Resources */,
+				54FDDF4D1857E84F00912B1F /* XBNewsEventBriteCell-ipad.xib in Resources */,
 				DB34D98E9DDB220C53C13531 /* EBEventCell.xib in Resources */,
 				545F2C30184D35690073CF20 /* xebia_map_placeholder.png in Resources */,
 				DB34DDB92CB08EB004BE2DA9 /* TTTweetCell.xib in Resources */,
@@ -2767,8 +2797,10 @@
 				DB34D2B5279E454E7717D0AC /* WPAuthorCell.xib in Resources */,
 				DB34D440722370A61803A372 /* WPCategoryCell.xib in Resources */,
 				545F2C31184D35690073CF20 /* xebia_map_placeholder@2x.png in Resources */,
+				54FDDF451857E75300912B1F /* TTTweetCell-ipad.xib in Resources */,
 				DB34D430F905731F33738F4E /* VMVideoCell.xib in Resources */,
 				549A7F411840ED73002B2026 /* AFNetworking.strings in Resources */,
+				54FDDF471857E75E00912B1F /* VMVideoCell-ipad.xib in Resources */,
 				543C8F831777A7D20079675E /* vimeo.png in Resources */,
 				543C8F841777A7D20079675E /* vimeo@2x.png in Resources */,
 				54A7484A177EFEB300B9A907 /* Wordings.strings in Resources */,

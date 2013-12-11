@@ -56,10 +56,6 @@
     constraint.priority = 1000;
 	// Do any additional setup after loading the view, typically from a nib.
     [self.videoImage.superview addConstraint:constraint];
-
-    if (self.video) {
-        [self refreshViewWithVideoData];
-    }
 }
 
 - (void)viewWillAppear:(BOOL)animated {

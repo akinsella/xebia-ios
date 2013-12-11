@@ -153,7 +153,13 @@
     }
 
     UITableViewCell *cell = [self tableView:tableView cellForRowAtIndexPath:indexPath];
-    return [cell respondsToSelector:@selector(heightForCell:)] ? [cell heightForCell: tableView] : self.tableView.rowHeight;
+    if ([cell respondsToSelector:@selector(heightForCell:)]) {
+        CGFloat height = [cell heightForCell: tableView];
+        return height;
+    }
+    else {
+        return self.tableView.rowHeight;
+    }
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {

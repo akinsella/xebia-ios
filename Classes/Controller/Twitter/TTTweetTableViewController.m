@@ -16,6 +16,7 @@
 #import "XBJsonToArrayDataMapper.h"
 #import "GAITracker.h"
 #import "SVPullToRefresh.h"
+#import "NSString+XBAdditions.h"
 
 @implementation TTTweetTableViewController
 
@@ -57,7 +58,7 @@
 }
 
 - (NSString *)tableView:(UITableView *)tableView cellNibNameAtIndexPath:(NSIndexPath *)indexPath {
-    return @"TTTweetCell";
+    return [@"TTTweetCell" suffixIfIPad];
 }
 
 - (XBArrayDataSource *)buildDataSource {
