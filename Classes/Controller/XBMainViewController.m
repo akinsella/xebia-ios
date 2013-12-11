@@ -118,10 +118,10 @@
     XBWebViewController *webViewController = (XBWebViewController *)[sb instantiateViewControllerWithIdentifier: @"webview"];
     UINavigationController *frontViewController = (UINavigationController *) self.appDelegate.mainViewController.frontViewController;
 
+    [webViewController loadRequest:url];
+
     [frontViewController pushViewController:webViewController animated:true];
     webViewController.title = title;
-    
-    [webViewController loadRequest:url];
 }
 
 @end
