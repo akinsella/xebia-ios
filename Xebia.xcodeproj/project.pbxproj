@@ -3411,7 +3411,7 @@
 					"$(PODS_ROOT)/TestFlightSDK",
 					"$(SRCROOT)/Resources/Libraries/GoogleAnalytics",
 				);
-				ONLY_ACTIVE_ARCH = YES;
+				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "3996AB6C-77AA-4588-A571-E9A8ABF3C287";
 				WRAPPER_EXTENSION = app;
