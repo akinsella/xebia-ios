@@ -106,6 +106,7 @@
    </AnalyzeAction>
    <ArchiveAction
       buildConfiguration = "Release"
+      customArchiveName = "Xebia"
       revealArchiveInOrganizer = "YES">
    </ArchiveAction>
 </Scheme>

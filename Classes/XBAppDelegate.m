@@ -155,7 +155,7 @@ static NSInteger const kApiVersion = 1;
     GAI.sharedInstance.logger.logLevel = kGAILogLevelInfo;
 #else
     GAI.sharedInstance.dispatchInterval = 120;
-    GAI.sharedInstance.logger.logLevel = kGAILogLevelWarn;
+    GAI.sharedInstance.logger.logLevel = kGAILogLevelWarning;
 #endif
     
     GAI.sharedInstance.trackUncaughtExceptions = NO;
