@@ -44,11 +44,11 @@
 }
 
 - (void)revealToggle {
-    if (self.appDelegate.mainViewController.state == PKRevealControllerShowsLeftViewController) {
-        [self.appDelegate.mainViewController showViewController: self.appDelegate.mainViewController.frontViewController];
+    if (self.appDelegate.mainViewController.openSide == MMDrawerSideLeft) {
+        [self.appDelegate.mainViewController closeDrawerAnimated:YES completion:nil];
     }
     else {
-        [self.appDelegate.mainViewController showViewController:self.appDelegate.mainViewController.leftViewController];
+        [self.appDelegate.mainViewController toggleDrawerSide:MMDrawerSideLeft animated:YES completion:nil];
     }
 }
 

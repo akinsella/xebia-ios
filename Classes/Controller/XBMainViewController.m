@@ -15,6 +15,7 @@
 #import "UIViewController+XBAdditions.h"
 #import "XBLeftMenuViewController.h"
 #import "NSDictionary+XBAdditions.h"
+#import <MMDrawerController/MMDrawerController+Subclass.h>
 
 @interface XBMainViewController ()
 
@@ -56,21 +57,18 @@
     self.rightMenuViewController = (XBRightMenuViewController *)[rightViewNavigationController topViewController];
 
 
-    self = [super initWithFrontViewController:centralViewController
-                           leftViewController:leftViewNavigationController
-                          rightViewController:rightViewNavigationController
-                                      options:revealControllerOptions];
+    self = [super initWithCenterViewController:centralViewController leftDrawerViewController:leftViewNavigationController rightDrawerViewController:rightViewNavigationController];
 
     if (self) {
-        [self setMinimumWidth:290.0f maximumWidth:290.0f forViewController:leftViewNavigationController];
-        [self setMinimumWidth:290.0f maximumWidth:290.0f forViewController:rightViewNavigationController];
+        self.maximumLeftDrawerWidth = 290.0;
+        self.maximumRightDrawerWidth = 290.0;
     }
 
     return self;
 }
 
 - (void)revealViewController:(UIViewController *)viewController {
-    UINavigationController *frontViewController = (UINavigationController *) self.frontViewController;
+    UINavigationController *frontViewController = (UINavigationController *) self.centerViewController;
     if (frontViewController.visibleViewController != viewController) {
         [frontViewController pushViewController:viewController animated:YES];
     }
@@ -97,7 +95,7 @@
 }
 
 -(void)openLocalURL:(NSString *)htmlFileRef withTitle:(NSString *)title json:(NSString *)json shareInfo: (XBShareInfo *)shareInfo
- {
+{
      UIStoryboard *sb = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
      XBWebViewController *webViewController = (XBWebViewController *)[sb instantiateViewControllerWithIdentifier: @"webview"];
 
@@ -116,7 +114,7 @@
 -(void)openURL:(NSURL *)url withTitle:(NSString *)title {
     UIStoryboard *sb = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
     XBWebViewController *webViewController = (XBWebViewController *)[sb instantiateViewControllerWithIdentifier: @"webview"];
-    UINavigationController *frontViewController = (UINavigationController *) self.appDelegate.mainViewController.frontViewController;
+    UINavigationController *frontViewController = (UINavigationController *) self.appDelegate.mainViewController.centerViewController;
 
     [webViewController loadRequest:url];
 

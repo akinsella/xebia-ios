@@ -19,6 +19,7 @@
 #import "TTURLHandler.h"
 #import "EBURLHandler.h"
 #import "VMURLHandler.h"
+#import <MMDrawerController/UIViewController+MMDrawerController.h>
 
 // Enum for row indices
 enum {
@@ -159,28 +160,21 @@ enum {
 
 - (void)revealAndReplaceViewController:(UIViewController *)viewController {
 
-    UINavigationController *navigationController = (UINavigationController *)self.navigationController.revealController.frontViewController;
+    UINavigationController *navigationController = (UINavigationController *)self.navigationController.mm_drawerController.centerViewController;
     [navigationController setViewControllers: @[viewController] animated:NO];
-
-    [self.navigationController.revealController setFrontViewController:self.navigationController.revealController.frontViewController
-                                                      focusAfterChange:YES completion:^(BOOL finished) { }];
-
+    [self.navigationController.mm_drawerController closeDrawerAnimated:YES completion:nil];
 }
 
 - (void)revealViewControllerWithIdentifier:(NSString *)identifier {
     if ([self currentViewIsViewControllerWithIdentifier: identifier]) {
-        [self.navigationController.revealController resignPresentationModeEntirely:YES
-                                                                          animated:YES
-                                                                        completion:^(BOOL finished) { }];
+        [self.navigationController.mm_drawerController closeDrawerAnimated:YES completion:nil];
     }
     else {
         UIViewController * viewController = [self.appDelegate.viewControllerManager getOrCreateControllerWithIdentifier: identifier];
 
-        UINavigationController *navigationController = (UINavigationController *)self.navigationController.revealController.frontViewController;
+        UINavigationController *navigationController = (UINavigationController *)self.navigationController.mm_drawerController.centerViewController;
         [navigationController setViewControllers: @[viewController] animated:NO];
-
-        [self.navigationController.revealController setFrontViewController:self.navigationController.revealController.frontViewController
-                                                          focusAfterChange:YES completion:^(BOOL finished) { }];
+        [self.navigationController.mm_drawerController closeDrawerAnimated:YES completion:nil];
     }
 }
 
@@ -207,7 +201,7 @@ enum {
 }
 
 -(BOOL)currentViewIsViewControllerWithIdentifier:(NSString *)identifier {
-    return ((UINavigationController *)self.revealController.frontViewController).topViewController == [self.appDelegate.viewControllerManager getOrCreateControllerWithIdentifier:identifier];
+    return ((UINavigationController *)self.mm_drawerController.centerViewController).topViewController == [self.appDelegate.viewControllerManager getOrCreateControllerWithIdentifier:identifier];
 }
 
 - (NSUInteger)supportedInterfaceOrientations {

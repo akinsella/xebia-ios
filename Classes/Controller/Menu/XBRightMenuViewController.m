@@ -12,6 +12,7 @@
 #import "UIViewController+XBAdditions.h"
 #import "GAITracker.h"
 #import "UIColor+XBAdditions.h"
+#import <MMDrawerController/UIViewController+MMDrawerController.h>
 
 
 // Enum for row indices
@@ -93,29 +94,26 @@ enum {
     menuCell.imageView.image = [UIImage imageNamed:[item objectForKey:@"imageName"]];
 }
 
--(void)onSelectCell: (UITableViewCell *)cell forObject: (id) object withIndex: (NSIndexPath *)indexPath {
+- (void)onSelectCell: (UITableViewCell *)cell forObject: (id) object withIndex: (NSIndexPath *)indexPath {
     [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
     NSString *identifier = [self.viewIdentifiers valueForKey:[NSNumber asString:indexPath.row]];
     [self revealViewControllerWithIdentifier: identifier];
 }
 
--(void)revealViewControllerWithIdentifier:(NSString *)identifier {
+- (void)revealViewControllerWithIdentifier:(NSString *)identifier {
     if ([self currentViewIsViewControllerWithIdentifier: identifier]) {
-        [self.navigationController.revealController resignPresentationModeEntirely:YES
-                                                                          animated:YES
-                                                                        completion:^(BOOL finished) { }];
+        [self.navigationController.mm_drawerController closeDrawerAnimated:YES completion:nil];
     }
     else {
         UIViewController * viewController = [self.appDelegate.viewControllerManager getOrCreateControllerWithIdentifier: identifier];
-        UINavigationController *navigationController = (UINavigationController *)self.navigationController.revealController.frontViewController;
+        UINavigationController *navigationController = (UINavigationController *)self.navigationController.mm_drawerController.centerViewController;
         [navigationController setViewControllers:[NSArray arrayWithObject:viewController] animated:NO];
-        [self.navigationController.revealController setFrontViewController:self.navigationController.revealController.frontViewController
-                                                          focusAfterChange:YES completion:^(BOOL finished) { }];
+        [self.navigationController.mm_drawerController closeDrawerAnimated:YES completion:nil];
     }
 }
 
 -(BOOL)currentViewIsViewControllerWithIdentifier:(NSString *)identifier {
-    return ((UINavigationController *)self.revealController.frontViewController).topViewController == [self.appDelegate.viewControllerManager getOrCreateControllerWithIdentifier:identifier];
+    return ((UINavigationController *)self.mm_drawerController.centerViewController).topViewController == [self.appDelegate.viewControllerManager getOrCreateControllerWithIdentifier:identifier];
 }
 
 - (NSUInteger)supportedInterfaceOrientations

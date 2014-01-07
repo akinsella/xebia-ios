@@ -170,17 +170,14 @@ static NSInteger const kApiVersion = 1;
 }
 
 - (void)initMainViewController {
-    NSDictionary *revealControllerOptions = @{
-            PKRevealControllerAllowsOverdrawKey : @YES,
-            PKRevealControllerDisablesFrontViewInteractionKey : @YES,
-            PKRevealControllerRecognizesPanningOnFrontViewKey : @YES
-    };
 
     self.mainViewController = [XBMainViewController controllerWithCentralViewControllerIdentifier:@"centralNavigationController"
                                                                      leftViewControllerIdentifier:@"leftMenuNavigationController"
                                                                     rightViewControllerIdentifier:@"rightMenuNavigationController"
                                                                             viewControllerManager:self.viewControllerManager
-                                                                          revealControllerOptions:revealControllerOptions];
+                                                                          revealControllerOptions:nil];
+    self.mainViewController.closeDrawerGestureModeMask = MMCloseDrawerGestureModeAll;
+    self.mainViewController.openDrawerGestureModeMask = MMOpenDrawerGestureModeAll;
 
     self.window.rootViewController = self.mainViewController;
 }

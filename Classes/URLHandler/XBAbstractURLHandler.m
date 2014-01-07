@@ -27,7 +27,7 @@
 
 - (void)fetchDataFromSourceWithResourcePath:(NSString *)path success:(void (^)(id JSON))success failure:(void (^)(NSError *error))failure {
 
-    XBNavigationController *navigationController = (XBNavigationController *)self.appDelegate.mainViewController.frontViewController;
+    XBNavigationController *navigationController = (XBNavigationController *)self.appDelegate.mainViewController.centerViewController;
     [navigationController showProgressHUD];
 
     [self.appDelegate.configurationProvider.httpClient executeGetJsonRequestWithPath:path parameters:nil
