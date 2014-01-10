@@ -11,7 +11,6 @@
 
 
 @class XBMainViewController;
-@class PKRevealController;
 @class XBViewControllerManager;
 
 @interface XBLeftMenuViewController : XBTableViewController <UITableViewDelegate, UITableViewDataSource, XBTableViewControllerDelegate, IASKSettingsDelegate>

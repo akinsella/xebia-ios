@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2EE440B1C1BC24FC4F3E6CA1 /* XBConferenceHomeDateCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EE44C893499F858FC84C73E /* XBConferenceHomeDateCell.m */; };
+		2EE4438965D737FB68D3229C /* XBConferenceHomeDateCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2EE44DA2C8DA5D27C59277A1 /* XBConferenceHomeDateCell.xib */; };
+		2EE44D3C236FCA7A4876AAAD /* XBConferenceHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EE44118B78CE2FEDDB9F9BE /* XBConferenceHomeViewController.m */; };
 		338DF8973A884384AC8F7F16 /* libPods-XebiaTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AE3F961AF793434480B2C8FD /* libPods-XebiaTests.a */; };
 		4219B2B0187D63F5006DA315 /* XBConferenceCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4219B2AF187D63F5006DA315 /* XBConferenceCell.m */; };
 		4219B2B1187D63F5006DA315 /* XBConferenceCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4219B2AF187D63F5006DA315 /* XBConferenceCell.m */; };
@@ -529,6 +532,11 @@
 
 /* Begin PBXFileReference section */
 		066FCD792FD04E9C87C35E33 /* libPods-xebia-iosTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-xebia-iosTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		2EE440CF2F141FBB9BD52D4B /* XBConferenceHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XBConferenceHomeViewController.h; sourceTree = "<group>"; };
+		2EE44118B78CE2FEDDB9F9BE /* XBConferenceHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XBConferenceHomeViewController.m; sourceTree = "<group>"; };
+		2EE44C893499F858FC84C73E /* XBConferenceHomeDateCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XBConferenceHomeDateCell.m; sourceTree = "<group>"; };
+		2EE44DA2C8DA5D27C59277A1 /* XBConferenceHomeDateCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = XBConferenceHomeDateCell.xib; sourceTree = "<group>"; };
+		2EE44ED4FE9BCC18F4B716B8 /* XBConferenceHomeDateCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XBConferenceHomeDateCell.h; sourceTree = "<group>"; };
 		378A41F2988D464CA7748FC5 /* Pods-XebiaTests.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XebiaTests.xcconfig"; path = "Pods/Pods-XebiaTests.xcconfig"; sourceTree = "<group>"; };
 		4219B2AE187D63F5006DA315 /* XBConferenceCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XBConferenceCell.h; sourceTree = "<group>"; };
 		4219B2AF187D63F5006DA315 /* XBConferenceCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XBConferenceCell.m; sourceTree = "<group>"; };
@@ -1233,6 +1241,33 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2EE44AC23F0BB3C0CDE1062B /* Conferences */ = {
+			isa = PBXGroup;
+			children = (
+				2EE44AF757004CF41A3083A7 /* Home */,
+			);
+			path = Conferences;
+			sourceTree = "<group>";
+		};
+		2EE44AF757004CF41A3083A7 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				2EE44C893499F858FC84C73E /* XBConferenceHomeDateCell.m */,
+				2EE44ED4FE9BCC18F4B716B8 /* XBConferenceHomeDateCell.h */,
+				2EE44DA2C8DA5D27C59277A1 /* XBConferenceHomeDateCell.xib */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		2EE44E5FEEA90FB5AB762962 /* Conference */ = {
+			isa = PBXGroup;
+			children = (
+				2EE44118B78CE2FEDDB9F9BE /* XBConferenceHomeViewController.m */,
+				2EE440CF2F141FBB9BD52D4B /* XBConferenceHomeViewController.h */,
+			);
+			path = Conference;
+			sourceTree = "<group>";
+		};
 		54276B11184505570078E4E6 /* Data */ = {
 			isa = PBXGroup;
 			children = (
@@ -1961,6 +1996,7 @@
 				DB34DA00CCF7A91DED324F3C /* XBViewController.h */,
 				DB34D0428993A0CF6AAAC10B /* XBAppUpgradeViewController.m */,
 				DB34D16412FDC3D6DFA1EC91 /* XBAppUpgradeViewController.h */,
+				2EE44E5FEEA90FB5AB762962 /* Conference */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -2216,6 +2252,7 @@
 				5485017817DFD8E3002216C4 /* XBCircleImageView.m */,
 				DB34DC06B75BDC531B4CF3A3 /* XBTableView.m */,
 				DB34D6A4379E8B12D55A2A48 /* XBTableView.h */,
+				2EE44AC23F0BB3C0CDE1062B /* Conferences */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -2907,6 +2944,7 @@
 				DB34D8B3619AA1E1C65226C0 /* XBRightMenuCell.xib in Resources */,
 				DB34D12B9E41F5EA1F64CB7F /* WPPostContentCode2ElementCell.xib in Resources */,
 				54EDAFE9184503F200C9EE82 /* 34-coffee-selected.png in Resources */,
+				2EE4438965D737FB68D3229C /* XBConferenceHomeDateCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3173,6 +3211,8 @@
 				DB34D4F5930C35B2A659CD49 /* XBAppUpgradeViewController.m in Sources */,
 				DB34D9008A22ADAD23A21DF6 /* XBEmptyView.m in Sources */,
 				DB34D43E1A711AF0A3BC6AFB /* XBTableView.m in Sources */,
+				2EE44D3C236FCA7A4876AAAD /* XBConferenceHomeViewController.m in Sources */,
+				2EE440B1C1BC24FC4F3E6CA1 /* XBConferenceHomeDateCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
