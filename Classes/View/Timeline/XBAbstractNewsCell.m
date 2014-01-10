@@ -8,6 +8,7 @@
 #import "XBAbstractNewsCell.h"
 #import "NSDate+XBAdditions.h"
 #import "UIColor+XBAdditions.h"
+#import <QuartzCore/QuartzCore.h>
 
 @interface XBAbstractNewsCell ()
 

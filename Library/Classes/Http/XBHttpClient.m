@@ -41,14 +41,14 @@
 
     AFHTTPRequestOperation *operation = [self.operationManager GET: path parameters: parameters
                                                            success:^(AFHTTPRequestOperation *operation, id json) {
-                                                               XBLogDebug(@"json: %@", json);
+//                                                               XBLogDebug(@"json: %@", json);
 
                                                                if (successCb) {
                                                                    successCb(operation.request, operation.response, json);
                                                                }
                                                            }
                                                            failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-                                                               XBLogWarn(@"Error: %@, json: %@", error);
+                                                               XBLogWarn(@"Error: %@", error);
 
                                                                if (errorCb) {
                                                                    errorCb(operation.request, operation.response, error, operation.responseObject);

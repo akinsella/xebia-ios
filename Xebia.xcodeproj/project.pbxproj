@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		338DF8973A884384AC8F7F16 /* libPods-XebiaTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AE3F961AF793434480B2C8FD /* libPods-XebiaTests.a */; };
+		4219B2B0187D63F5006DA315 /* XBConferenceCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4219B2AF187D63F5006DA315 /* XBConferenceCell.m */; };
+		4219B2B1187D63F5006DA315 /* XBConferenceCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4219B2AF187D63F5006DA315 /* XBConferenceCell.m */; };
+		4219B2B3187D6410006DA315 /* XBConferenceCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4219B2B2187D6410006DA315 /* XBConferenceCell.xib */; };
 		5418864818460A13005B6E4B /* WPSPostCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5418864718460A13005B6E4B /* WPSPostCell.xib */; };
 		54276B0B184504E70078E4E6 /* 15-tags-selected.png in Resources */ = {isa = PBXBuildFile; fileRef = 54276B05184504E70078E4E6 /* 15-tags-selected.png */; };
 		54276B0E184504E70078E4E6 /* 34-coffee-selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 54276B08184504E70078E4E6 /* 34-coffee-selected@2x.png */; };
@@ -527,6 +530,9 @@
 /* Begin PBXFileReference section */
 		066FCD792FD04E9C87C35E33 /* libPods-xebia-iosTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-xebia-iosTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		378A41F2988D464CA7748FC5 /* Pods-XebiaTests.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XebiaTests.xcconfig"; path = "Pods/Pods-XebiaTests.xcconfig"; sourceTree = "<group>"; };
+		4219B2AE187D63F5006DA315 /* XBConferenceCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XBConferenceCell.h; sourceTree = "<group>"; };
+		4219B2AF187D63F5006DA315 /* XBConferenceCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XBConferenceCell.m; sourceTree = "<group>"; };
+		4219B2B2187D6410006DA315 /* XBConferenceCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XBConferenceCell.xib; sourceTree = "<group>"; };
 		5418864718460A13005B6E4B /* WPSPostCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WPSPostCell.xib; sourceTree = "<group>"; };
 		54276B05184504E70078E4E6 /* 15-tags-selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "15-tags-selected.png"; sourceTree = "<group>"; };
 		54276B06184504E70078E4E6 /* 15-tags-selected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "15-tags-selected@2x.png"; sourceTree = "<group>"; };
@@ -2425,12 +2431,15 @@
 		DB34D53398EF8571C8D4FDCD /* Menu */ = {
 			isa = PBXGroup;
 			children = (
-				DB34DE0CAAC75C616AD1D935 /* XBLeftMenuCell.xib */,
 				DB34D5C723E69FC2FF63A44B /* XBLeftMenuCell.h */,
 				DB34DC44DD8FCA65747A3416 /* XBLeftMenuCell.m */,
+				DB34DE0CAAC75C616AD1D935 /* XBLeftMenuCell.xib */,
 				DB34D425D81A598EB03BD60C /* XBRightMenuCell.h */,
 				DB34DF42FC8A668B62D47E66 /* XBRightMenuCell.m */,
 				DB34D67D30B8E581ED3B4E29 /* XBRightMenuCell.xib */,
+				4219B2AE187D63F5006DA315 /* XBConferenceCell.h */,
+				4219B2AF187D63F5006DA315 /* XBConferenceCell.m */,
+				4219B2B2187D6410006DA315 /* XBConferenceCell.xib */,
 			);
 			path = Menu;
 			sourceTree = "<group>";
@@ -2659,6 +2668,11 @@
 			attributes = {
 				LastUpgradeCheck = 0460;
 				ORGANIZATIONNAME = Xebia;
+				TargetAttributes = {
+					54C2DEE515BDFAFB00CABB12 = {
+						DevelopmentTeam = U238JHJ7N4;
+					};
+				};
 			};
 			buildConfigurationList = 54C2DEE015BDFAFB00CABB12 /* Build configuration list for PBXProject "Xebia" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -2782,6 +2796,7 @@
 				5443EB0A1775BEC50000FFE8 /* WPPostCellTopImage.png in Resources */,
 				5443EB0B1775BEC50000FFE8 /* WPPostCellTopImage@2x.png in Resources */,
 				5443EB0C1775BEC50000FFE8 /* xebia-avatar.png in Resources */,
+				4219B2B3187D6410006DA315 /* XBConferenceCell.xib in Resources */,
 				5443EB0D1775BEC50000FFE8 /* xebia-avatar@2x.png in Resources */,
 				5443EB0E1775BEC50000FFE8 /* xebia-logo-transparent.png in Resources */,
 				5443EB0F1775BEC50000FFE8 /* xebia-logo-transparent@2x.png in Resources */,
@@ -3031,6 +3046,7 @@
 				5443EC7F1775BEED0000FFE8 /* XBMapper.m in Sources */,
 				5443EC811775BEED0000FFE8 /* UIColor+XBAdditions.m in Sources */,
 				5443EC831775BEED0000FFE8 /* UIImage+XBAdditions.m in Sources */,
+				4219B2B0187D63F5006DA315 /* XBConferenceCell.m in Sources */,
 				5443EC851775BEED0000FFE8 /* UIImageView+XBAdditions.m in Sources */,
 				5443EC871775BEED0000FFE8 /* UIScreen+XBAdditions.m in Sources */,
 				5443EC891775BEED0000FFE8 /* UISearchBar+XBAdditions.m in Sources */,
@@ -3254,6 +3270,7 @@
 				DB34D5E0DC911E182E1396ED /* XECategory.m in Sources */,
 				DB34D4578F76484EBBF9DE93 /* XESponsor.m in Sources */,
 				DB34D7EE0FE712FFCF9BF08E /* XETag.m in Sources */,
+				4219B2B1187D63F5006DA315 /* XBConferenceCell.m in Sources */,
 				DB34D083C9EDF348B8417033 /* XEULink.m in Sources */,
 				DB34D66E4CF559E6404DBF3C /* NSDate+XBAdditions.m in Sources */,
 				DB34D6772D8F9B5AD6C3DB76 /* WPPostContentStructuredElement.m in Sources */,
@@ -3368,7 +3385,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_OBJC_ARC = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Simone Civetta (5NH7J8UHDM)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -3384,7 +3402,7 @@
 				);
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "3996AB6C-77AA-4588-A571-E9A8ABF3C287";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -3396,8 +3414,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_OBJC_ARC = YES;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Xebia IT Architects (T9UHPNS5GN)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Xebia IT Architects (T9UHPNS5GN)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Simone Civetta (5NH7J8UHDM)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -3413,7 +3431,7 @@
 				);
 				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "3996AB6C-77AA-4588-A571-E9A8ABF3C287";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

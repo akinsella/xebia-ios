@@ -9,6 +9,7 @@
 #import "XBAppDelegate.h"
 #import "UIColor+XBAdditions.h"
 #import "NSString+XBAdditions.h"
+#import <QuartzCore/QuartzCore.h>
 
 #define kDefaultFontFamily @"Cabin"
 

@@ -34,6 +34,7 @@ enum {
 @property (nonatomic, strong) NSMutableDictionary *viewIdentifiers;
 @property (nonatomic, strong) IASKAppSettingsViewController *appSettingsViewController;
 @property (nonatomic, strong) NSArray *urlHandlers;
+@property (nonatomic, strong) XBArrayDataSource *conferenceDataSource;
 @end
 
 @implementation XBLeftMenuViewController
@@ -58,9 +59,11 @@ enum {
     ];
 
     [super initialize];
+    
+    self.conferenceDataSource = [self buildConferenceDataSource];
 }
 
--(NSString *)trackPath {
+- (NSString *)trackPath {
     return @"/leftMenu";
 }
 
@@ -82,7 +85,7 @@ enum {
     [super viewDidLoad];
 }
 
--(void)revealPreferences {
+- (void)revealPreferences {
     if (!self.appSettingsViewController) {
         self.appSettingsViewController = [[IASKAppSettingsViewController alloc] init];
         self.appSettingsViewController.delegate = self;
@@ -94,7 +97,7 @@ enum {
     [self.appDelegate.mainViewController presentViewController:navigationController animated:YES completion:^{}];
 }
 
--(void)settingsViewControllerDidEnd:(IASKAppSettingsViewController*)sender {
+- (void)settingsViewControllerDidEnd:(IASKAppSettingsViewController*)sender {
     [self dismissViewControllerAnimated: YES  completion:^{}];
 }
 
@@ -111,13 +114,40 @@ enum {
 
 - (NSString *)tableView:(UITableView *)tableView cellReuseIdentifierAtIndexPath:(NSIndexPath *)indexPath {
     // Needs to be static
-    static NSString *cellReuseIdentifier = @"XBLeftMenu";
-
-    return cellReuseIdentifier;
+    static NSString *CellReuseIdentifier = @"XBLeftMenu";
+    static NSString *ConferenceCellReuseIdentifier = @"XBConference";
+    
+    switch (indexPath.section) {
+        case 0:
+            return CellReuseIdentifier;
+            break;
+            
+        case 1:
+            return ConferenceCellReuseIdentifier;
+            break;
+            
+        default:
+            break;
+    }
+    
+    return nil;
 }
 
 - (NSString *)tableView:(UITableView *)tableView cellNibNameAtIndexPath:(NSIndexPath *)indexPath {
-    return @"XBLeftMenuCell";
+    switch (indexPath.section) {
+        case 0:
+            return @"XBLeftMenuCell";
+            break;
+            
+        case 1:
+            return @"XBConferenceCell";
+            break;
+            
+        default:
+            break;
+    }
+    
+    return nil;
 }
 
 - (XBArrayDataSource *)buildDataSource {
@@ -132,10 +162,16 @@ enum {
     return [XBArrayDataSource dataSourceWithArray:menuItems];
 }
 
+- (XBArrayDataSource *)buildConferenceDataSource {
+    NSArray * menuItems = @[
+                            @{ @"title": NSLocalizedString(@"Devoxx", nil), @"imageName" :@"timeline"}
+                            ];
+    
+    return [XBArrayDataSource dataSourceWithArray:menuItems];
+}
+
 - (void)configureTableView {
-//    [super configureTableView];
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-//    self.navigationItem.titleView = [UIImageView initWithImageNamed:@"Xebia-Logo"];
     UIView*backgroundView = [[UIView alloc] initWithFrame: self.tableView.bounds];
     [backgroundView setBackgroundColor:[UIColor colorWithHex:@"#222222"]];
     [self.tableView setBackgroundView:backgroundView];
@@ -144,7 +180,6 @@ enum {
 - (void)configureCell:(UITableViewCell *)cell atIndex:(NSIndexPath *)indexPath {
 
     XBLeftMenuCell *menuCell = (XBLeftMenuCell *)cell;
-
     NSDictionary *item = self.dataSource[(NSUInteger) indexPath.row];
 
     menuCell.accessoryType = UITableViewCellAccessoryNone;
@@ -152,10 +187,15 @@ enum {
     menuCell.imageView.image = [UIImage imageNamed:[item objectForKey:@"imageName"]];
 }
 
--(void)onSelectCell: (UITableViewCell *)cell forObject: (id) object withIndex: (NSIndexPath *)indexPath {
+- (void)onSelectCell: (UITableViewCell *)cell forObject:(id)object withIndex:(NSIndexPath *)indexPath {
     [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
-    NSString *identifier = [self.viewIdentifiers valueForKey:[NSNumber asString:indexPath.row]];
-    [self revealViewControllerWithIdentifier: identifier];
+    NSString *identifier;
+    if (indexPath.section == 0) {
+        identifier = [self.viewIdentifiers valueForKey:[NSNumber asString:indexPath.row]];
+    } else {
+        identifier = @"conferenceHome";
+    }
+    [self revealViewControllerWithIdentifier:identifier];
 }
 
 - (void)revealAndReplaceViewController:(UIViewController *)viewController {
@@ -211,5 +251,28 @@ enum {
 - (BOOL)shouldAutorotate {
     return YES;
 }
+
+#pragma mark - TableView Data Source overrides
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    return 2;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    switch (section) {
+        case 0:
+            return [super tableView:tableView numberOfRowsInSection:section];
+            break;
+            
+        case 1:
+            return [self.conferenceDataSource count];
+            
+        default:
+            break;
+    }
+    return 0;
+}
+
 
 @end
