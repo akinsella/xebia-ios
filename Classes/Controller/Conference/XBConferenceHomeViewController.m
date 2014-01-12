@@ -4,21 +4,14 @@
 //
 
 #import "XBConferenceHomeViewController.h"
+#import "XBConferenceHomeDateCell.h"
+#import "XBConferenceHomeDayCell.h"
+#import "XBConferenceHomeMenuItemCell.h"
 
 
 @implementation XBConferenceHomeViewController {
 
 }
-
-- (id)initWithCoder:(NSCoder *)aDecoder {
-    self = [super initWithCoder:aDecoder];
-    if (self) {
-        [self initialize];
-    }
-    
-    return self;
-}
-
 - (void)initialize {
     [super initialize];
 }
@@ -35,37 +28,62 @@
 }
 
 - (XBArrayDataSource *)buildDataSource {
-    NSArray * menuItems = @[
-            @{ @"title": NSLocalizedString(@"Test", nil), @"imageName" :@"test"}
+    NSArray *date = @[@{@"title": NSLocalizedString(@"Day 1", nil)}];
+
+    NSArray *days = @[
+            @{@"title": NSLocalizedString(@"Day 1", nil)},
+            @{@"title": NSLocalizedString(@"Day 2", nil)},
+            @{@"title": NSLocalizedString(@"Day 3", nil)}
     ];
 
-    return [XBArrayDataSource dataSourceWithArray:menuItems];
+    NSArray *menuItems = @[
+            @{@"title": NSLocalizedString(@"Speakers", nil)},
+            @{@"title": NSLocalizedString(@"Sessions", nil)},
+            @{@"title": NSLocalizedString(@"Rooms", nil)},
+            @{@"title": NSLocalizedString(@"Tracks", nil)}
+    ];
+
+    return [XBArrayDataSource dataSourceWithArray:@[date, days, menuItems]];
 }
 
 
 - (NSString *)tableView:(UITableView *)tableView cellReuseIdentifierAtIndexPath:(NSIndexPath *)indexPath {
-    static NSString *CellIdentifier = @"XBConferenceDateCell";
-    return CellIdentifier;
+    static NSString *DateCellIdentifier = @"XBConferenceHomeDateCell";
+    static NSString *DayCellIdentifier = @"XBConferenceHomeDayCell";
+    static NSString *MenuItemCellIdentifier = @"XBConferenceHomeMenuItemCell";
+
+    NSArray *identifiers = @[DateCellIdentifier, DayCellIdentifier, MenuItemCellIdentifier];
+    return identifiers[indexPath.section];
 }
 
 - (NSString *)tableView:(UITableView *)tableView cellNibNameAtIndexPath:(NSIndexPath *)indexPath {
-    return @"XBConferenceHomeDateCell";
+    static NSString *DateCellNibName = @"XBConferenceHomeDateCell";
+    static NSString *DayCellNibName = @"XBConferenceHomeDayCell";
+    static NSString *MenuItemCellNibName = @"XBConferenceHomeMenuItemCell";
+    
+    NSArray *identifiers = @[DateCellNibName, DayCellNibName, MenuItemCellNibName];
+    return identifiers[indexPath.section];
 }
 
 - (void)configureCell:(UITableViewCell *)cell atIndex:(NSIndexPath *)indexPath {
+    switch (indexPath.section) {
+        case 0:
+            [(XBConferenceHomeDateCell *)cell configureWithConference:nil];
+            break;
 
-}
+        case 1:
+            [(XBConferenceHomeDayCell *) cell configureWithTitle:self.dataSource[indexPath.section][indexPath.row][@"title"]];
+            break;
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 3;
-}
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    if (section == 0) {
-        return 1;
+        case 2:
+            [(XBConferenceHomeMenuItemCell *) cell configureWithTitle:self.dataSource[indexPath.section][indexPath.row][@"title"]];
+            break;
+        default:break;
     }
+}
 
-    return 0;
+- (void)onSelectCell: (UITableViewCell *)cell forObject:(id)object withIndex:(NSIndexPath *)indexPath {
+    [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
 @end

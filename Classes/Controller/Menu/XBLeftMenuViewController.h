@@ -6,14 +6,14 @@
 
 
 #import <Foundation/Foundation.h>
-#import "XBTableViewController.h"
 #import "IASKAppSettingsViewController.h"
+#import "XBSectionedTableViewController.h"
 
 
 @class XBMainViewController;
 @class XBViewControllerManager;
 
-@interface XBLeftMenuViewController : XBTableViewController <UITableViewDelegate, UITableViewDataSource, XBTableViewControllerDelegate, IASKSettingsDelegate>
+@interface XBLeftMenuViewController : XBSectionedTableViewController <UITableViewDelegate, UITableViewDataSource, XBTableViewControllerDelegate, IASKSettingsDelegate>
 
 - (void)initialize;
 

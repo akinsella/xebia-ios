@@ -7,7 +7,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="XBConferenceHomeDateCell" rowHeight="44" id="J2w-o8-bx8" customClass="XBConferenceHomeDateCell">
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="XBConferenceHomeDayCell" rowHeight="44" id="J2w-o8-bx8" customClass="XBConferenceHomeDayCell">
             <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="J2w-o8-bx8" id="cVV-6P-Rpz">
@@ -21,22 +21,13 @@
                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1VK-ld-etm">
-                        <rect key="frame" x="258" y="11" width="42" height="21"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                        <nil key="highlightedColor"/>
-                    </label>
                 </subviews>
                 <constraints>
-                    <constraint firstAttribute="trailing" secondItem="1VK-ld-etm" secondAttribute="trailing" constant="20" id="P1d-Ss-IaI"/>
                     <constraint firstItem="AG6-Ot-Yhr" firstAttribute="leading" secondItem="cVV-6P-Rpz" secondAttribute="leading" constant="20" id="SOF-ww-CBG"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
-                <outlet property="endDateLabel" destination="1VK-ld-etm" id="Fok-Bn-gWJ"/>
-                <outlet property="startDateLabel" destination="AG6-Ot-Yhr" id="tXw-yF-AOu"/>
+                <outlet property="titleLabel" destination="AG6-Ot-Yhr" id="zhM-ie-xaL"/>
             </connections>
         </tableViewCell>
     </objects>

@@ -9,11 +9,16 @@
 /* Begin PBXBuildFile section */
 		2EE440B1C1BC24FC4F3E6CA1 /* XBConferenceHomeDateCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EE44C893499F858FC84C73E /* XBConferenceHomeDateCell.m */; };
 		2EE4438965D737FB68D3229C /* XBConferenceHomeDateCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2EE44DA2C8DA5D27C59277A1 /* XBConferenceHomeDateCell.xib */; };
+		2EE443B7A14FD08665F4BEF8 /* XBConferenceHomeMenuItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2EE44C7739FF1EECF5D3E56D /* XBConferenceHomeMenuItemCell.xib */; };
 		2EE44D3C236FCA7A4876AAAD /* XBConferenceHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EE44118B78CE2FEDDB9F9BE /* XBConferenceHomeViewController.m */; };
+		2EE44F265C1D341DD483248C /* XBConferenceHomeDayCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2EE440A7A0A2C78130F074BA /* XBConferenceHomeDayCell.xib */; };
 		338DF8973A884384AC8F7F16 /* libPods-XebiaTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AE3F961AF793434480B2C8FD /* libPods-XebiaTests.a */; };
 		4219B2B0187D63F5006DA315 /* XBConferenceCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4219B2AF187D63F5006DA315 /* XBConferenceCell.m */; };
 		4219B2B1187D63F5006DA315 /* XBConferenceCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4219B2AF187D63F5006DA315 /* XBConferenceCell.m */; };
 		4219B2B3187D6410006DA315 /* XBConferenceCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4219B2B2187D6410006DA315 /* XBConferenceCell.xib */; };
+		4244D61118828ADE0083B869 /* XBSectionedTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4244D61018828ADE0083B869 /* XBSectionedTableViewController.m */; };
+		4244D614188297C00083B869 /* XBConferenceHomeMenuItemCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4244D613188297C00083B869 /* XBConferenceHomeMenuItemCell.m */; };
+		4244D617188297CE0083B869 /* XBConferenceHomeDayCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4244D616188297CE0083B869 /* XBConferenceHomeDayCell.m */; };
 		5418864818460A13005B6E4B /* WPSPostCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5418864718460A13005B6E4B /* WPSPostCell.xib */; };
 		54276B0B184504E70078E4E6 /* 15-tags-selected.png in Resources */ = {isa = PBXBuildFile; fileRef = 54276B05184504E70078E4E6 /* 15-tags-selected.png */; };
 		54276B0E184504E70078E4E6 /* 34-coffee-selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 54276B08184504E70078E4E6 /* 34-coffee-selected@2x.png */; };
@@ -532,8 +537,10 @@
 
 /* Begin PBXFileReference section */
 		066FCD792FD04E9C87C35E33 /* libPods-xebia-iosTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-xebia-iosTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		2EE440A7A0A2C78130F074BA /* XBConferenceHomeDayCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = XBConferenceHomeDayCell.xib; sourceTree = "<group>"; };
 		2EE440CF2F141FBB9BD52D4B /* XBConferenceHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XBConferenceHomeViewController.h; sourceTree = "<group>"; };
 		2EE44118B78CE2FEDDB9F9BE /* XBConferenceHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XBConferenceHomeViewController.m; sourceTree = "<group>"; };
+		2EE44C7739FF1EECF5D3E56D /* XBConferenceHomeMenuItemCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = XBConferenceHomeMenuItemCell.xib; sourceTree = "<group>"; };
 		2EE44C893499F858FC84C73E /* XBConferenceHomeDateCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XBConferenceHomeDateCell.m; sourceTree = "<group>"; };
 		2EE44DA2C8DA5D27C59277A1 /* XBConferenceHomeDateCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = XBConferenceHomeDateCell.xib; sourceTree = "<group>"; };
 		2EE44ED4FE9BCC18F4B716B8 /* XBConferenceHomeDateCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XBConferenceHomeDateCell.h; sourceTree = "<group>"; };
@@ -541,6 +548,12 @@
 		4219B2AE187D63F5006DA315 /* XBConferenceCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XBConferenceCell.h; sourceTree = "<group>"; };
 		4219B2AF187D63F5006DA315 /* XBConferenceCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XBConferenceCell.m; sourceTree = "<group>"; };
 		4219B2B2187D6410006DA315 /* XBConferenceCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XBConferenceCell.xib; sourceTree = "<group>"; };
+		4244D60F18828ADE0083B869 /* XBSectionedTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XBSectionedTableViewController.h; sourceTree = "<group>"; };
+		4244D61018828ADE0083B869 /* XBSectionedTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XBSectionedTableViewController.m; sourceTree = "<group>"; };
+		4244D612188297C00083B869 /* XBConferenceHomeMenuItemCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XBConferenceHomeMenuItemCell.h; sourceTree = "<group>"; };
+		4244D613188297C00083B869 /* XBConferenceHomeMenuItemCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XBConferenceHomeMenuItemCell.m; sourceTree = "<group>"; };
+		4244D615188297CE0083B869 /* XBConferenceHomeDayCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XBConferenceHomeDayCell.h; sourceTree = "<group>"; };
+		4244D616188297CE0083B869 /* XBConferenceHomeDayCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XBConferenceHomeDayCell.m; sourceTree = "<group>"; };
 		5418864718460A13005B6E4B /* WPSPostCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WPSPostCell.xib; sourceTree = "<group>"; };
 		54276B05184504E70078E4E6 /* 15-tags-selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "15-tags-selected.png"; sourceTree = "<group>"; };
 		54276B06184504E70078E4E6 /* 15-tags-selected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "15-tags-selected@2x.png"; sourceTree = "<group>"; };
@@ -1255,6 +1268,12 @@
 				2EE44C893499F858FC84C73E /* XBConferenceHomeDateCell.m */,
 				2EE44ED4FE9BCC18F4B716B8 /* XBConferenceHomeDateCell.h */,
 				2EE44DA2C8DA5D27C59277A1 /* XBConferenceHomeDateCell.xib */,
+				4244D612188297C00083B869 /* XBConferenceHomeMenuItemCell.h */,
+				4244D613188297C00083B869 /* XBConferenceHomeMenuItemCell.m */,
+				2EE44C7739FF1EECF5D3E56D /* XBConferenceHomeMenuItemCell.xib */,
+				4244D615188297CE0083B869 /* XBConferenceHomeDayCell.h */,
+				4244D616188297CE0083B869 /* XBConferenceHomeDayCell.m */,
+				2EE440A7A0A2C78130F074BA /* XBConferenceHomeDayCell.xib */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -1780,6 +1799,8 @@
 				5443EC081775BEED0000FFE8 /* XBReloadableTableViewController.m */,
 				5443EC091775BEED0000FFE8 /* XBTableViewController.h */,
 				5443EC0A1775BEED0000FFE8 /* XBTableViewController.m */,
+				4244D60F18828ADE0083B869 /* XBSectionedTableViewController.h */,
+				4244D61018828ADE0083B869 /* XBSectionedTableViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -2238,6 +2259,7 @@
 			children = (
 				5430BD0C1855256E004CEA7D /* Other */,
 				DB34DF43C0F5FBCE0BF37F5A /* AgileTools */,
+				2EE44AC23F0BB3C0CDE1062B /* Conferences */,
 				DB34DFE0BE3D28A7DE4E56F5 /* EventBrite */,
 				DB34D53398EF8571C8D4FDCD /* Menu */,
 				DB34D8CFA629A3922F73E303 /* Twitter */,
@@ -2252,7 +2274,6 @@
 				5485017817DFD8E3002216C4 /* XBCircleImageView.m */,
 				DB34DC06B75BDC531B4CF3A3 /* XBTableView.m */,
 				DB34D6A4379E8B12D55A2A48 /* XBTableView.h */,
-				2EE44AC23F0BB3C0CDE1062B /* Conferences */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -2945,6 +2966,8 @@
 				DB34D12B9E41F5EA1F64CB7F /* WPPostContentCode2ElementCell.xib in Resources */,
 				54EDAFE9184503F200C9EE82 /* 34-coffee-selected.png in Resources */,
 				2EE4438965D737FB68D3229C /* XBConferenceHomeDateCell.xib in Resources */,
+				2EE443B7A14FD08665F4BEF8 /* XBConferenceHomeMenuItemCell.xib in Resources */,
+				2EE44F265C1D341DD483248C /* XBConferenceHomeDayCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3077,6 +3100,7 @@
 				5443EC711775BEED0000FFE8 /* XBArrayDataMerger.m in Sources */,
 				5443EC731775BEED0000FFE8 /* XBDictionaryDataMerger.m in Sources */,
 				5443EC751775BEED0000FFE8 /* XBArrayDataSourceDataPager.m in Sources */,
+				4244D617188297CE0083B869 /* XBConferenceHomeDayCell.m in Sources */,
 				5443EC771775BEED0000FFE8 /* XBArrayDataSource.m in Sources */,
 				5443EC791775BEED0000FFE8 /* XBInfiniteScrollArrayDataSource.m in Sources */,
 				5443EC7B1775BEED0000FFE8 /* XBReloadableArrayDataSource.m in Sources */,
@@ -3129,6 +3153,7 @@
 				547A69DF181F2405005B2B18 /* XBNewsOtherCell.m in Sources */,
 				5443EF3B177620B70000FFE8 /* WPAuthor.m in Sources */,
 				5443EF3D177620B70000FFE8 /* WPCategory.m in Sources */,
+				4244D614188297C00083B869 /* XBConferenceHomeMenuItemCell.m in Sources */,
 				5443EF3F177620B70000FFE8 /* WPComment.m in Sources */,
 				5443EF41177620B70000FFE8 /* WPPost.m in Sources */,
 				5443EF43177620B70000FFE8 /* WPSAuthor.m in Sources */,
@@ -3202,6 +3227,7 @@
 				DB34D73E7C645022BC842EEC /* XBNewsMetadata.m in Sources */,
 				DB34D628E837AAA2BE0727A6 /* VMURLHandler.m in Sources */,
 				DB34DF7B10B982E6D9D594FC /* EBURLHandler.m in Sources */,
+				4244D61118828ADE0083B869 /* XBSectionedTableViewController.m in Sources */,
 				DB34D559CE4071A336DCE3FB /* XBLeftMenuCell.m in Sources */,
 				DB34DF9F8E57008C3855913A /* XBRightMenuCell.m in Sources */,
 				DB34DD5E38D240D31441EB04 /* EBEventDetailsViewController.m in Sources */,

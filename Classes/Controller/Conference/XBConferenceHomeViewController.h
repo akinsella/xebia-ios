@@ -5,9 +5,10 @@
 
 #import <Foundation/Foundation.h>
 #import "XBTableViewController.h"
+#import "XBSectionedTableViewController.h"
 
 
-@interface XBConferenceHomeViewController : XBTableViewController<UITableViewDataSource, UITableViewDelegate, XBTableViewControllerDelegate>
+@interface XBConferenceHomeViewController : XBSectionedTableViewController<UITableViewDataSource, UITableViewDelegate, XBTableViewControllerDelegate>
 
 - (void)initialize;
 

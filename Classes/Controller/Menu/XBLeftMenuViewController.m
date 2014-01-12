@@ -11,7 +11,6 @@
 #import "NSNumber+XBAdditions.h"
 #import "XBLeftMenuCell.h"
 #import "UIViewController+XBAdditions.h"
-#import "GAITracker.h"
 #import "UIColor+XBAdditions.h"
 #import "XBAbstractURLHandler.h"
 #import "WPURLHandler.h"
@@ -34,7 +33,6 @@ enum {
 @property (nonatomic, strong) NSMutableDictionary *viewIdentifiers;
 @property (nonatomic, strong) IASKAppSettingsViewController *appSettingsViewController;
 @property (nonatomic, strong) NSArray *urlHandlers;
-@property (nonatomic, strong) XBArrayDataSource *conferenceDataSource;
 @end
 
 @implementation XBLeftMenuViewController
@@ -59,8 +57,6 @@ enum {
     ];
 
     [super initialize];
-    
-    self.conferenceDataSource = [self buildConferenceDataSource];
 }
 
 - (NSString *)trackPath {
@@ -120,12 +116,10 @@ enum {
     switch (indexPath.section) {
         case 0:
             return CellReuseIdentifier;
-            break;
             
         case 1:
             return ConferenceCellReuseIdentifier;
-            break;
-            
+
         default:
             break;
     }
@@ -137,11 +131,9 @@ enum {
     switch (indexPath.section) {
         case 0:
             return @"XBLeftMenuCell";
-            break;
             
         case 1:
             return @"XBConferenceCell";
-            break;
             
         default:
             break;
@@ -159,7 +151,9 @@ enum {
             @{ @"title": NSLocalizedString(@"Videos", nil), @"imageName" :@"vimeo"}
     ];
 
-    return [XBArrayDataSource dataSourceWithArray:menuItems];
+    NSArray *conferences = @[@{ @"title": NSLocalizedString(@"Devoxx", nil), @"imageName" :@"timeline"},];
+
+    return [XBArrayDataSource dataSourceWithArray:@[menuItems, conferences]];
 }
 
 - (XBArrayDataSource *)buildConferenceDataSource {
@@ -180,7 +174,7 @@ enum {
 - (void)configureCell:(UITableViewCell *)cell atIndex:(NSIndexPath *)indexPath {
 
     XBLeftMenuCell *menuCell = (XBLeftMenuCell *)cell;
-    NSDictionary *item = self.dataSource[(NSUInteger) indexPath.row];
+    NSDictionary *item = self.dataSource[indexPath.section][indexPath.row];
 
     menuCell.accessoryType = UITableViewCellAccessoryNone;
     menuCell.titleLabel.text = [item objectForKey:@"title"];
@@ -219,7 +213,7 @@ enum {
 }
 
 - (void)revealViewControllerWithURL:(NSURL *)url {
-    NSLog(@"url recieved: %@", url);
+    NSLog(@"url received: %@", url);
     NSLog(@"query string: %@", [url query]);
     NSLog(@"host: %@", [url host]);
     NSLog(@"url path: %@", [url path]);
@@ -251,28 +245,5 @@ enum {
 - (BOOL)shouldAutorotate {
     return YES;
 }
-
-#pragma mark - TableView Data Source overrides
-
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 2;
-}
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
-    switch (section) {
-        case 0:
-            return [super tableView:tableView numberOfRowsInSection:section];
-            break;
-            
-        case 1:
-            return [self.conferenceDataSource count];
-            
-        default:
-            break;
-    }
-    return 0;
-}
-
 
 @end

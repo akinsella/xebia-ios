@@ -4,11 +4,14 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "XBTableViewCell.h"
 
 
-@interface XBConferenceHomeDateCell : UITableViewCell
+@interface XBConferenceHomeDateCell : XBTableViewCell
 
 @property (nonatomic, weak) IBOutlet UILabel *startDateLabel;
 @property (nonatomic, weak) IBOutlet UILabel *endDateLabel;
+
+- (void)configureWithConference:(id)conference;
 
 @end
