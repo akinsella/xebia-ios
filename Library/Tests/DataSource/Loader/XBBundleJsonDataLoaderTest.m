@@ -32,7 +32,7 @@
         responseError = error;
         STSuccess();
     }];
-
+    
     STFailAfter(kNetworkTimeout, @"Expected response before timeout");
 
     STAssertNil(responseError, [NSString stringWithFormat:@"Error[code: '%ld', domain: '%@'", (long)responseError.code, responseError.domain]);

@@ -1056,7 +1056,7 @@
                             <rect key="frame" x="0.0" y="0.0" width="320" height="192"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
-                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qMB-wb-Xd0">
+                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qMB-wb-Xd0">
                                     <rect key="frame" x="92" y="8" width="136" height="136"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <constraints>
@@ -1086,6 +1086,10 @@
                             <outlet property="delegate" destination="OQ5-5u-E0V" id="ONt-bR-UOR"/>
                         </connections>
                     </tableView>
+                    <connections>
+                        <outlet property="logoImageView" destination="qMB-wb-Xd0" id="7EI-sT-wUk"/>
+                        <outlet property="titleLabel" destination="90i-25-xwE" id="8Xn-YK-Q7Q"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ETK-u0-0Eg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

@@ -8,8 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		2EE440B1C1BC24FC4F3E6CA1 /* XBConferenceHomeDateCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EE44C893499F858FC84C73E /* XBConferenceHomeDateCell.m */; };
+		2EE440F42317FE6AE810EE94 /* XBConferenceDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EE4471075039AC8AC0A6EB3 /* XBConferenceDownloader.m */; };
 		2EE4438965D737FB68D3229C /* XBConferenceHomeDateCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2EE44DA2C8DA5D27C59277A1 /* XBConferenceHomeDateCell.xib */; };
 		2EE443B7A14FD08665F4BEF8 /* XBConferenceHomeMenuItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2EE44C7739FF1EECF5D3E56D /* XBConferenceHomeMenuItemCell.xib */; };
+		2EE44437B4D1426AB095B41F /* XBConference.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EE44B650C6D50AD8F7ACD7F /* XBConference.m */; };
+		2EE444A71DBAFFAB33185C52 /* XBConferenceDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EE4471075039AC8AC0A6EB3 /* XBConferenceDownloader.m */; };
+		2EE4459234E9BDD2B4477C69 /* XBConference.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EE44B650C6D50AD8F7ACD7F /* XBConference.m */; };
 		2EE44D3C236FCA7A4876AAAD /* XBConferenceHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EE44118B78CE2FEDDB9F9BE /* XBConferenceHomeViewController.m */; };
 		2EE44F265C1D341DD483248C /* XBConferenceHomeDayCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2EE440A7A0A2C78130F074BA /* XBConferenceHomeDayCell.xib */; };
 		338DF8973A884384AC8F7F16 /* libPods-XebiaTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AE3F961AF793434480B2C8FD /* libPods-XebiaTests.a */; };
@@ -19,6 +23,9 @@
 		4244D61118828ADE0083B869 /* XBSectionedTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4244D61018828ADE0083B869 /* XBSectionedTableViewController.m */; };
 		4244D614188297C00083B869 /* XBConferenceHomeMenuItemCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4244D613188297C00083B869 /* XBConferenceHomeMenuItemCell.m */; };
 		4244D617188297CE0083B869 /* XBConferenceHomeDayCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4244D616188297CE0083B869 /* XBConferenceHomeDayCell.m */; };
+		42DBF46618942AC800BBD4AB /* XBDownloadableBundleDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = 42DBF46518942AC800BBD4AB /* XBDownloadableBundleDownloader.m */; };
+		42DBF46718942AC800BBD4AB /* XBDownloadableBundleDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = 42DBF46518942AC800BBD4AB /* XBDownloadableBundleDownloader.m */; };
+		42DBF46B1894346A00BBD4AB /* XBDownloadableBundleDownloaderTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 42DBF46A1894346A00BBD4AB /* XBDownloadableBundleDownloaderTest.m */; };
 		5418864818460A13005B6E4B /* WPSPostCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5418864718460A13005B6E4B /* WPSPostCell.xib */; };
 		54276B0B184504E70078E4E6 /* 15-tags-selected.png in Resources */ = {isa = PBXBuildFile; fileRef = 54276B05184504E70078E4E6 /* 15-tags-selected.png */; };
 		54276B0E184504E70078E4E6 /* 34-coffee-selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 54276B08184504E70078E4E6 /* 34-coffee-selected@2x.png */; };
@@ -540,8 +547,14 @@
 		2EE440A7A0A2C78130F074BA /* XBConferenceHomeDayCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = XBConferenceHomeDayCell.xib; sourceTree = "<group>"; };
 		2EE440CF2F141FBB9BD52D4B /* XBConferenceHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XBConferenceHomeViewController.h; sourceTree = "<group>"; };
 		2EE44118B78CE2FEDDB9F9BE /* XBConferenceHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XBConferenceHomeViewController.m; sourceTree = "<group>"; };
+		2EE442DE4867194E69D554CE /* XBDownloadableBundle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XBDownloadableBundle.h; sourceTree = "<group>"; };
+		2EE4471075039AC8AC0A6EB3 /* XBConferenceDownloader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XBConferenceDownloader.m; sourceTree = "<group>"; };
+		2EE449311C7201C1122E6D2F /* XBConference.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XBConference.h; sourceTree = "<group>"; };
+		2EE44A568E6A6B376DCC253C /* XBConferenceDownloader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XBConferenceDownloader.h; sourceTree = "<group>"; };
+		2EE44B650C6D50AD8F7ACD7F /* XBConference.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XBConference.m; sourceTree = "<group>"; };
 		2EE44C7739FF1EECF5D3E56D /* XBConferenceHomeMenuItemCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = XBConferenceHomeMenuItemCell.xib; sourceTree = "<group>"; };
 		2EE44C893499F858FC84C73E /* XBConferenceHomeDateCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XBConferenceHomeDateCell.m; sourceTree = "<group>"; };
+		2EE44D1004BDF36197F1F82F /* XBDownloadableBundleDownloader+Protected.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "XBDownloadableBundleDownloader+Protected.h"; sourceTree = "<group>"; };
 		2EE44DA2C8DA5D27C59277A1 /* XBConferenceHomeDateCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = XBConferenceHomeDateCell.xib; sourceTree = "<group>"; };
 		2EE44ED4FE9BCC18F4B716B8 /* XBConferenceHomeDateCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XBConferenceHomeDateCell.h; sourceTree = "<group>"; };
 		378A41F2988D464CA7748FC5 /* Pods-XebiaTests.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XebiaTests.xcconfig"; path = "Pods/Pods-XebiaTests.xcconfig"; sourceTree = "<group>"; };
@@ -554,6 +567,9 @@
 		4244D613188297C00083B869 /* XBConferenceHomeMenuItemCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XBConferenceHomeMenuItemCell.m; sourceTree = "<group>"; };
 		4244D615188297CE0083B869 /* XBConferenceHomeDayCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XBConferenceHomeDayCell.h; sourceTree = "<group>"; };
 		4244D616188297CE0083B869 /* XBConferenceHomeDayCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XBConferenceHomeDayCell.m; sourceTree = "<group>"; };
+		42DBF46418942AC800BBD4AB /* XBDownloadableBundleDownloader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XBDownloadableBundleDownloader.h; sourceTree = "<group>"; };
+		42DBF46518942AC800BBD4AB /* XBDownloadableBundleDownloader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XBDownloadableBundleDownloader.m; sourceTree = "<group>"; };
+		42DBF46A1894346A00BBD4AB /* XBDownloadableBundleDownloaderTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XBDownloadableBundleDownloaderTest.m; sourceTree = "<group>"; };
 		5418864718460A13005B6E4B /* WPSPostCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WPSPostCell.xib; sourceTree = "<group>"; };
 		54276B05184504E70078E4E6 /* 15-tags-selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "15-tags-selected.png"; sourceTree = "<group>"; };
 		54276B06184504E70078E4E6 /* 15-tags-selected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "15-tags-selected@2x.png"; sourceTree = "<group>"; };
@@ -1254,6 +1270,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2EE44317E08B0BEF8A34E4BF /* Conferences */ = {
+			isa = PBXGroup;
+			children = (
+				2EE44B650C6D50AD8F7ACD7F /* XBConference.m */,
+				2EE449311C7201C1122E6D2F /* XBConference.h */,
+			);
+			path = Conferences;
+			sourceTree = "<group>";
+		};
 		2EE44AC23F0BB3C0CDE1062B /* Conferences */ = {
 			isa = PBXGroup;
 			children = (
@@ -1285,6 +1310,27 @@
 				2EE440CF2F141FBB9BD52D4B /* XBConferenceHomeViewController.h */,
 			);
 			path = Conference;
+			sourceTree = "<group>";
+		};
+		42DBF4631894292600BBD4AB /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				42DBF46418942AC800BBD4AB /* XBDownloadableBundleDownloader.h */,
+				42DBF46518942AC800BBD4AB /* XBDownloadableBundleDownloader.m */,
+				2EE44D1004BDF36197F1F82F /* XBDownloadableBundleDownloader+Protected.h */,
+				2EE442DE4867194E69D554CE /* XBDownloadableBundle.h */,
+				2EE4471075039AC8AC0A6EB3 /* XBConferenceDownloader.m */,
+				2EE44A568E6A6B376DCC253C /* XBConferenceDownloader.h */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		42DBF4681894345800BBD4AB /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				42DBF46A1894346A00BBD4AB /* XBDownloadableBundleDownloaderTest.m */,
+			);
+			path = Service;
 			sourceTree = "<group>";
 		};
 		54276B11184505570078E4E6 /* Data */ = {
@@ -1846,6 +1892,7 @@
 				5443ECA21775BEF30000FFE8 /* Loader */,
 				5443ECA71775BEF30000FFE8 /* Mapper */,
 				5443ECA91775BEF30000FFE8 /* Merger */,
+				42DBF4681894345800BBD4AB /* Service */,
 				5443ECAC1775BEF30000FFE8 /* XBArrayDataSourceTest.m */,
 				5443ECAD1775BEF30000FFE8 /* XBInfiniteScrollArrayDataSourceTest.m */,
 			);
@@ -1957,6 +2004,7 @@
 				5443EE6B177620B70000FFE8 /* DataSource */,
 				5443EE74177620B70000FFE8 /* Manager */,
 				5443EE77177620B70000FFE8 /* Model */,
+				42DBF4631894292600BBD4AB /* Service */,
 				5443EEAF177620B70000FFE8 /* Support */,
 				5443EEB8177620B70000FFE8 /* Utils */,
 				5443EEBD177620B70000FFE8 /* View */,
@@ -2134,6 +2182,7 @@
 				DB34DE00445D402737D76061 /* Vimeo */,
 				DB34D794BE33E63DA572810F /* AgileTools */,
 				DB34D0527F69CDE9405B21F7 /* Timeline */,
+				2EE44317E08B0BEF8A34E4BF /* Conferences */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -3147,6 +3196,7 @@
 				5443EF2F177620B70000FFE8 /* TTRetweetedStatus.m in Sources */,
 				5443EF31177620B70000FFE8 /* TTTweet.m in Sources */,
 				5443EF33177620B70000FFE8 /* TTUrlEntity.m in Sources */,
+				42DBF46618942AC800BBD4AB /* XBDownloadableBundleDownloader.m in Sources */,
 				5443EF35177620B70000FFE8 /* TTUser.m in Sources */,
 				5443EF37177620B70000FFE8 /* TTUserMentionEntity.m in Sources */,
 				5443EF39177620B70000FFE8 /* WPAttachment.m in Sources */,
@@ -3239,6 +3289,8 @@
 				DB34D43E1A711AF0A3BC6AFB /* XBTableView.m in Sources */,
 				2EE44D3C236FCA7A4876AAAD /* XBConferenceHomeViewController.m in Sources */,
 				2EE440B1C1BC24FC4F3E6CA1 /* XBConferenceHomeDateCell.m in Sources */,
+				2EE44437B4D1426AB095B41F /* XBConference.m in Sources */,
+				2EE440F42317FE6AE810EE94 /* XBConferenceDownloader.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3288,6 +3340,7 @@
 				5443ECBC1775BEF30000FFE8 /* XBBundleArrayDataSourceTest.m in Sources */,
 				5443ECBE1775BEF30000FFE8 /* XBBasicHttpQueryParamBuilderTest.m in Sources */,
 				5443ECBF1775BEF30000FFE8 /* XBHttpArrayDataSourceTest.m in Sources */,
+				42DBF46B1894346A00BBD4AB /* XBDownloadableBundleDownloaderTest.m in Sources */,
 				5443ECC01775BEF30000FFE8 /* XBBundleJsonDataLoaderTest.m in Sources */,
 				5443ECC11775BEF30000FFE8 /* XBCacheableDataLoaderTest.m in Sources */,
 				5443ECC21775BEF30000FFE8 /* XBHttpDataLoaderCacheKeyBuilderTest.m in Sources */,
@@ -3337,12 +3390,15 @@
 				DB34D4578F76484EBBF9DE93 /* XESponsor.m in Sources */,
 				DB34D7EE0FE712FFCF9BF08E /* XETag.m in Sources */,
 				4219B2B1187D63F5006DA315 /* XBConferenceCell.m in Sources */,
+				42DBF46718942AC800BBD4AB /* XBDownloadableBundleDownloader.m in Sources */,
 				DB34D083C9EDF348B8417033 /* XEULink.m in Sources */,
 				DB34D66E4CF559E6404DBF3C /* NSDate+XBAdditions.m in Sources */,
 				DB34D6772D8F9B5AD6C3DB76 /* WPPostContentStructuredElement.m in Sources */,
 				DB34D89DB04BB9FA5059B985 /* WPPostContentStructuredElementAttribute.m in Sources */,
 				DB34D408EDFAC71D7C6488CE /* NSData+XBAdditions.m in Sources */,
 				DB34D98B213FD1D8FB965FF0 /* NSDictionaryTest.m in Sources */,
+				2EE4459234E9BDD2B4477C69 /* XBConference.m in Sources */,
+				2EE444A71DBAFFAB33185C52 /* XBConferenceDownloader.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

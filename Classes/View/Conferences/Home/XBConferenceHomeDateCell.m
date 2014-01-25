@@ -11,9 +11,7 @@
 
 @end
 
-@implementation XBConferenceHomeDateCell {
-
-}
+@implementation XBConferenceHomeDateCell
 
 - (NSDateFormatter *)dateFormatter {
     static dispatch_once_t once;

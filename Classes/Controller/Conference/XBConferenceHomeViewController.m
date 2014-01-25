@@ -7,24 +7,35 @@
 #import "XBConferenceHomeDateCell.h"
 #import "XBConferenceHomeDayCell.h"
 #import "XBConferenceHomeMenuItemCell.h"
+#import <QuartzCore/QuartzCore.h>
+#import <AFNetworking/UIImageView+AFNetworking.h>
 
+@implementation XBConferenceHomeViewController
 
-@implementation XBConferenceHomeViewController {
-
-}
 - (void)initialize {
     [super initialize];
+    [self applyTheme];
 }
 
-- (void)viewDidLoad
-{
+- (void)applyTheme {
+    self.logoImageView.layer.cornerRadius = CGRectGetWidth(self.logoImageView.frame) / 2.0;
+    self.logoImageView.clipsToBounds = YES;
+}
+
+- (void)viewDidLoad {
     self.delegate = self;
     [self configureTableView];
+    [self applyValues];
     [super viewDidLoad];
 }
 
 - (NSString *)trackPath {
     return @"/conferenceHome";
+}
+
+- (void)applyValues {
+    [self.logoImageView setImageWithURL:[NSURL URLWithString:@"http://devoxx-gaelyk.appspot.com/images/LogoDevoxxBig.jpg"] placeholderImage:nil];
+    self.titleLabel.text = @"DevoXX";
 }
 
 - (XBArrayDataSource *)buildDataSource {
