@@ -7,8 +7,18 @@
 #import "XBConferenceHomeDateCell.h"
 #import "XBConferenceHomeDayCell.h"
 #import "XBConferenceHomeMenuItemCell.h"
+#import "XBConferenceDownloader.h"
+#import "XBConference.h"
+#import "XBConferenceSpeakerViewController.h"
 #import <QuartzCore/QuartzCore.h>
 #import <AFNetworking/UIImageView+AFNetworking.h>
+
+@interface XBConferenceHomeViewController()
+
+@property (nonatomic, strong) XBConferenceDownloader *downloader;
+@property (nonatomic, strong) XBConference *conference;
+
+@end
 
 @implementation XBConferenceHomeViewController
 
@@ -18,15 +28,32 @@
 }
 
 - (void)applyTheme {
+    self.logoImageView.backgroundColor = [UIColor grayColor];
     self.logoImageView.layer.cornerRadius = CGRectGetWidth(self.logoImageView.frame) / 2.0;
     self.logoImageView.clipsToBounds = YES;
 }
 
 - (void)viewDidLoad {
+
+    //TODO: Make this dynamic
+    self.conference = [XBConference conferenceWithUid:@"DEVOXX"];
+
     self.delegate = self;
     [self configureTableView];
-    [self applyValues];
+    [self createConferenceDownloader];
     [super viewDidLoad];
+}
+
+- (void)createConferenceDownloader {
+    self.downloader = [XBConferenceDownloader downloaderWithDownloadableBundle:self.conference];
+    [self.downloadActivityIndicator startAnimating];
+    [self.downloader downloadAllResources:^(NSError *error) {
+        if (!error) {
+            //TODO: Manage error
+        }
+        [self applyValues];
+        [self.downloadActivityIndicator stopAnimating];
+    }];
 }
 
 - (NSString *)trackPath {
@@ -95,6 +122,34 @@
 
 - (void)onSelectCell: (UITableViewCell *)cell forObject:(id)object withIndex:(NSIndexPath *)indexPath {
     [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
+
+    if (indexPath.section == 2) {
+        switch (indexPath.row) {
+            case 0:
+                [self performSegueWithIdentifier:@"ShowSpeakers" sender:nil];
+                break;
+
+            case 1:
+                [self performSegueWithIdentifier:@"ShowSessions" sender:nil];
+                break;
+
+            case 2:
+                [self performSegueWithIdentifier:@"ShowRooms" sender:nil];
+                break;
+
+            case 3:
+                [self performSegueWithIdentifier:@"ShowTracks" sender:nil];
+                break;
+            default:break;
+        }
+    }
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([segue.identifier isEqualToString:@"ShowSpeakers"]) {
+        XBConferenceSpeakerViewController *speakerViewController = segue.destinationViewController;
+        speakerViewController.conference = self.conference;
+    }
 }
 
 @end

@@ -109,7 +109,7 @@
         ((XBTableView *)self.tableView).emptyView.backgroundColor = [UIColor colorWithHex:@"#F0F0F0"];
     }
     else {
-        XBLogDebug(@"Table view is not an XBTableView instance !: Classe:%@", NSStringFromClass(self.tableView.class));
+        XBLogDebug(@"Table view is not an XBTableView instance !: Class:%@", NSStringFromClass(self.tableView.class));
     }
 }
 

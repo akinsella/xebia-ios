@@ -14,7 +14,12 @@
 @interface XBDownloadableBundleDownloader : NSObject
 
 + (instancetype)downloaderWithDownloadableBundle:(id <XBDownloadableBundle>)downloadableBundle;
-- (NSString *)rootFolder;
+
++ (NSString *)rootFolder;
+
++ (NSString *)rootFolderPath;
+
+- (NSString *)bundleFolderPath;
 
 - (void)downloadAllResources:(void (^)(NSError *error))completionBlock;
 

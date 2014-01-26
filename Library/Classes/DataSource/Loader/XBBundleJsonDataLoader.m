@@ -40,6 +40,7 @@
     NSString *jsonLoaded = [NSString stringWithContentsOfFile:file encoding:NSUTF8StringEncoding error:&error];
     if (error) {
         failure(error);
+        return;
     }
 
     NSDictionary *json = [NSJSONSerialization JSONObjectWithData: [jsonLoaded dataUsingEncoding:NSUTF8StringEncoding]

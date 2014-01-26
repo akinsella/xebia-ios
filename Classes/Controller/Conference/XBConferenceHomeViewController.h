@@ -12,6 +12,7 @@
 
 @property (nonatomic, weak) IBOutlet UILabel *titleLabel;
 @property (nonatomic, weak) IBOutlet UIImageView *logoImageView;
+@property (nonatomic, weak) IBOutlet UIActivityIndicatorView *downloadActivityIndicator;
 
 - (void)initialize;
 

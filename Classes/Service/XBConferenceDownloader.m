@@ -9,7 +9,7 @@ static NSString *XBConferenceDownloaderRootFolder = @"conferences";
 
 @implementation XBConferenceDownloader
 
-- (NSString *)rootFolder
++ (NSString *)rootFolder
 {
     return XBConferenceDownloaderRootFolder;
 }

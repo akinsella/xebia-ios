@@ -9,7 +9,6 @@
 #import <AFNetworking/AFHTTPRequestOperationManager.h>
 #import "XBDownloadableBundleDownloader.h"
 #import "XBConference.h"
-#import "AFHTTPRequestOperation.h"
 
 @interface XBDownloadableBundleDownloader ()
 
@@ -33,7 +32,7 @@
     return [[self alloc] initWithDownloadableBundle:downloadableBundle];
 }
 
-- (NSString *)rootFolder
++ (NSString *)rootFolder
 {
     return @"rootFolder";
 }
@@ -71,7 +70,6 @@
     }
 
     dispatch_group_notify(group, dispatch_get_main_queue(), ^(){
-        NSLog(@"ended downloading everything");
         if (completionBlock) {
             completionBlock(error);
         }
@@ -85,10 +83,14 @@
 
 - (NSString *)bundleFolderPath
 {
+    return [[self.class rootFolderPath] stringByAppendingPathComponent:self.downloadableBundle.uid];
+}
+
++ (NSString *)rootFolderPath
+{
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *documentsDirectory = [paths objectAtIndex:0];
-    NSString *dataPath = [documentsDirectory stringByAppendingPathComponent:self.rootFolder];
-    return [dataPath stringByAppendingPathComponent:self.downloadableBundle.uid];
+    return [documentsDirectory stringByAppendingPathComponent:[self rootFolder]];
 }
 
 - (void)createBundleFolder:(NSError *)error

@@ -29,9 +29,13 @@
 }
 
 - (NSArray *)resources {
-    return @[@"https://api.github.com/users/viteinfinite/repos",
-            @"https://api.github.com/users/akinsella/repos",
-            @"https://api.github.com/users/martinmoizard/repos"
+    return @[@"http://localhost:8082/tracks.json",
+            @"http://localhost:8082/experienceLevels.json",
+            @"http://localhost:8082/presentations.json",
+            @"http://localhost:8082/presentationTypes.json",
+            @"http://localhost:8082/rooms.json",
+            @"http://localhost:8082/schedule.json",
+            @"http://localhost:8082/speakers.json"
     ];
 }
 

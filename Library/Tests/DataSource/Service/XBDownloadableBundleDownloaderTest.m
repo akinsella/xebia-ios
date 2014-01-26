@@ -30,9 +30,24 @@
     
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *documentsDirectory = [paths objectAtIndex:0];
-    NSString *conferenceDir = [[documentsDirectory stringByAppendingPathComponent:cdm.rootFolder] stringByAppendingPathComponent:conference.uid];
+    NSString *conferenceDir = [[documentsDirectory stringByAppendingPathComponent:[cdm.class rootFolder]] stringByAppendingPathComponent:conference.uid];
     NSFileManager *fileManager = [NSFileManager defaultManager];
     STAssertTrue([fileManager fileExistsAtPath:conferenceDir isDirectory:nil], nil);
+}
+
+- (void)testBundleFolderPath
+{
+    XBConference *conference = [[XBConference alloc] initWithUid:@"C1"];
+    XBDownloadableBundleDownloader *cdm = [XBDownloadableBundleDownloader downloaderWithDownloadableBundle:conference];
+    NSString *targetFolder = [[cdm.class rootFolder] stringByAppendingPathComponent:@"C1"];
+    STAssertTrue([[cdm bundleFolderPath] hasSuffix:targetFolder], nil);
+}
+
+- (void)testRootFolderPath
+{
+    XBConference *conference = [[XBConference alloc] initWithUid:@"C1"];
+    XBDownloadableBundleDownloader *cdm = [XBDownloadableBundleDownloader downloaderWithDownloadableBundle:conference];
+    STAssertTrue([[cdm.class rootFolderPath] hasSuffix:[cdm.class rootFolder]], nil);
 }
 
 - (void)testDownload
@@ -53,7 +68,7 @@
     XBDownloadableBundleDownloader *cdm = [XBDownloadableBundleDownloader downloaderWithDownloadableBundle:nil];
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *documentsDirectory = [paths objectAtIndex:0];
-    NSString *directory = [documentsDirectory stringByAppendingPathComponent:cdm.rootFolder];
+    NSString *directory = [documentsDirectory stringByAppendingPathComponent:[cdm.class rootFolder]];
     NSFileManager *fileManager = [NSFileManager defaultManager];
     NSArray *files = [fileManager contentsOfDirectoryAtPath:directory error:nil];
     for (NSString *file in files) {
