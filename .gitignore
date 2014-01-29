@@ -49,3 +49,4 @@ target
 Scripts/Certs/dev.cer
 Scripts/Certs/dev.p12
 Scripts/Profiles/*.mobileprovision
+Server

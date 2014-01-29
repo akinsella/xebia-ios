@@ -8,21 +8,22 @@
 
 #import "XBConferenceSpeakerCell.h"
 #import "XBConferenceSpeaker.h"
+#import <QuartzCore/QuartzCore.h>
+#import <AFNetworking/UIImageView+AFNetworking.h>
+#import "NSString+XBAdditions.h"
 
 @implementation XBConferenceSpeakerCell
 
-- (id)initWithFrame:(CGRect)frame
-{
-    self = [super initWithFrame:frame];
-    if (self) {
-        // Initialization code
-    }
-    return self;
+- (void)awakeFromNib {
+    self.photoImageView.backgroundColor = [UIColor grayColor];
+    self.photoImageView.layer.cornerRadius = CGRectGetWidth(self.photoImageView.frame) / 2;
+    self.photoImageView.clipsToBounds = YES;
 }
 
 - (void)configureWithSpeaker:(XBConferenceSpeaker *)speaker {
     self.firstNameLabel.text = speaker.firstName;
     self.lastNameLabel.text = speaker.lastName;
+    [self.photoImageView setImageWithURL:[speaker.imageURI url] placeholderImage:nil];
 }
 
 @end

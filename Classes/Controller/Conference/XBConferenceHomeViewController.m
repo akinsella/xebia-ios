@@ -10,6 +10,7 @@
 #import "XBConferenceDownloader.h"
 #import "XBConference.h"
 #import "XBConferenceSpeakerViewController.h"
+#import "XBConferenceRoomViewController.h"
 #import <QuartzCore/QuartzCore.h>
 #import <AFNetworking/UIImageView+AFNetworking.h>
 
@@ -148,6 +149,9 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([segue.identifier isEqualToString:@"ShowSpeakers"]) {
         XBConferenceSpeakerViewController *speakerViewController = segue.destinationViewController;
+        speakerViewController.conference = self.conference;
+    } else if ([segue.identifier isEqualToString:@"ShowRooms"]) {
+        XBConferenceRoomViewController *speakerViewController = segue.destinationViewController;
         speakerViewController.conference = self.conference;
     }
 }

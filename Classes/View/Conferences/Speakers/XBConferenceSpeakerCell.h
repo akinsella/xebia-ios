@@ -14,6 +14,7 @@
 
 @property (nonatomic, weak) IBOutlet UILabel *firstNameLabel;
 @property (nonatomic, weak) IBOutlet UILabel *lastNameLabel;
+@property (nonatomic, weak) IBOutlet UIImageView *photoImageView;
 
 - (void)configureWithSpeaker:(XBConferenceSpeaker *)speaker;
 

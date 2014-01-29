@@ -15,32 +15,43 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IQd-sq-UVE">
-                        <rect key="frame" x="20" y="11" width="35" height="21"/>
+                        <rect key="frame" x="50" y="11" width="35" height="21"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jVA-Ts-hyk">
-                        <rect key="frame" x="60" y="10" width="37" height="21"/>
+                        <rect key="frame" x="90" y="10" width="37" height="21"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="14"/>
                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="oD2-nW-NSZ">
+                        <rect key="frame" x="6" y="4" width="36" height="36"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="36" id="2Pj-UI-6zH"/>
+                        </constraints>
+                    </imageView>
                 </subviews>
                 <constraints>
                     <constraint firstAttribute="bottom" secondItem="IQd-sq-UVE" secondAttribute="bottom" constant="11" id="22K-fP-avV"/>
+                    <constraint firstAttribute="bottom" secondItem="oD2-nW-NSZ" secondAttribute="bottom" constant="3" id="2wc-oy-Yrb"/>
                     <constraint firstItem="IQd-sq-UVE" firstAttribute="top" secondItem="FWd-fx-AhH" secondAttribute="top" constant="11" id="3je-Jq-hah"/>
                     <constraint firstAttribute="bottom" secondItem="jVA-Ts-hyk" secondAttribute="bottom" constant="12" id="7TB-ZA-lpI"/>
-                    <constraint firstItem="IQd-sq-UVE" firstAttribute="leading" secondItem="FWd-fx-AhH" secondAttribute="leading" constant="20" id="9tg-Ai-Qni"/>
+                    <constraint firstItem="IQd-sq-UVE" firstAttribute="leading" secondItem="FWd-fx-AhH" secondAttribute="leading" constant="50" id="9tg-Ai-Qni"/>
                     <constraint firstItem="jVA-Ts-hyk" firstAttribute="top" secondItem="FWd-fx-AhH" secondAttribute="top" constant="10" id="B49-5a-nxZ"/>
                     <constraint firstItem="jVA-Ts-hyk" firstAttribute="leading" secondItem="IQd-sq-UVE" secondAttribute="trailing" constant="5" id="XGj-wE-ehT"/>
+                    <constraint firstItem="oD2-nW-NSZ" firstAttribute="top" secondItem="FWd-fx-AhH" secondAttribute="top" constant="4" id="bhz-nk-fTh"/>
+                    <constraint firstItem="oD2-nW-NSZ" firstAttribute="leading" secondItem="FWd-fx-AhH" secondAttribute="leading" constant="6" id="yac-nz-09u"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
                 <outlet property="firstNameLabel" destination="IQd-sq-UVE" id="PWI-l6-Uzx"/>
                 <outlet property="lastNameLabel" destination="jVA-Ts-hyk" id="nUx-o3-I75"/>
+                <outlet property="photoImageView" destination="oD2-nW-NSZ" id="pUe-YW-G1P"/>
             </connections>
         </tableViewCell>
     </objects>
