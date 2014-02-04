@@ -7,11 +7,14 @@
 //
 
 #import "XBConferenceHomeDayCell.h"
+#import "XBConferencePresentation.h"
+#import "NSDateFormatter+XBAdditions.h"
 
 @implementation XBConferenceHomeDayCell
 
-- (void)configureWithTitle:(NSString *)title {
-    self.titleLabel.text = title;
+- (void)configureWithPresentation:(XBConferencePresentation *)presentation {
+    NSDateFormatter *formatter = [NSDateFormatter initWithDateFormat:@"dd/MM/YYYY"];
+    self.titleLabel.text = [formatter stringFromDate:presentation.fromTime];
 }
 
 @end

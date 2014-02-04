@@ -34,7 +34,7 @@
             @"http://localhost:8082/presentations.json",
             @"http://localhost:8082/presentationTypes.json",
             @"http://localhost:8082/rooms.json",
-            @"http://localhost:8082/schedule.json",
+            @"http://backend.mobile.xebia.io/api/v1/conferences/10/schedule",
             @"http://localhost:8082/speakers.json"
     ];
 }

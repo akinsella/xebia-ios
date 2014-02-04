@@ -22,6 +22,12 @@
 
 - (NSString *)formatDateOrTime;
 
+- (NSInteger)day;
+
+- (NSInteger)month;
+
+- (NSInteger)hours;
+
 - (NSString *)formatDayLongMonth;
 
 - (BOOL)isToday;

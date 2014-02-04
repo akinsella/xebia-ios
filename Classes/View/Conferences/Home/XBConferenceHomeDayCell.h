@@ -8,9 +8,11 @@
 
 #import "XBTableViewCell.h"
 
+@class XBConferencePresentation;
+
 @interface XBConferenceHomeDayCell : XBTableViewCell
 
 @property (nonatomic, weak) IBOutlet UILabel *titleLabel;
 
-- (void)configureWithTitle:(NSString *)title;
+- (void)configureWithPresentation:(XBConferencePresentation *)presentation;
 @end

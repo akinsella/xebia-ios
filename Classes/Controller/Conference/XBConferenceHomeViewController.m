@@ -11,6 +11,9 @@
 #import "XBConference.h"
 #import "XBConferenceSpeakerViewController.h"
 #import "XBConferenceRoomViewController.h"
+#import "XBConferenceScheduleDataSource.h"
+#import "XBConferencePresentation.h"
+#import "NSDateFormatter+XBAdditions.h"
 #import <QuartzCore/QuartzCore.h>
 #import <AFNetworking/UIImageView+AFNetworking.h>
 
@@ -18,6 +21,9 @@
 
 @property (nonatomic, strong) XBConferenceDownloader *downloader;
 @property (nonatomic, strong) XBConference *conference;
+
+
+@property (nonatomic, strong) XBReloadableArrayDataSource *dataSource; // Temp
 
 @end
 
@@ -69,20 +75,33 @@
 - (XBArrayDataSource *)buildDataSource {
     NSArray *date = @[@{@"title": NSLocalizedString(@"Day 1", nil)}];
 
-    NSArray *days = @[
-            @{@"title": NSLocalizedString(@"Day 1", nil)},
-            @{@"title": NSLocalizedString(@"Day 2", nil)},
-            @{@"title": NSLocalizedString(@"Day 3", nil)}
-    ];
-
+    XBConferenceDownloader *downloader = [XBConferenceDownloader downloaderWithDownloadableBundle:self.conference];
+    NSString *path = [[downloader bundleFolderPath] stringByAppendingPathComponent:@"schedule"];
+    XBConferenceScheduleDataSource *days = [XBConferenceScheduleDataSource dataSourceWithResourcePath:path];
+    
     NSArray *menuItems = @[
-            @{@"title": NSLocalizedString(@"Speakers", nil)},
-            @{@"title": NSLocalizedString(@"Sessions", nil)},
-            @{@"title": NSLocalizedString(@"Rooms", nil)},
-            @{@"title": NSLocalizedString(@"Tracks", nil)}
-    ];
+                           @{@"title": NSLocalizedString(@"Speakers", nil)},
+                           @{@"title": NSLocalizedString(@"Tracks", nil)},
+                           @{@"title": NSLocalizedString(@"Rooms", nil)}
+                           ];
+    
+    NSMutableDictionary *uniqueDays = [NSMutableDictionary dictionary];
+    NSDateFormatter *formatter = [NSDateFormatter initWithDateFormat:@"YYYYMMdd"];
+    [days filter:^BOOL(XBConferencePresentation *pres) {
+        NSString *dateIdentifier = [formatter stringFromDate:pres.fromTime];
+        if (!uniqueDays[dateIdentifier]) {
+            uniqueDays[dateIdentifier] = pres;
+            return YES;
+        }
+        return NO;
+    }];
+    [days loadDataWithCallback:^{
+        NSLog(@"%@", days);
+        self.dataSource = [XBArrayDataSource dataSourceWithArray:@[date, [uniqueDays allValues], menuItems]];
+        [self.tableView reloadData];
+    }];
 
-    return [XBArrayDataSource dataSourceWithArray:@[date, days, menuItems]];
+    return [XBArrayDataSource dataSourceWithArray:@[date, [uniqueDays allValues], menuItems]];
 }
 
 
@@ -111,7 +130,7 @@
             break;
 
         case 1:
-            [(XBConferenceHomeDayCell *) cell configureWithTitle:self.dataSource[indexPath.section][indexPath.row][@"title"]];
+            [(XBConferenceHomeDayCell *) cell configureWithPresentation:self.dataSource[indexPath.section][indexPath.row]];
             break;
 
         case 2:

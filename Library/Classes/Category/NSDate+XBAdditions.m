@@ -151,4 +151,19 @@
     }
 }
 
+- (NSInteger)day {
+    NSDateComponents *components = [[NSCalendar currentCalendar] components:NSDayCalendarUnit fromDate:self];
+    return [components day];
+}
+
+- (NSInteger)month {
+    NSDateComponents *components = [[NSCalendar currentCalendar] components:NSMonthCalendarUnit fromDate:self];
+    return [components month];
+}
+
+- (NSInteger)hours {
+    NSDateComponents *components = [[NSCalendar currentCalendar] components:NSHourCalendarUnit fromDate:self];
+    return [components hour];
+}
+
 @end
