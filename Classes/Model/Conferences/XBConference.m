@@ -29,7 +29,7 @@
 }
 
 - (NSArray *)resources {
-    return @[@"http://localhost:8082/tracks.json",
+    return @[@"http://backend.mobile.xebia.io/api/v1/conferences/10/tracks",
             @"http://localhost:8082/experienceLevels.json",
             @"http://localhost:8082/presentations.json",
             @"http://localhost:8082/presentationTypes.json",

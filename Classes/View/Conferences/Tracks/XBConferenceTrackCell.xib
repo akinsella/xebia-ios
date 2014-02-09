@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="4514" systemVersion="13B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+    <dependencies>
+        <deployment defaultVersion="1536" identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3747"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" verticalHuggingPriority="1000" verticalCompressionResistancePriority="1" selectionStyle="none" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="XBConferenceTrackCell" rowHeight="62" id="aCa-a0-1qD" customClass="XBConferenceTrackCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="62"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="aCa-a0-1qD" id="FWd-fx-AhH">
+                <rect key="frame" x="0.0" y="0.0" width="287" height="61"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IQd-sq-UVE">
+                        <rect key="frame" x="20" y="11" width="247" height="21"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
+                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aI0-bf-xof" customClass="DTAttributedTextContentView">
+                        <rect key="frame" x="20" y="40" width="247" height="13"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="bottom" secondItem="aI0-bf-xof" secondAttribute="bottom" constant="8" id="0mJ-y2-oPT"/>
+                    <constraint firstItem="aI0-bf-xof" firstAttribute="top" secondItem="IQd-sq-UVE" secondAttribute="bottom" constant="8" id="3dG-rp-tNG"/>
+                    <constraint firstItem="IQd-sq-UVE" firstAttribute="leading" secondItem="FWd-fx-AhH" secondAttribute="leading" constant="20" id="4nf-GM-a4t"/>
+                    <constraint firstAttribute="trailing" secondItem="aI0-bf-xof" secondAttribute="trailing" constant="20" id="OP1-vB-yMk"/>
+                    <constraint firstItem="aI0-bf-xof" firstAttribute="leading" secondItem="FWd-fx-AhH" secondAttribute="leading" constant="20" id="V4X-8B-0Ms"/>
+                    <constraint firstAttribute="trailing" secondItem="IQd-sq-UVE" secondAttribute="trailing" constant="20" id="VNn-h6-iPy"/>
+                    <constraint firstItem="IQd-sq-UVE" firstAttribute="top" secondItem="FWd-fx-AhH" secondAttribute="top" constant="11" id="cvv-26-lXc"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="descriptionLabel" destination="aI0-bf-xof" id="TH5-iF-rdY"/>
+                <outlet property="nameLabel" destination="IQd-sq-UVE" id="gyb-51-q4N"/>
+            </connections>
+        </tableViewCell>
+    </objects>
+</document>

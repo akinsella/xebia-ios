@@ -14,6 +14,7 @@
 #import "XBConferenceScheduleDataSource.h"
 #import "XBConferencePresentation.h"
 #import "NSDateFormatter+XBAdditions.h"
+#import "XBConferenceTrackViewController.h"
 #import <QuartzCore/QuartzCore.h>
 #import <AFNetworking/UIImageView+AFNetworking.h>
 
@@ -21,9 +22,7 @@
 
 @property (nonatomic, strong) XBConferenceDownloader *downloader;
 @property (nonatomic, strong) XBConference *conference;
-
-
-@property (nonatomic, strong) XBReloadableArrayDataSource *dataSource; // Temp
+@property (nonatomic, strong) XBConferenceScheduleDataSource *dayDataSource;
 
 @end
 
@@ -59,6 +58,11 @@
             //TODO: Manage error
         }
         [self applyValues];
+        
+        [self.dayDataSource loadAndFilterDistinctDays:^{
+            [self.tableView reloadData];
+        }];
+        
         [self.downloadActivityIndicator stopAnimating];
     }];
 }
@@ -77,31 +81,15 @@
 
     XBConferenceDownloader *downloader = [XBConferenceDownloader downloaderWithDownloadableBundle:self.conference];
     NSString *path = [[downloader bundleFolderPath] stringByAppendingPathComponent:@"schedule"];
-    XBConferenceScheduleDataSource *days = [XBConferenceScheduleDataSource dataSourceWithResourcePath:path];
+    self.dayDataSource = [XBConferenceScheduleDataSource dataSourceWithResourcePath:path];
     
     NSArray *menuItems = @[
                            @{@"title": NSLocalizedString(@"Speakers", nil)},
                            @{@"title": NSLocalizedString(@"Tracks", nil)},
                            @{@"title": NSLocalizedString(@"Rooms", nil)}
                            ];
-    
-    NSMutableDictionary *uniqueDays = [NSMutableDictionary dictionary];
-    NSDateFormatter *formatter = [NSDateFormatter initWithDateFormat:@"YYYYMMdd"];
-    [days filter:^BOOL(XBConferencePresentation *pres) {
-        NSString *dateIdentifier = [formatter stringFromDate:pres.fromTime];
-        if (!uniqueDays[dateIdentifier]) {
-            uniqueDays[dateIdentifier] = pres;
-            return YES;
-        }
-        return NO;
-    }];
-    [days loadDataWithCallback:^{
-        NSLog(@"%@", days);
-        self.dataSource = [XBArrayDataSource dataSourceWithArray:@[date, [uniqueDays allValues], menuItems]];
-        [self.tableView reloadData];
-    }];
 
-    return [XBArrayDataSource dataSourceWithArray:@[date, [uniqueDays allValues], menuItems]];
+    return [XBArrayDataSource dataSourceWithArray:@[date, self.dayDataSource, menuItems]];
 }
 
 
@@ -150,16 +138,13 @@
                 break;
 
             case 1:
-                [self performSegueWithIdentifier:@"ShowSessions" sender:nil];
+                [self performSegueWithIdentifier:@"ShowTracks" sender:nil];
                 break;
 
             case 2:
                 [self performSegueWithIdentifier:@"ShowRooms" sender:nil];
                 break;
-
-            case 3:
-                [self performSegueWithIdentifier:@"ShowTracks" sender:nil];
-                break;
+                
             default:break;
         }
     }
@@ -167,11 +152,14 @@
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([segue.identifier isEqualToString:@"ShowSpeakers"]) {
-        XBConferenceSpeakerViewController *speakerViewController = segue.destinationViewController;
-        speakerViewController.conference = self.conference;
+        XBConferenceSpeakerViewController *viewController = segue.destinationViewController;
+        viewController.conference = self.conference;
     } else if ([segue.identifier isEqualToString:@"ShowRooms"]) {
-        XBConferenceRoomViewController *speakerViewController = segue.destinationViewController;
-        speakerViewController.conference = self.conference;
+        XBConferenceRoomViewController *viewController = segue.destinationViewController;
+        viewController.conference = self.conference;
+    } else if ([segue.identifier isEqualToString:@"ShowTracks"]) {
+        XBConferenceTrackViewController *viewController = segue.destinationViewController;
+        viewController.conference = self.conference;
     }
 }
 

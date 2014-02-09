@@ -8,6 +8,7 @@
 #import "XBJsonToArrayDataMapper.h"
 #import "XBReloadableArrayDataSource+protected.h"
 #import "XBConferencePresentation.h"
+#import "NSDateFormatter+XBAdditions.h"
 
 
 @implementation XBConferenceScheduleDataSource {
@@ -26,6 +27,26 @@
 
 + (instancetype)dataSourceWithResourcePath:(NSString *)resourcePath {
     return [[self alloc] initWithResourcePath:resourcePath];
+}
+
+- (void)loadAndFilterDistinctDays:(void (^)())callback {
+    [self loadDataWithCallback:^{
+
+        NSMutableDictionary *uniqueDays = [NSMutableDictionary dictionary];
+        NSDateFormatter *formatter = [NSDateFormatter initWithDateFormat:@"YYYYMMdd"];
+        [self filter:^BOOL(XBConferencePresentation *pres) {
+            NSString *dateIdentifier = [formatter stringFromDate:pres.fromTime];
+            if (!uniqueDays[dateIdentifier]) {
+                uniqueDays[dateIdentifier] = pres;
+                return YES;
+            }
+            return NO;
+        }];
+
+        if (callback) {
+            callback();
+        }
+    }];
 }
 
 @end

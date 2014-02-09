@@ -1,5 +1,5 @@
 //
-// Created by Simone Civetta on 04/02/14.
+// Created by Simone Civetta on 08/02/14.
 // Copyright (c) 2014 Xebia. All rights reserved.
 //
 
@@ -7,12 +7,9 @@
 #import "XBReloadableArrayDataSource.h"
 
 
-@interface XBConferenceScheduleDataSource : XBReloadableArrayDataSource
+@interface XBConferenceTrackDataSource : XBReloadableArrayDataSource
 
 - (instancetype)initWithResourcePath:(NSString *)resourcePath;
-
-- (void)loadAndFilterDistinctDays:(void (^)())callback;
-
 + (instancetype)dataSourceWithResourcePath:(NSString *)resourcePath;
 
 @end
