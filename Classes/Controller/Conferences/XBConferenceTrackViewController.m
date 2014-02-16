@@ -8,6 +8,8 @@
 #import "XBConferenceDownloader.h"
 #import "XBConferenceTrackDataSource.h"
 #import "XBConferenceTrackCell.h"
+#import "XBConferenceTrack.h"
+#import "XBConferenceTrackDetailsViewController.h"
 
 
 @implementation XBConferenceTrackViewController
@@ -53,6 +55,20 @@
 
 - (void)configureCell:(UITableViewCell *)cell atIndex:(NSIndexPath *)indexPath {
     [(XBConferenceTrackCell *)cell configureWithTrack:self.dataSource[indexPath.row]];
+}
+
+- (void)onSelectCell:(UITableViewCell *)cell forObject:(id)object withIndex:(NSIndexPath *)indexPath {
+    [self performSegueWithIdentifier:@"ShowTrackDetails" sender:nil];
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    NSIndexPath *selectedIndexPath = [self.tableView indexPathForSelectedRow];
+    XBConferenceTrack *track = self.dataSource[selectedIndexPath.row];
+    [self.tableView deselectRowAtIndexPath:selectedIndexPath animated:YES];
+
+    XBConferenceTrackDetailsViewController *vc = segue.destinationViewController;
+    vc.conference = self.conference;
+    vc.track = track;
 }
 
 @end

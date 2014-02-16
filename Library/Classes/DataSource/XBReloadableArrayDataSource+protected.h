@@ -14,8 +14,7 @@
 @property (nonatomic, strong)NSObject<XBDataLoader> *dataLoader;
 @property (nonatomic, strong)NSObject<XBDataMapper> *dataMapper;
 
--(void)setError:(NSError *)error;
-
+- (void)setError:(NSError *)error;
 - (void)processSuccessWithRawData:(id)rawData;
 
 @end

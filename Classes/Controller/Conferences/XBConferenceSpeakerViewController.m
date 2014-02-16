@@ -33,8 +33,7 @@
 
 }
 
-- (NSString *)pathForLocalDataSource
-{
+- (NSString *)pathForLocalDataSource {
     XBConferenceDownloader *downloader = [XBConferenceDownloader downloaderWithDownloadableBundle:self.conference];
     return [[downloader bundleFolderPath] stringByAppendingPathComponent:@"speakers.json"];
 }

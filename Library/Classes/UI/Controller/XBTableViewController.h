@@ -33,7 +33,7 @@
 
 - (XBArrayDataSource *)buildDataSource;
 - (void)configureTableView;
--(void)loadData;
+- (void)loadData;
 
 - (void)initialize;
 - (NSString *)trackPath;

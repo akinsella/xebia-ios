@@ -23,7 +23,6 @@
 }
 
 - (CGFloat)heightForCell:(UITableView *)tableView {
-    NSLog(@"%@", NSStringFromCGSize(self.descriptionLabel.intrinsicContentSize));
     return 11 + self.nameLabel.intrinsicContentSize.height + 8 + self.descriptionLabel.intrinsicContentSize.height + 8;
 }
 

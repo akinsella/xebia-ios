@@ -10,7 +10,7 @@
 @interface XBConferenceTrack : NSObject<XBMappingProvider>
 
 @property (nonatomic, strong) NSString *identifier;
-@property (nonatomic, strong) NSString *conferenceId;
+@property (nonatomic, strong) NSNumber *conferenceId;
 @property (nonatomic, strong) NSString *descriptionPlainText;
 @property (nonatomic, strong) NSString *description;
 @property (nonatomic, strong) NSString *name;
