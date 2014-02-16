@@ -10,6 +10,10 @@
 #import "XBReloadableArrayDataSource+protected.h"
 #import "XBPListConfigurationProvider.h"
 #import "XBBasicHttpQueryParamBuilder.h"
+#import "XBFileSystemCacheSupport.h"
+#import "XBCache.h"
+#import "XBHttpDataLoaderCacheKeyBuilder.h"
+#import "XBCacheableDataLoader.h"
 
 
 @implementation XBConferenceDataSource
@@ -18,8 +22,19 @@
     self = [super init];
     if (self) {
         XBHttpClient *httpClient = [[XBPListConfigurationProvider provider] httpClient];
+
         XBBasicHttpQueryParamBuilder *httpQueryParamBuilder = [XBBasicHttpQueryParamBuilder builderWithDictionary:@{}];
-        self.dataLoader = [XBHttpJsonDataLoader dataLoaderWithHttpClient:httpClient httpQueryParamBuilder:httpQueryParamBuilder resourcePath:@"/conferences"];
+        XBHttpJsonDataLoader *httpJsonDataLoader = [XBHttpJsonDataLoader dataLoaderWithHttpClient:httpClient httpQueryParamBuilder:httpQueryParamBuilder resourcePath:@"/conferences"];
+
+        XBFileSystemCacheSupport * cacheSupport = [XBFileSystemCacheSupport cacheSupportWithFilename:@"conference-list-cache"];
+
+        XBCache *cache = [XBCache cacheWithCacheSupport:cacheSupport];
+        XBHttpDataLoaderCacheKeyBuilder *cacheKeyBuilder = [XBHttpDataLoaderCacheKeyBuilder cacheKeyBuilder];
+
+        self.dataLoader = [XBCacheableDataLoader dataLoaderWithDataLoader:httpJsonDataLoader
+                                                                    cache:cache
+                                                          cacheKeyBuilder:cacheKeyBuilder
+                                                                      ttl:1];
         self.dataMapper = [XBJsonToArrayDataMapper mapperWithRootKeyPath:nil typeClass:[XBConference class]];
     }
 

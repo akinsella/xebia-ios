@@ -35,7 +35,7 @@ enum {
 @property (nonatomic, strong) NSMutableDictionary *viewIdentifiers;
 @property (nonatomic, strong) IASKAppSettingsViewController *appSettingsViewController;
 @property (nonatomic, strong) NSArray *urlHandlers;
-@property (nonatomic, strong) XBReloadableArrayDataSource *conferenceDataSource;
+@property (nonatomic, strong) XBConferenceDataSource *conferenceDataSource;
 @end
 
 @implementation XBLeftMenuViewController
@@ -214,8 +214,7 @@ enum {
 - (void)revealViewControllerWithIdentifier:(NSString *)identifier {
     if ([self currentViewIsViewControllerWithIdentifier: identifier]) {
         [self.navigationController.mm_drawerController closeDrawerAnimated:YES completion:nil];
-    }
-    else {
+    } else {
         UIViewController * viewController = [self.appDelegate.viewControllerManager getOrCreateControllerWithIdentifier: identifier];
 
         UINavigationController *navigationController = (UINavigationController *)self.navigationController.mm_drawerController.centerViewController;
@@ -236,8 +235,7 @@ enum {
 
     if (foundURLHandler) {
         [foundURLHandler processURL:url];
-    }
-    else {
+    } else {
         UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Error", nil)
                                    message:NSLocalizedString(@"No action for URL", nil)
                                   delegate:self cancelButtonTitle:NSLocalizedString(@"OK", nil)
@@ -279,7 +277,6 @@ enum {
 
 - (void)reloadConferences {
     [self.conferenceDataSource loadDataWithCallback:^{
-        NSLog(@"%d", [self.conferenceDataSource count]);
         [self.tableView reloadData];
     }];
 }
