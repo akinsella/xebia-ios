@@ -18,6 +18,8 @@
 #import "TTURLHandler.h"
 #import "EBURLHandler.h"
 #import "VMURLHandler.h"
+#import "XBConference.h"
+#import "XBConferenceDataSource.h"
 #import <MMDrawerController/UIViewController+MMDrawerController.h>
 
 // Enum for row indices
@@ -33,6 +35,7 @@ enum {
 @property (nonatomic, strong) NSMutableDictionary *viewIdentifiers;
 @property (nonatomic, strong) IASKAppSettingsViewController *appSettingsViewController;
 @property (nonatomic, strong) NSArray *urlHandlers;
+@property (nonatomic, strong) XBReloadableArrayDataSource *conferenceDataSource;
 @end
 
 @implementation XBLeftMenuViewController
@@ -78,6 +81,8 @@ enum {
     [self initViewIdentifiers];
     [self configureTableView];
 
+    [self reloadConferences];
+
     [super viewDidLoad];
 }
 
@@ -94,7 +99,7 @@ enum {
 }
 
 - (void)settingsViewControllerDidEnd:(IASKAppSettingsViewController*)sender {
-    [self dismissViewControllerAnimated: YES  completion:^{}];
+    [self dismissViewControllerAnimated:YES completion:^{}];
 }
 
 - (void)initViewIdentifiers {
@@ -151,9 +156,10 @@ enum {
             @{ @"title": NSLocalizedString(@"Videos", nil), @"imageName" :@"vimeo"}
     ];
 
-    NSArray *conferences = @[@{ @"title": NSLocalizedString(@"Devoxx", nil), @"imageName" :@"timeline"},];
-
-    return [XBArrayDataSource dataSourceWithArray:@[menuItems, conferences]];
+    if (!self.conferenceDataSource) {
+        self.conferenceDataSource = [XBConferenceDataSource dataSource];
+    }    
+    return [XBArrayDataSource dataSourceWithArray:@[menuItems, self.conferenceDataSource]];
 }
 
 - (XBArrayDataSource *)buildConferenceDataSource {
@@ -174,11 +180,17 @@ enum {
 - (void)configureCell:(UITableViewCell *)cell atIndex:(NSIndexPath *)indexPath {
 
     XBLeftMenuCell *menuCell = (XBLeftMenuCell *)cell;
-    NSDictionary *item = self.dataSource[indexPath.section][indexPath.row];
+    id item = self.dataSource[indexPath.section][indexPath.row];
 
     menuCell.accessoryType = UITableViewCellAccessoryNone;
-    menuCell.titleLabel.text = [item objectForKey:@"title"];
-    menuCell.imageView.image = [UIImage imageNamed:[item objectForKey:@"imageName"]];
+    
+    if (indexPath.section == 0) {
+        menuCell.titleLabel.text = [item objectForKey:@"title"];
+        menuCell.imageView.image = [UIImage imageNamed:[item objectForKey:@"imageName"]];
+    } else {
+        XBConference *conference = item;
+        menuCell.titleLabel.text = [item name];
+    }
 }
 
 - (void)onSelectCell: (UITableViewCell *)cell forObject:(id)object withIndex:(NSIndexPath *)indexPath {
@@ -244,6 +256,32 @@ enum {
 
 - (BOOL)shouldAutorotate {
     return YES;
+}
+
+#pragma mark - Conferences
+
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+    UIView *header = [[UIView alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.tableView.frame), 20.0)];
+    header.backgroundColor = [UIColor whiteColor];
+    return header;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+    if (section == 1) {
+        return 20.0;
+    }
+    return 0;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
+    return 0;
+}
+
+- (void)reloadConferences {
+    [self.conferenceDataSource loadDataWithCallback:^{
+        NSLog(@"%d", [self.conferenceDataSource count]);
+        [self.tableView reloadData];
+    }];
 }
 
 @end

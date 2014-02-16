@@ -15,6 +15,7 @@
 #import "XBConferencePresentation.h"
 #import "NSDateFormatter+XBAdditions.h"
 #import "XBConferenceTrackViewController.h"
+#import "UIViewController+XBAdditions.h"
 #import <QuartzCore/QuartzCore.h>
 #import <AFNetworking/UIImageView+AFNetworking.h>
 
@@ -45,6 +46,9 @@
     self.conference = [XBConference conferenceWithUid:@"DEVOXX"];
 
     self.delegate = self;
+
+    [self addMenuButton];
+
     [self configureTableView];
     [self createConferenceDownloader];
     [super viewDidLoad];

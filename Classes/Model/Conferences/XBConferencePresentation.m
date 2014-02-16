@@ -17,12 +17,12 @@
     [config addObjectMapping: [DCObjectMapping mapKeyPath:@"presentation.id" toAttribute:@"identifier" onClass:[self class]]];
     [config addObjectMapping: [DCObjectMapping mapKeyPath:@"id" toAttribute:@"scheduleId" onClass:[self class]]];
 
-    DCCustomParser *fromTimeDateParser = [[DCCustomParser alloc] initWithBlockParser:[DCCustomParser dateParser]
+    DCCustomParser *fromTimeDateParser = [[DCCustomParser alloc] initWithBlockParser:[DCCustomParser dateTimeParser]
                                                             forAttributeName:@"_fromTime"
                                                           onDestinationClass:[self class]];
     [config addCustomParsersObject:fromTimeDateParser];
 
-    DCCustomParser *toTimeDateParser = [[DCCustomParser alloc] initWithBlockParser:[DCCustomParser dateParser]
+    DCCustomParser *toTimeDateParser = [[DCCustomParser alloc] initWithBlockParser:[DCCustomParser dateTimeParser]
                                                             forAttributeName:@"_toTime"
                                                           onDestinationClass:[self class]];
     [config addCustomParsersObject:toTimeDateParser];

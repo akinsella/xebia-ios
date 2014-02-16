@@ -10,6 +10,7 @@
 		2EE44066C61D4F2CD02B9AD5 /* XBConferenceScheduleDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EE4427ADFFC052438811A20 /* XBConferenceScheduleDataSource.m */; };
 		2EE440B1C1BC24FC4F3E6CA1 /* XBConferenceHomeDateCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EE44C893499F858FC84C73E /* XBConferenceHomeDateCell.m */; };
 		2EE440F42317FE6AE810EE94 /* XBConferenceDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EE4471075039AC8AC0A6EB3 /* XBConferenceDownloader.m */; };
+		2EE4419230A6A0BF4DA39551 /* XBConferenceDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EE443199AC51BF326439C42 /* XBConferenceDataSource.m */; };
 		2EE441B15D78AE6ACC55BE30 /* XBConferenceTrack.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EE44199C8DF46BB31034758 /* XBConferenceTrack.m */; };
 		2EE442C2942E9FB7D101A6B4 /* XBConferencePresentationCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2EE4451D66A104634FA89C00 /* XBConferencePresentationCell.xib */; };
 		2EE4431B35727652B1671DF3 /* XBConferenceTrackViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EE440E5D099563F6CA9D46F /* XBConferenceTrackViewController.m */; };
@@ -24,6 +25,7 @@
 		2EE44896DA264EAD86E7EF3A /* XBConferenceSpeaker.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EE445CD92AE47488A722B8B /* XBConferenceSpeaker.m */; };
 		2EE44A296ECB8151A88860FE /* XBConferenceSpeakerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EE441FEF3F612596FAA26B0 /* XBConferenceSpeakerViewController.m */; };
 		2EE44A464B272522CB4C3E6E /* DCCustomParser+XBConferenceAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EE44F69BC38CA9E68F1007A /* DCCustomParser+XBConferenceAdditions.m */; };
+		2EE44A7441B5209188BC1E37 /* XBConferenceDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EE443199AC51BF326439C42 /* XBConferenceDataSource.m */; };
 		2EE44AB85E44B17F4C433528 /* XBConferenceScheduleTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EE44A5F6F3700F5C1C650F7 /* XBConferenceScheduleTest.m */; };
 		2EE44AD95D31BE48DC2EAF15 /* XBConferenceSpeakerDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EE447E56F2B425F7145481E /* XBConferenceSpeakerDataSource.m */; };
 		2EE44AF5284D33D03D2CF72A /* XBConferenceTrackViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EE440E5D099563F6CA9D46F /* XBConferenceTrackViewController.m */; };
@@ -594,9 +596,11 @@
 		2EE4427ADFFC052438811A20 /* XBConferenceScheduleDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XBConferenceScheduleDataSource.m; sourceTree = "<group>"; };
 		2EE4427FA0F7A818AC5836FB /* XBConferenceTrack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XBConferenceTrack.h; sourceTree = "<group>"; };
 		2EE442DE4867194E69D554CE /* XBDownloadableBundle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XBDownloadableBundle.h; sourceTree = "<group>"; };
+		2EE443199AC51BF326439C42 /* XBConferenceDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XBConferenceDataSource.m; sourceTree = "<group>"; };
 		2EE4451D66A104634FA89C00 /* XBConferencePresentationCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = XBConferencePresentationCell.xib; sourceTree = "<group>"; };
 		2EE4457E540E6A13BCABC8B2 /* XBConferenceTrackDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XBConferenceTrackDataSource.h; sourceTree = "<group>"; };
 		2EE445CD92AE47488A722B8B /* XBConferenceSpeaker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XBConferenceSpeaker.m; sourceTree = "<group>"; };
+		2EE446641334D54F39C28E94 /* XBConferenceDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XBConferenceDataSource.h; sourceTree = "<group>"; };
 		2EE446B2F5612534AED6F0BA /* schedule.json */ = {isa = PBXFileReference; lastKnownFileType = file.json; path = schedule.json; sourceTree = "<group>"; };
 		2EE4471075039AC8AC0A6EB3 /* XBConferenceDownloader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XBConferenceDownloader.m; sourceTree = "<group>"; };
 		2EE447E56F2B425F7145481E /* XBConferenceSpeakerDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XBConferenceSpeakerDataSource.m; sourceTree = "<group>"; };
@@ -1400,6 +1404,8 @@
 				2EE4457E540E6A13BCABC8B2 /* XBConferenceTrackDataSource.h */,
 				2EE448C4F78BA62DACA14A16 /* XBConferenceTrackDetailDataSource.m */,
 				2EE4418DB06D039334DD3381 /* XBConferenceTrackDetailDataSource.h */,
+				2EE443199AC51BF326439C42 /* XBConferenceDataSource.m */,
+				2EE446641334D54F39C28E94 /* XBConferenceDataSource.h */,
 			);
 			path = Conferences;
 			sourceTree = "<group>";
@@ -3480,6 +3486,7 @@
 				2EE44AF5284D33D03D2CF72A /* XBConferenceTrackViewController.m in Sources */,
 				2EE44C64702AC71682F0EBCC /* XBConferenceTrackDetailsViewController.m in Sources */,
 				2EE44891CAEE51A3D44726F2 /* XBConferenceTrackDetailDataSource.m in Sources */,
+				2EE44A7441B5209188BC1E37 /* XBConferenceDataSource.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3599,6 +3606,7 @@
 				2EE4431B35727652B1671DF3 /* XBConferenceTrackViewController.m in Sources */,
 				2EE44EB13AF48653B897A109 /* XBConferenceTrackDetailsViewController.m in Sources */,
 				2EE44D618866BEA356A039B9 /* XBConferenceTrackDetailDataSource.m in Sources */,
+				2EE4419230A6A0BF4DA39551 /* XBConferenceDataSource.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

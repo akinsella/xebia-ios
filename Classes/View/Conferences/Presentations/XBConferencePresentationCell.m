@@ -17,6 +17,7 @@
 
 - (void)configureWithPresentation:(XBConferencePresentation *)presentation {
     self.titleLabel.text = presentation.title;
+    //TODO: Finish configuration
 }
 
 - (CGFloat)heightForCell:(UITableView *)tableView {

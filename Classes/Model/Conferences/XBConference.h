@@ -5,9 +5,18 @@
 
 #import <Foundation/Foundation.h>
 #import "XBDownloadableBundle.h"
+#import "XBMappingProvider.h"
 
 
-@interface XBConference : NSObject<XBDownloadableBundle>
+@interface XBConference : NSObject<XBDownloadableBundle, XBMappingProvider>
+
+@property (nonatomic, strong) NSNumber *identifier;
+@property (nonatomic, strong) NSDate *from;
+@property (nonatomic, strong) NSDate *to;
+@property (nonatomic, strong) NSString *name;
+@property (nonatomic, strong) NSString *description;
+@property (nonatomic, strong) NSString *location;
+@property (nonatomic, strong) NSNumber *enabled;
 
 - (instancetype)initWithUid:(NSString *)uid;
 + (instancetype)conferenceWithUid:(NSString *)uid;

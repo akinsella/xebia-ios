@@ -3,7 +3,10 @@
 // Copyright (c) 2014 Xebia. All rights reserved.
 //
 
+#import <DCKeyValueObjectMapping/DCObjectMapping.h>
+#import <DCKeyValueObjectMapping/DCCustomParser.h>
 #import "XBConference.h"
+#import "DCCustomParser+XBConferenceAdditions.h"
 
 @interface XBConference()
 @property (nonatomic, strong) NSString *uid;
@@ -38,5 +41,23 @@
             @"http://localhost:8082/speakers.json"
     ];
 }
+
++ (DCParserConfiguration *)mappings {
+    DCParserConfiguration *config = [DCParserConfiguration configuration];
+    [config addObjectMapping: [DCObjectMapping mapKeyPath:@"id" toAttribute:@"identifier" onClass:[self class]]];
+
+    DCCustomParser *fromTimeDateParser = [[DCCustomParser alloc] initWithBlockParser:[DCCustomParser dateParser]
+                                                                    forAttributeName:@"_from"
+                                                                  onDestinationClass:[self class]];
+    [config addCustomParsersObject:fromTimeDateParser];
+
+    DCCustomParser *toTimeDateParser = [[DCCustomParser alloc] initWithBlockParser:[DCCustomParser dateParser]
+                                                                  forAttributeName:@"_to"
+                                                                onDestinationClass:[self class]];
+    [config addCustomParsersObject:toTimeDateParser];
+
+    return config;
+}
+
 
 @end

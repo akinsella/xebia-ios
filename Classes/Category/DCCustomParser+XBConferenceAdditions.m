@@ -9,9 +9,17 @@
 
 @implementation DCCustomParser (XBConferenceAdditions)
 
-+ (DCCustomParserBlock)dateParser {
++ (DCCustomParserBlock)dateTimeParser {
     DCCustomParserBlock block = ^(__weak NSDictionary *dictionary, __weak NSString *attributeName, __weak Class destinationClass, __weak id value) {
         NSDateFormatter *formatter = [NSDateFormatter initWithDateFormat:@"YYYY-MM-dd HH:mm:ss"];
+        return [formatter dateFromString:value];
+    };
+    return block;
+}
+
++ (DCCustomParserBlock)dateParser {
+    DCCustomParserBlock block = ^(__weak NSDictionary *dictionary, __weak NSString *attributeName, __weak Class destinationClass, __weak id value) {
+        NSDateFormatter *formatter = [NSDateFormatter initWithDateFormat:@"YYYY-MM-dd"];
         return [formatter dateFromString:value];
     };
     return block;
