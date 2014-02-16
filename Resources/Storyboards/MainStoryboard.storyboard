@@ -1107,6 +1107,97 @@
             </objects>
             <point key="canvasLocation" x="-1976" y="3569"/>
         </scene>
+        <!--Conference Speaker Detail View Controller-->
+        <scene sceneID="3n7-8f-7PU">
+            <objects>
+                <tableViewController id="zV2-62-PPC" customClass="XBConferenceSpeakerDetailViewController" sceneMemberID="viewController">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="gWS-LS-jzV">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <view key="tableHeaderView" contentMode="scaleToFill" id="whn-JO-cug">
+                            <rect key="frame" x="0.0" y="0.0" width="320" height="266"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <subviews>
+                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lcp-PE-b7h">
+                                    <rect key="frame" x="20" y="161" width="280" height="17"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="uge-Kc-oPq">
+                                    <rect key="frame" x="20" y="229" width="280" height="17"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lV5-8W-gbZ">
+                                    <rect key="frame" x="20" y="172" width="280" height="24"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="20"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="hC7-8T-oss">
+                                    <rect key="frame" x="96" y="20" width="128" height="128"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="128" id="aCN-zW-mIz"/>
+                                        <constraint firstAttribute="width" constant="128" id="v2W-vP-6lV"/>
+                                    </constraints>
+                                </imageView>
+                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="dKw-M0-wEB">
+                                    <rect key="frame" x="20" y="198" width="280" height="15"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <fontDescription key="fontDescription" name="HelveticaNeue-MediumItalic" family="Helvetica Neue" pointSize="12"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstItem="lcp-PE-b7h" firstAttribute="leading" secondItem="whn-JO-cug" secondAttribute="leading" constant="20" id="0cV-UN-nlb"/>
+                                <constraint firstItem="uge-Kc-oPq" firstAttribute="top" secondItem="dKw-M0-wEB" secondAttribute="bottom" constant="16" id="6Rs-Kw-mix"/>
+                                <constraint firstAttribute="trailing" secondItem="lcp-PE-b7h" secondAttribute="trailing" constant="20" id="6kw-Qo-6dt"/>
+                                <constraint firstItem="uge-Kc-oPq" firstAttribute="leading" secondItem="whn-JO-cug" secondAttribute="leading" constant="20" id="9OR-n7-H7z"/>
+                                <constraint firstItem="dKw-M0-wEB" firstAttribute="top" secondItem="lV5-8W-gbZ" secondAttribute="bottom" constant="2" id="AiC-gb-cyy"/>
+                                <constraint firstItem="lV5-8W-gbZ" firstAttribute="top" secondItem="lcp-PE-b7h" secondAttribute="bottom" constant="-6" id="D4I-OW-yDb"/>
+                                <constraint firstItem="lV5-8W-gbZ" firstAttribute="leading" secondItem="whn-JO-cug" secondAttribute="leading" constant="20" id="ONh-dj-i1o"/>
+                                <constraint firstAttribute="trailing" secondItem="uge-Kc-oPq" secondAttribute="trailing" constant="20" id="dEH-sX-ydR"/>
+                                <constraint firstAttribute="trailing" secondItem="dKw-M0-wEB" secondAttribute="trailing" constant="20" id="eCL-gJ-C4D"/>
+                                <constraint firstAttribute="trailing" secondItem="lV5-8W-gbZ" secondAttribute="trailing" constant="20" id="l1x-tB-Uri"/>
+                                <constraint firstItem="dKw-M0-wEB" firstAttribute="leading" secondItem="whn-JO-cug" secondAttribute="leading" constant="20" id="l2G-qQ-NuL"/>
+                                <constraint firstItem="hC7-8T-oss" firstAttribute="top" secondItem="whn-JO-cug" secondAttribute="top" constant="20" id="wLx-lf-Gdq"/>
+                                <constraint firstItem="hC7-8T-oss" firstAttribute="centerX" secondItem="whn-JO-cug" secondAttribute="centerX" id="ynk-qe-Iqc"/>
+                                <constraint firstItem="lcp-PE-b7h" firstAttribute="top" secondItem="hC7-8T-oss" secondAttribute="bottom" constant="13" id="zOW-QM-IJb"/>
+                            </constraints>
+                        </view>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="Kg3-Jc-9Oi">
+                                <rect key="frame" x="0.0" y="288" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Kg3-Jc-9Oi" id="6B3-cD-TkX">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="zV2-62-PPC" id="Tsq-Uf-YNc"/>
+                            <outlet property="delegate" destination="zV2-62-PPC" id="ghM-bB-UVg"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="TLJ-4k-Qwx"/>
+                    <connections>
+                        <outlet property="bioLabel" destination="uge-Kc-oPq" id="pv7-0u-Fk0"/>
+                        <outlet property="companyLabel" destination="dKw-M0-wEB" id="kkG-zG-Q4D"/>
+                        <outlet property="firstNameLabel" destination="lcp-PE-b7h" id="ZQG-BB-yk1"/>
+                        <outlet property="imageView" destination="hC7-8T-oss" id="raL-IP-Doe"/>
+                        <outlet property="lastNameLabel" destination="lV5-8W-gbZ" id="mee-OD-8cw"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="W39-wq-5VI" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-988" y="3356"/>
+        </scene>
         <!--Conference Speaker View Controller-->
         <scene sceneID="JCE-UB-9AN">
             <objects>
@@ -1131,6 +1222,9 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="5a5-5K-acE"/>
+                    <connections>
+                        <segue destination="zV2-62-PPC" kind="push" identifier="ShowSpeakerDetails" id="sgo-cf-ZB0"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7HM-TM-dEA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1163,7 +1257,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dM4-jj-Itt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-988" y="3356"/>
+            <point key="canvasLocation" x="-580" y="3946"/>
         </scene>
         <!--Conference Track View Controller-->
         <scene sceneID="5wh-Cc-3Oy">
@@ -1197,10 +1291,10 @@
             </objects>
             <point key="canvasLocation" x="-1399" y="3946"/>
         </scene>
-        <!--Conference Track Details View Controller-->
+        <!--Conference Track Detail View Controller-->
         <scene sceneID="7br-f5-5mj">
             <objects>
-                <tableViewController id="zWP-2l-9f4" customClass="XBConferenceTrackDetailsViewController" sceneMemberID="viewController">
+                <tableViewController id="zWP-2l-9f4" customClass="XBConferenceTrackDetailViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="oWi-gd-KkC">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

@@ -3,7 +3,7 @@
 // Copyright (c) 2014 Xebia. All rights reserved.
 //
 
-#import "XBConferenceTrackDetailsViewController.h"
+#import "XBConferenceTrackDetailViewController.h"
 #import "XBConferenceTrack.h"
 #import "DTAttributedTextContentView.h"
 #import "NSAttributedString+HTML.h"
@@ -14,10 +14,10 @@
 #import "XBConferencePresentationCell.h"
 
 
-@implementation XBConferenceTrackDetailsViewController
+@implementation XBConferenceTrackDetailViewController
 
 - (NSString *)trackPath {
-    return [NSString stringWithFormat:@"/details"];
+    return [NSString stringWithFormat:@"/detail"];
 }
 
 - (void)viewDidLoad {

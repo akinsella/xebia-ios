@@ -15,6 +15,7 @@
 @property (nonatomic, strong) NSArray *talks;
 @property (nonatomic, strong) NSString *imageURI;
 @property (nonatomic, strong) NSString *firstName;
+@property (nonatomic, strong) NSString *company;
 @property (nonatomic, strong) NSString *tweetHandle;
 
 @end

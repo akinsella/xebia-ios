@@ -10,7 +10,7 @@
 @class DTAttributedTextContentView;
 
 
-@interface XBConferenceTrackDetailsViewController : XBReloadableTableViewController<UITableViewDataSource, UITableViewDelegate, XBTableViewControllerDelegate>
+@interface XBConferenceTrackDetailViewController : XBReloadableTableViewController<UITableViewDataSource, UITableViewDelegate, XBTableViewControllerDelegate>
 
 @property (nonatomic, strong) XBConferenceTrack *track;
 @property (nonatomic, strong) XBConference *conference;

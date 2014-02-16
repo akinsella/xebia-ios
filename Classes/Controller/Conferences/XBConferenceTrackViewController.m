@@ -9,7 +9,7 @@
 #import "XBConferenceTrackDataSource.h"
 #import "XBConferenceTrackCell.h"
 #import "XBConferenceTrack.h"
-#import "XBConferenceTrackDetailsViewController.h"
+#import "XBConferenceTrackDetailViewController.h"
 
 
 @implementation XBConferenceTrackViewController
@@ -66,7 +66,7 @@
     XBConferenceTrack *track = self.dataSource[selectedIndexPath.row];
     [self.tableView deselectRowAtIndexPath:selectedIndexPath animated:YES];
 
-    XBConferenceTrackDetailsViewController *vc = segue.destinationViewController;
+    XBConferenceTrackDetailViewController *vc = segue.destinationViewController;
     vc.conference = self.conference;
     vc.track = track;
 }
