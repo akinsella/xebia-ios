@@ -33,4 +33,7 @@
 - (BOOL)isToday;
 
 - (NSString *)formatDateRelativeToNow;
+
+- (BOOL)equalsToDayInDate:(NSDate *)date;
+
 @end

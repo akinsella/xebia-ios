@@ -9,6 +9,7 @@
 #import "XBReloadableArrayDataSource+protected.h"
 #import "XBConferencePresentation.h"
 #import "NSDateFormatter+XBAdditions.h"
+#import "NSDate+XBAdditions.h"
 
 
 @implementation XBConferenceScheduleDataSource {
@@ -43,6 +44,18 @@
             return NO;
         }];
 
+        if (callback) {
+            callback();
+        }
+    }];
+}
+
+- (void)loadAndFilterByDay:(NSDate *)day callback:(void (^)())callback {
+    [self loadDataWithCallback:^{
+        [self filter:^BOOL(XBConferencePresentation *pres) {
+            return [pres.fromTime equalsToDayInDate:day];
+        }];
+        
         if (callback) {
             callback();
         }

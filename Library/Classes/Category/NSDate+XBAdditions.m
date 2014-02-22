@@ -13,14 +13,7 @@
 @implementation NSDate (XBAdditions)
 
 - (BOOL)isToday {
-    NSDateFormatter *df = [[NSDateFormatter alloc] init];
-    [df setLocale:[[NSLocale alloc] initWithLocaleIdentifier:kDefaultLocale]];
-    [df setDateFormat:@"yyyy-MM-dd"];
-    NSDate *midnight = [df dateFromString:[df stringFromDate:self]];
-
-    NSInteger dayDiff = (int)[midnight timeIntervalSinceNow] / (60 * 60 * 24);
-
-    return dayDiff == 0;
+    return [self equalsToDayInDate:[NSDate date]];
 }
 
 - (NSString *)formatDateRelativeToNow {
@@ -36,7 +29,6 @@
         [df2 setLocale:[[NSLocale alloc] initWithLocaleIdentifier:kDefaultLocale]];
         [df2 setDateFormat:NSLocalizedString(@"HH:mm", nil)];
         NSString *dateFormatted = [df2 stringFromDate:self];
-//        NSLog(@"Date formatted: %@", dateFormatted);
         return [NSString stringWithFormat:NSLocalizedString(@"Today, %@", nil), dateFormatted];
     }
     else if(dayDiff == -1) {
@@ -164,6 +156,18 @@
 - (NSInteger)hours {
     NSDateComponents *components = [[NSCalendar currentCalendar] components:NSHourCalendarUnit fromDate:self];
     return [components hour];
+}
+
+- (BOOL)equalsToDayInDate:(NSDate *)date {
+    NSCalendar* calendar = [NSCalendar currentCalendar];
+    
+    unsigned unitFlags = NSYearCalendarUnit | NSMonthCalendarUnit |  NSDayCalendarUnit;
+    NSDateComponents* comp1 = [calendar components:unitFlags fromDate:self];
+    NSDateComponents* comp2 = [calendar components:unitFlags fromDate:date];
+    
+    return [comp1 day] == [comp2 day] &&
+    [comp1 month] == [comp2 month] &&
+    [comp1 year]  == [comp2 year];
 }
 
 @end

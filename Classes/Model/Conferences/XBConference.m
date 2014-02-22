@@ -33,12 +33,10 @@
 
 - (NSArray *)resources {
     return @[@"http://backend.mobile.xebia.io/api/v1/conferences/10/tracks",
-            @"http://localhost:8082/experienceLevels.json",
-            @"http://localhost:8082/presentationTypes.json",
-            @"http://localhost:8082/rooms.json",
+            @"http://backend.mobile.xebia.io/api/v1/conferences/10/rooms",
             @"http://backend.mobile.xebia.io/api/v1/conferences/10/schedule",
             @"http://backend.mobile.xebia.io/api/v1/conferences/10/presentations",
-            @"http://localhost:8082/speakers.json"
+            @"http://backend.mobile.xebia.io/api/v1/conferences/10/speakers"
     ];
 }
 

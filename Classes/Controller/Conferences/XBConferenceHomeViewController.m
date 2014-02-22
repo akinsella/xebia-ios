@@ -18,6 +18,7 @@
 #import "UIViewController+XBAdditions.h"
 #import <QuartzCore/QuartzCore.h>
 #import <AFNetworking/UIImageView+AFNetworking.h>
+#import "XBConferenceDayViewController.h"
 
 @interface XBConferenceHomeViewController()
 
@@ -54,6 +55,13 @@
     [super viewDidLoad];
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    
+    NSIndexPath *selectedIndexPath = [self.tableView indexPathForSelectedRow];
+    [self.tableView deselectRowAtIndexPath:selectedIndexPath animated:YES];
+}
+
 - (void)createConferenceDownloader {
     self.downloader = [XBConferenceDownloader downloaderWithDownloadableBundle:self.conference];
     [self.downloadActivityIndicator startAnimating];
@@ -76,6 +84,7 @@
 }
 
 - (void)applyValues {
+    //TODO: dynamyse these values
     [self.logoImageView setImageWithURL:[NSURL URLWithString:@"http://devoxx-gaelyk.appspot.com/images/LogoDevoxxBig.jpg"] placeholderImage:nil];
     self.titleLabel.text = @"DevoXX";
 }
@@ -118,11 +127,11 @@
 - (void)configureCell:(UITableViewCell *)cell atIndex:(NSIndexPath *)indexPath {
     switch (indexPath.section) {
         case 0:
-            [(XBConferenceHomeDateCell *)cell configureWithConference:nil];
+            [(XBConferenceHomeDateCell *)cell configureWithConference:self.conference];
             break;
 
         case 1:
-            [(XBConferenceHomeDayCell *) cell configureWithPresentation:self.dataSource[indexPath.section][indexPath.row]];
+            [(XBConferenceHomeDayCell *) cell configureWithDay:[self.dayDataSource[indexPath.row] fromTime]];
             break;
 
         case 2:
@@ -133,9 +142,9 @@
 }
 
 - (void)onSelectCell: (UITableViewCell *)cell forObject:(id)object withIndex:(NSIndexPath *)indexPath {
-    [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
-
-    if (indexPath.section == 2) {
+    if (indexPath.section == 1) {
+        [self performSegueWithIdentifier:@"ShowDay" sender:nil];
+    } else if (indexPath.section == 2) {
         switch (indexPath.row) {
             case 0:
                 [self performSegueWithIdentifier:@"ShowSpeakers" sender:nil];
@@ -155,7 +164,13 @@
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    if ([segue.identifier isEqualToString:@"ShowSpeakers"]) {
+    if ([segue.identifier isEqualToString:@"ShowDay"]) {
+        NSIndexPath *selectedIndexPath = [self.tableView indexPathForSelectedRow];
+        XBConferencePresentation *presentation = self.dayDataSource[selectedIndexPath.row];
+        XBConferenceDayViewController *viewController = segue.destinationViewController;
+        viewController.conference = self.conference;
+        viewController.day = presentation.fromTime;
+    } else if ([segue.identifier isEqualToString:@"ShowSpeakers"]) {
         XBConferenceSpeakerViewController *viewController = segue.destinationViewController;
         viewController.conference = self.conference;
     } else if ([segue.identifier isEqualToString:@"ShowRooms"]) {
@@ -165,6 +180,10 @@
         XBConferenceTrackViewController *viewController = segue.destinationViewController;
         viewController.conference = self.conference;
     }
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+    return 20.0;
 }
 
 @end

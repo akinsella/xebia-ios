@@ -42,7 +42,7 @@
 - (NSString *)pathForLocalDataSource
 {
     XBConferenceDownloader *downloader = [XBConferenceDownloader downloaderWithDownloadableBundle:self.conference];
-    return [[downloader bundleFolderPath] stringByAppendingPathComponent:@"rooms.json"];
+    return [[downloader bundleFolderPath] stringByAppendingPathComponent:@"rooms"];
 }
 
 - (XBArrayDataSource *)buildDataSource {

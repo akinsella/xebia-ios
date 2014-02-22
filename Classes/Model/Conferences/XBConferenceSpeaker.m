@@ -23,4 +23,26 @@
     return config;
 }
 
+- (BOOL)isEqual:(id)object
+{
+    if ([super isEqual:object]) {
+        return YES;
+    }
+    
+    if (![object isKindOfClass:[self class]]) {
+        return NO;
+    }
+    
+    XBConferenceSpeaker *speaker = (XBConferenceSpeaker *)object;
+    return [speaker.identifier intValue] == [self.identifier intValue];
+}
+
+- (NSUInteger)hash {
+    return [self.identifier hash];
+}
+
+- (NSString *)description {
+    return [NSString stringWithFormat:@"%@ (%@ %@)", self.name, self.firstName, self.lastName];
+}
+
 @end

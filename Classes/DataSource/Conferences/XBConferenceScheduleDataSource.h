@@ -15,4 +15,6 @@
 
 + (instancetype)dataSourceWithResourcePath:(NSString *)resourcePath;
 
+- (void)loadAndFilterByDay:(NSDate *)day callback:(void (^)())callback;
+
 @end

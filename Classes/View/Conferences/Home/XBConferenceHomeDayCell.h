@@ -14,5 +14,5 @@
 
 @property (nonatomic, weak) IBOutlet UILabel *titleLabel;
 
-- (void)configureWithPresentation:(XBConferencePresentation *)presentation;
+- (void)configureWithDay:(NSDate *)day;
 @end

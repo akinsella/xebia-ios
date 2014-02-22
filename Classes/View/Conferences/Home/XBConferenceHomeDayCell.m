@@ -12,9 +12,19 @@
 
 @implementation XBConferenceHomeDayCell
 
-- (void)configureWithPresentation:(XBConferencePresentation *)presentation {
-    NSDateFormatter *formatter = [NSDateFormatter initWithDateFormat:@"dd/MM/YYYY"];
-    self.titleLabel.text = [formatter stringFromDate:presentation.fromTime];
+- (NSDateFormatter *)dateFormatter {
+    static dispatch_once_t once;
+    static NSDateFormatter *sharedConferenceHomeDateCellDateFormatter;
+    dispatch_once(&once, ^ {
+        sharedConferenceHomeDateCellDateFormatter = [[NSDateFormatter alloc] init];
+        sharedConferenceHomeDateCellDateFormatter.locale = [NSLocale localeWithLocaleIdentifier:@"fr_FR"];
+        sharedConferenceHomeDateCellDateFormatter.dateFormat = @"dd LLLL YYYY";
+    });
+    return sharedConferenceHomeDateCellDateFormatter;
+}
+
+- (void)configureWithDay:(NSDate *)day {
+    self.titleLabel.text = [self.dateFormatter stringFromDate:day];
 }
 
 @end

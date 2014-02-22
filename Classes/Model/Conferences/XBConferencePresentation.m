@@ -5,9 +5,18 @@
 
 #import <DCKeyValueObjectMapping/DCObjectMapping.h>
 #import <DCKeyValueObjectMapping/DCCustomParser.h>
+#import <DCKeyValueObjectMapping/DCArrayMapping.h>
+#import <Underscore.m/Underscore.h>
 #import "XBConferencePresentation.h"
 #import "DCCustomParser+XBConferenceAdditions.h"
+#import "XBConferenceSpeaker.h"
+#import "DCParserConfiguration+XBAdditions.h"
 
+@interface XBConferencePresentation()
+
+@property (nonatomic, strong) NSString *speakerString;
+
+@end
 
 @implementation XBConferencePresentation
 
@@ -25,9 +34,22 @@
     DCCustomParser *toTimeDateParser = [[DCCustomParser alloc] initWithBlockParser:[DCCustomParser dateTimeParser]
                                                             forAttributeName:@"_toTime"
                                                           onDestinationClass:[self class]];
+    
+    [config addArrayMapper: [DCArrayMapping mapperForClassElements:[XBConferenceSpeaker class] forAttribute:@"speakers" onClass:[self class]]];
+    [config mergeConfig:[[XBConferenceSpeaker class] mappings]];
+    
     [config addCustomParsersObject:toTimeDateParser];
 
     return config;
+}
+
+- (NSString *)speakerString {
+    if (!_speakerString) {
+        _speakerString = [Underscore.array(self.speakers).uniq.map(^(XBConferenceSpeaker *speaker){
+            return speaker.name;
+        }).unwrap componentsJoinedByString:@", "];
+    }
+    return _speakerString;
 }
 
 @end

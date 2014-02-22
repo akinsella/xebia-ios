@@ -14,30 +14,45 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AG6-Ot-Yhr">
-                        <rect key="frame" x="20" y="11" width="42" height="21"/>
+                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mercredi 22/04/1985" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="64" translatesAutoresizingMaskIntoConstraints="NO" id="AG6-Ot-Yhr">
+                        <rect key="frame" x="45" y="8" width="64" height="29"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1VK-ld-etm">
-                        <rect key="frame" x="258" y="11" width="42" height="21"/>
+                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mercredi 22/04/1985" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="64" translatesAutoresizingMaskIntoConstraints="NO" id="qVI-yw-6IN">
+                        <rect key="frame" x="205" y="8" width="64" height="29"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="83-calendar.png" translatesAutoresizingMaskIntoConstraints="NO" id="qjf-0R-jVe">
+                        <rect key="frame" x="15" y="9" width="23" height="25"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                    </imageView>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="83-calendar.png" translatesAutoresizingMaskIntoConstraints="NO" id="1Ba-FW-hNy">
+                        <rect key="frame" x="175" y="9" width="23" height="25"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                    </imageView>
                 </subviews>
                 <constraints>
-                    <constraint firstAttribute="trailing" secondItem="1VK-ld-etm" secondAttribute="trailing" constant="20" id="P1d-Ss-IaI"/>
-                    <constraint firstItem="AG6-Ot-Yhr" firstAttribute="leading" secondItem="cVV-6P-Rpz" secondAttribute="leading" constant="20" id="SOF-ww-CBG"/>
+                    <constraint firstItem="qVI-yw-6IN" firstAttribute="leading" secondItem="cVV-6P-Rpz" secondAttribute="leading" constant="205" id="DUl-a0-2UA"/>
+                    <constraint firstItem="1Ba-FW-hNy" firstAttribute="top" secondItem="cVV-6P-Rpz" secondAttribute="top" constant="9" id="KP5-V9-pAK"/>
+                    <constraint firstItem="AG6-Ot-Yhr" firstAttribute="leading" secondItem="cVV-6P-Rpz" secondAttribute="leading" constant="45" id="SOF-ww-CBG"/>
+                    <constraint firstItem="qVI-yw-6IN" firstAttribute="top" secondItem="cVV-6P-Rpz" secondAttribute="top" constant="8" id="YgM-bw-cUb"/>
+                    <constraint firstItem="AG6-Ot-Yhr" firstAttribute="top" secondItem="cVV-6P-Rpz" secondAttribute="top" constant="8" id="eZ8-wR-lJj"/>
+                    <constraint firstItem="1Ba-FW-hNy" firstAttribute="leading" secondItem="cVV-6P-Rpz" secondAttribute="leading" constant="175" id="nSv-1A-jXz"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
-                <outlet property="endDateLabel" destination="1VK-ld-etm" id="Fok-Bn-gWJ"/>
+                <outlet property="endDateLabel" destination="qVI-yw-6IN" id="zag-aQ-5Cu"/>
                 <outlet property="startDateLabel" destination="AG6-Ot-Yhr" id="tXw-yF-AOu"/>
             </connections>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="83-calendar.png" width="23" height="25"/>
+    </resources>
 </document>

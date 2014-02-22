@@ -13,6 +13,7 @@
 @interface XBConferencePresentationCell : XBTableViewCell
 
 @property (nonatomic, weak) IBOutlet UILabel *titleLabel;
+@property (nonatomic, weak) IBOutlet UILabel *speakerLabel;
 
 - (void)configureWithPresentation:(XBConferencePresentation *)presentation;
 

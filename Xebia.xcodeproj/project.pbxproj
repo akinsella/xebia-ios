@@ -59,6 +59,8 @@
 		4244D614188297C00083B869 /* XBConferenceHomeMenuItemCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4244D613188297C00083B869 /* XBConferenceHomeMenuItemCell.m */; };
 		4244D617188297CE0083B869 /* XBConferenceHomeDayCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4244D616188297CE0083B869 /* XBConferenceHomeDayCell.m */; };
 		4247082118A6F30900CB1186 /* XBConferenceTrackCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4247082018A6F30900CB1186 /* XBConferenceTrackCell.m */; };
+		4259430018B6C9FF00A181BD /* XBConferenceDayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 425942FF18B6C9FF00A181BD /* XBConferenceDayViewController.m */; };
+		4259430118B6C9FF00A181BD /* XBConferenceDayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 425942FF18B6C9FF00A181BD /* XBConferenceDayViewController.m */; };
 		426FA5171895266D00A508D1 /* XBConferenceSpeakerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 426FA5161895266D00A508D1 /* XBConferenceSpeakerCell.m */; };
 		426FA5191895268200A508D1 /* XBConferenceSpeakerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 426FA5181895268200A508D1 /* XBConferenceSpeakerCell.xib */; };
 		426FA51C1895297A00A508D1 /* XBLocalJsonDataLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = 426FA51B1895297A00A508D1 /* XBLocalJsonDataLoader.m */; };
@@ -651,6 +653,8 @@
 		4244D616188297CE0083B869 /* XBConferenceHomeDayCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XBConferenceHomeDayCell.m; sourceTree = "<group>"; };
 		4247081F18A6F30900CB1186 /* XBConferenceTrackCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XBConferenceTrackCell.h; sourceTree = "<group>"; };
 		4247082018A6F30900CB1186 /* XBConferenceTrackCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XBConferenceTrackCell.m; sourceTree = "<group>"; };
+		425942FE18B6C9FF00A181BD /* XBConferenceDayViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XBConferenceDayViewController.h; sourceTree = "<group>"; };
+		425942FF18B6C9FF00A181BD /* XBConferenceDayViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XBConferenceDayViewController.m; sourceTree = "<group>"; };
 		426FA5151895266D00A508D1 /* XBConferenceSpeakerCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XBConferenceSpeakerCell.h; sourceTree = "<group>"; };
 		426FA5161895266D00A508D1 /* XBConferenceSpeakerCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XBConferenceSpeakerCell.m; sourceTree = "<group>"; };
 		426FA5181895268200A508D1 /* XBConferenceSpeakerCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XBConferenceSpeakerCell.xib; sourceTree = "<group>"; };
@@ -1482,6 +1486,8 @@
 				2EE44C5C1C260FC0F5DF69D9 /* XBConferenceTrackDetailViewController.h */,
 				2EE44CF689E1E5E6FAA698AD /* XBConferenceSpeakerDetailViewController.m */,
 				2EE4487AE1AAE6716C3AACBB /* XBConferenceSpeakerDetailViewController.h */,
+				425942FE18B6C9FF00A181BD /* XBConferenceDayViewController.h */,
+				425942FF18B6C9FF00A181BD /* XBConferenceDayViewController.m */,
 			);
 			path = Conferences;
 			sourceTree = "<group>";
@@ -3406,6 +3412,7 @@
 				5443EF3D177620B70000FFE8 /* WPCategory.m in Sources */,
 				4244D614188297C00083B869 /* XBConferenceHomeMenuItemCell.m in Sources */,
 				5443EF3F177620B70000FFE8 /* WPComment.m in Sources */,
+				4259430018B6C9FF00A181BD /* XBConferenceDayViewController.m in Sources */,
 				5443EF41177620B70000FFE8 /* WPPost.m in Sources */,
 				42E410E71899B9C1003EAD60 /* XBConferenceRoomViewController.m in Sources */,
 				5443EF43177620B70000FFE8 /* WPSAuthor.m in Sources */,
@@ -3520,6 +3527,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				42E410EE1899BA8C003EAD60 /* XBConferenceRoom.m in Sources */,
+				4259430118B6C9FF00A181BD /* XBConferenceDayViewController.m in Sources */,
 				5443EC101775BEED0000FFE8 /* XBCache.m in Sources */,
 				5443EC121775BEED0000FFE8 /* XBCacheElement.m in Sources */,
 				5443EC141775BEED0000FFE8 /* XBFileSystemCacheSupport.m in Sources */,
