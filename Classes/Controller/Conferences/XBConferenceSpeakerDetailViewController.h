@@ -8,10 +8,11 @@
 #import "XBTableViewController.h"
 
 @class XBConferenceSpeaker;
-
+@class XBConference;
 
 @interface XBConferenceSpeakerDetailViewController : XBTableViewController<UITableViewDataSource, UITableViewDelegate, XBTableViewControllerDelegate>
 
+@property (nonatomic, strong) XBConference *conference;
 @property (nonatomic, strong) XBConferenceSpeaker *speaker;
 
 @property (nonatomic, weak) IBOutlet UILabel *firstNameLabel;

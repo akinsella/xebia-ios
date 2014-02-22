@@ -1194,6 +1194,7 @@
                         <outlet property="firstNameLabel" destination="lcp-PE-b7h" id="ZQG-BB-yk1"/>
                         <outlet property="imageView" destination="hC7-8T-oss" id="raL-IP-Doe"/>
                         <outlet property="lastNameLabel" destination="lV5-8W-gbZ" id="mee-OD-8cw"/>
+                        <segue destination="N7j-de-WDr" kind="push" identifier="ShowPresentationDetail" id="8T2-Wu-dpR"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W39-wq-5VI" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1305,11 +1306,93 @@
                     <navigationItem key="navigationItem" id="RNO-1G-9wV"/>
                     <connections>
                         <outlet property="dayLabel" destination="pv0-6V-HIE" id="oOu-i7-tpK"/>
+                        <segue destination="N7j-de-WDr" kind="push" identifier="ShowPresentationDetail" id="ygM-6M-c9g"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KEP-aX-fHD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1399" y="4548"/>
+        </scene>
+        <!--Conference Presentation Detail View Controller-->
+        <scene sceneID="17i-tg-h64">
+            <objects>
+                <viewController id="N7j-de-WDr" customClass="XBConferencePresentationDetailViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Z54-QM-oyj"/>
+                        <viewControllerLayoutGuide type="bottom" id="lpb-wk-5n7"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8Go-38-Vdm">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CNp-Oc-Fc5">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <subviews>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="GyK-QW-5Sx">
+                                        <rect key="frame" x="20" y="97" width="280" height="17"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
+                                        <color key="textColor" red="0.23529411759999999" green="0.23529411759999999" blue="0.23529411759999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="Fjt-6q-3hC">
+                                        <rect key="frame" x="20" y="40" width="280" height="24"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="20"/>
+                                        <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="Cxf-7R-ET0">
+                                        <rect key="frame" x="20" y="66" width="280" height="15"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-MediumItalic" family="Helvetica Neue" pointSize="12"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="4va-qX-xFI">
+                                        <rect key="frame" x="20" y="26" width="280" height="15"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="12"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="GyK-QW-5Sx" firstAttribute="leading" secondItem="CNp-Oc-Fc5" secondAttribute="leading" constant="20" id="4Wo-qZ-wj4"/>
+                                    <constraint firstItem="Cxf-7R-ET0" firstAttribute="top" secondItem="Fjt-6q-3hC" secondAttribute="bottom" constant="2" id="8fz-Jw-X1d"/>
+                                    <constraint firstItem="Fjt-6q-3hC" firstAttribute="leading" secondItem="CNp-Oc-Fc5" secondAttribute="leading" constant="20" id="Af1-z2-J8N"/>
+                                    <constraint firstAttribute="trailing" secondItem="4va-qX-xFI" secondAttribute="trailing" constant="20" id="CuC-G9-qvB"/>
+                                    <constraint firstItem="4va-qX-xFI" firstAttribute="leading" secondItem="CNp-Oc-Fc5" secondAttribute="leading" constant="20" id="DKM-Ci-JFl"/>
+                                    <constraint firstAttribute="bottom" secondItem="GyK-QW-5Sx" secondAttribute="bottom" constant="20" id="ISu-h9-hZ9"/>
+                                    <constraint firstItem="Fjt-6q-3hC" firstAttribute="top" secondItem="CNp-Oc-Fc5" secondAttribute="top" constant="40" id="Nzo-uZ-aJE"/>
+                                    <constraint firstAttribute="trailing" secondItem="Fjt-6q-3hC" secondAttribute="trailing" constant="20" id="PNj-K1-IKa"/>
+                                    <constraint firstItem="4va-qX-xFI" firstAttribute="top" secondItem="CNp-Oc-Fc5" secondAttribute="top" constant="26" id="RnL-or-5Fw"/>
+                                    <constraint firstItem="Cxf-7R-ET0" firstAttribute="leading" secondItem="CNp-Oc-Fc5" secondAttribute="leading" constant="20" id="afG-zb-KdO"/>
+                                    <constraint firstAttribute="trailing" secondItem="Cxf-7R-ET0" secondAttribute="trailing" constant="20" id="qUm-L6-gxg"/>
+                                    <constraint firstItem="GyK-QW-5Sx" firstAttribute="top" secondItem="Cxf-7R-ET0" secondAttribute="bottom" constant="16" id="ush-s0-Vyk"/>
+                                    <constraint firstAttribute="trailing" secondItem="GyK-QW-5Sx" secondAttribute="trailing" constant="20" id="wqE-IG-mY0"/>
+                                </constraints>
+                            </scrollView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="CNp-Oc-Fc5" firstAttribute="top" secondItem="8Go-38-Vdm" secondAttribute="top" id="59i-R1-lLV"/>
+                            <constraint firstItem="CNp-Oc-Fc5" firstAttribute="leading" secondItem="8Go-38-Vdm" secondAttribute="leading" id="P8t-nR-2IW"/>
+                            <constraint firstItem="lpb-wk-5n7" firstAttribute="top" secondItem="CNp-Oc-Fc5" secondAttribute="bottom" id="dtV-kI-Nku"/>
+                            <constraint firstAttribute="trailing" secondItem="CNp-Oc-Fc5" secondAttribute="trailing" id="jE9-ot-bWU"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="9E4-vB-2VC"/>
+                    <connections>
+                        <outlet property="scrollView" destination="CNp-Oc-Fc5" id="bYF-Bj-LSz"/>
+                        <outlet property="speakerLabel" destination="Cxf-7R-ET0" id="bp3-wT-ZtX"/>
+                        <outlet property="summaryLabel" destination="GyK-QW-5Sx" id="LZ1-d0-deL"/>
+                        <outlet property="titleLabel" destination="Fjt-6q-3hC" id="Oxq-Y6-5wB"/>
+                        <outlet property="trackLabel" destination="4va-qX-xFI" id="vAr-Xm-EYR"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="P62-HX-UqE" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-988" y="4548"/>
         </scene>
         <!--Conference Track View Controller-->
         <scene sceneID="5wh-Cc-3Oy">
@@ -1892,4 +1975,7 @@
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
+    <inferredMetricsTieBreakers>
+        <segue reference="8T2-Wu-dpR"/>
+    </inferredMetricsTieBreakers>
 </document>

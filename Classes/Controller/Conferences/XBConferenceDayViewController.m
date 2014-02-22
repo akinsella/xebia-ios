@@ -10,6 +10,7 @@
 #import "XBConferencePresentationCell.h"
 #import "XBConferenceDownloader.h"
 #import "XBConferenceScheduleDataSource.h"
+#import "XBConferencePresentationDetailViewController.h"
 
 @interface XBConferenceDayViewController ()
 
@@ -77,6 +78,20 @@
 
 - (void)configureCell:(UITableViewCell *)cell atIndex:(NSIndexPath *)indexPath {
     [(XBConferencePresentationCell *)cell configureWithPresentation:self.dataSource[indexPath.row]];
+}
+
+- (void)onSelectCell: (UITableViewCell *)cell forObject:(id)object withIndex:(NSIndexPath *)indexPath {
+    [self performSegueWithIdentifier:@"ShowPresentationDetail" sender:nil];
+    NSIndexPath *selectedIndexPath = [self.tableView indexPathForSelectedRow];
+    [self.tableView deselectRowAtIndexPath:selectedIndexPath animated:YES];
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    NSIndexPath *selectedIndexPath = [self.tableView indexPathForSelectedRow];
+    XBConferencePresentation *presentation = self.dataSource[selectedIndexPath.row];
+    XBConferencePresentationDetailViewController *vc = segue.destinationViewController;
+    vc.conference = self.conference;
+    vc.presentationIdentifier = [presentation identifier];
 }
 
 @end

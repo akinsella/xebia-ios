@@ -55,13 +55,6 @@
     [super viewDidLoad];
 }
 
-- (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
-    
-    NSIndexPath *selectedIndexPath = [self.tableView indexPathForSelectedRow];
-    [self.tableView deselectRowAtIndexPath:selectedIndexPath animated:YES];
-}
-
 - (void)createConferenceDownloader {
     self.downloader = [XBConferenceDownloader downloaderWithDownloadableBundle:self.conference];
     [self.downloadActivityIndicator startAnimating];
@@ -161,6 +154,9 @@
             default:break;
         }
     }
+
+    NSIndexPath *selectedIndexPath = [self.tableView indexPathForSelectedRow];
+    [self.tableView deselectRowAtIndexPath:selectedIndexPath animated:YES];
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {

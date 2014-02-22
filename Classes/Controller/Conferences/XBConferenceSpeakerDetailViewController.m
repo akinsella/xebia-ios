@@ -8,6 +8,9 @@
 #import "XBConferenceSpeaker.h"
 #import "NSString+XBAdditions.h"
 #import "XBConferenceSpeakerTalkCell.h"
+#import "XBConferencePresentationDetailViewController.h"
+#import "XBConference.h"
+#import "XBConferenceSpeakerTalk.h"
 
 
 @implementation XBConferenceSpeakerDetailViewController
@@ -61,6 +64,19 @@
 
 - (void)configureCell:(UITableViewCell *)cell atIndex:(NSIndexPath *)indexPath {
     [(XBConferenceSpeakerTalkCell *)cell configureWithTalk:self.dataSource[indexPath.row]];
+}
+
+- (void)onSelectCell:(UITableViewCell *)cell forObject:(id)object withIndex:(NSIndexPath *)indexPath {
+    [self performSegueWithIdentifier:@"ShowPresentationDetail" sender:nil];
+    NSIndexPath *selectedIndexPath = [self.tableView indexPathForSelectedRow];
+    [self.tableView deselectRowAtIndexPath:selectedIndexPath animated:YES];
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    NSIndexPath *selectedIndexPath = [self.tableView indexPathForSelectedRow];
+    XBConferencePresentationDetailViewController *vc = segue.destinationViewController;
+    vc.conference = self.conference;
+    vc.presentationIdentifier = [self.dataSource[selectedIndexPath.row] presentationId];
 }
 
 @end

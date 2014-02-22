@@ -1,5 +1,5 @@
 //
-// Created by Simone Civetta on 04/02/14.
+// Created by Simone Civetta on 22/02/14.
 // Copyright (c) 2014 Xebia. All rights reserved.
 //
 
@@ -7,7 +7,7 @@
 #import "XBMappingProvider.h"
 
 
-@interface XBConferencePresentation : NSObject<XBMappingProvider>
+@interface XBConferencePresentationDetail : NSObject<XBMappingProvider>
 
 @property (nonatomic, strong) NSNumber *conferenceId;
 @property (nonatomic, strong) NSNumber *identifier;
@@ -23,6 +23,7 @@
 @property (nonatomic, strong) NSString *title;
 @property (nonatomic, strong) NSArray *speakers;
 @property (nonatomic, strong) NSString *track;
+@property (nonatomic, strong) NSString *summary;
 
 - (NSString *)speakerString;
 

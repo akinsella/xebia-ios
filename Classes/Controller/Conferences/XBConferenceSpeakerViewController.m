@@ -68,6 +68,7 @@
 
     XBConferenceSpeakerDetailViewController *vc = segue.destinationViewController;
     vc.speaker = speaker;
+    vc.conference = self.conference;
 }
 
 @end

@@ -12,19 +12,17 @@
 
 @implementation XBConferencePresentationCell
 
-- (void)awakeFromNib {
-    self.accessoryType = UITableViewCellAccessoryNone;
-}
-
 - (void)configureWithPresentation:(XBConferencePresentation *)presentation {
     if (![presentation.title length]) {
         self.titleLabel.text = presentation.kind;
         self.backgroundColor = [UIColor whiteColor];
         self.speakerLabel.text = @"";
+        self.accessoryType = UITableViewCellAccessoryNone;
     } else {
         self.titleLabel.text = presentation.title;
         self.speakerLabel.text = [NSString stringWithFormat:@"%@ %@", NSLocalizedString(@"par", @"par"), presentation.speakerString];
         self.backgroundColor = [UIColor colorWithHex:@"#F0F0F0"];
+        self.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     }
 }
 
