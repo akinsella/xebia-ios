@@ -36,6 +36,12 @@
     if (showProgress) {
         [self showProgressHUD];
     }
+    
+    if (![self.reloadableDataSource respondsToSelector:@selector(loadDataWithCallback:)]) {
+        [super loadData];
+        return;
+    }
+    
     [self.reloadableDataSource loadDataWithCallback:^ {
         if (self.reloadableDataSource.error) {
             [self showErrorProgressHUDWithCallback:callback];
@@ -108,7 +114,6 @@
 - (void)showErrorProgressHUDWithMessage:(NSString *)errorMessage afterDelay:(float)delay callback:(void(^)())callback {
     self.progressHUD.mode = MBProgressHUDModeText;
     self.progressHUD.labelText = errorMessage;
-    [self.progressHUD hide:YES afterDelay:delay];
     self.progressHUD.taskInProgress = NO;
     self.progressHUD.yOffset = 0;
     self.progressHUD.margin = 20;
@@ -117,6 +122,9 @@
     self.progressHUD.detailsLabelFont = [UIFont systemFontOfSize:12];
     self.progressHUD.completionBlock = callback;
     [self.navigationController.view addSubview:self.progressHUD];
+
+    [self.progressHUD show:YES];
+    [self.progressHUD hide:YES afterDelay:delay];
 
     if (callback) {
         callback();

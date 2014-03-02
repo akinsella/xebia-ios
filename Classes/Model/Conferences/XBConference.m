@@ -57,5 +57,16 @@
     return config;
 }
 
+- (NSString *)name
+{
+    //TODO: dynamyse these values
+    return @"DUMMY DUMMY";
+}
+
+- (NSString *)imageURL
+{
+    return @"http://blogs-images.forbes.com/scottmendelson/files/2014/02/the_lego_movie_2014-wide.jpg";
+}
+
 
 @end

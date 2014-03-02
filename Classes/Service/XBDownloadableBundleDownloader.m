@@ -76,6 +76,22 @@
     });
 }
 
+- (BOOL)isBundleCached
+{
+    NSArray *resources = self.downloadableBundle.resources;
+    BOOL cached = YES;
+    NSFileManager *fileManager = [NSFileManager defaultManager];
+    for (NSString *resource in resources) {
+        if (![fileManager fileExistsAtPath:[self.bundleFolderPath stringByAppendingPathComponent:[resource lastPathComponent]]]) {
+            cached = NO;
+            break;
+        }
+    }
+
+    return cached;
+}
+
+
 - (void)saveDataIntoBundleFolder:(NSData *)data withName:(NSString *)name
 {
     [data writeToFile:[self.bundleFolderPath stringByAppendingPathComponent:name] atomically:YES];

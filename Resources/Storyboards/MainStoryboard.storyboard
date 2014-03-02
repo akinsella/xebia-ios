@@ -1056,6 +1056,11 @@
                             <rect key="frame" x="0.0" y="0.0" width="320" height="192"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
+                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="kEV-lE-76j" userLabel="Background Image View">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="192"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </imageView>
                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="qMB-wb-Xd0">
                                     <rect key="frame" x="92" y="15" width="136" height="136"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1068,7 +1073,7 @@
                                     <rect key="frame" x="20" y="161" width="280" height="21"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
-                                    <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="q0X-Hs-rgS">
@@ -1076,7 +1081,7 @@
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 </activityIndicatorView>
                             </subviews>
-                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                            <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                             <constraints>
                                 <constraint firstItem="qMB-wb-Xd0" firstAttribute="centerY" secondItem="q0X-Hs-rgS" secondAttribute="centerY" id="14K-tr-D4O"/>
                                 <constraint firstItem="90i-25-xwE" firstAttribute="top" secondItem="qMB-wb-Xd0" secondAttribute="bottom" constant="10" id="2ft-Hx-XR2"/>
@@ -1084,8 +1089,12 @@
                                 <constraint firstAttribute="centerX" secondItem="90i-25-xwE" secondAttribute="centerX" id="KZG-YI-Q4K"/>
                                 <constraint firstAttribute="centerX" secondItem="qMB-wb-Xd0" secondAttribute="centerX" id="Ld8-T7-NSZ"/>
                                 <constraint firstAttribute="trailing" secondItem="90i-25-xwE" secondAttribute="trailing" constant="20" id="OE9-Yw-Dlc"/>
+                                <constraint firstAttribute="trailing" secondItem="kEV-lE-76j" secondAttribute="trailing" id="Vy5-BQ-kuo"/>
                                 <constraint firstItem="qMB-wb-Xd0" firstAttribute="centerX" secondItem="q0X-Hs-rgS" secondAttribute="centerX" id="elu-8A-sOh"/>
                                 <constraint firstItem="90i-25-xwE" firstAttribute="leading" secondItem="ukN-CU-nBW" secondAttribute="leading" constant="20" id="ggE-5v-8Mf"/>
+                                <constraint firstAttribute="bottom" secondItem="kEV-lE-76j" secondAttribute="bottom" id="kk4-YD-fVm"/>
+                                <constraint firstItem="kEV-lE-76j" firstAttribute="leading" secondItem="ukN-CU-nBW" secondAttribute="leading" id="mxH-or-k6n"/>
+                                <constraint firstItem="kEV-lE-76j" firstAttribute="top" secondItem="ukN-CU-nBW" secondAttribute="top" id="smA-Ne-rA6"/>
                             </constraints>
                         </view>
                         <connections>
@@ -1094,7 +1103,9 @@
                         </connections>
                     </tableView>
                     <connections>
+                        <outlet property="backgroundImageView" destination="kEV-lE-76j" id="rgb-cs-GnL"/>
                         <outlet property="downloadActivityIndicator" destination="q0X-Hs-rgS" id="bLh-fG-tTp"/>
+                        <outlet property="headerView" destination="ukN-CU-nBW" id="4gR-3k-PeN"/>
                         <outlet property="logoImageView" destination="qMB-wb-Xd0" id="7EI-sT-wUk"/>
                         <outlet property="titleLabel" destination="90i-25-xwE" id="8Xn-YK-Q7Q"/>
                         <segue destination="IV7-Ho-xnZ" kind="push" identifier="ShowSpeakers" id="mCF-SF-2Ga"/>

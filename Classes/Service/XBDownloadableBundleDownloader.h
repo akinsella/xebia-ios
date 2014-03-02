@@ -23,4 +23,6 @@
 
 - (void)downloadAllResources:(void (^)(NSError *error))completionBlock;
 
+- (BOOL)isBundleCached;
+
 @end

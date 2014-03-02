@@ -7,7 +7,8 @@
 //
 
 #import "XBTableViewController.h"
+#import "XBLoadableTableViewController.h"
 
-@interface XBSectionedTableViewController : XBTableViewController
+@interface XBSectionedTableViewController : XBLoadableTableViewController
 
 @end

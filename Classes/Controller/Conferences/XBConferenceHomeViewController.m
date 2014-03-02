@@ -18,7 +18,11 @@
 #import "UIViewController+XBAdditions.h"
 #import <QuartzCore/QuartzCore.h>
 #import <AFNetworking/UIImageView+AFNetworking.h>
+#import <SDWebImage/SDWebImageManager.h>
 #import "XBConferenceDayViewController.h"
+#import "NSString+XBAdditions.h"
+#import "UIImage+ImageEffects.h"
+#import "UIColor+XBAdditions.h"
 
 @interface XBConferenceHomeViewController()
 
@@ -28,7 +32,9 @@
 
 @end
 
-@implementation XBConferenceHomeViewController
+@implementation XBConferenceHomeViewController {
+    CGFloat _headerViewHeight;
+}
 
 - (void)initialize {
     [super initialize];
@@ -36,13 +42,15 @@
 }
 
 - (void)applyTheme {
+    _headerViewHeight = CGRectGetHeight(self.headerView.frame);
     self.logoImageView.backgroundColor = [UIColor grayColor];
     self.logoImageView.layer.cornerRadius = CGRectGetWidth(self.logoImageView.frame) / 2.0;
     self.logoImageView.clipsToBounds = YES;
+    [self.logoImageView.layer setBorderColor:[UIColor whiteColor].CGColor];
+    [self.logoImageView.layer setBorderWidth:2.0f];
 }
 
 - (void)viewDidLoad {
-
     //TODO: Make this dynamic
     self.conference = [XBConference conferenceWithUid:@"DEVOXX"];
 
@@ -64,14 +72,15 @@
     self.downloader = [XBConferenceDownloader downloaderWithDownloadableBundle:self.conference];
     [self.downloadActivityIndicator startAnimating];
     [self.downloader downloadAllResources:^(NSError *error) {
-        if (!error) {
-            //TODO: Manage error
+        if (error && ![self.downloader isBundleCached]) {
+            [self showErrorProgressHUDWithMessage:NSLocalizedString(@"Erreur de chargement", @"Erreur de chargement") afterDelay:2.0 callback:nil];
+        } else {
+            [self applyValues];
+
+            [self.dayDataSource loadAndFilterDistinctDays:^{
+                [self.tableView reloadData];
+            }];
         }
-        [self applyValues];
-        
-        [self.dayDataSource loadAndFilterDistinctDays:^{
-            [self.tableView reloadData];
-        }];
         
         [self.downloadActivityIndicator stopAnimating];
     }];
@@ -82,9 +91,31 @@
 }
 
 - (void)applyValues {
-    //TODO: dynamyse these values
-    [self.logoImageView setImageWithURL:[NSURL URLWithString:@"http://devoxx-gaelyk.appspot.com/images/LogoDevoxxBig.jpg"] placeholderImage:nil];
-    self.titleLabel.text = @"DevoXX";
+    [self downloadAndApplyLogo];
+    self.titleLabel.text = self.conference.name;
+    self.title = self.conference.name;
+}
+
+- (void)downloadAndApplyLogo
+{
+    self.backgroundImageView.alpha = 0.0;
+    [[SDWebImageManager sharedManager] downloadWithURL:[self.conference.imageURL url]
+                                               options:kNilOptions
+                                              progress:^(NSUInteger receivedSize, long long int expectedSize) {
+
+                                              }
+                                             completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, BOOL finished) {
+                                                 if (error || !image) {
+                                                     self.logoImageView.image = nil;
+                                                 }
+                                                 else {
+                                                     self.logoImageView.image = image;
+                                                     self.backgroundImageView.image = [image applyBlurWithRadius:10.0 tintColor:[UIColor colorWithHex:@"#000000" alpha:0.4] saturationDeltaFactor:1.0 maskImage:nil];
+                                                     [UIView animateWithDuration:0.5 delay:0.0 options:UIViewAnimationOptionAllowUserInteraction animations:^{
+                                                         self.backgroundImageView.alpha = 1.0;
+                                                     } completion:nil];
+                                                 }
+                                             }];
 }
 
 - (XBArrayDataSource *)buildDataSource {
@@ -186,4 +217,14 @@
     return section == 0 ? 0 : 20.0;
 }
 
+#pragma mark - Header effects
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView
+{
+    self.backgroundImageView.frame = ({
+        CGRect frame = self.backgroundImageView.frame;
+        frame.origin.y = scrollView.contentOffset.y;
+        frame.size.height = _headerViewHeight - scrollView.contentOffset.y;
+        frame;
+    });
+}
 @end
