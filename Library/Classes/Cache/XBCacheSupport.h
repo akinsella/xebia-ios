@@ -11,7 +11,8 @@
 
 @required
 -(void)setForKey:(NSString *)key value:(NSString *)value ttl:(NSTimeInterval)expiration error:(NSError**)error;
--(id)getForKey:(NSString *)key error:(NSError**)error;
+
+- (id)getForKey:(NSString *)key error:(NSError **)error forceIfExpired:(BOOL)force;
 - (void)clearForKey:(NSString *)key error:(NSError**)error;
 - (void)clearAllWithError:(NSError **)error;
 

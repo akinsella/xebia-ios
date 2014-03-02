@@ -4,6 +4,7 @@
 // To change the template use AppCode | Preferences | File Templates.
 //
 
+#import <AFNetworking/AFNetworkReachabilityManager.h>
 #import "XBReloadableTableViewController.h"
 #import "SVPullToRefresh.h"
 #import "MBProgressHUD.h"
@@ -56,7 +57,7 @@
 }
 
 -(void)loadDataWithProgress:(BOOL)showProgress callback:(void(^)())callback {
-    if (!self.appDelegate.configurationProvider.reachability.isReachable) {
+    if ([[AFNetworkReachabilityManager sharedManager] networkReachabilityStatus] == AFNetworkReachabilityStatusNotReachable) {
         [self showProgressHUDWithTitle: NSLocalizedString(@"Erreur", nil)
                                message: NSLocalizedString(@"Vous n'avez pas de connection internet.", nil)
                                  delay:1.0

@@ -38,10 +38,13 @@
     [self saveCacheData:cacheData];
 }
 
-- (id)getForKey:(NSString *)key error:(NSError **)error {
+- (id)getForKey:(NSString *)key error:(NSError **)error forceIfExpired:(BOOL)force {
     XBLogInfo(@"Get cache data for key: %@", key);
     NSMutableDictionary *cacheData = [self cacheDataWithError:error];
     XBCacheElement *element = (XBCacheElement *)[cacheData objectForKey:key];
+    if ([element hasExpired] && !force) {
+        return nil;
+    }
     return element.value;
 }
 

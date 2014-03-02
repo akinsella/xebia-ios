@@ -21,7 +21,9 @@
 #import "XBConference.h"
 #import "XBConferenceDataSource.h"
 #import "XBMenuSectionView.h"
+#import "XBConstants.h"
 #import <MMDrawerController/UIViewController+MMDrawerController.h>
+#import <AFNetworking/AFNetworkReachabilityManager.h>
 
 // Enum for row indices
 enum {
@@ -71,6 +73,8 @@ enum {
 
     self.delegate = self;
 
+    [self setupReachabilityMonitor];
+
     UIButton *menuButton = [UIButton buttonWithType:UIButtonTypeCustom];
     menuButton.frame = CGRectMake(0, 0, 22, 22);
     [menuButton setBackgroundImage:[UIImage imageNamed:@"19-gear"] forState:UIControlStateNormal];
@@ -85,6 +89,21 @@ enum {
     [self reloadConferences];
 
     [super viewDidLoad];
+}
+
+- (void)networkStatusChanged:(id)notification
+{
+    if ([[AFNetworkReachabilityManager sharedManager] isReachable]) {
+        [self reloadConferences];
+    }
+}
+
+- (void)setupReachabilityMonitor
+{
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(networkStatusChanged:)
+                                                 name:XBNetworkStatusChanged
+                                               object:nil];
 }
 
 - (void)revealPreferences {
@@ -265,13 +284,18 @@ enum {
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
-    return 20.0;
+    return [self.conferenceDataSource count] ? 20.0 : 0;
 }
 
 - (void)reloadConferences {
     [self.conferenceDataSource loadDataWithCallback:^{
         [self.tableView reloadData];
     }];
+}
+
+- (void) dealloc
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 @end

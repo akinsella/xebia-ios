@@ -60,6 +60,8 @@ static NSInteger const kApiVersion = 1;
         return YES;
     }
 
+    [self initReachability];
+    
     if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0")) {
         [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleBlackTranslucent;
     }
@@ -68,7 +70,6 @@ static NSInteger const kApiVersion = 1;
     UIViewController *initViewController = [storyboard instantiateViewControllerWithIdentifier:@"centralNavigationController"];
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     [self.window setRootViewController: initViewController];
-
 
     self.configurationProvider = [XBPListConfigurationProvider provider];
 
@@ -113,6 +114,22 @@ static NSInteger const kApiVersion = 1;
     [self checkMinApiVersion];
 
     return YES;
+}
+
+- (void)initReachability
+{
+    [[AFNetworkReachabilityManager sharedManager] startMonitoring];
+    [[AFNetworkReachabilityManager sharedManager] setReachabilityStatusChangeBlock:^(AFNetworkReachabilityStatus status) {
+        
+        // Post notification after delay to avoid connection issues
+        dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC));
+        dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+            [[NSNotificationCenter defaultCenter]
+             postNotificationName:XBNetworkStatusChanged
+             object:self];
+            XBLog(@"Reachability status changed");
+        });
+    }];
 }
 
 - (void)initNewRelic {
@@ -360,7 +377,7 @@ static NSInteger const kApiVersion = 1;
 
 - (void)checkMinApiVersion {
 
-    if (!self.configurationProvider.reachability.isReachable) {
+    if ([[AFNetworkReachabilityManager sharedManager] networkReachabilityStatus] == AFNetworkReachabilityStatusNotReachable) {
         XBLog("Network is not available, cannot check min api version!");
     }
     else {
@@ -407,7 +424,7 @@ static NSInteger const kApiVersion = 1;
 #if TARGET_IPHONE_SIMULATOR
     XBLog("Running device is Simulator, cannot send Device Token to server: %@", jsonPayload);
 #else
-    if (!self.configurationProvider.reachability.isReachable) {
+    if ([[AFNetworkReachabilityManager sharedManager] networkReachabilityStatus] == AFNetworkReachabilityStatusNotReachable) {
         XBLog("Network is not available, cannot send Device Token to server: %@", jsonPayload);
     }
     else {

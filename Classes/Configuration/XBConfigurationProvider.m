@@ -13,7 +13,6 @@
 
 @property(nonatomic, strong) NSDictionary *dictionary;
 @property(nonatomic, strong) XBHttpClient *httpClient;
-@property(nonatomic, strong) Reachability *reachability;
 
 @end
 
@@ -33,8 +32,6 @@
         self.dictionary = dictionary;
         self.httpClient = [XBHttpClient httpClientWithBaseUrl:self.baseUrl];
         NSURL *url = [NSURL URLWithString:self.baseUrl];
-
-        self.reachability = [Reachability reachabilityWithHostname:url.host];
     }
 
     return self;

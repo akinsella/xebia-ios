@@ -13,7 +13,6 @@
 
 @property(nonatomic, strong, readonly)NSString *baseUrl;
 @property(nonatomic, strong, readonly) XBHttpClient *httpClient;
-@property(nonatomic, strong, readonly) Reachability *reachability;
 
 +(id)configurationWithDictionary:(NSDictionary *)dictionary;
 -(id)initWithDictionary:(NSDictionary *)dictionary;

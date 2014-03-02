@@ -16,3 +16,5 @@ CGFloat const CELL_BASE_HEIGHT = 28.0f;
 
 NSString * const kXBBlogFranceEmail = @"XBBlogFranceEmail";
 NSString * const kXBBaseUrl = @"XBBaseUrl";
+
+NSString * const XBNetworkStatusChanged = @"XBNetworkStatusChanged";

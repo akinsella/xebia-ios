@@ -18,6 +18,7 @@ extern CGFloat const CELL_BASE_HEIGHT;
 extern NSString * const kXBBlogFranceEmail;
 extern NSString * const kXBBaseUrl;
 
+extern NSString * const XBNetworkStatusChanged;
 
 #define IS_IPAD (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
 #define IS_IPHONE (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone)
