@@ -29,9 +29,9 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jVA-Ts-hyk">
-                        <rect key="frame" x="20" y="11" width="37" height="21"/>
+                        <rect key="frame" x="20" y="4" width="44" height="24"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="14"/>
+                        <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="17"/>
                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                         <nil key="highlightedColor"/>
                     </label>
@@ -39,12 +39,12 @@
                 <constraints>
                     <constraint firstItem="jVA-Ts-hyk" firstAttribute="leading" secondItem="FWd-fx-AhH" secondAttribute="leading" constant="20" id="0Vb-Wj-lV5"/>
                     <constraint firstAttribute="trailing" secondItem="IQd-sq-UVE" secondAttribute="trailing" constant="20" id="9K4-Ap-omg"/>
-                    <constraint firstAttribute="bottom" secondItem="jVA-Ts-hyk" secondAttribute="bottom" constant="11" id="B16-WI-lIL"/>
+                    <constraint firstAttribute="bottom" secondItem="jVA-Ts-hyk" secondAttribute="bottom" constant="15" id="B16-WI-lIL"/>
                     <constraint firstAttribute="bottom" secondItem="Du5-b5-eJf" secondAttribute="bottom" constant="-3" id="Byn-yB-5og"/>
                     <constraint firstItem="Du5-b5-eJf" firstAttribute="leading" secondItem="FWd-fx-AhH" secondAttribute="leading" constant="20" id="Fz8-pe-17S"/>
                     <constraint firstAttribute="bottom" secondItem="IQd-sq-UVE" secondAttribute="bottom" id="MHf-2C-Cii"/>
                     <constraint firstItem="Du5-b5-eJf" firstAttribute="top" secondItem="FWd-fx-AhH" secondAttribute="top" constant="25" id="kft-tA-Q6f"/>
-                    <constraint firstItem="jVA-Ts-hyk" firstAttribute="top" secondItem="FWd-fx-AhH" secondAttribute="top" constant="11" id="ks3-IM-maV"/>
+                    <constraint firstItem="jVA-Ts-hyk" firstAttribute="top" secondItem="FWd-fx-AhH" secondAttribute="top" constant="4" id="ks3-IM-maV"/>
                     <constraint firstItem="IQd-sq-UVE" firstAttribute="top" secondItem="FWd-fx-AhH" secondAttribute="top" constant="22" id="pEu-XX-P1x"/>
                 </constraints>
             </tableViewCellContentView>

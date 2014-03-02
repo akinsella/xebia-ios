@@ -42,7 +42,7 @@
 }
 
 - (void)applyValues {
-    [self.imageView setImageWithURL:[self.speaker.imageURI url] placeholderImage:nil];
+    [self.imageView setImageWithURL:[self.speaker.imageURL url] placeholderImage:nil];
     self.firstNameLabel.text = self.speaker.firstName;
     self.lastNameLabel.text = self.speaker.lastName;
     self.companyLabel.text = self.speaker.company;

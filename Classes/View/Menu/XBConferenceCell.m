@@ -31,4 +31,12 @@
     return [UIColor colorWithHex:@"#222222"];
 }
 
+- (BOOL)showSeparatorLine {
+    return NO;
+}
+
+- (BOOL)showSelectedSeparatorLine {
+    return NO;
+}
+
 @end

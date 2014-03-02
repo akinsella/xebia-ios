@@ -3,7 +3,7 @@
 // Copyright (c) 2014 Xebia. All rights reserved.
 //
 
-#import "XBReloadableTableViewController.h"
+#import "XBLoadableTableViewController.h"
 
 @class XBConferenceTrack;
 @class XBConference;
@@ -11,7 +11,7 @@
 @class XBConferenceRoom;
 
 
-@interface XBConferenceRoomDetailViewController : XBReloadableTableViewController<UITableViewDataSource, UITableViewDelegate, XBTableViewControllerDelegate>
+@interface XBConferenceRoomDetailViewController : XBLoadableTableViewController<UITableViewDataSource, UITableViewDelegate, XBTableViewControllerDelegate>
 
 @property (nonatomic, strong) XBConferenceRoom *room;
 @property (nonatomic, strong) XBConference *conference;

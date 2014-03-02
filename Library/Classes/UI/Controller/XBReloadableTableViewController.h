@@ -6,32 +6,10 @@
 
 
 #import <Foundation/Foundation.h>
-#import "XBTableViewController.h"
 #import "MBProgressHUD.h"
+#import "XBLoadableTableViewController.h"
 
 
-@interface XBReloadableTableViewController : XBTableViewController
-
-- (void)initProgressHUD;
-
-- (void)showProgressHUD;
-
-- (void)showProgressHUDWithMessage:(NSString *)message
-                         graceTime:(float)graceTime;
-
-- (void)showProgressHUDWithTitle:(NSString *)title
-                         message:(NSString *)message
-                           delay:(float)delay
-                         yOffset:(CGFloat)yOffset
-                           color:(UIColor *)color
-                 callback:(void(^)())callback;
-
-- (void)showErrorProgressHUDWithCallback:(void(^)())callback;
-
-- (void)showErrorProgressHUDWithMessage:(NSString *)errorMessage
-                             afterDelay:(float)delay
-                               callback:(void(^)())callback;
-
-- (void)dismissProgressHUDWithCallback:(void(^)())callback;
+@interface XBReloadableTableViewController : XBLoadableTableViewController
 
 @end

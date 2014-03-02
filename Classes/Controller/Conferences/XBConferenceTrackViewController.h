@@ -4,12 +4,12 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "XBReloadableTableViewController.h"
+#import "XBLoadableTableViewController.h"
 
 @class XBConference;
 
 
-@interface XBConferenceTrackViewController : XBReloadableTableViewController<UITableViewDataSource, UITableViewDelegate, XBTableViewControllerDelegate>
+@interface XBConferenceTrackViewController : XBLoadableTableViewController<UITableViewDataSource, UITableViewDelegate, XBTableViewControllerDelegate>
 
 @property (nonatomic, strong) XBConference *conference;
 

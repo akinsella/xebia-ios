@@ -13,7 +13,7 @@
 @property (nonatomic, strong) NSString *lastName;
 @property (nonatomic, strong) NSString *bio;
 @property (nonatomic, strong) NSArray *talks;
-@property (nonatomic, strong) NSString *imageURI;
+@property (nonatomic, strong) NSString *imageURL;
 @property (nonatomic, strong) NSString *firstName;
 @property (nonatomic, strong) NSString *company;
 @property (nonatomic, strong) NSString *tweetHandle;

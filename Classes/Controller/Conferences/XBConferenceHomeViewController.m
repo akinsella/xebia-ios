@@ -55,6 +55,11 @@
     [super viewDidLoad];
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    self.navigationController.navigationBarHidden = NO;
+}
+
 - (void)createConferenceDownloader {
     self.downloader = [XBConferenceDownloader downloaderWithDownloadableBundle:self.conference];
     [self.downloadActivityIndicator startAnimating];
@@ -83,7 +88,6 @@
 }
 
 - (XBArrayDataSource *)buildDataSource {
-    NSArray *date = @[@{@"title": NSLocalizedString(@"Day 1", nil)}];
 
     XBConferenceDownloader *downloader = [XBConferenceDownloader downloaderWithDownloadableBundle:self.conference];
     NSString *path = [[downloader bundleFolderPath] stringByAppendingPathComponent:@"schedule"];
@@ -95,7 +99,7 @@
                            @{@"title": NSLocalizedString(@"Rooms", nil)}
                            ];
 
-    return [XBArrayDataSource dataSourceWithArray:@[date, self.dayDataSource, menuItems]];
+    return [XBArrayDataSource dataSourceWithArray:@[@[@"Date"], self.dayDataSource, menuItems]];
 }
 
 
@@ -179,7 +183,7 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
-    return 20.0;
+    return section == 0 ? 0 : 20.0;
 }
 
 @end

@@ -18,7 +18,7 @@
     dispatch_once(&once, ^ {
         sharedConferenceHomeDateCellDateFormatter = [[NSDateFormatter alloc] init];
         sharedConferenceHomeDateCellDateFormatter.locale = [NSLocale localeWithLocaleIdentifier:@"fr_FR"];
-        sharedConferenceHomeDateCellDateFormatter.dateFormat = @"dd LLLL YYYY";
+        sharedConferenceHomeDateCellDateFormatter.dateFormat = @"EEEE dd LLLL";
     });
     return sharedConferenceHomeDateCellDateFormatter;
 }

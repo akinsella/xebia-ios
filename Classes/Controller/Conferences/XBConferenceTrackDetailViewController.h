@@ -3,14 +3,14 @@
 // Copyright (c) 2014 Xebia. All rights reserved.
 //
 
-#import "XBReloadableTableViewController.h"
+#import "XBLoadableTableViewController.h"
 
 @class XBConferenceTrack;
 @class XBConference;
 @class DTAttributedTextContentView;
 
 
-@interface XBConferenceTrackDetailViewController : XBReloadableTableViewController<UITableViewDataSource, UITableViewDelegate, XBTableViewControllerDelegate>
+@interface XBConferenceTrackDetailViewController : XBLoadableTableViewController<UITableViewDataSource, UITableViewDelegate, XBTableViewControllerDelegate>
 
 @property (nonatomic, strong) XBConferenceTrack *track;
 @property (nonatomic, strong) XBConference *conference;

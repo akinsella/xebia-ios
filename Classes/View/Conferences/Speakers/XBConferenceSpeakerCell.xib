@@ -28,30 +28,31 @@
                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="oD2-nW-NSZ">
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sOi-i9-FaW" customClass="XBCircleImageView">
                         <rect key="frame" x="6" y="4" width="36" height="36"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="36" id="2Pj-UI-6zH"/>
+                            <constraint firstAttribute="height" constant="36" id="DSZ-wI-cIf"/>
+                            <constraint firstAttribute="width" constant="36" id="nDY-4J-dZ6"/>
                         </constraints>
-                    </imageView>
+                    </view>
                 </subviews>
                 <constraints>
                     <constraint firstAttribute="bottom" secondItem="IQd-sq-UVE" secondAttribute="bottom" constant="11" id="22K-fP-avV"/>
-                    <constraint firstAttribute="bottom" secondItem="oD2-nW-NSZ" secondAttribute="bottom" constant="3" id="2wc-oy-Yrb"/>
                     <constraint firstItem="IQd-sq-UVE" firstAttribute="top" secondItem="FWd-fx-AhH" secondAttribute="top" constant="11" id="3je-Jq-hah"/>
                     <constraint firstAttribute="bottom" secondItem="jVA-Ts-hyk" secondAttribute="bottom" constant="12" id="7TB-ZA-lpI"/>
                     <constraint firstItem="IQd-sq-UVE" firstAttribute="leading" secondItem="FWd-fx-AhH" secondAttribute="leading" constant="50" id="9tg-Ai-Qni"/>
                     <constraint firstItem="jVA-Ts-hyk" firstAttribute="top" secondItem="FWd-fx-AhH" secondAttribute="top" constant="10" id="B49-5a-nxZ"/>
+                    <constraint firstItem="sOi-i9-FaW" firstAttribute="top" secondItem="FWd-fx-AhH" secondAttribute="top" constant="4" id="Hh2-8s-LAQ"/>
                     <constraint firstItem="jVA-Ts-hyk" firstAttribute="leading" secondItem="IQd-sq-UVE" secondAttribute="trailing" constant="5" id="XGj-wE-ehT"/>
-                    <constraint firstItem="oD2-nW-NSZ" firstAttribute="top" secondItem="FWd-fx-AhH" secondAttribute="top" constant="4" id="bhz-nk-fTh"/>
-                    <constraint firstItem="oD2-nW-NSZ" firstAttribute="leading" secondItem="FWd-fx-AhH" secondAttribute="leading" constant="6" id="yac-nz-09u"/>
+                    <constraint firstItem="sOi-i9-FaW" firstAttribute="leading" secondItem="FWd-fx-AhH" secondAttribute="leading" constant="6" id="iRz-9g-qlL"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
                 <outlet property="firstNameLabel" destination="IQd-sq-UVE" id="PWI-l6-Uzx"/>
                 <outlet property="lastNameLabel" destination="jVA-Ts-hyk" id="nUx-o3-I75"/>
-                <outlet property="photoImageView" destination="oD2-nW-NSZ" id="pUe-YW-G1P"/>
+                <outlet property="photoImageView" destination="sOi-i9-FaW" id="lim-uA-iyQ"/>
             </connections>
         </tableViewCell>
     </objects>

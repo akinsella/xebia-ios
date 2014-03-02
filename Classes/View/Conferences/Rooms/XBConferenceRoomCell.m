@@ -17,7 +17,7 @@
 - (void)configureWithRoom:(XBConferenceRoom *)room {
     self.locationLabel.text = room.locationName;
     self.nameLabel.text = room.name;
-    self.capacityLabel.text = [NSString stringWithFormat:@"%d persons", [room.capacity integerValue]];
+    self.capacityLabel.text = [NSString stringWithFormat:@"%d %@", [room.capacity integerValue], NSLocalizedString(@"personnes", @"personnes")];
 }
 
 @end

@@ -7,6 +7,7 @@
 //
 
 #import "XBTableViewCell.h"
+#import "XBCircleImageView.h"
 
 @class XBConferenceSpeaker;
 
@@ -14,7 +15,7 @@
 
 @property (nonatomic, weak) IBOutlet UILabel *firstNameLabel;
 @property (nonatomic, weak) IBOutlet UILabel *lastNameLabel;
-@property (nonatomic, weak) IBOutlet UIImageView *photoImageView;
+@property (nonatomic, weak) IBOutlet XBCircleImageView *photoImageView;
 
 - (void)configureWithSpeaker:(XBConferenceSpeaker *)speaker;
 

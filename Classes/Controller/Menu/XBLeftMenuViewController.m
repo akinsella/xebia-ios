@@ -20,6 +20,7 @@
 #import "VMURLHandler.h"
 #import "XBConference.h"
 #import "XBConferenceDataSource.h"
+#import "XBMenuSectionView.h"
 #import <MMDrawerController/UIViewController+MMDrawerController.h>
 
 // Enum for row indices
@@ -172,7 +173,7 @@ enum {
 
 - (void)configureTableView {
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-    UIView*backgroundView = [[UIView alloc] initWithFrame: self.tableView.bounds];
+    UIView *backgroundView = [[UIView alloc] initWithFrame: self.tableView.bounds];
     [backgroundView setBackgroundColor:[UIColor colorWithHex:@"#222222"]];
     [self.tableView setBackgroundView:backgroundView];
 }
@@ -189,7 +190,7 @@ enum {
         menuCell.imageView.image = [UIImage imageNamed:[item objectForKey:@"imageName"]];
     } else {
         XBConference *conference = item;
-        menuCell.titleLabel.text = [item name];
+        menuCell.titleLabel.text = [conference name];
     }
 }
 
@@ -259,20 +260,12 @@ enum {
 #pragma mark - Conferences
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
-    UIView *header = [[UIView alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.tableView.frame), 20.0)];
-    header.backgroundColor = [UIColor whiteColor];
-    return header;
+    NSString *title = section == 0 ? @"Xebia" : NSLocalizedString(@"Conférences", @"Conférences");
+    return [XBMenuSectionView sectionViewWithTitle:title];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
-    if (section == 1) {
-        return 20.0;
-    }
-    return 0;
-}
-
-- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
-    return 0;
+    return 20.0;
 }
 
 - (void)reloadConferences {

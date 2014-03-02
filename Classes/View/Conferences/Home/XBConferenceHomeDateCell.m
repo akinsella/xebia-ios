@@ -4,6 +4,7 @@
 //
 
 #import "XBConferenceHomeDateCell.h"
+#import "XBConference.h"
 
 @interface XBConferenceHomeDateCell()
 
@@ -24,10 +25,10 @@
     return sharedConferenceHomeDateCellDateFormatter;
 }
 
-- (void)configureWithConference:(id)conference {
+- (void)configureWithConference:(XBConference *)conference {
     self.accessoryType = UITableViewCellAccessoryNone;
-    self.startDateLabel.text = [self.dateFormatter stringFromDate:[NSDate date]];
-    self.endDateLabel.text = [self.dateFormatter stringFromDate:[NSDate date]];
+    self.startDateLabel.text = [self.dateFormatter stringFromDate:conference.from];
+    self.endDateLabel.text = [self.dateFormatter stringFromDate:conference.to];
 }
 
 @end
