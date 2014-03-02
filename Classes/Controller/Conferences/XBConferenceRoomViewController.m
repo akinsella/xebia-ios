@@ -11,6 +11,8 @@
 #import "XBConferenceRoomDataSource.h"
 #import "XBConference.h"
 #import "XBConferenceRoomCell.h"
+#import "XBConferenceRoom.h"
+#import "XBConferenceRoomDetailViewController.h"
 
 @interface XBConferenceRoomViewController ()
 
@@ -60,6 +62,20 @@
 
 - (void)configureCell:(UITableViewCell *)cell atIndex:(NSIndexPath *)indexPath {
     [(XBConferenceRoomCell *)cell configureWithRoom:self.dataSource[indexPath.row]];
+}
+
+- (void)onSelectCell:(UITableViewCell *)cell forObject:(id)object withIndex:(NSIndexPath *)indexPath {
+    [self performSegueWithIdentifier:@"ShowRoomDetails" sender:nil];
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    NSIndexPath *selectedIndexPath = [self.tableView indexPathForSelectedRow];
+    XBConferenceRoom *room = self.dataSource[selectedIndexPath.row];
+    [self.tableView deselectRowAtIndexPath:selectedIndexPath animated:YES];
+    
+    XBConferenceRoomDetailViewController *vc = segue.destinationViewController;
+    vc.conference = self.conference;
+    vc.room = room;
 }
 
 

@@ -3,7 +3,7 @@
 // Copyright (c) 2014 Xebia. All rights reserved.
 //
 
-#import "XBConferenceTrackDetailViewController.h"
+#import "XBConferenceRoomDetailViewController.h"
 #import "XBConferenceTrack.h"
 #import "DTAttributedTextContentView.h"
 #import "NSAttributedString+HTML.h"
@@ -12,10 +12,12 @@
 #import "XBConference.h"
 #import "XBConferencePresentation.h"
 #import "XBConferencePresentationCell.h"
+#import "XBConferenceRoom.h"
+#import "XBConferenceRoomDetailDataSource.h"
 #import "XBConferencePresentationDetailViewController.h"
 
 
-@implementation XBConferenceTrackDetailViewController
+@implementation XBConferenceRoomDetailViewController
 
 - (NSString *)trackPath {
     return [NSString stringWithFormat:@"/detail"];
@@ -44,17 +46,19 @@
 }
 
 - (void)applyValues {
-    self.trackTitleLabel.text = self.track.name;
+    self.roomNameLabel.text = self.room.name;
+    self.roomCapacityLabel.text = [NSString stringWithFormat:@"%@ %@", [self.room.capacity stringValue], NSLocalizedString(@"personnes", @"personnes")];
+    self.roomLocationNameLabel.text = self.room.locationName;
 
-    NSData *data = [[NSString stringWithFormat:@"%@%@%@", @"<font face='HelveticaNeue'>", self.track.description, @"</font>"] dataUsingEncoding:NSUTF8StringEncoding];
-    NSDictionary *options = @{DTUseiOS6Attributes: @(YES)};
-    NSAttributedString *attributedString = [[NSAttributedString alloc] initWithHTMLData:data options:options documentAttributes:NULL];
-    self.trackDescriptionLabel.attributedString = attributedString;
-    [self.trackDescriptionLabel sizeToFit];
+    [self.roomNameLabel sizeToFit];
+    [self.roomCapacityLabel sizeToFit];
+    [self.roomLocationNameLabel sizeToFit];
+    self.tableView.tableHeaderView.frame = CGRectMake(0, 0, CGRectGetWidth(self.tableView.frame), CGRectGetMaxY(self.roomCapacityLabel.frame) + 8.0);
+    self.tableView.tableHeaderView = self.tableView.tableHeaderView;
 }
 
 - (XBArrayDataSource *)buildDataSource {
-    return [XBConferenceTrackDetailDataSource dataSourceWithResourcePath:[self pathForLocalDataSource] trackName:self.track.name];
+    return [XBConferenceRoomDetailDataSource dataSourceWithResourcePath:[self pathForLocalDataSource] roomName:self.room.name];
 }
 
 - (NSString *)pathForLocalDataSource {

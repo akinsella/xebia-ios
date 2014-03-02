@@ -1105,7 +1105,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ETK-u0-0Eg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1976" y="3569"/>
+            <point key="canvasLocation" x="-2004" y="4232"/>
         </scene>
         <!--Conference Speaker Detail View Controller-->
         <scene sceneID="3n7-8f-7PU">
@@ -1257,10 +1257,13 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="aIa-co-hXe"/>
+                    <connections>
+                        <segue destination="pHT-JX-grm" kind="push" identifier="ShowRoomDetails" id="9xh-Hd-x6U"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dM4-jj-Itt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-580" y="3946"/>
+            <point key="canvasLocation" x="-1399" y="5138"/>
         </scene>
         <!--Conference Day View Controller-->
         <scene sceneID="1vS-cX-R7A">
@@ -1392,7 +1395,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="P62-HX-UqE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-988" y="4548"/>
+            <point key="canvasLocation" x="12" y="4232"/>
         </scene>
         <!--Conference Track View Controller-->
         <scene sceneID="5wh-Cc-3Oy">
@@ -1482,6 +1485,7 @@
                         <outlet property="trackDescriptionLabel" destination="WOW-RM-fXP" id="J4N-NT-LY3"/>
                         <outlet property="trackHeaderView" destination="DjR-Gd-Ore" id="Zd5-21-8hU"/>
                         <outlet property="trackTitleLabel" destination="iPr-W3-ro1" id="113-w0-zuY"/>
+                        <segue destination="N7j-de-WDr" kind="push" identifier="ShowPresentationDetail" id="KPh-dR-rbL"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6mS-Kf-HKb" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1957,6 +1961,84 @@
             </objects>
             <point key="canvasLocation" x="-1478" y="265"/>
         </scene>
+        <!--Conference Room Detail View Controller-->
+        <scene sceneID="pdn-cK-yNE">
+            <objects>
+                <tableViewController id="pHT-JX-grm" customClass="XBConferenceRoomDetailViewController" sceneMemberID="viewController">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="jW9-jB-mvq">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <view key="tableHeaderView" contentMode="scaleToFill" id="tsJ-eF-6Oa">
+                            <rect key="frame" x="0.0" y="0.0" width="320" height="99"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <subviews>
+                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h48-1c-u1b">
+                                    <rect key="frame" x="20" y="15" width="280" height="20"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <accessibility key="accessibilityConfiguration" hint="" label=""/>
+                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iXX-QO-3eo">
+                                    <rect key="frame" x="20" y="43" width="280" height="17"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <accessibility key="accessibilityConfiguration" hint="" label=""/>
+                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
+                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WiX-3Z-sdi">
+                                    <rect key="frame" x="20" y="62" width="280" height="17"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <accessibility key="accessibilityConfiguration" hint="" label=""/>
+                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
+                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstAttribute="trailing" secondItem="WiX-3Z-sdi" secondAttribute="trailing" constant="20" id="1FE-tT-rW7"/>
+                                <constraint firstItem="h48-1c-u1b" firstAttribute="top" secondItem="tsJ-eF-6Oa" secondAttribute="top" constant="15" id="3Fj-z4-YUV"/>
+                                <constraint firstItem="iXX-QO-3eo" firstAttribute="leading" secondItem="tsJ-eF-6Oa" secondAttribute="leading" constant="20" id="4Cc-G2-c6k"/>
+                                <constraint firstAttribute="trailing" secondItem="iXX-QO-3eo" secondAttribute="trailing" constant="20" id="8HR-pY-yIW"/>
+                                <constraint firstItem="iXX-QO-3eo" firstAttribute="top" secondItem="h48-1c-u1b" secondAttribute="bottom" constant="8" id="LYr-Qn-VLO"/>
+                                <constraint firstAttribute="trailing" secondItem="h48-1c-u1b" secondAttribute="trailing" constant="20" id="Lpb-sG-mVF"/>
+                                <constraint firstItem="h48-1c-u1b" firstAttribute="leading" secondItem="tsJ-eF-6Oa" secondAttribute="leading" constant="20" id="b1Q-K8-eub"/>
+                                <constraint firstItem="WiX-3Z-sdi" firstAttribute="top" secondItem="iXX-QO-3eo" secondAttribute="bottom" constant="2" id="eKd-ce-one"/>
+                                <constraint firstItem="WiX-3Z-sdi" firstAttribute="leading" secondItem="tsJ-eF-6Oa" secondAttribute="leading" constant="20" id="swQ-OK-6RK"/>
+                            </constraints>
+                        </view>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="4Wj-FW-xcU">
+                                <rect key="frame" x="0.0" y="121" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="4Wj-FW-xcU" id="3bX-Rc-zH1">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="pHT-JX-grm" id="s1e-8t-zXj"/>
+                            <outlet property="delegate" destination="pHT-JX-grm" id="hgZ-pr-6GE"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="aUo-HT-nnY"/>
+                    <connections>
+                        <outlet property="roomCapacityLabel" destination="WiX-3Z-sdi" id="nKv-Nl-oT6"/>
+                        <outlet property="roomHeaderView" destination="tsJ-eF-6Oa" id="sWZ-Ub-n9F"/>
+                        <outlet property="roomLocationNameLabel" destination="iXX-QO-3eo" id="K2K-4p-Fb3"/>
+                        <outlet property="roomNameLabel" destination="h48-1c-u1b" id="rs7-Rt-8pz"/>
+                        <segue destination="N7j-de-WDr" kind="push" identifier="ShowPresentationDetail" id="Q0f-8c-F6a"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mss-pB-wm1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1020" y="5138"/>
+        </scene>
     </scenes>
     <resources>
         <image name="112-group.png" width="32" height="21"/>
@@ -1976,6 +2058,6 @@
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="8T2-Wu-dpR"/>
+        <segue reference="Q0f-8c-F6a"/>
     </inferredMetricsTieBreakers>
 </document>

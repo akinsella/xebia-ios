@@ -11,7 +11,7 @@
 
 @property (nonatomic, strong) NSNumber *conferenceId;
 @property (nonatomic, strong) NSNumber *identifier;
-@property (nonatomic, strong) NSString *scheduleId;
+@property (nonatomic, strong) NSNumber *scheduleId;
 @property (nonatomic, strong) NSDate *fromTime;
 @property (nonatomic, strong) NSDate *toTime;
 @property (nonatomic, assign) BOOL partnerSlot;
