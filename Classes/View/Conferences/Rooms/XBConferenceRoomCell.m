@@ -16,8 +16,11 @@
 
 - (void)configureWithRoom:(XBConferenceRoom *)room {
     self.locationLabel.text = room.locationName;
+    self.locationLabel.highlightedTextColor = [UIColor whiteColor];
     self.nameLabel.text = room.name;
+    self.nameLabel.highlightedTextColor = [UIColor whiteColor];
     self.capacityLabel.text = [NSString stringWithFormat:@"%d %@", [room.capacity integerValue], NSLocalizedString(@"personnes", @"personnes")];
+    self.capacityLabel.highlightedTextColor = [UIColor whiteColor];
 }
 
 @end

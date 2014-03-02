@@ -14,6 +14,7 @@
 
 - (void)configureWithTitle:(NSString *)title {
     self.titleLabel.text = title;
+    self.titleLabel.highlightedTextColor = [UIColor whiteColor];
 }
 
 @end

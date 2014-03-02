@@ -61,7 +61,7 @@
 - (void)applyValues {
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     dateFormatter.locale = [NSLocale localeWithLocaleIdentifier:@"fr_FR"];
-    dateFormatter.dateFormat = @"dd LLLL YYYY";
+    dateFormatter.dateFormat = @"EEEE dd LLLL";
     self.dayLabel.text = [dateFormatter stringFromDate:self.day];
     
     [self filterByDay];
