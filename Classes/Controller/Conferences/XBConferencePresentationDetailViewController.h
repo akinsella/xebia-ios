@@ -19,4 +19,6 @@
 @property (nonatomic, weak) IBOutlet UILabel *trackLabel;
 @property (nonatomic, weak) IBOutlet UILabel *speakerLabel;
 
+@property (nonatomic, weak) IBOutlet UIButton *voteButton;
+
 @end

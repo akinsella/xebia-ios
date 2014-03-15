@@ -34,7 +34,7 @@
     [self.cacheSupport setForKey:key value:value ttl:ttl error:error];
 }
 
-- (NSString *)getForKey:(NSString *)key error:(NSError **)error forceIfExpired:(BOOL)force {
+- (id)getForKey:(NSString *)key error:(NSError **)error forceIfExpired:(BOOL)force {
     return [self.cacheSupport getForKey:key error:error forceIfExpired:force];
 }
 
