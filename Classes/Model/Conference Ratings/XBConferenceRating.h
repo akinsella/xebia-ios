@@ -6,13 +6,14 @@
 #import <Foundation/Foundation.h>
 
 typedef enum  {
-    XBConferenceRatingValueUndefined = 0,
-    XBConferenceRatingValueNegative = 1,
-    XBConferenceRatingValueNeuter = 2,
-    XBConferenceRatingValuePositive = 3
+    XBConferenceRatingValuePoor = 0,
+    XBConferenceRatingValueFair = 1,
+    XBConferenceRatingValueGood = 2,
+    XBConferenceRatingValueVeryGood = 3,
+    XBConferenceRatingValueExcellent = 4
 } XBConferenceRatingValue;
 
-@interface XBConferenceRating : NSObject
+@interface XBConferenceRating : NSObject<NSCoding>
 
 @property (nonatomic, strong) NSDate *dateTaken;
 @property (nonatomic, strong) NSNumber *conferenceId;

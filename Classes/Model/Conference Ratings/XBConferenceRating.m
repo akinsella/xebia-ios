@@ -49,4 +49,29 @@
     return [self.conferenceId hash] ^ [self.presentationId hash];
 }
 
+#pragma mark - NSCoding
+
+- (id)initWithCoder:(NSCoder *)decoder {
+    self = [super init];
+    if (!self) {
+        return nil;
+    }
+
+    self.dateTaken = [decoder decodeObjectForKey:@"dateTaken"];
+    self.conferenceId = [decoder decodeObjectForKey:@"conferenceId"];
+    self.presentationId = [decoder decodeObjectForKey:@"presentationId"];
+    self.value = [decoder decodeObjectForKey:@"value"];
+    self.sent = [decoder decodeObjectForKey:@"sent"];
+
+    return self;
+}
+
+- (void)encodeWithCoder:(NSCoder *)encoder {
+    [encoder encodeObject:self.dateTaken forKey:@"dateTaken"];
+    [encoder encodeObject:self.conferenceId forKey:@"conferenceId"];
+    [encoder encodeObject:self.presentationId forKey:@"presentationId"];
+    [encoder encodeObject:self.value forKey:@"value"];
+    [encoder encodeObject:self.sent forKey:@"sent"];
+}
+
 @end

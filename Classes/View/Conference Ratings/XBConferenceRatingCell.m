@@ -15,4 +15,8 @@
     self.ratingLabel.text = rating.value.stringValue;
 }
 
+- (CGFloat)heightForCell:(UITableView *)tableView {
+    return 8 + self.presentationTitleLabel.intrinsicContentSize.height + 8;
+}
+
 @end

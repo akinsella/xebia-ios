@@ -22,6 +22,7 @@
 #import "GAIDictionaryBuilder.h"
 #import "GAIFields.h"
 #import "AFNetworkActivityLogger.h"
+#import "XBConferenceRatingManager.h"
 #import <NewRelicAgent/NewRelicAgent.h>
 #import <Crashlytics/Crashlytics.h>
 #import <sys/utsname.h>
@@ -99,6 +100,8 @@ static NSInteger const kApiVersion = 1;
     [self registerForRemoteNotification];
 
     [self initApplicationRating];
+
+    [self initConferenceRatings];
 
 #if DEBUG
     [self.mainViewController revealViewControllerWithIdentifier:@"timeline"];
@@ -473,6 +476,10 @@ static NSInteger const kApiVersion = 1;
     [self.mainViewController revealViewControllerWithURL:url];
 
     return YES;
+}
+
+- (void)initConferenceRatings {
+    [XBConferenceRatingManager sharedManager];
 }
 
 @end

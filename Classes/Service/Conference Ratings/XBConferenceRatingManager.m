@@ -10,6 +10,7 @@
 @interface XBConferenceRatingManager()
 
 @property (nonatomic, strong) NSMutableSet *ratings;
+@property (nonatomic, strong) NSRecursiveLock *lock;
 
 @end
 
@@ -27,17 +28,50 @@
 - (instancetype)init {
     if (self = [super init]) {
         self.ratings = [NSMutableSet set];
+        [self loadFromFile];
     }
     return self;
 }
 
 - (void)addRating:(XBConferenceRating *)rating {
+    if ([self.ratings containsObject:rating]) {
+        [self.ratings removeObject:rating];
+    }
     [self.ratings addObject:rating];
+
+    [self writeToFile];
 }
 
 - (NSArray *)ratingsForConference:(XBConference *)conference {
     NSPredicate *conferenceFilterPredicate = [NSPredicate predicateWithFormat:[NSString stringWithFormat:@"conferenceId == %d", conference.identifier.intValue]];
     return [[self.ratings filteredSetUsingPredicate:conferenceFilterPredicate] allObjects];
+}
+
+- (void)loadFromFile
+{
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        [self.lock lock];
+        NSArray *ratings = [NSKeyedUnarchiver unarchiveObjectWithFile:self.filePath];
+        [self.ratings addObjectsFromArray:ratings];
+        [self.lock unlock];
+    });
+}
+
+- (void)writeToFile
+{
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        [self.lock lock];
+        [NSKeyedArchiver archiveRootObject:[self.ratings allObjects] toFile:self.filePath];
+        [self.lock unlock];
+    });
+}
+
+- (NSString *)filePath
+{
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentsDirectory = [paths objectAtIndex:0];
+    
+    return [documentsDirectory stringByAppendingPathComponent:@"ratings"];
 }
 
 @end

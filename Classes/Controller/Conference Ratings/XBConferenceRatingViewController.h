@@ -15,12 +15,11 @@
 
 @property (nonatomic, weak) IBOutlet UILabel *titleLabel;
 @property (nonatomic, weak) IBOutlet UILabel *subtitleLabel;
-@property (nonatomic, weak) IBOutlet UIButton *voteButton0;
-@property (nonatomic, weak) IBOutlet UIButton *voteButton1;
-@property (nonatomic, weak) IBOutlet UIButton *voteButton2;
 
-- (IBAction)voteButton0Clicked:(id)sender;
-- (IBAction)voteButton1Clicked:(id)sender;
-- (IBAction)voteButton2Clicked:(id)sender;
+@property (nonatomic, weak) IBOutlet UIButton *ratingButtonPoor;
+@property (nonatomic, weak) IBOutlet UIButton *ratingButtonFair;
+@property (nonatomic, weak) IBOutlet UIButton *ratingButtonGood;
+@property (nonatomic, weak) IBOutlet UIButton *ratingButtonVeryGood;
+@property (nonatomic, weak) IBOutlet UIButton *ratingButtonExcellent;
 
 @end

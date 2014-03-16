@@ -8,6 +8,11 @@
 #import "XBConferenceRating.h"
 #import "XBConferenceRatingManager.h"
 
+@interface XBConferenceRatingViewController()
+
+@property (nonatomic, strong) NSArray *ratingButtons;
+
+@end
 
 @implementation XBConferenceRatingViewController
 
@@ -20,28 +25,27 @@
     [self applyValues];
 }
 
+
 - (void)applyValues {
     self.titleLabel.text = self.presentationDetail.title;
     self.subtitleLabel.text = NSLocalizedString(@"Vous pouvez voter en utilisant les boutons en bas", @"Vous pouvez voter en utilisant les boutons en bas");
+    self.ratingButtons = @[self.ratingButtonPoor, self.ratingButtonFair, self.ratingButtonGood, self.ratingButtonVeryGood, self.ratingButtonExcellent];
 }
 
-- (IBAction)voteButton0Clicked:(id)sender {
-    [self saveVote:XBConferenceRatingValueNegative];
+- (IBAction)ratingButtonClicked:(UIButton *)sender {
+    [self saveRating:[self.ratingButtons indexOfObject:sender]];
+    [[[UIAlertView alloc] initWithTitle:nil
+                               message:NSLocalizedString(@"Your vote has been submitted", @"Your vote has been submitted")
+                              delegate:nil
+                     cancelButtonTitle:NSLocalizedString(@"OK", @"OK")
+                     otherButtonTitles:nil] show];
 }
 
-- (IBAction)voteButton1Clicked:(id)sender {
-    [self saveVote:XBConferenceRatingValueNeuter];
-}
-
-- (IBAction)voteButton2Clicked:(id)sender {
-    [self saveVote:XBConferenceRatingValuePositive];
-}
-
-- (void)saveVote:(XBConferenceRatingValue)voteValue {
+- (void)saveRating:(XBConferenceRatingValue)ratingValue {
     XBConferenceRating *rating = [XBConferenceRating ratingWithDateTaken:[NSDate date]
                                                             conferenceId:self.presentationDetail.conferenceId
                                                           presentationId:self.presentationDetail.identifier
-                                                                   value:voteValue];
+                                                                   value:ratingValue];
     [[XBConferenceRatingManager sharedManager] addRating:rating];
 }
 

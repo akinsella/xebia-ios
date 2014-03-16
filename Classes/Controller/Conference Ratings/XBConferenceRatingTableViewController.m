@@ -42,6 +42,12 @@
 
 }
 
+- (void)viewWillAppear:(BOOL)animated
+{
+    [self initialize];
+    [self.tableView reloadData];
+}
+
 - (void)filterByRatings {
     XBConferenceScheduleDataSource *conferenceScheduleDataSource = [XBConferenceScheduleDataSource dataSourceWithResourcePath:[self pathForLocalDataSource]];
     NSArray *ratingIdentifiers = [self.dataSource.array presentationIdentifiers];
