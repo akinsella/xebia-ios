@@ -24,4 +24,6 @@
         #define XBLog(fmt, ...) NSLog((@"%s [Line %d] " fmt), __PRETTY_FUNCTION__, __LINE__, ##__VA_ARGS__)
     #endif
 
+    #define IS_IOS_6_OR_EARLIER() (floor(NSFoundationVersionNumber) <= NSFoundationVersionNumber_iOS_6_1)
+
 #endif

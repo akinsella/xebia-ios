@@ -24,6 +24,7 @@
 #import "UIImage+ImageEffects.h"
 #import "UIColor+XBAdditions.h"
 #import "XBConferenceRatingTableViewController.h"
+#import "XBConferenceLocationManager.h"
 
 @interface XBConferenceHomeViewController()
 
@@ -62,6 +63,8 @@
     [self configureTableView];
     [self createConferenceDownloader];
     [super viewDidLoad];
+
+    [self setupConferenceLocationMonitoring];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -253,4 +256,12 @@
         frame;
     });
 }
+
+- (void)setupConferenceLocationMonitoring {
+    if (!IS_IOS_6_OR_EARLIER()) {
+        XBConferenceLocationManager *locationManager = [XBConferenceLocationManager new];
+        [locationManager initializeRegionMonitoring];
+    }
+}
+
 @end
