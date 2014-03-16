@@ -7,7 +7,7 @@
 #import "XBConferenceDownloader.h"
 #import "XBConferencePresentationDataSource.h"
 #import "XBConferencePresentationDetail.h"
-#import "XBConferenceVoteViewController.h"
+#import "XBConferenceRatingViewController.h"
 
 @interface XBConferencePresentationDetailViewController()
 @property (nonatomic, strong) XBConferencePresentationDetail *presentationDetail;
@@ -43,7 +43,7 @@
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([segue.identifier isEqualToString:@"ShowVoteForm"]) {
-        XBConferenceVoteViewController *vc = segue.destinationViewController;
+        XBConferenceRatingViewController *vc = segue.destinationViewController;
         vc.presentationDetail = self.presentationDetail;
     }
 }

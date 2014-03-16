@@ -294,7 +294,7 @@ static NSInteger const kApiVersion = 1;
     [[AFNetworkActivityLogger sharedLogger] startLogging];
 
 #if TARGET_IPHONE_SIMULATOR || defined(DEBUG)
-    [[AFNetworkActivityLogger sharedLogger] setLevel:AFLoggerLevelDebug];
+    [[AFNetworkActivityLogger sharedLogger] setLevel:AFLoggerLevelWarn];
 #else
     [[AFNetworkActivityLogger sharedLogger] setLevel:AFLoggerLevelError];
 #endif

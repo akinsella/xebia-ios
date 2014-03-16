@@ -62,4 +62,16 @@
     }];
 }
 
+- (void)loadAndFilterByIdentifiers:(NSArray *)identifiers callback:(void (^)())callback {
+    [self loadDataWithCallback:^{
+        [self filter:^BOOL(XBConferencePresentation *pres) {
+            return [identifiers containsObject:pres.identifier];
+        }];
+
+        if (callback) {
+            callback();
+        }
+    }];
+}
+
 @end

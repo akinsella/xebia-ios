@@ -9,7 +9,7 @@
 @class XBConferencePresentationDetail;
 
 
-@interface XBConferenceVoteViewController : XBViewController
+@interface XBConferenceRatingViewController : XBViewController
 
 @property (nonatomic, strong) XBConferencePresentationDetail *presentationDetail;
 

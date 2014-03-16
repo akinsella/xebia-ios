@@ -23,6 +23,7 @@
 #import "NSString+XBAdditions.h"
 #import "UIImage+ImageEffects.h"
 #import "UIColor+XBAdditions.h"
+#import "XBConferenceRatingTableViewController.h"
 
 @interface XBConferenceHomeViewController()
 
@@ -130,7 +131,12 @@
                            @{@"title": NSLocalizedString(@"Rooms", nil)}
                            ];
 
-    return [XBArrayDataSource dataSourceWithArray:@[@[@"Date"], self.dayDataSource, menuItems]];
+    return [XBArrayDataSource dataSourceWithArray:@[
+            @[@"Date"],
+            self.dayDataSource,
+            menuItems,
+            @[@"Ratings"]
+    ]];
 }
 
 
@@ -139,7 +145,7 @@
     static NSString *DayCellIdentifier = @"XBConferenceHomeDayCell";
     static NSString *MenuItemCellIdentifier = @"XBConferenceHomeMenuItemCell";
 
-    NSArray *identifiers = @[DateCellIdentifier, DayCellIdentifier, MenuItemCellIdentifier];
+    NSArray *identifiers = @[DateCellIdentifier, DayCellIdentifier, MenuItemCellIdentifier, MenuItemCellIdentifier];
     return identifiers[indexPath.section];
 }
 
@@ -148,7 +154,7 @@
     static NSString *DayCellNibName = @"XBConferenceHomeDayCell";
     static NSString *MenuItemCellNibName = @"XBConferenceHomeMenuItemCell";
     
-    NSArray *identifiers = @[DateCellNibName, DayCellNibName, MenuItemCellNibName];
+    NSArray *identifiers = @[DateCellNibName, DayCellNibName, MenuItemCellNibName, MenuItemCellNibName];
     return identifiers[indexPath.section];
 }
 
@@ -165,6 +171,11 @@
         case 2:
             [(XBConferenceHomeMenuItemCell *) cell configureWithTitle:self.dataSource[indexPath.section][indexPath.row][@"title"]];
             break;
+
+        case 3:
+            [(XBConferenceHomeMenuItemCell *) cell configureWithTitle:NSLocalizedString(@"My ratings", @"My ratings")];
+            break;
+
         default:break;
     }
 }
@@ -185,6 +196,14 @@
             case 2:
                 [self performSegueWithIdentifier:@"ShowRooms" sender:nil];
                 break;
+
+            default:break;
+        }
+    } else if (indexPath.section == 3) {
+        switch (indexPath.row) {
+            case 0:
+                [self performSegueWithIdentifier:@"ShowRatings" sender:nil];
+                break;
                 
             default:break;
         }
@@ -201,14 +220,21 @@
         XBConferenceDayViewController *viewController = segue.destinationViewController;
         viewController.conference = self.conference;
         viewController.day = presentation.fromTime;
+
     } else if ([segue.identifier isEqualToString:@"ShowSpeakers"]) {
         XBConferenceSpeakerViewController *viewController = segue.destinationViewController;
         viewController.conference = self.conference;
+
     } else if ([segue.identifier isEqualToString:@"ShowRooms"]) {
         XBConferenceRoomViewController *viewController = segue.destinationViewController;
         viewController.conference = self.conference;
+
     } else if ([segue.identifier isEqualToString:@"ShowTracks"]) {
         XBConferenceTrackViewController *viewController = segue.destinationViewController;
+        viewController.conference = self.conference;
+
+    } else if ([segue.identifier isEqualToString:@"ShowRatings"]) {
+        XBConferenceRatingTableViewController *viewController = segue.destinationViewController;
         viewController.conference = self.conference;
     }
 }
