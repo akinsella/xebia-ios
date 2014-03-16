@@ -11,6 +11,9 @@
 #import "XBConferencePresentationDetail.h"
 #import "XBConferenceSpeaker.h"
 #import "DCParserConfiguration+XBAdditions.h"
+#import "XBConferencePresentation.h"
+
+static const NSUInteger XBConferencePresentationRatingStartTime = 10;
 
 @interface XBConferencePresentationDetail()
 
@@ -42,6 +45,11 @@
     return config;
 }
 
+- (void)mergeWithPresentation:(XBConferencePresentation *)presentation {
+    self.fromTime = presentation.fromTime;
+    self.toTime = presentation.toTime;
+}
+
 - (NSString *)speakerString {
     if (!_speakerString) {
         _speakerString = [Underscore.array(self.speakers).uniq.map(^(XBConferenceSpeaker *speaker){
@@ -49,6 +57,11 @@
         }).unwrap componentsJoinedByString:@", "];
     }
     return _speakerString;
+}
+
+- (BOOL)canBeVoted {
+    NSDate *endDatePostponed = [self.toTime dateByAddingTimeInterval:(XBConferencePresentationRatingStartTime * 60)];
+    return !endDatePostponed || [endDatePostponed compare:[NSDate date]] == NSOrderedAscending;
 }
 
 @end

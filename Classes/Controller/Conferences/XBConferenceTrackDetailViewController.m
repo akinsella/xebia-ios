@@ -86,7 +86,7 @@
     XBConferencePresentation *presentation = self.dataSource[selectedIndexPath.row];
     XBConferencePresentationDetailViewController *vc = segue.destinationViewController;
     vc.conference = self.conference;
-    vc.presentationIdentifier = [presentation scheduleId];
+    vc.presentation = presentation;
 }
 
 @end

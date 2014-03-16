@@ -18,8 +18,8 @@
 
     #ifdef DEBUG
         #define XBLog(fmt, ...) TFLog((@"%s [Line %d] " fmt), __PRETTY_FUNCTION__, __LINE__, ##__VA_ARGS__)
-        #define XBLogDebug(fmt, ...)
-        #define XBLog(fmt, ...)
+        //#define XBLogDebug(fmt, ...)
+        //#define XBLog(fmt, ...)
     #else
         #define XBLog(fmt, ...) NSLog((@"%s [Line %d] " fmt), __PRETTY_FUNCTION__, __LINE__, ##__VA_ARGS__)
     #endif

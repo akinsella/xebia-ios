@@ -10,7 +10,7 @@
 
 @interface XBConferencePresentationDetailViewController : XBViewController
 
-@property (nonatomic, strong) NSNumber *presentationIdentifier;
+@property (nonatomic, strong) XBConferencePresentation *presentation;
 @property (nonatomic, strong) XBConference *conference;
 
 @property (nonatomic, weak) IBOutlet UIScrollView *scrollView;
@@ -19,6 +19,6 @@
 @property (nonatomic, weak) IBOutlet UILabel *trackLabel;
 @property (nonatomic, weak) IBOutlet UILabel *speakerLabel;
 
-@property (nonatomic, weak) IBOutlet UIButton *voteButton;
+@property (nonatomic, weak) IBOutlet UIButton *ratingButton;
 
 @end

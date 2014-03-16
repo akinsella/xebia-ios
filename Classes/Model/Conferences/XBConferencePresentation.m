@@ -52,4 +52,9 @@
     return _speakerString;
 }
 
+- (NSString *)standardIdentifier
+{
+    return self.identifier ? self.identifier : self.scheduleId;
+}
+
 @end

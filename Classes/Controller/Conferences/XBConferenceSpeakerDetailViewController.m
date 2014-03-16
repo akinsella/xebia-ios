@@ -76,7 +76,7 @@
     NSIndexPath *selectedIndexPath = [self.tableView indexPathForSelectedRow];
     XBConferencePresentationDetailViewController *vc = segue.destinationViewController;
     vc.conference = self.conference;
-    vc.presentationIdentifier = [self.dataSource[selectedIndexPath.row] presentationId];
+    vc.presentation = self.dataSource[selectedIndexPath.row];
 }
 
 @end

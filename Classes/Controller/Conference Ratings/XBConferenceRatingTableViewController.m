@@ -90,7 +90,7 @@
     XBConferencePresentation *presentation = self.conferencePresentations[selectedIndexPath.row];
     XBConferencePresentationDetailViewController *vc = segue.destinationViewController;
     vc.conference = self.conference;
-    vc.presentationIdentifier = [presentation identifier];
+    vc.presentation = presentation;
 }
 
 @end

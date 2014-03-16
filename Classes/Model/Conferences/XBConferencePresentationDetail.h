@@ -6,6 +6,8 @@
 #import <Foundation/Foundation.h>
 #import "XBMappingProvider.h"
 
+@class XBConferencePresentation;
+
 
 @interface XBConferencePresentationDetail : NSObject<XBMappingProvider>
 
@@ -25,6 +27,9 @@
 @property (nonatomic, strong) NSString *track;
 @property (nonatomic, strong) NSString *summary;
 
+- (void)mergeWithPresentation:(XBConferencePresentation *)presentation;
+
 - (NSString *)speakerString;
+- (BOOL)canBeVoted;
 
 @end

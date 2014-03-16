@@ -26,6 +26,8 @@
     self.summaryLabel.text = self.presentationDetail.summary;
     self.trackLabel.text = self.presentationDetail.track;
     self.speakerLabel.text = [NSString stringWithFormat:@"%@ %@", NSLocalizedString(@"par", @"par"), self.presentationDetail.speakerString];
+
+    self.ratingButton.hidden = ![self.presentationDetail canBeVoted];
 }
 
 - (NSString *)pathForLocalDataSource {
@@ -35,8 +37,9 @@
 
 - (void)loadConferenceDetail {
     XBConferencePresentationDataSource *dataSource = [XBConferencePresentationDataSource dataSourceWithResourcePath:self.pathForLocalDataSource];
-    [dataSource loadPresentationWithId:self.presentationIdentifier callback:^(XBConferencePresentationDetail *presentation) {
+    [dataSource loadPresentationWithId:self.presentation.standardIdentifier callback:^(XBConferencePresentationDetail *presentation) {
         self.presentationDetail = presentation;
+        [self.presentationDetail mergeWithPresentation:self.presentation];
         [self applyValues];
     }];
 }

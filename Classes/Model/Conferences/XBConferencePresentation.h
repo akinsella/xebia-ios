@@ -24,6 +24,7 @@
 @property (nonatomic, strong) NSArray *speakers;
 @property (nonatomic, strong) NSString *track;
 
+- (NSNumber *)standardIdentifier;
 - (NSString *)speakerString;
 
 @end

@@ -1420,7 +1420,7 @@
                                     <constraint firstAttribute="trailing" secondItem="GyK-QW-5Sx" secondAttribute="trailing" constant="20" id="wqE-IG-mY0"/>
                                 </constraints>
                             </scrollView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="No6-Pd-9h3">
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="No6-Pd-9h3">
                                 <rect key="frame" x="269" y="20" width="31" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <constraints>
@@ -1447,12 +1447,12 @@
                     </view>
                     <navigationItem key="navigationItem" id="9E4-vB-2VC"/>
                     <connections>
+                        <outlet property="ratingButton" destination="No6-Pd-9h3" id="t2m-ds-YC5"/>
                         <outlet property="scrollView" destination="CNp-Oc-Fc5" id="bYF-Bj-LSz"/>
                         <outlet property="speakerLabel" destination="Cxf-7R-ET0" id="bp3-wT-ZtX"/>
                         <outlet property="summaryLabel" destination="GyK-QW-5Sx" id="LZ1-d0-deL"/>
                         <outlet property="titleLabel" destination="Fjt-6q-3hC" id="Oxq-Y6-5wB"/>
                         <outlet property="trackLabel" destination="4va-qX-xFI" id="vAr-Xm-EYR"/>
-                        <outlet property="voteButton" destination="No6-Pd-9h3" id="xSt-Hg-Y1K"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="P62-HX-UqE" userLabel="First Responder" sceneMemberID="firstResponder"/>
