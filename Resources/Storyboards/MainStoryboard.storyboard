@@ -1476,17 +1476,18 @@
                                 <rect key="frame" x="20" y="31" width="280" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="inO-zq-2mW">
                                 <rect key="frame" x="20" y="61" width="280" height="16"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="13"/>
+                                <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1Ro-Oh-lma">
-                                <rect key="frame" x="0.0" y="85" width="320" height="64"/>
+                                <rect key="frame" x="0.0" y="107" width="320" height="64"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8pd-QT-eBl">
@@ -1590,7 +1591,7 @@
                                         </connections>
                                     </button>
                                 </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstItem="Kfd-0d-9Ns" firstAttribute="leading" secondItem="MQN-cO-bC5" secondAttribute="trailing" constant="35" id="0GO-wi-c3O"/>
                                     <constraint firstAttribute="height" constant="64" id="5FR-Ub-moq"/>
@@ -1615,7 +1616,7 @@
                             <constraint firstItem="inO-zq-2mW" firstAttribute="top" secondItem="mS0-8e-79c" secondAttribute="bottom" constant="9" id="Ogr-yy-mfd"/>
                             <constraint firstAttribute="trailing" secondItem="mS0-8e-79c" secondAttribute="trailing" constant="20" id="fnf-dD-BmR"/>
                             <constraint firstItem="mS0-8e-79c" firstAttribute="top" secondItem="Rvg-fR-tGn" secondAttribute="bottom" constant="11" id="hkw-mi-DaC"/>
-                            <constraint firstItem="1Ro-Oh-lma" firstAttribute="top" secondItem="inO-zq-2mW" secondAttribute="bottom" constant="8" id="msO-5M-fh0"/>
+                            <constraint firstItem="1Ro-Oh-lma" firstAttribute="top" secondItem="inO-zq-2mW" secondAttribute="bottom" constant="30" id="msO-5M-fh0"/>
                             <constraint firstItem="mS0-8e-79c" firstAttribute="leading" secondItem="wZI-ab-EMj" secondAttribute="leading" constant="20" id="tYl-cT-2aQ"/>
                         </constraints>
                     </view>

@@ -3,6 +3,7 @@
 // Copyright (c) 2014 Xebia. All rights reserved.
 //
 
+#import <SSToolkit/UIColor+SSToolkitAdditions.h>
 #import "XBConferenceRatingViewController.h"
 #import "XBConferencePresentationDetail.h"
 #import "XBConferenceRating.h"
@@ -23,6 +24,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self applyValues];
+    self.view.backgroundColor = [UIColor colorWithHex:@"#F0F0F0"];
 }
 
 

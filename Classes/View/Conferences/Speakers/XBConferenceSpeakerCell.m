@@ -25,6 +25,7 @@
     self.firstNameLabel.text = speaker.firstName;
     self.lastNameLabel.text = speaker.lastName;
     
+    self.photoImageView.image = nil;
     [[SDWebImageManager sharedManager] downloadWithURL:[speaker.imageURL url]
                                                options:kNilOptions
                                               progress:^(NSUInteger receivedSize, long long int expectedSize) {
