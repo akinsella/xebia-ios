@@ -43,3 +43,11 @@
 "Close"="Close";
 "Map"="Map";
 "Back"="Back";
+
+"Speakers" = "Speakers";
+"Tracks" = "Tracks";
+"Rooms" = "Rooms";
+"My ratings" = "My ratings";
+"Loading error" = "Oops! Cannot load the conference list.";
+"by" = "by";
+"Rate this" = "Rate this talk";

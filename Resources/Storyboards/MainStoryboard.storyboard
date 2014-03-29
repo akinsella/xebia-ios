@@ -1377,6 +1377,22 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="No6-Pd-9h3">
+                                        <rect key="frame" x="20" y="-30" width="280" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" red="0.41568627450000001" green="0.12549019610000001" blue="0.37254901959999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="Rj8-tc-mgb"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
+                                        <state key="normal" title="Vote">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <segue destination="LkW-0m-hVh" kind="push" identifier="ShowVoteForm" id="f9I-Gk-qXG"/>
+                                        </connections>
+                                    </button>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="GyK-QW-5Sx">
                                         <rect key="frame" x="20" y="97" width="280" height="17"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -1412,43 +1428,29 @@
                                     <constraint firstAttribute="trailing" secondItem="4va-qX-xFI" secondAttribute="trailing" constant="20" id="CuC-G9-qvB"/>
                                     <constraint firstItem="4va-qX-xFI" firstAttribute="leading" secondItem="CNp-Oc-Fc5" secondAttribute="leading" constant="20" id="DKM-Ci-JFl"/>
                                     <constraint firstAttribute="bottom" secondItem="GyK-QW-5Sx" secondAttribute="bottom" constant="20" id="ISu-h9-hZ9"/>
-                                    <constraint firstItem="Fjt-6q-3hC" firstAttribute="top" secondItem="CNp-Oc-Fc5" secondAttribute="top" constant="40" id="Nzo-uZ-aJE"/>
+                                    <constraint firstItem="4va-qX-xFI" firstAttribute="top" secondItem="No6-Pd-9h3" secondAttribute="bottom" constant="26" id="P3Z-Mu-p0H"/>
                                     <constraint firstAttribute="trailing" secondItem="Fjt-6q-3hC" secondAttribute="trailing" constant="20" id="PNj-K1-IKa"/>
-                                    <constraint firstItem="4va-qX-xFI" firstAttribute="top" secondItem="CNp-Oc-Fc5" secondAttribute="top" constant="26" id="RnL-or-5Fw"/>
+                                    <constraint firstItem="Fjt-6q-3hC" firstAttribute="top" secondItem="No6-Pd-9h3" secondAttribute="bottom" constant="40" id="TIz-CJ-XRe"/>
                                     <constraint firstItem="Cxf-7R-ET0" firstAttribute="leading" secondItem="CNp-Oc-Fc5" secondAttribute="leading" constant="20" id="afG-zb-KdO"/>
+                                    <constraint firstItem="No6-Pd-9h3" firstAttribute="top" secondItem="CNp-Oc-Fc5" secondAttribute="top" constant="-30" id="ifa-lB-Ja2"/>
                                     <constraint firstAttribute="trailing" secondItem="Cxf-7R-ET0" secondAttribute="trailing" constant="20" id="qUm-L6-gxg"/>
                                     <constraint firstItem="GyK-QW-5Sx" firstAttribute="top" secondItem="Cxf-7R-ET0" secondAttribute="bottom" constant="16" id="ush-s0-Vyk"/>
                                     <constraint firstAttribute="trailing" secondItem="GyK-QW-5Sx" secondAttribute="trailing" constant="20" id="wqE-IG-mY0"/>
                                 </constraints>
                             </scrollView>
-                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="No6-Pd-9h3">
-                                <rect key="frame" x="269" y="20" width="31" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="31" id="INh-mW-3hD"/>
-                                    <constraint firstAttribute="height" constant="30" id="Rj8-tc-mgb"/>
-                                </constraints>
-                                <state key="normal" title="Vote">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <segue destination="LkW-0m-hVh" kind="push" identifier="ShowVoteForm" id="f9I-Gk-qXG"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="CNp-Oc-Fc5" firstAttribute="top" secondItem="8Go-38-Vdm" secondAttribute="top" id="59i-R1-lLV"/>
-                            <constraint firstAttribute="trailing" secondItem="No6-Pd-9h3" secondAttribute="trailing" constant="20" id="DUY-t0-aSK"/>
                             <constraint firstItem="CNp-Oc-Fc5" firstAttribute="leading" secondItem="8Go-38-Vdm" secondAttribute="leading" id="P8t-nR-2IW"/>
                             <constraint firstItem="lpb-wk-5n7" firstAttribute="top" secondItem="CNp-Oc-Fc5" secondAttribute="bottom" id="dtV-kI-Nku"/>
                             <constraint firstAttribute="trailing" secondItem="CNp-Oc-Fc5" secondAttribute="trailing" id="jE9-ot-bWU"/>
-                            <constraint firstItem="No6-Pd-9h3" firstAttribute="top" secondItem="Z54-QM-oyj" secondAttribute="bottom" id="jd8-lR-77l"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="9E4-vB-2VC"/>
                     <connections>
                         <outlet property="ratingButton" destination="No6-Pd-9h3" id="t2m-ds-YC5"/>
+                        <outlet property="ratingButtonTopConstraint" destination="ifa-lB-Ja2" id="JZ0-uC-uAp"/>
                         <outlet property="scrollView" destination="CNp-Oc-Fc5" id="bYF-Bj-LSz"/>
                         <outlet property="speakerLabel" destination="Cxf-7R-ET0" id="bp3-wT-ZtX"/>
                         <outlet property="summaryLabel" destination="GyK-QW-5Sx" id="LZ1-d0-deL"/>

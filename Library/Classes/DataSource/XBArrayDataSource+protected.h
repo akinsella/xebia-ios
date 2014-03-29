@@ -13,5 +13,6 @@
 
 - (void)filterData;
 - (void)sortData;
+- (void)setFilterPredicate:(XBPredicateBlock)predicateBlock;
 
 @end

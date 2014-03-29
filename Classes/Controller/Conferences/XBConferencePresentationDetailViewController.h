@@ -20,5 +20,6 @@
 @property (nonatomic, weak) IBOutlet UILabel *speakerLabel;
 
 @property (nonatomic, weak) IBOutlet UIButton *ratingButton;
+@property (nonatomic, weak) IBOutlet NSLayoutConstraint *ratingButtonTopConstraint;
 
 @end

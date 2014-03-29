@@ -32,45 +32,56 @@
 
 - (void)loadAndFilterDistinctDays:(void (^)())callback {
     [self loadDataWithCallback:^{
-
-        NSMutableDictionary *uniqueDays = [NSMutableDictionary dictionary];
-        NSDateFormatter *formatter = [NSDateFormatter initWithDateFormat:@"YYYYMMdd"];
-        [self filter:^BOOL(XBConferencePresentation *pres) {
-            NSString *dateIdentifier = [formatter stringFromDate:pres.fromTime];
-            if (!uniqueDays[dateIdentifier]) {
-                uniqueDays[dateIdentifier] = pres;
-                return YES;
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+            NSMutableDictionary *uniqueDays = [NSMutableDictionary dictionary];
+            NSDateFormatter *formatter = [NSDateFormatter initWithDateFormat:@"YYYYMMdd"];
+            [self filter:^BOOL(XBConferencePresentation *pres) {
+                NSString *dateIdentifier = [formatter stringFromDate:pres.fromTime];
+                if (!uniqueDays[dateIdentifier]) {
+                    uniqueDays[dateIdentifier] = pres;
+                    return YES;
+                }
+                return NO;
+            }];
+            
+            if (callback) {
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    callback();
+                });
             }
-            return NO;
-        }];
-
-        if (callback) {
-            callback();
-        }
+        });
     }];
 }
 
 - (void)loadAndFilterByDay:(NSDate *)day callback:(void (^)())callback {
     [self loadDataWithCallback:^{
-        [self filter:^BOOL(XBConferencePresentation *pres) {
-            return [pres.fromTime equalsToDayInDate:day];
-        }];
-        
-        if (callback) {
-            callback();
-        }
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+            [self filter:^BOOL(XBConferencePresentation *pres) {
+                return [pres.fromTime equalsToDayInDate:day];
+            }];
+            
+            if (callback) {
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    callback();
+                });
+            }
+        });
     }];
 }
 
 - (void)loadAndFilterByIdentifiers:(NSArray *)identifiers callback:(void (^)())callback {
     [self loadDataWithCallback:^{
-        [self filter:^BOOL(XBConferencePresentation *pres) {
-            return [identifiers containsObject:pres.identifier];
-        }];
-
-        if (callback) {
-            callback();
-        }
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+            [self filter:^BOOL(XBConferencePresentation *pres) {
+                return [identifiers containsObject:pres.identifier];
+            }];
+            
+            if (callback) {
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    callback();
+                });
+            }
+        });
     }];
 }
 

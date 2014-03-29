@@ -77,7 +77,7 @@
     [self.downloadActivityIndicator startAnimating];
     [self.downloader downloadAllResources:^(NSError *error) {
         if (error && ![self.downloader isBundleCached]) {
-            [self showErrorProgressHUDWithMessage:NSLocalizedString(@"Erreur de chargement", @"Erreur de chargement") afterDelay:2.0 callback:nil];
+            [self showErrorProgressHUDWithMessage:NSLocalizedString(@"Loading error", @"Loading error") afterDelay:2.0 callback:nil];
         } else {
             [self applyValues];
 

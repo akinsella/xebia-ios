@@ -9,6 +9,7 @@
 #import "XBReloadableArrayDataSource+protected.h"
 #import "XBConferencePresentation.h"
 #import "XBJsonToArrayDataMapper.h"
+#import "XBArrayDataSource+protected.h"
 
 @interface XBConferenceRoomDetailDataSource()
 
@@ -25,7 +26,7 @@
         self.dataLoader = [XBLocalJsonDataLoader dataLoaderWithResourcePath:resourcePath];
         self.trackName = roomName;
         self.dataMapper = [XBJsonToArrayDataMapper mapperWithRootKeyPath:nil typeClass:[XBConferencePresentation class]];
-        [self filter:^BOOL(XBConferencePresentation *presentation) {
+        [self setFilterPredicate:^BOOL(XBConferencePresentation *presentation) {
             return [presentation.room isEqualToString:roomName];
         }];
     }

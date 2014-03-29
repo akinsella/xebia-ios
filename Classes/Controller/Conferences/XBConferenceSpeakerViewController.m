@@ -21,6 +21,7 @@
 - (void)viewDidLoad {
 
     self.delegate = self;
+    self.fixedRowHeight = YES;
     self.title = NSLocalizedString(@"Speakers", nil);
 
     [super viewDidLoad];

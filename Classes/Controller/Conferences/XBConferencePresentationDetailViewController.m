@@ -25,9 +25,22 @@
     self.titleLabel.text = self.presentationDetail.title;
     self.summaryLabel.text = self.presentationDetail.summary;
     self.trackLabel.text = self.presentationDetail.track;
-    self.speakerLabel.text = [NSString stringWithFormat:@"%@ %@", NSLocalizedString(@"par", @"par"), self.presentationDetail.speakerString];
+    self.speakerLabel.text = [NSString stringWithFormat:@"%@ %@", NSLocalizedString(@"by", @"by"), self.presentationDetail.speakerString];
 
-    self.ratingButton.hidden = ![self.presentationDetail canBeVoted];
+    [self.ratingButton setTitle:NSLocalizedString(@"Rate this", @"Rate this") forState:UIControlStateNormal];
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    
+    if (self.presentationDetail.canBeVoted) {
+        [self.view layoutIfNeeded];
+        [UIView animateWithDuration:0.5 animations:^{
+            self.ratingButtonTopConstraint.constant = 20.0;
+            [self.view layoutIfNeeded];
+        }];
+    }
 }
 
 - (NSString *)pathForLocalDataSource {
