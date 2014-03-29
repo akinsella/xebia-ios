@@ -258,10 +258,10 @@
 }
 
 - (void)setupConferenceLocationMonitoring {
-    if (!IS_IOS_6_OR_EARLIER()) {
-        XBConferenceLocationManager *locationManager = [XBConferenceLocationManager new];
-        [locationManager initializeRegionMonitoring];
-    }
+//    if (!IS_IOS_6_OR_EARLIER()) {
+//        XBConferenceLocationManager *locationManager = [XBConferenceLocationManager new];
+//        [locationManager initializeRegionMonitoring];
+//    }
 }
 
 @end

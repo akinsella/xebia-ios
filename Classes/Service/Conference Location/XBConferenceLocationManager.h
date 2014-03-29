@@ -9,7 +9,8 @@ static NSString *XBConferenceLocationUpdateNotification = @"XBConferenceLocation
 static NSString *XBConferenceLocationIdentifier = @"XBConferenceLocationIdentifier";
 
 @interface XBConferenceLocationManager : NSObject <CLLocationManagerDelegate>
-- (void)initializeRegionMonitoring;
 
+- (void)initializeRegionMonitoring;
 - (void)stopMonitoringForRegion:(CLBeaconRegion *)region;
+
 @end

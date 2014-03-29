@@ -33,12 +33,16 @@
 }
 
 - (IBAction)ratingButtonClicked:(UIButton *)sender {
-    [self saveRating:[self.ratingButtons indexOfObject:sender]];
-    [[[UIAlertView alloc] initWithTitle:nil
-                               message:NSLocalizedString(@"Your vote has been submitted", @"Your vote has been submitted")
-                              delegate:nil
-                     cancelButtonTitle:NSLocalizedString(@"OK", @"OK")
-                     otherButtonTitles:nil] show];
+    [self applyRatingWithValue:[self.ratingButtons indexOfObject:sender]];
+}
+
+- (void)applyRatingWithValue:(XBConferenceRatingValue)value {
+
+    for (int i = 0; i < [self.ratingButtons count]; i++) {
+        [self.ratingButtons[i] setSelected:(i <= value)];
+    }
+
+    [self saveRating:value];
 }
 
 - (void)saveRating:(XBConferenceRatingValue)ratingValue {

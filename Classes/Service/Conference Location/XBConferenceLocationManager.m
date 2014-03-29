@@ -32,7 +32,7 @@
 - (CLBeaconRegion *)beaconRegion
 {
     if (!_beaconRegion) {
-        NSString *uuid = [[NSUUID alloc] UUIDString];
+        NSUUID *uuid = [[NSUUID alloc] init];
         _beaconRegion = [[CLBeaconRegion alloc] initWithProximityUUID:uuid identifier:XBConferenceLocationIdentifier];
         _beaconRegion.notifyEntryStateOnDisplay = YES;
         _beaconRegion.notifyOnEntry = YES;
