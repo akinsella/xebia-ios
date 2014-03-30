@@ -464,6 +464,10 @@ static NSInteger const kApiVersion = 1;
     NSLog(@"Application will terminate !!");
 }
 
+- (void)applicationDidBecomeActive:(UIApplication *)application {
+    [self initConferenceRatings];
+}
+
 - (void)initTestFlight {
     [TestFlight takeOff: TestFlightAppToken];
 }
@@ -479,7 +483,7 @@ static NSInteger const kApiVersion = 1;
 }
 
 - (void)initConferenceRatings {
-    [XBConferenceRatingManager sharedManager];
+    [[XBConferenceRatingManager sharedManager] sendRatings];
 }
 
 @end

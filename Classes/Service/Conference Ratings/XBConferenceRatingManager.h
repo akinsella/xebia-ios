@@ -19,4 +19,6 @@
 - (NSArray *)ratingsForConference:(XBConference *)conference;
 
 - (XBConferenceRating *)ratingForPresentation:(XBConferencePresentationDetail *)presentation;
+
+- (void)sendRatings;
 @end

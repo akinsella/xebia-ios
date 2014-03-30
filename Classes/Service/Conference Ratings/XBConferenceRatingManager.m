@@ -3,16 +3,20 @@
 // Copyright (c) 2014 Xebia. All rights reserved.
 //
 
+#import <Underscore.m/Underscore.h>
 #import "XBConferenceRatingManager.h"
 #import "XBConferenceRating.h"
 #import "XBConference.h"
 #import "XBConferencePresentation.h"
 #import "XBConferencePresentationDetail.h"
+#import "XBConferenceRatingSendingService.h"
+#import "XBPListConfigurationProvider.h"
 
 @interface XBConferenceRatingManager()
 
 @property (nonatomic, strong) NSMutableSet *ratings;
 @property (nonatomic, strong) NSRecursiveLock *lock;
+@property (nonatomic, strong) XBConferenceRatingSendingService *ratingSendingService;
 
 @end
 
@@ -54,8 +58,7 @@
     return [[[self.ratings filteredSetUsingPredicate:conferenceFilterPredicate] allObjects] firstObject];
 }
 
-- (void)loadFromFile
-{
+- (void)loadFromFile {
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         [self.lock lock];
         NSArray *ratings = [NSKeyedUnarchiver unarchiveObjectWithFile:self.filePath];
@@ -64,8 +67,7 @@
     });
 }
 
-- (void)writeToFile
-{
+- (void)writeToFile {
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         [self.lock lock];
         [NSKeyedArchiver archiveRootObject:[self.ratings allObjects] toFile:self.filePath];
@@ -73,12 +75,31 @@
     });
 }
 
-- (NSString *)filePath
-{
+- (NSString *)filePath {
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *documentsDirectory = [paths objectAtIndex:0];
     
     return [documentsDirectory stringByAppendingPathComponent:@"ratings"];
+}
+
+- (void)sendRatings {
+    NSArray *allRatings = [self.ratings allObjects];
+    NSArray *ratingsToSend = Underscore.filter(allRatings, ^(XBConferenceRating *rating) {
+        return ![rating.sent boolValue];
+    });
+    XBHttpClient *httpClient = [[XBPListConfigurationProvider provider] httpClient];
+    self.ratingSendingService = [[XBConferenceRatingSendingService alloc] initWithHttpClient:httpClient ratings:allRatings];
+
+    // TODO: At the end, call 'applySentFlagForRatings'
+}
+
+- (void)applySentFlagForRatings:(NSArray *)sentRatings {
+    for (XBConferenceRating *rating in self.ratings) {
+        if ([sentRatings containsObject:rating]) {
+            rating.sent = @(YES);
+        }
+    }
+    [self writeToFile];
 }
 
 @end
