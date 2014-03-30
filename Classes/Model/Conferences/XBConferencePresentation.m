@@ -23,6 +23,14 @@
 + (DCParserConfiguration *)mappings {
     DCParserConfiguration *config = [DCParserConfiguration configuration];
 
+    [config addCustomParsersObject:[[DCCustomParser alloc] initWithBlockParser:[DCCustomParser stringParser]
+                                                              forAttributeName:@"_identifier"
+                                                            onDestinationClass:[self class]]];
+
+    [config addCustomParsersObject:[[DCCustomParser alloc] initWithBlockParser:[DCCustomParser stringParser]
+                                                              forAttributeName:@"_scheduleId"
+                                                            onDestinationClass:[self class]]];
+
     [config addObjectMapping: [DCObjectMapping mapKeyPath:@"presentation.id" toAttribute:@"identifier" onClass:[self class]]];
     [config addObjectMapping: [DCObjectMapping mapKeyPath:@"id" toAttribute:@"scheduleId" onClass:[self class]]];
 

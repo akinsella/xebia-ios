@@ -9,7 +9,7 @@
 
 @interface XBConferenceSpeaker : NSObject<XBMappingProvider>
 
-@property (nonatomic, strong) NSNumber *identifier;
+@property (nonatomic, strong) NSString *identifier;
 @property (nonatomic, strong) NSString *lastName;
 @property (nonatomic, strong) NSString *bio;
 @property (nonatomic, strong) NSArray *talks;

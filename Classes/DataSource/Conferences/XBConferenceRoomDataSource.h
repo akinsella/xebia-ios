@@ -14,4 +14,6 @@
 - (instancetype)initWithResourcePath:(NSString *)resourcePath;
 + (instancetype)dataSourceWithResourcePath:(NSString *)resourcePath;
 
+- (NSDictionary *)dictionaryWithRoomsAndBeacons;
+
 @end

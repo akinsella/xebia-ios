@@ -69,10 +69,10 @@
     return @"http://blogs-images.forbes.com/scottmendelson/files/2014/02/the_lego_movie_2014-wide.jpg";
 }
 
-- (NSNumber *)identifier
+- (NSString *)identifier
 {
     //TODO: dynamyse these values
-    return @(10);
+    return @"10";
 }
 
 

@@ -19,9 +19,9 @@
 
 - (NSArray *)mappedArrayForIdentifiers:(NSArray *)identifiers {
     NSArray *values = [self copy];
-    return Underscore.arrayMap(identifiers, ^(NSNumber *identifier) {
+    return Underscore.arrayMap(identifiers, ^(NSString *identifier) {
         XBConferencePresentation *mappedPresentation = Underscore.find(values, ^(XBConferencePresentation *presentation) {
-            return [presentation.identifier isEqualToNumber:identifier];
+            return [presentation.identifier isEqualToString:identifier];
         });
         return mappedPresentation ? mappedPresentation : [NSNull null];
     });

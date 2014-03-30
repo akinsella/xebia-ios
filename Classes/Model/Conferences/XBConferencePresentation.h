@@ -9,9 +9,9 @@
 
 @interface XBConferencePresentation : NSObject<XBMappingProvider>
 
-@property (nonatomic, strong) NSNumber *conferenceId;
-@property (nonatomic, strong) NSNumber *identifier;
-@property (nonatomic, strong) NSNumber *scheduleId;
+@property (nonatomic, strong) NSString *conferenceId;
+@property (nonatomic, strong) NSString *identifier;
+@property (nonatomic, strong) NSString *scheduleId;
 @property (nonatomic, strong) NSDate *fromTime;
 @property (nonatomic, strong) NSDate *toTime;
 @property (nonatomic, assign) BOOL partnerSlot;
@@ -24,7 +24,7 @@
 @property (nonatomic, strong) NSArray *speakers;
 @property (nonatomic, strong) NSString *track;
 
-- (NSNumber *)standardIdentifier;
+- (NSString *)standardIdentifier;
 - (NSString *)speakerString;
 
 @end
