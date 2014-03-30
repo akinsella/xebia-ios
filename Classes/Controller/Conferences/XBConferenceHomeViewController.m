@@ -31,6 +31,7 @@
 @property (nonatomic, strong) XBConferenceDownloader *downloader;
 @property (nonatomic, strong) XBConference *conference;
 @property (nonatomic, strong) XBConferenceScheduleDataSource *dayDataSource;
+@property (nonatomic, strong) XBConferenceLocationManager *conferenceLocationManager;
 
 @end
 
@@ -247,8 +248,7 @@
 }
 
 #pragma mark - Header effects
-- (void)scrollViewDidScroll:(UIScrollView *)scrollView
-{
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
     self.backgroundImageView.frame = ({
         CGRect frame = self.backgroundImageView.frame;
         frame.origin.y = scrollView.contentOffset.y;
@@ -259,8 +259,8 @@
 
 - (void)setupConferenceLocationMonitoring {
 //    if (!IS_IOS_6_OR_EARLIER()) {
-//        XBConferenceLocationManager *locationManager = [XBConferenceLocationManager new];
-//        [locationManager initializeRegionMonitoring];
+//        self.conferenceLocationManager = [XBConferenceLocationManager new];
+//        [self.conferenceLocationManager initializeRegionMonitoring];
 //    }
 }
 

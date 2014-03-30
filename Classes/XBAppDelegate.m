@@ -27,6 +27,7 @@
 #import <Crashlytics/Crashlytics.h>
 #import <sys/utsname.h>
 #import <sys/sysctl.h>
+#import "XBConferenceLocationManager.h"
 
 static NSString *const kTrackingId = @"UA-1889791-23";
 
@@ -43,13 +44,14 @@ static NSString *const CrashlyticsApiKey = @"48e99a586053e4194936d79b6126ad23e9d
 
 static NSInteger const kApiVersion = 1;
 
-@interface XBAppDelegate()
+@interface XBAppDelegate() <UIApplicationDelegate, CLLocationManagerDelegate>
 
 @property(nonatomic, strong) XBViewControllerManager *viewControllerManager;
 @property(nonatomic, strong) XBMainViewController *mainViewController;
 @property(nonatomic, strong) NSString *deviceToken;
 @property(nonatomic, strong) XBConfigurationProvider *configurationProvider;
 @property(nonatomic, assign) Boolean registered;
+@property XBConferenceLocationManager *conferenceLocationManager;
 
 @end
 
@@ -115,6 +117,8 @@ static NSInteger const kApiVersion = 1;
     [self.window makeKeyAndVisible];
 
     [self checkMinApiVersion];
+    
+    [self initBeaconTracking];
 
     return YES;
 }
@@ -485,5 +489,44 @@ static NSInteger const kApiVersion = 1;
 - (void)initConferenceRatings {
     [[XBConferenceRatingManager sharedManager] sendRatings];
 }
+
+#pragma iBeacon notifications
+
+- (void)initBeaconTracking {
+//    // This location manager will be used to notify the user of region state transitions.
+//    self.locationManager = [[CLLocationManager alloc] init];
+//    self.locationManager.delegate = self;
+
+    if (!IS_IOS_6_OR_EARLIER()) {
+        self.conferenceLocationManager = [XBConferenceLocationManager new];
+        [self.conferenceLocationManager initializeRegionMonitoring];
+    }
+}
+
+- (void)locationManager:(CLLocationManager *)manager didDetermineState:(CLRegionState)state forRegion:(CLRegion *)region {
+    /*
+     A user can transition in or out of a region while the application is not running. When this happens CoreLocation will launch the application momentarily, call this delegate method and we will let the user know via a local notification.
+     */
+    UILocalNotification *notification = [[UILocalNotification alloc] init];
+    
+    if(state == CLRegionStateInside) {
+        NSString *timestampServer = @"http://192.168.1.65:8082/timestamp";
+        NSString *timestamp = [NSString stringWithContentsOfURL:[NSURL URLWithString:timestampServer] encoding:NSUTF8StringEncoding error:nil];
+        notification.alertBody = timestamp;
+    } else {
+        return;
+    }
+    
+    [[UIApplication sharedApplication] presentLocalNotificationNow:notification];
+}
+
+
+- (void)application:(UIApplication *)application didReceiveLocalNotification:(UILocalNotification *)notification {
+    // If the application is in the foreground, we will notify the user of the region's state via an alert.
+    NSString *cancelButtonTitle = NSLocalizedString(@"OK", @"Title for cancel button in local notification");
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:notification.alertBody message:nil delegate:nil cancelButtonTitle:cancelButtonTitle otherButtonTitles:nil];
+    [alert show];
+}
+
 
 @end

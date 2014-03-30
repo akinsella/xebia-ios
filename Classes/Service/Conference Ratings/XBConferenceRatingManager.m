@@ -85,10 +85,10 @@
 - (void)sendRatings {
     NSArray *allRatings = [self.ratings allObjects];
     NSArray *ratingsToSend = Underscore.filter(allRatings, ^(XBConferenceRating *rating) {
-        return ![rating.sent boolValue];
+        return (BOOL)![rating.sent boolValue];
     });
     XBHttpClient *httpClient = [[XBPListConfigurationProvider provider] httpClient];
-    self.ratingSendingService = [[XBConferenceRatingSendingService alloc] initWithHttpClient:httpClient ratings:allRatings];
+    self.ratingSendingService = [[XBConferenceRatingSendingService alloc] initWithHttpClient:httpClient ratings:ratingsToSend];
 
     // TODO: At the end, call 'applySentFlagForRatings'
 }

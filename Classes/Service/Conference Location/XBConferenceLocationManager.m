@@ -13,6 +13,8 @@
 
 @property (nonatomic, strong) CLBeaconRegion        *beaconRegion;
 
+@property (nonatomic, strong) NSString              *timestampServer;
+
 @end
 
 @implementation XBConferenceLocationManager
@@ -26,13 +28,14 @@
     [self.locationManager startRangingBeaconsInRegion:self.beaconRegion];
 
     // fire notification with region update
-    [self fireUpdateNotificationForStatus:@"Welcome!  You have entered the target region."];
+    [self fireUpdateNotificationForStatus:@"Welcome! You have entered the target region." show:YES];
 }
 
 - (CLBeaconRegion *)beaconRegion
 {
     if (!_beaconRegion) {
-        NSUUID *uuid = [[NSUUID alloc] init];
+        // TODO : override this
+        NSUUID *uuid = [[NSUUID alloc] initWithUUIDString:@"00000000-0000-0000-0000-000000000000"];
         _beaconRegion = [[CLBeaconRegion alloc] initWithProximityUUID:uuid identifier:XBConferenceLocationIdentifier];
         _beaconRegion.notifyEntryStateOnDisplay = YES;
         _beaconRegion.notifyOnEntry = YES;
@@ -42,11 +45,19 @@
     return _beaconRegion;
 }
 
-- (void)fireUpdateNotificationForStatus:(NSString*)status {
-    // fire notification to update displayed status
+- (void)fireUpdateNotificationForStatus:(NSString *)status show:(BOOL)show {
     [[NSNotificationCenter defaultCenter] postNotificationName:XBConferenceLocationUpdateNotification
                                                         object:nil
                                                       userInfo:@{@"status" : status}];
+    
+//    NSString *timestamp = [NSString stringWithContentsOfURL:[NSURL URLWithString:self.timestampServer] encoding:NSUTF8StringEncoding error:nil];
+//    NSLog(@"Xebia-ios: found beacon, %@, timestamp: %@", status, timestamp);
+
+    if (show) {
+        UILocalNotification *notification = [[UILocalNotification alloc] init];
+        notification.alertBody = [NSString stringWithFormat:@"%@ - %@", status, nil];
+        [[UIApplication sharedApplication] presentLocalNotificationNow:notification];
+    }
 }
 
 #pragma mark - CLLocationManager Helpers
@@ -57,14 +68,12 @@
     if (!self.locationManager) {
         self.locationManager = [[CLLocationManager alloc] init];
         self.locationManager.delegate = self;
-        self.locationManager.desiredAccuracy = kCLLocationAccuracyBest;
     }
 
     // begin region monitoring
     [self.locationManager startMonitoringForRegion:self.beaconRegion];
-
-    // fire notification with initial status
-    [self fireUpdateNotificationForStatus:@"Initializing CLLocationManager and initiating region monitoring..."];
+    
+    self.timestampServer = @"http://192.168.1.65:8082/timestamp";
 }
 
 - (void)stopMonitoringForRegion:(CLBeaconRegion*)region {
@@ -84,7 +93,7 @@
 - (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error {
 
     // fire notification with failure status
-    [self fireUpdateNotificationForStatus:[NSString stringWithFormat:@"Location manager failed with error: %@",error.localizedDescription]];
+    [self fireUpdateNotificationForStatus:[NSString stringWithFormat:@"Location manager failed with error: %@", error.localizedDescription] show:NO ];
 }
 
 - (void)locationManager:(CLLocationManager *)manager didDetermineState:(CLRegionState)state forRegion:(CLRegion *)region {
@@ -122,7 +131,7 @@
         self.didShowExitNotifier = YES;
 
         // fire notification with region update
-        [self fireUpdateNotificationForStatus:@"Thanks for visiting.  You have now left the target region."];
+        [self fireUpdateNotificationForStatus:@"Thanks for visiting.  You have now left the target region." show:NO ];
     }
 
     // reset entrance notifier
@@ -142,24 +151,26 @@
              Provide proximity based information to user.  You may choose to do this repeatedly
              or only once depending on the use case.  Optionally use major, minor values here to provide beacon-specific content
              */
-            [self fireUpdateNotificationForStatus:@"You are in the immediate vicinity of the Beacon."];
+            [self fireUpdateNotificationForStatus:@"You are in the immediate vicinity of the Beacon." show:NO];
 
         } else if (closestBeacon.proximity == CLProximityNear) {
             // detect other nearby beacons
             // optionally hide previously displayed proximity based information
-            [self fireUpdateNotificationForStatus:@"There are Beacons nearby."];
+            [self fireUpdateNotificationForStatus:@"There are Beacons nearby." show:NO ];
+        } else {
+            [self fireUpdateNotificationForStatus:@"There are Beacons not too far away from you." show:NO];
         }
     } else {
         // no beacons in range - signal may have been lost
         // optionally hide previously displayed proximity based information
-        [self fireUpdateNotificationForStatus:@"There are currently no Beacons within range."];
+        [self fireUpdateNotificationForStatus:@"There are currently no Beacons within range." show:NO];
     }
 }
 
 - (void)locationManager:(CLLocationManager *)manager rangingBeaconsDidFailForRegion:(CLBeaconRegion *)region withError:(NSError *)error {
 
     // fire notification of range failure
-    [self fireUpdateNotificationForStatus:[NSString stringWithFormat:@"Beacon ranging failed with error: %@", error]];
+    [self fireUpdateNotificationForStatus:[NSString stringWithFormat:@"Beacon ranging failed with error: %@", error] show:NO];
 
     // assume notifications failed, reset indicators
     self.didShowEntranceNotifier = NO;
@@ -169,13 +180,13 @@
 - (void)locationManager:(CLLocationManager *)manager didStartMonitoringForRegion:(CLRegion *)region {
 
     // fire notification of region monitoring
-    [self fireUpdateNotificationForStatus:[NSString stringWithFormat:@"Now monitoring for region: %@",((CLBeaconRegion*)region).identifier]];
+    [self fireUpdateNotificationForStatus:[NSString stringWithFormat:@"Now monitoring for region: %@", ((CLBeaconRegion *) region).identifier] show:NO];
 }
 
 - (void)locationManager:(CLLocationManager *)manager monitoringDidFailForRegion:(CLRegion *)region withError:(NSError *)error {
 
     // fire notification with status update
-    [self fireUpdateNotificationForStatus:[NSString stringWithFormat:@"Region monitoring failed with error: %@", error]];
+    [self fireUpdateNotificationForStatus:[NSString stringWithFormat:@"Region monitoring failed with error: %@", error] show:NO];
 
     // assume notifications failed, reset indicators
     self.didShowEntranceNotifier = NO;
@@ -183,15 +194,14 @@
 }
 
 - (void)locationManager:(CLLocationManager *)manager didChangeAuthorizationStatus:(CLAuthorizationStatus)status {
-
     // current location usage is required to use this demo app
-    if (status == kCLAuthorizationStatusDenied || status == kCLAuthorizationStatusRestricted) {
-        [[[UIAlertView alloc] initWithTitle:@"Current Location Required"
-                                    message:@"Please re-enable Core Location to run this Demo.  The app will now exit."
-                                   delegate:self
-                          cancelButtonTitle:nil
-                          otherButtonTitles:@"OK", nil] show];
-    }
+//    if (status == kCLAuthorizationStatusDenied || status == kCLAuthorizationStatusRestricted) {
+//        [[[UIAlertView alloc] initWithTitle:@"Current Location Required"
+//                                    message:@"Please re-enable Location services."
+//                                   delegate:self
+//                          cancelButtonTitle:nil
+//                          otherButtonTitles:@"OK", nil] show];
+//    }
 }
 
 
