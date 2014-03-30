@@ -7,11 +7,13 @@
 #import "XBViewController.h"
 
 @class XBConferencePresentationDetail;
+@class XBConferenceRating;
 
 
 @interface XBConferenceRatingViewController : XBViewController
 
 @property (nonatomic, strong) XBConferencePresentationDetail *presentationDetail;
+@property (nonatomic, strong) XBConferenceRating *rating;
 
 @property (nonatomic, weak) IBOutlet UILabel *titleLabel;
 @property (nonatomic, weak) IBOutlet UILabel *subtitleLabel;

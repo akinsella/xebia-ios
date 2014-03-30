@@ -12,7 +12,12 @@
 
 - (void)configureWithRating:(XBConferenceRating *)rating presentation:(XBConferencePresentation *)presentation {
     self.presentationTitleLabel.text = presentation.title;
-    self.ratingLabel.text = rating.value.stringValue;
+    if (rating.value) {
+        self.ratingImageView.image = [UIImage imageNamed:[NSString stringWithFormat:@"rating-star-value-%d", rating.value.intValue]];
+    } else {
+        self.ratingImageView.image = nil;
+    }
+
 }
 
 - (CGFloat)heightForCell:(UITableView *)tableView {

@@ -8,6 +8,7 @@
 #import "XBConferencePresentationDetail.h"
 #import "XBConferenceRating.h"
 #import "XBConferenceRatingManager.h"
+#import "XBConference.h"
 
 @interface XBConferenceRatingViewController()
 
@@ -29,21 +30,28 @@
 
 
 - (void)applyValues {
+    self.rating = [[XBConferenceRatingManager sharedManager] ratingForPresentation:self.presentationDetail];
     self.titleLabel.text = self.presentationDetail.title;
     self.subtitleLabel.text = NSLocalizedString(@"Vous pouvez voter en utilisant les boutons en bas", @"Vous pouvez voter en utilisant les boutons en bas");
     self.ratingButtons = @[self.ratingButtonPoor, self.ratingButtonFair, self.ratingButtonGood, self.ratingButtonVeryGood, self.ratingButtonExcellent];
+
+    if (self.rating) {
+        [self selectRatingButtonsForValue:[self.rating.value intValue]];
+    }
 }
 
 - (IBAction)ratingButtonClicked:(UIButton *)sender {
     [self applyRatingWithValue:[self.ratingButtons indexOfObject:sender]];
 }
 
-- (void)applyRatingWithValue:(XBConferenceRatingValue)value {
-
+- (void)selectRatingButtonsForValue:(XBConferenceRatingValue)value {
     for (int i = 0; i < [self.ratingButtons count]; i++) {
         [self.ratingButtons[i] setSelected:(i <= value)];
     }
+}
 
+- (void)applyRatingWithValue:(XBConferenceRatingValue)value {
+    [self selectRatingButtonsForValue:value];
     [self saveRating:value];
 }
 
@@ -52,6 +60,7 @@
                                                             conferenceId:self.presentationDetail.conferenceId
                                                           presentationId:self.presentationDetail.identifier
                                                                    value:ratingValue];
+    self.rating = rating;
     [[XBConferenceRatingManager sharedManager] addRating:rating];
 }
 

@@ -13,7 +13,7 @@
 @interface XBConferenceRatingCell : XBTableViewCell
 
 @property (nonatomic, weak) IBOutlet UILabel *presentationTitleLabel;
-@property (nonatomic, weak) IBOutlet UILabel *ratingLabel;
+@property (nonatomic, weak) IBOutlet UIImageView *ratingImageView;
 
 - (void)configureWithRating:(XBConferenceRating *)rating presentation:(XBConferencePresentation *)presentation;
 

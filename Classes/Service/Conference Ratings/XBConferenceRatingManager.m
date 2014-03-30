@@ -6,6 +6,8 @@
 #import "XBConferenceRatingManager.h"
 #import "XBConferenceRating.h"
 #import "XBConference.h"
+#import "XBConferencePresentation.h"
+#import "XBConferencePresentationDetail.h"
 
 @interface XBConferenceRatingManager()
 
@@ -45,6 +47,11 @@
 - (NSArray *)ratingsForConference:(XBConference *)conference {
     NSPredicate *conferenceFilterPredicate = [NSPredicate predicateWithFormat:[NSString stringWithFormat:@"conferenceId == %d", conference.identifier.intValue]];
     return [[self.ratings filteredSetUsingPredicate:conferenceFilterPredicate] allObjects];
+}
+
+- (XBConferenceRating *)ratingForPresentation:(XBConferencePresentationDetail *)presentation {
+    NSPredicate *conferenceFilterPredicate = [NSPredicate predicateWithFormat:[NSString stringWithFormat:@"presentationId = %d AND conferenceId == %d", presentation.identifier.intValue, presentation.conferenceId.intValue]];
+    return [[[self.ratings filteredSetUsingPredicate:conferenceFilterPredicate] allObjects] firstObject];
 }
 
 - (void)loadFromFile

@@ -7,6 +7,7 @@
 
 @class XBConferenceRating;
 @class XBConference;
+@class XBConferencePresentationDetail;
 
 
 @interface XBConferenceRatingManager : NSObject
@@ -16,4 +17,6 @@
 - (void)addRating:(XBConferenceRating *)rating;
 
 - (NSArray *)ratingsForConference:(XBConference *)conference;
+
+- (XBConferenceRating *)ratingForPresentation:(XBConferencePresentationDetail *)presentation;
 @end
