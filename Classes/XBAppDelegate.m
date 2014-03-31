@@ -493,10 +493,6 @@ static NSInteger const kApiVersion = 1;
 #pragma iBeacon notifications
 
 - (void)initBeaconTracking {
-//    // This location manager will be used to notify the user of region state transitions.
-//    self.locationManager = [[CLLocationManager alloc] init];
-//    self.locationManager.delegate = self;
-
     if (!IS_IOS_6_OR_EARLIER()) {
         self.conferenceLocationManager = [XBConferenceLocationManager new];
         [self.conferenceLocationManager initializeRegionMonitoring];

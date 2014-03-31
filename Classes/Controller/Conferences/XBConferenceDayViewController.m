@@ -85,8 +85,14 @@
 }
 
 - (void)onSelectCell: (UITableViewCell *)cell forObject:(id)object withIndex:(NSIndexPath *)indexPath {
-    [self performSegueWithIdentifier:@"ShowPresentationDetail" sender:nil];
     NSIndexPath *selectedIndexPath = [self.tableView indexPathForSelectedRow];
+    XBConferencePresentation *presentation = self.dataSource[selectedIndexPath.row];
+    
+    if ([presentation.kind isEqualToString:XBConferenceKindBreak]) {
+        return;
+    }
+    
+    [self performSegueWithIdentifier:@"ShowPresentationDetail" sender:nil];
     [self.tableView deselectRowAtIndexPath:selectedIndexPath animated:YES];
 }
 

@@ -14,6 +14,7 @@
 #import "XBCache.h"
 #import "XBHttpDataLoaderCacheKeyBuilder.h"
 #import "XBCacheableDataLoader.h"
+#import "XBArrayDataSource+protected.h"
 
 
 @implementation XBConferenceDataSource
@@ -36,6 +37,10 @@
                                                           cacheKeyBuilder:cacheKeyBuilder
                                                                       ttl:1];
         self.dataMapper = [XBJsonToArrayDataMapper mapperWithRootKeyPath:nil typeClass:[XBConference class]];
+
+        [self setFilterPredicate:^BOOL(XBConference *conference) {
+            return [conference.enabled boolValue];
+        }];
     }
 
     return self;

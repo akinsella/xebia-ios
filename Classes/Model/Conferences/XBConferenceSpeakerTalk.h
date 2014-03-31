@@ -14,4 +14,6 @@
 @property (nonatomic, strong) NSString *event;
 @property (nonatomic, strong) NSString *title;
 
+- (NSString *)standardIdentifier;
+
 @end

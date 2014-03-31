@@ -22,8 +22,11 @@
 #import "XBConferenceDataSource.h"
 #import "XBMenuSectionView.h"
 #import "XBConstants.h"
+#import "NSString+XBAdditions.h"
+#import "XBConferenceHomeViewController.h"
 #import <MMDrawerController/UIViewController+MMDrawerController.h>
 #import <AFNetworking/AFNetworkReachabilityManager.h>
+#import <SDWebImage/UIImageView+WebCache.h>
 
 // Enum for row indices
 enum {
@@ -33,6 +36,8 @@ enum {
     XBMenuEvent,
     XBMenuVimeo
 };
+
+static NSString *const XBConferenceHomeViewControllerIdentifier = @"conferenceHome";
 
 @interface XBLeftMenuViewController ()
 @property (nonatomic, strong) NSMutableDictionary *viewIdentifiers;
@@ -182,14 +187,6 @@ enum {
     return [XBArrayDataSource dataSourceWithArray:@[menuItems, self.conferenceDataSource]];
 }
 
-- (XBArrayDataSource *)buildConferenceDataSource {
-    NSArray * menuItems = @[
-                            @{ @"title": NSLocalizedString(@"Devoxx", nil), @"imageName" :@"timeline"}
-                            ];
-    
-    return [XBArrayDataSource dataSourceWithArray:menuItems];
-}
-
 - (void)configureTableView {
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     UIView *backgroundView = [[UIView alloc] initWithFrame: self.tableView.bounds];
@@ -210,18 +207,19 @@ enum {
     } else {
         XBConference *conference = item;
         menuCell.titleLabel.text = [conference name];
+        [menuCell.imageView setImageWithURL:[conference.logoUrl url] placeholderImage:nil];
     }
 }
 
 - (void)onSelectCell: (UITableViewCell *)cell forObject:(id)object withIndex:(NSIndexPath *)indexPath {
-    [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
     NSString *identifier;
     if (indexPath.section == 0) {
         identifier = [self.viewIdentifiers valueForKey:[NSNumber asString:indexPath.row]];
     } else {
-        identifier = @"conferenceHome";
+        identifier = XBConferenceHomeViewControllerIdentifier;
     }
     [self revealViewControllerWithIdentifier:identifier];
+    [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
 - (void)revealAndReplaceViewController:(UIViewController *)viewController {
@@ -235,8 +233,11 @@ enum {
     if ([self currentViewIsViewControllerWithIdentifier: identifier]) {
         [self.navigationController.mm_drawerController closeDrawerAnimated:YES completion:nil];
     } else {
-        UIViewController * viewController = [self.appDelegate.viewControllerManager getOrCreateControllerWithIdentifier: identifier];
-
+        UIViewController *viewController = [self.appDelegate.viewControllerManager getOrCreateControllerWithIdentifier:identifier];
+        if ([identifier isEqualToString:XBConferenceHomeViewControllerIdentifier]) {
+            XBConference *conference = self.conferenceDataSource[self.tableView.indexPathForSelectedRow.row];
+            [(XBConferenceHomeViewController *)viewController setConference:conference];
+        }
         UINavigationController *navigationController = (UINavigationController *)self.navigationController.mm_drawerController.centerViewController;
         [navigationController setViewControllers: @[viewController] animated:NO];
         [self.navigationController.mm_drawerController closeDrawerAnimated:YES completion:nil];

@@ -47,7 +47,7 @@
 
 - (void)applyValues {
     self.roomNameLabel.text = self.room.name;
-    self.roomCapacityLabel.text = [NSString stringWithFormat:@"%@ %@", [self.room.capacity stringValue], NSLocalizedString(@"personnes", @"personnes")];
+    self.roomCapacityLabel.text = [self.room.capacity intValue] > 0 ? [NSString stringWithFormat:@"%@ %@", [self.room.capacity stringValue], NSLocalizedString(@"persons", @"persons")] : @"";
     self.roomLocationNameLabel.text = self.room.locationName;
 
     [self.roomNameLabel sizeToFit];

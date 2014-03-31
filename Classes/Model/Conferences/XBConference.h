@@ -17,7 +17,9 @@
 @property (nonatomic, strong) NSString *description;
 @property (nonatomic, strong) NSString *location;
 @property (nonatomic, strong) NSNumber *enabled;
-@property (nonatomic, strong) NSString *imageURL;
+@property (nonatomic, strong) NSString *iconUrl;
+@property (nonatomic, strong) NSString *backgroundUrl;
+@property (nonatomic, strong) NSString *logoUrl;
 
 - (instancetype)initWithUid:(NSString *)uid;
 + (instancetype)conferenceWithUid:(NSString *)uid;

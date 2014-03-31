@@ -15,4 +15,8 @@
     return config;
 }
 
+- (NSString *)standardIdentifier {
+    return self.presentationId;
+}
+
 @end

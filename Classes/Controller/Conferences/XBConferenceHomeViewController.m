@@ -29,7 +29,6 @@
 @interface XBConferenceHomeViewController()
 
 @property (nonatomic, strong) XBConferenceDownloader *downloader;
-@property (nonatomic, strong) XBConference *conference;
 @property (nonatomic, strong) XBConferenceScheduleDataSource *dayDataSource;
 @property (nonatomic, strong) XBConferenceLocationManager *conferenceLocationManager;
 
@@ -54,8 +53,6 @@
 }
 
 - (void)viewDidLoad {
-    //TODO: Make this dynamic
-    self.conference = [XBConference conferenceWithUid:@"DEVOXX"];
 
     self.delegate = self;
 
@@ -104,18 +101,19 @@
 - (void)downloadAndApplyLogo
 {
     self.backgroundImageView.alpha = 0.0;
-    [[SDWebImageManager sharedManager] downloadWithURL:[self.conference.imageURL url]
+    [self.logoImageView setImageWithURL:[self.conference.logoUrl url] placeholderImage:nil];
+    
+    [[SDWebImageManager sharedManager] downloadWithURL:[self.conference.backgroundUrl url]
                                                options:kNilOptions
                                               progress:^(NSUInteger receivedSize, long long int expectedSize) {
-
+                                                  
                                               }
                                              completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, BOOL finished) {
                                                  if (error || !image) {
-                                                     self.logoImageView.image = nil;
+                                                     self.backgroundImageView.image = nil;
                                                  }
                                                  else {
-                                                     self.logoImageView.image = image;
-                                                     self.backgroundImageView.image = [image applyBlurWithRadius:10.0 tintColor:[UIColor colorWithHex:@"#000000" alpha:0.4] saturationDeltaFactor:1.0 maskImage:nil];
+                                                     self.backgroundImageView.image = [image applyBlurWithRadius:2.0 tintColor:[UIColor colorWithHex:@"#000000" alpha:0.4] saturationDeltaFactor:1.0 maskImage:nil];
                                                      [UIView animateWithDuration:0.5 delay:0.0 options:UIViewAnimationOptionAllowUserInteraction animations:^{
                                                          self.backgroundImageView.alpha = 1.0;
                                                      } completion:nil];

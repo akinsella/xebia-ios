@@ -51,6 +51,10 @@ static const NSUInteger XBConferencePresentationRatingStartTime = 10;
 }
 
 - (void)mergeWithPresentation:(XBConferencePresentation *)presentation {
+    if (![presentation respondsToSelector:@selector(fromTime)] ||
+        ![presentation respondsToSelector:@selector(toTime)]) {
+        return;
+    }
     self.fromTime = presentation.fromTime;
     self.toTime = presentation.toTime;
 }
@@ -66,7 +70,7 @@ static const NSUInteger XBConferencePresentationRatingStartTime = 10;
 
 - (BOOL)canBeVoted {
     NSDate *endDatePostponed = [self.toTime dateByAddingTimeInterval:(XBConferencePresentationRatingStartTime * 60)];
-    return !endDatePostponed || [endDatePostponed compare:[NSDate date]] == NSOrderedAscending;
+    return endDatePostponed && [endDatePostponed compare:[NSDate date]] == NSOrderedAscending;
 }
 
 @end

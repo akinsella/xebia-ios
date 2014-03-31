@@ -19,7 +19,7 @@
     self.locationLabel.highlightedTextColor = [UIColor whiteColor];
     self.nameLabel.text = room.name;
     self.nameLabel.highlightedTextColor = [UIColor whiteColor];
-    self.capacityLabel.text = [NSString stringWithFormat:@"%d %@", [room.capacity integerValue], NSLocalizedString(@"personnes", @"personnes")];
+    self.capacityLabel.text = [room.capacity intValue] > 0 ? [NSString stringWithFormat:@"%d %@", [room.capacity integerValue], NSLocalizedString(@"persons", @"persons")] : @"";
     self.capacityLabel.highlightedTextColor = [UIColor whiteColor];
 }
 

@@ -12,6 +12,8 @@
 #import "XBConferenceSpeaker.h"
 #import "DCParserConfiguration+XBAdditions.h"
 
+NSString * const XBConferenceKindBreak = @"Break";
+
 @interface XBConferencePresentation()
 
 @property (nonatomic, strong) NSString *speakerString;

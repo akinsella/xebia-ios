@@ -6,6 +6,7 @@
 #import <Foundation/Foundation.h>
 #import "XBMappingProvider.h"
 
+extern NSString * const XBConferenceKindBreak;
 
 @interface XBConferencePresentation : NSObject<XBMappingProvider>
 
