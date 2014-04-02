@@ -8,7 +8,6 @@
 #import <DCKeyValueObjectMapping/DCArrayMapping.h>
 #import <Underscore.m/Underscore.h>
 #import "XBConferencePresentation.h"
-#import "DCCustomParser+XBConferenceAdditions.h"
 #import "XBConferenceSpeaker.h"
 #import "DCParserConfiguration+XBAdditions.h"
 

@@ -6,5 +6,7 @@
 #import "DCCustomParser.h"
 
 @interface DCCustomParser (XBConferenceAdditions)
+
 + (DCCustomParserBlock)dateParser;
+
 @end

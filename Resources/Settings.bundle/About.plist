@@ -21,6 +21,16 @@
             <key>Type</key>
             <string>PSTitleValueSpecifier</string>
         </dict>
+        <dict>
+            <key>DefaultValue</key>
+            <string>scivetta@xebia.fr</string>
+            <key>Key</key>
+            <string>contributor</string>
+            <key>Title</key>
+            <string>Simone Civetta</string>
+            <key>Type</key>
+            <string>PSTitleValueSpecifier</string>
+        </dict>
 
         <dict>
             <key>Title</key>
