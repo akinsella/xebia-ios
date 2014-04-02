@@ -32,13 +32,14 @@
 }
 
 -(void)loadDataWithProgress:(BOOL)showProgress callback:(void(^)())callback {
-    if (showProgress) {
-        [self showProgressHUD];
-    }
     
     if (![self.reloadableDataSource respondsToSelector:@selector(loadDataWithCallback:)]) {
         [super loadData];
         return;
+    }
+
+    if (showProgress) {
+        [self showProgressHUD];
     }
     
     [self.reloadableDataSource loadDataWithCallback:^ {
@@ -57,8 +58,10 @@
 }
 
 - (void)initProgressHUD {
-    self.progressHUD = [[MBProgressHUD alloc] initWithView:self.navigationController.view];
-    self.progressHUD.userInteractionEnabled = NO;
+    if (!self.progressHUD) {
+        self.progressHUD = [[MBProgressHUD alloc] initWithView:self.navigationController.view];
+        self.progressHUD.userInteractionEnabled = NO;
+    }
 }
 
 - (void)showProgressHUD {
@@ -137,6 +140,7 @@
 - (void)dismissProgressHUDWithCallback:(void(^)())callback {
     self.progressHUD.taskInProgress = NO;
     [self.progressHUD hide:YES];
+    [self.progressHUD removeFromSuperview];
 
 
     if (callback) {
