@@ -6,4 +6,5 @@
 #import <Foundation/Foundation.h>
 
 @interface UIColor (XBConferenceAdditions)
++ (UIColor *)colorWithTrackIdentifier:(NSString *)trackIdentifier;
 @end

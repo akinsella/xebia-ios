@@ -53,3 +53,4 @@
 "persons" = "personnes";
 "Done"="Fermer";
 "Please vote by choosing a rating from 1 to 5" = "SVP votez en choisissant une note de 1 à 5";
+"%@ from %@ to %@" = "%@ de %@ à %@";

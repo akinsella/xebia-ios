@@ -20,13 +20,13 @@
 @implementation XBConferenceRoomDetailViewController
 
 - (NSString *)trackPath {
-    return [NSString stringWithFormat:@"/detail"];
+    return [NSString stringWithFormat:@"/room/%@", self.room.identifier];
 }
 
 - (void)viewDidLoad {
 
     self.delegate = self;
-    self.title = NSLocalizedString(@"Tracks", nil);
+    self.title = NSLocalizedString(@"Rooms", nil);
 
     [super viewDidLoad];
 }

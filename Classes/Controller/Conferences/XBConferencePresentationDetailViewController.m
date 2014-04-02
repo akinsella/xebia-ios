@@ -9,6 +9,7 @@
 #import "XBConferencePresentationDataSource.h"
 #import "XBConferencePresentationDetail.h"
 #import "XBConferenceRatingViewController.h"
+#import "UIColor+XBConferenceAdditions.h"
 
 @interface XBConferencePresentationDetailViewController()
 @property (nonatomic, strong) XBConferencePresentationDetail *presentationDetail;
@@ -47,10 +48,14 @@
     [self.ratingButton setTitle:NSLocalizedString(@"Rate this", @"Rate this") forState:UIControlStateNormal];
     [self.ratingButton setBackgroundColor:[UIColor colorWithRed:0.416 green:0.125 blue:0.373 alpha:1]];
     self.ratingButton.layer.cornerRadius = 3.0;
+
+    CALayer *colorLayer = [[CALayer alloc] init];
+    colorLayer.frame = CGRectMake(0, 0, CGRectGetWidth(self.view.frame), 6);
+    colorLayer.backgroundColor = [UIColor colorWithTrackIdentifier:self.presentationDetail.track].CGColor;
+    [self.scrollView.layer addSublayer:colorLayer];
 }
 
-- (void)viewDidAppear:(BOOL)animated
-{
+- (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     
     if (self.presentationDetail.canBeVoted) {

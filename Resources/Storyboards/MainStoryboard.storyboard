@@ -1504,7 +1504,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8pd-QT-eBl">
-                                        <rect key="frame" x="20" y="20" width="30" height="30"/>
+                                        <rect key="frame" x="29" y="20" width="30" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
@@ -1524,7 +1524,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DFE-vG-EsN">
-                                        <rect key="frame" x="80" y="20" width="30" height="30"/>
+                                        <rect key="frame" x="87" y="20" width="30" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
@@ -1564,7 +1564,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kfd-0d-9Ns">
-                                        <rect key="frame" x="210" y="20" width="30" height="30"/>
+                                        <rect key="frame" x="203" y="20" width="30" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
@@ -1584,7 +1584,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xwV-cc-znX">
-                                        <rect key="frame" x="270" y="20" width="30" height="30"/>
+                                        <rect key="frame" x="261" y="20" width="30" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
@@ -1606,17 +1606,17 @@
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstItem="Kfd-0d-9Ns" firstAttribute="leading" secondItem="MQN-cO-bC5" secondAttribute="trailing" constant="35" id="0GO-wi-c3O"/>
+                                    <constraint firstItem="Kfd-0d-9Ns" firstAttribute="leading" secondItem="MQN-cO-bC5" secondAttribute="trailing" constant="28" id="0GO-wi-c3O"/>
                                     <constraint firstAttribute="height" constant="64" id="5FR-Ub-moq"/>
                                     <constraint firstItem="8pd-QT-eBl" firstAttribute="top" secondItem="1Ro-Oh-lma" secondAttribute="top" constant="20" id="6h0-hU-2Zw"/>
                                     <constraint firstItem="Kfd-0d-9Ns" firstAttribute="top" secondItem="1Ro-Oh-lma" secondAttribute="top" constant="20" id="9Cs-F0-wk7"/>
                                     <constraint firstItem="MQN-cO-bC5" firstAttribute="top" secondItem="1Ro-Oh-lma" secondAttribute="top" constant="20" id="GpV-Ov-ynO"/>
-                                    <constraint firstItem="DFE-vG-EsN" firstAttribute="leading" secondItem="8pd-QT-eBl" secondAttribute="trailing" constant="30" id="JPk-Xq-mWL"/>
-                                    <constraint firstItem="MQN-cO-bC5" firstAttribute="leading" secondItem="DFE-vG-EsN" secondAttribute="trailing" constant="35" id="Tqh-sB-cxz"/>
-                                    <constraint firstItem="xwV-cc-znX" firstAttribute="leading" secondItem="Kfd-0d-9Ns" secondAttribute="trailing" constant="30" id="Ub5-pF-M03"/>
+                                    <constraint firstItem="DFE-vG-EsN" firstAttribute="leading" secondItem="8pd-QT-eBl" secondAttribute="trailing" constant="28" id="JPk-Xq-mWL"/>
+                                    <constraint firstItem="MQN-cO-bC5" firstAttribute="leading" secondItem="DFE-vG-EsN" secondAttribute="trailing" constant="28" id="Tqh-sB-cxz"/>
+                                    <constraint firstItem="xwV-cc-znX" firstAttribute="leading" secondItem="Kfd-0d-9Ns" secondAttribute="trailing" constant="28" id="Ub5-pF-M03"/>
                                     <constraint firstItem="xwV-cc-znX" firstAttribute="top" secondItem="1Ro-Oh-lma" secondAttribute="top" constant="20" id="gRv-eD-NjF"/>
                                     <constraint firstItem="DFE-vG-EsN" firstAttribute="top" secondItem="1Ro-Oh-lma" secondAttribute="top" constant="20" id="hLY-mg-TDk"/>
-                                    <constraint firstItem="8pd-QT-eBl" firstAttribute="leading" secondItem="1Ro-Oh-lma" secondAttribute="leading" constant="20" id="utn-cG-aGm"/>
+                                    <constraint firstItem="8pd-QT-eBl" firstAttribute="leading" secondItem="1Ro-Oh-lma" secondAttribute="leading" constant="29" id="utn-cG-aGm"/>
                                     <constraint firstAttribute="width" constant="320" id="zWB-lf-ufW"/>
                                 </constraints>
                             </view>
@@ -2311,6 +2311,6 @@
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="8T2-Wu-dpR"/>
+        <segue reference="Q0f-8c-F6a"/>
     </inferredMetricsTieBreakers>
 </document>
