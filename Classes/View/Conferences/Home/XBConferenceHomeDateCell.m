@@ -27,8 +27,8 @@
 
 - (void)configureWithConference:(XBConference *)conference {
     self.accessoryType = UITableViewCellAccessoryNone;
-    self.startDateLabel.text = [self.dateFormatter stringFromDate:conference.from];
-    self.endDateLabel.text = [self.dateFormatter stringFromDate:conference.to];
+    self.startDateLabel.text = [[self.dateFormatter stringFromDate:conference.from] capitalizedString];
+    self.endDateLabel.text = [[self.dateFormatter stringFromDate:conference.to] capitalizedString];
 }
 
 @end

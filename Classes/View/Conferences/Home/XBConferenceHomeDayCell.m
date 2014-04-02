@@ -24,7 +24,7 @@
 }
 
 - (void)configureWithDay:(NSDate *)day {
-    self.titleLabel.text = [self.dateFormatter stringFromDate:day];
+    self.titleLabel.text = [[self.dateFormatter stringFromDate:day] capitalizedString];
     self.titleLabel.highlightedTextColor = [UIColor whiteColor];
 }
 
