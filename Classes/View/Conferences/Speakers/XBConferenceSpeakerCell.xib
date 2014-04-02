@@ -25,7 +25,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jVA-Ts-hyk">
-                        <rect key="frame" x="90" y="10" width="37" height="22"/>
+                        <rect key="frame" x="88" y="10" width="37" height="22"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="22" id="8Q0-ag-Iwe"/>
@@ -48,7 +48,7 @@
                     <constraint firstItem="IQd-sq-UVE" firstAttribute="leading" secondItem="FWd-fx-AhH" secondAttribute="leading" constant="50" id="9tg-Ai-Qni"/>
                     <constraint firstItem="sOi-i9-FaW" firstAttribute="top" secondItem="FWd-fx-AhH" secondAttribute="top" constant="4" id="Hh2-8s-LAQ"/>
                     <constraint firstItem="jVA-Ts-hyk" firstAttribute="top" secondItem="FWd-fx-AhH" secondAttribute="top" constant="10" id="Wl3-Tl-RIQ"/>
-                    <constraint firstItem="jVA-Ts-hyk" firstAttribute="leading" secondItem="IQd-sq-UVE" secondAttribute="trailing" constant="5" id="XGj-wE-ehT"/>
+                    <constraint firstItem="jVA-Ts-hyk" firstAttribute="leading" secondItem="IQd-sq-UVE" secondAttribute="trailing" constant="3" id="XGj-wE-ehT"/>
                     <constraint firstItem="IQd-sq-UVE" firstAttribute="top" secondItem="FWd-fx-AhH" secondAttribute="top" constant="10" id="bSe-Fd-TMs"/>
                     <constraint firstItem="sOi-i9-FaW" firstAttribute="leading" secondItem="FWd-fx-AhH" secondAttribute="leading" constant="6" id="iRz-9g-qlL"/>
                 </constraints>

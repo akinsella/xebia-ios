@@ -87,7 +87,7 @@
 }
 
 - (NSString *)trackPath {
-    return @"/conferenceHome";
+    return [NSString stringWithFormat:@"/conferences/%@", self.conference.identifier];
 }
 
 - (void)applyValues {

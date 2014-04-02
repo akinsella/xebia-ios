@@ -11,6 +11,7 @@
 #import "XBConferenceDownloader.h"
 #import "XBConferenceScheduleDataSource.h"
 #import "XBConferencePresentationDetailViewController.h"
+#import "NSDateFormatter+XBAdditions.h"
 
 @interface XBConferenceDayViewController ()
 
@@ -19,13 +20,18 @@
 @implementation XBConferenceDayViewController
 
 - (NSString *)trackPath {
-    return [NSString stringWithFormat:@"/day"];
+    NSDateFormatter *dateFormatter = [NSDateFormatter initWithDateFormat:@"YYYY-MM-dd"];
+    return [NSString stringWithFormat:@"/days/%@", [dateFormatter stringFromDate:self.day]];
 }
 
 - (void)viewDidLoad {
-    
     self.delegate = self;
-    self.title = NSLocalizedString(@"Day", nil);
+
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    dateFormatter.locale = [NSLocale autoupdatingCurrentLocale];
+    dateFormatter.dateFormat = @"EEEE dd LLLL";
+
+    self.title = NSLocalizedString([dateFormatter stringFromDate:self.day], nil);
     [super viewDidLoad];
 }
 

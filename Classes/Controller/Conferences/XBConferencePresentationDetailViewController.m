@@ -22,6 +22,10 @@
     [self loadConferenceDetail];
 }
 
+- (NSString *)trackPath {
+    return [NSString stringWithFormat:@"/presentations/%@", self.presentation.presentationIdentifier];
+}
+
 - (void)applyValues {
     self.title = self.presentationDetail.title;
     self.titleLabel.text = self.presentationDetail.title;

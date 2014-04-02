@@ -16,7 +16,7 @@
 @implementation XBConferenceSpeakerDetailViewController
 
 - (NSString *)trackPath {
-    return [NSString stringWithFormat:@"/detail"];
+    return [NSString stringWithFormat:@"/speakers/%@", self.speaker.identifier];
 }
 
 - (XBArrayDataSource *)buildDataSource {

@@ -18,7 +18,7 @@
 @implementation XBConferenceTrackDetailViewController
 
 - (NSString *)trackPath {
-    return [NSString stringWithFormat:@"/detail"];
+    return [NSString stringWithFormat:@"/tracks/%@", self.track.identifier];
 }
 
 - (void)viewDidLoad {

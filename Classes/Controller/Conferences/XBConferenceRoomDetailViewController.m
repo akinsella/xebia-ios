@@ -20,7 +20,7 @@
 @implementation XBConferenceRoomDetailViewController
 
 - (NSString *)trackPath {
-    return [NSString stringWithFormat:@"/room/%@", self.room.identifier];
+    return [NSString stringWithFormat:@"/rooms/%@", self.room.identifier];
 }
 
 - (void)viewDidLoad {
