@@ -10,7 +10,6 @@
 #import <DTCoreText/DTHTMLElement.h>
 #import <DTCoreText/DTHTMLAttributedStringBuilder.h>
 #import <DTCoreText/DTAttributedTextView.h>
-#import <Underscore.m/Underscore.h>
 #import "WPPostDetailsViewController.h"
 #import "XBShareInfo.h"
 #import "SHKItem.h"
@@ -18,8 +17,6 @@
 #import "NSDate+XBAdditions.h"
 #import "UITableViewCell+VariableHeight.h"
 #import "WPPostContentTitleCell.h"
-#import "WPPostContentCodeElementCell.h"
-#import "WPPostContentCode2ElementCell.h"
 
 static NSString *kParagraphCellReuseIdentifier = @"paragraphCell";
 static NSString *kImageCellReuseIdentifier = @"imageCell";
@@ -120,7 +117,6 @@ NSString *kHeader6Type = @"H6";
 }
 
 - (void)configureContentView {
-//    self.tableView.backgroundColor = [UIColor colorWithHex:@"#191919" alpha:1.0];
     self.contentTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
 
     [self.contentTableView registerNib:[UINib nibWithNibName:@"WPPostContentDefaultElementCell" bundle:nil] forCellReuseIdentifier:@"defaultCell"];
@@ -131,61 +127,6 @@ NSString *kHeader6Type = @"H6";
     [self.contentTableView registerNib:[UINib nibWithNibName:@"WPPostContentTitleCell" bundle:nil] forCellReuseIdentifier:@"titleCell"];
 }
 
-//
-//- (void)configureContentView {
-//
-////    [DTCoreTextLayoutFrame setShouldDrawDebugFrames:YES];
-//
-//    self.contentTextView.attributedString = [self attributedStringForHTML:self.post.content];
-//
-//    self.contentTextView.contentInset = UIEdgeInsetsMake(10.0, 10.0, 10.0, 10.0);
-//
-//    self.contentTextView.backgroundColor = [UIColor clearColor];
-//
-//    // we draw images and links via subviews provided by delegate methods
-//    self.contentTextView.shouldDrawImages = NO;
-//    self.contentTextView.shouldDrawLinks = NO;
-//    self.contentTextView.textDelegate = self; // delegate for custom sub views
-//
-//    // set an inset. Since the bottom is below a toolbar inset by 44px
-//
-//    // gesture for testing cursor positions
-//    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTap:)];
-//    [self.contentTextView addGestureRecognizer:tap];
-//}
-//
-//
-//#pragma mark Custom Views on Text
-//
-//- (UIView *)attributedTextContentView:(DTAttributedTextContentView *)attributedTextContentView viewForAttributedString:(NSAttributedString *)string frame:(CGRect)frame
-//{
-//    NSDictionary *attributes = [string attributesAtIndex:0 effectiveRange:NULL];
-//
-//    NSURL *URL = attributes[DTLinkAttribute];
-//    NSString *identifier = attributes[DTGUIDAttribute];
-//
-//    DTLinkButton *button = [[DTLinkButton alloc] initWithFrame:frame];
-//    button.URL = URL;
-//    button.minimumHitSize = CGSizeMake(25, 25); // adjusts it's bounds so that button is always large enough
-//    button.GUID = identifier;
-//
-//    // get image with normal link text
-//    UIImage *normalImage = [attributedTextContentView contentImageWithBounds:frame options:DTCoreTextLayoutFrameDrawingDefault];
-//    [button setImage:normalImage forState:UIControlStateNormal];
-//
-//    // get image for highlighted link text
-//    UIImage *highlightImage = [attributedTextContentView contentImageWithBounds:frame options:DTCoreTextLayoutFrameDrawingDrawLinksHighlighted];
-//    [button setImage:highlightImage forState:UIControlStateHighlighted];
-//
-//    // use normal push action for opening URL
-//    [button addTarget:self action:@selector(linkPushed:) forControlEvents:UIControlEventTouchUpInside];
-//
-//    // demonstrate combination with long press
-//    UILongPressGestureRecognizer *longPress = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(linkLongPressed:)];
-//    [button addGestureRecognizer:longPress];
-//
-//    return button;
-//}
 
 - (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
     if (buttonIndex != actionSheet.cancelButtonIndex) {

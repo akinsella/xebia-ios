@@ -12,7 +12,7 @@
 #import "WPPostContentStructuredElementCellDelegate.h"
 #import "DTAttributedTextCell.h"
 
-@interface WPPostContentParagraphElementCell : DTAttributedTextCell<WPPostContentStructuredElementCellDelegate>
+@interface WPPostContentParagraphElementCell : DTAttributedTextCell<WPPostContentStructuredElementCellDelegate, DTAttributedTextContentViewDelegate>
 
 @property (nonatomic, strong, readonly)WPPostContentStructuredElement *element;
 

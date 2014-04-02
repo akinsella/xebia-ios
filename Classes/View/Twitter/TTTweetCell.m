@@ -104,9 +104,7 @@
     else {
         [[SDWebImageManager sharedManager] downloadWithURL:tweet.ownerImageUrl
                                                    options:kNilOptions
-                                                  progress:^(NSUInteger receivedSize, long long int expectedSize) {
-
-                                                  }
+                                                  progress:^(NSInteger receivedSize, NSInteger expectedSize) {}
                                                  completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, BOOL finished) {
                                                      if (error || !image) {
                                                          XBLog("Error - %@ for: %@", error, tweet.ownerScreenName);

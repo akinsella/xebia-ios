@@ -21,6 +21,16 @@
             <key>Type</key>
             <string>PSTitleValueSpecifier</string>
         </dict>
+        <dict>
+            <key>DefaultValue</key>
+            <string>scivetta@xebia.fr</string>
+            <key>Key</key>
+            <string>contributor</string>
+            <key>Title</key>
+            <string>Simone Civetta</string>
+            <key>Type</key>
+            <string>PSTitleValueSpecifier</string>
+        </dict>
 
         <dict>
             <key>Title</key>
@@ -53,7 +63,7 @@
 
         <dict>
             <key>DefaultValue</key>
-            <string>156 Boulevard Haussmann 75008 PARIS</string>
+            <string>156 Bd Haussmann 75008 PARIS</string>
             <key>Key</key>
             <string>address</string>
             <key>Title</key>
