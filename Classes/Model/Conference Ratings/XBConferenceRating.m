@@ -57,7 +57,7 @@
         return nil;
     }
 
-    self.dateTaken = [decoder decodeObjectForKey:@"dateTaken"];
+    self.dateTaken = [decoder decodeObjectForKey:@"date"];
     self.conferenceId = [decoder decodeObjectForKey:@"conferenceId"];
     self.presentationId = [decoder decodeObjectForKey:@"presentationId"];
     self.value = [decoder decodeObjectForKey:@"value"];
@@ -67,7 +67,7 @@
 }
 
 - (void)encodeWithCoder:(NSCoder *)encoder {
-    [encoder encodeObject:self.dateTaken forKey:@"dateTaken"];
+    [encoder encodeObject:self.dateTaken forKey:@"date"];
     [encoder encodeObject:self.conferenceId forKey:@"conferenceId"];
     [encoder encodeObject:self.presentationId forKey:@"presentationId"];
     [encoder encodeObject:self.value forKey:@"value"];

@@ -4,6 +4,8 @@
 //
 
 #import "XBConferenceRatingHttpQueryParamBuilder.h"
+#import "XBConference.h"
+#import "XBConferenceRating.h"
 
 @interface XBConferenceRatingHttpQueryParamBuilder()
 
@@ -26,9 +28,18 @@
     return [[self alloc] initWithRatings:ratings];
 }
 
-- (NSDictionary *)build {
-    // TODO: implement this
-    return [self.dictionary copy];
+- (id)build {
+    NSMutableArray *ratingsToSend = [NSMutableArray array];
+    NSString *deviceIdentifier = [[UIDevice currentDevice].identifierForVendor UUIDString];
+    for (XBConferenceRating *rating in self.ratings) {
+        NSMutableDictionary *ratingDict = [NSMutableDictionary dictionary];
+        ratingDict[@"deviceId"] = deviceIdentifier;
+        ratingDict[@"conferenceId"] = rating.conferenceId;
+        ratingDict[@"presentationId"] = rating.presentationId;
+        ratingDict[@"vote"] = @(rating.value.intValue + 1);
+        [ratingsToSend addObject:ratingDict];
+    }
+    return ratingsToSend;
 }
 
 @end

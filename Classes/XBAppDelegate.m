@@ -485,7 +485,7 @@ static NSInteger const kApiVersion = 1;
 }
 
 - (void)initConferenceRatings {
-    [[XBConferenceRatingManager sharedManager] sendRatings];
+    [[XBConferenceRatingManager sharedManager] sendRatingsOfConference:nil ];
 }
 
 #pragma iBeacon notifications

@@ -9,14 +9,17 @@
 #import "XBConference.h"
 #import "XBConferencePresentation.h"
 #import "XBConferencePresentationDetail.h"
-#import "XBConferenceRatingSendingService.h"
+#import "XBConferenceRatingUploader.h"
 #import "XBPListConfigurationProvider.h"
+#import "XBConferenceRatingUploader.h"
+#import "XBLogging.h"
+#import "NSTimer+BlocksKit.h"
 
 @interface XBConferenceRatingManager()
 
 @property (nonatomic, strong) NSMutableSet *ratings;
 @property (nonatomic, strong) NSRecursiveLock *lock;
-@property (nonatomic, strong) XBConferenceRatingSendingService *ratingSendingService;
+@property(nonatomic, strong) NSTimer *synchronizationTimer;
 
 @end
 
@@ -35,6 +38,7 @@
     if (self = [super init]) {
         self.ratings = [NSMutableSet set];
         [self loadFromFile];
+        [self configureScheduler];
     }
     return self;
 }
@@ -82,15 +86,18 @@
     return [documentsDirectory stringByAppendingPathComponent:@"ratings"];
 }
 
-- (void)sendRatings {
+- (void)sendRatingsOfConference:(XBConference *)conference {
     NSArray *allRatings = [self.ratings allObjects];
     NSArray *ratingsToSend = Underscore.filter(allRatings, ^(XBConferenceRating *rating) {
         return (BOOL)![rating.sent boolValue];
     });
     XBHttpClient *httpClient = [[XBPListConfigurationProvider provider] httpClient];
-    self.ratingSendingService = [[XBConferenceRatingSendingService alloc] initWithHttpClient:httpClient ratings:ratingsToSend];
-
-    // TODO: At the end, call 'applySentFlagForRatings'
+    XBConferenceRatingUploader *ratingSendingUploader = [XBConferenceRatingUploader uploaderWithRatings:ratingsToSend conference:conference httpClient:httpClient];
+    [ratingSendingUploader uploadRatingsWithSuccess:^(id responseObject) {
+        [self applySentFlagForRatings:ratingsToSend];
+    } failure:^(id responseObject, NSError *error) {
+        XBLog(@"Could not to upload ratings");
+    }];
 }
 
 - (void)applySentFlagForRatings:(NSArray *)sentRatings {
@@ -101,5 +108,22 @@
     }
     [self writeToFile];
 }
+
+- (void)configureScheduler {
+    XBLogDebug(@"Registered timer with interval of 2 seconds");
+
+    self.synchronizationTimer = [NSTimer bk_timerWithTimeInterval:30 block:^(NSTimer *timer) {
+        [self sendRatingsOfConference:nil];
+    } repeats:YES];
+
+    [[NSRunLoop mainRunLoop] addTimer:self.synchronizationTimer forMode:NSRunLoopCommonModes];
+}
+
+- (void)dealloc {
+    XBLogDebug(@"[%d] Dealloc", self.hash);
+    XBLogDebug(@"Disposing timer");
+    [self.synchronizationTimer invalidate];
+}
+
 
 @end

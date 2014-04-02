@@ -11,8 +11,8 @@
 
 @interface XBHttpClient()
 
-@property(nonatomic, strong)NSString *baseUrl;
-@property(nonatomic, strong)AFHTTPRequestOperationManager *operationManager;
+@property(nonatomic, strong) NSString *baseUrl;
+@property(nonatomic, strong) AFHTTPRequestOperationManager *operationManager;
 
 @end
 
@@ -36,7 +36,8 @@
 - (void)executeGetJsonRequestWithPath:(NSString *)path
                            parameters:(NSDictionary *)parameters
                               success:(void (^)(NSURLRequest *request, NSHTTPURLResponse *response, id jsonFetched))successCb
-                              failure: (void (^)(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id jsonFetched))errorCb {
+                              failure:(void (^)(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id jsonFetched))errorCb
+{
 
     AFHTTPRequestOperation *operation = [self.operationManager GET: path parameters: parameters
                                                            success:^(AFHTTPRequestOperation *operation, id json) {
@@ -57,9 +58,9 @@
 }
 
 - (void)executePostJsonRequestWithPath:(NSString *)path
-                           parameters:(NSDictionary *)parameters
-                              success:(void (^)(NSURLRequest *request, NSHTTPURLResponse *response, id jsonFetched))successCb
-                              failure: (void (^)(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id jsonFetched))errorCb {
+                            parameters:(NSDictionary *)parameters
+                               success:(void (^)(NSURLRequest *request, NSHTTPURLResponse *response, id jsonFetched))successCb
+                               failure:(void (^)(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id jsonFetched))errorCb {
 
     AFHTTPRequestOperation *operation = [self.operationManager POST: path parameters: parameters
                                                            success:^(AFHTTPRequestOperation *operation, id json) {

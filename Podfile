@@ -28,6 +28,7 @@ pod 'ParseKit',						'0.7'
 pod 'UIImageEffects', 				'~> 0.0'
 pod 'DTMarkdownParser',				'0.2.1'
 pod 'Reveal-iOS-SDK', 				'~> 1.0'
+pod 'BlocksKit', 					'2.2'
 
 target :"XebiaTests", :exclusive => true do
   pod 'SenTestingKitAsync',		'1.0.6'

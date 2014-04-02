@@ -35,10 +35,9 @@
 		2EE445984A267D29E8FD4CD9 /* XBConferenceBeacon.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EE445F5142E3DD5C461404E /* XBConferenceBeacon.m */; };
 		2EE445B228FCCF5469B0EAC0 /* XBLoadableTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EE443C19B2B5951627ADDC1 /* XBLoadableTableViewController.m */; };
 		2EE4465EE9ED64E12CA0EB41 /* XBConferenceSpeakerTalk.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EE440B5ED5DD6AC211F759E /* XBConferenceSpeakerTalk.m */; };
-		2EE446A506DFA7C2100AD495 /* XBConferenceRatingSendingService.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EE444C5C43CAFFB643D6032 /* XBConferenceRatingSendingService.m */; };
 		2EE447199668704446B444E3 /* XBConferenceTrack.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EE44199C8DF46BB31034758 /* XBConferenceTrack.m */; };
 		2EE4474E3CB95FCF8A978D7A /* XBConferencePresentationDetail.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EE442C1590A951ABB12ADC6 /* XBConferencePresentationDetail.m */; };
-		2EE447671A187E6749A76F77 /* XBConferenceRatingSendingService.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EE444C5C43CAFFB643D6032 /* XBConferenceRatingSendingService.m */; };
+		2EE44768051906D3A8C9D2CF /* XBConferenceRatingResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EE44BC4E780A283BE4EE375 /* XBConferenceRatingResponse.m */; };
 		2EE4476FBF48A180B30013C1 /* XBConferenceRatingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EE44775CB474F2A052B4511 /* XBConferenceRatingViewController.m */; };
 		2EE44784C84231D822EFE504 /* XBConferenceDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EE449CFC6C5BA0DB9CDAE5B /* XBConferenceDownloader.m */; };
 		2EE4479E5E52D3972211CD88 /* XBConferencePresentationDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EE44C1D6C9E84CBB7A65BA5 /* XBConferencePresentationDataSource.m */; };
@@ -67,6 +66,7 @@
 		2EE44B8D498995C0ADC7BE38 /* XBConferenceBeaconDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EE44A5F6A4BF5E56E89BBA9 /* XBConferenceBeaconDataSource.m */; };
 		2EE44B9ED90BB6A050817154 /* XBConferenceRoomDetailDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EE44B7D3EA9FC80D4562C75 /* XBConferenceRoomDetailDataSource.m */; };
 		2EE44BF149628667BBA651CF /* XBConferencePresentation.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EE448707F58568944672F39 /* XBConferencePresentation.m */; };
+		2EE44C17EE9E0A2832461615 /* XBConferenceRatingUploader.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EE44C9B93733A5C226E8D74 /* XBConferenceRatingUploader.m */; };
 		2EE44C1D30FA8EA4DF4EA9B5 /* schedule.json in Resources */ = {isa = PBXBuildFile; fileRef = 2EE446B2F5612534AED6F0BA /* schedule.json */; };
 		2EE44C24615036970D1B14B7 /* XBConferencePresentation.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EE448707F58568944672F39 /* XBConferencePresentation.m */; };
 		2EE44C64702AC71682F0EBCC /* XBConferenceTrackDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EE44CF96D6067C7F2665EE8 /* XBConferenceTrackDetailViewController.m */; };
@@ -77,6 +77,7 @@
 		2EE44D7AB17875369AA6B1AC /* XBConferenceBeacon.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EE445F5142E3DD5C461404E /* XBConferenceBeacon.m */; };
 		2EE44D8040E6892AE98E2099 /* XBConferenceSpeakerDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EE44CF689E1E5E6FAA698AD /* XBConferenceSpeakerDetailViewController.m */; };
 		2EE44DB20E862933DCA49371 /* XBConferenceBeaconDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EE44A5F6A4BF5E56E89BBA9 /* XBConferenceBeaconDataSource.m */; };
+		2EE44DBA3CFBB700B0AE8D15 /* XBConferenceRatingUploader.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EE44C9B93733A5C226E8D74 /* XBConferenceRatingUploader.m */; };
 		2EE44DFFE99BA4421FACB360 /* NSArray+XBConferenceRatingAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EE44497151764C05369C84A /* NSArray+XBConferenceRatingAdditions.m */; };
 		2EE44E33B8EB4A41C403EF7A /* XBConferenceTrackCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2EE44B5B95B3574815BDBD72 /* XBConferenceTrackCell.xib */; };
 		2EE44E376E937C81A2FEF65D /* XBConferencePresentationDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EE4481CDE388943D9CF4AD7 /* XBConferencePresentationDetailViewController.m */; };
@@ -84,6 +85,7 @@
 		2EE44E7E5FF318746ABC06BE /* XBConferenceTrackDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EE4424E0FD12F5FA8488081 /* XBConferenceTrackDataSource.m */; };
 		2EE44E8655AC19F1A2830663 /* NSArray+XBConferenceRatingAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EE44497151764C05369C84A /* NSArray+XBConferenceRatingAdditions.m */; };
 		2EE44EB13AF48653B897A109 /* XBConferenceTrackDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EE44CF96D6067C7F2665EE8 /* XBConferenceTrackDetailViewController.m */; };
+		2EE44EF02272941206770D4E /* XBConferenceRatingResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EE44BC4E780A283BE4EE375 /* XBConferenceRatingResponse.m */; };
 		2EE44F265C1D341DD483248C /* XBConferenceHomeDayCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2EE440A7A0A2C78130F074BA /* XBConferenceHomeDayCell.xib */; };
 		2EE44F9771F8BC511896FEBD /* XBConferenceScheduleDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EE4427ADFFC052438811A20 /* XBConferenceScheduleDataSource.m */; };
 		2EE44F9FBABD8A11128C9921 /* XBConferenceRatingTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EE441F19DF8FDC032C2E63E /* XBConferenceRatingTableViewController.m */; };
@@ -668,10 +670,8 @@
 		2EE442D1EC6AD737EA0AD0B0 /* XBLoadableTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XBLoadableTableViewController.h; sourceTree = "<group>"; };
 		2EE443199AC51BF326439C42 /* XBConferenceDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XBConferenceDataSource.m; sourceTree = "<group>"; };
 		2EE443C19B2B5951627ADDC1 /* XBLoadableTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XBLoadableTableViewController.m; sourceTree = "<group>"; };
-		2EE4442FE2E4EC4D59843292 /* XBConferenceRatingSendingService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XBConferenceRatingSendingService.h; sourceTree = "<group>"; };
 		2EE44497151764C05369C84A /* NSArray+XBConferenceRatingAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+XBConferenceRatingAdditions.m"; sourceTree = "<group>"; };
 		2EE444AC5FE3117D1A481D9F /* XBConferenceBeacon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XBConferenceBeacon.h; sourceTree = "<group>"; };
-		2EE444C5C43CAFFB643D6032 /* XBConferenceRatingSendingService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XBConferenceRatingSendingService.m; sourceTree = "<group>"; };
 		2EE4451D66A104634FA89C00 /* XBConferencePresentationCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = XBConferencePresentationCell.xib; sourceTree = "<group>"; };
 		2EE4457E540E6A13BCABC8B2 /* XBConferenceTrackDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XBConferenceTrackDataSource.h; sourceTree = "<group>"; };
 		2EE445CD92AE47488A722B8B /* XBConferenceSpeaker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XBConferenceSpeaker.m; sourceTree = "<group>"; };
@@ -704,6 +704,7 @@
 		2EE449B0BA54BBB83D30068C /* XBDownloadableBundleDownloader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XBDownloadableBundleDownloader.h; sourceTree = "<group>"; };
 		2EE449CFC6C5BA0DB9CDAE5B /* XBConferenceDownloader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XBConferenceDownloader.m; sourceTree = "<group>"; };
 		2EE449E8332020D93493D46C /* XBConferenceRatingHttpQueryParamBuilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XBConferenceRatingHttpQueryParamBuilder.m; sourceTree = "<group>"; };
+		2EE449ED937E5F801E3388C0 /* XBConferenceRatingResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XBConferenceRatingResponse.h; sourceTree = "<group>"; };
 		2EE44A5F6A4BF5E56E89BBA9 /* XBConferenceBeaconDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XBConferenceBeaconDataSource.m; sourceTree = "<group>"; };
 		2EE44A5F6F3700F5C1C650F7 /* XBConferenceScheduleTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XBConferenceScheduleTest.m; sourceTree = "<group>"; };
 		2EE44A907546DAB1365C06F2 /* XBConferenceRatingCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = XBConferenceRatingCell.xib; sourceTree = "<group>"; };
@@ -713,10 +714,13 @@
 		2EE44B7D3EA9FC80D4562C75 /* XBConferenceRoomDetailDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XBConferenceRoomDetailDataSource.m; sourceTree = "<group>"; };
 		2EE44BAD6E602ED60E649DB3 /* XBConferenceRatingCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XBConferenceRatingCell.h; sourceTree = "<group>"; };
 		2EE44BBF0BC4FA97E535302C /* XBConferenceRoomDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XBConferenceRoomDetailViewController.m; sourceTree = "<group>"; };
+		2EE44BC4E780A283BE4EE375 /* XBConferenceRatingResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XBConferenceRatingResponse.m; sourceTree = "<group>"; };
 		2EE44C1D6C9E84CBB7A65BA5 /* XBConferencePresentationDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XBConferencePresentationDataSource.m; sourceTree = "<group>"; };
 		2EE44C5C1C260FC0F5DF69D9 /* XBConferenceTrackDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XBConferenceTrackDetailViewController.h; sourceTree = "<group>"; };
 		2EE44C7739FF1EECF5D3E56D /* XBConferenceHomeMenuItemCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = XBConferenceHomeMenuItemCell.xib; sourceTree = "<group>"; };
 		2EE44C893499F858FC84C73E /* XBConferenceHomeDateCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XBConferenceHomeDateCell.m; sourceTree = "<group>"; };
+		2EE44C9B93733A5C226E8D74 /* XBConferenceRatingUploader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XBConferenceRatingUploader.m; sourceTree = "<group>"; };
+		2EE44CD254D77318669A6413 /* XBConferenceRatingUploader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XBConferenceRatingUploader.h; sourceTree = "<group>"; };
 		2EE44CF689E1E5E6FAA698AD /* XBConferenceSpeakerDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XBConferenceSpeakerDetailViewController.m; sourceTree = "<group>"; };
 		2EE44CF96D6067C7F2665EE8 /* XBConferenceTrackDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XBConferenceTrackDetailViewController.m; sourceTree = "<group>"; };
 		2EE44D06321B4EE813752143 /* XBConferencePresentationDetail.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XBConferencePresentationDetail.h; sourceTree = "<group>"; };
@@ -1558,8 +1562,6 @@
 		2EE4447EF57360B7A7E0A2CD /* Conference Ratings */ = {
 			isa = PBXGroup;
 			children = (
-				2EE4442FE2E4EC4D59843292 /* XBConferenceRatingSendingService.h */,
-				2EE444C5C43CAFFB643D6032 /* XBConferenceRatingSendingService.m */,
 				2EE449E8332020D93493D46C /* XBConferenceRatingHttpQueryParamBuilder.m */,
 				2EE441A7EB13C081DD416B01 /* XBConferenceRatingHttpQueryParamBuilder.h */,
 				2EE44A5F6A4BF5E56E89BBA9 /* XBConferenceBeaconDataSource.m */,
@@ -1633,6 +1635,8 @@
 			children = (
 				2EE44E465A82CD9B15D787BD /* XBConferenceRatingManager.m */,
 				2EE447DB860B03058E092303 /* XBConferenceRatingManager.h */,
+				2EE44C9B93733A5C226E8D74 /* XBConferenceRatingUploader.m */,
+				2EE44CD254D77318669A6413 /* XBConferenceRatingUploader.h */,
 			);
 			path = "Conference Ratings";
 			sourceTree = "<group>";
@@ -1680,6 +1684,8 @@
 				2EE4497F8208597D3BE9B608 /* XBConferenceRating.h */,
 				2EE445F5142E3DD5C461404E /* XBConferenceBeacon.m */,
 				2EE444AC5FE3117D1A481D9F /* XBConferenceBeacon.h */,
+				2EE44BC4E780A283BE4EE375 /* XBConferenceRatingResponse.m */,
+				2EE449ED937E5F801E3388C0 /* XBConferenceRatingResponse.h */,
 			);
 			path = "Conference Ratings";
 			sourceTree = "<group>";
@@ -3755,10 +3761,11 @@
 				2EE448E5D07987B98462538F /* XBConferenceRatingCell.m in Sources */,
 				2EE44DFFE99BA4421FACB360 /* NSArray+XBConferenceRatingAdditions.m in Sources */,
 				2EE44FD96046023FA232B3C9 /* XBConferenceLocationManager.m in Sources */,
-				2EE446A506DFA7C2100AD495 /* XBConferenceRatingSendingService.m in Sources */,
 				2EE44B1662EE8C6ABA36627E /* XBConferenceRatingHttpQueryParamBuilder.m in Sources */,
 				2EE44D7AB17875369AA6B1AC /* XBConferenceBeacon.m in Sources */,
 				2EE44DB20E862933DCA49371 /* XBConferenceBeaconDataSource.m in Sources */,
+				2EE44768051906D3A8C9D2CF /* XBConferenceRatingResponse.m in Sources */,
+				2EE44DBA3CFBB700B0AE8D15 /* XBConferenceRatingUploader.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3897,10 +3904,11 @@
 				2EE4414A78F3BA1420630F65 /* XBConferenceRatingCell.m in Sources */,
 				2EE44E8655AC19F1A2830663 /* NSArray+XBConferenceRatingAdditions.m in Sources */,
 				2EE4433D2A5379D12169A877 /* XBConferenceLocationManager.m in Sources */,
-				2EE447671A187E6749A76F77 /* XBConferenceRatingSendingService.m in Sources */,
 				2EE440C84CF5982FFE561E5A /* XBConferenceRatingHttpQueryParamBuilder.m in Sources */,
 				2EE445984A267D29E8FD4CD9 /* XBConferenceBeacon.m in Sources */,
 				2EE44B8D498995C0ADC7BE38 /* XBConferenceBeaconDataSource.m in Sources */,
+				2EE44EF02272941206770D4E /* XBConferenceRatingResponse.m in Sources */,
+				2EE44C17EE9E0A2832461615 /* XBConferenceRatingUploader.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

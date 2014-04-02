@@ -8,6 +8,7 @@
 @class XBConferenceRating;
 @class XBConference;
 @class XBConferencePresentationDetail;
+@class XBConferenceRatingUploader;
 
 
 @interface XBConferenceRatingManager : NSObject
@@ -20,5 +21,5 @@
 
 - (XBConferenceRating *)ratingForPresentation:(XBConferencePresentationDetail *)presentation;
 
-- (void)sendRatings;
+- (void)sendRatingsOfConference:(XBConference *)conference;
 @end
