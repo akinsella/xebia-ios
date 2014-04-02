@@ -21,7 +21,7 @@
 @property (nonatomic, strong) NSString *backgroundUrl;
 @property (nonatomic, strong) NSString *logoUrl;
 
-- (instancetype)initWithUid:(NSString *)uid;
-+ (instancetype)conferenceWithUid:(NSString *)uid;
+- (instancetype)initWithIdentifier:(NSString *)identifier;
++ (instancetype)conferenceWithIdentifier:(NSString *)identifier;
 
 @end

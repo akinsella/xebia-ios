@@ -62,6 +62,7 @@
                                success:(void (^)(NSURLRequest *request, NSHTTPURLResponse *response, id jsonFetched))successCb
                                failure:(void (^)(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id jsonFetched))errorCb {
 
+    self.operationManager.requestSerializer = [[AFJSONRequestSerializer alloc] init];
     AFHTTPRequestOperation *operation = [self.operationManager POST: path parameters: parameters
                                                            success:^(AFHTTPRequestOperation *operation, id json) {
                                                                XBLogDebug(@"json: %@", json);

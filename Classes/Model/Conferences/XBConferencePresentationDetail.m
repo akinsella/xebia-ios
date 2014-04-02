@@ -28,6 +28,10 @@ static const NSUInteger XBConferencePresentationRatingStartTime = 10;
     DCParserConfiguration *config = [DCParserConfiguration configuration];
 
     [config addCustomParsersObject:[[DCCustomParser alloc] initWithBlockParser:[DCCustomParser stringParser]
+                                                              forAttributeName:@"_conferenceId"
+                                                            onDestinationClass:[self class]]];
+    
+    [config addCustomParsersObject:[[DCCustomParser alloc] initWithBlockParser:[DCCustomParser stringParser]
                                                               forAttributeName:@"_identifier"
                                                             onDestinationClass:[self class]]];
 

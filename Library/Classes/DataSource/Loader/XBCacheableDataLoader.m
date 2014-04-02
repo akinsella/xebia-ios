@@ -7,8 +7,6 @@
 
 #import <AFNetworking/AFNetworkReachabilityManager.h>
 #import "XBCacheableDataLoader.h"
-#import "XBCache.h"
-#import "XBCacheKeyBuilder.h"
 #import "XBLogging.h"
 #import "XBHttpDataLoader.h"
 

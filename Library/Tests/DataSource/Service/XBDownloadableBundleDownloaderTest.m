@@ -24,7 +24,7 @@
 
 - (void)testCreateBundleFolder
 {
-    XBConference *conference = [[XBConference alloc] initWithUid:@"C1"];
+    XBConference *conference = [[XBConference alloc] initWithIdentifier:@"C1"];
     XBDownloadableBundleDownloader *cdm = [XBDownloadableBundleDownloader downloaderWithDownloadableBundle:conference];
     [cdm createBundleFolder:nil];
     
@@ -37,7 +37,7 @@
 
 - (void)testBundleFolderPath
 {
-    XBConference *conference = [[XBConference alloc] initWithUid:@"C1"];
+    XBConference *conference = [[XBConference alloc] initWithIdentifier:@"C1"];
     XBDownloadableBundleDownloader *cdm = [XBDownloadableBundleDownloader downloaderWithDownloadableBundle:conference];
     NSString *targetFolder = [[cdm.class rootFolder] stringByAppendingPathComponent:@"C1"];
     STAssertTrue([[cdm bundleFolderPath] hasSuffix:targetFolder], nil);
@@ -45,14 +45,14 @@
 
 - (void)testRootFolderPath
 {
-    XBConference *conference = [[XBConference alloc] initWithUid:@"C1"];
+    XBConference *conference = [[XBConference alloc] initWithIdentifier:@"C1"];
     XBDownloadableBundleDownloader *cdm = [XBDownloadableBundleDownloader downloaderWithDownloadableBundle:conference];
     STAssertTrue([[cdm.class rootFolderPath] hasSuffix:[cdm.class rootFolder]], nil);
 }
 
 - (void)testDownload
 {
-    XBConference *conference = [[XBConference alloc] initWithUid:@"C1"];
+    XBConference *conference = [[XBConference alloc] initWithIdentifier:@"C1"];
     XBDownloadableBundleDownloader *cdm = [XBDownloadableBundleDownloader downloaderWithDownloadableBundle:conference];
     __block NSError *anError;
     [cdm downloadAllResources:^(NSError *error) {

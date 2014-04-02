@@ -8,23 +8,19 @@
 #import "XBConference.h"
 #import "DCCustomParser+XBConferenceAdditions.h"
 
-@interface XBConference()
-@property (nonatomic, strong) NSString *uid;
-@end
-
 @implementation XBConference
 
-- (instancetype)initWithUid:(NSString *)uid {
+- (instancetype)initWithIdentifier:(NSString *)identifier {
     self = [super init];
     if (self) {
-        self.uid = uid;
+        self.identifier = identifier;
     }
 
     return self;
 }
 
-+ (instancetype)conferenceWithUid:(NSString *)uid {
-    return [[self alloc] initWithUid:uid];
++ (instancetype)conferenceWithIdentifier:(NSString *)identifier {
+    return [[self alloc] initWithIdentifier:identifier];
 }
 
 - (NSString *)uid {

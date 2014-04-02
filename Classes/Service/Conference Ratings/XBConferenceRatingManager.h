@@ -22,4 +22,6 @@
 - (XBConferenceRating *)ratingForPresentation:(XBConferencePresentationDetail *)presentation;
 
 - (void)sendRatingsOfConference:(XBConference *)conference;
+
+- (void)sendAllRatings;
 @end

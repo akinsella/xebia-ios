@@ -43,18 +43,9 @@
 
     XBConferenceRatingHttpQueryParamBuilder *builder = [XBConferenceRatingHttpQueryParamBuilder builderWithRatings:self.ratings];
 
-    NSError *error;
-
     id ratingArray = [builder build];
-//    NSData *ratingData = [NSJSONSerialization dataWithJSONObject:ratingArray
-//                                                         options:0
-//                                                           error:&error];
-    if (error) {
-        failure(nil, error);
-        return ;
-    }
 
-    NSString *resourcePath = [NSString stringWithFormat:@"/api/v1/conferences/%@/vote", self.conference.identifier];
+    NSString *resourcePath = [NSString stringWithFormat:@"/api/v1/conferences/%@/rating", self.conference.identifier];
 
     [self.httpClient executePostJsonRequestWithPath:resourcePath
                                          parameters:ratingArray

@@ -3,6 +3,7 @@
 // Copyright (c) 2014 Xebia. All rights reserved.
 //
 
+#import <SSToolkit/UIColor+SSToolkitAdditions.h>
 #import "XBConferencePresentationDetailViewController.h"
 #import "XBConferenceDownloader.h"
 #import "XBConferencePresentationDataSource.h"
@@ -28,6 +29,8 @@
     self.speakerLabel.text = [NSString stringWithFormat:@"%@ %@", NSLocalizedString(@"by", @"by"), self.presentationDetail.speakerString];
 
     [self.ratingButton setTitle:NSLocalizedString(@"Rate this", @"Rate this") forState:UIControlStateNormal];
+    [self.ratingButton setBackgroundColor:[UIColor colorWithRed:0.416 green:0.125 blue:0.373 alpha:1]];
+    self.ratingButton.layer.cornerRadius = 3.0;
 }
 
 - (void)viewDidAppear:(BOOL)animated

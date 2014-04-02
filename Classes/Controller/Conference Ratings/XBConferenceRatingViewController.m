@@ -32,7 +32,7 @@
 - (void)applyValues {
     self.rating = [[XBConferenceRatingManager sharedManager] ratingForPresentation:self.presentationDetail];
     self.titleLabel.text = self.presentationDetail.title;
-    self.subtitleLabel.text = NSLocalizedString(@"Vous pouvez voter en utilisant les boutons en bas", @"Vous pouvez voter en utilisant les boutons en bas");
+    self.subtitleLabel.text = NSLocalizedString(@"Please vote by choosing a rating from 1 to 5", @"Please vote by choosing a rating from 1 to 5");
     self.ratingButtons = @[self.ratingButtonPoor, self.ratingButtonFair, self.ratingButtonGood, self.ratingButtonVeryGood, self.ratingButtonExcellent];
 
     if (self.rating) {

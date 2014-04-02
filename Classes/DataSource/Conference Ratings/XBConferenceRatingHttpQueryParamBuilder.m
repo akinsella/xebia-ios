@@ -15,6 +15,16 @@
 
 @implementation XBConferenceRatingHttpQueryParamBuilder
 
+- (NSDateFormatter *)dateFormatter {
+    static dispatch_once_t once;
+    static NSDateFormatter *sharedConferenceHomeDateCellDateFormatter;
+    dispatch_once(&once, ^ {
+        sharedConferenceHomeDateCellDateFormatter = [[NSDateFormatter alloc] init];
+        sharedConferenceHomeDateCellDateFormatter.dateFormat = @"yyyy-MM-dd HH:mm:ssZZZ";
+    });
+    return sharedConferenceHomeDateCellDateFormatter;
+}
+
 - (instancetype)initWithRatings:(NSArray *)ratings {
     self = [super init];
     if (self) {
@@ -36,7 +46,8 @@
         ratingDict[@"deviceId"] = deviceIdentifier;
         ratingDict[@"conferenceId"] = rating.conferenceId;
         ratingDict[@"presentationId"] = rating.presentationId;
-        ratingDict[@"vote"] = @(rating.value.intValue + 1);
+        ratingDict[@"rating"] = @(rating.value.intValue + 1);
+        ratingDict[@"date"] = [self.dateFormatter stringFromDate:rating.dateTaken];
         [ratingsToSend addObject:ratingDict];
     }
     return ratingsToSend;

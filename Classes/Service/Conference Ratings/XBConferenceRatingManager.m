@@ -14,6 +14,8 @@
 #import "XBConferenceRatingUploader.h"
 #import "XBLogging.h"
 #import "NSTimer+BlocksKit.h"
+#import "XBConstants.h"
+#import <AFNetworking/AFNetworkReachabilityManager.h>
 
 @interface XBConferenceRatingManager()
 
@@ -38,7 +40,8 @@
     if (self = [super init]) {
         self.ratings = [NSMutableSet set];
         [self loadFromFile];
-        [self configureScheduler];
+        [self setupScheduler];
+        [self setupReachabilityMonitor];
     }
     return self;
 }
@@ -88,9 +91,14 @@
 
 - (void)sendRatingsOfConference:(XBConference *)conference {
     NSArray *allRatings = [self.ratings allObjects];
-    NSArray *ratingsToSend = Underscore.filter(allRatings, ^(XBConferenceRating *rating) {
-        return (BOOL)![rating.sent boolValue];
+    NSArray *ratingsToSend = Underscore.filter(allRatings, ^BOOL(XBConferenceRating *rating) {
+        return ![rating.sent boolValue] && [rating.conferenceId isEqualToString:conference.identifier];
     });
+
+    if (![ratingsToSend count]) {
+        return;
+    }
+
     XBHttpClient *httpClient = [[XBPListConfigurationProvider provider] httpClient];
     XBConferenceRatingUploader *ratingSendingUploader = [XBConferenceRatingUploader uploaderWithRatings:ratingsToSend conference:conference httpClient:httpClient];
     [ratingSendingUploader uploadRatingsWithSuccess:^(id responseObject) {
@@ -109,11 +117,11 @@
     [self writeToFile];
 }
 
-- (void)configureScheduler {
-    XBLogDebug(@"Registered timer with interval of 2 seconds");
+- (void)setupScheduler {
+    XBLogDebug(@"Registered timer with interval of 60 seconds");
 
-    self.synchronizationTimer = [NSTimer bk_timerWithTimeInterval:30 block:^(NSTimer *timer) {
-        [self sendRatingsOfConference:nil];
+    self.synchronizationTimer = [NSTimer bk_timerWithTimeInterval:60 block:^(NSTimer *timer) {
+        [self sendAllRatings];
     } repeats:YES];
 
     [[NSRunLoop mainRunLoop] addTimer:self.synchronizationTimer forMode:NSRunLoopCommonModes];
@@ -123,7 +131,40 @@
     XBLogDebug(@"[%d] Dealloc", self.hash);
     XBLogDebug(@"Disposing timer");
     [self.synchronizationTimer invalidate];
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
+- (NSArray *)allConferenceIdentifiers {
+    NSArray *allRatings = [self.ratings allObjects];
+    return Underscore.array(allRatings).map(^(XBConferenceRating *rating) {
+        return rating.conferenceId;
+    }).uniq.unwrap;
+}
+
+- (void)sendAllRatings {
+    if ([[AFNetworkReachabilityManager sharedManager] networkReachabilityStatus] != AFNetworkReachabilityStatusNotReachable) {
+        NSArray *allConferenceIdentifiers = [self allConferenceIdentifiers];
+        for (NSString *conferenceId in allConferenceIdentifiers) {
+            [self sendRatingsOfConference:[XBConference conferenceWithIdentifier:conferenceId]];
+        }
+    }
+}
+
+#pragma mark - Reachability
+
+- (void)networkStatusChanged:(id)notification
+{
+    if ([[AFNetworkReachabilityManager sharedManager] isReachable]) {
+        [self sendAllRatings];
+    }
+}
+
+- (void)setupReachabilityMonitor
+{
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(networkStatusChanged:)
+                                                 name:XBNetworkStatusChanged
+                                               object:nil];
+}
 
 @end
