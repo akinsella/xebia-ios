@@ -74,4 +74,8 @@
     [encoder encodeObject:self.sent forKey:@"sent"];
 }
 
+- (NSString *)description {
+    return [NSString stringWithFormat:@"<conference Id: %@, presentation Id: %@>", self.conferenceId, self.presentationId];
+}
+
 @end

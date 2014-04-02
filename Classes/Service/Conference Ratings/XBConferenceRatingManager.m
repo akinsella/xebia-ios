@@ -56,12 +56,13 @@
 }
 
 - (NSArray *)ratingsForConference:(XBConference *)conference {
-    NSPredicate *conferenceFilterPredicate = [NSPredicate predicateWithFormat:[NSString stringWithFormat:@"conferenceId == %@", conference.identifier]];
-    return [[self.ratings filteredSetUsingPredicate:conferenceFilterPredicate] allObjects];
+    NSPredicate *conferenceFilterPredicate = [NSPredicate predicateWithFormat:[NSString stringWithFormat:@"conferenceId like '%@'", conference.identifier]];
+    NSArray *result = [[self.ratings filteredSetUsingPredicate:conferenceFilterPredicate] allObjects];
+    return result;
 }
 
 - (XBConferenceRating *)ratingForPresentation:(XBConferencePresentationDetail *)presentation {
-    NSPredicate *conferenceFilterPredicate = [NSPredicate predicateWithFormat:[NSString stringWithFormat:@"presentationId = %@ AND conferenceId == %@", presentation.identifier, presentation.conferenceId]];
+    NSPredicate *conferenceFilterPredicate = [NSPredicate predicateWithFormat:[NSString stringWithFormat:@"presentationId like '%@' AND conferenceId like '%@'", presentation.presentationIdentifier, presentation.conferenceId]];
     return [[[self.ratings filteredSetUsingPredicate:conferenceFilterPredicate] allObjects] firstObject];
 }
 

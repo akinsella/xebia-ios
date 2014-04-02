@@ -19,7 +19,7 @@
 @implementation XBConferenceRatingViewController
 
 - (NSString *)trackPath {
-    return @"vote";
+    return [NSString stringWithFormat:@"/ratings/%@/%@", self.presentationDetail.conferenceId, self.presentationDetail.presentationIdentifier];
 }
 
 - (void)viewDidLoad {
@@ -27,7 +27,6 @@
     [self applyValues];
     self.view.backgroundColor = [UIColor colorWithHex:@"#F0F0F0"];
 }
-
 
 - (void)applyValues {
     self.rating = [[XBConferenceRatingManager sharedManager] ratingForPresentation:self.presentationDetail];
@@ -58,7 +57,7 @@
 - (void)saveRating:(XBConferenceRatingValue)ratingValue {
     XBConferenceRating *rating = [XBConferenceRating ratingWithDateTaken:[NSDate date]
                                                             conferenceId:self.presentationDetail.conferenceId
-                                                          presentationId:self.presentationDetail.identifier
+                                                          presentationId:self.presentationDetail.presentationIdentifier
                                                                    value:ratingValue];
     self.rating = rating;
     [[XBConferenceRatingManager sharedManager] addRating:rating];
