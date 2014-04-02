@@ -35,7 +35,7 @@
         self.dataLoader = [XBCacheableDataLoader dataLoaderWithDataLoader:httpJsonDataLoader
                                                                     cache:cache
                                                           cacheKeyBuilder:cacheKeyBuilder
-                                                                      ttl:1];
+                                                                      ttl:300];
         self.dataMapper = [XBJsonToArrayDataMapper mapperWithRootKeyPath:nil typeClass:[XBConference class]];
 
         [self setFilterPredicate:^BOOL(XBConference *conference) {

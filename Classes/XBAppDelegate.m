@@ -131,9 +131,7 @@ static NSInteger const kApiVersion = 1;
         // Post notification after delay to avoid connection issues
         dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC));
         dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
-            [[NSNotificationCenter defaultCenter]
-             postNotificationName:XBNetworkStatusChanged
-             object:self];
+            [[NSNotificationCenter defaultCenter] postNotificationName:XBNetworkStatusChanged object:self];
             XBLog(@"Reachability status changed");
         });
     }];
