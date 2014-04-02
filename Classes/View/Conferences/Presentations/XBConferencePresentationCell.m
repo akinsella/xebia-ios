@@ -17,7 +17,7 @@
     static NSDateFormatter *sharedConferenceHomeDateCellDateFormatter;
     dispatch_once(&once, ^ {
         sharedConferenceHomeDateCellDateFormatter = [[NSDateFormatter alloc] init];
-        sharedConferenceHomeDateCellDateFormatter.locale = [NSLocale localeWithLocaleIdentifier:@"fr_FR"];
+        sharedConferenceHomeDateCellDateFormatter.locale = [NSLocale autoupdatingCurrentLocale];
         sharedConferenceHomeDateCellDateFormatter.dateFormat = @"HH'h'mm";
     });
     return sharedConferenceHomeDateCellDateFormatter;

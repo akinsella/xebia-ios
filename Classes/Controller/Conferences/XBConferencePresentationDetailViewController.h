@@ -18,6 +18,7 @@
 @property (nonatomic, weak) IBOutlet UILabel *summaryLabel;
 @property (nonatomic, weak) IBOutlet UILabel *trackLabel;
 @property (nonatomic, weak) IBOutlet UILabel *speakerLabel;
+@property (nonatomic, weak) IBOutlet UILabel *timeLabel;
 
 @property (nonatomic, weak) IBOutlet UIButton *ratingButton;
 @property (nonatomic, weak) IBOutlet NSLayoutConstraint *ratingButtonTopConstraint;

@@ -28,6 +28,22 @@
     self.trackLabel.text = self.presentationDetail.track;
     self.speakerLabel.text = [NSString stringWithFormat:@"%@ %@", NSLocalizedString(@"by", @"by"), self.presentationDetail.speakerString];
 
+    if (self.presentationDetail.fromTime) {
+        NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+        dateFormatter.locale = [NSLocale autoupdatingCurrentLocale];
+        
+        dateFormatter.dateFormat = @"EEEE dd LLLL";
+        NSString *day = [dateFormatter stringFromDate:self.presentationDetail.fromTime];
+        
+        dateFormatter.dateFormat = @"HH'h'mm";
+        NSString *from = [dateFormatter stringFromDate:self.presentationDetail.fromTime];
+        NSString *to = [dateFormatter stringFromDate:self.presentationDetail.toTime];
+        
+        self.timeLabel.text = [NSString stringWithFormat:NSLocalizedString(@"%@ from %@ to %@", @"%@ from %@ to %@"), day, from, to];
+    } else {
+        self.timeLabel.text = nil;
+    }
+    
     [self.ratingButton setTitle:NSLocalizedString(@"Rate this", @"Rate this") forState:UIControlStateNormal];
     [self.ratingButton setBackgroundColor:[UIColor colorWithRed:0.416 green:0.125 blue:0.373 alpha:1]];
     self.ratingButton.layer.cornerRadius = 3.0;

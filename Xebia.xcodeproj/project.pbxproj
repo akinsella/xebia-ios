@@ -29,6 +29,7 @@
 		2EE4438965D737FB68D3229C /* XBConferenceHomeDateCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2EE44DA2C8DA5D27C59277A1 /* XBConferenceHomeDateCell.xib */; };
 		2EE443B7A14FD08665F4BEF8 /* XBConferenceHomeMenuItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2EE44C7739FF1EECF5D3E56D /* XBConferenceHomeMenuItemCell.xib */; };
 		2EE44437B4D1426AB095B41F /* XBConference.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EE44B650C6D50AD8F7ACD7F /* XBConference.m */; };
+		2EE444D040D71779F99493D8 /* UIColor+XBConferenceAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EE444F24F68C43E5428EB3C /* UIColor+XBConferenceAdditions.m */; };
 		2EE4455AA79ECEC4F93CE8B2 /* XBLoadableTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EE443C19B2B5951627ADDC1 /* XBLoadableTableViewController.m */; };
 		2EE44563816E346352B14AE0 /* XBConferenceRoomDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EE44BBF0BC4FA97E535302C /* XBConferenceRoomDetailViewController.m */; };
 		2EE4459234E9BDD2B4477C69 /* XBConference.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EE44B650C6D50AD8F7ACD7F /* XBConference.m */; };
@@ -41,6 +42,7 @@
 		2EE4476FBF48A180B30013C1 /* XBConferenceRatingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EE44775CB474F2A052B4511 /* XBConferenceRatingViewController.m */; };
 		2EE44784C84231D822EFE504 /* XBConferenceDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EE449CFC6C5BA0DB9CDAE5B /* XBConferenceDownloader.m */; };
 		2EE4479E5E52D3972211CD88 /* XBConferencePresentationDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EE44C1D6C9E84CBB7A65BA5 /* XBConferencePresentationDataSource.m */; };
+		2EE447BE254A95A0ED6F61C6 /* UIColor+XBConferenceAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EE444F24F68C43E5428EB3C /* UIColor+XBConferenceAdditions.m */; };
 		2EE447CD15BFC30AA5A27622 /* XBDownloadableBundleDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EE44B36ADA19E1D5DDEFC8F /* XBDownloadableBundleDownloader.m */; };
 		2EE448501C9543102DA6E7CB /* XBConferenceRatingCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2EE44A907546DAB1365C06F2 /* XBConferenceRatingCell.xib */; };
 		2EE448591C817857B7E7F498 /* XBConferenceTrackDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EE4424E0FD12F5FA8488081 /* XBConferenceTrackDataSource.m */; };
@@ -674,6 +676,7 @@
 		2EE443C19B2B5951627ADDC1 /* XBLoadableTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XBLoadableTableViewController.m; sourceTree = "<group>"; };
 		2EE44497151764C05369C84A /* NSArray+XBConferenceRatingAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+XBConferenceRatingAdditions.m"; sourceTree = "<group>"; };
 		2EE444AC5FE3117D1A481D9F /* XBConferenceBeacon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XBConferenceBeacon.h; sourceTree = "<group>"; };
+		2EE444F24F68C43E5428EB3C /* UIColor+XBConferenceAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+XBConferenceAdditions.m"; sourceTree = "<group>"; };
 		2EE4451D66A104634FA89C00 /* XBConferencePresentationCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = XBConferencePresentationCell.xib; sourceTree = "<group>"; };
 		2EE4457E540E6A13BCABC8B2 /* XBConferenceTrackDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XBConferenceTrackDataSource.h; sourceTree = "<group>"; };
 		2EE445CD92AE47488A722B8B /* XBConferenceSpeaker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XBConferenceSpeaker.m; sourceTree = "<group>"; };
@@ -738,6 +741,7 @@
 		2EE44F248FA1F25FF415CD2D /* XBConferenceRoomDetailDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XBConferenceRoomDetailDataSource.h; sourceTree = "<group>"; };
 		2EE44F69BC38CA9E68F1007A /* DCCustomParser+XBConferenceAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "DCCustomParser+XBConferenceAdditions.m"; sourceTree = "<group>"; };
 		2EE44FEC20B1E55732BF54EF /* XBConferenceRating.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XBConferenceRating.m; sourceTree = "<group>"; };
+		2EE44FF0887DF73BDF5B6029 /* UIColor+XBConferenceAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+XBConferenceAdditions.h"; sourceTree = "<group>"; };
 		378A41F2988D464CA7748FC5 /* Pods-XebiaTests.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XebiaTests.xcconfig"; path = "Pods/Pods-XebiaTests.xcconfig"; sourceTree = "<group>"; };
 		4219B2AE187D63F5006DA315 /* XBConferenceCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XBConferenceCell.h; sourceTree = "<group>"; };
 		4219B2AF187D63F5006DA315 /* XBConferenceCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XBConferenceCell.m; sourceTree = "<group>"; };
@@ -2435,6 +2439,8 @@
 				2EE44E7BF6C9BCE37FF891C7 /* DCCustomParser+XBConferenceAdditions.h */,
 				2EE44497151764C05369C84A /* NSArray+XBConferenceRatingAdditions.m */,
 				2EE44DD5E458144DC5BDAFC4 /* NSArray+XBConferenceRatingAdditions.h */,
+				2EE444F24F68C43E5428EB3C /* UIColor+XBConferenceAdditions.m */,
+				2EE44FF0887DF73BDF5B6029 /* UIColor+XBConferenceAdditions.h */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -3778,6 +3784,7 @@
 				2EE44768051906D3A8C9D2CF /* XBConferenceRatingResponse.m in Sources */,
 				2EE44DBA3CFBB700B0AE8D15 /* XBConferenceRatingUploader.m in Sources */,
 				DB34DC13921ADA98AC5E7F12 /* XBWebBrowser.m in Sources */,
+				2EE447BE254A95A0ED6F61C6 /* UIColor+XBConferenceAdditions.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3921,6 +3928,7 @@
 				2EE44B8D498995C0ADC7BE38 /* XBConferenceBeaconDataSource.m in Sources */,
 				2EE44EF02272941206770D4E /* XBConferenceRatingResponse.m in Sources */,
 				2EE44C17EE9E0A2832461615 /* XBConferenceRatingUploader.m in Sources */,
+				2EE444D040D71779F99493D8 /* UIColor+XBConferenceAdditions.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

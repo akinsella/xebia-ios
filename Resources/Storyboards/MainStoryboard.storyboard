@@ -1394,10 +1394,10 @@
                                         </connections>
                                     </button>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="GyK-QW-5Sx">
-                                        <rect key="frame" x="20" y="97" width="280" height="17"/>
+                                        <rect key="frame" x="20" y="93" width="280" height="18"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
-                                        <color key="textColor" red="0.23529411759999999" green="0.23529411759999999" blue="0.23529411759999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="15"/>
+                                        <color key="textColor" red="0.43529412150000002" green="0.43529412150000002" blue="0.43529412150000002" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="Fjt-6q-3hC">
@@ -1420,21 +1420,31 @@
                                         <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="12"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="E7W-wA-7ug">
+                                        <rect key="frame" x="20" y="118" width="280" height="17"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="14"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="E7W-wA-7ug" secondAttribute="trailing" constant="20" id="0ig-lu-AzB"/>
                                     <constraint firstItem="GyK-QW-5Sx" firstAttribute="leading" secondItem="CNp-Oc-Fc5" secondAttribute="leading" constant="20" id="4Wo-qZ-wj4"/>
+                                    <constraint firstAttribute="bottom" secondItem="E7W-wA-7ug" secondAttribute="bottom" constant="20" id="7fu-Zt-gDl"/>
                                     <constraint firstItem="Cxf-7R-ET0" firstAttribute="top" secondItem="Fjt-6q-3hC" secondAttribute="bottom" constant="2" id="8fz-Jw-X1d"/>
                                     <constraint firstItem="Fjt-6q-3hC" firstAttribute="leading" secondItem="CNp-Oc-Fc5" secondAttribute="leading" constant="20" id="Af1-z2-J8N"/>
                                     <constraint firstAttribute="trailing" secondItem="4va-qX-xFI" secondAttribute="trailing" constant="20" id="CuC-G9-qvB"/>
                                     <constraint firstItem="4va-qX-xFI" firstAttribute="leading" secondItem="CNp-Oc-Fc5" secondAttribute="leading" constant="20" id="DKM-Ci-JFl"/>
-                                    <constraint firstAttribute="bottom" secondItem="GyK-QW-5Sx" secondAttribute="bottom" constant="20" id="ISu-h9-hZ9"/>
                                     <constraint firstItem="4va-qX-xFI" firstAttribute="top" secondItem="No6-Pd-9h3" secondAttribute="bottom" constant="26" id="P3Z-Mu-p0H"/>
                                     <constraint firstAttribute="trailing" secondItem="Fjt-6q-3hC" secondAttribute="trailing" constant="20" id="PNj-K1-IKa"/>
+                                    <constraint firstItem="E7W-wA-7ug" firstAttribute="top" secondItem="GyK-QW-5Sx" secondAttribute="bottom" constant="7" id="QdM-9u-tPw"/>
                                     <constraint firstItem="Fjt-6q-3hC" firstAttribute="top" secondItem="No6-Pd-9h3" secondAttribute="bottom" constant="40" id="TIz-CJ-XRe"/>
+                                    <constraint firstItem="E7W-wA-7ug" firstAttribute="leading" secondItem="CNp-Oc-Fc5" secondAttribute="leading" constant="20" id="aMw-mt-2TE"/>
                                     <constraint firstItem="Cxf-7R-ET0" firstAttribute="leading" secondItem="CNp-Oc-Fc5" secondAttribute="leading" constant="20" id="afG-zb-KdO"/>
                                     <constraint firstItem="No6-Pd-9h3" firstAttribute="top" secondItem="CNp-Oc-Fc5" secondAttribute="top" constant="-30" id="ifa-lB-Ja2"/>
                                     <constraint firstAttribute="trailing" secondItem="Cxf-7R-ET0" secondAttribute="trailing" constant="20" id="qUm-L6-gxg"/>
-                                    <constraint firstItem="GyK-QW-5Sx" firstAttribute="top" secondItem="Cxf-7R-ET0" secondAttribute="bottom" constant="16" id="ush-s0-Vyk"/>
+                                    <constraint firstItem="GyK-QW-5Sx" firstAttribute="top" secondItem="Cxf-7R-ET0" secondAttribute="bottom" constant="12" id="ush-s0-Vyk"/>
                                     <constraint firstAttribute="trailing" secondItem="GyK-QW-5Sx" secondAttribute="trailing" constant="20" id="wqE-IG-mY0"/>
                                 </constraints>
                             </scrollView>
@@ -1453,7 +1463,8 @@
                         <outlet property="ratingButtonTopConstraint" destination="ifa-lB-Ja2" id="JZ0-uC-uAp"/>
                         <outlet property="scrollView" destination="CNp-Oc-Fc5" id="bYF-Bj-LSz"/>
                         <outlet property="speakerLabel" destination="Cxf-7R-ET0" id="bp3-wT-ZtX"/>
-                        <outlet property="summaryLabel" destination="GyK-QW-5Sx" id="LZ1-d0-deL"/>
+                        <outlet property="summaryLabel" destination="E7W-wA-7ug" id="vbf-xi-uSJ"/>
+                        <outlet property="timeLabel" destination="GyK-QW-5Sx" id="Kpv-kC-O3J"/>
                         <outlet property="titleLabel" destination="Fjt-6q-3hC" id="Oxq-Y6-5wB"/>
                         <outlet property="trackLabel" destination="4va-qX-xFI" id="vAr-Xm-EYR"/>
                     </connections>
@@ -2300,6 +2311,6 @@
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="Q0f-8c-F6a"/>
+        <segue reference="8T2-Wu-dpR"/>
     </inferredMetricsTieBreakers>
 </document>
