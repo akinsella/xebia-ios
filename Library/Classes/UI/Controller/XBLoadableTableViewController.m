@@ -21,9 +21,8 @@
 }
 
 - (void)viewDidLoad {
-    [super viewDidLoad];
-
     [self initProgressHUD];
+    [super viewDidLoad];
 }
 
 -(void)loadData {
@@ -59,6 +58,7 @@
 
 - (void)initProgressHUD {
     self.progressHUD = [[MBProgressHUD alloc] initWithView:self.navigationController.view];
+    self.progressHUD.userInteractionEnabled = NO;
 }
 
 - (void)showProgressHUD {
@@ -79,6 +79,7 @@
     self.progressHUD.detailsLabelFont = [UIFont systemFontOfSize:12];
     self.progressHUD.completionBlock = nil;
     [self.navigationController.view addSubview:self.progressHUD];
+    self.progressHUD.removeFromSuperViewOnHide = YES;
     [self.progressHUD show:YES];
 }
 
@@ -98,6 +99,7 @@
     self.progressHUD.labelFont = [UIFont boldSystemFontOfSize:13];
     self.progressHUD.detailsLabelFont = [UIFont systemFontOfSize:11];
     self.progressHUD.completionBlock = callback;
+    self.progressHUD.removeFromSuperViewOnHide = YES;
     [self.navigationController.view addSubview:self.progressHUD];
 
 
@@ -121,6 +123,7 @@
     self.progressHUD.labelFont = [UIFont systemFontOfSize:16];
     self.progressHUD.detailsLabelFont = [UIFont systemFontOfSize:12];
     self.progressHUD.completionBlock = callback;
+    self.progressHUD.removeFromSuperViewOnHide = YES;
     [self.navigationController.view addSubview:self.progressHUD];
 
     [self.progressHUD show:YES];

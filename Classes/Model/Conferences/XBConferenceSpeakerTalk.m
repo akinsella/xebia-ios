@@ -15,7 +15,7 @@
     return config;
 }
 
-- (NSString *)standardIdentifier {
+- (NSString *)presentationIdentifier {
     return self.presentationId;
 }
 

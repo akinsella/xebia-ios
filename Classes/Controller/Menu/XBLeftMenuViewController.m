@@ -37,8 +37,6 @@ enum {
     XBMenuVimeo
 };
 
-static NSString *const XBConferenceHomeViewControllerIdentifier = @"conferenceHome";
-
 @interface XBLeftMenuViewController ()
 @property (nonatomic, strong) NSMutableDictionary *viewIdentifiers;
 @property (nonatomic, strong) IASKAppSettingsViewController *appSettingsViewController;
@@ -230,14 +228,19 @@ static NSString *const XBConferenceHomeViewControllerIdentifier = @"conferenceHo
 }
 
 - (void)revealViewControllerWithIdentifier:(NSString *)identifier {
-    if ([self currentViewIsViewControllerWithIdentifier: identifier]) {
+    if ([self currentViewIsViewControllerWithIdentifier:identifier] && ![identifier isEqualToString:XBConferenceHomeViewControllerIdentifier]) {
         [self.navigationController.mm_drawerController closeDrawerAnimated:YES completion:nil];
+
     } else {
-        UIViewController *viewController = [self.appDelegate.viewControllerManager getOrCreateControllerWithIdentifier:identifier];
+        UIViewController *viewController;
         if ([identifier isEqualToString:XBConferenceHomeViewControllerIdentifier]) {
-            XBConference *conference = self.conferenceDataSource[self.tableView.indexPathForSelectedRow.row];
-            [(XBConferenceHomeViewController *)viewController setConference:conference];
+            NSIndexPath *indexPath = self.tableView.indexPathForSelectedRow;
+            XBConference *conference = self.dataSource[indexPath.section][indexPath.row];
+            viewController = [self.appDelegate.viewControllerManager getOrCreateConferenceControllerWithConference:conference];
+        } else {
+            viewController = [self.appDelegate.viewControllerManager getOrCreateControllerWithIdentifier:identifier];
         }
+
         UINavigationController *navigationController = (UINavigationController *)self.navigationController.mm_drawerController.centerViewController;
         [navigationController setViewControllers: @[viewController] animated:NO];
         [self.navigationController.mm_drawerController closeDrawerAnimated:YES completion:nil];

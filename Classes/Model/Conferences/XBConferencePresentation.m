@@ -62,7 +62,7 @@ NSString * const XBConferenceKindBreak = @"Break";
     return _speakerString;
 }
 
-- (NSString *)standardIdentifier
+- (NSString *)presentationIdentifier
 {
     return self.identifier ? self.identifier : self.scheduleId;
 }

@@ -19,14 +19,14 @@ pod 'TestFlightSDK',                '2.1.3-beta'
 pod 'SecureUDID',					'1.1'
 pod 'DCIntrospect',					'0.0.2'
 pod 'DTCoreText',					'1.6.10'
-pod 'DTFoundation',                 '1.6.1'
+#pod 'DTFoundation',                 '1.6.1'
 pod 'Appirater',					'2.0.2'
 pod 'ZXingObjC',					'2.2.2'
 pod 'NewRelicAgent',				'1.396'
 pod 'InAppSettingsKit', 			'2.0'
 pod 'ParseKit',						'0.7'
 pod 'UIImageEffects', 				'~> 0.0'
-
+pod 'DTMarkdownParser',				'0.2.1'
 pod 'Reveal-iOS-SDK', 				'~> 1.0'
 
 target :"XebiaTests", :exclusive => true do

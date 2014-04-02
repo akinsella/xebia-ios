@@ -61,8 +61,6 @@
     [self configureTableView];
     [self createConferenceDownloader];
     [super viewDidLoad];
-
-    [self setupConferenceLocationMonitoring];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -94,6 +92,7 @@
 
 - (void)applyValues {
     [self downloadAndApplyLogo];
+    [self setupConferenceLocationMonitoring];
     self.titleLabel.text = self.conference.name;
     self.title = self.conference.name;
 }
@@ -256,10 +255,7 @@
 }
 
 - (void)setupConferenceLocationMonitoring {
-//    if (!IS_IOS_6_OR_EARLIER()) {
-//        self.conferenceLocationManager = [XBConferenceLocationManager new];
-//        [self.conferenceLocationManager initializeRegionMonitoring];
-//    }
+    // TODO: add beacons to manager
 }
 
 @end

@@ -728,6 +728,7 @@
 		2EE44ED31075EB3B80A72AAF /* XBConferenceSpeakerTalkCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XBConferenceSpeakerTalkCell.m; sourceTree = "<group>"; };
 		2EE44ED4FE9BCC18F4B716B8 /* XBConferenceHomeDateCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XBConferenceHomeDateCell.h; sourceTree = "<group>"; };
 		2EE44EE08E65771C46561125 /* XBConferencePresentation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XBConferencePresentation.h; sourceTree = "<group>"; };
+		2EE44F2050E83F93262543D2 /* XBPresentationIdentifier.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XBPresentationIdentifier.h; sourceTree = "<group>"; };
 		2EE44F248FA1F25FF415CD2D /* XBConferenceRoomDetailDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XBConferenceRoomDetailDataSource.h; sourceTree = "<group>"; };
 		2EE44F69BC38CA9E68F1007A /* DCCustomParser+XBConferenceAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "DCCustomParser+XBConferenceAdditions.m"; sourceTree = "<group>"; };
 		2EE44FEC20B1E55732BF54EF /* XBConferenceRating.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XBConferenceRating.m; sourceTree = "<group>"; };
@@ -1526,6 +1527,7 @@
 				2EE44143A4024DDB94FBBED7 /* XBConferenceSpeakerTalk.h */,
 				2EE442C1590A951ABB12ADC6 /* XBConferencePresentationDetail.m */,
 				2EE44D06321B4EE813752143 /* XBConferencePresentationDetail.h */,
+				2EE44F2050E83F93262543D2 /* XBPresentationIdentifier.h */,
 			);
 			path = Conferences;
 			sourceTree = "<group>";

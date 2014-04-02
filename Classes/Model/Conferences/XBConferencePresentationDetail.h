@@ -5,11 +5,12 @@
 
 #import <Foundation/Foundation.h>
 #import "XBMappingProvider.h"
+#import "XBPresentationIdentifier.h"
 
 @class XBConferencePresentation;
 
 
-@interface XBConferencePresentationDetail : NSObject<XBMappingProvider>
+@interface XBConferencePresentationDetail : NSObject<XBMappingProvider, XBPresentationIdentifier>
 
 @property (nonatomic, strong) NSString *conferenceId;
 @property (nonatomic, strong) NSString *identifier;

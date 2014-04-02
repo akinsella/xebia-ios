@@ -73,4 +73,8 @@ static const NSUInteger XBConferencePresentationRatingStartTime = 10;
     return endDatePostponed && [endDatePostponed compare:[NSDate date]] == NSOrderedAscending;
 }
 
+- (NSString *)presentationIdentifier {
+    return self.identifier;
+}
+
 @end

@@ -5,10 +5,11 @@
 
 #import <Foundation/Foundation.h>
 #import "XBMappingProvider.h"
+#import "XBPresentationIdentifier.h"
 
 extern NSString * const XBConferenceKindBreak;
 
-@interface XBConferencePresentation : NSObject<XBMappingProvider>
+@interface XBConferencePresentation : NSObject<XBMappingProvider, XBPresentationIdentifier>
 
 @property (nonatomic, strong) NSString *conferenceId;
 @property (nonatomic, strong) NSString *identifier;
@@ -25,7 +26,6 @@ extern NSString * const XBConferenceKindBreak;
 @property (nonatomic, strong) NSArray *speakers;
 @property (nonatomic, strong) NSString *track;
 
-- (NSString *)standardIdentifier;
 - (NSString *)speakerString;
 
 @end

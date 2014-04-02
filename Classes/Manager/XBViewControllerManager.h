@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
+@class XBConference;
+
 
 @interface XBViewControllerManager : NSObject
 
@@ -16,6 +18,8 @@
 - (id)init;
 
 -(UIViewController *)getOrCreateControllerWithIdentifier: (NSString *)identifier;
+
+- (UIViewController *)getOrCreateConferenceControllerWithConference:(XBConference *)conference;
 
 - (Class *)controllerClassWithIdentifier:(NSString *)identifier;
 @end
