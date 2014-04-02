@@ -12,6 +12,7 @@
 }
 - (void)configureWithTalk:(XBConferenceSpeakerTalk *)talk {
     self.titleLabel.text = talk.title;
+    self.backgroundColor = [UIColor whiteColor];
 }
 
 - (CGFloat)heightForCell:(UITableView *)tableView {

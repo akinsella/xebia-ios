@@ -43,4 +43,8 @@
     return [UIColor trackColors][trackValue];
 }
 
++ (UIColor *)xebiaPurpleColor {
+    return [UIColor colorWithRed:0.416 green:0.125 blue:0.373 alpha:1];
+}
+
 @end

@@ -4,6 +4,7 @@
 //
 
 #import <SDWebImage/UIImageView+WebCache.h>
+#import <SSToolkit/UIColor+SSToolkitAdditions.h>
 #import "XBConferenceSpeakerDetailViewController.h"
 #import "XBConferenceSpeaker.h"
 #import "NSString+XBAdditions.h"
@@ -11,6 +12,7 @@
 #import "XBConferencePresentationDetailViewController.h"
 #import "XBConference.h"
 #import "XBConferenceSpeakerTalk.h"
+#import "UIColor+XBConferenceAdditions.h"
 
 
 @implementation XBConferenceSpeakerDetailViewController
@@ -39,6 +41,8 @@
     self.imageView.backgroundColor = [UIColor grayColor];
     self.imageView.layer.cornerRadius = CGRectGetWidth(self.imageView.frame) / 2.0;
     self.imageView.clipsToBounds = YES;
+    [self.imageView.layer setBorderColor:[UIColor xebiaPurpleColor].CGColor];
+    [self.imageView.layer setBorderWidth:3.0f];
 }
 
 - (void)applyValues {

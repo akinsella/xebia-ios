@@ -7,4 +7,6 @@
 
 @interface UIColor (XBConferenceAdditions)
 + (UIColor *)colorWithTrackIdentifier:(NSString *)trackIdentifier;
+
++ (UIColor *)xebiaPurpleColor;
 @end

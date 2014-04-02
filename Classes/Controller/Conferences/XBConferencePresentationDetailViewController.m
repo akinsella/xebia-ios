@@ -10,6 +10,9 @@
 #import "XBConferencePresentationDetail.h"
 #import "XBConferenceRatingViewController.h"
 #import "UIColor+XBConferenceAdditions.h"
+#import "MMMarkdown.h"
+#import "DTCoreTextConstants.h"
+#import "NSAttributedString+HTML.h"
 
 @interface XBConferencePresentationDetailViewController()
 @property (nonatomic, strong) XBConferencePresentationDetail *presentationDetail;
@@ -30,6 +33,16 @@
     self.title = self.presentationDetail.title;
     self.titleLabel.text = self.presentationDetail.title;
     self.summaryLabel.text = self.presentationDetail.summary;
+//
+//    NSError *summaryError;
+//    NSString *htmlSummaryString = [MMMarkdown HTMLStringWithMarkdown:self.presentationDetail.summary error:&summaryError];
+//    if (summaryError) {
+//        self.summaryLabel.text = self.presentationDetail.summary;
+//    } else {
+//        NSAttributedString *htmlSummaryAttributedString = [[NSAttributedString alloc] initWithHTMLData:[htmlSummaryString dataUsingEncoding:NSUTF8StringEncoding] options:@{DTUseiOS6Attributes: @(YES)} documentAttributes:NULL];
+//        self.summaryLabel.attributedText = htmlSummaryAttributedString;
+//    }
+
     self.trackLabel.text = self.presentationDetail.track;
     self.speakerLabel.text = [NSString stringWithFormat:@"%@ %@", NSLocalizedString(@"by", @"by"), self.presentationDetail.speakerString];
 
@@ -50,7 +63,7 @@
     }
     
     [self.ratingButton setTitle:NSLocalizedString(@"Rate this", @"Rate this") forState:UIControlStateNormal];
-    [self.ratingButton setBackgroundColor:[UIColor colorWithRed:0.416 green:0.125 blue:0.373 alpha:1]];
+    [self.ratingButton setBackgroundColor:[UIColor xebiaPurpleColor]];
     self.ratingButton.layer.cornerRadius = 3.0;
 
     CALayer *colorLayer = [[CALayer alloc] init];

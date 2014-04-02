@@ -71,6 +71,15 @@
 - (void)createConferenceDownloader {
     self.downloader = [XBConferenceDownloader downloaderWithDownloadableBundle:self.conference];
     [self.downloadActivityIndicator startAnimating];
+
+    if ([self.downloader isBundleCached]) {
+        [self applyValues];
+
+        [self.dayDataSource loadAndFilterDistinctDays:^{
+            [self.tableView reloadData];
+        }];
+    }
+
     [self.downloader downloadAllResources:^(NSError *error) {
         if (error && ![self.downloader isBundleCached]) {
             [self showErrorProgressHUDWithMessage:NSLocalizedString(@"Loading error", @"Loading error") afterDelay:2.0 callback:nil];
