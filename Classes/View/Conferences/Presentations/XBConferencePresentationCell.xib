@@ -14,10 +14,20 @@
                 <rect key="frame" x="0.0" y="0.0" width="287" height="66"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="267" translatesAutoresizingMaskIntoConstraints="NO" id="jVA-Ts-hyk">
-                        <rect key="frame" x="20" y="11" width="267" height="19"/>
+                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="239" translatesAutoresizingMaskIntoConstraints="NO" id="jVA-Ts-hyk">
+                        <rect key="frame" x="48" y="11" width="239" height="19"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="16"/>
+                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="750" verticalHuggingPriority="251" text="10h30" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="28" translatesAutoresizingMaskIntoConstraints="NO" id="2uq-ZX-1wk">
+                        <rect key="frame" x="15" y="13" width="28" height="19"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="19" id="QAc-Xj-qlM"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="10"/>
                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                         <nil key="highlightedColor"/>
                     </label>
@@ -30,8 +40,10 @@
                     </label>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="jVA-Ts-hyk" firstAttribute="leading" secondItem="FWd-fx-AhH" secondAttribute="leading" constant="20" id="0Vb-Wj-lV5"/>
+                    <constraint firstItem="2uq-ZX-1wk" firstAttribute="leading" secondItem="FWd-fx-AhH" secondAttribute="leading" constant="15" id="86i-8y-b1m"/>
+                    <constraint firstItem="2uq-ZX-1wk" firstAttribute="top" secondItem="FWd-fx-AhH" secondAttribute="top" constant="13" id="VOE-7W-Com"/>
                     <constraint firstAttribute="trailing" secondItem="jVA-Ts-hyk" secondAttribute="trailing" id="VkD-KG-oEG"/>
+                    <constraint firstItem="jVA-Ts-hyk" firstAttribute="leading" secondItem="2uq-ZX-1wk" secondAttribute="trailing" constant="5" id="iJD-am-oLo"/>
                     <constraint firstItem="jVA-Ts-hyk" firstAttribute="top" secondItem="FWd-fx-AhH" secondAttribute="top" constant="11" id="ks3-IM-maV"/>
                     <constraint firstItem="eQY-uB-P2p" firstAttribute="top" secondItem="jVA-Ts-hyk" secondAttribute="bottom" constant="4" id="sNv-Wf-AcW"/>
                     <constraint firstAttribute="trailing" secondItem="eQY-uB-P2p" secondAttribute="trailing" id="sWn-fl-BGG"/>
@@ -39,6 +51,7 @@
                 </constraints>
             </tableViewCellContentView>
             <connections>
+                <outlet property="hourLabel" destination="2uq-ZX-1wk" id="B6G-b4-yog"/>
                 <outlet property="speakerLabel" destination="eQY-uB-P2p" id="73F-I4-fy2"/>
                 <outlet property="titleLabel" destination="jVA-Ts-hyk" id="Cba-q3-FZR"/>
             </connections>

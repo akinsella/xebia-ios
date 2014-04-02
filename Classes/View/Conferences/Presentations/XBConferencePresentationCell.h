@@ -14,6 +14,7 @@
 
 @property (nonatomic, weak) IBOutlet UILabel *titleLabel;
 @property (nonatomic, weak) IBOutlet UILabel *speakerLabel;
+@property (nonatomic, weak) IBOutlet UILabel *hourLabel;
 
 - (void)configureWithPresentation:(XBConferencePresentation *)presentation;
 

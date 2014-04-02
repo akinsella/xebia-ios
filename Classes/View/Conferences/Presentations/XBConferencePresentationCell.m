@@ -12,16 +12,29 @@
 
 @implementation XBConferencePresentationCell
 
+- (NSDateFormatter *)dateFormatter {
+    static dispatch_once_t once;
+    static NSDateFormatter *sharedConferenceHomeDateCellDateFormatter;
+    dispatch_once(&once, ^ {
+        sharedConferenceHomeDateCellDateFormatter = [[NSDateFormatter alloc] init];
+        sharedConferenceHomeDateCellDateFormatter.locale = [NSLocale localeWithLocaleIdentifier:@"fr_FR"];
+        sharedConferenceHomeDateCellDateFormatter.dateFormat = @"HH'h'mm";
+    });
+    return sharedConferenceHomeDateCellDateFormatter;
+}
+
 - (void)configureWithPresentation:(XBConferencePresentation *)presentation {
     if ([presentation isAuxiliary]) {
         self.titleLabel.text = presentation.kind;
         self.backgroundColor = [UIColor whiteColor];
         self.speakerLabel.text = @"";
+        self.hourLabel.text = [self.dateFormatter stringFromDate:presentation.fromTime];
         self.accessoryType = UITableViewCellAccessoryNone;
     } else {
         self.titleLabel.text = presentation.title;
         self.speakerLabel.text = [NSString stringWithFormat:@"%@ %@", NSLocalizedString(@"par", @"par"), presentation.speakerString];
         self.backgroundColor = [UIColor colorWithHex:@"#F0F0F0"];
+        self.hourLabel.text = nil;
         self.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     }
 }
