@@ -28,20 +28,26 @@
 }
 
 - (NSString *)uid {
-    return _uid;
+    return _identifier;
 }
 
 - (NSArray *)resources {
-    return @[@"http://backend.mobile.xebia.io/api/v1/conferences/10/tracks",
-            @"http://backend.mobile.xebia.io/api/v1/conferences/10/rooms",
-            @"http://backend.mobile.xebia.io/api/v1/conferences/10/schedule",
-            @"http://backend.mobile.xebia.io/api/v1/conferences/10/presentations",
-            @"http://backend.mobile.xebia.io/api/v1/conferences/10/speakers"
+    return @[
+            [NSString stringWithFormat:@"http://backend.mobile.xebia.io/api/v1/conferences/%@/tracks", self.identifier],
+            [NSString stringWithFormat:@"http://backend.mobile.xebia.io/api/v1/conferences/%@/rooms", self.identifier],
+            [NSString stringWithFormat:@"http://backend.mobile.xebia.io/api/v1/conferences/%@/schedule", self.identifier],
+            [NSString stringWithFormat:@"http://backend.mobile.xebia.io/api/v1/conferences/%@/presentations", self.identifier],
+            [NSString stringWithFormat:@"http://backend.mobile.xebia.io/api/v1/conferences/%@/speakers", self.identifier]
     ];
 }
 
 + (DCParserConfiguration *)mappings {
     DCParserConfiguration *config = [DCParserConfiguration configuration];
+
+    [config addCustomParsersObject:[[DCCustomParser alloc] initWithBlockParser:[DCCustomParser stringParser]
+                                                              forAttributeName:@"_identifier"
+                                                            onDestinationClass:[self class]]];
+
     [config addObjectMapping: [DCObjectMapping mapKeyPath:@"id" toAttribute:@"identifier" onClass:[self class]]];
 
     DCCustomParser *fromTimeDateParser = [[DCCustomParser alloc] initWithBlockParser:[DCCustomParser dateParser]
@@ -56,24 +62,5 @@
 
     return config;
 }
-
-- (NSString *)name
-{
-    //TODO: dynamyse these values
-    return @"DUMMY DUMMY";
-}
-
-- (NSString *)imageURL
-{
-    //TODO: dynamyse these values
-    return @"http://blogs-images.forbes.com/scottmendelson/files/2014/02/the_lego_movie_2014-wide.jpg";
-}
-
-- (NSNumber *)identifier
-{
-    //TODO: dynamyse these values
-    return @(10);
-}
-
 
 @end

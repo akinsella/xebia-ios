@@ -14,5 +14,5 @@
 
 + (instancetype)dataSourceWithResourcePath:(NSString *)resourcePath;
 
-- (void)loadPresentationWithId:(NSNumber *)presentationIdentifier callback:(void (^)(XBConferencePresentationDetail *))callback;
+- (void)loadPresentationWithId:(NSString *)presentationIdentifier callback:(void (^)(XBConferencePresentationDetail *))callback;
 @end

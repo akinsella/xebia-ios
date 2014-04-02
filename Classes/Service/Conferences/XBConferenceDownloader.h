@@ -6,6 +6,5 @@
 #import <Foundation/Foundation.h>
 #import "XBDownloadableBundleDownloader.h"
 
-
 @interface XBConferenceDownloader : XBDownloadableBundleDownloader
 @end

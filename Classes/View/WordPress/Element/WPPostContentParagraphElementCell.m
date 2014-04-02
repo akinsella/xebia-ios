@@ -10,9 +10,11 @@
 #import <DTCoreText/DTHTMLElement.h>
 #import <DTCoreText/DTHTMLAttributedStringBuilder.h>
 #import <DTCoreText/DTCSSStylesheet.h>
+#import <DTCoreText/DTLinkButton.h>
 #import "WPPostContentParagraphElementCell.h"
 #import "XBAppDelegate.h"
 #import "UIColor+XBAdditions.h"
+#import "XBWebBrowser.h"
 
 #define kDefaultFontFamily @"Cabin"
 
@@ -39,6 +41,7 @@ static const CGFloat kMarginHeight = 25.0;
 
 - (id)initWithCoder:(NSCoder *)coder {
     self = [super initWithCoder:coder];
+
     if (self) {
         [self configure];
     }
@@ -48,6 +51,7 @@ static const CGFloat kMarginHeight = 25.0;
 
 - (void)configure {
     [self setHasFixedRowHeight:NO];
+    self.attributedTextContextView.delegate = self;
 }
 
 - (XBAppDelegate *) appDelegate {
@@ -72,7 +76,6 @@ static const CGFloat kMarginHeight = 25.0;
         NSString *html = [NSString stringWithFormat: @"<%@ style=\"padding: 0px 10px 0px 10px;text-align: justify;\">%@</%@>", @"div", element.text, @"div"];
         self.attributedString = [self attributedStringForHTML: html];
     }
-
 }
 
 - (NSAttributedString *)attributedStringForHTML:(NSString *)html
@@ -102,6 +105,37 @@ static const CGFloat kMarginHeight = 25.0;
                                                                                              documentAttributes: nil];
 
     return [attributedStringBuilder generatedAttributedString];
+}
+
+
+- (UIView *)attributedTextContentView:(DTAttributedTextContentView *)attributedTextContentView viewForLink:(NSURL *)url identifier:(NSString *)identifier frame:(CGRect)frame
+{
+    DTLinkButton *button = [[DTLinkButton alloc] initWithFrame:frame];
+    button.URL = url;
+    button.minimumHitSize = CGSizeMake(25, 25); // adjusts it's bounds so that button is always large enough
+    button.GUID = identifier;
+
+    // get image with normal link text
+    UIImage *normalImage = [attributedTextContentView contentImageWithBounds:frame options:DTCoreTextLayoutFrameDrawingDefault];
+    [button setImage:normalImage forState:UIControlStateNormal];
+
+    // get image for highlighted link text
+    UIImage *highlightImage = [attributedTextContentView contentImageWithBounds:frame options:DTCoreTextLayoutFrameDrawingDrawLinksHighlighted];
+    [button setImage:highlightImage forState:UIControlStateHighlighted];
+
+    // use normal push action for opening URL
+    [button addTarget:self action:@selector(linkPushed:) forControlEvents:UIControlEventTouchUpInside];
+
+    return button;
+}
+
+- (void)linkPushed:(DTLinkButton *)linkButton
+{
+    XBWebBrowser *webBrowser = [[XBWebBrowser alloc] initWithUrl:linkButton.URL];
+    webBrowser.mode = TSMiniWebBrowserModeModal;
+    webBrowser.showPageTitleOnTitleBar = YES;
+
+    [self.appDelegate.mainViewController presentViewController:webBrowser animated:YES completion:^{ }];
 }
 
 -(CGFloat)heightForCell:(UITableView *)tableView {

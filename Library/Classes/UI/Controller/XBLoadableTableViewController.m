@@ -21,9 +21,8 @@
 }
 
 - (void)viewDidLoad {
-    [super viewDidLoad];
-
     [self initProgressHUD];
+    [super viewDidLoad];
 }
 
 -(void)loadData {
@@ -33,13 +32,14 @@
 }
 
 -(void)loadDataWithProgress:(BOOL)showProgress callback:(void(^)())callback {
-    if (showProgress) {
-        [self showProgressHUD];
-    }
     
     if (![self.reloadableDataSource respondsToSelector:@selector(loadDataWithCallback:)]) {
         [super loadData];
         return;
+    }
+
+    if (showProgress) {
+        [self showProgressHUD];
     }
     
     [self.reloadableDataSource loadDataWithCallback:^ {
@@ -58,7 +58,10 @@
 }
 
 - (void)initProgressHUD {
-    self.progressHUD = [[MBProgressHUD alloc] initWithView:self.navigationController.view];
+    if (!self.progressHUD) {
+        self.progressHUD = [[MBProgressHUD alloc] initWithView:self.navigationController.view];
+        self.progressHUD.userInteractionEnabled = NO;
+    }
 }
 
 - (void)showProgressHUD {
@@ -79,6 +82,7 @@
     self.progressHUD.detailsLabelFont = [UIFont systemFontOfSize:12];
     self.progressHUD.completionBlock = nil;
     [self.navigationController.view addSubview:self.progressHUD];
+    self.progressHUD.removeFromSuperViewOnHide = YES;
     [self.progressHUD show:YES];
 }
 
@@ -98,6 +102,7 @@
     self.progressHUD.labelFont = [UIFont boldSystemFontOfSize:13];
     self.progressHUD.detailsLabelFont = [UIFont systemFontOfSize:11];
     self.progressHUD.completionBlock = callback;
+    self.progressHUD.removeFromSuperViewOnHide = YES;
     [self.navigationController.view addSubview:self.progressHUD];
 
 
@@ -121,6 +126,7 @@
     self.progressHUD.labelFont = [UIFont systemFontOfSize:16];
     self.progressHUD.detailsLabelFont = [UIFont systemFontOfSize:12];
     self.progressHUD.completionBlock = callback;
+    self.progressHUD.removeFromSuperViewOnHide = YES;
     [self.navigationController.view addSubview:self.progressHUD];
 
     [self.progressHUD show:YES];
@@ -134,6 +140,7 @@
 - (void)dismissProgressHUDWithCallback:(void(^)())callback {
     self.progressHUD.taskInProgress = NO;
     [self.progressHUD hide:YES];
+    [self.progressHUD removeFromSuperview];
 
 
     if (callback) {

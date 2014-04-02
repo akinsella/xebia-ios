@@ -13,6 +13,8 @@
 
 @interface XBDownloadableBundleDownloader : NSObject
 
+@property (nonatomic, strong, readonly) id<XBDownloadableBundle> downloadableBundle;
+
 + (instancetype)downloaderWithDownloadableBundle:(id <XBDownloadableBundle>)downloadableBundle;
 
 + (NSString *)rootFolder;

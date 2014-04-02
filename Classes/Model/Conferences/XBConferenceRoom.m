@@ -7,13 +7,17 @@
 //
 
 #import <DCKeyValueObjectMapping/DCObjectMapping.h>
+#import <DCKeyValueObjectMapping/DCCustomParser.h>
 #import "XBConferenceRoom.h"
+#import "DCCustomParser+XBConferenceAdditions.h"
 
 @implementation XBConferenceRoom
 
 + (DCParserConfiguration *)mappings {
     DCParserConfiguration *config = [DCParserConfiguration configuration];
-    
+    [config addCustomParsersObject:[[DCCustomParser alloc] initWithBlockParser:[DCCustomParser stringParser]
+                                                              forAttributeName:@"_identifier"
+                                                            onDestinationClass:[self class]]];
     [config addObjectMapping: [DCObjectMapping mapKeyPath:@"id" toAttribute:@"identifier" onClass:[self class]]];
     
     return config;

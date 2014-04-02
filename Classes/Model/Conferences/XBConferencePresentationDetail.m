@@ -12,6 +12,7 @@
 #import "XBConferenceSpeaker.h"
 #import "DCParserConfiguration+XBAdditions.h"
 #import "XBConferencePresentation.h"
+#import "DCCustomParser+XBConferenceAdditions.h"
 
 static const NSUInteger XBConferencePresentationRatingStartTime = 10;
 
@@ -25,6 +26,10 @@ static const NSUInteger XBConferencePresentationRatingStartTime = 10;
 
 + (DCParserConfiguration *)mappings {
     DCParserConfiguration *config = [DCParserConfiguration configuration];
+
+    [config addCustomParsersObject:[[DCCustomParser alloc] initWithBlockParser:[DCCustomParser stringParser]
+                                                              forAttributeName:@"_identifier"
+                                                            onDestinationClass:[self class]]];
 
     [config addObjectMapping: [DCObjectMapping mapKeyPath:@"id" toAttribute:@"identifier" onClass:[self class]]];
 
@@ -46,6 +51,10 @@ static const NSUInteger XBConferencePresentationRatingStartTime = 10;
 }
 
 - (void)mergeWithPresentation:(XBConferencePresentation *)presentation {
+    if (![presentation respondsToSelector:@selector(fromTime)] ||
+        ![presentation respondsToSelector:@selector(toTime)]) {
+        return;
+    }
     self.fromTime = presentation.fromTime;
     self.toTime = presentation.toTime;
 }
@@ -61,7 +70,11 @@ static const NSUInteger XBConferencePresentationRatingStartTime = 10;
 
 - (BOOL)canBeVoted {
     NSDate *endDatePostponed = [self.toTime dateByAddingTimeInterval:(XBConferencePresentationRatingStartTime * 60)];
-    return !endDatePostponed || [endDatePostponed compare:[NSDate date]] == NSOrderedAscending;
+    return endDatePostponed && [endDatePostponed compare:[NSDate date]] == NSOrderedAscending;
+}
+
+- (NSString *)presentationIdentifier {
+    return self.identifier;
 }
 
 @end

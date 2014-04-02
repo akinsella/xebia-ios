@@ -11,6 +11,7 @@
 #import "XBJsonToArrayDataMapper.h"
 #import "XBReloadableArrayDataSource+protected.h"
 #import "XBConferenceRoom.h"
+#import "XBArrayDataSource+protected.h"
 
 @implementation XBConferenceRoomDataSource
 
@@ -26,6 +27,17 @@
 
 + (instancetype)dataSourceWithResourcePath:(NSString *)resourcePath {
     return [[self alloc] initWithResourcePath:resourcePath];
+}
+
+- (NSDictionary *)dictionaryWithRoomsAndBeacons
+{
+    NSArray *allRooms = [self array];
+    NSMutableDictionary *dict = [NSMutableDictionary new];
+    for (XBConferenceRoom *room in allRooms) {
+        // TODO: Add a real room identifier
+        dict[room.identifier] = @"00000000-0000-0000-0000-000000000000";
+    }
+    return dict;
 }
 
 

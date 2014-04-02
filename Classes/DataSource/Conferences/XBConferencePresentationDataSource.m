@@ -26,13 +26,13 @@
     return [[self alloc] initWithResourcePath:resourcePath];
 }
 
-- (void)loadPresentationWithId:(NSNumber *)presentationIdentifier callback:(void (^)(XBConferencePresentationDetail *))callback {
+- (void)loadPresentationWithId:(NSString *)presentationIdentifier callback:(void (^)(XBConferencePresentationDetail *))callback {
     [self loadDataWithCallback:^{
 
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
             
             for (int i = 0; i < [self count]; i++) {
-                if ([[(XBConferencePresentation *) self[i] identifier] isEqualToNumber:presentationIdentifier]) {
+                if ([[(XBConferencePresentation *) self[i] identifier] isEqualToString:presentationIdentifier]) {
                     if (callback) {
                         dispatch_async(dispatch_get_main_queue(), ^{
                             callback(self[i]);

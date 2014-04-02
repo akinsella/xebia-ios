@@ -7,6 +7,9 @@
 //
 
 #import "XBViewControllerManager.h"
+#import "XBConference.h"
+#import "XBConstants.h"
+#import "XBConferenceHomeViewController.h"
 
 @interface XBViewControllerManager ()
 
@@ -36,6 +39,18 @@
         self.viewControllers[identifier] = vc;
     }
 
+    return vc;
+}
+
+- (UIViewController *)getOrCreateConferenceControllerWithConference:(XBConference *)conference {
+    XBConferenceHomeViewController *vc = self.viewControllers[XBConferenceHomeViewControllerIdentifier];
+    if (vc && [vc.conference.identifier isEqualToString:conference.identifier]) {
+        return vc;
+    }
+
+    vc = (XBConferenceHomeViewController *) [self instantiateViewControllerWithIdentifier:XBConferenceHomeViewControllerIdentifier];
+    vc.conference = conference;
+    self.viewControllers[XBConferenceHomeViewControllerIdentifier] = vc;
     return vc;
 }
 

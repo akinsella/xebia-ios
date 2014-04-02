@@ -109,7 +109,7 @@
 
     [[SDWebImageManager sharedManager] downloadWithURL:[NSURL URLWithString:mapImageURL]
                                                options:kNilOptions
-                                              progress:^(NSUInteger receivedSize, long long int expectedSize) {}
+                                              progress:^(NSInteger receivedSize, NSInteger expectedSize) {}
                                              completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, BOOL finished) {
                                                  if (error || !image) {
                                                      XBLog("Error - %@", error);

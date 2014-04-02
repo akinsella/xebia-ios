@@ -57,7 +57,7 @@
         return NO;
     }
 
-    return ([NSDate timeIntervalSinceReferenceDate] <= self.ttl);
+    return ([NSDate timeIntervalSinceReferenceDate] > self.ttl);
 }
 
 @end

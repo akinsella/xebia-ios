@@ -284,27 +284,7 @@
 
 - (void)handleTap:(UITapGestureRecognizer *)gesture
 {
-    if (gesture.state == UIGestureRecognizerStateRecognized)
-    {
-//        CGPoint location = [gesture locationInView:self.contentTextView];
-//        NSUInteger tappedIndex = (NSUInteger)[self.contentTextView closestCursorIndexToPoint:location];
-//
-//        NSString *plainText = [self.contentTextView.attributedString string];
-//        NSString *tappedChar = [plainText substringWithRange:NSMakeRange(tappedIndex, 1)];
-//
-//        __block NSRange wordRange = NSMakeRange(0, 0);
-//
-//        [plainText enumerateSubstringsInRange:NSMakeRange(0, [plainText length]) options:NSStringEnumerationByWords usingBlock:^(NSString *substring, NSRange substringRange, NSRange enclosingRange, BOOL *stop) {
-//            if (NSLocationInRange(tappedIndex, enclosingRange))
-//            {
-//                *stop = YES;
-//                wordRange = substringRange;
-//            }
-//        }];
-//
-//        NSString *word = [plainText substringWithRange:wordRange];
-//        NSLog(@"%d: '%@' word: '%@'", tappedIndex, tappedChar, word);
-
+    if (gesture.state == UIGestureRecognizerStateRecognized) {
         [self toggleContent];
     }
 }

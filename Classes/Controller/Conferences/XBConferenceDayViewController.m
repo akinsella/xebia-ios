@@ -66,7 +66,7 @@
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     dateFormatter.locale = [NSLocale localeWithLocaleIdentifier:@"fr_FR"];
     dateFormatter.dateFormat = @"EEEE dd LLLL";
-    self.dayLabel.text = [dateFormatter stringFromDate:self.day];
+    self.dayLabel.text = [[dateFormatter stringFromDate:self.day] capitalizedString];
     
     [self filterByDay];
 }
@@ -85,8 +85,14 @@
 }
 
 - (void)onSelectCell: (UITableViewCell *)cell forObject:(id)object withIndex:(NSIndexPath *)indexPath {
-    [self performSegueWithIdentifier:@"ShowPresentationDetail" sender:nil];
     NSIndexPath *selectedIndexPath = [self.tableView indexPathForSelectedRow];
+    XBConferencePresentation *presentation = self.dataSource[selectedIndexPath.row];
+    
+    if ([presentation.kind isEqualToString:XBConferenceKindBreak]) {
+        return;
+    }
+    
+    [self performSegueWithIdentifier:@"ShowPresentationDetail" sender:nil];
     [self.tableView deselectRowAtIndexPath:selectedIndexPath animated:YES];
 }
 

@@ -25,4 +25,11 @@
     return block;
 }
 
++ (DCCustomParserBlock)stringParser {
+    DCCustomParserBlock block = ^(__weak NSDictionary *dictionary, __weak NSString *attributeName, __weak Class destinationClass, __weak id value) {
+        return [value isKindOfClass:[NSNumber class]] ? [value stringValue] : value;
+    };
+    return block;
+}
+
 @end

@@ -28,9 +28,7 @@
     self.photoImageView.image = nil;
     [[SDWebImageManager sharedManager] downloadWithURL:[speaker.imageURL url]
                                                options:kNilOptions
-                                              progress:^(NSUInteger receivedSize, long long int expectedSize) {
-                                                  
-                                              }
+                                              progress:^(NSInteger receivedSize, NSInteger expectedSize) {}
                                              completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, BOOL finished) {
                                                  if (error || !image) {
                                                      self.photoImageView.image = nil;

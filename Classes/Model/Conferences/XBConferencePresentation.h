@@ -5,13 +5,15 @@
 
 #import <Foundation/Foundation.h>
 #import "XBMappingProvider.h"
+#import "XBPresentationIdentifier.h"
 
+extern NSString * const XBConferenceKindBreak;
 
-@interface XBConferencePresentation : NSObject<XBMappingProvider>
+@interface XBConferencePresentation : NSObject<XBMappingProvider, XBPresentationIdentifier>
 
-@property (nonatomic, strong) NSNumber *conferenceId;
-@property (nonatomic, strong) NSNumber *identifier;
-@property (nonatomic, strong) NSNumber *scheduleId;
+@property (nonatomic, strong) NSString *conferenceId;
+@property (nonatomic, strong) NSString *identifier;
+@property (nonatomic, strong) NSString *scheduleId;
 @property (nonatomic, strong) NSDate *fromTime;
 @property (nonatomic, strong) NSDate *toTime;
 @property (nonatomic, assign) BOOL partnerSlot;
@@ -24,7 +26,6 @@
 @property (nonatomic, strong) NSArray *speakers;
 @property (nonatomic, strong) NSString *track;
 
-- (NSString *)standardIdentifier;
 - (NSString *)speakerString;
 
 @end

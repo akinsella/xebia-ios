@@ -56,13 +56,7 @@
     
     self.titleLabel.text = post.title;
 
-    NSCalendar *cal = [[NSCalendar alloc] init];
-    NSDateComponents *postDateComponents = [cal components:0 fromDate:post.date];
-    NSDateComponents *currentDateComponents = [cal components:0 fromDate:[NSDate date]];
-    int postDateYear = [postDateComponents year];
-    int currentDateYear = [postDateComponents year];
     self.dateLabel.text = [NSString stringWithFormat:@"%@", [post.date formatAuto]];
-
 
     self.categoriesLabel.text = post.categoriesFormatted;
     self.authorLabel.text = [NSString stringWithFormat:@"%@ %@", NSLocalizedString(@"By", nil), post.authorFormatted];
@@ -71,9 +65,7 @@
 
         [[SDWebImageManager sharedManager] downloadWithURL:post.imageUrl
                                                    options:kNilOptions
-                                                  progress:^(NSUInteger receivedSize, long long int expectedSize) {
-
-                                                  }
+                                                  progress:^(NSInteger receivedSize, NSInteger expectedSize) { }
                                                  completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, BOOL finished) {
                                                      if (error || !image) {
                                                          self.avatarImageView.image = self.defaultPostImage;

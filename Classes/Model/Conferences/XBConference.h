@@ -10,14 +10,16 @@
 
 @interface XBConference : NSObject<XBDownloadableBundle, XBMappingProvider>
 
-@property (nonatomic, strong) NSNumber *identifier;
+@property (nonatomic, strong) NSString *identifier;
 @property (nonatomic, strong) NSDate *from;
 @property (nonatomic, strong) NSDate *to;
 @property (nonatomic, strong) NSString *name;
 @property (nonatomic, strong) NSString *description;
 @property (nonatomic, strong) NSString *location;
 @property (nonatomic, strong) NSNumber *enabled;
-@property (nonatomic, strong) NSString *imageURL;
+@property (nonatomic, strong) NSString *iconUrl;
+@property (nonatomic, strong) NSString *backgroundUrl;
+@property (nonatomic, strong) NSString *logoUrl;
 
 - (instancetype)initWithUid:(NSString *)uid;
 + (instancetype)conferenceWithUid:(NSString *)uid;

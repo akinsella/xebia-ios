@@ -5,15 +5,21 @@
 
 #import <DCKeyValueObjectMapping/DCObjectMapping.h>
 #import <DCKeyValueObjectMapping/DCArrayMapping.h>
+#import <DCKeyValueObjectMapping/DCCustomParser.h>
 #import "XBConferenceSpeaker.h"
 #import "XBConferenceSpeakerTalk.h"
 #import "DCParserConfiguration+XBAdditions.h"
+#import "DCCustomParser+XBConferenceAdditions.h"
 
 
 @implementation XBConferenceSpeaker
 
 + (DCParserConfiguration *)mappings {
     DCParserConfiguration *config = [DCParserConfiguration configuration];
+
+    [config addCustomParsersObject:[[DCCustomParser alloc] initWithBlockParser:[DCCustomParser stringParser]
+                                                              forAttributeName:@"_identifier"
+                                                            onDestinationClass:[self class]]];
 
     [config addObjectMapping: [DCObjectMapping mapKeyPath:@"id" toAttribute:@"identifier" onClass:[self class]]];
 

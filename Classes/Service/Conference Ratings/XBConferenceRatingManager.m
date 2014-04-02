@@ -49,12 +49,12 @@
 }
 
 - (NSArray *)ratingsForConference:(XBConference *)conference {
-    NSPredicate *conferenceFilterPredicate = [NSPredicate predicateWithFormat:[NSString stringWithFormat:@"conferenceId == %d", conference.identifier.intValue]];
+    NSPredicate *conferenceFilterPredicate = [NSPredicate predicateWithFormat:[NSString stringWithFormat:@"conferenceId == %@", conference.identifier]];
     return [[self.ratings filteredSetUsingPredicate:conferenceFilterPredicate] allObjects];
 }
 
 - (XBConferenceRating *)ratingForPresentation:(XBConferencePresentationDetail *)presentation {
-    NSPredicate *conferenceFilterPredicate = [NSPredicate predicateWithFormat:[NSString stringWithFormat:@"presentationId = %d AND conferenceId == %d", presentation.identifier.intValue, presentation.conferenceId.intValue]];
+    NSPredicate *conferenceFilterPredicate = [NSPredicate predicateWithFormat:[NSString stringWithFormat:@"presentationId = %@ AND conferenceId == %@", presentation.identifier, presentation.conferenceId]];
     return [[[self.ratings filteredSetUsingPredicate:conferenceFilterPredicate] allObjects] firstObject];
 }
 

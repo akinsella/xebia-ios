@@ -35,6 +35,7 @@
     [super viewDidAppear:animated];
     
     if (self.presentationDetail.canBeVoted) {
+        self.ratingButton.hidden = NO;
         [self.view layoutIfNeeded];
         [UIView animateWithDuration:0.5 animations:^{
             self.ratingButtonTopConstraint.constant = 20.0;
@@ -50,7 +51,7 @@
 
 - (void)loadConferenceDetail {
     XBConferencePresentationDataSource *dataSource = [XBConferencePresentationDataSource dataSourceWithResourcePath:self.pathForLocalDataSource];
-    [dataSource loadPresentationWithId:self.presentation.standardIdentifier callback:^(XBConferencePresentationDetail *presentation) {
+    [dataSource loadPresentationWithId:self.presentation.presentationIdentifier callback:^(XBConferencePresentationDetail *presentation) {
         self.presentationDetail = presentation;
         [self.presentationDetail mergeWithPresentation:self.presentation];
         [self applyValues];
