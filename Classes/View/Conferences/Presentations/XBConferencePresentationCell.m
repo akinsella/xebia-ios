@@ -13,7 +13,7 @@
 @implementation XBConferencePresentationCell
 
 - (void)configureWithPresentation:(XBConferencePresentation *)presentation {
-    if ([presentation.kind isEqualToString:XBConferenceKindBreak]) {
+    if ([presentation isAuxiliary]) {
         self.titleLabel.text = presentation.kind;
         self.backgroundColor = [UIColor whiteColor];
         self.speakerLabel.text = @"";

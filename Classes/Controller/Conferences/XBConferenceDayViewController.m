@@ -88,7 +88,7 @@
     NSIndexPath *selectedIndexPath = [self.tableView indexPathForSelectedRow];
     XBConferencePresentation *presentation = self.dataSource[selectedIndexPath.row];
     
-    if ([presentation.kind isEqualToString:XBConferenceKindBreak]) {
+    if ([presentation isAuxiliary]) {
         return;
     }
     

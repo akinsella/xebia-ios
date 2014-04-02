@@ -28,4 +28,5 @@ extern NSString * const XBConferenceKindBreak;
 
 - (NSString *)speakerString;
 
+- (BOOL)isAuxiliary;
 @end

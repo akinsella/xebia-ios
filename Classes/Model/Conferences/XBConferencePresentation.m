@@ -12,7 +12,11 @@
 #import "DCParserConfiguration+XBAdditions.h"
 #import "DCCustomParser+XBConferenceAdditions.h"
 
+NSString * const XBConferenceKindRegistration = @"Registration";
 NSString * const XBConferenceKindBreak = @"Break";
+NSString * const XBConferenceKindBreakfast = @"Breakfast";
+NSString * const XBConferenceKindCoffeeBreak = @"Coffee Break";
+NSString * const XBConferenceKindLunch = @"Lunch";
 
 @interface XBConferencePresentation()
 
@@ -62,9 +66,17 @@ NSString * const XBConferenceKindBreak = @"Break";
     return _speakerString;
 }
 
-- (NSString *)presentationIdentifier
-{
+- (NSString *)presentationIdentifier {
     return self.identifier ? self.identifier : self.scheduleId;
+}
+
+- (BOOL)isAuxiliary {
+    return [self.kind isEqualToString:XBConferenceKindBreak]
+            || [self.kind isEqualToString:XBConferenceKindRegistration]
+            || [self.kind isEqualToString:XBConferenceKindLunch]
+            || [self.kind isEqualToString:XBConferenceKindCoffeeBreak]
+            || [self.kind isEqualToString:XBConferenceKindBreakfast]
+            ;
 }
 
 @end
