@@ -242,6 +242,12 @@
     return section == 0 ? 0 : 20.0;
 }
 
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+    UIView *header = [[UIView alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.view.frame), 20.0)];
+    header.backgroundColor = [UIColor colorWithHex:@"#E0E0E0"];
+    return header;
+}
+
 #pragma mark - Header effects
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
     self.backgroundImageView.frame = ({
