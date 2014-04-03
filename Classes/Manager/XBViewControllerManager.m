@@ -44,7 +44,7 @@
 
 - (UIViewController *)getOrCreateConferenceControllerWithConference:(XBConference *)conference {
     XBConferenceHomeViewController *vc = self.viewControllers[XBConferenceHomeViewControllerIdentifier];
-    if (vc && [vc.conference.identifier isEqualToString:conference.identifier]) {
+    if (vc && [vc.conference.identifier isEqual:conference.identifier]) {
         return vc;
     }
 

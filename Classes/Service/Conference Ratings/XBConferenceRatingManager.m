@@ -56,13 +56,13 @@
 }
 
 - (NSArray *)ratingsForConference:(XBConference *)conference {
-    NSPredicate *conferenceFilterPredicate = [NSPredicate predicateWithFormat:[NSString stringWithFormat:@"conferenceId like '%@'", conference.identifier]];
+    NSPredicate *conferenceFilterPredicate = [NSPredicate predicateWithFormat:[NSString stringWithFormat:@"conferenceId == %@", conference.identifier]];
     NSArray *result = [[self.ratings filteredSetUsingPredicate:conferenceFilterPredicate] allObjects];
     return result;
 }
 
 - (XBConferenceRating *)ratingForPresentation:(XBConferencePresentationDetail *)presentation {
-    NSPredicate *conferenceFilterPredicate = [NSPredicate predicateWithFormat:[NSString stringWithFormat:@"presentationId like '%@' AND conferenceId like '%@'", presentation.presentationIdentifier, presentation.conferenceId]];
+    NSPredicate *conferenceFilterPredicate = [NSPredicate predicateWithFormat:[NSString stringWithFormat:@"presentationId like '%@' AND conferenceId == %@", presentation.presentationIdentifier, presentation.conferenceId]];
     return [[[self.ratings filteredSetUsingPredicate:conferenceFilterPredicate] allObjects] firstObject];
 }
 
@@ -93,7 +93,7 @@
 - (void)sendRatingsOfConference:(XBConference *)conference {
     NSArray *allRatings = [self.ratings allObjects];
     NSArray *ratingsToSend = Underscore.filter(allRatings, ^BOOL(XBConferenceRating *rating) {
-        return ![rating.sent boolValue] && [rating.conferenceId isEqualToString:conference.identifier];
+        return ![rating.sent boolValue] && [rating.conferenceId isEqual:conference.identifier];
     });
 
     if (![ratingsToSend count]) {
@@ -145,7 +145,7 @@
 - (void)sendAllRatings {
     if ([[AFNetworkReachabilityManager sharedManager] networkReachabilityStatus] != AFNetworkReachabilityStatusNotReachable) {
         NSArray *allConferenceIdentifiers = [self allConferenceIdentifiers];
-        for (NSString *conferenceId in allConferenceIdentifiers) {
+        for (NSNumber *conferenceId in allConferenceIdentifiers) {
             [self sendRatingsOfConference:[XBConference conferenceWithIdentifier:conferenceId]];
         }
     }

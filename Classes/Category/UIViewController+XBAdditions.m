@@ -35,7 +35,12 @@
 - (void) addMenuButton {
     UIButton *menuButton = [UIButton buttonWithType:UIButtonTypeCustom];
     menuButton.frame = CGRectMake(0, 0, 22, 22);
-    [menuButton setBackgroundImage:[UIImage imageNamed:@"menu-button"] forState:UIControlStateNormal];
+    
+    if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0")) {
+        [menuButton setImage:[UIImage imageNamed:@"menu-button-flat"] forState:UIControlStateNormal];
+    } else {
+        [menuButton setBackgroundImage:[UIImage imageNamed:@"menu-button"] forState:UIControlStateNormal];
+    }
     [menuButton addTarget:self action:@selector(revealToggle) forControlEvents:UIControlEventTouchUpInside];
 
 

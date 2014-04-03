@@ -140,12 +140,15 @@
 - (void)dismissProgressHUDWithCallback:(void(^)())callback {
     self.progressHUD.taskInProgress = NO;
     [self.progressHUD hide:YES];
-    [self.progressHUD removeFromSuperview];
-
 
     if (callback) {
         callback();
     }
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [self.progressHUD hide:YES];
 }
 
 @end

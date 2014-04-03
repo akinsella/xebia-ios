@@ -235,7 +235,7 @@
                                   height:248
                                    hints:hints
                                    error:&error];
-    if (result) {
+    if (result && !error) {
         dispatch_async(dispatch_get_main_queue(), ^{
             NSAssert([NSThread isMainThread], @"Should be main thread !");
             CGImageRef imageRef = [[ZXImage imageWithMatrix:result] cgimage];

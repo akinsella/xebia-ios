@@ -10,7 +10,7 @@
 
 @implementation XBConference
 
-- (instancetype)initWithIdentifier:(NSString *)identifier {
+- (instancetype)initWithIdentifier:(NSNumber *)identifier {
     self = [super init];
     if (self) {
         self.identifier = identifier;
@@ -19,12 +19,12 @@
     return self;
 }
 
-+ (instancetype)conferenceWithIdentifier:(NSString *)identifier {
++ (instancetype)conferenceWithIdentifier:(NSNumber *)identifier {
     return [[self alloc] initWithIdentifier:identifier];
 }
 
 - (NSString *)uid {
-    return _identifier;
+    return [_identifier stringValue];
 }
 
 - (NSArray *)resources {
@@ -39,10 +39,6 @@
 
 + (DCParserConfiguration *)mappings {
     DCParserConfiguration *config = [DCParserConfiguration configuration];
-
-    [config addCustomParsersObject:[[DCCustomParser alloc] initWithBlockParser:[DCCustomParser stringParser]
-                                                              forAttributeName:@"_identifier"
-                                                            onDestinationClass:[self class]]];
 
     [config addObjectMapping: [DCObjectMapping mapKeyPath:@"id" toAttribute:@"identifier" onClass:[self class]]];
 

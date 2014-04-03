@@ -14,25 +14,24 @@
     static NSArray *trackColors;
     dispatch_once(&once, ^ {
         trackColors = @[
-                [UIColor colorWithHex:@"#b7a93d"],
-                [UIColor colorWithHex:@"#205f59"],
-                [UIColor colorWithHex:@"#b83d73"],
-                [UIColor colorWithHex:@"#7dd4ca"],
-                [UIColor colorWithHex:@"#7d7c2a"],
-                [UIColor colorWithHex:@"#592c84"],
-                [UIColor colorWithHex:@"#7c5fca"],
-                [UIColor colorWithHex:@"#7aca5f"],
-                [UIColor colorWithHex:@"#4e1a4c"],
-                [UIColor colorWithHex:@"#d3d787"],
-                [UIColor colorWithHex:@"#4b86c3"],
-                [UIColor colorWithHex:@"#be673f"],
-                [UIColor colorWithHex:@"#1c2754"],
-                [UIColor colorWithHex:@"#133a34"],
-                [UIColor colorWithHex:@"#a1ade0"],
-                [UIColor colorWithHex:@"#36a396"],
+                [UIColor colorWithHex:@"#3498db"],
+                [UIColor colorWithHex:@"#16a085"],
+                [UIColor colorWithHex:@"#f1c40f"],
+                [UIColor colorWithHex:@"#f39c12"],
+                [UIColor colorWithHex:@"#2ecc71"],
+                [UIColor colorWithHex:@"#27ae60"],
+                [UIColor colorWithHex:@"#d35400"],
+                [UIColor colorWithHex:@"#9b59b6"],
+                [UIColor colorWithHex:@"#3498db"],
+                [UIColor colorWithHex:@"#2980b9"],
+                [UIColor colorWithHex:@"#e74c3c"],
+                [UIColor colorWithHex:@"#c0392b"],
+                [UIColor colorWithHex:@"#e67e22"],
+                [UIColor colorWithHex:@"#8e44ad"],
+                [UIColor colorWithHex:@"#34495e"],
+                [UIColor colorWithHex:@"#bdc3c7"],
                 [UIColor colorWithHex:@"#152f10"],
-                [UIColor colorWithHex:@"#cf97dc"],
-
+                [UIColor colorWithHex:@"#cf97dc"]
         ];
     });
     return trackColors;

@@ -112,6 +112,8 @@
 		426FA5171895266D00A508D1 /* XBConferenceSpeakerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 426FA5161895266D00A508D1 /* XBConferenceSpeakerCell.m */; };
 		426FA5191895268200A508D1 /* XBConferenceSpeakerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 426FA5181895268200A508D1 /* XBConferenceSpeakerCell.xib */; };
 		426FA51C1895297A00A508D1 /* XBLocalJsonDataLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = 426FA51B1895297A00A508D1 /* XBLocalJsonDataLoader.m */; };
+		42965A0F18ED647600090124 /* menu-button-flat.png in Resources */ = {isa = PBXBuildFile; fileRef = 42965A0D18ED647600090124 /* menu-button-flat.png */; };
+		42965A1018ED647600090124 /* menu-button-flat@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 42965A0E18ED647600090124 /* menu-button-flat@2x.png */; };
 		42DBF46B1894346A00BBD4AB /* XBDownloadableBundleDownloaderTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 42DBF46A1894346A00BBD4AB /* XBDownloadableBundleDownloaderTest.m */; };
 		42E410E71899B9C1003EAD60 /* XBConferenceRoomViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 42E410E61899B9C1003EAD60 /* XBConferenceRoomViewController.m */; };
 		42E410EA1899BA49003EAD60 /* XBConferenceRoomDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 42E410E91899BA49003EAD60 /* XBConferenceRoomDataSource.m */; };
@@ -767,6 +769,8 @@
 		426FA5181895268200A508D1 /* XBConferenceSpeakerCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XBConferenceSpeakerCell.xib; sourceTree = "<group>"; };
 		426FA51A1895297A00A508D1 /* XBLocalJsonDataLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XBLocalJsonDataLoader.h; sourceTree = "<group>"; };
 		426FA51B1895297A00A508D1 /* XBLocalJsonDataLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XBLocalJsonDataLoader.m; sourceTree = "<group>"; };
+		42965A0D18ED647600090124 /* menu-button-flat.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "menu-button-flat.png"; sourceTree = "<group>"; };
+		42965A0E18ED647600090124 /* menu-button-flat@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "menu-button-flat@2x.png"; sourceTree = "<group>"; };
 		42DBF46A1894346A00BBD4AB /* XBDownloadableBundleDownloaderTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XBDownloadableBundleDownloaderTest.m; sourceTree = "<group>"; };
 		42E410E51899B9C1003EAD60 /* XBConferenceRoomViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XBConferenceRoomViewController.h; sourceTree = "<group>"; };
 		42E410E61899B9C1003EAD60 /* XBConferenceRoomViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XBConferenceRoomViewController.m; sourceTree = "<group>"; };
@@ -1677,7 +1681,7 @@
 			path = Conferences;
 			sourceTree = "<group>";
 		};
-		2EE44EDDCEA5C79D162EFC4C /* Conference Ratings */ = {
+		2EE44EDDCEA5C79D162EFC4C /* ConferenceRatings */ = {
 			isa = PBXGroup;
 			children = (
 				2EE44775CB474F2A052B4511 /* XBConferenceRatingViewController.m */,
@@ -1685,7 +1689,7 @@
 				2EE441F19DF8FDC032C2E63E /* XBConferenceRatingTableViewController.m */,
 				2EE441875D391BCAB9B7B526 /* XBConferenceRatingTableViewController.h */,
 			);
-			path = "Conference Ratings";
+			path = ConferenceRatings;
 			sourceTree = "<group>";
 		};
 		2EE44F9AE6A73DE634089833 /* Conference Ratings */ = {
@@ -1951,6 +1955,8 @@
 				5443EA511775BEC40000FFE8 /* menu-btn@2x.png */,
 				5443EA521775BEC40000FFE8 /* menu-button.png */,
 				5443EA531775BEC40000FFE8 /* menu-button@2x.png */,
+				42965A0D18ED647600090124 /* menu-button-flat.png */,
+				42965A0E18ED647600090124 /* menu-button-flat@2x.png */,
 				5443EA541775BEC40000FFE8 /* menu.png */,
 				5443EA551775BEC40000FFE8 /* menu@2x.png */,
 				5443EA561775BEC40000FFE8 /* navbar-landscape-iphone5.png */,
@@ -2478,7 +2484,7 @@
 				DB34DA00CCF7A91DED324F3C /* XBViewController.h */,
 				DB34D0428993A0CF6AAAC10B /* XBAppUpgradeViewController.m */,
 				DB34D16412FDC3D6DFA1EC91 /* XBAppUpgradeViewController.h */,
-				2EE44EDDCEA5C79D162EFC4C /* Conference Ratings */,
+				2EE44EDDCEA5C79D162EFC4C /* ConferenceRatings */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -3309,6 +3315,7 @@
 				5443EAF71775BEC50000FFE8 /* navbar-landscape-iphone5@2x.png in Resources */,
 				426FA5191895268200A508D1 /* XBConferenceSpeakerCell.xib in Resources */,
 				5443EAF81775BEC50000FFE8 /* navbar-landscape.png in Resources */,
+				42965A1018ED647600090124 /* menu-button-flat@2x.png in Resources */,
 				5443EAF91775BEC50000FFE8 /* navbar-landscape@2x.png in Resources */,
 				5443EAFA1775BEC50000FFE8 /* navbar-portrait.png in Resources */,
 				42E5B08918E8157500C3B5A7 /* rating-star-value-0.png in Resources */,
@@ -3443,6 +3450,7 @@
 				DB34D136C947587B09AC74AB /* XBNewsEventBriteCell.xib in Resources */,
 				DB34D37EEDFD2075B74020FC /* XBNewsTwitterCell.xib in Resources */,
 				DB34DA1B59B992E03D808F83 /* XBNewsVimeoCell.xib in Resources */,
+				42965A0F18ED647600090124 /* menu-button-flat.png in Resources */,
 				DB34D1C0A4422D4B2C8E96FC /* video_placeholder_small@2x.png in Resources */,
 				DB34D287DF321DF4415C449D /* video_placeholder_small.png in Resources */,
 				DB34D223E46507917C829DA7 /* navbar-landscape-ios7@2x.png in Resources */,
@@ -4054,7 +4062,7 @@
 				);
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "D0272699-9096-4008-A853-E5CC8AC5D146";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -4066,8 +4074,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_OBJC_ARC = YES;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Xebia IT Architects";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Xebia IT Architects";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -4083,7 +4091,7 @@
 				);
 				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "D0272699-9096-4008-A853-E5CC8AC5D146";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

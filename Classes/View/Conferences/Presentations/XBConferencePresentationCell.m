@@ -50,14 +50,16 @@
         self.titleLabel.text = presentation.kind;
         self.backgroundColor = [UIColor whiteColor];
         self.speakerLabel.text = @"";
-        self.hourLabel.text = [self.dateFormatter stringFromDate:presentation.fromTime];
+        self.fromLabel.text = [self.dateFormatter stringFromDate:presentation.fromTime];
+        self.toLabel.text = [self.dateFormatter stringFromDate:presentation.toTime];
         self.accessoryType = UITableViewCellAccessoryNone;
         self.colorLayer.backgroundColor = [UIColor clearColor].CGColor;
     } else {
         self.titleLabel.text = presentation.title;
         self.speakerLabel.text = [NSString stringWithFormat:@"%@ %@", NSLocalizedString(@"par", @"par"), presentation.speakerString];
         self.backgroundColor = [UIColor colorWithHex:@"#F0F0F0"];
-        self.hourLabel.text = nil;
+        self.fromLabel.text = nil;
+        self.toLabel.text = nil;
         self.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
         self.colorLayer.backgroundColor = [UIColor colorWithTrackIdentifier:presentation.track].CGColor;
     }

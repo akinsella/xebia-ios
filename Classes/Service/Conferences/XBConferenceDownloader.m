@@ -27,21 +27,21 @@ static NSString *const XBConferenceDownloaderRootFolder = @"conferences";
 }
 
 - (void)serializeRoomBeacons {
-    XBConference *conference = (XBConference *) self.downloadableBundle;
-    if (!conference.identifier) {
-        return;
-    }
-    NSString *roomPath = [self.bundleFolderPath stringByAppendingPathComponent:@"rooms"];
-    XBConferenceRoomDataSource *roomDataSource = [XBConferenceRoomDataSource dataSourceWithResourcePath:roomPath];
-    [roomDataSource loadDataWithCallback:^{
-        NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
-        NSMutableDictionary *allBeacons = [NSMutableDictionary dictionaryWithDictionary:[userDefaults dictionaryForKey:XBUserDefaultsBeaconKey]];
-        NSDictionary *dictionaryWithRoomsAndBeacons = [roomDataSource dictionaryWithRoomsAndBeacons];
-        allBeacons[conference.identifier] = dictionaryWithRoomsAndBeacons;
-        [userDefaults setObject:[NSDictionary dictionaryWithDictionary:allBeacons] forKey:XBUserDefaultsBeaconKey];
-        [userDefaults synchronize];
-        
-    }];
+//    XBConference *conference = (XBConference *) self.downloadableBundle;
+//    if (!conference.identifier) {
+//        return;
+//    }
+//    NSString *roomPath = [self.bundleFolderPath stringByAppendingPathComponent:@"rooms"];
+//    XBConferenceRoomDataSource *roomDataSource = [XBConferenceRoomDataSource dataSourceWithResourcePath:roomPath];
+//    [roomDataSource loadDataWithCallback:^{
+//        NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+//        NSMutableDictionary *allBeacons = [NSMutableDictionary dictionaryWithDictionary:[userDefaults dictionaryForKey:XBUserDefaultsBeaconKey]];
+//        NSDictionary *dictionaryWithRoomsAndBeacons = [roomDataSource dictionaryWithRoomsAndBeacons];
+//        allBeacons[conference.identifier] = dictionaryWithRoomsAndBeacons;
+//        [userDefaults setObject:[NSDictionary dictionaryWithDictionary:allBeacons] forKey:XBUserDefaultsBeaconKey];
+//        [userDefaults synchronize];
+//        
+//    }];
 }
 
 

@@ -26,10 +26,6 @@ static const NSUInteger XBConferencePresentationRatingStartTime = 10;
 
 + (DCParserConfiguration *)mappings {
     DCParserConfiguration *config = [DCParserConfiguration configuration];
-
-    [config addCustomParsersObject:[[DCCustomParser alloc] initWithBlockParser:[DCCustomParser stringParser]
-                                                              forAttributeName:@"_conferenceId"
-                                                            onDestinationClass:[self class]]];
     
     [config addCustomParsersObject:[[DCCustomParser alloc] initWithBlockParser:[DCCustomParser stringParser]
                                                               forAttributeName:@"_identifier"
@@ -73,6 +69,17 @@ static const NSUInteger XBConferencePresentationRatingStartTime = 10;
 }
 
 - (BOOL)canBeVoted {
+
+#if TARGET_IPHONE_SIMULATOR && DEBUG
+    return YES;
+#endif
+    
+    NSTimeInterval dayInSeconds = 24 * 60 * 60;
+    NSDate *endDateWithThreeDaysAdded = [self.toTime dateByAddingTimeInterval:7 * dayInSeconds];
+    if ([endDateWithThreeDaysAdded compare:[NSDate date]] == NSOrderedAscending) {
+        return NO;
+    }
+
     NSDate *endDatePostponed = [self.toTime dateByAddingTimeInterval:(XBConferencePresentationRatingStartTime * 60)];
     return endDatePostponed && [endDatePostponed compare:[NSDate date]] == NSOrderedAscending;
 }

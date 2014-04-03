@@ -3,6 +3,7 @@
 // Copyright (c) 2014 Xebia. All rights reserved.
 //
 
+#import <QuartzCore/QuartzCore.h>
 #import <SSToolkit/UIColor+SSToolkitAdditions.h>
 #import "XBConferencePresentationDetailViewController.h"
 #import "XBConferenceDownloader.h"
@@ -16,6 +17,7 @@
 
 @interface XBConferencePresentationDetailViewController()
 @property (nonatomic, strong) XBConferencePresentationDetail *presentationDetail;
+@property (nonatomic, strong) CALayer *colorLayer;
 @end
 
 @implementation XBConferencePresentationDetailViewController
@@ -69,7 +71,13 @@
     CALayer *colorLayer = [[CALayer alloc] init];
     colorLayer.frame = CGRectMake(0, 0, CGRectGetWidth(self.view.frame), 6);
     colorLayer.backgroundColor = [UIColor colorWithTrackIdentifier:self.presentationDetail.track].CGColor;
+    self.colorLayer = colorLayer;
     [self.scrollView.layer addSublayer:colorLayer];
+}
+
+- (void)willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration
+{
+    self.colorLayer.frame = CGRectMake(0, 0, CGRectGetHeight(self.navigationController.view.frame), 6);
 }
 
 - (void)viewDidAppear:(BOOL)animated {
