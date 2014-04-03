@@ -16,7 +16,6 @@ pod 'DCKeyValueObjectMapping', 		'1.4'
 pod 'TTTAttributedLabel',			'1.9.3'
 pod 'TestFlightSDK',                '3.0.0'
 pod 'SecureUDID',					'1.1'
-pod 'DCIntrospect',					'0.0.2'
 pod 'DTCoreText',					'1.6.11'
 pod 'Appirater',					'2.0.2'
 pod 'ZXingObjC',					'2.2.2' # Do not change, last version is buggy
