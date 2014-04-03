@@ -18,7 +18,7 @@
         self.dataLoader = [XBLocalJsonDataLoader dataLoaderWithResourcePath:resourcePath];
         self.dataMapper = [XBJsonToArrayDataMapper mapperWithRootKeyPath:nil typeClass:[XBConferenceSpeaker class]];
         [self sort:^NSComparisonResult(XBConferenceSpeaker *speaker1, XBConferenceSpeaker *speaker2) {
-            return [speaker1.lastName compare:speaker2.lastName];
+            return [[speaker1.lastName lowercaseString] compare:[speaker2.lastName lowercaseString]];
         }];
     }
 
