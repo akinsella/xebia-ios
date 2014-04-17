@@ -16,14 +16,14 @@ typedef enum  {
 @interface XBConferenceRating : NSObject<NSCoding>
 
 @property (nonatomic, strong) NSDate *dateTaken;
-@property (nonatomic, strong) NSString *conferenceId;
+@property (nonatomic, strong) NSNumber *conferenceId;
 @property (nonatomic, strong) NSString *presentationId;
 @property (nonatomic, strong) NSNumber *value;
 
 @property (nonatomic, strong) NSNumber *sent;
 
-- (instancetype)initWithDateTaken:(NSDate *)dateTaken conferenceId:(NSString *)conferenceId presentationId:(NSString *)presentationId value:(XBConferenceRatingValue)value;
-+ (instancetype)ratingWithDateTaken:(NSDate *)dateTaken conferenceId:(NSString *)conferenceId presentationId:(NSString *)presentationId value:(XBConferenceRatingValue)value;
+- (instancetype)initWithDateTaken:(NSDate *)dateTaken conferenceId:(NSNumber *)conferenceId presentationId:(NSString *)presentationId value:(XBConferenceRatingValue)value;
++ (instancetype)ratingWithDateTaken:(NSDate *)dateTaken conferenceId:(NSNumber *)conferenceId presentationId:(NSString *)presentationId value:(XBConferenceRatingValue)value;
 
 
 @end

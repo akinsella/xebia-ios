@@ -8,7 +8,7 @@
 
 @implementation XBConferenceRating
 
-- (instancetype)initWithDateTaken:(NSDate *)dateTaken conferenceId:(NSString *)conferenceId presentationId:(NSString *)presentationId value:(XBConferenceRatingValue)value {
+- (instancetype)initWithDateTaken:(NSDate *)dateTaken conferenceId:(NSNumber *)conferenceId presentationId:(NSString *)presentationId value:(XBConferenceRatingValue)value {
     self = [super init];
     if (self) {
         self.dateTaken = dateTaken;
@@ -20,7 +20,7 @@
     return self;
 }
 
-+ (instancetype)ratingWithDateTaken:(NSDate *)dateTaken conferenceId:(NSString *)conferenceId presentationId:(NSString *)presentationId value:(XBConferenceRatingValue)value {
++ (instancetype)ratingWithDateTaken:(NSDate *)dateTaken conferenceId:(NSNumber *)conferenceId presentationId:(NSString *)presentationId value:(XBConferenceRatingValue)value {
     return [[self alloc] initWithDateTaken:dateTaken conferenceId:conferenceId presentationId:presentationId value:value];
 }
 

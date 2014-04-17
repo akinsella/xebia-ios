@@ -10,7 +10,7 @@
 
 @interface XBConference : NSObject<XBDownloadableBundle, XBMappingProvider>
 
-@property (nonatomic, strong) NSString *identifier;
+@property (nonatomic, strong) NSNumber *identifier;
 @property (nonatomic, strong) NSDate *from;
 @property (nonatomic, strong) NSDate *to;
 @property (nonatomic, strong) NSString *name;

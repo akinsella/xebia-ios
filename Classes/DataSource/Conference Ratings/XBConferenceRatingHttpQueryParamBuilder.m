@@ -47,7 +47,7 @@
         ratingDict[@"conferenceId"] = rating.conferenceId;
         ratingDict[@"presentationId"] = rating.presentationId;
         ratingDict[@"rating"] = @(rating.value.intValue + 1);
-        ratingDict[@"date"] = [self.dateFormatter stringFromDate:rating.dateTaken];
+        ratingDict[@"date"]  = [self.dateFormatter stringFromDate:rating.dateTaken ? rating.dateTaken: [NSDate new]];
         [ratingsToSend addObject:ratingDict];
     }
     return ratingsToSend;

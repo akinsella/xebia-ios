@@ -3,6 +3,7 @@
 // Copyright (c) 2014 Xebia. All rights reserved.
 //
 
+#import <QuartzCore/QuartzCore.h>
 #import <SSToolkit/UIColor+SSToolkitAdditions.h>
 #import "XBConferencePresentationDetailViewController.h"
 #import "XBConferenceDownloader.h"

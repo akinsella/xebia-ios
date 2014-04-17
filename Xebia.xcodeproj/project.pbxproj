@@ -1677,7 +1677,7 @@
 			path = Conferences;
 			sourceTree = "<group>";
 		};
-		2EE44EDDCEA5C79D162EFC4C /* Conference Ratings */ = {
+		2EE44EDDCEA5C79D162EFC4C /* ConferenceRatings */ = {
 			isa = PBXGroup;
 			children = (
 				2EE44775CB474F2A052B4511 /* XBConferenceRatingViewController.m */,
@@ -1685,7 +1685,7 @@
 				2EE441F19DF8FDC032C2E63E /* XBConferenceRatingTableViewController.m */,
 				2EE441875D391BCAB9B7B526 /* XBConferenceRatingTableViewController.h */,
 			);
-			path = "Conference Ratings";
+			path = ConferenceRatings;
 			sourceTree = "<group>";
 		};
 		2EE44F9AE6A73DE634089833 /* Conference Ratings */ = {
@@ -2478,7 +2478,7 @@
 				DB34DA00CCF7A91DED324F3C /* XBViewController.h */,
 				DB34D0428993A0CF6AAAC10B /* XBAppUpgradeViewController.m */,
 				DB34D16412FDC3D6DFA1EC91 /* XBAppUpgradeViewController.h */,
-				2EE44EDDCEA5C79D162EFC4C /* Conference Ratings */,
+				2EE44EDDCEA5C79D162EFC4C /* ConferenceRatings */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -4054,7 +4054,7 @@
 				);
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "71DCC771-64FE-4EBB-B8AB-EAB4C565E8BD";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -4066,8 +4066,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_OBJC_ARC = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Simone Civetta (5NH7J8UHDM)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Simone Civetta (5NH7J8UHDM)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -4083,7 +4083,7 @@
 				);
 				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "71DCC771-64FE-4EBB-B8AB-EAB4C565E8BD";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

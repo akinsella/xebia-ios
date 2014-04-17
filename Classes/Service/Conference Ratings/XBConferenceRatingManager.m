@@ -93,7 +93,7 @@
 - (void)sendRatingsOfConference:(XBConference *)conference {
     NSArray *allRatings = [self.ratings allObjects];
     NSArray *ratingsToSend = Underscore.filter(allRatings, ^BOOL(XBConferenceRating *rating) {
-        return ![rating.sent boolValue] && [rating.conferenceId isEqualToString:conference.identifier];
+        return ![rating.sent boolValue] && [rating.conferenceId isEqual:conference.identifier];
     });
 
     if (![ratingsToSend count]) {

@@ -73,6 +73,13 @@ static const NSUInteger XBConferencePresentationRatingStartTime = 10;
 }
 
 - (BOOL)canBeVoted {
+
+    NSTimeInterval dayInSeconds = 24 * 60 * 60;
+    NSDate *endDateWithThreeDaysAdded = [self.toTime dateByAddingTimeInterval:3 * dayInSeconds];
+    if ([endDateWithThreeDaysAdded compare:[NSDate date]] == NSOrderedAscending) {
+        return NO;
+    }
+
     NSDate *endDatePostponed = [self.toTime dateByAddingTimeInterval:(XBConferencePresentationRatingStartTime * 60)];
     return endDatePostponed && [endDatePostponed compare:[NSDate date]] == NSOrderedAscending;
 }

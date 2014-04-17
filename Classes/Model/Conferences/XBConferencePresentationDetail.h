@@ -12,7 +12,7 @@
 
 @interface XBConferencePresentationDetail : NSObject<XBMappingProvider, XBPresentationIdentifier>
 
-@property (nonatomic, strong) NSString *conferenceId;
+@property (nonatomic, strong) NSNumber *conferenceId;
 @property (nonatomic, strong) NSString *identifier;
 @property (nonatomic, strong) NSString *scheduleId;
 @property (nonatomic, strong) NSDate *fromTime;
