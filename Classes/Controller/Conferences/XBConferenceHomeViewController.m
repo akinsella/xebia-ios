@@ -109,10 +109,10 @@
 - (void)downloadAndApplyLogo
 {
     self.backgroundImageView.alpha = 0.0;
-    [self.logoImageView setImageWithURL:[self.conference.logoUrl url] placeholderImage:nil];
+    [self.logoImageView setImageWithURL:self.conference.logoUrl.url];
     
     [[SDWebImageManager sharedManager] downloadWithURL:[self.conference.backgroundUrl url]
-                                               options:kNilOptions
+                                               options:(SDWebImageOptions) kNilOptions
                                               progress:^(NSInteger receivedSize, NSInteger expectedSize) {}
                                              completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, BOOL finished) {
                                                  if (error || !image) {

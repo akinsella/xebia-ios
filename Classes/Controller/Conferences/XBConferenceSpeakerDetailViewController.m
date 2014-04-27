@@ -3,14 +3,13 @@
 // Copyright (c) 2014 Xebia. All rights reserved.
 //
 
-#import <SDWebImage/UIImageView+WebCache.h>
-#import <SSToolkit/UIColor+SSToolkitAdditions.h>
+#import <QuartzCore/QuartzCore.h>
+#import "UIImageView+AFNetworking.h"
 #import "XBConferenceSpeakerDetailViewController.h"
 #import "XBConferenceSpeaker.h"
 #import "NSString+XBAdditions.h"
 #import "XBConferenceSpeakerTalkCell.h"
 #import "XBConferencePresentationDetailViewController.h"
-#import "XBConference.h"
 #import "XBConferenceSpeakerTalk.h"
 #import "UIColor+XBConferenceAdditions.h"
 
@@ -46,7 +45,7 @@
 }
 
 - (void)applyValues {
-    [self.imageView setImageWithURL:[self.speaker.imageURL url] placeholderImage:nil];
+    [self.imageView setImageWithURL:self.speaker.imageURL.url];
     self.firstNameLabel.text = self.speaker.firstName;
     self.lastNameLabel.text = self.speaker.lastName;
     self.companyLabel.text = self.speaker.company;
@@ -67,7 +66,7 @@
 }
 
 - (void)configureCell:(UITableViewCell *)cell atIndex:(NSIndexPath *)indexPath {
-    [(XBConferenceSpeakerTalkCell *)cell configureWithTalk:self.dataSource[indexPath.row]];
+    [(XBConferenceSpeakerTalkCell *)cell configureWithTalk:self.dataSource[(NSUInteger) indexPath.row]];
 }
 
 - (void)onSelectCell:(UITableViewCell *)cell forObject:(id)object withIndex:(NSIndexPath *)indexPath {
@@ -80,7 +79,7 @@
     NSIndexPath *selectedIndexPath = [self.tableView indexPathForSelectedRow];
     XBConferencePresentationDetailViewController *vc = segue.destinationViewController;
     vc.conference = self.conference;
-    vc.presentation = self.dataSource[selectedIndexPath.row];
+    vc.presentation = self.dataSource[(NSUInteger) selectedIndexPath.row];
 }
 
 @end

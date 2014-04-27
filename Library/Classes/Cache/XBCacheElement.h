@@ -14,13 +14,9 @@
 @property (nonatomic, retain) NSObject *value;
 @property (nonatomic, assign) NSTimeInterval ttl;
 
-+ (id)elementWithKey:(NSString *)key value:(NSObject *)value;
-
 + (id)elementWithKey:(NSString *)key value:(NSObject *)value ttl:(NSTimeInterval)ttl;
 
 - (id)initWithKey:(NSString *)key value:(NSObject *)value ttl:(NSTimeInterval)ttl;
-
-- (void)setTimeToLive:(NSTimeInterval)expiration;
 
 - (BOOL)hasExpired;
 
