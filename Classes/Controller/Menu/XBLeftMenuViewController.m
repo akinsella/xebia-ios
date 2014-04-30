@@ -23,10 +23,10 @@
 #import "XBMenuSectionView.h"
 #import "XBConstants.h"
 #import "NSString+XBAdditions.h"
-#import "XBConferenceHomeViewController.h"
+#import "XBConferenceCell.h"
 #import <MMDrawerController/UIViewController+MMDrawerController.h>
 #import <AFNetworking/AFNetworkReachabilityManager.h>
-#import <SDWebImage/UIImageView+WebCache.h>
+#import <UIImageView+AFNetworking.h>
 
 // Enum for row indices
 enum {
@@ -194,18 +194,20 @@ enum {
 
 - (void)configureCell:(UITableViewCell *)cell atIndex:(NSIndexPath *)indexPath {
 
-    XBLeftMenuCell *menuCell = (XBLeftMenuCell *)cell;
-    id item = self.dataSource[indexPath.section][indexPath.row];
+    id item = self.dataSource[(NSUInteger) indexPath.section][(NSUInteger) indexPath.row];
 
-    menuCell.accessoryType = UITableViewCellAccessoryNone;
-    
+
     if (indexPath.section == 0) {
+        XBLeftMenuCell *menuCell = (XBLeftMenuCell *)cell;
+        menuCell.accessoryType = UITableViewCellAccessoryNone;
         menuCell.titleLabel.text = [item objectForKey:@"title"];
         menuCell.imageView.image = [UIImage imageNamed:[item objectForKey:@"imageName"]];
     } else {
+        XBConferenceCell *conferenceCell = (XBConferenceCell *)cell;
+        conferenceCell.accessoryType = UITableViewCellAccessoryNone;
         XBConference *conference = item;
-        menuCell.titleLabel.text = [conference name];
-        [menuCell.imageView setImageWithURL:[conference.logoUrl url] placeholderImage:nil];
+        conferenceCell.titleLabel.text = conference.name;
+        [conferenceCell.iconImageView setImageWithURL:conference.iconUrl.url];
     }
 }
 
@@ -235,7 +237,7 @@ enum {
         UIViewController *viewController;
         if ([identifier isEqualToString:XBConferenceHomeViewControllerIdentifier]) {
             NSIndexPath *indexPath = self.tableView.indexPathForSelectedRow;
-            XBConference *conference = self.dataSource[indexPath.section][indexPath.row];
+            XBConference *conference = self.dataSource[(NSUInteger) indexPath.section][(NSUInteger) indexPath.row];
             viewController = [self.appDelegate.viewControllerManager getOrCreateConferenceControllerWithConference:conference];
         } else {
             viewController = [self.appDelegate.viewControllerManager getOrCreateControllerWithIdentifier:identifier];

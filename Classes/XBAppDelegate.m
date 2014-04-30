@@ -16,7 +16,6 @@
 #import "GAI.h"
 #import "XBUDID.h"
 #import "XBConstants.h"
-#import "DCIntrospect.h"
 #import "Appirater.h"
 #import "NSString+XBAdditions.h"
 #import "GAIDictionaryBuilder.h"
@@ -97,8 +96,6 @@ static NSInteger const kApiVersion = 1;
 
     [self initMainViewController];
 
-    [self initIntrospect];
-
     [self registerForRemoteNotification];
 
     [self initApplicationRating];
@@ -161,13 +158,6 @@ static NSInteger const kApiVersion = 1;
     [Appirater setDebug:NO];
 #endif
 
-}
-
-- (void)initIntrospect {
-// always call after makeKeyAndDisplay.
-#if TARGET_IPHONE_SIMULATOR
-    [[DCIntrospect sharedIntrospector] start];
-#endif
 }
 
 -(void)initAnalytics {

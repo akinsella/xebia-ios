@@ -11,6 +11,7 @@
 
 @interface XBConferenceCell : XBTableViewCell
 
-@property (nonatomic, strong) IBOutlet UILabel *titleLabel;
+@property (nonatomic, weak) IBOutlet UILabel *titleLabel;
+@property (nonatomic, weak) IBOutlet UIImageView *iconImageView;
 
 @end

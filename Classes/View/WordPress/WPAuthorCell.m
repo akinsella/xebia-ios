@@ -44,14 +44,14 @@
     XBLog(@"Avatar image url: %@", author.avatarImageUrl);
 
     [[SDWebImageManager sharedManager] downloadWithURL:author.avatarImageUrl
-                                               options:kNilOptions
+                                               options:(SDWebImageOptions) kNilOptions
                                               progress:^(NSInteger receivedSize, NSInteger expectedSize) {}
                                              completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, BOOL finished) {
-                                                 if (error || !image) {
+                                                 if ((error || !image) && self.author == author) {
                                                      XBLog("Error - %@ for: %@", error, author.nickname);
                                                      self.avatarImageView.image = self.defaultAvatarImage;
                                                  }
-                                                 else {
+                                                 else if (self.author == author) {
                                                      XBLog("Success - %@ for: %@", image, author.nickname);
                                                      self.avatarImageView.image = image;
                                                  }

@@ -10,11 +10,6 @@
 
 @implementation XBCacheElement
 
-
-+ (id)elementWithKey:(NSString *)key value:(NSObject *)value {
-    return [self elementWithKey:key value:value ttl: 0];
-}
-
 + (id)elementWithKey:(NSString *)key value:(NSObject *)value ttl:(NSTimeInterval)ttl {
     return [[self alloc] initWithKey:key value:value ttl:ttl];
 }
@@ -34,22 +29,23 @@
 {
     self = [super init];
     if (self) {
-        self.key   = [decoder decodeObjectForKey:@"key"];
-        self.value = [decoder decodeObjectForKey:@"value"];
-        self.ttl   = [decoder decodeDoubleForKey:@"ttl"];
+        _key   = [decoder decodeObjectForKey:@"key"];
+        _value = [decoder decodeObjectForKey:@"value"];
+        _ttl   = [decoder decodeDoubleForKey:@"ttl"];
     }
     return self;
 }
 
 - (void)encodeWithCoder:(NSCoder *)code
 {
-    [code encodeObject:self.key forKey:@"key"];
-    [code encodeObject:self.value forKey:@"value"];
-    [code encodeDouble:self.ttl forKey:@"ttl"];
+    [code encodeObject:_key forKey:@"key"];
+    [code encodeObject:_value forKey:@"value"];
+    [code encodeDouble:_ttl forKey:@"ttl"];
 }
 
-- (void)setTimeToLive:(NSTimeInterval)ttl {
-    self.ttl = [NSDate timeIntervalSinceReferenceDate] + ttl;
+- (void)setTtl:(NSTimeInterval)ttl
+{
+    _ttl = [NSDate timeIntervalSinceReferenceDate] + ttl;
 }
 
 - (BOOL)hasExpired {

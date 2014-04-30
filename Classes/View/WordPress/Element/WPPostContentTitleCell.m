@@ -75,13 +75,13 @@
     self.dateLabel.text = [NSString stringWithFormat: @"%@", [post.date formatDayLongMonth]];
 
     [[SDWebImageManager sharedManager] downloadWithURL:author.avatarImageUrl
-                                               options:kNilOptions
+                                               options:(SDWebImageOptions) kNilOptions
                                               progress:^(NSInteger receivedSize, NSInteger expectedSize) {}
                                              completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, BOOL finished) {
-                                                 if (error || !image) {
+                                                 if ((error || !image) && self.post == post) {
                                                      self.avatarImageView.image = self.defaultAvatarImage;
                                                  }
-                                                 else {
+                                                 else if (self.post == post) {
                                                      self.avatarImageView.image = image;
                                                  }
                                              }];
