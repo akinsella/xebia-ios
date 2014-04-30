@@ -10,6 +10,7 @@
 #import "XBConferencePresentation.h"
 #import "NSDateFormatter+XBAdditions.h"
 #import "NSDate+XBAdditions.h"
+#import "XBConferencePresentationSlot.h"
 
 
 @implementation XBConferenceScheduleDataSource {
