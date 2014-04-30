@@ -49,12 +49,7 @@
 }
 
 - (void)setTimeToLive:(NSTimeInterval)ttl {
-    self.ttl = ttl;
-}
-
-- (void)setTtl:(NSTimeInterval)ttl
-{
-    _ttl = ttl ? [NSDate timeIntervalSinceReferenceDate] + ttl : 0;
+    self.ttl = [NSDate timeIntervalSinceReferenceDate] + ttl;
 }
 
 - (BOOL)hasExpired {

@@ -80,8 +80,8 @@ static const NSUInteger XBConferencePresentationRatingStartTime = 10;
         return NO;
     }
 
-    NSDate *endDatePostponed = [self.toTime dateByAddingTimeInterval:(XBConferencePresentationRatingStartTime * 60)];
-    return endDatePostponed && [endDatePostponed compare:[NSDate date]] == NSOrderedAscending;
+    NSDate *endDateAdvanced = [self.toTime dateByAddingTimeInterval: - (XBConferencePresentationRatingStartTime * 60)];
+    return endDateAdvanced && [endDateAdvanced compare:[NSDate date]] == NSOrderedAscending;
 }
 
 - (NSString *)presentationIdentifier {
