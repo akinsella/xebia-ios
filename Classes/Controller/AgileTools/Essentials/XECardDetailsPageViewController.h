@@ -25,10 +25,12 @@
 @property (nonatomic, strong) IBOutlet UILabel *categoryLabel;
 @property (nonatomic, strong) IBOutlet UILabel *identifierLabel;
 
+@property (weak, nonatomic) IBOutlet UIButton *informationButton;
+
+- (id)initWithCard:(XECard *)card pageViewController:(UIPageViewController *)pageViewController;
+
 -(IBAction)infoTapped:(id)sender;
 
 -(IBAction)qrCodeTapped:(id)sender;
-
-- (id)initWithCard:(XECard *)card;
 
 @end

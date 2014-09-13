@@ -68,9 +68,10 @@
 
     self.containerView.frame = CGRectMake(0.0, 0.0, self.scrollView.frame.size.width * self.cards.count, self.scrollView.frame.size.height);
 
-    [self loadScrollViewWithPage:self.initialIndex];
-    [self loadScrollViewWithPage:self.initialIndex - 1];
-    [self loadScrollViewWithPage:self.initialIndex + 1];
+    for (NSInteger i = 0 ; i < self.pageControl.numberOfPages ; i++) {
+        [self loadScrollViewWithPage:i];
+    }
+
     [self.view layoutSubviews];
 }
 
@@ -85,9 +86,8 @@
 
     // replace the placeholder if necessary
     XECardDetailsPageViewController *pageViewController = self.pageViewControllers[page];
-    if (pageViewController == (id)[NSNull null])
-    {
-        pageViewController = [[XECardDetailsPageViewController alloc] initWithCard:self.cards[page]];
+    if (pageViewController == [NSNull null]) {
+        pageViewController = [[XECardDetailsPageViewController alloc] initWithCard:self.cards[page] pageViewController:self];
         [self.pageViewControllers replaceObjectAtIndex:page withObject:pageViewController];
     }
 

@@ -87,6 +87,18 @@
     return [UIColor colorWithHex:@"#E9E9E9"];
 }
 
+- (NSInteger)leftLineSeparatorMargin {
+    return 0;
+}
+
+- (NSInteger)rightLineSeparatorMargin {
+    return 0;
+}
+
+- (NSInteger)lineSeparatorHeight {
+    return 2;
+}
+
 - (UIColor *)customizedBackgroundColor {
     return [UIColor clearColor];
 }
@@ -173,8 +185,8 @@
     CGMutablePathRef path = CGPathCreateMutable();
 
     if (!selected) {
-        CGPathMoveToPoint(path, NULL, 2, 0);
-        CGPathAddLineToPoint(path, NULL, self.bounds.size.width - 2, 0);
+        CGPathMoveToPoint(path, NULL, [self leftLineSeparatorMargin], 0);
+        CGPathAddLineToPoint(path, NULL, self.bounds.size.width - [self rightLineSeparatorMargin], 0);
     }
     else {
         CGPathMoveToPoint(path, NULL, 0, 0);
@@ -204,7 +216,7 @@
     [shapeLayer setPosition:self.center];
     [shapeLayer setFillColor:[[UIColor clearColor] CGColor]];
     [shapeLayer setStrokeColor:[[self lineSeparatorColor] CGColor]];
-    [shapeLayer setLineWidth:2.0f];
+    [shapeLayer setLineWidth: [self lineSeparatorHeight]];
     [shapeLayer setLineJoin:kCALineJoinRound];
 
     return shapeLayer;

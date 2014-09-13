@@ -34,7 +34,7 @@
 
 -(void)handleSingleTap:(UITapGestureRecognizer *)gestureRecognizer {
     if(gestureRecognizer.state == UIGestureRecognizerStateRecognized) {
-        [self.appDelegate.mainViewController dismissViewControllerAnimated:YES completion:^{}];
+        [self dismissViewControllerAnimated:YES completion:^{}];
     }
 }
 

@@ -26,11 +26,6 @@
     return self;
 }
 
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
-}
-
 // Fix translucent bar issue
 -(void) initTitleBar {
     [super initTitleBar];

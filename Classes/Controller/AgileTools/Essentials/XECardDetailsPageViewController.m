@@ -13,32 +13,43 @@
 #import "ZXImage.h"
 #import "DTHTMLElement.h"
 #import "UIColor+XBAdditions.h"
-#import "NSAttributedString+HTML.h"
 #import "NSAttributedString+DTCoreText.h"
 #import "XECategory.h"
 #import "XECardDetailsQRCodeViewController.h"
 #import "ZXEncodeHints.h"
 #import "DTLinkButton.h"
-#import "NSAttributedString+DTCoreText.h"
 #import "DTHTMLAttributedStringBuilder.h"
 #import "XBHttpQueryParamBuilder.h"
+#import "TSMiniWebBrowser.h"
+#import "XBWebBrowser.h"
+#import "XBBasicHttpQueryParamBuilder.h"
+#import "XBHttpJsonDataLoader.h"
+#import "XBPListConfigurationProvider.h"
+#import "XBReloadableObjectDataSource.h"
+#import "XBObjectDataSource+protected.h"
+#import "XBMapper.h"
+#import "UIBarButtonItem+BlocksKit.h"
 
 @interface XECardDetailsPageViewController()
-@property(nonatomic, strong)XECard *card;
-@property(nonatomic, assign)BOOL fullContentShown;
+
+@property (nonatomic, strong)XECard *card;
+@property (nonatomic, assign)BOOL fullContentShown;
 @property (nonatomic, strong) NSURL *lastActionLink;
+@property (nonatomic, weak) UIPageViewController *pageViewController;
+
 @end
 
 @implementation XECardDetailsPageViewController
 
 
-- (id)initWithCard:(XECard *)card
+- (id)initWithCard:(XECard *)card pageViewController:(UIPageViewController *)pageViewController
 {
     UIStoryboard *sb = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
     self = [sb instantiateViewControllerWithIdentifier:@"cardDetailsPage"];
 
     if (self) {
         self.card = card;
+        self.pageViewController = pageViewController;
     }
     return self;
 }
@@ -60,6 +71,7 @@
     self.categoryLabel.text = self.card.category.label;
     self.identifierLabel.text = self.card.identifierFormatted;
 
+    self.informationButton.hidden = self.card.excerpt == nil || self.card.excerpt.length == 0;
 
     self.titleBackgroundView.backgroundColor = [UIColor colorWithHex:self.card.category.color];
     self.descriptionBackgroundView.backgroundColor = [UIColor colorWithHex:self.card.category.backgroundColor];
@@ -90,7 +102,8 @@
 
     [DTCoreTextLayoutFrame setShouldDrawDebugFrames: NO];
 
-    self.contentTextView.attributedString = [self attributedStringForHTML:self.card.excerpt];
+    NSString * excerpt = self.card.excerpt != nil && self.card.excerpt.length > 0 ? self.card.excerpt : self.card.fullContent;
+    self.contentTextView.attributedString = [self attributedStringForHTML:excerpt];
 
     self.contentTextView.contentInset = UIEdgeInsetsMake(10.0, 10.0, 10.0, 10.0);
 
@@ -169,10 +182,48 @@
     NSURL *URL = button.URL;
 
     if ([UIApplication.sharedApplication canOpenURL:URL.absoluteURL]) {
-        [UIApplication.sharedApplication openURL:URL.absoluteURL];
+        XBWebBrowser *webBrowser = [[XBWebBrowser alloc] initWithUrl:URL];
+        webBrowser.mode = TSMiniWebBrowserModeModal;
+        webBrowser.showPageTitleOnTitleBar = YES;
+
+        [self.appDelegate.mainViewController presentViewController:webBrowser animated:YES completion:^{
+        }];
     }
     else {
-        if (!URL.host && !URL.path) {
+//        NSString * cardURLStr = [NSString stringWithFormat: @"http://essentials.xebia.com/%@/", URL.path];
+//        NSURL *cardURL = [NSURL URLWithString:cardURLStr];
+//
+//        XBWebBrowser *webBrowser = [[XBWebBrowser alloc] initWithUrl:cardURL];
+//        webBrowser.mode = TSMiniWebBrowserModeModal;
+//        webBrowser.showPageTitleOnTitleBar = YES;
+//
+//
+//        [self.appDelegate.mainViewController presentViewController:webBrowser animated:YES completion:^{ }];
+
+        if (!URL.host && URL.path) {
+
+            XBHttpClient *httpClient = [[XBPListConfigurationProvider provider] httpClient];
+            XBBasicHttpQueryParamBuilder *httpQueryParamBuilder = [XBBasicHttpQueryParamBuilder builderWithDictionary:@{}];
+
+            NSString *cardPath = [NSString stringWithFormat:@"/cards/%@", URL.path];
+            XBHttpJsonDataLoader *dataLoader = [XBHttpJsonDataLoader dataLoaderWithHttpClient:httpClient httpQueryParamBuilder:httpQueryParamBuilder resourcePath:cardPath];
+
+            XBReloadableObjectDataSource *cardDataSource = [XBReloadableObjectDataSource dataSourceWithDataLoader:dataLoader];
+
+            [cardDataSource loadData:^{
+                if (!cardDataSource.error && cardDataSource.object != nil) {
+                    XECard * card = [XBMapper parseObject:cardDataSource.object intoObjectsOfType:XECard.class];
+
+                    NSLog(@"Card selected: %@", card);
+
+                    XECardDetailsPageViewController *cardDetailsPageViewController = [[XECardDetailsPageViewController alloc] initWithCard:card pageViewController:self.pageViewController];
+
+                    [self.pageViewController.navigationController pushViewController:cardDetailsPageViewController animated:YES];
+                }
+            }];
+
+        }
+        else if (!URL.host && !URL.path) {
             // possibly a local anchor link
             NSString *fragment = URL.fragment;
 
@@ -191,7 +242,9 @@
 
 - (void)toggleContent {
     self.fullContentShown = !self.fullContentShown;
-    self.contentTextView.attributedString = [self attributedStringForHTML:self.fullContentShown ? self.card.fullContent : self.card.excerpt];
+    NSString *excerpt = self.card.excerpt != nil && self.card.excerpt.length > 0 ? self.card.excerpt : self.card.fullContent;
+
+    self.contentTextView.attributedString = [self attributedStringForHTML:self.fullContentShown ? self.card.fullContent : excerpt];
     [self dumpContentTextAsRangeText];
     [self dumpContentTextAsHtml];
 }
@@ -265,7 +318,7 @@
             DTDefaultFontFamily: @"Helvetica",
             DTDefaultFontSize: @14.0,
             DTDefaultTextColor: [UIColor colorWithHex:@"#FFFFFF"],
-            DTDefaultLinkColor: @"purple",
+            DTDefaultLinkColor: [UIColor colorWithHex:@"#DDDDDD"],
             DTDefaultLinkHighlightColor: @"red",
             DTWillFlushBlockCallBack: ^(DTHTMLElement *element) {
                 XBLog(@"Element: %@", element.attributedString);
@@ -294,7 +347,16 @@
 
     [cardDetailsQRCodeViewController updateWithCard: self.card];
 
-    [self.appDelegate.mainViewController presentViewController:cardDetailsQRCodeViewController animated:YES completion:^{}];
+    UINavigationController *navigationController = [[UINavigationController alloc]initWithRootViewController:cardDetailsQRCodeViewController];
+
+    UIBarButtonItem *rightButtonItem = [[UIBarButtonItem alloc] bk_initWithTitle:NSLocalizedString(@"Ok", nil) style:UIBarButtonItemStyleDone handler:^(id sender) {
+        [navigationController dismissViewControllerAnimated:YES completion:^{ }];
+    }];
+
+    cardDetailsQRCodeViewController.navigationItem.rightBarButtonItem = rightButtonItem;
+
+    [self.appDelegate.mainViewController presentViewController:navigationController animated:YES completion:^{}];
+
 }
 
 @end

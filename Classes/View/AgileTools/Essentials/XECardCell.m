@@ -14,6 +14,10 @@
 
 @implementation XECardCell
 
+- (NSInteger)leftLineSeparatorMargin {
+    return 6;
+}
+
 - (void)layoutSubviews {
     [super layoutSubviews];
     self.imageView.frame = CGRectMake(0,0,100,75);

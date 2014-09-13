@@ -23,6 +23,12 @@
 
 - (UIColor *)lineSeparatorColor;
 
+- (NSInteger)leftLineSeparatorMargin;
+
+- (NSInteger)rightLineSeparatorMargin;
+
+- (NSInteger)lineSeparatorHeight;
+
 -(UIColor *)accessoryViewBackgroundColor;
 
 -(BOOL)showSeparatorLine;

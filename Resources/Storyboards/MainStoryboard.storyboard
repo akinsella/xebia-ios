@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6245" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="EcE-bF-5J2">
     <dependencies>
+        <deployment defaultVersion="1536" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
     </dependencies>
     <scenes>
@@ -12,7 +13,6 @@
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="blackOpaque"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black" translucent="NO" prompted="NO"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" translucent="NO" id="JWb-Rb-gIr">
-                        <rect key="frame" x="0" y="0" width="0" height="0"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
@@ -108,7 +108,6 @@
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="blackOpaque"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black" translucent="NO" prompted="NO"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" translucent="NO" id="gd5-l8-yrC">
-                        <rect key="frame" x="0" y="0" width="0" height="0"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
@@ -145,7 +144,7 @@
                 <tabBarController storyboardIdentifier="tbBlog" title="Blog" definesPresentationContext="YES" id="Vyp-G8-uaq" customClass="WPTabBarController" sceneMemberID="viewController">
                     <nil key="simulatedBottomBarMetrics"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="J0f-jd-nxz">
-                        <rect key="frame" x="0" y="431" width="320" height="49"/>
+                        <rect key="frame" x="0.0" y="431" width="320" height="49"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>
@@ -167,7 +166,6 @@
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="blackOpaque"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black" translucent="NO" prompted="NO"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" translucent="NO" id="EYG-Ae-SXz">
-                        <rect key="frame" x="0" y="0" width="0" height="0"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
@@ -201,7 +199,6 @@
             </objects>
             <point key="canvasLocation" x="-4305" y="854"/>
         </scene>
-        <!--Agile Tools-->
         <!--Preferences-->
         <scene sceneID="DYL-Zo-6ht">
             <objects>
@@ -229,11 +226,9 @@
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="blackOpaque"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black" translucent="NO" prompted="NO"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" translucent="NO" id="1hj-dX-Osz">
-                        <rect key="frame" x="0" y="0" width="0" height="0"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="GK4-g4-pYJ">
-                        <rect key="frame" x="0" y="0" width="0" height="0"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </toolbar>
                 </navigationController>
@@ -439,6 +434,7 @@
                         <outlet property="contentTextView" destination="iuJ-qY-JE7" id="irS-sL-Cak"/>
                         <outlet property="descriptionBackgroundView" destination="ptC-lj-DXJ" id="1aU-YE-GR6"/>
                         <outlet property="identifierLabel" destination="hVY-xa-1zm" id="YSb-SE-y7h"/>
+                        <outlet property="informationButton" destination="ged-bl-tqx" id="NVt-BX-7f3"/>
                         <outlet property="qrCodeImage" destination="bpZ-VO-4Ny" id="PoY-6P-FcT"/>
                         <outlet property="stripeView" destination="09Y-Yu-NxE" id="FHU-FW-kNI"/>
                         <outlet property="titleBackgroundView" destination="IUa-6W-A0e" id="LtQ-hz-XgZ"/>
@@ -2019,7 +2015,6 @@
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="blackOpaque"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black" translucent="NO" prompted="NO"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" translucent="NO" id="d9g-7E-Eu5">
-                        <rect key="frame" x="0" y="0" width="0" height="0"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
@@ -2059,7 +2054,6 @@
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="blackOpaque"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black" translucent="NO" prompted="NO"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" translucent="NO" id="Zym-aw-3P9">
-                        <rect key="frame" x="0" y="0" width="0" height="0"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
@@ -2078,7 +2072,6 @@
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="blackOpaque"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black" translucent="NO" prompted="NO"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" translucent="NO" id="RSL-yU-FuO">
-                        <rect key="frame" x="0" y="0" width="0" height="0"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
