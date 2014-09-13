@@ -4,7 +4,6 @@
 //
 
 #import <QuartzCore/QuartzCore.h>
-#import <SSToolkit/UIColor+SSToolkitAdditions.h>
 #import "XBConferencePresentationDetailViewController.h"
 #import "XBConferenceDownloader.h"
 #import "XBConferencePresentationDataSource.h"
@@ -14,6 +13,7 @@
 #import "MMMarkdown.h"
 #import "DTCoreTextConstants.h"
 #import "NSAttributedString+HTML.h"
+#import "UIColor+XBAdditions.h"
 
 @interface XBConferencePresentationDetailViewController()
 @property (nonatomic, strong) XBConferencePresentationDetail *presentationDetail;

@@ -21,6 +21,7 @@
 @property(nonatomic, strong) NSString *titlePlain;
 @property(nonatomic, strong) NSString *content;
 @property(nonatomic, strong) NSString *excerpt;
+@property(nonatomic, strong) NSString *description_;
 @property(nonatomic, strong) NSDate *date;
 @property(nonatomic, strong) NSDate *modified;
 @property(nonatomic, strong) NSNumber *commentCount;

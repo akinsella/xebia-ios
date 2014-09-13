@@ -46,7 +46,7 @@
 - (void)applyValues {
     self.trackTitleLabel.text = self.track.name;
 
-    NSData *data = [[NSString stringWithFormat:@"%@%@%@", @"<font face='HelveticaNeue'>", self.track.description, @"</font>"] dataUsingEncoding:NSUTF8StringEncoding];
+    NSData *data = [[NSString stringWithFormat:@"%@%@%@", @"<font face='HelveticaNeue'>", self.track.description_, @"</font>"] dataUsingEncoding:NSUTF8StringEncoding];
     NSDictionary *options = @{DTUseiOS6Attributes: @(YES)};
     NSAttributedString *attributedString = [[NSAttributedString alloc] initWithHTMLData:data options:options documentAttributes:NULL];
     self.trackDescriptionLabel.attributedString = attributedString;

@@ -9,7 +9,7 @@
 #import "SVPullToRefresh.h"
 #import "MBProgressHUD.h"
 #import "UIViewController+XBAdditions.h"
-#import "UIColor+SSToolkitAdditions.h"
+#import "UIColor+XBAdditions.h"
 
 @interface XBReloadableTableViewController()
 

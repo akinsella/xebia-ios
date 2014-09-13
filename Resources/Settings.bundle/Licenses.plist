@@ -45,14 +45,6 @@
         </dict>
         <dict>
             <key>Title</key>
-            <string>DCIntrospect</string>
-            <key>Type</key>
-            <string>PSChildPaneSpecifier</string>
-            <key>File</key>
-            <key>DCIntrospect</key>
-        </dict>
-        <dict>
-            <key>Title</key>
             <string>DCKeyValueObjectMapping</string>
             <key>Type</key>
             <string>PSChildPaneSpecifier</string>
@@ -66,14 +58,6 @@
             <string>PSChildPaneSpecifier</string>
             <key>File</key>
             <key>DTCoreText</key>
-        </dict>
-        <dict>
-            <key>Title</key>
-            <string>DTFoundation</string>
-            <key>Type</key>
-            <string>PSChildPaneSpecifier</string>
-            <key>File</key>
-            <key>DTFoundation</key>
         </dict>
         <dict>
             <key>Title</key>
@@ -101,14 +85,6 @@
         </dict>
         <dict>
             <key>Title</key>
-            <string>NewRelicAgent</string>
-            <key>Type</key>
-            <string>PSChildPaneSpecifier</string>
-            <key>File</key>
-            <key>NewRelicAgent</key>
-        </dict>
-        <dict>
-            <key>Title</key>
             <string>OCMock</string>
             <key>Type</key>
             <string>PSChildPaneSpecifier</string>
@@ -125,11 +101,11 @@
         </dict>
         <dict>
             <key>Title</key>
-            <string>PKRevealController</string>
+            <string>MMDrawerController</string>
             <key>Type</key>
             <string>PSChildPaneSpecifier</string>
             <key>File</key>
-            <key>PKRevealController</key>
+            <key>MMDrawerController</key>
         </dict>
         <dict>
             <key>Title</key>

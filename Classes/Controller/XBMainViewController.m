@@ -11,18 +11,15 @@
 #import "XBWebViewController.h"
 #import "XBMapper.h"
 #import "NSDateFormatter+XBAdditions.h"
-#import "XBRightMenuViewController.h"
 #import "UIViewController+XBAdditions.h"
 #import "XBLeftMenuViewController.h"
 #import "NSDictionary+XBAdditions.h"
-#import <MMDrawerController/MMDrawerController+Subclass.h>
 
 @interface XBMainViewController ()
 
 @property (nonatomic, strong) XBViewControllerManager *viewControllerManager;
 
 @property (nonatomic, strong) XBLeftMenuViewController *leftMenuViewController;
-@property (nonatomic, strong) XBRightMenuViewController *rightMenuViewController;
 
 @end
 
@@ -30,19 +27,16 @@
 
 + (id)controllerWithCentralViewControllerIdentifier:(NSString *)centralViewControllerIdentifier
                        leftViewControllerIdentifier:(NSString *)leftViewControllerIdentifier
-                      rightViewControllerIdentifier:(NSString *)rightViewControllerIdentfier
                               viewControllerManager:(XBViewControllerManager *)viewControllerManager
                             revealControllerOptions:(NSDictionary *)revealControllerOptions {
     return [[self alloc] initWithCentralViewControllerIdentifier:centralViewControllerIdentifier
                                     leftViewControllerIdentifier:leftViewControllerIdentifier
-                                   rightViewControllerIdentifier: rightViewControllerIdentfier
                                            viewControllerManager:viewControllerManager
                                          revealControllerOptions:revealControllerOptions];
 }
 
 - (id)initWithCentralViewControllerIdentifier:(NSString *)centralViewControllerIdentifier
                  leftViewControllerIdentifier:(NSString *)leftViewControllerIdentifier
-                rightViewControllerIdentifier:(NSString *)rightViewControllerIdentifier
                         viewControllerManager:(XBViewControllerManager *)viewControllerManager
                       revealControllerOptions:(NSDictionary *)revealControllerOptions {
 
@@ -53,15 +47,10 @@
 
     UIViewController *centralViewController = [self.viewControllerManager getOrCreateControllerWithIdentifier:centralViewControllerIdentifier];
 
-    UINavigationController *rightViewNavigationController = (UINavigationController *)[self.viewControllerManager getOrCreateControllerWithIdentifier:rightViewControllerIdentifier];
-    self.rightMenuViewController = (XBRightMenuViewController *)[rightViewNavigationController topViewController];
-
-
-    self = [super initWithCenterViewController:centralViewController leftDrawerViewController:leftViewNavigationController rightDrawerViewController:rightViewNavigationController];
+    self = [super initWithCenterViewController:centralViewController leftDrawerViewController:leftViewNavigationController];
 
     if (self) {
         self.maximumLeftDrawerWidth = 290.0;
-        self.maximumRightDrawerWidth = 290.0;
     }
 
     return self;

@@ -111,10 +111,10 @@
     self.backgroundImageView.alpha = 0.0;
     [self.logoImageView setImageWithURL:self.conference.logoUrl.url];
     
-    [[SDWebImageManager sharedManager] downloadWithURL:[self.conference.backgroundUrl url]
+    [[SDWebImageManager sharedManager] downloadImageWithURL:[self.conference.backgroundUrl url]
                                                options:(SDWebImageOptions) kNilOptions
                                               progress:^(NSInteger receivedSize, NSInteger expectedSize) {}
-                                             completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, BOOL finished) {
+                                             completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, BOOL finished, NSURL *imageURL) {
                                                  if (error || !image) {
                                                      self.backgroundImageView.image = nil;
                                                  }

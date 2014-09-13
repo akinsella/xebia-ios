@@ -34,7 +34,7 @@ THE SOFTWARE.
         </dict>
         <dict>
             <key>DefaultValue</key>
-            <string>2.0.3</string>
+            <string>2.4.1</string>
             <key>Key</key>
             <string>AFNetworkingVersion</string>
             <key>Title</key>

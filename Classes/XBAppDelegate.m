@@ -22,7 +22,6 @@
 #import "GAIFields.h"
 #import "AFNetworkActivityLogger.h"
 #import "XBConferenceRatingManager.h"
-#import <NewRelicAgent/NewRelicAgent.h>
 #import <Crashlytics/Crashlytics.h>
 #import <sys/utsname.h>
 #import <sys/sysctl.h>
@@ -36,8 +35,6 @@ static NSString *const kAppId = @"1234567890";
 static NSString *const DeviceTokenKey = @"DeviceToken";
 
 static NSString *const TestFlightAppToken = @"856b817d-b51c-44a3-9a24-ddcabfda8a0c";
-
-static NSString *const NewRelicApiKey = @"AA2a83288c6a4104ccf6cb9d48101ae3aba20325cc";
 
 static NSString *const CrashlyticsApiKey = @"48e99a586053e4194936d79b6126ad23e9de4cc7";
 
@@ -79,7 +76,6 @@ static NSInteger const kApiVersion = 1;
 
     [self initAnalytics];
     [self initTestFlight];
-    [self initNewRelic];
     [self initCrashlytics];
 
     [self initMainBundle];
@@ -134,10 +130,6 @@ static NSInteger const kApiVersion = 1;
     }];
 }
 
-- (void)initNewRelic {
-    [NewRelicAgent startWithApplicationToken: NewRelicApiKey];
-}
-
 -(void)initMainBundle {
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     // transfer the current version number into the defaults so that this correct value will be displayed when the user visit settings page later
@@ -185,7 +177,6 @@ static NSInteger const kApiVersion = 1;
 
     self.mainViewController = [XBMainViewController controllerWithCentralViewControllerIdentifier:@"centralNavigationController"
                                                                      leftViewControllerIdentifier:@"leftMenuNavigationController"
-                                                                    rightViewControllerIdentifier:@"rightMenuNavigationController"
                                                                             viewControllerManager:self.viewControllerManager
                                                                           revealControllerOptions:nil];
     self.mainViewController.closeDrawerGestureModeMask = MMCloseDrawerGestureModeAll;
@@ -199,7 +190,19 @@ static NSInteger const kApiVersion = 1;
 }
 
 - (void)registerForRemoteNotification {
-    [[UIApplication sharedApplication] registerForRemoteNotificationTypes:(UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeAlert)];
+    //-- Set Notification
+    if ([[[UIDevice currentDevice] systemVersion] floatValue] >= 8.0)
+    {
+        [[UIApplication sharedApplication] registerUserNotificationSettings:[UIUserNotificationSettings settingsForTypes:(UIUserNotificationTypeAlert | UIUserNotificationTypeBadge) categories:nil]];
+        [[UIApplication sharedApplication] registerForRemoteNotifications];
+    }
+    else
+    {
+        [[UIApplication sharedApplication] registerForRemoteNotificationTypes:
+                (UIUserNotificationTypeBadge | UIUserNotificationTypeAlert)];
+    }
+
+
 }
 
 - (void)initShareKit {

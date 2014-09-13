@@ -43,10 +43,10 @@
 
     XBLog(@"Avatar image url: %@", author.avatarImageUrl);
 
-    [[SDWebImageManager sharedManager] downloadWithURL:author.avatarImageUrl
+    [[SDWebImageManager sharedManager] downloadImageWithURL:author.avatarImageUrl
                                                options:(SDWebImageOptions) kNilOptions
                                               progress:^(NSInteger receivedSize, NSInteger expectedSize) {}
-                                             completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, BOOL finished) {
+                                             completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, BOOL finished, NSURL *imageURL) {
                                                  if ((error || !image) && self.author == author) {
                                                      XBLog("Error - %@ for: %@", error, author.nickname);
                                                      self.avatarImageView.image = self.defaultAvatarImage;

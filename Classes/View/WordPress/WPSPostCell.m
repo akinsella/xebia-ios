@@ -63,10 +63,10 @@
 
     if (![post.primaryAuthor.slug isEqualToString:@"xebiafrance"]) {
 
-        [[SDWebImageManager sharedManager] downloadWithURL:post.imageUrl
+        [[SDWebImageManager sharedManager] downloadImageWithURL:post.imageUrl
                                                    options:kNilOptions
                                                   progress:^(NSInteger receivedSize, NSInteger expectedSize) { }
-                                                 completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, BOOL finished) {
+                                                 completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, BOOL finished, NSURL *imageURL) {
                                                      if (error || !image) {
                                                          self.avatarImageView.image = self.defaultPostImage;
                                                      }

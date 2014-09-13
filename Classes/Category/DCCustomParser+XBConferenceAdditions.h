@@ -9,6 +9,8 @@
 
 + (DCCustomParserBlock)dateParser;
 
++ (DCCustomParserBlock)dateTimeParser;
+
 + (DCCustomParserBlock)stringParser;
 
 @end

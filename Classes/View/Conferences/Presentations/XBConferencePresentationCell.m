@@ -6,10 +6,10 @@
 //  Copyright (c) 2014 Xebia. All rights reserved.
 //
 
-#import <SSToolkit/UIColor+SSToolkitAdditions.h>
 #import "XBConferencePresentationCell.h"
 #import "XBConferencePresentation.h"
 #import "UIColor+XBConferenceAdditions.h"
+#import "UIColor+XBAdditions.h"
 
 @interface XBConferencePresentationCell()
 

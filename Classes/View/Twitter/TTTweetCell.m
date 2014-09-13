@@ -102,10 +102,10 @@
         self.avatarImageView.image = self.xebiaAvatarImage;
     }
     else {
-        [[SDWebImageManager sharedManager] downloadWithURL:tweet.ownerImageUrl
+        [[SDWebImageManager sharedManager] downloadImageWithURL:tweet.ownerImageUrl
                                                    options:kNilOptions
                                                   progress:^(NSInteger receivedSize, NSInteger expectedSize) {}
-                                                 completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, BOOL finished) {
+                                                 completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, BOOL finished, NSURL *imageURL) {
                                                      if (error || !image) {
                                                          XBLog("Error - %@ for: %@", error, tweet.ownerScreenName);
                                                          self.avatarImageView.image = self.defaultAvatarImage;

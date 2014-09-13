@@ -10,29 +10,29 @@
 	<string>Xebia</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-		<key>D505D0C8-3483-45A1-A23D-6F96312A277F</key>
+		<key>850456E4762F09C637CBA9735845ED26DB1E182B</key>
 		<string>https://github.com/akinsella/xebia-ios.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>Xebia.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>D505D0C8-3483-45A1-A23D-6F96312A277F</key>
+		<key>850456E4762F09C637CBA9735845ED26DB1E182B</key>
 		<string>..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
 	<string>https://github.com/akinsella/xebia-ios.git</string>
 	<key>IDESourceControlProjectVersion</key>
-	<integer>110</integer>
+	<integer>111</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>D505D0C8-3483-45A1-A23D-6F96312A277F</string>
+	<string>850456E4762F09C637CBA9735845ED26DB1E182B</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>D505D0C8-3483-45A1-A23D-6F96312A277F</string>
+			<string>850456E4762F09C637CBA9735845ED26DB1E182B</string>
 			<key>IDESourceControlWCCName</key>
 			<string>xebia-ios</string>
 		</dict>

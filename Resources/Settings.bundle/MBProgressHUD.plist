@@ -34,7 +34,7 @@ THE SOFTWARE.
         </dict>
         <dict>
             <key>DefaultValue</key>
-            <string>0.8</string>
+            <string>0.9</string>
             <key>Key</key>
             <string>MBProgressHUDVersion</string>
             <key>Title</key>

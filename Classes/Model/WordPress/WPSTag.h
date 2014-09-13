@@ -13,6 +13,7 @@
 @property (nonatomic, strong) NSNumber *identifier;
 @property (nonatomic, strong) NSString *slug;
 @property (nonatomic, strong) NSString *title;
+@property (nonatomic, strong) NSString *description_;
 
 - (NSString *)capitalizedTitle;
 

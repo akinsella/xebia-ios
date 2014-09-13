@@ -34,7 +34,7 @@ THE SOFTWARE.
         </dict>
         <dict>
             <key>DefaultValue</key>
-            <string>0.0.2</string>
+            <string>0.2.1</string>
             <key>Key</key>
             <string>DCIntrospectVersion</string>
             <key>Title</key>

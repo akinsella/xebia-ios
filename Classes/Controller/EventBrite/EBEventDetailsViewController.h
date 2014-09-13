@@ -26,6 +26,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *mapButton;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *innerViewWidthConstraint;
 @property (weak, nonatomic) IBOutlet UIView *outerLogoView;
+@property (weak, nonatomic) IBOutlet UIButton *learnMoreButton;
 
 @property(nonatomic, strong)EBEvent *event;
 

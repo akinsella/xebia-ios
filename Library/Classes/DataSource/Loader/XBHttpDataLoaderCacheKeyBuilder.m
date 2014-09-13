@@ -32,7 +32,7 @@
 
     NSString *queryString = [queryParams urlEncodedString];
 
-    NSString *url = [NSString stringWithFormat:@"%@%@", httpClient.baseUrl, resourcePath];
+    NSString *url = [NSString stringWithFormat:@"%@/%@", httpClient.baseUrl, resourcePath];
 
     if (queryString.length > 0) {
         url = [NSString stringWithFormat:@"%@?%@", url, queryString];

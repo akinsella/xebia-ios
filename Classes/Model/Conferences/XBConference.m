@@ -41,6 +41,7 @@
     DCParserConfiguration *config = [DCParserConfiguration configuration];
 
     [config addObjectMapping: [DCObjectMapping mapKeyPath:@"id" toAttribute:@"identifier" onClass:[self class]]];
+    [config addObjectMapping: [DCObjectMapping mapKeyPath:@"description" toAttribute:@"description_" onClass:[self class]]];
 
     DCCustomParser *fromTimeDateParser = [[DCCustomParser alloc] initWithBlockParser:[DCCustomParser dateParser]
                                                                     forAttributeName:@"_from"

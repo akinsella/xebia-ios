@@ -54,10 +54,10 @@
     self.lastNameLabel.text = speaker.lastName;
 
     self.photoImageView.image = self.defaultAvatarImage;
-    [[SDWebImageManager sharedManager] downloadWithURL:speaker.imageURL.url
+    [[SDWebImageManager sharedManager] downloadImageWithURL:speaker.imageURL.url
                                                options:(SDWebImageOptions) kNilOptions
                                               progress:^(NSInteger receivedSize, NSInteger expectedSize) {}
-                                             completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, BOOL finished) {
+                                             completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, BOOL finished, NSURL *imageURL) {
                                                  if ((error || !image) && self.speaker == speaker) {
                                                      XBLog("Error - %@ for: %@ %@", error, speaker.firstName, speaker.lastName);
                                                      self.photoImageView.image = self.defaultAvatarImage;

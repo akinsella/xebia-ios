@@ -6,7 +6,7 @@
 
 #import "XBTabBarController.h"
 #import "MBProgressHUD.h"
-#import "UIColor+SSToolkitAdditions.h"
+#import "UIColor+XBAdditions.h"
 
 @interface XBTabBarController()
 

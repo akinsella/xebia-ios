@@ -10,7 +10,7 @@
 
 @property (nonatomic, strong) NSNumber *identifier;
 @property (nonatomic, strong) NSString *url;
-@property (nonatomic, strong) NSString *description_;
 @property (nonatomic, strong) NSString *name;
+@property (nonatomic, strong) NSString *description_;
 
 @end

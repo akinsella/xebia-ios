@@ -19,6 +19,7 @@
                                                             onDestinationClass:[self class]]];
 
     [config addObjectMapping: [DCObjectMapping mapKeyPath:@"id" toAttribute:@"identifier" onClass:[self class]]];
+    [config addObjectMapping: [DCObjectMapping mapKeyPath:@"description" toAttribute:@"description_" onClass:[self class]]];
 
     return config;
 }

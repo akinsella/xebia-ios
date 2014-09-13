@@ -12,7 +12,7 @@
 @property (nonatomic, strong) NSString *identifier;
 @property (nonatomic, strong) NSNumber *conferenceId;
 @property (nonatomic, strong) NSString *descriptionPlainText;
-@property (nonatomic, strong) NSString *description;
+@property (nonatomic, strong) NSString *description_;
 @property (nonatomic, strong) NSString *name;
 
 @end

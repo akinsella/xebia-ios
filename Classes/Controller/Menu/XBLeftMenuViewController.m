@@ -34,7 +34,8 @@ enum {
     XBMenuWordpress,
     XBMenuTwitter,
     XBMenuEvent,
-    XBMenuVimeo
+    XBMenuVimeo,
+    XBMenuEssentials
 };
 
 @interface XBLeftMenuViewController ()
@@ -131,7 +132,8 @@ enum {
             [NSNumber asString:XBMenuWordpress]: @"tbBlog",
             [NSNumber asString:XBMenuTwitter]: @"tweets",
             [NSNumber asString:XBMenuEvent]: @"events",
-            [NSNumber asString:XBMenuVimeo]: @"videos"
+            [NSNumber asString:XBMenuVimeo]: @"videos",
+            [NSNumber asString:XBMenuEssentials]: @"cardCategories"
                             
     } mutableCopy];
 }
@@ -176,7 +178,8 @@ enum {
             @{ @"title": NSLocalizedString(@"Blog", nil), @"imageName" :@"wordpress"},
             @{ @"title": NSLocalizedString(@"Tweets", nil), @"imageName" :@"twitter"},
             @{ @"title": NSLocalizedString(@"Events", nil), @"imageName" :@"eventbrite-menu"},
-            @{ @"title": NSLocalizedString(@"Videos", nil), @"imageName" :@"vimeo"}
+            @{ @"title": NSLocalizedString(@"Videos", nil), @"imageName" :@"vimeo"},
+            @{ @"title": NSLocalizedString(@"Xebia Essentials", nil), @"imageName" :@"xebia-essentials-card"}
     ];
 
     if (!self.conferenceDataSource) {
@@ -220,13 +223,6 @@ enum {
     }
     [self revealViewControllerWithIdentifier:identifier];
     [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
-}
-
-- (void)revealAndReplaceViewController:(UIViewController *)viewController {
-
-    UINavigationController *navigationController = (UINavigationController *)self.navigationController.mm_drawerController.centerViewController;
-    [navigationController setViewControllers: @[viewController] animated:NO];
-    [self.navigationController.mm_drawerController closeDrawerAnimated:YES completion:nil];
 }
 
 - (void)revealViewControllerWithIdentifier:(NSString *)identifier {

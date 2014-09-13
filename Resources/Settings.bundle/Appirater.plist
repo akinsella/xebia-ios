@@ -38,7 +38,7 @@ OTHER DEALINGS IN THE SOFTWARE.
         </dict>
         <dict>
             <key>DefaultValue</key>
-            <string>2.0.2</string>
+            <string>2.0.3</string>
             <key>Key</key>
             <string>AppiraterVersion</string>
             <key>Title</key>

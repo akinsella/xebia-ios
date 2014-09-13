@@ -1,0 +1,29 @@
+//
+// Prefix header for all source files of the 'xebia-ios' target in the 'xebia-ios' project
+//
+
+#import <Availability.h>
+
+#ifndef __IPHONE_7_0
+#warning "This project uses features only available in iOS SDK 7.0 and later."
+#endif
+
+#ifdef __OBJC__
+    #import <UIKit/UIKit.h>
+    #import <Foundation/Foundation.h>
+    #import <CoreData/CoreData.h>
+    #import <MapKit/MapKit.h>
+    #import "TestFlight.h"
+
+
+    #ifdef DEBUG
+        #define XBLog(fmt, ...) TFLog((@"%s [Line %d] " fmt), __PRETTY_FUNCTION__, __LINE__, ##__VA_ARGS__)
+        //#define XBLogDebug(fmt, ...)
+        //#define XBLog(fmt, ...)
+    #else
+        #define XBLog(fmt, ...) NSLog((@"%s [Line %d] " fmt), __PRETTY_FUNCTION__, __LINE__, ##__VA_ARGS__)
+    #endif
+
+    #define IS_IOS_6_OR_EARLIER() (floor(NSFoundationVersionNumber) <= NSFoundationVersionNumber_iOS_6_1)
+
+#endif

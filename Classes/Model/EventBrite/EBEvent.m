@@ -6,6 +6,7 @@
 
 #import <DCKeyValueObjectMapping/DCObjectMapping.h>
 #import "EBEvent.h"
+#import "DCParserConfiguration+XBAdditions.h"
 
 @implementation EBEvent
 
@@ -15,6 +16,9 @@
 
     [config addObjectMapping: [DCObjectMapping mapKeyPath:@"id" toAttribute:@"identifier" onClass:[self class]]];
     [config addObjectMapping: [DCObjectMapping mapKeyPath:@"description" toAttribute:@"description_" onClass:[self class]]];
+
+    [config mergeConfig:[EBOrganizer mappings]];
+    [config mergeConfig:[EBVenue mappings]];
 
     return config;
 }

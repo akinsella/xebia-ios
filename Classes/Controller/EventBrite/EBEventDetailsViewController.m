@@ -82,6 +82,7 @@
 }
 
 - (void)updateView {
+    [self.learnMoreButton setTitle:NSLocalizedString(@"Learn more", nil) forState:UIControlStateNormal];
     self.dateStartLabel.text = [self.event.startDate formatDayLongMonth];
     self.timeStartLabel.text = [self.event.startDate formatTime];
     self.dateEndLabel.text = [self.event.endDate formatDayLongMonth];
@@ -96,6 +97,7 @@
     NSString *attendingLabelTitle = [NSString stringWithFormat:@"%@%@", NSLocalizedString(@"I attend the meetup", nil), [self.event.capacity intValue] > 0 ? [NSString stringWithFormat: @" (%@)", NSLocalizedString(@"places", nil)] : @""];
     [self.attendingLabel setTitle:attendingLabelTitle forState:UIControlStateNormal];
 
+
     NSString *mapImageURL = [NSString stringWithFormat:@"http://maps.googleapis.com/maps/api/staticmap?center=%@,%@,%@&zoom=13&size=%@&maptype=roadmap&markers=color:red%%7Clabel:S%%7C%@,%@&sensor=false&key=%@",
                                                        [self.self.event.venue.address stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding],
                                                        [self.event.venue.postalCode stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding],
@@ -107,10 +109,10 @@
     ];
 
 
-    [[SDWebImageManager sharedManager] downloadWithURL:[NSURL URLWithString:mapImageURL]
+    [[SDWebImageManager sharedManager] downloadImageWithURL:[NSURL URLWithString:mapImageURL]
                                                options:kNilOptions
                                               progress:^(NSInteger receivedSize, NSInteger expectedSize) {}
-                                             completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, BOOL finished) {
+                                             completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, BOOL finished, NSURL *imageURL) {
                                                  if (error || !image) {
                                                      XBLog("Error - %@", error);
                                                      [self.mapButton setImage:self.placeholderImage forState:UIControlStateNormal];

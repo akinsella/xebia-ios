@@ -29,7 +29,7 @@ OR OF ANY DERIVATIVE WORK.
         </dict>
         <dict>
             <key>DefaultValue</key>
-            <string>2.2.1</string>
+            <string>3.1.1</string>
             <key>Key</key>
             <string>OCMockVersion</string>
             <key>Title</key>

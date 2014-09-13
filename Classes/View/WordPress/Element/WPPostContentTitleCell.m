@@ -74,10 +74,10 @@
     self.authorLabel.text = [NSString stringWithFormat: @"%@ %@", NSLocalizedString(@"By", nil), [author.name uppercaseString]];
     self.dateLabel.text = [NSString stringWithFormat: @"%@", [post.date formatDayLongMonth]];
 
-    [[SDWebImageManager sharedManager] downloadWithURL:author.avatarImageUrl
+    [[SDWebImageManager sharedManager] downloadImageWithURL:author.avatarImageUrl
                                                options:(SDWebImageOptions) kNilOptions
                                               progress:^(NSInteger receivedSize, NSInteger expectedSize) {}
-                                             completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, BOOL finished) {
+                                             completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, BOOL finished, NSURL *imageURL) {
                                                  if ((error || !image) && self.post == post) {
                                                      self.avatarImageView.image = self.defaultAvatarImage;
                                                  }

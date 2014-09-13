@@ -59,6 +59,7 @@
     config.datePattern = @"yyyy-MM-dd HH:mm:ss";
 
     [config addObjectMapping: [DCObjectMapping mapKeyPath:@"id" toAttribute:@"identifier" onClass:[self class]]];
+    [config addObjectMapping: [DCObjectMapping mapKeyPath:@"description" toAttribute:@"description_" onClass:[self class]]];
 
     [config addArrayMapper: [DCArrayMapping mapperForClassElements:[WPTag class] forAttribute:@"tags" onClass: [self class]]];
     [config mergeConfig:[[WPTag class] mappings]];

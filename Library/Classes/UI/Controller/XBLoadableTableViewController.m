@@ -4,8 +4,8 @@
 //
 
 #import <MBProgressHUD/MBProgressHUD.h>
-#import <SSToolkit/UIColor+SSToolkitAdditions.h>
 #import "XBLoadableTableViewController.h"
+#import "UIColor+XBAdditions.h"
 
 
 @interface XBLoadableTableViewController()

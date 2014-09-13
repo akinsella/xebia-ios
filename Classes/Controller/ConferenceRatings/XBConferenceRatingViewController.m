@@ -3,12 +3,12 @@
 // Copyright (c) 2014 Xebia. All rights reserved.
 //
 
-#import <SSToolkit/UIColor+SSToolkitAdditions.h>
 #import "XBConferenceRatingViewController.h"
 #import "XBConferencePresentationDetail.h"
 #import "XBConferenceRating.h"
 #import "XBConferenceRatingManager.h"
 #import "XBConference.h"
+#import "UIColor+XBAdditions.h"
 
 @interface XBConferenceRatingViewController()
 

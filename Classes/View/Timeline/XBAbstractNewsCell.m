@@ -29,8 +29,8 @@
 - (void)setHighlighted:(BOOL)highlighted animated:(BOOL)animated
 {
     if (highlighted) {
-        self.backgroundColor = [UIColor colorWithHex:@"C0C0C0"];
-        self.titleView.backgroundColor = [UIColor colorWithHex:@"F8F8F8"];
+        self.backgroundColor = [UIColor colorWithHex:@"#C0C0C0"];
+        self.titleView.backgroundColor = [UIColor colorWithHex:@"#F8F8F8"];
         self.titleLabel.textColor = [UIColor colorWithHex:@"#222222"];
     }
     else {

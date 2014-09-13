@@ -19,5 +19,6 @@
 @property (nonatomic, strong) NSString *countryCode;
 @property (nonatomic, strong) NSNumber *longitude;
 @property (nonatomic, strong) NSNumber *latitude;
+@property (nonatomic, strong) NSNumber *description_;
 
 @end

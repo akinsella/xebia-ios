@@ -32,7 +32,7 @@ THE SOFTWARE.
         </dict>
         <dict>
             <key>DefaultValue</key>
-            <string>2.4.6</string>
+            <string>3.0.0</string>
             <key>Key</key>
             <string>ShareKitVersion</string>
             <key>Title</key>

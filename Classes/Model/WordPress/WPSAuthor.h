@@ -16,6 +16,7 @@
 @property (nonatomic, strong) NSString *firstName;
 @property (nonatomic, strong) NSString *lastName;
 @property (nonatomic, strong) NSString *nickname;
+@property (nonatomic, strong) NSString *description_;
 
 @end
 
