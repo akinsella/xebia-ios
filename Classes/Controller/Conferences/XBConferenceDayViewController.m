@@ -47,16 +47,6 @@
     
 }
 
-//- (void)filterByDay {
-//    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-//        [(XBConferenceScheduleDataSource *)self.dataSource loadAndFilterByDay:self.day callback:^{
-//            dispatch_async(dispatch_get_main_queue(), ^{
-//                [self.tableView reloadData];
-//            });
-//        }];
-//    });
-//}
-
 - (NSString *)pathForLocalDataSource {
     XBConferenceDownloader *downloader = [XBConferenceDownloader downloaderWithDownloadableBundle:self.conference];
     return [[downloader bundleFolderPath] stringByAppendingPathComponent:@"schedule"];

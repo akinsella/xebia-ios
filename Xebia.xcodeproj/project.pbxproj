@@ -179,6 +179,9 @@
 		542FB28119C4759700334516 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5427F5F719C473860021760B /* QuartzCore.framework */; };
 		542FB28219C4759C00334516 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5427F5F919C4738C0021760B /* StoreKit.framework */; };
 		542FB28319C475A000334516 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5427F5FB19C473930021760B /* ImageIO.framework */; };
+		542FB28419C49D6900334516 /* XBConferencePresentationSlotDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 427C9ADE1911351B007EC021 /* XBConferencePresentationSlotDataSource.m */; };
+		542FB28519C49D7D00334516 /* XBConferencePresentationSlot.m in Sources */ = {isa = PBXBuildFile; fileRef = 427C9AD81911116C007EC021 /* XBConferencePresentationSlot.m */; };
+		542FB28619C49D8100334516 /* XBConferencePresentationSlotDataMapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 427C9AE119113D5D007EC021 /* XBConferencePresentationSlotDataMapper.m */; };
 		5430BD0E1855256E004CEA7D /* XBEmptyView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5430BD0D1855256E004CEA7D /* XBEmptyView.xib */; };
 		5438726917DA8DFA00750791 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54A74840177CF28E00B9A907 /* AVFoundation.framework */; };
 		5438726A17DA8E0800750791 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54A7483E177A480E00B9A907 /* MediaPlayer.framework */; };
@@ -2131,14 +2134,14 @@
 			path = "Conference Ratings";
 			sourceTree = "<group>";
 		};
-		2EE444A284E8D97B44DD9749 /* Conference Ratings */ = {
+		2EE444A284E8D97B44DD9749 /* ConferenceRatings */ = {
 			isa = PBXGroup;
 			children = (
 				2EE4470AF091DD5DD5BA8092 /* XBConferenceRatingCell.m */,
 				2EE44BAD6E602ED60E649DB3 /* XBConferenceRatingCell.h */,
 				2EE44A907546DAB1365C06F2 /* XBConferenceRatingCell.xib */,
 			);
-			path = "Conference Ratings";
+			path = ConferenceRatings;
 			sourceTree = "<group>";
 		};
 		2EE44884E0573A5D42E20688 /* Speakers */ = {
@@ -3267,7 +3270,7 @@
 				5430BD0C1855256E004CEA7D /* Other */,
 				DB34DF43C0F5FBCE0BF37F5A /* AgileTools */,
 				2EE44AC23F0BB3C0CDE1062B /* Conferences */,
-				2EE444A284E8D97B44DD9749 /* Conference Ratings */,
+				2EE444A284E8D97B44DD9749 /* ConferenceRatings */,
 				DB34DFE0BE3D28A7DE4E56F5 /* EventBrite */,
 				DB34D53398EF8571C8D4FDCD /* Menu */,
 				DB34D8CFA629A3922F73E303 /* Twitter */,
@@ -4627,9 +4630,11 @@
 				54A622B61916E57000E6D734 /* XBNewsEventBriteCell.m in Sources */,
 				54A622B71916E57000E6D734 /* XBNewsVimeoCell.m in Sources */,
 				54A622B81916E57000E6D734 /* XBNewsTwitterCell.m in Sources */,
+				542FB28519C49D7D00334516 /* XBConferencePresentationSlot.m in Sources */,
 				54A622B91916E57000E6D734 /* XBAbstractNewsCell.m in Sources */,
 				54A622BA1916E57000E6D734 /* VMVideoUrl.m in Sources */,
 				54A622BB1916E57000E6D734 /* XBNavigationController.m in Sources */,
+				542FB28619C49D8100334516 /* XBConferencePresentationSlotDataMapper.m in Sources */,
 				54A622BC1916E57000E6D734 /* XBConferenceRoom.m in Sources */,
 				54A622BD1916E57000E6D734 /* XBTabBarController.m in Sources */,
 				54A622BE1916E57000E6D734 /* XBViewController.m in Sources */,
@@ -4651,6 +4656,7 @@
 				54A622CF1916E57000E6D734 /* XBConferenceHomeViewController.m in Sources */,
 				54A622D01916E57000E6D734 /* XBConferenceHomeDateCell.m in Sources */,
 				54A622D11916E57000E6D734 /* XBConference.m in Sources */,
+				542FB28419C49D6900334516 /* XBConferencePresentationSlotDataSource.m in Sources */,
 				54A622D21916E57000E6D734 /* XBConferenceSpeakerViewController.m in Sources */,
 				54A622D31916E57000E6D734 /* XBConferenceTrackCell.m in Sources */,
 				54A622D41916E57000E6D734 /* XBConferenceSpeakerDataSource.m in Sources */,
