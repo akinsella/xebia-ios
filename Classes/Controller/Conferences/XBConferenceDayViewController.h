@@ -8,8 +8,9 @@
 
 #import "XBTableViewController.h"
 #import "XBConference.h"
+#import "XBSectionedTableViewController.h"
 
-@interface XBConferenceDayViewController : XBTableViewController<UITableViewDataSource, UITableViewDelegate, XBTableViewControllerDelegate>
+@interface XBConferenceDayViewController : XBSectionedTableViewController<UITableViewDataSource, UITableViewDelegate, XBTableViewControllerDelegate>
 
 @property (nonatomic, strong) NSDate *day;
 @property (nonatomic, strong) XBConference *conference;

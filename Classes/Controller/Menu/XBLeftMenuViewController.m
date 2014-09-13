@@ -199,7 +199,6 @@ enum {
 
     id item = self.dataSource[(NSUInteger) indexPath.section][(NSUInteger) indexPath.row];
 
-
     if (indexPath.section == 0) {
         XBLeftMenuCell *menuCell = (XBLeftMenuCell *)cell;
         menuCell.accessoryType = UITableViewCellAccessoryNone;

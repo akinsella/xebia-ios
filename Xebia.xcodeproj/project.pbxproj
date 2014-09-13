@@ -106,6 +106,9 @@
 		426FA5171895266D00A508D1 /* XBConferenceSpeakerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 426FA5161895266D00A508D1 /* XBConferenceSpeakerCell.m */; };
 		426FA5191895268200A508D1 /* XBConferenceSpeakerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 426FA5181895268200A508D1 /* XBConferenceSpeakerCell.xib */; };
 		426FA51C1895297A00A508D1 /* XBLocalJsonDataLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = 426FA51B1895297A00A508D1 /* XBLocalJsonDataLoader.m */; };
+		427C9AD91911116C007EC021 /* XBConferencePresentationSlot.m in Sources */ = {isa = PBXBuildFile; fileRef = 427C9AD81911116C007EC021 /* XBConferencePresentationSlot.m */; };
+		427C9ADF1911351B007EC021 /* XBConferencePresentationSlotDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 427C9ADE1911351B007EC021 /* XBConferencePresentationSlotDataSource.m */; };
+		427C9AE219113D5D007EC021 /* XBConferencePresentationSlotDataMapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 427C9AE119113D5D007EC021 /* XBConferencePresentationSlotDataMapper.m */; };
 		42965A0F18ED647600090124 /* menu-button-flat.png in Resources */ = {isa = PBXBuildFile; fileRef = 42965A0D18ED647600090124 /* menu-button-flat.png */; };
 		42965A1018ED647600090124 /* menu-button-flat@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 42965A0E18ED647600090124 /* menu-button-flat@2x.png */; };
 		42DBF46B1894346A00BBD4AB /* XBDownloadableBundleDownloaderTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 42DBF46A1894346A00BBD4AB /* XBDownloadableBundleDownloaderTest.m */; };
@@ -1237,6 +1240,12 @@
 		426FA5181895268200A508D1 /* XBConferenceSpeakerCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XBConferenceSpeakerCell.xib; sourceTree = "<group>"; };
 		426FA51A1895297A00A508D1 /* XBLocalJsonDataLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XBLocalJsonDataLoader.h; sourceTree = "<group>"; };
 		426FA51B1895297A00A508D1 /* XBLocalJsonDataLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XBLocalJsonDataLoader.m; sourceTree = "<group>"; };
+		427C9AD71911116C007EC021 /* XBConferencePresentationSlot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XBConferencePresentationSlot.h; sourceTree = "<group>"; };
+		427C9AD81911116C007EC021 /* XBConferencePresentationSlot.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XBConferencePresentationSlot.m; sourceTree = "<group>"; };
+		427C9ADD1911351B007EC021 /* XBConferencePresentationSlotDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XBConferencePresentationSlotDataSource.h; sourceTree = "<group>"; };
+		427C9ADE1911351B007EC021 /* XBConferencePresentationSlotDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XBConferencePresentationSlotDataSource.m; sourceTree = "<group>"; };
+		427C9AE019113D5D007EC021 /* XBConferencePresentationSlotDataMapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XBConferencePresentationSlotDataMapper.h; sourceTree = "<group>"; };
+		427C9AE119113D5D007EC021 /* XBConferencePresentationSlotDataMapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XBConferencePresentationSlotDataMapper.m; sourceTree = "<group>"; };
 		42965A0D18ED647600090124 /* menu-button-flat.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "menu-button-flat.png"; sourceTree = "<group>"; };
 		42965A0E18ED647600090124 /* menu-button-flat@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "menu-button-flat@2x.png"; sourceTree = "<group>"; };
 		42DBF46A1894346A00BBD4AB /* XBDownloadableBundleDownloaderTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XBDownloadableBundleDownloaderTest.m; sourceTree = "<group>"; };
@@ -2085,6 +2094,8 @@
 		2EE4445AE6EBDE6B62E77260 /* Conferences */ = {
 			isa = PBXGroup;
 			children = (
+				427C9ADD1911351B007EC021 /* XBConferencePresentationSlotDataSource.h */,
+				427C9ADE1911351B007EC021 /* XBConferencePresentationSlotDataSource.m */,
 				2EE440FE998051BD706AB1EB /* XBConferenceSpeakerDataSource.h */,
 				2EE447E56F2B425F7145481E /* XBConferenceSpeakerDataSource.m */,
 				42E410E81899BA49003EAD60 /* XBConferenceRoomDataSource.h */,
@@ -2101,6 +2112,10 @@
 				2EE448F3123D4DA33FF4F2D5 /* XBConferencePresentationDataSource.h */,
 				2EE44F248FA1F25FF415CD2D /* XBConferenceRoomDetailDataSource.h */,
 				2EE44B7D3EA9FC80D4562C75 /* XBConferenceRoomDetailDataSource.m */,
+				427C9AD71911116C007EC021 /* XBConferencePresentationSlot.h */,
+				427C9AD81911116C007EC021 /* XBConferencePresentationSlot.m */,
+				427C9AE019113D5D007EC021 /* XBConferencePresentationSlotDataMapper.h */,
+				427C9AE119113D5D007EC021 /* XBConferencePresentationSlotDataMapper.m */,
 			);
 			path = Conferences;
 			sourceTree = "<group>";
@@ -4705,6 +4720,7 @@
 				5443EC711775BEED0000FFE8 /* XBArrayDataMerger.m in Sources */,
 				5443EC731775BEED0000FFE8 /* XBDictionaryDataMerger.m in Sources */,
 				5443EC751775BEED0000FFE8 /* XBArrayDataSourceDataPager.m in Sources */,
+				427C9AE219113D5D007EC021 /* XBConferencePresentationSlotDataMapper.m in Sources */,
 				4244D617188297CE0083B869 /* XBConferenceHomeDayCell.m in Sources */,
 				5443EC771775BEED0000FFE8 /* XBArrayDataSource.m in Sources */,
 				5443EC791775BEED0000FFE8 /* XBInfiniteScrollArrayDataSource.m in Sources */,
@@ -4740,6 +4756,7 @@
 				426FA5171895266D00A508D1 /* XBConferenceSpeakerCell.m in Sources */,
 				5443EF0D177620B70000FFE8 /* WPTagTableViewController.m in Sources */,
 				5443EF0F177620B70000FFE8 /* XBMainViewController.m in Sources */,
+				427C9ADF1911351B007EC021 /* XBConferencePresentationSlotDataSource.m in Sources */,
 				5443EF11177620B70000FFE8 /* WPDataMerger.m in Sources */,
 				5443EF13177620B70000FFE8 /* WPDataPager.m in Sources */,
 				5443EF15177620B70000FFE8 /* XBWordpressArrayDataSource.m in Sources */,
@@ -4767,6 +4784,7 @@
 				5443EF41177620B70000FFE8 /* WPPost.m in Sources */,
 				42E410E71899B9C1003EAD60 /* XBConferenceRoomViewController.m in Sources */,
 				5443EF43177620B70000FFE8 /* WPSAuthor.m in Sources */,
+				427C9AD91911116C007EC021 /* XBConferencePresentationSlot.m in Sources */,
 				5443EF45177620B70000FFE8 /* WPSCategory.m in Sources */,
 				5443EF47177620B70000FFE8 /* WPSPost.m in Sources */,
 				5443EF49177620B70000FFE8 /* WPSTag.m in Sources */,

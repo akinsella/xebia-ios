@@ -18,4 +18,5 @@
 - (void)loadAndFilterByDay:(NSDate *)day callback:(void (^)())callback;
 
 - (void)loadAndFilterByIdentifiers:(NSArray *)identifiers callback:(void (^)())callback;
+
 @end
