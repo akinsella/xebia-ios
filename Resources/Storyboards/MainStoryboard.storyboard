@@ -142,6 +142,7 @@
         <scene sceneID="6aQ-EH-2PY">
             <objects>
                 <tabBarController storyboardIdentifier="tbBlog" title="Blog" definesPresentationContext="YES" id="Vyp-G8-uaq" customClass="WPTabBarController" sceneMemberID="viewController">
+                    <extendedEdge key="edgesForExtendedLayout" top="YES"/>
                     <nil key="simulatedBottomBarMetrics"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="J0f-jd-nxz">
                         <rect key="frame" x="0.0" y="431" width="320" height="49"/>

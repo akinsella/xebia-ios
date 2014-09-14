@@ -17,6 +17,7 @@
 #import "NSDate+XBAdditions.h"
 #import "UITableViewCell+VariableHeight.h"
 #import "WPPostContentTitleCell.h"
+#import "XBConstants.h"
 
 static NSString *kParagraphCellReuseIdentifier = @"paragraphCell";
 static NSString *kImageCellReuseIdentifier = @"imageCell";
@@ -68,6 +69,10 @@ NSString *kHeader6Type = @"H6";
     [super viewDidLoad];
 
     [self configureView];
+
+    if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0")) {
+        [self setEdgesForExtendedLayout:UIRectEdgeNone];
+    }
 
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction
                                                                                            target:self
