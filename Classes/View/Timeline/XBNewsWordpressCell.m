@@ -41,7 +41,9 @@
     if (news.imageUrl && news.imageUrl.length > 0) {
         __weak typeof(self) weakSelf = self;
 
-        [self.excerptImageView setImageWithURL: [[NSURL alloc] initWithString:news.imageUrl]
+        NSString *encodedURLString = [news.imageUrl stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+
+        [self.excerptImageView setImageWithURL: [[NSURL alloc] initWithString:encodedURLString]
                        placeholderImage: self.placeholderImage
                               completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType) {
                                   if (error || !image) {
