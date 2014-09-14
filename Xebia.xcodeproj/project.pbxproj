@@ -117,8 +117,6 @@
 		54276B0F184504E70078E4E6 /* 44-shoebox-selected.png in Resources */ = {isa = PBXBuildFile; fileRef = 54276B09184504E70078E4E6 /* 44-shoebox-selected.png */; };
 		54276B14184505600078E4E6 /* yahoo.json in Resources */ = {isa = PBXBuildFile; fileRef = 54276B12184505570078E4E6 /* yahoo.json */; };
 		54276B1718450B9A0078E4E6 /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54276B1618450B9A0078E4E6 /* Crashlytics.framework */; };
-		5427F5DC19C460CA0021760B /* libAdIdAccess.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5427F5DA19C460CA0021760B /* libAdIdAccess.a */; };
-		5427F5DD19C460CA0021760B /* libAdIdAccess.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5427F5DA19C460CA0021760B /* libAdIdAccess.a */; };
 		5427F5DE19C460CA0021760B /* libGoogleAnalyticsServices.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5427F5DB19C460CA0021760B /* libGoogleAnalyticsServices.a */; };
 		5427F5DF19C460CA0021760B /* libGoogleAnalyticsServices.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5427F5DB19C460CA0021760B /* libGoogleAnalyticsServices.a */; };
 		5427F5E119C461550021760B /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 5427F5E019C461550021760B /* libsqlite3.dylib */; };
@@ -678,7 +676,6 @@
 		54A622F01916E57000E6D734 /* NSArray+XBConferenceRatingAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EE44497151764C05369C84A /* NSArray+XBConferenceRatingAdditions.m */; };
 		54A622F71916E57000E6D734 /* XBWebBrowser.m in Sources */ = {isa = PBXBuildFile; fileRef = DB34DC39C06C223463578650 /* XBWebBrowser.m */; };
 		54A622F81916E57000E6D734 /* UIColor+XBConferenceAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EE444F24F68C43E5428EB3C /* UIColor+XBConferenceAdditions.m */; };
-		54A622FA1916E57000E6D734 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54B0EC2218EC423400B32DC2 /* AdSupport.framework */; };
 		54A622FB1916E57000E6D734 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54A90CD8184B8A6400133EF9 /* CoreLocation.framework */; };
 		54A622FC1916E57000E6D734 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54A90CD5184B890100133EF9 /* MapKit.framework */; };
 		54A622FD1916E57000E6D734 /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54535581182C4FF6003532F7 /* AssetsLibrary.framework */; };
@@ -946,7 +943,6 @@
 		54A90CDA184B8A7400133EF9 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54A90CD8184B8A6400133EF9 /* CoreLocation.framework */; };
 		54AB456317C5651F00606F7F /* WPPostContentDefaultElementCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 54AB456117C5651F00606F7F /* WPPostContentDefaultElementCell.xib */; };
 		54AB456517C5651F00606F7F /* WPPostContentParagraphElementCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 54AB456217C5651F00606F7F /* WPPostContentParagraphElementCell.xib */; };
-		54B0EC2318EC423400B32DC2 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54B0EC2218EC423400B32DC2 /* AdSupport.framework */; };
 		54B6B49317C80B9F00C9C835 /* WPPostContentCodeElementCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 54B6B49217C80B9F00C9C835 /* WPPostContentCodeElementCell.xib */; };
 		54B6B49617C8137100C9C835 /* image-placeholder.png in Resources */ = {isa = PBXBuildFile; fileRef = 54B6B49417C8137100C9C835 /* image-placeholder.png */; };
 		54B6B49717C8137100C9C835 /* image-placeholder@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 54B6B49517C8137100C9C835 /* image-placeholder@2x.png */; };
@@ -1284,7 +1280,6 @@
 		5427F5D719C460CA0021760B /* GAILogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAILogger.h; sourceTree = "<group>"; };
 		5427F5D819C460CA0021760B /* GAITrackedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAITrackedViewController.h; sourceTree = "<group>"; };
 		5427F5D919C460CA0021760B /* GAITracker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAITracker.h; sourceTree = "<group>"; };
-		5427F5DA19C460CA0021760B /* libAdIdAccess.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libAdIdAccess.a; sourceTree = "<group>"; };
 		5427F5DB19C460CA0021760B /* libGoogleAnalyticsServices.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libGoogleAnalyticsServices.a; sourceTree = "<group>"; };
 		5427F5E019C461550021760B /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		5427F5E319C473410021760B /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
@@ -1973,7 +1968,6 @@
 				5427F5E619C473480021760B /* CFNetwork.framework in Frameworks */,
 				5427F5E419C473410021760B /* CoreText.framework in Frameworks */,
 				5427F5E219C461740021760B /* libsqlite3.dylib in Frameworks */,
-				54A622FA1916E57000E6D734 /* AdSupport.framework in Frameworks */,
 				54A622FC1916E57000E6D734 /* MapKit.framework in Frameworks */,
 				5427F5DF19C460CA0021760B /* libGoogleAnalyticsServices.a in Frameworks */,
 				54A622FD1916E57000E6D734 /* AssetsLibrary.framework in Frameworks */,
@@ -1983,7 +1977,6 @@
 				54A623021916E57000E6D734 /* UIKit.framework in Frameworks */,
 				54A623031916E57000E6D734 /* Foundation.framework in Frameworks */,
 				54A623041916E57000E6D734 /* CoreGraphics.framework in Frameworks */,
-				5427F5DD19C460CA0021760B /* libAdIdAccess.a in Frameworks */,
 				54A623111916E57000E6D734 /* Crashlytics.framework in Frameworks */,
 				CB110B6D4CD441E387376C5F /* libPods-XebiaDev.a in Frameworks */,
 			);
@@ -2008,7 +2001,6 @@
 				5427F5FE19C473A50021760B /* CFNetwork.framework in Frameworks */,
 				5427F5FD19C473A00021760B /* CoreText.framework in Frameworks */,
 				5427F5E119C461550021760B /* libsqlite3.dylib in Frameworks */,
-				54B0EC2318EC423400B32DC2 /* AdSupport.framework in Frameworks */,
 				54A90CD6184B890100133EF9 /* MapKit.framework in Frameworks */,
 				5427F5DE19C460CA0021760B /* libGoogleAnalyticsServices.a in Frameworks */,
 				54535582182C4FF6003532F7 /* AssetsLibrary.framework in Frameworks */,
@@ -2019,7 +2011,6 @@
 				54C2DEED15BDFAFB00CABB12 /* Foundation.framework in Frameworks */,
 				54C2DEEF15BDFAFB00CABB12 /* CoreGraphics.framework in Frameworks */,
 				B56E64C3C14D4A618E4C1641 /* libPods.a in Frameworks */,
-				5427F5DC19C460CA0021760B /* libAdIdAccess.a in Frameworks */,
 				54276B1718450B9A0078E4E6 /* Crashlytics.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2271,7 +2262,6 @@
 				5427F5D719C460CA0021760B /* GAILogger.h */,
 				5427F5D819C460CA0021760B /* GAITrackedViewController.h */,
 				5427F5D919C460CA0021760B /* GAITracker.h */,
-				5427F5DA19C460CA0021760B /* libAdIdAccess.a */,
 				5427F5DB19C460CA0021760B /* libGoogleAnalyticsServices.a */,
 			);
 			path = GoogleAnalytics;
