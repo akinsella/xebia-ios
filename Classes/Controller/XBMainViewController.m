@@ -25,20 +25,27 @@
 
 @implementation XBMainViewController
 
+- (NSUInteger)supportedInterfaceOrientations
+{
+    return UIInterfaceOrientationMaskPortrait;
+}
+
+- (BOOL)shouldAutorotate
+{
+    return YES;
+}
+
 + (id)controllerWithCentralViewControllerIdentifier:(NSString *)centralViewControllerIdentifier
                        leftViewControllerIdentifier:(NSString *)leftViewControllerIdentifier
-                              viewControllerManager:(XBViewControllerManager *)viewControllerManager
-                            revealControllerOptions:(NSDictionary *)revealControllerOptions {
+                              viewControllerManager:(XBViewControllerManager *)viewControllerManager {
     return [[self alloc] initWithCentralViewControllerIdentifier:centralViewControllerIdentifier
                                     leftViewControllerIdentifier:leftViewControllerIdentifier
-                                           viewControllerManager:viewControllerManager
-                                         revealControllerOptions:revealControllerOptions];
+                                           viewControllerManager:viewControllerManager];
 }
 
 - (id)initWithCentralViewControllerIdentifier:(NSString *)centralViewControllerIdentifier
                  leftViewControllerIdentifier:(NSString *)leftViewControllerIdentifier
-                        viewControllerManager:(XBViewControllerManager *)viewControllerManager
-                      revealControllerOptions:(NSDictionary *)revealControllerOptions {
+                        viewControllerManager:(XBViewControllerManager *)viewControllerManager {
 
     self.viewControllerManager = viewControllerManager;
 

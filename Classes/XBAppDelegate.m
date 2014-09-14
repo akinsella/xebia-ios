@@ -99,7 +99,7 @@ static NSInteger const kApiVersion = 1;
     [self initConferenceRatings];
 
 #if DEBUG
-    [self.mainViewController revealViewControllerWithIdentifier:@"timeline"];
+//    [self.mainViewController revealViewControllerWithIdentifier:@"timeline"];
 //    [[[WPURLHandler alloc] init] handleURL:[NSURL URLWithString:@"xebia://blog/posts/3035"]];
 //    [self.mainViewController revealViewControllerWithIdentifier:@"events"];
 //    [self.mainViewController revealViewControllerWithIdentifier:@"tbBlog"];
@@ -177,8 +177,7 @@ static NSInteger const kApiVersion = 1;
 
     self.mainViewController = [XBMainViewController controllerWithCentralViewControllerIdentifier:@"centralNavigationController"
                                                                      leftViewControllerIdentifier:@"leftMenuNavigationController"
-                                                                            viewControllerManager:self.viewControllerManager
-                                                                          revealControllerOptions:nil];
+                                                                            viewControllerManager:self.viewControllerManager];
     self.mainViewController.closeDrawerGestureModeMask = MMCloseDrawerGestureModeAll;
     self.mainViewController.openDrawerGestureModeMask = MMOpenDrawerGestureModeAll;
 
