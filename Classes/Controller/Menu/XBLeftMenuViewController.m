@@ -35,14 +35,16 @@ enum {
     XBMenuTwitter,
     XBMenuEvent,
     XBMenuVimeo,
-    XBMenuEssentials
+    XBMenuEssentials,
+    XBMenuConferences
 };
 
 @interface XBLeftMenuViewController ()
+
 @property (nonatomic, strong) NSMutableDictionary *viewIdentifiers;
 @property (nonatomic, strong) IASKAppSettingsViewController *appSettingsViewController;
 @property (nonatomic, strong) NSArray *urlHandlers;
-@property (nonatomic, strong) XBConferenceDataSource *conferenceDataSource;
+
 @end
 
 @implementation XBLeftMenuViewController
@@ -77,8 +79,6 @@ enum {
 
     self.delegate = self;
 
-    [self setupReachabilityMonitor];
-
     UIButton *menuButton = [UIButton buttonWithType:UIButtonTypeCustom];
     menuButton.frame = CGRectMake(0, 0, 22, 22);
     [menuButton setBackgroundImage:[UIImage imageNamed:@"19-gear"] forState:UIControlStateNormal];
@@ -90,24 +90,7 @@ enum {
     [self initViewIdentifiers];
     [self configureTableView];
 
-    [self reloadConferences];
-
     [super viewDidLoad];
-}
-
-- (void)networkStatusChanged:(id)notification
-{
-    if ([[AFNetworkReachabilityManager sharedManager] isReachable]) {
-        [self reloadConferences];
-    }
-}
-
-- (void)setupReachabilityMonitor
-{
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(networkStatusChanged:)
-                                                 name:XBNetworkStatusChanged
-                                               object:nil];
 }
 
 - (void)revealPreferences {
@@ -133,7 +116,8 @@ enum {
             [NSNumber asString:XBMenuTwitter]: @"tweets",
             [NSNumber asString:XBMenuEvent]: @"events",
             [NSNumber asString:XBMenuVimeo]: @"videos",
-            [NSNumber asString:XBMenuEssentials]: @"cardCategories"
+            [NSNumber asString:XBMenuEssentials]: @"cardCategories",
+            [NSNumber asString:XBMenuConferences]: @"conferences"
                             
     } mutableCopy];
 }
@@ -141,35 +125,12 @@ enum {
 - (NSString *)tableView:(UITableView *)tableView cellReuseIdentifierAtIndexPath:(NSIndexPath *)indexPath {
     // Needs to be static
     static NSString *CellReuseIdentifier = @"XBLeftMenu";
-    static NSString *ConferenceCellReuseIdentifier = @"XBConference";
-    
-    switch (indexPath.section) {
-        case 0:
-            return CellReuseIdentifier;
-            
-        case 1:
-            return ConferenceCellReuseIdentifier;
 
-        default:
-            break;
-    }
-    
-    return nil;
+    return CellReuseIdentifier;
 }
 
 - (NSString *)tableView:(UITableView *)tableView cellNibNameAtIndexPath:(NSIndexPath *)indexPath {
-    switch (indexPath.section) {
-        case 0:
-            return @"XBLeftMenuCell";
-            
-        case 1:
-            return @"XBConferenceCell";
-            
-        default:
-            break;
-    }
-    
-    return nil;
+    return @"XBLeftMenuCell";
 }
 
 - (XBArrayDataSource *)buildDataSource {
@@ -179,13 +140,11 @@ enum {
             @{ @"title": NSLocalizedString(@"Tweets", nil), @"imageName" :@"twitter"},
             @{ @"title": NSLocalizedString(@"Events", nil), @"imageName" :@"eventbrite-menu"},
             @{ @"title": NSLocalizedString(@"Videos", nil), @"imageName" :@"vimeo"},
-            @{ @"title": NSLocalizedString(@"Xebia Essentials", nil), @"imageName" :@"xebia-essentials-card"}
+            @{ @"title": NSLocalizedString(@"Xebia Essentials", nil), @"imageName" :@"xebia-essentials-card"},
+            @{ @"title": NSLocalizedString(@"Conferences", nil), @"imageName" :@"conference-icon"}
     ];
 
-    if (!self.conferenceDataSource) {
-        self.conferenceDataSource = [XBConferenceDataSource dataSource];
-    }    
-    return [XBArrayDataSource dataSourceWithArray:@[menuItems, self.conferenceDataSource]];
+    return [XBArrayDataSource dataSourceWithArray:menuItems];
 }
 
 - (void)configureTableView {
@@ -197,47 +156,27 @@ enum {
 
 - (void)configureCell:(UITableViewCell *)cell atIndex:(NSIndexPath *)indexPath {
 
-    id item = self.dataSource[(NSUInteger) indexPath.section][(NSUInteger) indexPath.row];
+    id item = self.dataSource[(NSUInteger) indexPath.row];
 
-    if (indexPath.section == 0) {
-        XBLeftMenuCell *menuCell = (XBLeftMenuCell *)cell;
-        menuCell.accessoryType = UITableViewCellAccessoryNone;
-        menuCell.titleLabel.text = [item objectForKey:@"title"];
-        menuCell.imageView.image = [UIImage imageNamed:[item objectForKey:@"imageName"]];
-    } else {
-        XBConferenceCell *conferenceCell = (XBConferenceCell *)cell;
-        conferenceCell.accessoryType = UITableViewCellAccessoryNone;
-        XBConference *conference = item;
-        conferenceCell.titleLabel.text = conference.name;
-        [conferenceCell.iconImageView setImageWithURL:conference.iconUrl.url];
-    }
+    XBLeftMenuCell *menuCell = (XBLeftMenuCell *)cell;
+    menuCell.accessoryType = UITableViewCellAccessoryNone;
+    menuCell.titleLabel.text = [item objectForKey:@"title"];
+    menuCell.imageView.image = [UIImage imageNamed:[item objectForKey:@"imageName"]];
 }
 
 - (void)onSelectCell: (UITableViewCell *)cell forObject:(id)object withIndex:(NSIndexPath *)indexPath {
-    NSString *identifier;
-    if (indexPath.section == 0) {
-        identifier = [self.viewIdentifiers valueForKey:[NSNumber asString:indexPath.row]];
-    } else {
-        identifier = XBConferenceHomeViewControllerIdentifier;
-    }
+    NSString *identifier = [self.viewIdentifiers valueForKey:[NSNumber asString:indexPath.row]];
+
     [self revealViewControllerWithIdentifier:identifier];
     [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
 - (void)revealViewControllerWithIdentifier:(NSString *)identifier {
-    if ([self currentViewIsViewControllerWithIdentifier:identifier] && ![identifier isEqualToString:XBConferenceHomeViewControllerIdentifier]) {
+    if ([self currentViewIsViewControllerWithIdentifier:identifier]) {
         [self.navigationController.mm_drawerController closeDrawerAnimated:YES completion:nil];
 
     } else {
-        UIViewController *viewController;
-        if ([identifier isEqualToString:XBConferenceHomeViewControllerIdentifier]) {
-            NSIndexPath *indexPath = self.tableView.indexPathForSelectedRow;
-            XBConference *conference = self.dataSource[(NSUInteger) indexPath.section][(NSUInteger) indexPath.row];
-            viewController = [self.appDelegate.viewControllerManager getOrCreateConferenceControllerWithConference:conference];
-        } else {
-            viewController = [self.appDelegate.viewControllerManager getOrCreateControllerWithIdentifier:identifier];
-        }
-
+        UIViewController *viewController  = [self.appDelegate.viewControllerManager getOrCreateControllerWithIdentifier:identifier];
         UINavigationController *navigationController = (UINavigationController *)self.navigationController.mm_drawerController.centerViewController;
         [navigationController setViewControllers: @[viewController] animated:NO];
         [self.navigationController.mm_drawerController closeDrawerAnimated:YES completion:nil];
@@ -275,27 +214,6 @@ enum {
 
 - (BOOL)shouldAutorotate {
     return YES;
-}
-
-#pragma mark - Conferences
-
-- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
-    NSString *title = section == 0 ? @"Xebia" : NSLocalizedString(@"Conférences", @"Conférences");
-    return [XBMenuSectionView sectionViewWithTitle:title];
-}
-
-- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
-    return [self.conferenceDataSource count] ? 20.0 : 0;
-}
-
-- (void)reloadConferences {
-    [self.conferenceDataSource loadDataWithCallback:^{
-        [self.tableView reloadData];
-    }];
-}
-
-- (void) dealloc {
-    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 @end

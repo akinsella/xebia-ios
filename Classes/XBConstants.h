@@ -19,7 +19,6 @@ extern NSString * const kXBBlogFranceEmail;
 extern NSString * const kXBBaseUrl;
 
 extern NSString * const XBNetworkStatusChanged;
-extern NSString * const XBConferenceHomeViewControllerIdentifier;
 
 #define IS_IPAD (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
 #define IS_IPHONE (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone)

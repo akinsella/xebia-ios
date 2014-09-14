@@ -2214,6 +2214,26 @@
             </objects>
             <point key="canvasLocation" x="-1020" y="5138"/>
         </scene>
+        <!--Conferences-->
+        <scene sceneID="IbT-Dr-ObE">
+            <objects>
+                <tableViewController storyboardIdentifier="conferences" id="hI2-7w-6Uf" customClass="XBConferenceTableViewController" sceneMemberID="viewController">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="0hV-qa-bjh" customClass="XBTableView">
+                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <connections>
+                            <outlet property="dataSource" destination="hI2-7w-6Uf" id="bv7-Wh-p1e"/>
+                            <outlet property="delegate" destination="hI2-7w-6Uf" id="hPk-u1-xrN"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Conferences" id="1GT-gr-p6K"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black" translucent="NO" prompted="NO"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8Ku-Hp-0lb" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-5415" y="-857"/>
+        </scene>
     </scenes>
     <resources>
         <image name="112-group.png" width="32" height="21"/>

@@ -12,7 +12,7 @@
 
 @interface XBConferenceHomeViewController : XBSectionedTableViewController<UITableViewDataSource, UITableViewDelegate, XBTableViewControllerDelegate>
 
-@property (nonatomic, strong) XBConference *conference;
+@property (nonatomic, strong, readonly) XBConference *conference;
 @property (nonatomic, weak) IBOutlet UILabel *titleLabel;
 @property (nonatomic, weak) IBOutlet UIView *headerView;
 @property (nonatomic, weak) IBOutlet UIImageView *logoImageView;
@@ -21,4 +21,5 @@
 
 - (void)initialize;
 
+- (void)updateWithConference:(XBConference *)conference;
 @end

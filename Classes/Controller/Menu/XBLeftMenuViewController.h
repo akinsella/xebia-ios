@@ -13,7 +13,7 @@
 @class XBMainViewController;
 @class XBViewControllerManager;
 
-@interface XBLeftMenuViewController : XBSectionedTableViewController <UITableViewDelegate, UITableViewDataSource, XBTableViewControllerDelegate, IASKSettingsDelegate>
+@interface XBLeftMenuViewController : XBTableViewController <UITableViewDelegate, UITableViewDataSource, XBTableViewControllerDelegate, IASKSettingsDelegate>
 
 - (void)initialize;
 

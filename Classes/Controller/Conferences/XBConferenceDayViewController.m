@@ -102,20 +102,19 @@
 }
 
 - (void)onSelectCell: (UITableViewCell *)cell forObject:(id)object withIndex:(NSIndexPath *)indexPath {
-    NSIndexPath *selectedIndexPath = [self.tableView indexPathForSelectedRow];
-    XBConferencePresentation *presentation = self.dataSource[selectedIndexPath.row];
+    XBConferencePresentation *presentation = self.dataSource[indexPath.section][indexPath.row];
     
     if ([presentation isAuxiliary]) {
         return;
     }
     
     [self performSegueWithIdentifier:@"ShowPresentationDetail" sender:nil];
-    [self.tableView deselectRowAtIndexPath:selectedIndexPath animated:YES];
+    [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     NSIndexPath *selectedIndexPath = [self.tableView indexPathForSelectedRow];
-    XBConferencePresentation *presentation = self.dataSource[selectedIndexPath.row];
+    XBConferencePresentation *presentation = self.dataSource[selectedIndexPath.section][selectedIndexPath.row];
     XBConferencePresentationDetailViewController *vc = segue.destinationViewController;
     vc.conference = self.conference;
     vc.presentation = presentation;

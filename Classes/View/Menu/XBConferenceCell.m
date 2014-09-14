@@ -20,14 +20,6 @@
     return self;
 }
 
-- (BOOL)showSeparatorLine {
-    return NO;
-}
-
-- (BOOL)showSelectedSeparatorLine {
-    return NO;
-}
-
 - (void)layoutSubviews {
     [super layoutSubviews];
     
@@ -36,9 +28,6 @@
 
     self.iconImageView.layer.masksToBounds = YES;
     self.iconImageView.layer.cornerRadius = 3.0;
-    
-    self.titleLabel.font = [UIFont fontWithName:@"HelveticaNeue" size:16.0];
-    self.titleLabel.textColor = [UIColor lightTextColor];
 }
 
 @end

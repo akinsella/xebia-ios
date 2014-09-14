@@ -53,7 +53,7 @@
         dateFormatter.locale = [NSLocale autoupdatingCurrentLocale];
         
         dateFormatter.dateFormat = @"EEEE dd LLLL";
-        NSString *day = [dateFormatter stringFromDate:self.presentationDetail.fromTime];
+        NSString *day = [[dateFormatter stringFromDate:self.presentationDetail.fromTime] capitalizedString];
         
         dateFormatter.dateFormat = @"HH'h'mm";
         NSString *from = [dateFormatter stringFromDate:self.presentationDetail.fromTime];
@@ -83,14 +83,14 @@
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     
-    if (self.presentationDetail.canBeVoted) {
-        self.ratingButton.hidden = NO;
-        [self.view layoutIfNeeded];
-        [UIView animateWithDuration:0.5 animations:^{
-            self.ratingButtonTopConstraint.constant = 20.0;
-            [self.view layoutIfNeeded];
-        }];
-    }
+//    if (self.presentationDetail.canBeVoted) {
+//        self.ratingButton.hidden = NO;
+//        [self.view layoutIfNeeded];
+//        [UIView animateWithDuration:0.5 animations:^{
+//            self.ratingButtonTopConstraint.constant = 20.0;
+//            [self.view layoutIfNeeded];
+//        }];
+//    }
 }
 
 - (NSString *)pathForLocalDataSource {

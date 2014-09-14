@@ -19,4 +19,3 @@ NSString * const kXBBaseUrl = @"XBBaseUrl";
 
 NSString * const XBNetworkStatusChanged = @"XBNetworkStatusChanged";
 
-NSString * const XBConferenceHomeViewControllerIdentifier = @"conferenceHome";

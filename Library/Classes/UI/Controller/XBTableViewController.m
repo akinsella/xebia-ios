@@ -148,7 +148,7 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
 
 //    XBLog(@"tableView:heightForRowAtIndexPath: %@", indexPath);
-    if (self.fixedRowHeight) {
+        if (self.fixedRowHeight) {
         return self.tableView.rowHeight;
     }
 

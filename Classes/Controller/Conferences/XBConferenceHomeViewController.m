@@ -13,7 +13,6 @@
 #import "XBConferenceRoomViewController.h"
 #import "XBConferenceScheduleDataSource.h"
 #import "XBConferencePresentation.h"
-#import "NSDateFormatter+XBAdditions.h"
 #import "XBConferenceTrackViewController.h"
 #import "UIViewController+XBAdditions.h"
 #import <QuartzCore/QuartzCore.h>
@@ -24,14 +23,12 @@
 #import "UIImage+ImageEffects.h"
 #import "UIColor+XBAdditions.h"
 #import "XBConferenceRatingTableViewController.h"
-#import "XBConferenceLocationManager.h"
 
 @interface XBConferenceHomeViewController()
 
+@property (nonatomic, strong) XBConference *conference;
 @property (nonatomic, strong) XBConferenceDownloader *downloader;
 @property (nonatomic, strong) XBConferenceScheduleDataSource *dayDataSource;
-@property (nonatomic, strong) XBConferenceLocationManager *conferenceLocationManager;
-
 @end
 
 @implementation XBConferenceHomeViewController {
@@ -56,8 +53,6 @@
 
     self.delegate = self;
 
-    [self addMenuButton];
-
     [self configureTableView];
     [self createConferenceDownloader];
     [super viewDidLoad];
@@ -66,6 +61,10 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     self.navigationController.navigationBarHidden = NO;
+}
+
+- (void)updateWithConference:(XBConference *)conference {
+    self.conference = conference;
 }
 
 - (void)createConferenceDownloader {
@@ -142,8 +141,8 @@
     return [XBArrayDataSource dataSourceWithArray:@[
             @[@"Date"],
             self.dayDataSource,
-            menuItems,
-            @[@"Ratings"]
+            menuItems/*,
+            @[@"Ratings"]*/
     ]];
 }
 

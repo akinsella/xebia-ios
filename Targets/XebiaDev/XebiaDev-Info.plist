@@ -92,7 +92,7 @@
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
 	<key>XBBaseUrl</key>
-	<string>http://192.168.0.12/api/v1</string>
+    <string>http://backend.mobile.xebia.io/api/v1</string>
 	<key>XBBlogFranceEmail</key>
 	<string>blog-france@xebia.com</string>
 </dict>

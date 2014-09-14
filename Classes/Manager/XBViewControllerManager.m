@@ -42,18 +42,6 @@
     return vc;
 }
 
-- (UIViewController *)getOrCreateConferenceControllerWithConference:(XBConference *)conference {
-    XBConferenceHomeViewController *vc = self.viewControllers[XBConferenceHomeViewControllerIdentifier];
-    if (vc && [vc.conference.identifier isEqual:conference.identifier]) {
-        return vc;
-    }
-
-    vc = (XBConferenceHomeViewController *) [self instantiateViewControllerWithIdentifier:XBConferenceHomeViewControllerIdentifier];
-    vc.conference = conference;
-    self.viewControllers[XBConferenceHomeViewControllerIdentifier] = vc;
-    return vc;
-}
-
 -(UIViewController *)instantiateViewControllerWithIdentifier: (NSString *)identifier {
     UIStoryboard *sb = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
     UIViewController *vc = [sb instantiateViewControllerWithIdentifier:identifier];

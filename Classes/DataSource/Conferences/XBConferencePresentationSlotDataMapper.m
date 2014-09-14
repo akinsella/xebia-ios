@@ -24,11 +24,14 @@
             XBConferencePresentationSlot *slot = [XBConferencePresentationSlot new];
             slot.fromTime = presentation.fromTime;
             slot.toTime = presentation.toTime;
-            
-            if (![[slots allKeys] containsObject:slot]) {
-                slots[slot] = slot;
+
+            NSString *slotKey = [NSString stringWithFormat:@"%@-%@", slot.fromTime.formatTime, slot.toTime.formatTime];
+
+            if (![[slots allKeys] containsObject:slotKey]) {
+                slots[slotKey] = slot;
             }
-            [slots[slot] addPresentation:presentation];
+
+            [slots[slotKey] addPresentation:presentation];
         }
     }
     

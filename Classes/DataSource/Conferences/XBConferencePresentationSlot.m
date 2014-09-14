@@ -39,8 +39,10 @@
 
 - (id)copyWithZone:(NSZone *)zone {
     XBConferencePresentationSlot *copy = [XBConferencePresentationSlot new];
+
     copy.fromTime = self.fromTime;
     copy.toTime = self.toTime;
+
     return copy;
 }
 
